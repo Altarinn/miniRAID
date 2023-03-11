@@ -5,7 +5,7 @@
         <ui:Label tabindex="-1" text="K" display-tooltip-when-elided="true" name="Key" />
         <ui:VisualElement name="Icon" style="margin-left: 4px;" />
         <ui:Label tabindex="-1" text="疾飞之箭" display-tooltip-when-elided="true" name="ActionName" style="width: auto; max-width: none; flex-grow: 1; -unity-text-align: middle-center; padding-left: 4px; padding-right: 40px;" />
-        <ui:VisualElement name="MoreIcons" style="position: absolute; right: 1px; flex-direction: row;">
+        <ui:VisualElement name="MoreIcons" style="position: absolute; right: 1px; flex-direction: row; align-self: center;">
             <ui:Label tabindex="-1" text="✧✧✧" display-tooltip-when-elided="true" name="APCost" class="MoreIcon" />
             <ui:Label tabindex="-1" display-tooltip-when-elided="true" name="Cooldown" class="MoreIcon" />
         </ui:VisualElement>

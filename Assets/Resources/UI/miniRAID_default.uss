@@ -17,12 +17,12 @@ Button {
 }
 
 Button:hover {
-    background-color: rgb(76, 76, 76);
+    background-color: rgb(255, 0, 0);
     transition-duration: 0.05s;
 }
 
 Button:active {
-    background-color: rgb(154, 154, 154);
+    background-color: rgb(30, 204, 111);
 }
 
 Label {

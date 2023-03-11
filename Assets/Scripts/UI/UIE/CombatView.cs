@@ -25,7 +25,7 @@ namespace miniRAID.UIElements
             );
 
             combatStats = new CombatStatsController(
-                uiDocument.rootVisualElement.Q("CombatStats")
+                uiDocument.rootVisualElement.Q("CombatStats-global")
             );
         }
 

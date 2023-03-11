@@ -1,0 +1,43 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="BossStats" src="project://database/Assets/Resources/UI/BossStats.uxml?fileID=9197481963319205126&amp;guid=620568335ab06cc4db021ab811100d7d&amp;type=3#BossStats" />
+    <ui:Template name="UnitBar" src="project://database/Assets/Resources/UI/UnitBar.uxml?fileID=9197481963319205126&amp;guid=1642f1cd78d1b441d957bfe649045878&amp;type=3#UnitBar" />
+    <ui:Template name="UnitGrid" src="project://database/Assets/Resources/UI/UnitGrid.uxml?fileID=9197481963319205126&amp;guid=32645962b94f94df6a96d7629ed20e04&amp;type=3#UnitGrid" />
+    <ui:Template name="CombatStats" src="project://database/Assets/Resources/UI/CombatStats.uxml?fileID=9197481963319205126&amp;guid=1df47f69c3ac32e448b88c18d7612eea&amp;type=3#CombatStats" />
+    <Style src="project://database/Assets/Resources/UI/UnitMenu.uss?fileID=7433441132597879392&amp;guid=a0add0ae97395f2429640186459de10a&amp;type=3#UnitMenu" />
+    <Style src="project://database/Assets/Resources/UI/miniRAID_default.uss?fileID=7433441132597879392&amp;guid=54e6eee580e008a468415140067b7312&amp;type=3#miniRAID_default" />
+    <ui:VisualElement name="CombatPanel" picking-mode="Ignore" style="flex-direction: row; height: 100%; width: 100%;">
+        <ui:VisualElement name="MainPanel" style="flex-grow: 1;">
+            <ui:VisualElement name="UnitMenuContainer" style="position: absolute; left: 49px; top: 49px; flex-direction: row; align-items: flex-start;">
+                <ui:ListView focusable="true" name="UnitMenu" fixed-item-height="16" picking-mode="Ignore" selection-type="None" style="width: 140px;" />
+                <ui:VisualElement name="ToolTip">
+                    <ui:Label tabindex="-1" text="ToolTip" display-tooltip-when-elided="true" name="ToolTipLabel" style="white-space: normal;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="BossStatusContainer" picking-mode="Ignore" style="padding-left: 7%; padding-right: 7%; padding-top: 2%; padding-bottom: 2%;">
+                <ui:Instance template="BossStats" name="BossStats" />
+            </ui:VisualElement>
+            <ui:Instance template="UnitBar" name="UnitBar" style="bottom: 0; position: absolute; width: 100%;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="SidePanel" picking-mode="Ignore" style="height: 100%; width: 80px;">
+            <ui:VisualElement name="Side-main" style="flex-grow: 1; background-color: rgb(126, 203, 224); display: flex; visibility: hidden;">
+                <ui:VisualElement name="RaidFrame" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); justify-content: flex-start; margin-top: 1px; visibility: hidden;">
+                    <ui:Instance template="UnitGrid" name="UnitGrid" />
+                    <ui:Instance template="UnitGrid" name="UnitGrid" />
+                    <ui:Instance template="UnitGrid" name="UnitGrid" />
+                    <ui:Instance template="UnitGrid" name="UnitGrid" />
+                    <ui:Instance template="UnitGrid" name="UnitGrid" />
+                    <ui:Instance template="UnitGrid" name="UnitGrid" />
+                    <ui:Instance template="UnitGrid" name="UnitGrid" />
+                    <ui:Instance template="UnitGrid" name="UnitGrid" />
+                    <ui:Instance template="UnitGrid" name="UnitGrid" />
+                    <ui:Instance template="UnitGrid" name="UnitGrid" />
+                    <ui:Instance template="UnitGrid" name="UnitGrid" />
+                    <ui:Instance template="UnitGrid" name="UnitGrid" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="Side-bottom" style="height: 100px; background-color: rgb(229, 139, 139);">
+                <ui:Instance template="CombatStats" name="CombatStats" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

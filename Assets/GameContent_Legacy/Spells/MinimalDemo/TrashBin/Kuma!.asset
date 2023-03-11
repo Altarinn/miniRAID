@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1315df83f7c9724dab23f1e75f0ab6e, type: 3}
+  m_Name: Kuma!
+  m_EditorClassIdentifier: 
+  Id: 59d9f2a9-e467-4e44-8e7f-1d322c92ce60
+  icon: {fileID: 4660529846756775607, guid: 721b923d3b3fc804da946011efd55df1, type: 3}
+  ActionName: Kuma
+  Description: 'AP 1
+
+    AT 15
+
+    RG 5
+
+    CD 0
+
+
+    GCD Yes
+
+    ---
+
+    Basic
+    attack using Kuma.'
+  Tags: []
+  ManaCost: 0
+  ActionPointCost: 1
+  Cooldown: 0
+  CooldownRemain: 0
+  isActivelyUsed: 1
+  GCDgroup: 1
+  targetCount: 1
+  range: 5
+  autoDestroyEntity: 1
+  destroyDelay: 0

@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cea5f5e637188d4daeb2b9d78984a38, type: 3}
+  m_Name: KumaSword
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  Id: fa529806774f48d49be59f05dc0e2638
+  icon: {fileID: 6716795410872920980, guid: 7fe9a382566f75a429badd968a5161fa, type: 3}
+  name: Kuma Sword
+  type: 1
+  parentMob:
+    position: {x: 0, y: 0}
+    isActive: 0
+    isDead: 0
+    movementType: 0
+    unitGroup: 0
+    moveable: 1
+    moveStartCost: 0
+    level: 0
+    nickname: 
+    race: 
+    job: 
+    _actionPoints: 7
+    baseActionPoints: 0
+    extraActionPoints: 0
+    aggroMul: 1
+    healPriority: 1
+    baseStatsFundamental:
+      VIT: 0
+      STR: 0
+      MAG: 0
+      INT: 0
+      DEX: 0
+      TEC: 0
+    baseStats:
+      VIT: 0
+      STR: 0
+      MAG: 0
+      INT: 0
+      DEX: 0
+      TEC: 0
+    battleStats:
+      resist:
+        Physical: 0
+        Elemental: 0
+        Pure: 0
+        Slash: 0
+        Knock: 0
+        Pierce: 0
+        Fire: 0
+        Ice: 0
+        Water: 0
+        Nature: 0
+        Wind: 0
+        Thunder: 0
+        Light: 0
+        Dark: 0
+        Heal: 0
+      attackPower:
+        Physical: 0
+        Elemental: 0
+        Pure: 0
+        Slash: 0
+        Knock: 0
+        Pierce: 0
+        Fire: 0
+        Ice: 0
+        Water: 0
+        Nature: 0
+        Wind: 0
+        Thunder: 0
+        Light: 0
+        Dark: 0
+        Heal: 0
+      hitAcc: 0
+      avoid: 0
+      crit: 0
+      antiCrit: 0
+      extraRange: 0
+    health: 0
+    maxHealth: 0
+    damageShield: 0
+    mainWeapon: {fileID: 0}
+    subWeapon: {fileID: 0}
+    listeners: []
+    actionSOs: []
+    actions: []
+    parentMob: {fileID: 0}
+  priority: 0
+  regularAttack: {fileID: 11400000, guid: c1866f6e9d60ef542be6e128a071c9ba, type: 2}
+  wpType: 0
+  mainElement: 1

@@ -1,0 +1,9 @@
+#HPContent {
+    background-color: rgb(214, 78, 78);
+    transition-duration: 0.5s;
+}
+
+.HPBar {
+    height: 16px;
+    background-color: rgb(48, 48, 48);
+}

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3d15e1d3abd8f14e8ca1b7e2bee1964, type: 3}
+  m_Name: testActionData
+  m_EditorClassIdentifier: 
+  Id: cd32d238a83549a1bb5949b96049ea7b
+  icon: {fileID: 0}
+  ActionName: 
+  Description: 
+  ManaCost: 0
+  ActionPointCost: 0
+  Cooldown: 0
+  gcdGroup: 1
+  validator: {fileID: 0}
+  isActivelyUsed: 1
+  onPerform: "function nestedRoutine()\n    CS.UnityEngine.Debug.Log(mob)\n    coroutine.yield(CS.UnityEngine.WaitForSeconds(1))\n   
+    CS.UnityEngine.Debug.Log(backend:GetAllMobs()[0])\nend\n\nCS.UnityEngine.Debug.Log('Test1')\ncoroutine.yield(CS.UnityEngine.WaitForSeconds(.1))\nCS.UnityEngine.Debug.Log('Test2')\ncoroutine.yield(startCoroutine(nestedRoutine))\nCS.UnityEngine.Debug.Log(mob.data.health)\nmob.data.health
+    = mob.data.health - 100"

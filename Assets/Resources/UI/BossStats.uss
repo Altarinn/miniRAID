@@ -1,0 +1,16 @@
+.HPBar {
+    height: 16px;
+    background-color: rgba(48, 48, 48, 255);
+}
+
+#HPContent {
+    background-color: rgba(214, 78, 78, 255);
+    transition-duration: 0.5s;
+}
+
+.UnderHPBarText {
+    -unity-text-align: upper-center;
+    background-color: rgba(43, 43, 43, 0.9);
+    padding-left: 5px;
+    padding-right: 5px;
+}

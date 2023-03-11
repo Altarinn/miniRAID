@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1315df83f7c9724dab23f1e75f0ab6e, type: 3}
+  m_Name: Super ElectroBall
+  m_EditorClassIdentifier: 
+  Id: 15dc6a65-ceb5-44a8-80a5-2be34433b3ea
+  icon: {fileID: 4714126544790737456, guid: 7fe9a382566f75a429badd968a5161fa, type: 3}
+  ActionName: SUPER ElecBall !
+  Description: 'AP 5
+
+    AT 150
+
+    RG 15
+
+    CD 3
+
+
+    GCD Yes
+
+    ---
+
+    HUGE
+    ATTACK !'
+  Tags: []
+  ManaCost: 0
+  ActionPointCost: 5
+  Cooldown: 3
+  CooldownRemain: 0
+  isActivelyUsed: 1
+  GCDgroup: 1
+  targetCount: 1
+  range: 15
+  autoDestroyEntity: 1
+  destroyDelay: 1.5

@@ -1,0 +1,42 @@
+using UnityEngine;
+using System.Collections;
+
+namespace miniRAID.Spells
+{
+    [CreateAssetMenu(menuName = "Spells/#SCRIPTNAME#")]
+    public class #SCRIPTNAME# : Spell
+    {
+        protected override void Awake()
+        {
+            base.Awake();
+
+            // Change requester type here
+            Requester = new UI.TargetRequester.BasicUnitsRequester();
+            ((UI.TargetRequester.BasicUnitsRequester)Requester).range = range;
+            ((UI.TargetRequester.BasicUnitsRequester)Requester).MinUnits = targetCount;
+            ((UI.TargetRequester.BasicUnitsRequester)Requester).MaxUnits = targetCount;
+        }
+
+        public override bool CheckWithTargets(Mob mob, SpellTarget target)
+        {
+            bool baseResult = base.CheckWithTargets(mob, target);
+
+            // Check if the spell is castable here
+
+            return baseResult;
+        }
+
+        protected override IEnumerator Coroutine(Mob mob, SpellTarget target)
+        {
+            // Implement your spell here
+            SpellEntity spell = Instantiate(entityPrefab.gameObject, mob.transform.position, Quaternion.identity).GetComponent<SpellEntity>();
+
+            yield return spell.CastCoroutine(mob, target);
+
+            if (autoDestroyEntity == true)
+            {
+                Destroy(spell.gameObject, destroyDelay);
+            }
+        }
+    }
+}

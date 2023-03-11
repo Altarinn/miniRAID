@@ -1,0 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+using Sirenix.OdinInspector;
+using System.Linq;
+using miniRAID.Spells;
+
+namespace miniRAID
+{
+    public class #SCRIPTNAME# : ActionDataSO
+    {
+        public override IEnumerator GetOnPerform(GeneralCombatData combatData, Mob mob, SpellTarget target)
+        {
+            return base.GetOnPerform(combatData, mob, target);
+        }
+    }
+}

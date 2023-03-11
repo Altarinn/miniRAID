@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae77e8ed99e6d2141aa45d2f4eaea112, type: 3}
+  m_Name: "\u6CBB\u7597\u5F39"
+  m_EditorClassIdentifier: 
+  Id: ff058d9b-904e-4388-84c6-06593e927477
+  icon: {fileID: 4959902666009013001, guid: 7fe9a382566f75a429badd968a5161fa, type: 3}
+  ActionName: "\u6CBB\u7597\u5F39"
+  Description: "\u56DE\u590D\u76DF\u53CB\u751F\u547D"
+  Tags: []
+  ManaCost: 50
+  ActionPointCost: 3
+  Cooldown: 1
+  CooldownRemain: 0
+  isActivelyUsed: 1
+  GCDgroup: 1
+  targetCount: 1
+  range: 6
+  autoDestroyEntity: 1
+  destroyDelay: 0
+  damage: 50
+  type: 11
+  buffsToTarget:
+  - {fileID: 11400000, guid: a27308ecc1fee3c42945fdc0c31430e9, type: 2}
+  prefab: {fileID: 6549173031084157914, guid: 8514406af415f3f45be82aa2f544fa24, type: 3}
+  sprite: {fileID: 4959902666009013001, guid: 7fe9a382566f75a429badd968a5161fa, type: 3}
+  spriteColor: {r: 1, g: 1, b: 1, a: 1}
+  particle: {fileID: 7223677008471284439, guid: 7fe9a382566f75a429badd968a5161fa, type: 3}
+  particleColor: {r: 1, g: 1, b: 1, a: 1}

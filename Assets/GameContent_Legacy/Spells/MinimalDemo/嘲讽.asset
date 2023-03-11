@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1315df83f7c9724dab23f1e75f0ab6e, type: 3}
+  m_Name: "\u5632\u8BBD"
+  m_EditorClassIdentifier: 
+  Id: 3f85e7ce-69ef-46d7-95ca-ad64909f1719
+  icon: {fileID: 0}
+  ActionName: 
+  Description: 
+  Tags: []
+  ManaCost: 0
+  ActionPointCost: 0
+  Cooldown: 0
+  CooldownRemain: 0
+  isActivelyUsed: 1
+  GCDgroup: 1
+  targetCount: 1
+  range: 5
+  autoDestroyEntity: 1
+  destroyDelay: 0

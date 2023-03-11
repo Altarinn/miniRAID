@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Resources/UI/miniRAID_default.uss?fileID=7433441132597879392&amp;guid=54e6eee580e008a468415140067b7312&amp;type=3#miniRAID_default" />
+    <Style src="project://database/Assets/Resources/UI/Stats.uss?fileID=7433441132597879392&amp;guid=dde3fc2c80bde41bdaa1bfc3a6ef257a&amp;type=3#Stats" />
+    <ui:VisualElement name="Container" style="flex-direction: column; width: 100%; align-items: center; justify-content: space-between; flex-wrap: nowrap;">
+        <ui:Label tabindex="-1" text="Lv.22 Slime" display-tooltip-when-elided="true" name="Name" style="margin-right: 10px; font-size: 15px;" />
+        <ui:VisualElement name="RightPanel" style="flex-grow: 1;">
+            <ui:VisualElement name="HPBarBG" class="HPBar">
+                <ui:VisualElement name="HPContent" class="HPBar" />
+                <ui:VisualElement name="HPText" style="position: absolute; flex-direction: row; margin-top: -4px; align-items: flex-start;">
+                    <ui:Label tabindex="-1" text="100.0%" display-tooltip-when-elided="true" name="HPPercentage" style="padding-left: 6px; padding-right: 6px; font-size: 15px; background-color: rgba(43, 43, 43, 0.85); text-shadow: 1px 1px 0 rgb(188, 20, 30); margin-top: -1px; padding-bottom: 2px;" />
+                    <ui:Label tabindex="-1" text="60 / 120" display-tooltip-when-elided="true" name="HPNum" style="width: 100%; -unity-text-align: middle-left; padding-left: 6px; margin-top: 4px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

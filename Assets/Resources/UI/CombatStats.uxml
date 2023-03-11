@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Resources/UI/miniRAID_default.uss?fileID=7433441132597879392&amp;guid=54e6eee580e008a468415140067b7312&amp;type=3#miniRAID_default" />
+    <ui:VisualElement name="Damage" class="StatsPanel Panel">
+        <ui:Label tabindex="-1" text="Damage done" display-tooltip-when-elided="true" class="StatsHeader PanelHeader" />
+        <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="Content" />
+    </ui:VisualElement>
+    <ui:VisualElement name="Healing" class="StatsPanel Panel" style="margin-top: 5px;">
+        <ui:Label tabindex="-1" text="Healing done" display-tooltip-when-elided="true" class="StatsHeader PanelHeader" />
+        <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="Content" />
+    </ui:VisualElement>
+</ui:UXML>

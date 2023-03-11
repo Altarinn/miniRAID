@@ -1,0 +1,61 @@
+Button {
+    flex-direction: row;
+    background-color: rgb(46, 46, 46);
+    transition-duration: 0.05s;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+}
+
+Button:hover {
+    background-color: rgb(76, 76, 76);
+    transition-duration: 0.05s;
+}
+
+Button:active {
+    background-color: rgb(154, 154, 154);
+}
+
+Label {
+    color: rgb(255, 255, 255);
+    -unity-font: url('project://database/Assets/Fonts/DinkieBitmap-9px.ttf?fileID=12800000&guid=d55e970942cccd34f8a24ed2645322f2&type=3#DinkieBitmap-9px');
+    -unity-font-definition: none;
+    -unity-text-align: middle-left;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 10px;
+}
+
+Button.disabled {
+    background-color: rgb(108, 35, 35);
+    opacity: 1;
+}
+
+.PanelHeader {
+    background-color: rgb(43, 43, 43);
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(255, 255, 255);
+}
+
+.Panel {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#UnitGrid {
+    margin-bottom: 1px;
+}

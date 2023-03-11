@@ -1,0 +1,41 @@
+#ActionName {
+    width: 80px;
+    -unity-text-align: middle-center;
+}
+
+#Icon {
+    width: 16px;
+    height: 16px;
+}
+
+#ToolTip {
+    background-color: rgb(30, 28, 60);
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 1px;
+    visibility: hidden;
+}
+
+#Key {
+    color: rgb(140, 140, 140);
+    width: 16px;
+    height: 16px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    -unity-text-align: middle-center;
+    border-left-color: rgb(115, 115, 115);
+    border-right-color: rgb(115, 115, 115);
+    border-top-color: rgb(115, 115, 115);
+    border-bottom-color: rgb(115, 115, 115);
+    border-top-left-radius: 1px;
+    border-bottom-left-radius: 1px;
+    border-top-right-radius: 1px;
+    border-bottom-right-radius: 1px;
+}
+
+.MoreIcon {
+    margin-left: 2px;
+    margin-right: 2px;
+}

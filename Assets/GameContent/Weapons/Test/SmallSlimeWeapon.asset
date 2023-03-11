@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fef9597697f1d5441946616946df6347, type: 3}
+  m_Name: SmallSlimeWeapon
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  fullPath: 
+  Guid: b11eba876bf94e39abe6dddd823bf82a
+  Id: 41
+  icon: {fileID: 0}
+  name: "\u5C0F\u53F2\u83B1\u59C6"
+  type: 1
+  priority: 0
+  wpType: 0
+  regularAttack: {fileID: 11400000, guid: 4566c9d51823ca54a9eae58975e1ca3b, type: 2}
+  mainElement: 6

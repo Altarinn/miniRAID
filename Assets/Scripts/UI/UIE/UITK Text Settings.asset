@@ -31,4 +31,5 @@ MonoBehaviour:
     m_LeadingCharacters: {fileID: 0}
     m_FollowingCharacters: {fileID: 0}
     m_UseModernHangulLineBreakingRules: 0
+  m_UseModernHangulLineBreakingRules: 0
   m_DisplayWarnings: 0

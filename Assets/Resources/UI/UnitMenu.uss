@@ -17,7 +17,7 @@
 }
 
 #Key {
-    color: rgb(140, 140, 140);
+    color: rgb(182, 183, 134);
     width: 16px;
     height: 16px;
     border-left-width: 1px;
@@ -25,10 +25,10 @@
     border-top-width: 1px;
     border-bottom-width: 1px;
     -unity-text-align: middle-center;
-    border-left-color: rgb(115, 115, 115);
-    border-right-color: rgb(115, 115, 115);
-    border-top-color: rgb(115, 115, 115);
-    border-bottom-color: rgb(115, 115, 115);
+    border-left-color: rgb(182, 183, 134);
+    border-right-color: rgb(182, 183, 134);
+    border-top-color: rgb(182, 183, 134);
+    border-bottom-color: rgb(182, 183, 134);
     border-top-left-radius: 1px;
     border-bottom-left-radius: 1px;
     border-top-right-radius: 1px;

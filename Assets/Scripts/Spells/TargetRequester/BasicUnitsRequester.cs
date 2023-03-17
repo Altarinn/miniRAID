@@ -87,5 +87,31 @@ namespace miniRAID.UI.TargetRequester
             }
             return true;
         }
+
+        public override void PointAtGrid(Vector2Int gridPos)
+        {
+            base.PointAtGrid(gridPos);
+
+            ui.combatView.HideBattlePreview();
+
+            var pointedMob = Globals.backend.getMap(gridPos.x, gridPos.y)?.mob;
+            if (pointedMob == null) { return; }
+
+            if(toEnemies && Consts.ApplyMask(Consts.EnemyMask(mob.data.unitGroup), pointedMob.data.unitGroup))
+            {
+                ui.combatView.ShowBattlePreview("test");
+            }
+
+            if(toAllies && Consts.ApplyMask(Consts.AllyMask(mob.data.unitGroup), pointedMob.data.unitGroup))
+            {
+                ui.combatView.ShowBattlePreview("test");
+            }
+        }
+
+        public override void OnStateExit()
+        {
+            base.OnStateExit();
+            ui.combatView.HideBattlePreview();
+        }
     }
 }

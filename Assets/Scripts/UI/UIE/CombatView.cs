@@ -10,6 +10,8 @@ namespace miniRAID.UIElements
         public UnitMenuController menu;
         public BossStatsController bossStats;
         public CombatStatsController combatStats;
+        
+        public UnitBarController unitBar;
 
         public Label battlePreview;
 
@@ -29,6 +31,10 @@ namespace miniRAID.UIElements
             combatStats = new CombatStatsController(
                 uiDocument.rootVisualElement.Q("CombatStats-global")
             );
+            
+            unitBar = new UnitBarController(
+                uiDocument.rootVisualElement.Q("UnitBar")
+            );
 
             battlePreview = uiDocument.rootVisualElement.Q<Label>("BattlePreview");
         }
@@ -46,7 +52,7 @@ namespace miniRAID.UIElements
 
         public void BindAsBoss(Mob mob)
         {
-            bossStats.Register(mob);
+            bossStats.RegisterAsBoss(mob);
         }
 
         public void Update()

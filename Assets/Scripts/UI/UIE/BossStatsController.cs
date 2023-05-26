@@ -33,7 +33,7 @@ namespace miniRAID.UIElements
             hpPercentage = e.Q<Label>("HPPercentage");
         }
 
-        public void Register(Mob mob)
+        public void RegisterAsBoss(Mob mob)
         {
             this.mob = mob;
             this.agent = (miniRAID.Agents.MobAgentBase)mob.data.listeners.Find(x => x is miniRAID.Agents.MobAgentBase);
@@ -57,16 +57,14 @@ namespace miniRAID.UIElements
                 string effects = "";
                 foreach (var fx in mob.data.listeners)
                 {
-                    if (fx.type == MobListenerSO.ListenerType.Buff)
+                    if (fx.type != MobListenerSO.ListenerType.Buff) continue;
+                    if(effects != "")
                     {
-                        if(effects != "")
-                        {
-                            effects += " " + fx.name;
-                        }
-                        else
-                        {
-                            effects += fx.name;
-                        }
+                        effects += " " + fx.name;
+                    }
+                    else
+                    {
+                        effects += fx.name;
                     }
                 }
 

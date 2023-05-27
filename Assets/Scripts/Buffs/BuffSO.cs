@@ -127,7 +127,7 @@ namespace miniRAID.Buff
             if(base.TryAdd(target))
             {
                 // Find myself in target mob
-                Buff duplicated = (Buff)(target.listeners.Find(x => x.data == this));
+                Buff duplicated = (Buff)(target.FindListener(x => x.data == this));
                 if(duplicated != null)
                 {
                     if (stackable)
@@ -159,8 +159,8 @@ namespace miniRAID.Buff
         [HideInInspector]
         public MobData source;
 
-        delegate void OnRemoved(Mob mob);
-        event OnRemoved onRemoveFromMob;
+        protected delegate void OnRemoved(Mob mob);
+        protected event OnRemoved onRemoveFromMob;
 
         public Buff(MobData source, BuffSO data) : base(source, data)
         {

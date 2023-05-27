@@ -6,6 +6,7 @@ using miniRAID.Spells;
 using miniRAID.Buff;
 using System;
 using System.Linq;
+using miniRAID.Backend;
 
 namespace miniRAID
 {
@@ -789,5 +790,19 @@ namespace miniRAID
         {
             return allMobs.ToList();
         }
+
+        #region BackendState-Undos
+
+        private List<BackendState> allStates = new();
+        
+        public void RegisterState(BackendState state)
+        {
+            Debug.LogWarning($"DataBackend.RegisterState is not implemented. Incoming state of type: {state.GetType()}");
+            
+            // TODO
+            allStates.Add(state);
+        }
+
+        #endregion
     }
 }

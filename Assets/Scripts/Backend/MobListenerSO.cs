@@ -49,7 +49,7 @@ namespace miniRAID
     }
 
     [System.Serializable]
-    public class MobListener
+    public class MobListener : Backend.BackendState
     {
         [System.NonSerialized]
         public MobData parentMob;

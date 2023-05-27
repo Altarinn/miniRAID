@@ -7,6 +7,8 @@ using Sirenix.OdinInspector;
 using miniRAID.Spells;
 using System.Collections.Generic;
 using System.Linq;
+using miniRAID.Backend;
+using Unity.VisualScripting;
 
 namespace miniRAID
 {
@@ -16,7 +18,8 @@ namespace miniRAID
     /// This is designed to be used when save / restore current game state ... ?
     /// </summary>
     [Serializable]
-    public class MobData
+    [Inspectable]
+    public class MobData : BackendState
     {
         public enum MovementType
         {
@@ -223,6 +226,17 @@ namespace miniRAID
                     l.OnRemove(parentMob);
                 });
             listeners.RemoveAll(l => l == listener);
+        }
+
+        public MobListener FindListener(MobListenerSO data)
+        {
+            return FindListener(x => x.data == data);
+        }
+
+        public MobListener FindListener(Predicate<MobListener> condition)
+        {
+            // TODO: Optimize me
+            return listeners.Find(condition);
         }
     }
 }

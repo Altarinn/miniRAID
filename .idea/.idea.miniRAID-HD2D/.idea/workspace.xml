@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c36ca183-e7eb-40c1-9aca-56cfe58c3f4d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Scripts/BasicProjectile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Scripts/BasicProjectile.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Scripts/Movement.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Scripts/Movement.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GameContent/Buffs/Test/WindBuffSO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GameContent/Buffs/Test/WindBuffSO.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/Essentials/RNG.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/Essentials/RNG.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/SOCore/Action/ActionOnPerformSO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/SOCore/Action/ActionOnPerformSO.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/SOCore/Action/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/SOCore/Action/Editor/SOWizard.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/SOCore/Action/Editor/SOWizard.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Spells/ActionHelpers.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Spells/ActionHelpers/Essentials.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Spells/ActionHelpers/Essentials.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Spells/ActionHelpers/Projectile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Spells/ActionHelpers/Projectile.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Databackend.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Databackend.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Movement.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Movement.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/BasicHealing.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/BasicHealing.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/BasicHealing.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/BasicHealing.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/SlimeBoss/SlimeJump_new.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/SlimeBoss/SlimeJump_new.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/SlimeBoss/SlimeJump_new.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/SlimeBoss/SlimeJump_new.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/Wind.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/Wind.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Buffs/Test/Wind.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Buffs/Test/Wind.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Enemies/Test/BossMu/JumpLanding.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Enemies/Test/BossMu/JumpLanding.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Enemies/Test/SmallMu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Enemies/Test/SmallMu.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Weapons/Test/TestBow.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Weapons/Test/TestBow.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Weapons/Test/TestHerb.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Weapons/Test/TestHerb.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/NewScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/NewScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptTemplates/78-Script Templates__New Action Data SO-NewActionDataSO.cs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptTemplates/78-Script Templates__New Action Data SO-NewActionDataSO.cs.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/Essentials/SerialCoroutine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/Essentials/SerialCoroutine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/MobData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/MobData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/MobListenerSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/MobListenerSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/SOCore/Action/ActionDataSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/SOCore/Action/ActionDataSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/SOCore/Value/Editor/DynamicValueDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/SOCore/Value/Editor/DynamicValueDrawer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/SOCore/Value/LuaGetter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/SOCore/Value/LuaGetter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Buffs/BuffSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Buffs/BuffSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/ActionEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/ActionEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spells/SpellTemplates.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spells/Legacy/SpellTemplates.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spells/SpellTemplates/ActionOnPerformTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spells/Legacy/SpellTemplates/ActionOnPerformTemplate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spells/SpellTemplates/ActionOnPerformTemplate.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spells/Legacy/SpellTemplates/ActionOnPerformTemplate.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spells/SpellTemplates/Essentials.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spells/Legacy/SpellTemplates/Essentials.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spells/SpellTemplates/Essentials.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spells/Legacy/SpellTemplates/Essentials.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spells/SpellTemplates/GridShapesFx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spells/Legacy/SpellTemplates/GridShapesFx.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spells/SpellTemplates/GridShapesFx.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spells/Legacy/SpellTemplates/GridShapesFx.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spells/SpellTemplates/LuaIntegration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spells/Legacy/SpellTemplates/LuaIntegration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spells/SpellTemplates/LuaIntegration.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spells/Legacy/SpellTemplates/LuaIntegration.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spells/SpellTemplates/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spells/Legacy/SpellTemplates/Projectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spells/SpellTemplates/Projectile.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spells/Legacy/SpellTemplates/Projectile.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/Globals.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/Globals.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EffectIDRecord.txt" beforeDir="false" afterPath="$PROJECT_DIR$/EffectIDRecord.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cf9fb7a7d386402696bb58c8c0e1691617a748/c5/da18e674/HashSet`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/SlimeBoss/SmallSlimeChooseTarget.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/SlimeBoss/SmallSlimes.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProjectId" id="2Nmf7XRIOmjhfRrv3eYjVhN2GoD" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Discover.Launch.Via.Unity": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "settings.editor.selected.configurable": "preferences.editor",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\betairya\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\betairya\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\betairya\\AppData\\Local\\Symbols\\src"
+    ]
+  }
+}]]></component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.2.8f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.2.8f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="46616">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" value="46616" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c36ca183-e7eb-40c1-9aca-56cfe58c3f4d" name="Changes" comment="" />
+      <created>1680274012391</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1680274012391</updated>
+      <workItem from="1680274014993" duration="110000" />
+      <workItem from="1680274154938" duration="10196000" />
+      <workItem from="1680858381419" duration="5301000" />
+      <workItem from="1685011085409" duration="7087000" />
+      <workItem from="1685066281696" duration="47219000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Scripts/BasicProjectile.cs</url>
+          <line>20</line>
+          <properties documentPath="D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\GameContent\Actions\Essentials\Scripts\BasicProjectile.cs" initialLine="20" containingFunctionPresentation="method 'OnPerform'">
+            <startOffsets>
+              <option value="616" />
+            </startOffsets>
+            <endOffsets>
+              <option value="670" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/Essentials/SerialCoroutine.cs</url>
+          <line>288</line>
+          <properties documentPath="D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\Essentials\SerialCoroutine.cs" initialLine="288" containingFunctionPresentation="method 'Tick'">
+            <startOffsets>
+              <option value="9075" />
+            </startOffsets>
+            <endOffsets>
+              <option value="9160" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/Essentials/SerialCoroutine.cs</url>
+          <line>259</line>
+          <properties documentPath="D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\Essentials\SerialCoroutine.cs" initialLine="259" containingFunctionPresentation="method 'Tick'">
+            <startOffsets>
+              <option value="7970" />
+            </startOffsets>
+            <endOffsets>
+              <option value="8006" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="UNITY_DEBUG_RUN_CONFIGURATION">
+        <watch expression="StackTrace()" language="C#" />
+        <watch expression="Globals.cc" language="C#" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>

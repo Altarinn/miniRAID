@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ff83334ede4ad84685650e2e25f3bde, type: 3}
-  m_Name: Wind
+  m_Name: SmallSlimeLocked
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -322,13 +322,13 @@ MonoBehaviour:
         Assembly-CSharp]], mscorlib],[miniRAID.None, Assembly-CSharp]], Assembly-CSharp
     - Name: type
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: staticOut
       Entry: 6
       Data: 
     - Name: LuaExpr
-      Entry: 1
-      Data: "if(cost.type == CS.miniRAID.Cost.Type.AP)\nthen\n    cost:Substract(dNum(1))\nend"
+      Entry: 6
+      Data: 
     - Name: description
       Entry: 6
       Data: 
@@ -385,14 +385,13 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  fullPath: 
-  Guid: a6fe984d07b147b78c00cf80a82e8ab1
-  Id: 34
-  icon: {fileID: -6448793243531158292, guid: 7fe9a382566f75a429badd968a5161fa, type: 3}
-  name: "\u72C2\u98CE\u7684\u52A0\u62A4"
+  Guid: ab01ca78314c4e048625b53f387bf7db
+  Id: 70
+  icon: {fileID: -2073439137, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
+  name: "\u9501\u5B9A"
   type: 0
   priority: 0
-  timed: 1
-  timeMax: 2
+  timed: 0
+  timeMax: 1
   stackable: 0
   maxStack: 1

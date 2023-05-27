@@ -35,7 +35,12 @@ namespace miniRAID
 
         private void Start()
         {
-            sc.StartSerialCoroutine(Combat());
+            // This starts the whole combat SerialCoroutine.
+            // Changes on default context should not be made here as this will last for entire combat.
+            sc.StartSerialCoroutine(Combat(), new SerialCoroutineContext()
+            {
+                animation = false
+            });
         }
 
         public IEnumerator Combat()

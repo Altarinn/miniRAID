@@ -907,7 +907,8 @@ MonoBehaviour:
     listeners: []
     actionSOs:
     - {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
-    - {fileID: 11400000, guid: 8ec7082bb6a14c541890bd040143c4f4, type: 2}
+    - {fileID: 11400000, guid: 50a2bb5f4e3dbd34d8e1cfc1f6aa91c4, type: 2}
+    - {fileID: 11400000, guid: 864aed35e40c4eb4298ef9498115c257, type: 2}
   animator: {fileID: 0}
 --- !u!4 &216872653
 Transform:
@@ -1097,6 +1098,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallMu (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5180081312367153651, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180081312367153654, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
+      propertyPath: data.actionSOs.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1949,6 +1958,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
     - {fileID: 11400000, guid: 77900703dcd630d4eae00a08c15e7ab4, type: 2}
     - {fileID: 11400000, guid: 184b28c26111e9e40a239b368c0ecdee, type: 2}
+    - {fileID: 11400000, guid: 864aed35e40c4eb4298ef9498115c257, type: 2}
   animator: {fileID: 0}
 --- !u!1 &427119834
 GameObject:
@@ -2399,7 +2409,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.4375
+  orthographic size: 7.03125
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -2737,7 +2747,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 12, y: 76.7}
+  m_AnchoredPosition: {x: 12, y: 76.69922}
   m_SizeDelta: {x: 14, y: 14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &623728452
@@ -3176,6 +3186,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallMu (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5180081312367153651, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180081312367153654, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
+      propertyPath: data.actionSOs.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3558,7 +3576,7 @@ MonoBehaviour:
     listeners: []
     actionSOs:
     - {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
-    - {fileID: 11400000, guid: 4a4f97552105543b6bb25bfc8102c73a, type: 2}
+    - {fileID: 11400000, guid: c934568e496c1d2438b51d0b0be45afa, type: 2}
   animator: {fileID: 0}
 --- !u!1 &1088969445
 GameObject:
@@ -3704,6 +3722,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallMu (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5180081312367153651, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180081312367153654, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
+      propertyPath: data.actionSOs.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3780,6 +3806,66 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3964896753108375457, guid: c332ca0e4531e8345b586f2810d74d84, type: 3}
   m_PrefabInstance: {fileID: 1211502237}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1256452597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1256452600}
+  - component: {fileID: 1256452599}
+  - component: {fileID: 1256452598}
+  m_Layer: 0
+  m_Name: VisualScripting SceneVariables
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1256452598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256452597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 765181c9ef4b24d32a4f7cbd2ef370dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1256452599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256452597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e741851cba3ad425c91ecf922cc6b379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"declarations":{"Kind":"Scene","collection":{"$content":[],"$version":"A"},"$version":"A"}}'
+    _objectReferences: []
+--- !u!4 &1256452600
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256452597}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1276544226
 GameObject:
   m_ObjectHideFlags: 0
@@ -4362,7 +4448,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0.000000490807, y: 0}
+  m_AnchoredPosition: {x: 0.000000490807, y: -0.00032570263}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1435388990
@@ -5323,6 +5409,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallMu
       objectReference: {fileID: 0}
+    - target: {fileID: 5180081312367153651, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5372,7 +5462,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 16, y: 80.7}
+  m_AnchoredPosition: {x: 16, y: 80.69922}
   m_SizeDelta: {x: 1000, y: 64}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1764595007
@@ -6024,6 +6114,7 @@ MonoBehaviour:
     listeners: []
     actionSOs:
     - {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
+    - {fileID: 11400000, guid: 5c19e84a47d306d45a1f3c2b143a831e, type: 2}
   animator: {fileID: 0}
 --- !u!114 &1865483635
 MonoBehaviour:
@@ -6041,11 +6132,11 @@ MonoBehaviour:
   - doRegularAttack: 1
     action: {fileID: 11400000, guid: 5c19e84a47d306d45a1f3c2b143a831e, type: 2}
   - doRegularAttack: 1
-    action: {fileID: 0}
+    action: {fileID: 11400000, guid: 8a808c2b1fd03ab49b3bedb6f2176570, type: 2}
   - doRegularAttack: 1
-    action: {fileID: 0}
+    action: {fileID: 11400000, guid: 8a808c2b1fd03ab49b3bedb6f2176570, type: 2}
   - doRegularAttack: 1
-    action: {fileID: 0}
+    action: {fileID: 11400000, guid: 651ce528935d4564580f2eb1e502fef1, type: 2}
 --- !u!95 &1865483636
 Animator:
   serializedVersion: 5
@@ -6705,7 +6796,7 @@ MonoBehaviour:
     listeners: []
     actionSOs:
     - {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
-    - {fileID: 11400000, guid: 8ec7082bb6a14c541890bd040143c4f4, type: 2}
+    - {fileID: 11400000, guid: 50a2bb5f4e3dbd34d8e1cfc1f6aa91c4, type: 2}
   animator: {fileID: 0}
 --- !u!1001 &1927655709
 PrefabInstance:

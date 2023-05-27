@@ -13,6 +13,14 @@ namespace miniRAID
         public static MonoSingleton<DebugMessagePool> debugMessage = new MonoSingleton<DebugMessagePool>(false);
         public static MonoSingleton<PopupManager> popupMgr = new MonoSingleton<PopupManager>(false);
         public static MonoSingleton<UI.GridOverlayManager> overlayMgr = new MonoSingleton<UI.GridOverlayManager>(false);
+        public static MonoSingleton<SerialCoroutine> combatCoroutine = new MonoSingleton<SerialCoroutine>(false);
+
+        public static SerialCoroutineContext combatContext => combatCoroutine.Instance.currentContext;
+        public static void CombatCoroutineNewContext(SerialCoroutineContext ctx) => combatCoroutine.Instance.SwitchContext(ctx);
+
+        // Short-hand for combatContext
+        public static SerialCoroutineContext cc => combatContext;
+        public static void ccNewContext(SerialCoroutineContext ctx) => CombatCoroutineNewContext(ctx); // Short-hand for CombatCoroutineNewContext
 
         public static MonoSingleton<ActionHost> actionHost = new MonoSingleton<ActionHost>(true);
 

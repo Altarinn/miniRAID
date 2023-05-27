@@ -10,7 +10,8 @@ namespace miniRAID
 {
     public class #SCRIPTNAME# : ActionDataSO
     {
-        public override IEnumerator GetOnPerform(GeneralCombatData combatData, Mob mob, SpellTarget target)
+        public override IEnumerator OnPerform(JumpInContext context, RuntimeAction ract, Mob mob,
+            Spells.SpellTarget target)
         {
             return base.GetOnPerform(combatData, mob, target);
         }

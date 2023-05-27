@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d15e1d3abd8f14e8ca1b7e2bee1964, type: 3}
+  m_Script: {fileID: 11500000, guid: b57b14783baf44469457a18d90be360a, type: 3}
   m_Name: BasicHealing
   m_EditorClassIdentifier: 
   serializationData:
@@ -278,7 +278,7 @@ MonoBehaviour:
       Data: 1
     - Name: range
       Entry: 3
-      Data: 2
+      Data: 5
     - Name: enemyType
       Entry: 3
       Data: 1
@@ -302,7 +302,7 @@ MonoBehaviour:
         Assembly-CSharp
     - Name: type
       Entry: 3
-      Data: 2
+      Data: 1
     - Name: staticOut
       Entry: 6
       Data: 
@@ -313,11 +313,14 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: getterTemplate
-      Entry: 7
-      Data: 14|miniRAID.Projectile, Assembly-CSharp
-    - Name: comment
       Entry: 6
       Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: projectile
+      Entry: 7
+      Data: 14|miniRAID.ActionHelpers.Projectile, Assembly-CSharp
     - Name: projectilePrefab
       Entry: 10
       Data: 0
@@ -330,76 +333,62 @@ MonoBehaviour:
     - Name: flyTime
       Entry: 4
       Data: 0.8
-    - Name: Termination
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fxOnHit
+      Entry: 6
+      Data: 
+    - Name: buff
+      Entry: 6
+      Data: 
+    - Name: damageOrHeal
       Entry: 7
-      Data: 15|miniRAID.LuaFunc`2[[System.ValueTuple`3[[miniRAID.GeneralCombatData,
-        Assembly-CSharp],[miniRAID.Mob, Assembly-CSharp],[UnityEngine.Vector2Int,
-        UnityEngine.CoreModule]], mscorlib],[System.Collections.IEnumerator, mscorlib]],
-        Assembly-CSharp
+      Data: 15|miniRAID.ActionHelpers.SpellDamageHeal, Assembly-CSharp
     - Name: type
-      Entry: 3
-      Data: 2
-    - Name: staticOut
-      Entry: 6
-      Data: 
-    - Name: LuaExpr
-      Entry: 6
-      Data: 
-    - Name: description
-      Entry: 6
-      Data: 
-    - Name: getterTemplate
-      Entry: 7
-      Data: 16|miniRAID.DoDamageAtGrid, Assembly-CSharp
-    - Name: comment
-      Entry: 6
-      Data: 
-    - Name: damageType
-      Entry: 7
-      Data: 17|miniRAID.LuaGetter`2[[miniRAID.Mob, Assembly-CSharp],[miniRAID.Consts+Elements,
-        Assembly-CSharp]], Assembly-CSharp
-    - Name: type
-      Entry: 3
-      Data: 0
-    - Name: staticOut
       Entry: 3
       Data: 11
-    - Name: LuaExpr
-      Entry: 6
-      Data: 
-    - Name: description
-      Entry: 6
-      Data: 
-    - Name: getterTemplate
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: power
       Entry: 7
-      Data: 18|miniRAID.LuaGetter`2[[miniRAID.Mob, Assembly-CSharp],[System.Single,
-        mscorlib]], Assembly-CSharp
+      Data: miniRAID.ActionHelpers.FloatModifier, Assembly-CSharp
     - Name: type
       Entry: 3
       Data: 0
-    - Name: staticOut
+    - Name: value
       Entry: 4
       Data: 1
-    - Name: LuaExpr
-      Entry: 6
-      Data: 
-    - Name: description
-      Entry: 6
-      Data: 
-    - Name: getterTemplate
+    - Name: expression
       Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
+    - Name: crit
+      Entry: 7
+      Data: miniRAID.ActionHelpers.FloatModifier, Assembly-CSharp
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: value
+      Entry: 4
+      Data: 1
+    - Name: expression
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
+      Data: 
+    - Name: hit
+      Entry: 7
+      Data: miniRAID.ActionHelpers.FloatModifier, Assembly-CSharp
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: value
+      Entry: 4
+      Data: 1
+    - Name: expression
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
@@ -407,12 +396,8 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-  fullPath: Actions/Essentials/Test
-  Guid: 095680da7ad3485bb1fd9601bd438f38
-  Id: 5
+  Guid: 20581ce0f4954d44970dbf270ed0a1cc
+  Id: 66
   icon: {fileID: -4228980654789970603, guid: 7fe9a382566f75a429badd968a5161fa, type: 3}
   ActionName: "\u6CBB\u7597\u672F"
-  Description: 
+  Description: "\u6CBB\u7597\u961F\u53CB\u3002"

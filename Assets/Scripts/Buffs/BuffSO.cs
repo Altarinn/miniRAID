@@ -16,9 +16,10 @@ namespace miniRAID.Buff
         public int timeMax = 1;
 
         public bool stackable = false;
+        public bool stackRefreshesTime = true;
         public int maxStack = 1;
 
-        public LuaGetter<Mob, float> power, auxPower;
+        public LuaGetter<MobData, float> power, auxPower;
 
         [Space(15)]
         [Title("Buff Effects")]
@@ -36,11 +37,11 @@ namespace miniRAID.Buff
 
             [HorizontalGroup]
             [LabelText("Power%")]
-            public LuaGetter<Mob, float> power;
+            public LuaGetter<MobData, float> power;
 
             [HorizontalGroup]
             [LabelWidth(25)]
-            public LuaGetter<Mob, float> crit;
+            public LuaGetter<MobData, float> crit;
         }
 
         [TabGroup("DOT - HOTs")]
@@ -51,30 +52,30 @@ namespace miniRAID.Buff
         [TabGroup("Mob Events")]
         [EventSlot]
         [Title("General")]
-        public LuaGetter<(Buff, Mob), IEnumerator> onNextTurn = new();
+        public LuaGetter<(Buff, MobData), IEnumerator> onNextTurn = new();
 
 
 
         [TabGroup("Mob Events")]
         [EventSlot]
         [Title("Stat calc")]
-        public LuaGetter<(Buff, Mob), None> onBaseStatCalculation = new();
+        public LuaGetter<(Buff, MobData), None> onBaseStatCalculation = new();
 
         [TabGroup("Mob Events")]
         [EventSlot]
-        public LuaGetter<(Buff, Mob), None> onStatCalculation = new();
+        public LuaGetter<(Buff, MobData), None> onStatCalculation = new();
 
         [TabGroup("Mob Events")]
         [EventSlot]
-        public LuaGetter<(Buff, Mob), None> onStatCalculationFinish = new();
+        public LuaGetter<(Buff, MobData), None> onStatCalculationFinish = new();
 
         [TabGroup("Mob Events")]
         [EventSlot]
-        public LuaGetter<(Buff, Mob), None> onActionStatCalculation = new();
+        public LuaGetter<(Buff, MobData), None> onActionStatCalculation = new();
 
         [TabGroup("Mob Events")]
         [EventSlot]
-        public LuaGetter<(Buff, Mob, HashSet<RuntimeAction> actions), None> onQueryActions = new();
+        public LuaGetter<(Buff, MobData, HashSet<RuntimeAction> actions), None> onQueryActions = new();
 
 
 
@@ -85,30 +86,30 @@ namespace miniRAID.Buff
         [TabGroup("Mob Events")]
         [EventSlot]
         [Title("Action")]
-        public LuaGetter<(Buff, Mob, RuntimeAction, Spells.SpellTarget), IEnumerator> onActionChosen = new();
+        public LuaGetter<(Buff, MobData, RuntimeAction, Spells.SpellTarget), IEnumerator> onActionChosen = new();
 
         [TabGroup("Mob Events")]
         [EventSlot]
-        public LuaGetter<(Buff, Mob, RuntimeAction, Spells.SpellTarget), IEnumerator> onActionPrecast = new();
+        public LuaGetter<(Buff, MobData, RuntimeAction, Spells.SpellTarget), IEnumerator> onActionPrecast = new();
 
         [TabGroup("Mob Events")]
         [EventSlot]
-        public LuaGetter<(Buff, Mob, RuntimeAction, Spells.SpellTarget), IEnumerator> onActionPostcast = new();
+        public LuaGetter<(Buff, MobData, RuntimeAction, Spells.SpellTarget), IEnumerator> onActionPostcast = new();
 
 
 
         [TabGroup("Mob Events")]
         [EventSlot]
         [Title("Cost")]
-        public LuaGetter<(Buff, Cost, RuntimeAction, Mob), None> onCostQuery = new();
+        public LuaGetter<(Buff, Cost, RuntimeAction, MobData), None> onCostQuery = new();
 
         [TabGroup("Mob Events")]
         [EventSlot]
-        public LuaGetter<(Buff, Cost, RuntimeAction, Mob), None> onCostQueryDisplay = new();
+        public LuaGetter<(Buff, Cost, RuntimeAction, MobData), None> onCostQueryDisplay = new();
 
         [TabGroup("Mob Events")]
         [EventSlot]
-        public LuaGetter<(Buff, Cost, RuntimeAction, Mob), IEnumerator> onCostApply = new();
+        public LuaGetter<(Buff, Cost, RuntimeAction, MobData), IEnumerator> onCostApply = new();
 
         #endregion
 
@@ -159,24 +160,51 @@ namespace miniRAID.Buff
         [HideInInspector]
         public MobData source;
 
-        protected delegate void OnRemoved(Mob mob);
+        public override string name
+        {
+            get
+            {
+                string prefix = "";
+                if (stacks > 1)
+                {
+                    prefix += $"{stacks}x ";
+                }
+
+                string postfix = "";
+                if (data.timed)
+                {
+                    postfix += $" ({timeRemain}T)";
+                }
+
+                return $"{prefix}{data.name}{postfix}";
+            }
+        }
+
+        protected delegate void OnRemoved(MobData mob);
         protected event OnRemoved onRemoveFromMob;
 
         public Buff(MobData source, BuffSO data) : base(source, data)
         {
             this.data = data;
             this.source = source;
-            this.power = dNumber.CreateComposite(data.power.Eval(source.parentMob), "buffbase");
-            this.auxPower = dNumber.CreateComposite(data.auxPower.Eval(source.parentMob), "buffbase");
+            this.power = dNumber.CreateComposite(data.power.Eval(source), "buffbase");
+            this.auxPower = dNumber.CreateComposite(data.auxPower.Eval(source), "buffbase");
             
             if(data.timed)
             {
                 this.timeRemain = data.timeMax;
             }
+
+            this.stacks = 1;
         }
 
         public virtual bool Stack()
         {
+            if (data.stackRefreshesTime)
+            {
+                Refresh();
+            }
+            
             if(stacks < data.maxStack)
             {
                 this.stacks++;
@@ -196,12 +224,14 @@ namespace miniRAID.Buff
             this.data = data;
             this.source = source;
             this.power = power;
-            this.auxPower = dNumber.CreateComposite(data.auxPower.Eval(source.parentMob), "buffbase");
+            this.auxPower = dNumber.CreateComposite(data.auxPower.Eval(source), "buffbase");
 
             if (data.timed)
             {
                 this.timeRemain = data.timeMax;
             }
+
+            this.stacks = 1;
         }
 
         public Buff(MobData source, BuffSO data, dNumber power, dNumber auxPower) : base(source, data)
@@ -215,10 +245,12 @@ namespace miniRAID.Buff
             {
                 this.timeRemain = data.timeMax;
             }
+            
+            this.stacks = 1;
         }
 
         // TODO: cache all functions and unbind them in OnRemove.
-        public override void OnAttach(Mob mob)
+        public override void OnAttach(MobData mob)
         {
             base.OnAttach(mob);
 
@@ -228,9 +260,9 @@ namespace miniRAID.Buff
             // Stats
             if(data.modifiers.Count > 0 || data.onBaseStatCalculation.isNonEmpty())
             {
-                Mob.MobArgumentDelegate evt = (m) =>
+                MobData.MobArgumentDelegate evt = (m) =>
                 {
-                    data.ModifyBaseStats(m, data.modifiers);
+                    data.ModifyBaseStats(m, data.modifiers, stacks);
                     data.onBaseStatCalculation?.Eval((this, m));
                 };
                 mob.OnBaseStatCalculation += evt;
@@ -239,9 +271,9 @@ namespace miniRAID.Buff
 
             if (data.modifiers.Count > 0 || data.onStatCalculation.isNonEmpty())
             {
-                Mob.MobArgumentDelegate evt = (m) =>
+                MobData.MobArgumentDelegate evt = (m) =>
                 {
-                    data.ModifyMoreStats(m, data.modifiers);
+                    data.ModifyMoreStats(m, data.modifiers, stacks);
                     data.onStatCalculation?.Eval((this, m));
                 };
                 mob.OnStatCalculation += evt;
@@ -250,7 +282,7 @@ namespace miniRAID.Buff
 
             if (data.onActionStatCalculation.isNonEmpty())
             {
-                Mob.MobArgumentDelegate evt = (m) =>
+                MobData.MobArgumentDelegate evt = (m) =>
                 {
                     data.onActionStatCalculation?.Eval((this, m));
                 };
@@ -260,7 +292,7 @@ namespace miniRAID.Buff
 
             if (data.onStatCalculationFinish.isNonEmpty())
             {
-                Mob.MobArgumentDelegate evt = (m) =>
+                MobData.MobArgumentDelegate evt = (m) =>
                 {
                     data.onStatCalculationFinish?.Eval((this, m));
                 };
@@ -270,7 +302,7 @@ namespace miniRAID.Buff
 
             if (data.onQueryActions.isNonEmpty())
             {
-                Mob.MobActionQueryDelegate evt = (m, a) =>
+                MobData.MobActionQueryDelegate evt = (m, a) =>
                 {
                     data.onQueryActions?.Eval((this, m, a));
                 };
@@ -282,7 +314,7 @@ namespace miniRAID.Buff
             // Action events
             if (data.onActionChosen.isNonEmpty())
             {
-                System.Func<Mob, RuntimeAction, Spells.SpellTarget, IEnumerator> evt = (m, a, t) =>
+                System.Func<MobData, RuntimeAction, Spells.SpellTarget, IEnumerator> evt = (m, a, t) =>
                      data.onActionChosen?.Eval((this, m, a, t));
                 mob.OnActionChosen += evt;
                 onRemoveFromMob += (m) => { m.OnActionChosen -= evt; };
@@ -290,7 +322,7 @@ namespace miniRAID.Buff
 
             if (data.onActionPrecast.isNonEmpty())
             {
-                System.Func<Mob, RuntimeAction, Spells.SpellTarget, IEnumerator> evt = (m, a, t) =>
+                System.Func<MobData, RuntimeAction, Spells.SpellTarget, IEnumerator> evt = (m, a, t) =>
                      data.onActionPrecast?.Eval((this, m, a, t));
                 mob.OnActionPrecast += evt;
                 onRemoveFromMob += (m) => { m.OnActionPrecast -= evt; };
@@ -298,7 +330,7 @@ namespace miniRAID.Buff
 
             if (data.onActionPostcast.isNonEmpty())
             {
-                System.Func<Mob, RuntimeAction, Spells.SpellTarget, IEnumerator> evt = (m, a, t) =>
+                System.Func<MobData, RuntimeAction, Spells.SpellTarget, IEnumerator> evt = (m, a, t) =>
                     data.onActionPostcast?.Eval((this, m, a, t));
                 mob.OnActionPostcast += evt;
                 onRemoveFromMob += (m) => { m.OnActionPostcast -= evt; };
@@ -308,7 +340,7 @@ namespace miniRAID.Buff
             //Cost
             if (data.onCostQuery.isNonEmpty())
             {
-                Mob.CostQueryDelegate evt = (c, a, m) =>
+                MobData.CostQueryDelegate evt = (c, a, m) =>
                 { data.onCostQuery?.Eval((this, c, a, m)); };
                 mob.OnCostQuery += evt;
                 onRemoveFromMob += (m) => { m.OnCostQuery -= evt; };
@@ -316,7 +348,7 @@ namespace miniRAID.Buff
 
             if (data.onCostQueryDisplay.isNonEmpty())
             {
-                Mob.CostQueryDelegate evt = (c, a, m) =>
+                MobData.CostQueryDelegate evt = (c, a, m) =>
                 { data.onCostQueryDisplay?.Eval((this, c, a, m)); };
                 mob.OnCostQueryDisplay += evt;
                 onRemoveFromMob += (m) => { m.OnCostQueryDisplay -= evt; };
@@ -324,23 +356,23 @@ namespace miniRAID.Buff
 
             if (data.onCostApply.isNonEmpty())
             {
-                System.Func<Cost, RuntimeAction, Mob, IEnumerator> evt = (c, a, m) =>
+                System.Func<Cost, RuntimeAction, MobData, IEnumerator> evt = (c, a, m) =>
                     data.onCostApply?.Eval((this, c, a, m));
                 mob.OnCostApply += evt;
                 onRemoveFromMob += (m) => { m.OnCostApply -= evt; };
             }
         }
 
-        public override void OnRemove(Mob mob)
+        public override void OnRemove(MobData mob)
         {
             base.OnRemove(mob);
             mob.OnNextTurn -= BuffBase_OnNextTurn;
             onRemoveFromMob?.Invoke(mob);
         }
 
-        public virtual void OnNextTurn(Mob mob) { }
+        public virtual void OnNextTurn(MobData mob) { }
 
-        private IEnumerator BuffBase_OnNextTurn(Mob mob)
+        private IEnumerator BuffBase_OnNextTurn(MobData mob)
         {
             // Call buff's "update" here
             OnNextTurn(mob);
@@ -352,13 +384,13 @@ namespace miniRAID.Buff
                     new Consts.DamageHeal_FrontEndInput()
                     {
                         //source = source.parentMob,
-                        source = source.parentMob,
+                        source = source,
                         sourceBuff = this,
 
                         //sourceSpell = Spells.Spell.Dummy(name),
                         //sourceSpellEnt = null,
 
-                        value = dhotinfo.power.Eval(mob) * power,
+                        value = dhotinfo.power.Eval(mob) * power * stacks,
                         type = dhotinfo.type,
 
                         crit = dhotinfo.crit.Eval(mob),

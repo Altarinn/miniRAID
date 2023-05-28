@@ -11,17 +11,19 @@ namespace miniRAID.UI
     /// <summary>
     /// Provide quick actions for units.
     /// </summary>
+    
+    /*
     public class UnitView : UIState
     {
-        Mob currentUnit;
+        MobRenderer currentUnit;
         GridOverlay overlay;
 
         HashSet<Vector2Int> moveRange;
 
-        public UnitView(Mob mob)
+        public UnitView(MobRenderer mobRenderer)
         {
-            stateStr = $"UnitView: {mob.name}";
-            currentUnit = mob;
+            stateStr = $"UnitView: {mobRenderer.name}";
+            currentUnit = mobRenderer;
 
             if (currentUnit)
             {
@@ -76,19 +78,19 @@ namespace miniRAID.UI
             base.Submit(input);
 
             GridData grid = Databackend.GetSingleton().getMap(ui.currentGridPos.x, ui.currentGridPos.y);
-            Mob mob = grid.mob;
+            MobRenderer mobRenderer = grid.MobRenderer;
 
-            if (mob == currentUnit)
+            if (mobRenderer == currentUnit)
             {
                 Debug.Log($"Unit menu: {currentUnit.gameObject.name}");
                 //Debug.LogWarning("Unit menu not implemented.");
                 //fsm.SetTrigger("Unit Menu");
-                ui.EnterState(new UnitMenu(mob), true);
+                ui.EnterState(new UnitMenu(mobRenderer), true);
             }
 
             // Move
             // TODO: can move
-            if (mob == null && grid.solid == false && PreCheckMovement(ui.currentGridPos))
+            if (mobRenderer == null && grid.solid == false && PreCheckMovement(ui.currentGridPos))
             {
                 //if(Globals.backend.IsPathValid(mob, path))
                 if (true)
@@ -126,4 +128,5 @@ namespace miniRAID.UI
             return moveRange.Contains(currentGridPos);
         }
     }
+    */
 }

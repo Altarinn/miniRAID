@@ -27,20 +27,20 @@ namespace miniRAID.Agents
             this.data = data;
         }
 
-        public override void OnEnterScene(Mob mob)
+        public override void OnEnterScene(MobData mob)
         {
             base.OnEnterScene(mob);
         }
 
-        public override void OnAttach(Mob mob)
+        public override void OnAttach(MobData mob)
         {
             base.OnAttach(mob);
 
             mob.OnAgentWakeUp += OnAgentWakeUp;
         }
 
-        protected abstract IEnumerator OnAgentWakeUp(Mob mob);
+        protected abstract IEnumerator OnAgentWakeUp(MobData mob);
 
-        public virtual string GetIncomingString(Mob mob) { return "UNKNOWN"; }
+        public virtual string GetIncomingString(MobData mob) { return "UNKNOWN"; }
     }
 }

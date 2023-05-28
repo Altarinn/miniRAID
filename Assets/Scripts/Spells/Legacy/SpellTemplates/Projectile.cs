@@ -28,11 +28,11 @@ namespace miniRAID
 
         [EventSlot]
         [Sirenix.Serialization.OdinSerialize]
-        public LuaFunc<(GeneralCombatData, Mob, Vector2Int), IEnumerator> Termination;
+        public LuaFunc<(GeneralCombatData, MobRenderer, Vector2Int), IEnumerator> Termination;
 
-        public override IEnumerator EasyEval(GeneralCombatData self, Mob mob, SpellTarget target)
+        public override IEnumerator EasyEval(GeneralCombatData self, MobRenderer mobRenderer, SpellTarget target)
         {
-            GameObject obj = GameObject.Instantiate(projectilePrefab, mob.transform.position + Vector3.back, Quaternion.identity);
+            GameObject obj = GameObject.Instantiate(projectilePrefab, mobRenderer.transform.position + Vector3.back, Quaternion.identity);
 
             //if(projectileSprite != null)
             //{
@@ -57,7 +57,7 @@ namespace miniRAID
 
             GameObject.Destroy(obj, Settings.fxTimeout);
 
-            yield return new JumpIn(Termination.Eval((self, mob, gPos)));
+            yield return new JumpIn(Termination.Eval((self, mobRenderer, gPos)));
         }
     }
 }

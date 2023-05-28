@@ -22,23 +22,29 @@ namespace miniRAID.Agents
             this.data = data;
         }
 
-        public Dictionary<Mob, float> AggroList => aggroList;
+        public Dictionary<MobData, float> AggroList => aggroList;
 
-        public IEnumerator RegularAttack(Mob mob) => Act(mob);
+        public IEnumerator RegularAttack(MobData mob) => Act(mob);
 
-        public override void OnAttach(Mob mob)
+        public override void OnAttach(MobData mob)
         {
             base.OnAttach(mob);
-            agentComponent = mob.GetComponent<MonoBehaviourAgentComponent>();
+
+            if (mob.mobRenderer == null)
+            {
+                Debug.LogError("MonoBehaviourAgent cannot be attached to a Mob(data) that has no valid MobRenderer!");
+            }
+            
+            agentComponent = mob.mobRenderer.GetComponent<MonoBehaviourAgentComponent>();
             agentComponent.agent = this;
 
             if (agentComponent == null)
             {
-                Debug.LogError($"Mob {mob.data.nickname}({mob.name}): MonoBehaviourAgent requires a MonoBehaviourAgentComponent attached to the GameObject to work.");
+                Debug.LogError($"Mob {mob.nickname}({mob.mobRenderer.name}): MonoBehaviourAgent requires a MonoBehaviourAgentComponent attached to the GameObject to work.");
             }
         }
 
-        protected override IEnumerator OnAgentWakeUp(Mob mob)
+        protected override IEnumerator OnAgentWakeUp(MobData mob)
         {
             if(agentComponent != null)
             {
@@ -46,7 +52,7 @@ namespace miniRAID.Agents
             }
         }
 
-        public override string GetIncomingString(Mob mob)
+        public override string GetIncomingString(MobData mob)
         {
             return agentComponent.GetIncomingString(mob, Globals.combatMgr.Instance.turn);
         }

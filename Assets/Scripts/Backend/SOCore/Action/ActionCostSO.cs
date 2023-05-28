@@ -21,7 +21,7 @@ namespace miniRAID
             Debug.Log("Test");
         }
 
-        public virtual bool CheckCosts(Mob mob, RuntimeAction ract)
+        public virtual bool CheckCosts(MobRenderer mobRenderer, RuntimeAction ract)
         {
             // TODO
             return true;
@@ -30,7 +30,7 @@ namespace miniRAID
                 //CooldownRemain <= 0;
         }
 
-        public void DoCosts(Mob mob)
+        public void DoCosts(MobRenderer mobRenderer)
         {
             // TODO
         }

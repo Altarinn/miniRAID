@@ -31,7 +31,7 @@ namespace miniRAID.Spells
             ((UI.TargetRequester.BasicUnitsRequester)Requester).MaxUnits = targetCount;
         }
 
-        public override bool CheckWithTargets(Mob mob, SpellTarget target)
+        public override bool CheckWithTargets(MobData mob, SpellTarget target)
         {
             bool baseResult = base.CheckWithTargets(mob, target);
 
@@ -40,7 +40,7 @@ namespace miniRAID.Spells
             return baseResult;
         }
 
-        protected override IEnumerator Coroutine(Mob mob, SpellTarget target)
+        protected override IEnumerator Coroutine(MobData mob, SpellTarget target)
         {
             // Implement your spell here
             var spell = SpellEntity.Clone(prefab);
@@ -65,7 +65,7 @@ namespace miniRAID.Spells
 
                 foreach (var buff in buffsToTarget)
                 {
-                    targetMob.ReceiveBuff(Instantiate(buff), mob);
+                    targetMob.AddBuff(Instantiate(buff), mob);
                 }
             };
 

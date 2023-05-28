@@ -16,19 +16,19 @@ namespace miniRAID.Actions
             (Requester as UI.TargetRequester.ConfirmRequester).InitRequester(GridOverlay.Types.BUFF);
         }
 
-        protected override bool PreCorotine(Mob mob, SpellTarget target)
+        protected override bool PreCorotine(MobData mob, SpellTarget target)
         {
             return true;
         }
 
-        protected override IEnumerator Coroutine(Mob mob, SpellTarget target)
+        protected override IEnumerator Coroutine(MobData mob, SpellTarget target)
         {
             yield break;
         }
 
-        public override bool DoCost(Mob mob, SpellTarget target)
+        public override bool DoCost(MobData mob, SpellTarget target)
         {
-            mob.UseActionPoint(mob.data.actionPoints);
+            mob.UseActionPoint(mob.actionPoints);
             return true;
         }
     }

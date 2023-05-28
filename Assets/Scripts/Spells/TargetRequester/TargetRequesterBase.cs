@@ -37,7 +37,7 @@ namespace miniRAID.UI.TargetRequester
     [System.Serializable]
     public abstract class TargetRequesterBase : UIState
     {
-        protected Mob mob;
+        protected MobData mob;
 
         [FoldoutGroup("Debug info")]
         [LabelText("Current Stage")]
@@ -75,7 +75,7 @@ namespace miniRAID.UI.TargetRequester
         /// This will modify current UI
         /// </summary>
         /// <param name="mob"></param>
-        public virtual void Request(Mob mob, OnRequestFinish onFinish, System.Action onCancel)
+        public virtual void Request(MobData mob, OnRequestFinish onFinish, System.Action onCancel)
         {
             this.mob = mob;
             currentStageCompleted = -1;
@@ -86,7 +86,7 @@ namespace miniRAID.UI.TargetRequester
             this.onCancel = onCancel;
 
             ui.EnterState(this, true);
-            _Next(mob.data.Position, false);
+            _Next(mob.Position, false);
         }
 
         protected void _Next(Vector2Int coord, bool notFirst = true)
@@ -189,7 +189,7 @@ namespace miniRAID.UI.TargetRequester
             // TODO: change cursor
         }
 
-        public virtual bool CheckTargets(Mob mob, Spells.SpellTarget target)
+        public virtual bool CheckTargets(MobData mob, Spells.SpellTarget target)
         {
             return true;
         }

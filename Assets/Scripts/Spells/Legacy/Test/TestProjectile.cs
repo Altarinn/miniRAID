@@ -22,9 +22,9 @@ namespace miniRAID.Spells
             trail.GetComponent<Renderer>().material = m;
         }
 
-        public override IEnumerator Coroutine(Mob source, SpellTarget target)
+        public override IEnumerator Coroutine(MobData source, SpellTarget target)
         {
-            transform.position = source.transform.position;
+            transform.position = source.mobRenderer.transform.position;
             var gPos = target.targetPos[0];
 
             // Don't check this anymore

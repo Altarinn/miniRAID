@@ -53,7 +53,7 @@ namespace miniRAID
         {
             if(evt == null) { return null; }
 
-            if (!evt.listeners.Contains(listener))
+            if (evt.listeners.Contains(listener))
             {
                 evt.listeners.Remove(listener);
             }

@@ -18,16 +18,16 @@ namespace miniRAID
         public Sprite[] sprites;
 
         [EventSlot]
-        public LuaFunc<(GeneralCombatData, Mob, Spells.SpellTarget), IEnumerator> Action;
+        public LuaFunc<(GeneralCombatData, MobRenderer, Spells.SpellTarget), IEnumerator> Action;
 
-        public override IEnumerator EasyEval(GeneralCombatData self, Mob mob, SpellTarget target)
+        public override IEnumerator EasyEval(GeneralCombatData self, MobRenderer mobRenderer, SpellTarget target)
         {
             self.sprites = sprites;
             self.gameObjects = gameObjects;
 
             yield return new JumpIn(Action.Eval((
                 self,
-                mob,
+                mobRenderer,
                 target
             )));
         }

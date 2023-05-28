@@ -26,7 +26,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: power
       Entry: 7
-      Data: 0|miniRAID.LuaGetter`2[[miniRAID.Mob, Assembly-CSharp],[System.Single,
+      Data: 0|miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Single,
         mscorlib]], Assembly-CSharp
     - Name: type
       Entry: 3
@@ -48,7 +48,7 @@ MonoBehaviour:
       Data: 
     - Name: auxPower
       Entry: 7
-      Data: 1|miniRAID.LuaGetter`2[[miniRAID.Mob, Assembly-CSharp],[System.Single,
+      Data: 1|miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Single,
         mscorlib]], Assembly-CSharp
     - Name: type
       Entry: 3
@@ -70,8 +70,8 @@ MonoBehaviour:
       Data: 
     - Name: costs
       Entry: 7
-      Data: 2|System.Collections.Generic.Dictionary`2[[miniRAID.Cost+Type, Assembly-CSharp],[miniRAID.LuaBoundedGetter`3[[System.ValueTuple`2[[miniRAID.Mob,
-        Assembly-CSharp],[miniRAID.Spells.SpellTarget, Assembly-CSharp]], mscorlib],[miniRAID.Mob,
+      Data: 2|System.Collections.Generic.Dictionary`2[[miniRAID.Cost+Type, Assembly-CSharp],[miniRAID.LuaBoundedGetter`3[[System.ValueTuple`2[[miniRAID.MobData,
+        Assembly-CSharp],[miniRAID.Spells.SpellTarget, Assembly-CSharp]], mscorlib],[miniRAID.MobData,
         Assembly-CSharp],[System.Double, mscorlib]], Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
@@ -97,9 +97,9 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 7
-      Data: 4|miniRAID.LuaBoundedGetter`3[[System.ValueTuple`2[[miniRAID.Mob, Assembly-CSharp],[miniRAID.Spells.SpellTarget,
-        Assembly-CSharp]], mscorlib],[miniRAID.Mob, Assembly-CSharp],[System.Double,
-        mscorlib]], Assembly-CSharp
+      Data: 4|miniRAID.LuaBoundedGetter`3[[System.ValueTuple`2[[miniRAID.MobData,
+        Assembly-CSharp],[miniRAID.Spells.SpellTarget, Assembly-CSharp]], mscorlib],[miniRAID.MobData,
+        Assembly-CSharp],[System.Double, mscorlib]], Assembly-CSharp
     - Name: type
       Entry: 3
       Data: 0
@@ -135,9 +135,9 @@ MonoBehaviour:
       Data: 2
     - Name: $v
       Entry: 7
-      Data: 5|miniRAID.LuaBoundedGetter`3[[System.ValueTuple`2[[miniRAID.Mob, Assembly-CSharp],[miniRAID.Spells.SpellTarget,
-        Assembly-CSharp]], mscorlib],[miniRAID.Mob, Assembly-CSharp],[System.Double,
-        mscorlib]], Assembly-CSharp
+      Data: 5|miniRAID.LuaBoundedGetter`3[[System.ValueTuple`2[[miniRAID.MobData,
+        Assembly-CSharp],[miniRAID.Spells.SpellTarget, Assembly-CSharp]], mscorlib],[miniRAID.MobData,
+        Assembly-CSharp],[System.Double, mscorlib]], Assembly-CSharp
     - Name: type
       Entry: 3
       Data: 0
@@ -173,7 +173,7 @@ MonoBehaviour:
       Data: 
     - Name: isActivelyUsed
       Entry: 7
-      Data: 6|miniRAID.LuaGetter`2[[miniRAID.Mob, Assembly-CSharp],[System.Boolean,
+      Data: 6|miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Boolean,
         mscorlib]], Assembly-CSharp
     - Name: type
       Entry: 3
@@ -182,10 +182,10 @@ MonoBehaviour:
       Entry: 5
       Data: true
     - Name: LuaExpr
-      Entry: 1
+      Entry: 6
       Data: 
     - Name: description
-      Entry: 1
+      Entry: 6
       Data: 
     - Name: getterTemplate
       Entry: 6
@@ -201,14 +201,14 @@ MonoBehaviour:
       Data: 
     - Name: currentStageCompleted
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: query_stack
       Entry: 7
       Data: 8|System.Collections.Generic.Stack`1[[miniRAID.UI.TargetRequester.RequestStage,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 1
     - Name: 
       Entry: 7
       Data: 9|miniRAID.UI.TargetRequester.RequestStage, Assembly-CSharp
@@ -276,9 +276,6 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
       Entry: 13
       Data: 
     - Name: 
@@ -290,19 +287,7 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 8
-    - Name: 
-      Entry: 3
-      Data: 10
-    - Name: 
-      Entry: 8
-      Data: 
+      Data: 0
     - Name: 
       Entry: 13
       Data: 
@@ -315,7 +300,7 @@ MonoBehaviour:
     - Name: onPerform
       Entry: 7
       Data: 14|miniRAID.LuaFunc`2[[System.ValueTuple`3[[miniRAID.GeneralCombatData,
-        Assembly-CSharp],[miniRAID.Mob, Assembly-CSharp],[miniRAID.Spells.SpellTarget,
+        Assembly-CSharp],[miniRAID.MobRenderer, Assembly-CSharp],[miniRAID.Spells.SpellTarget,
         Assembly-CSharp]], mscorlib],[System.Collections.IEnumerator, mscorlib]],
         Assembly-CSharp
     - Name: type

@@ -32,7 +32,7 @@ namespace miniRAID.UIElements
             public string keycode;
 
             public RuntimeAction runtimeAction;
-            public Mob source;
+            public MobRenderer source;
         }
 
         public class ButtonData
@@ -129,7 +129,7 @@ namespace miniRAID.UIElements
 
             if (entry.source != null && entry.runtimeAction != null)
             {
-                if (!entry.source.CheckCalculatedActionCostBounds(entry.runtimeAction))
+                if (!entry.source.data.CheckCalculatedActionCostBounds(entry.runtimeAction))
                 {
                     btn.SetEnabled(false);
                     btn.AddToClassList("disabled");
@@ -195,15 +195,15 @@ namespace miniRAID.UIElements
         }
 
         public static UIMenuEntry GetActionEntry(
-            RuntimeAction action, Mob source, string keycode = null,
+            RuntimeAction action, MobRenderer source, string keycode = null,
             string nameOverride = null, IEnumerator onFinished = null)
         {
             return new UIMenuEntry
             {
                 text = action.data.ActionName,
-                action = action.RequestInUI(source),
+                action = action.RequestInUI(source.data),
                 onFinished = onFinished,
-                toolTip = action.GetTooltip(source),
+                toolTip = action.GetTooltip(source.data),
                 source = source,
                 runtimeAction = action,
                 keycode = keycode,

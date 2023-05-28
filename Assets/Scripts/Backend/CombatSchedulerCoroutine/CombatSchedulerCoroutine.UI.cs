@@ -33,7 +33,7 @@ namespace miniRAID
         }
         #endregion
 
-        Mob chosenMob = null;
+        MobRenderer _chosenMobRenderer = null;
 
         System.Func<IEnumerator> actionToDo = null;
 

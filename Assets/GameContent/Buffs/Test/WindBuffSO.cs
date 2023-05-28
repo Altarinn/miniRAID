@@ -16,7 +16,7 @@ namespace GameContent.Buffs.Test
         public WindBuff(MobData source, BuffSO data) : base(source, data)
         {}
 
-        public override void OnAttach(Mob mob)
+        public override void OnAttach(MobData mob)
         {
             base.OnAttach(mob);
             
@@ -27,7 +27,7 @@ namespace GameContent.Buffs.Test
             };
         }
 
-        private void MobOnCostQuery(Cost cost, RuntimeAction ract, Mob mob)
+        private void MobOnCostQuery(Cost cost, RuntimeAction ract, MobData mob)
         {
             if (cost.type == Cost.Type.AP)
             {

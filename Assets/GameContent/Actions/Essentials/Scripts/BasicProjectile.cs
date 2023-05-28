@@ -13,10 +13,10 @@ namespace miniRAID.Actions
         public SpellBuff buff;
         public SpellDamageHeal damageOrHeal;
         
-        public override IEnumerator OnPerform(RuntimeAction ract, Mob mob, SpellTarget targets)
+        public override IEnumerator OnPerform(RuntimeAction ract, MobData mob, SpellTarget targets)
         {
             Vector2Int target = targets.targetPos[0];
-            Mob dst = Essentials.MobAtGrid(target);
+            MobData dst = Essentials.MobAtGrid(target);
             
             Debug.Log($"Current context: {Globals.cc.animation}");
             

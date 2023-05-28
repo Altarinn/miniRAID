@@ -64,7 +64,7 @@ namespace miniRAID.Buff
             entity.AddGrid(pos);
         }
 
-        public void Fx_OnNextTurn(Mob mob)
+        public void Fx_OnNextTurn(MobData mob)
         {
             timeRemain--;
             if(timeRemain <= 0)
@@ -73,23 +73,23 @@ namespace miniRAID.Buff
             }
         }
 
-        public void RegisterMob(Mob mob)
+        public void RegisterMob(MobData mob)
         {
-            if (activeMobs.ContainsKey(mob.data) || !Consts.ApplyMask(mask, mob.data.unitGroup))
+            if (activeMobs.ContainsKey(mob) || !Consts.ApplyMask(mask, mob.unitGroup))
             {
                 return;
             }
             var copied = new GridEffect(this);
-            mob.ReceiveBuff(copied);
-            activeMobs.Add(mob.data, copied);
+            mob.AddBuff(copied);
+            activeMobs.Add(mob, copied);
         }
 
-        public void RemoveMob(Mob mob)
+        public void RemoveMob(MobData mob)
         {
-            if (activeMobs.ContainsKey(mob.data))
+            if (activeMobs.ContainsKey(mob))
             {
-                mob.RemoveListener(activeMobs[mob.data]);
-                activeMobs.Remove(mob.data);
+                mob.RemoveListener(activeMobs[mob]);
+                activeMobs.Remove(mob);
             }
         }
     }

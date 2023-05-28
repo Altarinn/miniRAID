@@ -15,7 +15,7 @@ namespace miniRAID.ActionHelpers
             throw new NotImplementedException();
         }
 
-        public static Mob MobAtGrid(Vector2Int pos)
+        public static MobData MobAtGrid(Vector2Int pos)
         {
             return Globals.backend.getMap(pos.x, pos.y)?.mob;
         }
@@ -76,7 +76,7 @@ namespace miniRAID.ActionHelpers
         public FloatModifier crit = new(1.0f);
         public FloatModifier hit = new(1.0f);
 
-        public IEnumerator Do(RuntimeAction spellContext, Mob src, Mob tgt)
+        public IEnumerator Do(RuntimeAction spellContext, MobData src, MobData tgt)
         {
             yield return new JumpIn(Globals.backend.DealDmgHeal(
                 tgt,
@@ -97,36 +97,51 @@ namespace miniRAID.ActionHelpers
     public class SpellBuff
     {
         public BuffSO buff;
-        public FloatModifier power = new(1.0f), auxPower = new(1.0f), crit = new(1.0f);
+        public bool inheritPower = true;
+        
+        [ShowIf("inheritPower")] 
+        public FloatModifier power = new(1.0f);
+        
+        [ShowIf("inheritPower")]
+        public FloatModifier auxPower = new(1.0f);
+        
+        [ShowIf("inheritPower")]
+        public FloatModifier crit = new(1.0f);
 
-        public IEnumerator Do(RuntimeAction spellContext, Mob src, Mob tgt)
+        public IEnumerator Do(RuntimeAction spellContext, MobData src, MobData tgt)
         {
             // TODO: Change to coroutine.
             Debug.LogError("Refactor this to coroutine and find better solutions than (power, auxPower).");
             
-            Buff.Buff rbuff = (Buff.Buff)buff.Wrap(src.data);
-            rbuff.power = dNumber.CreateComposite(power.Apply(spellContext.power));
-            rbuff.auxPower = dNumber.CreateComposite(auxPower.Apply(spellContext.auxPower));
-            rbuff.crit = dNumber.CreateComposite(crit.Apply(spellContext.crit));
+            Buff.Buff rbuff = (Buff.Buff)buff.Wrap(src);
 
-            tgt.ReceiveBuff(rbuff);
+            if (inheritPower)
+            {
+                rbuff.power = dNumber.CreateComposite(power.Apply(spellContext.power));
+                rbuff.auxPower = dNumber.CreateComposite(auxPower.Apply(spellContext.auxPower));
+                rbuff.crit = dNumber.CreateComposite(crit.Apply(spellContext.crit));
+            }
+
+            tgt.AddBuff(rbuff);
 
             yield return -1;
         }
     }
 
+    // TODO: Make me to MobData-based.
     public class Summon<T> where T : Component
     {
         public T mobPrefab;
 
-        public Mob Do(Vector2Int position, bool findEmpty = true)
+        // TODO: FIXME: Problematic
+        public MobRenderer Do(Vector2Int position, bool findEmpty = true)
         {
             if (findEmpty)
             {
                 position = Globals.backend.FindNearestEmptyGrid(position);
             }
             
-            var summoned = GameObject.Instantiate(mobPrefab.gameObject, Globals.backend.GridToWorldPos(position) + Vector2.one * 0.5f, Quaternion.identity).GetComponent<Mob>();
+            var summoned = GameObject.Instantiate(mobPrefab.gameObject, Globals.backend.GridToWorldPos(position) + Vector2.one * 0.5f, Quaternion.identity).GetComponent<MobRenderer>();
 
             return summoned;
         }
@@ -137,14 +152,14 @@ namespace miniRAID.ActionHelpers
         public Buff.GridEffectSO effect;
         public GridShape shape;
 
-        public IEnumerator Do(RuntimeAction spellContext, Mob src, Vector2Int targetShapeOrigin)
+        public IEnumerator Do(RuntimeAction spellContext, MobData src, Vector2Int targetShapeOrigin)
         {
             // TODO: Animations?
             
             shape.position = targetShapeOrigin;
             var grids = shape.ApplyTransform();
             GridEffect rfx =
-                (Buff.GridEffect)effect.WrapFx(src.data, new Vector3(targetShapeOrigin.x, targetShapeOrigin.y, 0));
+                (Buff.GridEffect)effect.WrapFx(src, new Vector3(targetShapeOrigin.x, targetShapeOrigin.y, 0));
             
             foreach (var grid in grids)
             {
@@ -152,6 +167,29 @@ namespace miniRAID.ActionHelpers
             }
 
             yield return -1;
+        }
+    }
+
+    public class UnitFilters
+    {
+        public bool toEnemy;
+        public bool toAlly;
+
+        public bool Check(MobData source, MobData target)
+        {
+            bool flag = false;
+            
+            if (toEnemy)
+            {
+                flag |= Consts.ApplyMask(Consts.EnemyMask(source.unitGroup), target.unitGroup);
+            }
+
+            if (toAlly)
+            {
+                flag |= Consts.ApplyMask(Consts.AllyMask(source.unitGroup), target.unitGroup);
+            }
+
+            return flag;
         }
     }
 

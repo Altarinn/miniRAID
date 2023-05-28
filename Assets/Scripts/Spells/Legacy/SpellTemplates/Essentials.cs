@@ -12,7 +12,7 @@ using miniRAID.Spells;
 
 namespace miniRAID
 {
-    public class CaptureAllTargetsWithinRange : LuaGetterTemplate<(GeneralCombatData, Mob, Vector2Int), IEnumerator>
+    public class CaptureAllTargetsWithinRange : LuaGetterTemplate<(GeneralCombatData, MobRenderer, Vector2Int), IEnumerator>
     {
         // TODO: Default value
         public enum RangeType
@@ -35,12 +35,12 @@ namespace miniRAID
         public bool captureUnique = true;
 
         [EventSlot]
-        public LuaFunc<(GeneralCombatData, Mob, Mob), IEnumerator> ForEach;
+        public LuaFunc<(GeneralCombatData, MobRenderer, MobRenderer), IEnumerator> ForEach;
 
-        public override IEnumerator Eval((GeneralCombatData, Mob, Vector2Int) param)
+        public override IEnumerator Eval((GeneralCombatData, MobRenderer, Vector2Int) param)
         {
             GeneralCombatData self = param.Item1;
-            Mob src = param.Item2;
+            MobRenderer src = param.Item2;
             Vector2Int center = param.Item3;
 
             GridShape range = getRange.Eval((center, center + (center - src.data.Position)));
@@ -49,7 +49,7 @@ namespace miniRAID
                 range = self.shape;
             }
 
-            HashSet<Mob> captured = new HashSet<Mob>();
+            HashSet<MobRenderer> captured = new HashSet<MobRenderer>();
 
             if(rangeType == RangeType.GridShape)
             {
@@ -61,7 +61,7 @@ namespace miniRAID
                     {
                         if (!captureAllies)
                         {
-                            if (Consts.ApplyMask(Consts.AllyMask(src.data.unitGroup), grid.mob.data.unitGroup))
+                            if (Consts.ApplyMask(Consts.AllyMask(src.data.unitGroup), grid.mob.unitGroup))
                             {
                                 continue;
                             }
@@ -69,13 +69,13 @@ namespace miniRAID
 
                         if (!captureEnemies)
                         {
-                            if (Consts.ApplyMask(Consts.EnemyMask(src.data.unitGroup), grid.mob.data.unitGroup))
+                            if (Consts.ApplyMask(Consts.EnemyMask(src.data.unitGroup), grid.mob.unitGroup))
                             {
                                 continue;
                             }
                         }
 
-                        Mob dst = grid.mob;
+                        MobRenderer dst = grid.mob.mobRenderer;
                         if (captureUnique)
                         {
                             if (!captured.Contains(dst))
@@ -92,7 +92,7 @@ namespace miniRAID
 
                 if (captureUnique)
                 {
-                    foreach (Mob dst in captured)
+                    foreach (MobRenderer dst in captured)
                     {
                         yield return new JumpIn(ForEach.Eval((self, src, dst)));
                     }
@@ -105,12 +105,12 @@ namespace miniRAID
                 if (captureEnemies) { mask |= Consts.EnemyMask(src.data.unitGroup); }
 
                 var capturedGrids = Globals.backend.GetGridsWithMob(
-                    (Databackend.IsMobValidFunc)((Mob mob) => Consts.ApplyMask(mask, mob.data.unitGroup)),
+                    (Databackend.IsMobValidFunc)((MobData mob) => Consts.ApplyMask(mask, mob.unitGroup)),
                     (Databackend.IsGridValidFunc)((Vector2Int pos, GridData grid) => ((Consts.Distance(center, pos) <= ballRadius)))
                 );
-                captured = capturedGrids.Select(p => Globals.backend.getMap(p.x, p.y).mob).ToHashSet();
+                captured = capturedGrids.Select(p => Globals.backend.getMap(p.x, p.y).mob.mobRenderer).ToHashSet();
 
-                foreach (Mob dst in captured)
+                foreach (MobRenderer dst in captured)
                 {
                     yield return new JumpIn(ForEach.Eval((self, src, dst)));
                 }
@@ -149,13 +149,13 @@ namespace miniRAID
     public class ForAllPositions : ActionOnPerformTemplate
     {
         [EventSlot]
-        public LuaFunc<(GeneralCombatData, Mob, Vector2Int), IEnumerator> ForEach;
+        public LuaFunc<(GeneralCombatData, MobRenderer, Vector2Int), IEnumerator> ForEach;
 
-        public override IEnumerator EasyEval(GeneralCombatData self, Mob mob, SpellTarget target)
+        public override IEnumerator EasyEval(GeneralCombatData self, MobRenderer mobRenderer, SpellTarget target)
         {
             foreach(var pos in target.targetPos)
             {
-                yield return new JumpIn(ForEach.Eval((self, mob, pos)));
+                yield return new JumpIn(ForEach.Eval((self, mobRenderer, pos)));
             }
         }
     }
@@ -163,11 +163,11 @@ namespace miniRAID
     public class AtSelf : ActionOnPerformTemplate
     {
         [EventSlot]
-        public LuaFunc<(GeneralCombatData, Mob, Vector2Int), IEnumerator> Action;
+        public LuaFunc<(GeneralCombatData, MobRenderer, Vector2Int), IEnumerator> Action;
 
-        public override IEnumerator EasyEval(GeneralCombatData self, Mob mob, SpellTarget target)
+        public override IEnumerator EasyEval(GeneralCombatData self, MobRenderer mobRenderer, SpellTarget target)
         {
-            yield return new JumpIn(Action.Eval((self, mob, mob.data.Position)));
+            yield return new JumpIn(Action.Eval((self, mobRenderer, mobRenderer.data.Position)));
         }
     }
 
@@ -176,60 +176,60 @@ namespace miniRAID
         public int index = 0;
 
         [EventSlot]
-        public LuaFunc<(GeneralCombatData, Mob, Vector2Int), IEnumerator> Action;
+        public LuaFunc<(GeneralCombatData, MobRenderer, Vector2Int), IEnumerator> Action;
 
-        public override IEnumerator EasyEval(GeneralCombatData self, Mob mob, SpellTarget target)
+        public override IEnumerator EasyEval(GeneralCombatData self, MobRenderer mobRenderer, SpellTarget target)
         {
             yield return new JumpIn(Action.Eval((
                 self, 
-                mob, 
+                mobRenderer, 
                 target.targetPos[Mathf.Min(target.targetPos.Count - 1, index)]
             )));
         }
     }
 
-    public class ToSpellTarget : LuaGetterTemplate<(GeneralCombatData, Mob, Mob), IEnumerator>
+    public class ToSpellTarget : LuaGetterTemplate<(GeneralCombatData, MobRenderer, MobRenderer), IEnumerator>
     {
         [EventSlot]
-        public LuaFunc<(GeneralCombatData, Mob, SpellTarget), IEnumerator> Action;
+        public LuaFunc<(GeneralCombatData, MobRenderer, SpellTarget), IEnumerator> Action;
 
-        public override IEnumerator Eval((GeneralCombatData, Mob, Mob) param)
+        public override IEnumerator Eval((GeneralCombatData, MobRenderer, MobRenderer) param)
         {
             yield return new JumpIn(Action.Eval((param.Item1, param.Item2, new SpellTarget(param.Item3.data.Position))));
         }
     }
 
-    public class ToVector2Int : LuaGetterTemplate<(GeneralCombatData, Mob, Mob), IEnumerator>
+    public class ToVector2Int : LuaGetterTemplate<(GeneralCombatData, MobRenderer, MobRenderer), IEnumerator>
     {
         [EventSlot]
-        public LuaFunc<(GeneralCombatData, Mob, Vector2Int), IEnumerator> Action;
+        public LuaFunc<(GeneralCombatData, MobRenderer, Vector2Int), IEnumerator> Action;
 
-        public override IEnumerator Eval((GeneralCombatData, Mob, Mob) param)
+        public override IEnumerator Eval((GeneralCombatData, MobRenderer, MobRenderer) param)
         {
             yield return new JumpIn(Action.Eval((param.Item1, param.Item2, param.Item3.data.Position)));
         }
     }
 
-    public class DoDamage : LuaGetterTemplate<(GeneralCombatData, Mob, Mob), IEnumerator>
+    public class DoDamage : LuaGetterTemplate<(GeneralCombatData, MobRenderer, MobRenderer), IEnumerator>
     {
-        public LuaGetter<Mob, Consts.Elements> damageType;
+        public LuaGetter<MobRenderer, Consts.Elements> damageType;
 
         // TODO: Default value
         [LabelText("Power%")]
-        public LuaGetter<Mob, float> power = new LuaGetter<Mob, float>(1.0f);
+        public LuaGetter<MobRenderer, float> power = new LuaGetter<MobRenderer, float>(1.0f);
 
-        public override IEnumerator Eval((GeneralCombatData, Mob, Mob) param)
+        public override IEnumerator Eval((GeneralCombatData, MobRenderer, MobRenderer) param)
         {
             GeneralCombatData self = param.Item1;
-            Mob src = param.Item2;
-            Mob dst = param.Item3;
+            MobRenderer src = param.Item2;
+            MobRenderer dst = param.Item3;
 
             // TODO: Change to coroutine.
             Debug.LogError("Refactor this to coroutine.");
-            yield return new JumpIn(Globals.backend.DealDmgHeal(dst,
+            yield return new JumpIn(Globals.backend.DealDmgHeal(dst.data,
                 new Consts.DamageHeal_FrontEndInput
                 {
-                    source = src,
+                    source = src.data,
                     value = power.Eval(src) * self.power,
                     type = damageType.Eval(src),
 
@@ -243,7 +243,7 @@ namespace miniRAID
         }
     }
 
-    public class ApplyBuff : LuaGetterTemplate<(GeneralCombatData, Mob, Mob), IEnumerator>
+    public class ApplyBuff : LuaGetterTemplate<(GeneralCombatData, MobRenderer, MobRenderer), IEnumerator>
     {
         [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
         public Buff.BuffSO buff;
@@ -254,11 +254,11 @@ namespace miniRAID
         [LabelText("Aux. power%")]
         public float auxPower;
 
-        public override IEnumerator Eval((GeneralCombatData, Mob, Mob) param)
+        public override IEnumerator Eval((GeneralCombatData, MobRenderer, MobRenderer) param)
         {
             GeneralCombatData self = param.Item1;
-            Mob src = param.Item2;
-            Mob dst = param.Item3;
+            MobRenderer src = param.Item2;
+            MobRenderer dst = param.Item3;
 
             // TODO: Change to coroutine.
             Debug.LogError("Refactor this to coroutine.");
@@ -266,37 +266,37 @@ namespace miniRAID
             rbuff.power = dNumber.CreateComposite(self.power.Value * power);
             rbuff.auxPower = dNumber.CreateComposite(self.auxPower * auxPower);
             rbuff.crit = dNumber.CreateComposite(src.data.crit);
-            dst.ReceiveBuff(rbuff);
+            dst.data.AddBuff(rbuff);
 
             yield break;
         }
     }
 
-    public class DoDamageAtGrid : LuaGetterTemplate<(GeneralCombatData, Mob, Vector2Int), IEnumerator>
+    public class DoDamageAtGrid : LuaGetterTemplate<(GeneralCombatData, MobRenderer, Vector2Int), IEnumerator>
     {
-        public LuaGetter<Mob, Consts.Elements> damageType;
+        public LuaGetter<MobRenderer, Consts.Elements> damageType;
 
         // TODO: Default value
         [LabelText("Power%")]
-        public LuaGetter<Mob, float> power = new LuaGetter<Mob, float>(1.0f);
+        public LuaGetter<MobRenderer, float> power = new LuaGetter<MobRenderer, float>(1.0f);
 
-        public override IEnumerator Eval((GeneralCombatData, Mob, Vector2Int) param)
+        public override IEnumerator Eval((GeneralCombatData, MobRenderer, Vector2Int) param)
         {
             GeneralCombatData self = param.Item1;
-            Mob src = param.Item2;
+            MobRenderer src = param.Item2;
 
             GridData grid = Globals.backend.getMap(param.Item3.x, param.Item3.y);
             if(grid == null) { yield break; }
 
-            Mob dst = grid.mob;
+            MobRenderer dst = grid.mob.mobRenderer;
             if(dst == null) { yield break; }
 
             // TODO: Change to coroutine.
             Debug.LogError("Refactor this to coroutine.");
-            yield return new JumpIn(Globals.backend.DealDmgHeal(dst,
+            yield return new JumpIn(Globals.backend.DealDmgHeal(dst.data,
                 new Consts.DamageHeal_FrontEndInput
                 {
-                    source = src,
+                    source = src.data,
                     value = power.Eval(src) * self.power,
                     type = damageType.Eval(src),
 
@@ -310,7 +310,7 @@ namespace miniRAID
         }
     }
 
-    public class BuffAtGrid : LuaGetterTemplate<(GeneralCombatData, Mob, Vector2Int), IEnumerator>
+    public class BuffAtGrid : LuaGetterTemplate<(GeneralCombatData, MobRenderer, Vector2Int), IEnumerator>
     {
         [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
         public Buff.BuffSO buff;
@@ -321,15 +321,15 @@ namespace miniRAID
         [LabelText("Aux. power%")]
         public float auxPower;
 
-        public override IEnumerator Eval((GeneralCombatData, Mob, Vector2Int) param)
+        public override IEnumerator Eval((GeneralCombatData, MobRenderer, Vector2Int) param)
         {
             GeneralCombatData self = param.Item1;
-            Mob src = param.Item2;
+            MobRenderer src = param.Item2;
 
             GridData grid = Globals.backend.getMap(param.Item3.x, param.Item3.y);
             if (grid == null) { yield break; }
 
-            Mob dst = grid.mob;
+            MobRenderer dst = grid.mob.mobRenderer;
             if (dst == null) { yield break; }
 
             // TODO: Change to coroutine.
@@ -338,27 +338,27 @@ namespace miniRAID
             rbuff.power = dNumber.CreateComposite(self.power * power);
             rbuff.auxPower = dNumber.CreateComposite(self.auxPower * auxPower);
             rbuff.crit = dNumber.CreateComposite(src.data.crit);
-            dst.ReceiveBuff(rbuff);
+            dst.data.AddBuff(rbuff);
 
             yield break;
         }
     }
 
-    public class SummonAtGrid : LuaGetterTemplate<(GeneralCombatData, Mob, Vector2Int), IEnumerator>
+    public class SummonAtGrid : LuaGetterTemplate<(GeneralCombatData, MobRenderer, Vector2Int), IEnumerator>
     {
-        public Mob mobPrefab;
+        public MobRenderer MobRendererPrefab;
 
         [EventSlot]
-        public LuaFunc<(GeneralCombatData, Mob, Mob), IEnumerator> Initialization;
+        public LuaFunc<(GeneralCombatData, MobRenderer, MobRenderer), IEnumerator> Initialization;
 
-        public override IEnumerator Eval((GeneralCombatData, Mob, Vector2Int) param)
+        public override IEnumerator Eval((GeneralCombatData, MobRenderer, Vector2Int) param)
         {
             GeneralCombatData self = param.Item1;
-            Mob src = param.Item2;
+            MobRenderer src = param.Item2;
 
             var position = Globals.backend.FindNearestEmptyGrid(param.Item3);
 
-            var summoned = GameObject.Instantiate(mobPrefab.gameObject, Globals.backend.GridToWorldPos(position) + Vector2.one * 0.5f, Quaternion.identity).GetComponent<Mob>();
+            var summoned = GameObject.Instantiate(MobRendererPrefab.gameObject, Globals.backend.GridToWorldPos(position) + Vector2.one * 0.5f, Quaternion.identity).GetComponent<MobRenderer>();
 
             yield return new JumpIn(Initialization.Eval((self, src, summoned)));
         }

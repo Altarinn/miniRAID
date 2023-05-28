@@ -66,23 +66,23 @@ namespace miniRAID
 
         // TODO: Boolean arrays
         // public List<string> Tags;
-        public LuaGetter<Mob, float> power, auxPower;
+        public LuaGetter<MobData, float> power, auxPower;
 
         // Cost related
         [Title("Costs", horizontalLine: true, bold: true)]
         [DictionaryDrawerSettings(DisplayMode = DictionaryDisplayOptions.OneLine)]
         public Dictionary<
             Cost.Type,
-            LuaBoundedGetter<(Mob, Spells.SpellTarget), Mob, double>> costs = new();
+            LuaBoundedGetter<(MobData, Spells.SpellTarget), MobData, double>> costs = new();
         //public LuaGetter<(Mob, Spells.SpellTarget), GCDGroup> gcdGroup = GCDGroup.Common;
 
-        public LuaGetter<Mob, bool> isActivelyUsed = true;
+        public LuaGetter<MobData, bool> isActivelyUsed = true;
 
         [Title("Requester & Validation", horizontalLine: true, bold: true)]
         [Sirenix.OdinInspector.TypeFilter("GetRequesterTypes")]
         public UI.TargetRequester.TargetRequesterBase Requester;
 
-        public virtual bool CheckCosts(Mob mob, RuntimeAction ract)
+        public virtual bool CheckCosts(MobRenderer mobRenderer, RuntimeAction ract)
         {
             // TODO
             return true;
@@ -91,7 +91,7 @@ namespace miniRAID
             //CooldownRemain <= 0;
         }
 
-        public void DoCosts(Mob mob)
+        public void DoCosts(MobRenderer mobRenderer)
         {
             // TODO
         }
@@ -101,9 +101,9 @@ namespace miniRAID
         //public ActionValidatorSO validator;
 
         public virtual bool Equipable(MobData mobdata) { return true; }
-        public virtual bool Check(Mob mob) { return true; }
+        public virtual bool Check(MobData mob) { return true; }
 
-        public virtual bool CheckWithTargets(Mob mob, Spells.SpellTarget target)
+        public virtual bool CheckWithTargets(MobData mob, Spells.SpellTarget target)
         {
             // TODO
             if (Requester == null)
@@ -127,11 +127,11 @@ namespace miniRAID
         [Title("Behaviour")]
         [Sirenix.Serialization.OdinSerialize]
         [EventSlot]
-        public LuaFunc<(GeneralCombatData, Mob, Spells.SpellTarget), IEnumerator> onPerform = new();
+        public LuaFunc<(GeneralCombatData, MobRenderer, Spells.SpellTarget), IEnumerator> onPerform = new();
 
         // [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
         // public ActionOnPerformSO onPerform_SO;
-        public virtual IEnumerator OnPerform(RuntimeAction ract, Mob mob,
+        public virtual IEnumerator OnPerform(RuntimeAction ract, MobData mob,
             Spells.SpellTarget target)
         {
             yield return -1;
@@ -140,9 +140,9 @@ namespace miniRAID
         // public ScriptGraphAsset scriptGraph;
 
         [Obsolete("Use RuntimeAction.Do instead.")]
-        public virtual IEnumerator OnPerform(GeneralCombatData combatData, Mob mob, Spells.SpellTarget target)
+        public virtual IEnumerator OnPerform(GeneralCombatData combatData, MobRenderer mobRenderer, Spells.SpellTarget target)
         {
-            yield return new JumpIn(onPerform.Eval((combatData, mob, target)));
+            yield return new JumpIn(onPerform.Eval((combatData, mobRenderer, target)));
         }
 
         //public override bool Equals(object other)
@@ -234,10 +234,10 @@ namespace miniRAID
         GeneralCombatData envData = new();
 
         [CSharpCallLua]
-        public delegate IEnumerator ActionOnPerform(Mob mob, Spells.SpellTarget target);
+        public delegate IEnumerator ActionOnPerform(MobRenderer mobRenderer, Spells.SpellTarget target);
 
         [CSharpCallLua]
-        public delegate void Test(Mob mob);
+        public delegate void Test(MobRenderer mobRenderer);
 
         string paddedLuaExpr;
 
@@ -268,7 +268,7 @@ namespace miniRAID
          * > Do()
          */
         // TODO: Move Get delegate to Ctor
-        public IEnumerator Do(Mob mob, Spells.SpellTarget target/*, bool cd = true*//*, bool host = false*/)
+        public IEnumerator Do(MobData mob, Spells.SpellTarget target/*, bool cd = true*//*, bool host = false*/)
         {
             //            string postfix = data.Id;
             //            paddedLuaExpr = @$"function routine_{postfix}(mob, target)
@@ -294,7 +294,7 @@ namespace miniRAID
             // yield return new WaitForSeconds(.5f);
         }
 
-        public IEnumerator Activate(Mob mob, Spells.SpellTarget target)
+        public IEnumerator Activate(MobData mob, Spells.SpellTarget target)
         {
             if(data.CheckWithTargets(mob, target))
             {
@@ -302,7 +302,7 @@ namespace miniRAID
             }
         }
 
-        public string GetTooltip(Mob mob)
+        public string GetTooltip(MobData mob)
         {
             string costString = "";
             foreach (var costBound in costBounds)
@@ -329,13 +329,13 @@ namespace miniRAID
                 $"TODO - rAct.GetTooltip().";
         }
 
-        public IEnumerator RequestInUI(Mob mob)
+        public IEnumerator RequestInUI(MobData mob)
         {
             Debug.LogWarning("Refactor UI to Coroutine based as well as Requesters !!!!!");
 
             if(cooldownRemain > 0)
             {
-                Globals.debugMessage.Instance.Message($"{mob.data.nickname} 的 {data.name} 还没有准备好！");
+                Globals.debugMessage.Instance.Message($"{mob.nickname} 的 {data.name} 还没有准备好！");
                 yield break;
             }
 
@@ -365,7 +365,7 @@ namespace miniRAID
             }
         }
 
-        public void RecalculateStats(Mob mob)
+        public void RecalculateStats(MobData mob)
         {
             // 1. Reset stats
             costBounds.Clear();
@@ -397,7 +397,7 @@ namespace miniRAID
             // After the event, we go to OnRecalculateStatsFinish().
         }
 
-        public void OnRecalculateStatsFinish(Mob mob)
+        public void OnRecalculateStatsFinish(MobData mob)
         {
             if (envData == null) { envData = new(); }
 
@@ -412,13 +412,13 @@ namespace miniRAID
             cooldownRemain = cd;
         }
 
-        public virtual void OnNextTurn(Mob mob)
+        public virtual void OnNextTurn(MobData mob)
         {
             cooldownRemain -= 1;
             if (cooldownRemain < 0) { cooldownRemain = 0; }
         }
 
-        public override void OnAttach(Mob mob)
+        public override void OnAttach(MobData mob)
         {
             base.OnAttach(mob);
 

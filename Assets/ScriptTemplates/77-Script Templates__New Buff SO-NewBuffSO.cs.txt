@@ -1,0 +1,37 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System.Linq;
+
+using miniRAID;
+using miniRAID.Buff;
+
+namespace GameContent.Buffs.Test
+{
+    public class #SCRIPTNAME# : BuffSO
+    {
+        public override MobListener Wrap(MobData parent)
+        {
+            return new #SCRIPTNAME#RuntimeBuff(parent, this);
+        }
+    }
+
+    public class #SCRIPTNAME#RuntimeBuff : Buff
+    {
+        public #SCRIPTNAME#RuntimeBuff(MobData source, #SCRIPTNAME# data) : base(source, data)
+        {}
+
+        public override void OnAttach(MobData mob)
+        {
+            base.OnAttach(mob);
+            
+            /* Custom events:
+            mob.OnXXXX += XXXX;
+            onRemoveFromMob += m =>
+            {
+                m.OnXXXX -= XXXX;
+            };
+            */
+        }
+    }
+}

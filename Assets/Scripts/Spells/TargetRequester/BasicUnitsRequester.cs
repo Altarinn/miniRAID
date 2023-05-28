@@ -35,11 +35,11 @@ namespace miniRAID.UI.TargetRequester
             // Handle grids with enemy
             if (toEnemies)
             {
-                int mask = Consts.EnemyMask(mob.data.unitGroup);
+                int mask = Consts.EnemyMask(mob.unitGroup);
 
                 var validGrids = Globals.backend.GetGridsWithMob(
-                    (Databackend.IsMobValidFunc)((Mob mob) => Consts.ApplyMask(mask, mob.data.unitGroup)),
-                    (Databackend.IsGridValidFunc)((Vector2Int pos, GridData grid) => ((!choice.Contains(pos)) && (Consts.Distance(mob.data.Position, pos) <= range))));
+                    (Databackend.IsMobValidFunc)((MobData mob) => Consts.ApplyMask(mask, mob.unitGroup)),
+                    (Databackend.IsGridValidFunc)((Vector2Int pos, GridData grid) => ((!choice.Contains(pos)) && (Consts.Distance(mob.Position, pos) <= range))));
 
                 foreach (var pos in validGrids)
                 {
@@ -50,11 +50,11 @@ namespace miniRAID.UI.TargetRequester
             // Handle grids with ally
             if(toAllies)
             {
-                int mask = Consts.AllyMask(mob.data.unitGroup);
+                int mask = Consts.AllyMask(mob.unitGroup);
 
                 var validGrids = Globals.backend.GetGridsWithMob(
-                    (Databackend.IsMobValidFunc)((Mob mob) => Consts.ApplyMask(mask, mob.data.unitGroup)),
-                    (Databackend.IsGridValidFunc)((Vector2Int pos, GridData grid) => ((!choice.Contains(pos)) && (Consts.Distance(mob.data.Position, pos) <= range))));
+                    (Databackend.IsMobValidFunc)((MobData mob) => Consts.ApplyMask(mask, mob.unitGroup)),
+                    (Databackend.IsGridValidFunc)((Vector2Int pos, GridData grid) => ((!choice.Contains(pos)) && (Consts.Distance(mob.Position, pos) <= range))));
 
                 foreach (var pos in validGrids)
                 {
@@ -76,11 +76,11 @@ namespace miniRAID.UI.TargetRequester
             Finish(new Spells.SpellTarget(choice));
         }
 
-        public override bool CheckTargets(Mob mob, SpellTarget target)
+        public override bool CheckTargets(MobData mob, SpellTarget target)
         {
             foreach (var pos in target.targetPos)
             {
-                if(Globals.backend.Distance(mob.data.Position, pos) > range)
+                if(Globals.backend.Distance(mob.Position, pos) > range)
                 {
                     return false;
                 }
@@ -97,12 +97,12 @@ namespace miniRAID.UI.TargetRequester
             var pointedMob = Globals.backend.getMap(gridPos.x, gridPos.y)?.mob;
             if (pointedMob == null) { return; }
 
-            if(toEnemies && Consts.ApplyMask(Consts.EnemyMask(mob.data.unitGroup), pointedMob.data.unitGroup))
+            if(toEnemies && Consts.ApplyMask(Consts.EnemyMask(mob.unitGroup), pointedMob.unitGroup))
             {
                 ui.combatView.ShowBattlePreview("test");
             }
 
-            if(toAllies && Consts.ApplyMask(Consts.AllyMask(mob.data.unitGroup), pointedMob.data.unitGroup))
+            if(toAllies && Consts.ApplyMask(Consts.AllyMask(mob.unitGroup), pointedMob.unitGroup))
             {
                 ui.combatView.ShowBattlePreview("test");
             }

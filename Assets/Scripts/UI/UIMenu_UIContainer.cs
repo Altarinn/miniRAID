@@ -142,14 +142,14 @@ namespace miniRAID.UI
         }
 
         public Button AddActionEntry(
-            RuntimeAction action, Mob source, 
+            RuntimeAction action, MobRenderer source, 
             string nameOverride = null, bool selected = false, IEnumerator onFinished = null)
         {
             Button btn = AddEntry(
                 action.data.ActionName,
-                action.RequestInUI(source),
+                action.RequestInUI(source.data),
                 onFinished,
-                action.GetTooltip(source),
+                action.GetTooltip(source.data),
                 selected
             );
             btn.gameObject.AddComponent<ActionButtonModifier>().SetData(action, source, nameOverride);

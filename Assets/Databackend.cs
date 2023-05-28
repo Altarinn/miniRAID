@@ -22,7 +22,7 @@ namespace miniRAID
         TerrainType type;
 
         public bool solid = false;
-        public Mob mob;
+        public MobData mob;
 
         public Dictionary<GridEffect, GridEffect> effects = new Dictionary<GridEffect, GridEffect>();
     }
@@ -90,7 +90,7 @@ namespace miniRAID
 
         public struct DamageHeal_FrontEndInput
         {
-            public Mob source;
+            public MobData source;
             public float value;
             public Elements type;
 
@@ -108,10 +108,20 @@ namespace miniRAID
             public bool popup;
         }
 
+        public class DamageHeal_FrontEndInput_ByRef
+        {
+            public DamageHeal_FrontEndInput value;
+
+            public DamageHeal_FrontEndInput_ByRef(DamageHeal_FrontEndInput val)
+            {
+                value = val;
+            }
+        }
+
         public class DamageHeal_Result
         {
-            public Mob source;
-            public Mob target;
+            public MobData source;
+            public MobData target;
 
             public int value;
             public int overdeal;
@@ -312,7 +322,7 @@ namespace miniRAID
     [XLua.LuaCallCSharp]
     public class Databackend
     {
-        const int MAX_MAP_SIZE = 100;
+        const int MAX_MAP_SIZE = 16;
 
         static private Databackend instance;
         static public Databackend GetSingleton()
@@ -326,7 +336,7 @@ namespace miniRAID
 
         GridData[,] map = new GridData[MAX_MAP_SIZE, MAX_MAP_SIZE];
         bool[,] visited = new bool[MAX_MAP_SIZE, MAX_MAP_SIZE];
-        public HashSet<Mob> allMobs { get; private set; } = new HashSet<Mob>();
+        public HashSet<MobData> allMobs { get; private set; } = new HashSet<MobData>();
         public Dictionary<GridEffect, List<Vector2Int>> allGridEffects { get; private set; } = new();
         public int mapWidth, mapHeight;
 
@@ -352,7 +362,7 @@ namespace miniRAID
             return map[x, y];
         }
 
-        public void SetMob(int x, int y, GridShape body, Mob mob)
+        public void SetMob(int x, int y, GridShape body, MobData mob)
         {
             foreach (Vector2Int p in body.shape)
             {
@@ -365,7 +375,7 @@ namespace miniRAID
             }
         }
 
-        public void ClearMob(int x, int y, GridShape body, Mob mob, bool remove = true)
+        public void ClearMob(int x, int y, GridShape body, MobData mob, bool remove = true)
         {
             foreach (Vector2Int p in body.shape)
             {
@@ -381,12 +391,12 @@ namespace miniRAID
             }
         }
 
-        public void SetMob(Vector2Int pos, GridShape body, Mob mob)
+        public void SetMob(Vector2Int pos, GridShape body, MobData mob)
         {
             SetMob(pos.x, pos.y, body, mob);
         }
 
-        public void ClearMob(Vector2Int pos, GridShape body, Mob mob, bool remove = true)
+        public void ClearMob(Vector2Int pos, GridShape body, MobData mob, bool remove = true)
         {
             ClearMob(pos.x, pos.y, body, mob, remove);
         }
@@ -423,7 +433,7 @@ namespace miniRAID
         }
 
         Dictionary<GridEffect, bool> gridEffectChanges = new();
-        public void MoveMob(Vector2Int from, Vector2Int to, Mob mob)
+        public void MoveMob(Vector2Int from, Vector2Int to, MobData mob)
         {
             gridEffectChanges.Clear();
 
@@ -509,16 +519,17 @@ namespace miniRAID
             return GridShape.Direction.Up;
         }
 
-        public IEnumerator DealDmgHeal(Mob target, Consts.DamageHeal_FrontEndInput input)
+        public IEnumerator DealDmgHeal(MobData target, Consts.DamageHeal_FrontEndInput input)
         {
             Consts.DamageHeal_Result result = new Consts.DamageHeal_Result();
             yield return new JumpIn(target.ReceiveDamage(input, result));
 
-            Globals.debugMessage.Instance.Message($"{result.source.gameObject.name} 的 {result.Name} 对 {target.gameObject.name} 造成了 {result.value} 点 {result.type} {(result.type == Consts.Elements.Heal ? "" : "伤害")}。");
+            Globals.debugMessage.Instance.Message($"{result.source.nickname} 的 {result.Name} 对 {target.nickname} 造成了 {result.value} 点 {result.type} {(result.type == Consts.Elements.Heal ? "" : "伤害")}。");
 
             // TODO: make a popup manager
             // {result.Name} 
-            Globals.popupMgr.Instance.Popup($"{result.value.ToString()}", target.transform.position);
+            if(target.mobRenderer != null)
+                Globals.popupMgr.Instance.Popup($"{result.value.ToString()}", target.mobRenderer.transform.position);
 
             Globals.combatStats.Record(result);
 
@@ -536,7 +547,7 @@ namespace miniRAID
         /// </summary>
         /// <param name="mob">Mob that you want to check with. This method uses mob.data.position and mob.data.actionPoints as starting point.</param>
         /// <returns></returns>
-        public HashSet<Vector2Int> GetMoveableGrids(Mob mob)
+        public HashSet<Vector2Int> GetMoveableGrids(MobData mob)
         {
             // TODO: detailed check
 
@@ -546,8 +557,8 @@ namespace miniRAID
 
             Vector2Int[] dirc = new Vector2Int[] { new Vector2Int(0, 1), new Vector2Int(0, -1), new Vector2Int(1, 0), new Vector2Int(-1, 0) };
 
-            BFSQueue.Enqueue(new KeyValuePair<Vector2Int, int>(mob.data.Position, Mathf.RoundToInt(mob.data.actionPoints * 100)));
-            visited[mob.data.Position.x, mob.data.Position.y] = true;
+            BFSQueue.Enqueue(new KeyValuePair<Vector2Int, int>(mob.Position, Mathf.RoundToInt(mob.actionPoints * 100)));
+            visited[mob.Position.x, mob.Position.y] = true;
 
             while (BFSQueue.Count > 0)
             {
@@ -577,7 +588,7 @@ namespace miniRAID
         }
 
         public delegate bool IsGridValidFunc(Vector2Int pos, GridData data);
-        public delegate bool IsMobValidFunc(Mob mob);
+        public delegate bool IsMobValidFunc(MobData mob);
 
         public HashSet<Vector2Int> GetGridsWithMob(IsMobValidFunc mobFilter, IsGridValidFunc gridFilter)
         {
@@ -587,7 +598,7 @@ namespace miniRAID
             {
                 if (mobFilter == null || mobFilter(mob))
                 {
-                    Vector2Int pivot = mob.data.Position;
+                    Vector2Int pivot = mob.Position;
                     foreach (var grid in mob.gridBody.shape)
                     {
                         Vector2Int current = pivot + grid;
@@ -708,11 +719,11 @@ namespace miniRAID
             return null;
         }
 
-        public bool IsPathValid(Mob mob, GridPath path)
+        public bool IsPathValid(MobData mob, GridPath path)
         {
             // TODO: detailed check
 
-            return path.path.Count <= mob.data.actionPoints;
+            return path.path.Count <= mob.actionPoints;
         }
 
         public bool CanGridPlaceMob(Vector2Int center, GridShape body)
@@ -786,7 +797,7 @@ namespace miniRAID
             return Mathf.Abs(tmp.x) + Mathf.Abs(tmp.y);
         }
 
-        public List<Mob> GetAllMobs()
+        public List<MobData> GetAllMobs()
         {
             return allMobs.ToList();
         }

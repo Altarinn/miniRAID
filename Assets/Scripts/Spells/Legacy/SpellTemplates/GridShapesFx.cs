@@ -12,7 +12,7 @@ using miniRAID.Spells;
 
 namespace miniRAID
 {
-    public class PopulateGridShapeAt : LuaGetterTemplate<(GeneralCombatData, Mob, Vector2Int), IEnumerator>
+    public class PopulateGridShapeAt : LuaGetterTemplate<(GeneralCombatData, MobRenderer, Vector2Int), IEnumerator>
     {
         // TODO: Default value
 
@@ -20,12 +20,12 @@ namespace miniRAID
         public LuaFunc<(Vector2, Vector2), GridShape> getRange;
 
         [EventSlot]
-        public LuaFunc<(GeneralCombatData, Mob, SpellTarget), IEnumerator> Action;
+        public LuaFunc<(GeneralCombatData, MobRenderer, SpellTarget), IEnumerator> Action;
 
-        public override IEnumerator Eval((GeneralCombatData, Mob, Vector2Int) param)
+        public override IEnumerator Eval((GeneralCombatData, MobRenderer, Vector2Int) param)
         {
             GeneralCombatData self = param.Item1;
-            Mob src = param.Item2;
+            MobRenderer src = param.Item2;
             Vector2Int center = param.Item3;
 
             GridShape range = getRange.Eval((center, center + (center - src.data.Position)));
@@ -41,17 +41,17 @@ namespace miniRAID
         }
     }
 
-    public class CreateGridEffectAt : LuaGetterTemplate<(GeneralCombatData, Mob, Vector2Int), IEnumerator>
+    public class CreateGridEffectAt : LuaGetterTemplate<(GeneralCombatData, MobRenderer, Vector2Int), IEnumerator>
     {
         public Buff.GridEffectSO fx;
 
         [EventSlot]
         public LuaFunc<(Vector2, Vector2), GridShape> getRange;
 
-        public override IEnumerator Eval((GeneralCombatData, Mob, Vector2Int) param)
+        public override IEnumerator Eval((GeneralCombatData, MobRenderer, Vector2Int) param)
         {
             GeneralCombatData self = param.Item1;
-            Mob src = param.Item2;
+            MobRenderer src = param.Item2;
             Vector2Int center = param.Item3;
 
             GridShape range = getRange.Eval((center, center + (center - src.data.Position)));

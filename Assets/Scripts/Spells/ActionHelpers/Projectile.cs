@@ -25,12 +25,12 @@ namespace miniRAID.ActionHelpers
         }
         
         public IEnumerator WaitForShootAt(
-            Mob mob, 
+            MobData mob, 
             Vector2Int target)
         {
-            if (Globals.cc.animation)
+            if (Globals.cc.animation && mob.mobRenderer != null)
             {
-                GameObject obj = GameObject.Instantiate(projectilePrefab, mob.transform.position + Vector3.back, Quaternion.identity);
+                GameObject obj = GameObject.Instantiate(projectilePrefab, mob.mobRenderer.transform.position + Vector3.back, Quaternion.identity);
             
                 obj.GetComponent<TestProjectile>().Init(projectileSprite, projectileTrail, Color.white, Color.white);
 

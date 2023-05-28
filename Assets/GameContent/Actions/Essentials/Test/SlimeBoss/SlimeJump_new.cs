@@ -14,14 +14,14 @@ namespace miniRAID
     {
         public CreateGridEffect poisonPool;
         
-        public override IEnumerator OnPerform(RuntimeAction ract, Mob mob,
+        public override IEnumerator OnPerform(RuntimeAction ract, MobData mob,
             Spells.SpellTarget target)
         {
             // Perform Jump
             yield return mob.WaitForAnimation("JumpPrepare");
 
             var targetPos = Globals.backend.FindNearestEmptyGrid(target.targetPos[0], mob.gridBody);
-            yield return new JumpIn(mob.MoveToCorotine(targetPos, null, null));
+            yield return new JumpIn(mob.MoveToCoroutine(targetPos, null));
             
             // Generate poison pool
             yield return new JumpIn(poisonPool.Do(ract, mob, targetPos));

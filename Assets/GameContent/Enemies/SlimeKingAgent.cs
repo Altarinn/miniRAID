@@ -25,10 +25,10 @@ namespace miniRAID.Agents
 
         private void Awake()
         {
-            Mob mob = GetComponent<Mob>();
+            MobData mob = GetComponent<MobRenderer>().data;
         }
 
-        public override IEnumerator Act(Mob mob, int turn)
+        public override IEnumerator Act(MobData mob, int turn)
         {
             TurnSchedule todo = schedule[(turn - 1) % schedule.Count];
 
@@ -38,12 +38,12 @@ namespace miniRAID.Agents
                 ract = mob.GetAction(todo.action);
                 if (ract == null)
                 {
-                    Debug.LogWarning($"Specified action {todo.action.name} in schedule has not been added to the mob {mob.name}. Adding it automatically.");
+                    Debug.LogWarning($"Specified action {todo.action.name} in schedule has not been added to the mob {mob.nickname}. Adding it automatically.");
                     ract = mob.AddAction(todo.action);
 
                     if (ract == null)
                     {
-                        Debug.LogError($"Cannot add {todo.action.name} to mob {mob.name}. Action skipped.");
+                        Debug.LogError($"Cannot add {todo.action.name} to mob {mob.nickname}. Action skipped.");
                     }
                 }
             }
@@ -52,7 +52,7 @@ namespace miniRAID.Agents
             {
                 yield return new JumpIn(mob.DoActionWithDefaultCosts(
                     ract,
-                    new Spells.SpellTarget(agent.currentTarget.data.Position)
+                    new Spells.SpellTarget(agent.currentTarget.Position)
                 ));
             }
 
@@ -64,7 +64,7 @@ namespace miniRAID.Agents
             yield return new JumpIn(mob.SetActive(false));
         }
 
-        public override string GetIncomingString(Mob mob, int turn)
+        public override string GetIncomingString(MobData mob, int turn)
         {
             if(schedule.Count == 0)
             {

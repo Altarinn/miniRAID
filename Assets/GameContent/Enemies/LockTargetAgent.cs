@@ -6,9 +6,9 @@ namespace miniRAID.Agents
 {
     public class LockTargetAgent : MonoBehaviourAgentComponent
     {
-        public Mob target;
+        public MobData target;
 
-        public override IEnumerator Act(Mob mob, int turn)
+        public override IEnumerator Act(MobData mob, int turn)
         {
             if(target != null)
             {

@@ -29,7 +29,7 @@ namespace miniRAID.Weapon
         public Bow(MobData parent, BowSO data) : base(parent, data) { this.data = data; }
         RuntimeAction RaimedAttack;
 
-        public override void OnAttach(Mob mob)
+        public override void OnAttach(MobData mob)
         {
             base.OnAttach(mob);
 
@@ -39,12 +39,12 @@ namespace miniRAID.Weapon
             mob.OnActionPostcast += OnActionPostCast;
         }
 
-        private void OnNextTurn(Mob mob)
+        private void OnNextTurn(MobData mob)
         {
             moved = false;
         }
 
-        private void OnActionPostCast(Mob mob, RuntimeAction ract, Spells.SpellTarget target)
+        private void OnActionPostCast(MobData mob, RuntimeAction ract, Spells.SpellTarget target)
         {
             if(ract.data.Id == 1) // Movement
             {
@@ -52,7 +52,7 @@ namespace miniRAID.Weapon
             }
         }
 
-        protected override void OnQueryActions(Mob mob, HashSet<RuntimeAction> actions)
+        protected override void OnQueryActions(MobData mob, HashSet<RuntimeAction> actions)
         {
             base.OnQueryActions(mob, actions);
             if(moved == true)

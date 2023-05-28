@@ -8,7 +8,7 @@ namespace miniRAID.UI
     public class ActionButtonModifier : MonoBehaviour
     {
         public RuntimeAction action;
-        public Mob source;
+        public MobRenderer source;
         public string nameOverride;
 
         Button button;
@@ -22,7 +22,7 @@ namespace miniRAID.UI
             RefreshState();
         }
 
-        public void SetData(RuntimeAction action, Mob source, string nameOverride)
+        public void SetData(RuntimeAction action, MobRenderer source, string nameOverride)
         {
             this.action = action;
             this.source = source;
@@ -34,7 +34,7 @@ namespace miniRAID.UI
             string name = nameOverride;
             if (name == null) { name = action.data.ActionName; }
 
-            if (source.CheckCalculatedActionCostBounds(action))
+            if (source.data.CheckCalculatedActionCostBounds(action))
             {
                 mainText.text = name;
                 button.interactable = true;

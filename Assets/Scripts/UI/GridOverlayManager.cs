@@ -20,15 +20,15 @@ namespace miniRAID.UI
 
         }
 
-        public GridOverlay FromMoveableRange(Mob mob)
+        public GridOverlay FromMoveableRange(MobRenderer mobRenderer)
         {
-            var moveRange = Databackend.GetSingleton().GetMoveableGrids(mob);
-            return FromMoveableRange(mob, moveRange);
+            var moveRange = Databackend.GetSingleton().GetMoveableGrids(mobRenderer.data);
+            return FromMoveableRange(mobRenderer, moveRange);
         }
 
-        public GridOverlay FromMoveableRange(Mob mob, IEnumerable<Vector2Int> moveRange)
+        public GridOverlay FromMoveableRange(MobRenderer mobRenderer, IEnumerable<Vector2Int> moveRange)
         {
-            GridOverlay overlay = Instantiate<GameObject>(overlayPrefab.gameObject, mob.transform.position, Quaternion.identity).GetComponent<GridOverlay>();
+            GridOverlay overlay = Instantiate<GameObject>(overlayPrefab.gameObject, mobRenderer.transform.position, Quaternion.identity).GetComponent<GridOverlay>();
 
             foreach (var p in moveRange)
             {

@@ -77,3 +77,5 @@ crashlytics-build.properties
 .vscode/
 .vsconfig
 .vsconfig.private.0
+
+.idea/

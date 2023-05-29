@@ -1,0 +1,392 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9ddb9dcb1ff89d408b8c4f1d104d72b, type: 3}
+  m_Name: SmallSlimes
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 6549173031084157918, guid: 8514406af415f3f45be82aa2f544fa24, type: 3}
+    - {fileID: -2102465721, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
+    - {fileID: 2132322813, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
+    - {fileID: -6969019455269956120, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
+    - {fileID: 11400000, guid: 9e2af50a9fe2072449078fdebd47b282, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: power
+      Entry: 7
+      Data: 0|miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Single,
+        mscorlib]], Assembly-CSharp
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: staticOut
+      Entry: 4
+      Data: 0
+    - Name: LuaExpr
+      Entry: 6
+      Data: 
+    - Name: description
+      Entry: 6
+      Data: 
+    - Name: getterTemplate
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: auxPower
+      Entry: 7
+      Data: 1|miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Single,
+        mscorlib]], Assembly-CSharp
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: staticOut
+      Entry: 4
+      Data: 0
+    - Name: LuaExpr
+      Entry: 6
+      Data: 
+    - Name: description
+      Entry: 6
+      Data: 
+    - Name: getterTemplate
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: costs
+      Entry: 7
+      Data: 2|System.Collections.Generic.Dictionary`2[[miniRAID.Cost+Type, Assembly-CSharp],[miniRAID.LuaBoundedGetter`3[[System.ValueTuple`2[[miniRAID.MobData,
+        Assembly-CSharp],[miniRAID.Spells.SpellTarget, Assembly-CSharp]], mscorlib],[miniRAID.MobData,
+        Assembly-CSharp],[System.Double, mscorlib]], Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 3|System.Collections.Generic.EnumEqualityComparer`1[[miniRAID.Cost+Type,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: isActivelyUsed
+      Entry: 7
+      Data: 4|miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Boolean,
+        mscorlib]], Assembly-CSharp
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: staticOut
+      Entry: 5
+      Data: true
+    - Name: LuaExpr
+      Entry: 6
+      Data: 
+    - Name: description
+      Entry: 6
+      Data: 
+    - Name: getterTemplate
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Requester
+      Entry: 7
+      Data: 5|miniRAID.UI.TargetRequester.ConfirmRequester, Assembly-CSharp
+    - Name: stateStr
+      Entry: 6
+      Data: 
+    - Name: currentStageCompleted
+      Entry: 3
+      Data: -1
+    - Name: query_stack
+      Entry: 7
+      Data: 6|System.Collections.Generic.Stack`1[[miniRAID.UI.TargetRequester.RequestStage,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: choice
+      Entry: 7
+      Data: 7|System.Collections.Generic.Stack`1[[UnityEngine.Vector2Int, UnityEngine.CoreModule]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: onPerform
+      Entry: 7
+      Data: 8|miniRAID.LuaFunc`2[[System.ValueTuple`3[[miniRAID.GeneralCombatData,
+        Assembly-CSharp],[miniRAID.MobRenderer, Assembly-CSharp],[miniRAID.Spells.SpellTarget,
+        Assembly-CSharp]], mscorlib],[System.Collections.IEnumerator, mscorlib]],
+        Assembly-CSharp
+    - Name: type
+      Entry: 3
+      Data: 1
+    - Name: staticOut
+      Entry: 6
+      Data: 
+    - Name: LuaExpr
+      Entry: 6
+      Data: 
+    - Name: description
+      Entry: 6
+      Data: 
+    - Name: getterTemplate
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: smallSlimeProjectile
+      Entry: 7
+      Data: 9|miniRAID.ActionHelpers.Projectile, Assembly-CSharp
+    - Name: projectilePrefab
+      Entry: 10
+      Data: 0
+    - Name: projectileSprite
+      Entry: 10
+      Data: 1
+    - Name: projectileTrail
+      Entry: 10
+      Data: 2
+    - Name: flyTime
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: onHitFx
+      Entry: 7
+      Data: 10|miniRAID.ActionHelpers.PlayFx, Assembly-CSharp
+    - Name: fx
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: smallSlimeSpawnFx
+      Entry: 7
+      Data: 11|miniRAID.ActionHelpers.PlayFx, Assembly-CSharp
+    - Name: fx
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: damage
+      Entry: 7
+      Data: 12|miniRAID.ActionHelpers.SpellDamageHeal, Assembly-CSharp
+    - Name: type
+      Entry: 3
+      Data: 6
+    - Name: power
+      Entry: 7
+      Data: miniRAID.ActionHelpers.FloatModifier, Assembly-CSharp
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: value
+      Entry: 4
+      Data: 1
+    - Name: expression
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: crit
+      Entry: 7
+      Data: miniRAID.ActionHelpers.FloatModifier, Assembly-CSharp
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: value
+      Entry: 4
+      Data: 1
+    - Name: expression
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: hit
+      Entry: 7
+      Data: miniRAID.ActionHelpers.FloatModifier, Assembly-CSharp
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: value
+      Entry: 4
+      Data: 1
+    - Name: expression
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: summon
+      Entry: 7
+      Data: 13|miniRAID.ActionHelpers.Summon`1[[miniRAID.Agents.LockTargetAgent,
+        Assembly-CSharp]], Assembly-CSharp
+    - Name: mobPrefab
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: poisonPool
+      Entry: 7
+      Data: 14|miniRAID.ActionHelpers.CreateGridEffect, Assembly-CSharp
+    - Name: effect
+      Entry: 10
+      Data: 4
+    - Name: shape
+      Entry: 7
+      Data: 15|miniRAID.GridShape, Assembly-CSharp
+    - Name: shape
+      Entry: 7
+      Data: 16|System.Collections.Generic.HashSet`1[[UnityEngine.Vector2Int, UnityEngine.CoreModule]],
+        System.Core
+    - Name: 
+      Entry: 12
+      Data: 5
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: -1
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: -1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 8
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: direction
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  Guid: c99e5ab351e342c2bcb87b5204cedfda
+  Id: 69
+  icon: {fileID: 0}
+  ActionName: "\u5C0F\u53F2\u83B1\u59C6\u6295\u63B7"
+  Description: "\u7528\u5C0F\u53F2\u83B1\u59C6\u653B\u51FB\u6807\u8BB0\u7684\u6240\u6709\u654C\u4EBA\u3002"
+  indicatorBuff: {fileID: 11400000, guid: 17ee89bf224feaa409d6630ffe3e73ac, type: 2}

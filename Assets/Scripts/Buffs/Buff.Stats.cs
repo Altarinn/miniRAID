@@ -55,63 +55,66 @@ namespace miniRAID.Buff
             public dNumberModType type;
 
             [HorizontalGroup]
-            public LuaGetter<Mob, float> value;
+            public LuaGetter<MobData, float> value;
         }
 
-        public void ModifydNumber(ref dNumber num, Mob mob, dNumberModifier mod)
+        public void ModifydNumber(ref dNumber num, MobData mob, dNumberModifier mod, int stacks)
         {
-            switch(mod.type)
+            for (int i = 0; i < stacks; i++)
             {
-                case dNumberModType.Add:
-                    num.Add(dNumber.CreateStatic(mod.value.Eval(mob), "unknown"));
-                    break;
-                case dNumberModType.Mul:
-                    num.Mul(dNumber.CreateStatic(mod.value.Eval(mob), "unknown"));
-                    break;
-                case dNumberModType.MulMul:
-                    num.MulMul(dNumber.CreateStatic(mod.value.Eval(mob), "unknown"));
-                    break;
+                switch(mod.type)
+                {
+                    case dNumberModType.Add:
+                        num.Add(dNumber.CreateStatic(mod.value.Eval(mob), "unknown"));
+                        break;
+                    case dNumberModType.Mul:
+                        num.Mul(dNumber.CreateStatic(mod.value.Eval(mob), "unknown"));
+                        break;
+                    case dNumberModType.MulMul:
+                        num.MulMul(dNumber.CreateStatic(mod.value.Eval(mob), "unknown"));
+                        break;
+                }
             }
         }
 
-        public void ModifyBaseStats(Mob mob, Dictionary<StatModTarget, dNumberModifier> modifiers)
+        public void ModifyBaseStats(MobData mob, Dictionary<StatModTarget, dNumberModifier> modifiers, int stacks)
         {
             foreach (var kv in modifiers)
             {
                 switch(kv.Key)
                 {
                     case StatModTarget.VIT: 
-                        ModifydNumber(ref mob.data.baseStats.VIT, mob, kv.Value); break;
+                        ModifydNumber(ref mob.baseStats.VIT, mob, kv.Value, stacks); break;
                     case StatModTarget.STR:
-                        ModifydNumber(ref mob.data.baseStats.STR, mob, kv.Value); break;
+                        ModifydNumber(ref mob.baseStats.STR, mob, kv.Value, stacks); break;
                     case StatModTarget.MAG:
-                        ModifydNumber(ref mob.data.baseStats.MAG, mob, kv.Value); break;
+                        ModifydNumber(ref mob.baseStats.MAG, mob, kv.Value, stacks); break;
                     case StatModTarget.INT:
-                        ModifydNumber(ref mob.data.baseStats.INT, mob, kv.Value); break;
+                        ModifydNumber(ref mob.baseStats.INT, mob, kv.Value, stacks); break;
                     case StatModTarget.DEX:
-                        ModifydNumber(ref mob.data.baseStats.DEX, mob, kv.Value); break;
+                        ModifydNumber(ref mob.baseStats.DEX, mob, kv.Value, stacks); break;
                     case StatModTarget.TEC:
-                        ModifydNumber(ref mob.data.baseStats.TEC, mob, kv.Value); break;
+                        ModifydNumber(ref mob.baseStats.TEC, mob, kv.Value, stacks); break;
                 }
             }
         }
 
-        public void ModifyMoreStats(Mob mob, Dictionary<StatModTarget, dNumberModifier> modifiers)
+        public void ModifyMoreStats(MobData mob, Dictionary<StatModTarget, dNumberModifier> modifiers, int stacks)
         {
             foreach (var kv in modifiers)
             {
                 switch (kv.Key)
                 {
                     case StatModTarget.Defense:
-                        ModifydNumber(ref mob.data.defense, mob, kv.Value); break;
+                        ModifydNumber(ref mob.defense, mob, kv.Value, stacks); break;
                     case StatModTarget.SpDefense:
-                        ModifydNumber(ref mob.data.spDefense, mob, kv.Value); break;
+                        ModifydNumber(ref mob.spDefense, mob, kv.Value, stacks); break;
 
                     case StatModTarget.AggroMul:
-                        ModifydNumber(ref mob.data.aggroMul, mob, kv.Value); break;
+                        ModifydNumber(ref mob.aggroMul, mob, kv.Value, stacks); break;
 
                     case StatModTarget.AttackPower:
-                        ModifydNumber(ref mob.data.attackPower, mob, kv.Value); break;
+                        ModifydNumber(ref mob.attackPower, mob, kv.Value, stacks); break;
                 }
             }
         }

@@ -16,15 +16,15 @@ namespace miniRAID.UI
         MenuSubState subState;
 
         public UIMenu_UIContainer menu;
-        Mob currentUnit;
+        MobRenderer currentUnit;
 
         bool keepCameraPosition = false;
 
-        public UnitMenu(Mob mob)
+        public UnitMenu(MobRenderer mobRenderer)
         {
-            stateStr = $"UnitMenu: {mob.name}";
+            stateStr = $"UnitMenu: {mobRenderer.name}";
 
-            currentUnit = mob;
+            currentUnit = mobRenderer;
             subState = MenuSubState.Root;
 
             keepCameraPosition = false;
@@ -39,7 +39,7 @@ namespace miniRAID.UI
         public override void OnStateEnter()
         {
             base.OnStateEnter();
-            currentUnit.RecalculateStats();
+            currentUnit.data.RecalculateStats();
 
             switch(subState)
             {
@@ -98,7 +98,7 @@ namespace miniRAID.UI
             int currentKey = 1;
             foreach (var action in currentUnit.data.availableActions)
             {
-                if (action.data.isActivelyUsed.Eval(currentUnit))
+                if (action.data.isActivelyUsed.Eval(currentUnit.data))
                 {
                     //AddActionEntry(action, first);
                     //first = false;
@@ -127,7 +127,7 @@ namespace miniRAID.UI
             bool first = true;
             foreach (var action in currentUnit.data.availableActions)
             {
-                if(action.data.isActivelyUsed.Eval(currentUnit))
+                if(action.data.isActivelyUsed.Eval(currentUnit.data))
                 {
                     AddActionEntry(action, first);
                     first = false;
@@ -165,22 +165,25 @@ namespace miniRAID.UI
             ui.uimenu_uicontainer.Hide();
         }
 
-        public IEnumerator OnPassSelected()
+        public IEnumerator OnPassSelected(bool set = true)
         {
             ui.EnterState();
 
-            yield return new JumpIn(currentUnit.SetActive(false));
+            if (set)
+            {
+                yield return new JumpIn(currentUnit.data.SetActive(false));
+            }
         }
 
-        public IEnumerator AutoPass(Mob mob)
+        public IEnumerator AutoPass(MobRenderer mobRenderer)
         {
             keepCameraPosition = true;
 
-            yield return new JumpIn(mob.TryAutoEndTurn());
+            yield return new JumpIn(mobRenderer.data.TryAutoEndTurn());
 
-            if(mob.data.isActive == false)
+            if(mobRenderer.data.isActive == false)
             {
-                yield return new JumpIn(OnPassSelected());
+                yield return new JumpIn(OnPassSelected(false));
             }
         }
     }

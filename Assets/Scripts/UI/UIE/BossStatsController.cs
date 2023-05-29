@@ -15,7 +15,7 @@ namespace miniRAID.UIElements
 
         VisualElement masterElem;
 
-        Mob mob;
+        MobRenderer _mobRenderer;
 
         miniRAID.Agents.MobAgentBase agent;
 
@@ -33,29 +33,29 @@ namespace miniRAID.UIElements
             hpPercentage = e.Q<Label>("HPPercentage");
         }
 
-        public void Register(Mob mob)
+        public void Register(MobRenderer mobRenderer)
         {
-            this.mob = mob;
-            this.agent = (miniRAID.Agents.MobAgentBase)mob.data.listeners.Find(x => x is miniRAID.Agents.MobAgentBase);
+            this._mobRenderer = mobRenderer;
+            this.agent = (miniRAID.Agents.MobAgentBase)mobRenderer.data.listeners.Find(x => x is miniRAID.Agents.MobAgentBase);
             Update();
         }
 
         public void Update()
         {
-            if(this.mob == null)
+            if(this._mobRenderer == null)
             {
                 nameLevelLabel.text = "UNKNOWN";
             }
             else
             {
-                nameLevelLabel.text = $"Lv.{mob.data.level} {mob.data.nickname}";
-                hpNumber.text = $"{mob.data.health} / {mob.data.maxHealth}";
-                hpPercentage.text = $"{mob.data.health / (float)mob.data.maxHealth * 100.0f:0.0}%";
+                nameLevelLabel.text = $"Lv.{_mobRenderer.data.level} {_mobRenderer.data.nickname}";
+                hpNumber.text = $"{_mobRenderer.data.health} / {_mobRenderer.data.maxHealth}";
+                hpPercentage.text = $"{_mobRenderer.data.health / (float)_mobRenderer.data.maxHealth * 100.0f:0.0}%";
 
-                HPBar.style.width = new StyleLength(new Length((float)mob.data.health / (float)mob.data.maxHealth * 100.0f, LengthUnit.Percent));
+                HPBar.style.width = new StyleLength(new Length((float)_mobRenderer.data.health / (float)_mobRenderer.data.maxHealth * 100.0f, LengthUnit.Percent));
 
                 string effects = "";
-                foreach (var fx in mob.data.listeners)
+                foreach (var fx in _mobRenderer.data.listeners)
                 {
                     if (fx.type == MobListenerSO.ListenerType.Buff)
                     {
@@ -79,7 +79,7 @@ namespace miniRAID.UIElements
                 }
                 else
                 {
-                    incomingList.text = $"- INCOMING -\n{agent.GetIncomingString(mob)}";
+                    incomingList.text = $"- INCOMING -\n{agent.GetIncomingString(_mobRenderer.data)}";
                 }
             }
         }

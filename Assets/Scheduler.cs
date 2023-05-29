@@ -17,7 +17,7 @@ namespace miniRAID
             }
         }
 
-        HashSet<Mob> AwaitForActions = new HashSet<Mob>();
+        HashSet<MobData> AwaitForActions = new HashSet<MobData>();
         Consts.UnitGroup currentPhase;
 
         public int turn;
@@ -64,9 +64,9 @@ namespace miniRAID
             currentPhase = group;
 
             // Add them to AwaitForActions first
-            foreach (Mob mob in Databackend.GetSingleton().allMobs)
+            foreach (MobData mob in Databackend.GetSingleton().allMobs)
             {
-                if (mob.data.unitGroup == group)
+                if (mob.unitGroup == group)
                 {
                     AwaitForActions.Add(mob);
                 }
@@ -107,14 +107,14 @@ namespace miniRAID
 
             foreach (var mob in AwaitForActions.ToArray())
             {
-                if(mob.data.isDead)
+                if(mob.isDead)
                 {
                     AwaitForActions.Remove(mob);
                     continue;
                 }
 
                 // Still something moveable so No
-                if(mob.data.isActive == true)
+                if(mob.isActive == true)
                 {
                     return;
                 }

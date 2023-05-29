@@ -33,8 +33,8 @@ namespace miniRAID
         [HideInInspector]
         public UI.TargetRequester.TargetRequesterBase Requester;
 
-        public delegate void OnActionPerformed(Action action, Mob source);
-        public delegate void OnActionPerformFailed(Action action, Mob source);
+        public delegate void OnActionPerformed(Action action, MobData source);
+        public delegate void OnActionPerformFailed(Action action, MobData source);
 
         public delegate void OnActionCorotinePreExecute();
         public delegate void OnActionCorotineFinished();
@@ -48,7 +48,7 @@ namespace miniRAID
         /// <param name="cd"></param>
         /// <param name="host">If true, callback will be invoked after all actions have finished (not only this action, also actions that invoked by this; e.g. shield effect, counter-attacks, etc.)</param>
         /// <returns></returns>
-        protected virtual bool Do(Mob mob, Spells.SpellTarget target, OnActionCorotineFinished callback = null, bool cd = true, bool host = false)
+        protected virtual bool Do(MobData mob, Spells.SpellTarget target, OnActionCorotineFinished callback = null, bool cd = true, bool host = false)
         {
             throw new System.NotImplementedException();
             //if (cd)
@@ -78,8 +78,8 @@ namespace miniRAID
             //return true;
         }
 
-        protected abstract IEnumerator Coroutine(Mob mob, Spells.SpellTarget target);
-        protected virtual bool PreCorotine(Mob mob, Spells.SpellTarget target) { return true; }
+        protected abstract IEnumerator Coroutine(MobData mob, Spells.SpellTarget target);
+        protected virtual bool PreCorotine(MobData mob, Spells.SpellTarget target) { return true; }
 
         /// <summary>
         /// Check if the action performable for a given mob.
@@ -87,7 +87,7 @@ namespace miniRAID
         /// </summary>
         /// <param name="mob"></param>
         /// <returns></returns>
-        public virtual bool Check(Mob mob)
+        public virtual bool Check(MobData mob)
         {
             return true;
         }
@@ -97,7 +97,7 @@ namespace miniRAID
         /// </summary>
         /// <param name="mob"></param>
         /// <returns></returns>
-        public virtual bool CheckWithCosts(Mob mob)
+        public virtual bool CheckWithCosts(MobData mob)
         {
             return false;
             // TODO: Mana check, AP check, etc.
@@ -116,21 +116,21 @@ namespace miniRAID
         /// <param name="mob"></param>
         /// <param name="target"></param>
         /// <returns></returns>
-        public virtual bool CheckWithTargets(Mob mob, Spells.SpellTarget target)
+        public virtual bool CheckWithTargets(MobData mob, Spells.SpellTarget target)
         {
             return Check(mob);
         }
 
-        public virtual bool DoCost(Mob mob, Spells.SpellTarget target)
+        public virtual bool DoCost(MobData mob, Spells.SpellTarget target)
         {
             // TODO: Mana
             if(
-                mob.data.actionPoints >= ActionPointCost &&
-                !mob.data.IsInGCD(this.GCDgroup)
+                mob.actionPoints >= ActionPointCost &&
+                !mob.IsInGCD(this.GCDgroup)
             )
             {
                 mob.UseActionPoint(ActionPointCost);
-                mob.data.SetGCD(this.GCDgroup);
+                mob.SetGCD(this.GCDgroup);
 
                 return true;
             }
@@ -138,7 +138,7 @@ namespace miniRAID
             return false;
         }
 
-        public virtual void Activate(Mob mob, Spells.SpellTarget target, OnActionCorotineFinished callback = null, bool host = false, bool cd = true)
+        public virtual void Activate(MobData mob, Spells.SpellTarget target, OnActionCorotineFinished callback = null, bool host = false, bool cd = true)
         {
             if(CheckWithTargets(mob, target))
             {
@@ -151,7 +151,7 @@ namespace miniRAID
         }
 
         public virtual void ActivateInUI(
-            Mob mob, 
+            MobData mob, 
             OnActionCorotinePreExecute beforeAnimation, 
             OnActionCorotineFinished afterAnimation, 
             OnActionPerformed callback = null)
@@ -170,7 +170,7 @@ namespace miniRAID
             return Description;
         }
 
-        public virtual void OnNextTurn(Mob mob)
+        public virtual void OnNextTurn(MobData mob)
         {
             CooldownRemain -= 1;
             if (CooldownRemain < 0) { CooldownRemain = 0; }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,10 @@ using XLua;
 
 using Sirenix.OdinInspector;
 using System.Linq;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace miniRAID
 {
@@ -36,6 +41,18 @@ namespace miniRAID
         }
     }
 
+    /* TODO: Update doc from ActionDataOnPerformSO to ActionDataSO
+     * The class for actions (data).
+     * To provide a custom implementation (so you can use it in your actions), please
+     * implement `OnPerform()`.
+     *
+     * Your implementation must be pure function, otherwise the behaviour is undefined.
+     * Those ScriptableObjects won't be copied / instantiated during runtime, and only 1 instance (per created assets) will be kept in memory.
+     *
+     * Pure function means that your function does not have any side effects.
+     * i.e., you cannot modify some variables that is outside of this function's scope.
+     * To keep track of some external state, consider apply buffs to the source mob and query for that buff each time.
+     */
     [LuaCallCSharp]
     [CreateAssetMenu(fileName = "ActionData.asset", menuName = "ActionDataSO", order = 0)]
     public class ActionDataSO : CustomIconScriptableObject
@@ -48,23 +65,23 @@ namespace miniRAID
 
         // TODO: Boolean arrays
         // public List<string> Tags;
-        public LuaGetter<Mob, float> power, auxPower;
+        public LuaGetter<MobData, float> power, auxPower;
 
         // Cost related
         [Title("Costs", horizontalLine: true, bold: true)]
         [DictionaryDrawerSettings(DisplayMode = DictionaryDisplayOptions.OneLine)]
         public Dictionary<
             Cost.Type,
-            LuaBoundedGetter<(Mob, Spells.SpellTarget), Mob, double>> costs = new();
+            LuaBoundedGetter<(MobData, Spells.SpellTarget), MobData, double>> costs = new();
         //public LuaGetter<(Mob, Spells.SpellTarget), GCDGroup> gcdGroup = GCDGroup.Common;
 
-        public LuaGetter<Mob, bool> isActivelyUsed = true;
+        public LuaGetter<MobData, bool> isActivelyUsed = true;
 
         [Title("Requester & Validation", horizontalLine: true, bold: true)]
-        [TypeFilter("GetRequesterTypes")]
+        [Sirenix.OdinInspector.TypeFilter("GetRequesterTypes")]
         public UI.TargetRequester.TargetRequesterBase Requester;
 
-        public virtual bool CheckCosts(Mob mob, RuntimeAction ract)
+        public virtual bool CheckCosts(MobRenderer mobRenderer, RuntimeAction ract)
         {
             // TODO
             return true;
@@ -73,7 +90,7 @@ namespace miniRAID
             //CooldownRemain <= 0;
         }
 
-        public void DoCosts(Mob mob)
+        public void DoCosts(MobRenderer mobRenderer)
         {
             // TODO
         }
@@ -83,9 +100,9 @@ namespace miniRAID
         //public ActionValidatorSO validator;
 
         public virtual bool Equipable(MobData mobdata) { return true; }
-        public virtual bool Check(Mob mob) { return true; }
+        public virtual bool Check(MobData mob) { return true; }
 
-        public virtual bool CheckWithTargets(Mob mob, Spells.SpellTarget target)
+        public virtual bool CheckWithTargets(MobData mob, Spells.SpellTarget target)
         {
             // TODO
             if (Requester == null)
@@ -109,11 +126,22 @@ namespace miniRAID
         [Title("Behaviour")]
         [Sirenix.Serialization.OdinSerialize]
         [EventSlot]
-        public LuaFunc<(GeneralCombatData, Mob, Spells.SpellTarget), IEnumerator> onPerform = new();
+        public LuaFunc<(GeneralCombatData, MobRenderer, Spells.SpellTarget), IEnumerator> onPerform = new();
 
-        public virtual IEnumerator OnPerform(GeneralCombatData combatData, Mob mob, Spells.SpellTarget target)
+        // [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
+        // public ActionOnPerformSO onPerform_SO;
+        public virtual IEnumerator OnPerform(RuntimeAction ract, MobData mob,
+            Spells.SpellTarget target)
         {
-            yield return new JumpIn(onPerform.Eval((combatData, mob, target)));
+            yield return -1;
+        }
+        
+        // public ScriptGraphAsset scriptGraph;
+
+        [Obsolete("Use RuntimeAction.Do instead.")]
+        public virtual IEnumerator OnPerform(GeneralCombatData combatData, MobRenderer mobRenderer, Spells.SpellTarget target)
+        {
+            yield return new JumpIn(onPerform.Eval((combatData, mobRenderer, target)));
         }
 
         //public override bool Equals(object other)
@@ -125,6 +153,65 @@ namespace miniRAID
         //{
         //    return Guid.GetHashCode();
         //}
+        
+        #region EDITOR UTILITIES; MOVE AWAY PLS
+        #if UNITY_EDITOR
+        
+        /*[ContextMenu("Create onPerform SO")]
+        public void CreateOnPerformSO()
+        {
+            //Show an dialog
+            SOWizard window = ScriptableObject.CreateInstance(typeof(SOWizard)) as SOWizard;
+            window.Setup(typeof(ActionOnPerformSO), (type, str) =>
+            {
+                Debug.Log($"The chosen type is: {type}");
+
+                ActionOnPerformSO so = ScriptableObject.CreateInstance(type) as ActionOnPerformSO;
+                if (so != null)
+                {
+                    so.name = str;
+                
+                    onPerform_SO = so;
+                
+                    AssetDatabase.AddObjectToAsset(onPerform_SO, this);
+                    AssetDatabase.SaveAssets();
+                
+                    EditorUtility.SetDirty(this);
+                    EditorUtility.SetDirty(onPerform_SO);
+                }
+            }, "ActionOnPerformSO");
+            
+            window.ShowModalUtility();
+        }
+
+        [ContextMenu("Remove unreferenced subassets")]
+        public void RemoveUnreferencedSubassets()
+        {
+            bool isConfirmed = UnityEditor.EditorUtility.DisplayDialog(
+                "Confirm deletion",
+                $"Are you sure you want to delete all un-referenced subassets of {this.name}? This operation cannot be undone.",
+                "Yes",
+                "No"
+            );
+
+            if (!isConfirmed) {
+                return;
+            }
+            
+            var path = AssetDatabase.GetAssetPath(this);
+            var allSubassets = AssetDatabase.LoadAllAssetsAtPath(path);
+            
+            foreach (var subasset in allSubassets)
+            {
+                if(subasset != this && subasset != onPerform_SO) // Avoid deleting the main asset itself
+                {
+                    AssetDatabase.RemoveObjectFromAsset(subasset);
+                }
+            }
+            AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate);
+        }*/
+        #endif
+        #endregion
     }
 
     [LuaCallCSharp]
@@ -140,15 +227,16 @@ namespace miniRAID
         Spells.SpellTarget catchedTarget;
 
         public dNumber power, auxPower;
+        public dNumber hit, crit;
         public GridShape shape;
 
         GeneralCombatData envData = new();
 
         [CSharpCallLua]
-        public delegate IEnumerator ActionOnPerform(Mob mob, Spells.SpellTarget target);
+        public delegate IEnumerator ActionOnPerform(MobRenderer mobRenderer, Spells.SpellTarget target);
 
         [CSharpCallLua]
-        public delegate void Test(Mob mob);
+        public delegate void Test(MobRenderer mobRenderer);
 
         string paddedLuaExpr;
 
@@ -179,7 +267,7 @@ namespace miniRAID
          * > Do()
          */
         // TODO: Move Get delegate to Ctor
-        public IEnumerator Do(Mob mob, Spells.SpellTarget target/*, bool cd = true*//*, bool host = false*/)
+        public IEnumerator Do(MobData mob, Spells.SpellTarget target/*, bool cd = true*//*, bool host = false*/)
         {
             //            string postfix = data.Id;
             //            paddedLuaExpr = @$"function routine_{postfix}(mob, target)
@@ -198,13 +286,14 @@ namespace miniRAID
             //            var testIE = Globals.xLuaInstance.Instance.luaEnv.Global.Get<ActionOnPerform>($"getCsRoutine_{postfix}");
             //            Debug.Log(testIE);
 
-            yield return new JumpIn(data.OnPerform(envData, mob, target));
+            Globals.ccNewContext(new SerialCoroutineContext() { animation = true });
+            yield return new JumpIn(data.OnPerform(this, mob, target));
 
             // Wait a bit for animation
             // yield return new WaitForSeconds(.5f);
         }
 
-        public IEnumerator Activate(Mob mob, Spells.SpellTarget target)
+        public IEnumerator Activate(MobData mob, Spells.SpellTarget target)
         {
             if(data.CheckWithTargets(mob, target))
             {
@@ -212,7 +301,7 @@ namespace miniRAID
             }
         }
 
-        public string GetTooltip(Mob mob)
+        public string GetTooltip(MobData mob)
         {
             string costString = "";
             foreach (var costBound in costBounds)
@@ -239,13 +328,13 @@ namespace miniRAID
                 $"TODO - rAct.GetTooltip().";
         }
 
-        public IEnumerator RequestInUI(Mob mob)
+        public IEnumerator RequestInUI(MobData mob)
         {
             Debug.LogWarning("Refactor UI to Coroutine based as well as Requesters !!!!!");
 
             if(cooldownRemain > 0)
             {
-                Globals.debugMessage.Instance.Message($"{mob.data.nickname} µƒ {data.name} ªπ√ª”–◊º±∏∫√£°");
+                Globals.debugMessage.Instance.Message($"{mob.nickname} ÁöÑ {data.name} ËøòÊ≤°ÊúâÂáÜÂ§áÂ•ΩÔºÅ");
                 yield break;
             }
 
@@ -275,7 +364,7 @@ namespace miniRAID
             }
         }
 
-        public void RecalculateStats(Mob mob)
+        public void RecalculateStats(MobData mob)
         {
             // 1. Reset stats
             costBounds.Clear();
@@ -297,6 +386,7 @@ namespace miniRAID
             // 2. Compute power etc.
             power = dNumber.CreateComposite(data.power.Eval(mob), "actionBase");
             auxPower = dNumber.CreateComposite(data.auxPower.Eval(mob), "actionBase");
+            
             // TODO: FIXME: Assign gridShape here
             shape = null;
 
@@ -306,7 +396,7 @@ namespace miniRAID
             // After the event, we go to OnRecalculateStatsFinish().
         }
 
-        public void OnRecalculateStatsFinish(Mob mob)
+        public void OnRecalculateStatsFinish(MobData mob)
         {
             if (envData == null) { envData = new(); }
 
@@ -321,13 +411,13 @@ namespace miniRAID
             cooldownRemain = cd;
         }
 
-        public virtual void OnNextTurn(Mob mob)
+        public virtual void OnNextTurn(MobData mob)
         {
             cooldownRemain -= 1;
             if (cooldownRemain < 0) { cooldownRemain = 0; }
         }
 
-        public override void OnAttach(Mob mob)
+        public override void OnAttach(MobData mob)
         {
             base.OnAttach(mob);
 

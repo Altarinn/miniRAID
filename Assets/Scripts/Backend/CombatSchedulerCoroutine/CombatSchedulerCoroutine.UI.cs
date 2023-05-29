@@ -33,7 +33,7 @@ namespace miniRAID
         }
         #endregion
 
-        Mob chosenMob = null;
+        MobRenderer _chosenMobRenderer = null;
 
         System.Func<IEnumerator> actionToDo = null;
 
@@ -56,25 +56,29 @@ namespace miniRAID
         }
 
         // Uses lazy evaluation of IEnumerator.
-        public void UIPickedAction(IEnumerator action, IEnumerator onActionFinished)
+        public bool UIPickedAction(IEnumerator action, IEnumerator onActionFinished)
         {
             if(actionToDo != null)
             {
-                Debug.LogError("CombatSchedulerCoroutine: UIPickedAction before previous action finished! Request ignored ...");
-                return;
+                Debug.LogError("CombatSchedulerCoroutine: UIPickedAction before previous action finished! Request overrided but nobody knows what will happen ...");
+                return false;
             }
 
-            IEnumerator OnFinishWrapper() 
+            IEnumerator OnFinishWrapper()
             {
                 yield return new JumpIn(action);
 
                 // Maybe some fading animation?
                 yield return new JumpIn(onActionFinished);
 
+                Globals.logger?.Log($"[csc-UI] Set actionToDo to NULL value");
                 actionToDo = null;
             };
 
+            Globals.logger?.Log($"[csc-UI] Set actionToDo to non-null value");
             actionToDo = OnFinishWrapper;
+
+            return true;
         }
     }
 }

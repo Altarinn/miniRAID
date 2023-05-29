@@ -9,6 +9,7 @@ using Sirenix.OdinInspector.Editor;
 using Sirenix.Utilities;
 using Sirenix.Utilities.Editor;
 using System;
+using Sirenix.Serialization;
 
 namespace miniRAID.Editor
 {
@@ -233,7 +234,7 @@ namespace miniRAID.Editor
                         //}
                         if(!isEvt)
                         {
-                            Property.FindChild(x => x.Name == "staticOut", false).Draw(null);
+                            DrawStatic();
                         }
                         break;
                     case LuaGetter<TIn, TOut>.LuaGetterType.DYNAMIC:
@@ -312,6 +313,11 @@ namespace miniRAID.Editor
                 //Property.GetActiveDrawerChain().MoveNext();
                 //CallNextDrawer(null);
             }
+        }
+
+        protected virtual void DrawStatic()
+        {
+            Property.FindChild(x => x.Name == "staticOut", false).Draw(null);
         }
 
         void OnVarTypeSelected(object type)

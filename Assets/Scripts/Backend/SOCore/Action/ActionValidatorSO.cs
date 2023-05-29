@@ -16,9 +16,9 @@ namespace miniRAID
         public UI.TargetRequester.TargetRequesterBase Requester;
 
         public virtual bool Equipable(MobData mobdata) { return true; }
-        public virtual bool Check(Mob mob) { return true; }
+        public virtual bool Check(MobData mob) { return true; }
 
-        public virtual bool CheckWithTargets(Mob mob, Spells.SpellTarget target)
+        public virtual bool CheckWithTargets(MobData mob, Spells.SpellTarget target)
         {
             // TODO
             return true;

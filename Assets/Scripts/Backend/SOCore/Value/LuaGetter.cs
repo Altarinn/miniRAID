@@ -19,7 +19,7 @@ namespace miniRAID
         {
             STATIC,
             DYNAMIC,
-            TEMPLATE
+            TEMPLATE,
         }
 
         public LuaGetter() { }
@@ -85,7 +85,7 @@ namespace miniRAID
             || (type == LuaGetterType.TEMPLATE && getterTemplate == null));
         }
 
-        public TOut Eval(TIn param)
+        public virtual TOut Eval(TIn param)
         {
             if (type == LuaGetterType.STATIC) { return staticOut; }
 
@@ -143,6 +143,27 @@ namespace miniRAID
 
         public abstract TOut Eval(TIn param);
     }
+
+    public abstract class LuaJumpInTemplate<TIn, TOut> : LuaGetterTemplate<(SerialCoroutineContext, TIn), TOut>
+    {
+        public TOut EvalJumpIn(SerialCoroutineContext c, TIn param)
+        {
+            return Eval((c, param));
+        }
+    }
+
+    /*public class LuaFloatMultiplier : LuaGetter<float, float>
+    {
+        public LuaFloatMultiplier() : base(1.0f) {}
+
+        public LuaFloatMultiplier(float staticOut) : base(staticOut){}
+
+        public override float Eval(float param)
+        {
+            if (type == LuaGetterType.STATIC) { return param * staticOut; }
+            return base.Eval(param);
+        }
+    }*/
 
     // Attribute used by HealthBarAttributeDrawer.
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]

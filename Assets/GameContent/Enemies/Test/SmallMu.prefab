@@ -34,7 +34,7 @@ Transform:
   - {fileID: 8135044733511739099}
   - {fileID: 5720576149297720375}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5180081312367153654
 MonoBehaviour:
@@ -49,10 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBoss: 0
-  enemyDebug: 0
   data:
-    isActive: 0
-    isDead: 0
+    enemyDebug: 0
     movementType: 0
     unitGroup: 1
     moveable: 1
@@ -173,9 +171,249 @@ MonoBehaviour:
       addMultiplier: 1
       mulMultiplier: 1
     baseStatsFundamental:
-      VIT: 12
+      VIT: 20
       STR: 14
       MAG: 15
+      INT: 0
+      DEX: 0
+      TEC: 0
+    baseStats:
+      VIT:
+        valueType: 0
+        staticValue: 0
+        source:
+          source: 
+        baseValue: 0
+        addedValue: 0
+        addMultiplier: 0
+        mulMultiplier: 0
+      STR:
+        valueType: 0
+        staticValue: 0
+        source:
+          source: 
+        baseValue: 0
+        addedValue: 0
+        addMultiplier: 0
+        mulMultiplier: 0
+      MAG:
+        valueType: 0
+        staticValue: 0
+        source:
+          source: 
+        baseValue: 0
+        addedValue: 0
+        addMultiplier: 0
+        mulMultiplier: 0
+      INT:
+        valueType: 0
+        staticValue: 0
+        source:
+          source: 
+        baseValue: 0
+        addedValue: 0
+        addMultiplier: 0
+        mulMultiplier: 0
+      DEX:
+        valueType: 0
+        staticValue: 0
+        source:
+          source: 
+        baseValue: 0
+        addedValue: 0
+        addMultiplier: 0
+        mulMultiplier: 0
+      TEC:
+        valueType: 0
+        staticValue: 0
+        source:
+          source: 
+        baseValue: 0
+        addedValue: 0
+        addMultiplier: 0
+        mulMultiplier: 0
+    battleStats:
+      exResist:
+        Physical: 0
+        Elemental: 0
+        Pure: 0
+        Slash: 0
+        Knock: 0
+        Pierce: 0
+        Fire: 0
+        Ice: 0
+        Water: 0
+        Nature: 0
+        Wind: 0
+        Thunder: 0
+        Light: 0
+        Dark: 0
+        Heal: 0
+      exDamage:
+        Physical: 0
+        Elemental: 0
+        Pure: 0
+        Slash: 0
+        Knock: 0
+        Pierce: 0
+        Fire: 0
+        Ice: 0
+        Water: 0
+        Nature: 0
+        Wind: 0
+        Thunder: 0
+        Light: 0
+        Dark: 0
+        Heal: 0
+    health: 160
+    maxHealth: 160
+    damageShield: 0
+    mainWeaponSO: {fileID: 11400000, guid: 03bc70f0a23dae24595c365479180d65, type: 2}
+    subWeaponSO: {fileID: 0}
+    listenerSOs:
+    - {fileID: 11400000, guid: 7b1406fca4eab7c48b4098c174d4c832, type: 2}
+    - {fileID: 11400000, guid: a0fd44a199c1fac41bc053de25c0afc6, type: 2}
+    listeners: []
+    actionSOs:
+    - {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
+  animator: {fileID: 0}
+--- !u!114 &-6969019455269956120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5180081312367153651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd9af3c13bb13794c90719c0ff2248df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target:
+    enemyDebug: 0
+    movementType: 0
+    unitGroup: 0
+    moveable: 1
+    moveStartCost: 0
+    level: 0
+    nickname: 
+    race: 
+    job: 
+    _actionPointsMul100: 400
+    apRecovery: 3
+    apMax: 5
+    attackPower:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    spellPower:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    healPower:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    buffPower:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    defense:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    spDefense:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    hitAcc:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    dodge:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    crit:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    antiCrit:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    extraRange:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    aggroMul:
+      valueType: 0
+      staticValue: 1
+      source:
+        source: Unknown
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 1
+      mulMultiplier: 1
+    baseStatsFundamental:
+      VIT: 0
+      STR: 0
+      MAG: 0
       INT: 0
       DEX: 0
       TEC: 0
@@ -270,26 +508,11 @@ MonoBehaviour:
     health: 100
     maxHealth: 100
     damageShield: 0
-    mainWeaponSO: {fileID: 11400000, guid: b7474fd452556224896102d794aa51ce, type: 2}
+    mainWeaponSO: {fileID: 0}
     subWeaponSO: {fileID: 0}
-    listenerSOs:
-    - {fileID: 11400000, guid: 7b1406fca4eab7c48b4098c174d4c832, type: 2}
+    listenerSOs: []
     listeners: []
-    actionSOs:
-    - {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
---- !u!114 &-6969019455269956120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5180081312367153651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9af3c13bb13794c90719c0ff2248df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
+    actionSOs: []
 --- !u!1 &5180081312433231015
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,7 +602,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 2
+    serializedVersion: 3
     m_TransformParent: {fileID: 5180081312367153648}
     m_Modifications:
     - target: {fileID: 612710761447979569, guid: b3f1552ad04ae9642852e91b16b3891a, type: 3}
@@ -475,7 +698,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3f1552ad04ae9642852e91b16b3891a, type: 3}
 --- !u!224 &5720576149297720375 stripped
 RectTransform:
@@ -487,7 +712,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 2
+    serializedVersion: 3
     m_TransformParent: {fileID: 5180081312367153648}
     m_Modifications:
     - target: {fileID: 3964896753108375457, guid: c332ca0e4531e8345b586f2810d74d84, type: 3}
@@ -539,7 +764,9 @@ PrefabInstance:
       value: MobProxy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c332ca0e4531e8345b586f2810d74d84, type: 3}
 --- !u!4 &8135044733511739099 stripped
 Transform:

@@ -19,7 +19,7 @@ namespace miniRAID.UI.TargetRequester
             return stage;
         }
 
-        public override void Request(Mob mob, OnRequestFinish onFinish, System.Action onCancel)
+        public override void Request(MobData mob, OnRequestFinish onFinish, System.Action onCancel)
         {
             this.mob = mob;
             choice.Clear();
@@ -54,7 +54,7 @@ namespace miniRAID.UI.TargetRequester
 
         void UpdateCursor(Vector2Int gridPos)
         {
-            var dirc = Globals.backend.GetDominantDirection(mob.data.Position, gridPos);
+            var dirc = Globals.backend.GetDominantDirection(mob.Position, gridPos);
             if (dirc != gridShape.direction)
             {
                 gridShape.direction = dirc;
@@ -64,16 +64,16 @@ namespace miniRAID.UI.TargetRequester
             switch (dirc)
             {
                 case GridShape.Direction.Up:
-                    ui.cursor.position = mob.data.Position + new Vector2Int(0, 1);
+                    ui.cursor.position = mob.Position + new Vector2Int(0, 1);
                     break;
                 case GridShape.Direction.Left:
-                    ui.cursor.position = mob.data.Position + new Vector2Int(-1, 0);
+                    ui.cursor.position = mob.Position + new Vector2Int(-1, 0);
                     break;
                 case GridShape.Direction.Down:
-                    ui.cursor.position = mob.data.Position + new Vector2Int(0, -1);
+                    ui.cursor.position = mob.Position + new Vector2Int(0, -1);
                     break;
                 case GridShape.Direction.Right:
-                    ui.cursor.position = mob.data.Position + new Vector2Int(1, 0);
+                    ui.cursor.position = mob.Position + new Vector2Int(1, 0);
                     break;
             }
         }

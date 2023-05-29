@@ -6,16 +6,16 @@ namespace miniRAID.UI
 {
     public class QuickStatus : MonoBehaviour
     {
-        Mob targetMob;
+        MobRenderer _targetMobRenderer;
         TMPro.TextMeshProUGUI text;
 
         // Start is called before the first frame update
         void Start()
         {
-            targetMob = GetComponentInParent<Mob>();
+            _targetMobRenderer = GetComponentInParent<MobRenderer>();
             text = GetComponent<TMPro.TextMeshProUGUI>();
 
-            switch (targetMob.data.unitGroup)
+            switch (_targetMobRenderer.data.unitGroup)
             {
                 case Consts.UnitGroup.Player:
                     text.color = new Color(0.8610f, 1.0f, 0.610f);
@@ -35,7 +35,7 @@ namespace miniRAID.UI
         // Update is called once per frame
         void Update()
         {
-            text.text = $"{(int)((targetMob.data.health / (float)targetMob.data.maxHealth) * 100)}% {targetMob.data.actionPoints}";
+            text.text = $"{(int)((_targetMobRenderer.data.health / (float)_targetMobRenderer.data.maxHealth) * 100)}% {_targetMobRenderer.data.actionPoints}";
         }
     }
 }

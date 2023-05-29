@@ -20,12 +20,17 @@ namespace miniRAID.Agents
         }
     }
 
+    /*
+     * This agent will repeatedly use regular attack from equipped main weapon, towards current max aggro enemy.
+     * If the regular attack is illegal (e.g., out of range, etc.), it will move towards current target instead.
+     * It will never stop until the mob run out of AP, cannot do anything, or as specified in the variable `maxActionPerTurn`.
+     */
     public class AggroAgentBase : MobAgentBase
     {
-        protected Dictionary<Mob, float> aggroList;
+        protected Dictionary<MobData, float> aggroList;
         public new AggroAgentBaseSO data;
 
-        public Mob currentTarget;
+        public MobData currentTarget;
         public bool useAggro = true;
 
         public AggroAgentBase(MobData parent, AggroAgentBaseSO data) : base(parent, data)
@@ -33,28 +38,28 @@ namespace miniRAID.Agents
             this.data = data;
         }
 
-        public override void OnAttach(Mob mob)
+        public override void OnAttach(MobData mob)
         {
             base.OnAttach(mob);
 
             mob.OnReceiveDamageFinal += Mob_OnReceiveDamageFinal;
             mob.OnActionPostcast += Mob_OnActionPostcast;
-            aggroList = new Dictionary<Mob, float>();
+            aggroList = new Dictionary<MobData, float>();
         }
 
-        private void Mob_OnReceiveDamageFinal(Mob mob, Consts.DamageHeal_Result info)
+        private void Mob_OnReceiveDamageFinal(MobData mob, Consts.DamageHeal_Result info)
         {
-            if (info.source.data.unitGroup == mob.data.unitGroup) { return; }
-            AddToAggro(info.source, info.value * info.source.data.aggroMul);
+            if (info.source.unitGroup == mob.unitGroup) { return; }
+            AddToAggro(info.source, info.value * info.source.aggroMul);
         }
 
-        private void TargetMob_OnReceiveHealFinal(Mob mob, Consts.DamageHeal_Result info)
+        private void TargetMob_OnReceiveHealFinal(MobData mob, Consts.DamageHeal_Result info)
         {
-            if (info.source.data.unitGroup == mob.data.unitGroup) { return; }
-            AddToAggro(info.source, info.value * info.source.data.aggroMul * 2.0f);
+            if (info.source.unitGroup == mob.unitGroup) { return; }
+            AddToAggro(info.source, info.value * info.source.aggroMul * 2.0f);
         }
 
-        protected void AddToAggro(Mob mob, float aggro)
+        protected void AddToAggro(MobData mob, float aggro)
         {
             // Add to aggrolist if not exist
             if (!aggroList.ContainsKey(mob))
@@ -68,7 +73,7 @@ namespace miniRAID.Agents
             UpdateAggro();
         }
 
-        protected void RemoveFromAggro(Mob mob)
+        protected void RemoveFromAggro(MobData mob)
         {
             if (aggroList.ContainsKey(mob))
             {
@@ -85,15 +90,21 @@ namespace miniRAID.Agents
             {
                 // Find our target first.
                 // Target may die due to previous action, so we may need to find a new one.
-                Mob target = null;
+                MobData target = null;
                 float maxAggro = 0;
 
-                List<Mob> shouldRemove = new List<Mob>();
+                List<MobData> shouldRemove = new List<MobData>();
 
                 foreach (var entry in aggroList)
                 {
                     // Remove from aggroList if aggro too small
                     // TODO: Check if dead or out of range
+                    if (entry.Key == null || entry.Key.isDead)
+                    {
+                        shouldRemove.Add(entry.Key);
+                        continue;
+                    }
+                    
                     if (aggroList[entry.Key] <= 1.0)
                     {
                         shouldRemove.Add(entry.Key);
@@ -118,7 +129,7 @@ namespace miniRAID.Agents
             }
         }
 
-        public IEnumerator Mob_OnActionPostcast(Mob mob, RuntimeAction ra, Spells.SpellTarget target)
+        public IEnumerator Mob_OnActionPostcast(MobData mob, RuntimeAction ra, Spells.SpellTarget target)
         {
             if(ra == pickedAction)
             {
@@ -133,8 +144,12 @@ namespace miniRAID.Agents
         bool shouldStop = true;
         RuntimeAction pickedAction;
 
-        public IEnumerator Act(Mob mob)
+        private int actionCounter = 0, maxActionPerTurn = 3;
+
+        public IEnumerator Act(MobData mob)
         {
+            actionCounter = 0;
+            
             foreach (var entry in aggroList.Keys.ToList())
             {
                 // Decrease aggro by some constant per turn
@@ -143,7 +158,7 @@ namespace miniRAID.Agents
             UpdateAggro();
 
             shouldStop = false;
-            Mob target = currentTarget;
+            MobData target = currentTarget;
 
             while (!shouldStop)
             {
@@ -157,8 +172,8 @@ namespace miniRAID.Agents
                     // Behaviour: pick an attack => If in range then attack => Move towards to target by search a path otherwise
 
                     // TODO: Pick advanced attack / OnPickAction()
-                    RuntimeAction pickedSpell = mob.data.mainWeapon.GetRegularAttackSpell();
-                    var sTarget = new Spells.SpellTarget(target.data.Position);
+                    RuntimeAction pickedSpell = mob.mainWeapon.GetRegularAttackSpell();
+                    var sTarget = new Spells.SpellTarget(target.Position);
 
                     // TODO: Move, Add inRange check in CheckWithTargets, etc.
                     if (pickedSpell.data.CheckWithTargets(mob, sTarget))
@@ -173,9 +188,9 @@ namespace miniRAID.Agents
                         // Do we really need to re-calculate the path everytime?
                         // Will the map change during our action? could be possible though ...
                         // TODO: Cache the path in some way in case of performance problems
-                        GridPath path = Globals.backend.FindPathTo(mob.data.Position, Globals.backend.FindNearestEmptyGrid(target.data.Position, mob.gridBody), mob.data.movementType, data.eyesight);
+                        GridPath path = Globals.backend.FindPathTo(mob.Position, Globals.backend.FindNearestEmptyGrid(target.Position, mob.gridBody), mob.movementType, data.eyesight);
 
-                        // The path needs to be at least 2 grids long
+                        // The path needs to be at least 1 grids long
                         if (path.path.Count >= 2)
                         {
                             //throw new System.NotImplementedException();
@@ -188,12 +203,18 @@ namespace miniRAID.Agents
 
                             // Move do not have AP costs
                             yield return new JumpIn(mob.TryAutoEndTurn());
-                            if(mob.data.isActive == false)
+                            if(mob.isActive == false)
                             {
                                 shouldStop = true;
                             }
                         }
                     }
+                }
+                
+                actionCounter += 1;
+                if (actionCounter >= maxActionPerTurn)
+                {
+                    shouldStop = true;
                 }
             }
 
@@ -205,7 +226,7 @@ namespace miniRAID.Agents
             yield break;
         }
 
-        protected override IEnumerator OnAgentWakeUp(Mob mob)
+        protected override IEnumerator OnAgentWakeUp(MobData mob)
         {
             yield return new JumpIn(Act(mob));
         }

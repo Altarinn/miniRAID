@@ -8,8 +8,8 @@ namespace miniRAID.Agents
     {
         public MonoBehaviourAgent agent;
 
-        public abstract IEnumerator Act(Mob mob, int turn);
+        public abstract IEnumerator Act(MobData mob, int turn);
 
-        public virtual string GetIncomingString(Mob mob, int turn) { return "UNKNOWN"; }
+        public virtual string GetIncomingString(MobData mob, int turn) { return "UNKNOWN"; }
     }
 }

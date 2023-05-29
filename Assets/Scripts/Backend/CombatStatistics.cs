@@ -45,7 +45,7 @@ namespace miniRAID
 
         public void Record(Consts.DamageHeal_Result result)
         {
-            MobData src = result.source.data;
+            MobData src = result.source;
             if(!records.ContainsKey(src))
             {
                 records.Add(src, new Dictionary<string, RecordEntry>());

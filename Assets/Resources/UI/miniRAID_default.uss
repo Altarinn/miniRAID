@@ -26,7 +26,6 @@ Button:active {
 Label {
     color: rgb(255, 255, 255);
     -unity-font: url('project://database/Assets/Fonts/renew-DinkieBitmap-9px.ttf?fileID=12800000&guid=aced252a4ce05574389ab53bc0ff33b4&type=3#renew-DinkieBitmap-9px');
-    -unity-font-definition: none;
     -unity-text-align: middle-left;
     margin-left: 0;
     margin-right: 0;
@@ -37,6 +36,7 @@ Label {
     padding-top: 0;
     padding-bottom: 0;
     font-size: 10px;
+    -unity-font-definition: url('project://database/Assets/Fonts/renew-DinkieBitmap-9px%20SDF%201.asset?fileID=11400000&guid=04ec83cd734eaa84a87cd60d0302c55b&type=2#renew-DinkieBitmap-9px SDF 1');
 }
 
 Button.disabled {
@@ -61,9 +61,11 @@ Button.disabled {
 Label.small-font {
     -unity-font: url('project://database/Assets/Fonts/renew-DinkieBitmap-7px.ttf?fileID=12800000&guid=acd76f366c0f9fa4c92e0dbcadb6c23a&type=3#renew-DinkieBitmap-7px');
     font-size: 8px;
+    -unity-font-definition: url('project://database/Assets/Fonts/renew-DinkieBitmap-7px%20SDF.asset?fileID=11400000&guid=410723f3119845f439b743881e0269bc&type=2#renew-DinkieBitmap-7px SDF');
 }
 
 Label .big-font {
     -unity-font: url('project://database/Assets/Fonts/Legacy/DinkieBitmap-9px.ttf?fileID=12800000&guid=d55e970942cccd34f8a24ed2645322f2&type=3#DinkieBitmap-9px');
     font-size: 13px;
+    -unity-font-definition: url('project://database/Assets/Fonts/renew-DinkieBitmap-9px%20SDF%201.asset?fileID=11400000&guid=04ec83cd734eaa84a87cd60d0302c55b&type=2#renew-DinkieBitmap-9px SDF 1');
 }

@@ -49,7 +49,7 @@ namespace miniRAID
     }
 
     [System.Serializable]
-    public class MobListener
+    public class MobListener : Backend.BackendState
     {
         [System.NonSerialized]
         public MobData parentMob;
@@ -60,10 +60,10 @@ namespace miniRAID
 
         public MobListener(MobData parent, MobListenerSO data) { this.parentMob = parent; this.data = data; }
 
-        public virtual bool TryAdd(Mob mob)
+        public virtual bool TryAdd(MobData mob)
         {
             if(data == null) { return true; }
-            return data.TryAdd(mob.data);
+            return data.TryAdd(mob);
         }
 
         ////////////////////////////////////////////////////
@@ -71,20 +71,20 @@ namespace miniRAID
         ////////////////////////////////////////////////////
 
         // Emitted when it "entered" a scene - being attached to a mob, mob attaching it entered a new scene, etc.
-        public virtual void OnEnterScene(Mob mob) { }
+        public virtual void OnEnterScene(MobData mob) { }
 
         // Emitted before it is going to exit from a scene.
-        public virtual void OnExitScene(Mob mob) { }
+        public virtual void OnExitScene(MobData mob) { }
 
         // Emitted when attached - will not be triggered when a mob entered a new scene without removing the listener.
         // May play some animation but cannot block the main coroutine.
-        public virtual void OnAttach(Mob mob)
+        public virtual void OnAttach(MobData mob)
         {
-            this.parentMob = mob.data;
+            this.parentMob = mob;
         }
 
         // Emitted before it is going to be removed from a mob.
-        public virtual void OnRemove(Mob mob)
+        public virtual void OnRemove(MobData mob)
         {
             this.parentMob = null;
         }
@@ -94,7 +94,7 @@ namespace miniRAID
         {
             if(this.parentMob != null)
             {
-                this.parentMob.parentMob.RemoveListener(this);
+                this.parentMob.RemoveListener(this);
             }
         }
 

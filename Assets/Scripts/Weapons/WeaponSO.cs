@@ -64,7 +64,7 @@ namespace miniRAID.Weapon
         public Weapon(MobData parent, WeaponSO data) : base(parent, data) { this.data = data; }
         protected RuntimeAction RregularAttack;
 
-        public override void OnAttach(Mob mob)
+        public override void OnAttach(MobData mob)
         {
             base.OnAttach(mob);
 
@@ -73,7 +73,7 @@ namespace miniRAID.Weapon
             mob.OnQueryActions += OnQueryActions;
         }
 
-        protected virtual void OnQueryActions(Mob mob, HashSet<RuntimeAction> actions)
+        protected virtual void OnQueryActions(MobData mob, HashSet<RuntimeAction> actions)
         {
             //actions.RemoveWhere(x => x.data == data.hiddenAttack);
         }

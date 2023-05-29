@@ -7,19 +7,22 @@ namespace miniRAID
 {
 	public partial class CombatSchedulerCoroutine : MonoBehaviour
     {
-        HashSet<Mob> awaitForActions = new HashSet<Mob>();
-        Consts.UnitGroup currentPhase;
+        HashSet<MobData> awaitForActions = new HashSet<MobData>();
+        public Consts.UnitGroup currentPhase { get; private set; }
 
         public IEnumerator Phase(Consts.UnitGroup group)
         {
+            Globals.logger?.Log($"[csc] PHASE START: {group.ToString()}");
+            
             // Enter phase
             awaitForActions.Clear();
             currentPhase = group;
 
             // Add them to AwaitForActions first
-            foreach (Mob mob in Databackend.GetSingleton().allMobs)
+            foreach (MobData mob in Databackend.GetSingleton().allMobs)
             {
-                if (mob.data.unitGroup == group)
+                mob.OnNewPhase();
+                if (mob.unitGroup == group)
                 {
                     awaitForActions.Add(mob);
                 }
@@ -46,7 +49,7 @@ namespace miniRAID
             }
 
             // TODO: Do something to end the phase!
-            while (awaitForActions.Any(m => m.isActive))
+            while (awaitForActions.Any(m => m.isControllable))
             {
                 yield return null;
             }
@@ -54,12 +57,12 @@ namespace miniRAID
             // End phase. Do something?
         }
 
-        public bool CheckPhaseEnd(IEnumerable<Mob> mobs)
+        public bool CheckPhaseEnd(IEnumerable<MobData> mobs)
         {
-            return !mobs.Any(m => m.isActive);
+            return !mobs.Any(m => m.isControllable);
         }
 
-        public IEnumerator WakeUpMobs(IEnumerable<Mob> mobs)
+        public IEnumerator WakeUpMobs(IEnumerable<MobData> mobs)
         {
             // Trigger all OnNextTurn events
             // AwaitForActions may be modified during following processes

@@ -52,7 +52,7 @@ namespace miniRAID.Spells
         public event HitEntityEvent OnHit;
         public event RegularEntityEvent OnFinished;
 
-        public virtual void Cast(Mob source, SpellTarget target, Action.OnActionCorotineFinished callback)
+        public virtual void Cast(MobData source, SpellTarget target, Action.OnActionCorotineFinished callback)
         {
             Globals.actionHost.Instance.HostActionCoroutine(CastCoroutine(source, target), callback);
         }
@@ -62,7 +62,7 @@ namespace miniRAID.Spells
             OnUpdate?.Invoke(this);
         }
 
-        public IEnumerator CastCoroutine(Mob source, SpellTarget target)
+        public IEnumerator CastCoroutine(MobData source, SpellTarget target)
         {
             yield return Coroutine(source, target);
 
@@ -75,7 +75,7 @@ namespace miniRAID.Spells
         /// <param name="source">Source of this spell</param>
         /// <param name="target">Target of this spell</param>
         /// <returns></returns>
-        public abstract IEnumerator Coroutine(Mob source, SpellTarget target);
+        public abstract IEnumerator Coroutine(MobData source, SpellTarget target);
 
         protected virtual void Hit(SpellTarget target)
         {

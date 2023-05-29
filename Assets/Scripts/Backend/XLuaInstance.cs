@@ -10,6 +10,7 @@ using XLua;
 using miniRAID;
 using miniRAID.Spells;
 using System.Runtime.CompilerServices;
+using UnityEngine.Serialization;
 
 namespace miniRAID
 {
@@ -36,7 +37,7 @@ public class XLuaInstance : MonoBehaviour
 
     [Title("Debug only")]
     public ActionDataSO actionData;
-    public Mob mob;
+    [FormerlySerializedAs("mob")] public MobRenderer mobRenderer;
 
     void Awake()
     {

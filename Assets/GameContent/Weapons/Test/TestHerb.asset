@@ -21,7 +21,6 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  fullPath: Weapons/Test
   Guid: 0712dba7a8304c24970e25e5d51ed41e
   Id: 26
   icon: {fileID: -312616133, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
@@ -29,8 +28,8 @@ MonoBehaviour:
   type: 1
   priority: 0
   wpType: 9
-  regularAttack: {fileID: 11400000, guid: 782dc8f4594945e42a1989167ea05416, type: 2}
+  regularAttack: {fileID: 11400000, guid: 7d0a924b74cd61a4cbe3a035bfdee38d, type: 2}
   mainElement: 6
-  specialAttack: {fileID: 11400000, guid: 60d090c2738233545961c8f1ab6a088e, type: 2}
+  specialAttack: {fileID: 11400000, guid: 63f80b34efe864b4286538e25ecbd4bf, type: 2}
   energyCount: 4
   energyMax: 4

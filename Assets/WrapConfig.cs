@@ -11,18 +11,31 @@ public static class WrapConfig
     {
         typeof(IEnumerator),
         typeof(Coroutine),
-        typeof(System.Func<System.ValueTuple<miniRAID.Mob, miniRAID.Spells.SpellTarget>, System.Collections.IEnumerator>),
-        typeof(System.Func<System.ValueTuple<miniRAID.Mob, miniRAID.Spells.SpellTarget, UnityEngine.Vector3>, System.Collections.IEnumerator>),
-        typeof(System.Func<System.ValueTuple<miniRAID.Mob, Vector2Int>, System.Collections.IEnumerator>),
-        typeof(System.Func<System.ValueTuple<miniRAID.Mob, UnityEngine.Vector2Int>, System.Collections.IEnumerator>),
-        typeof(System.Func<miniRAID.Mob, float>),
+        typeof(System.Func<System.ValueTuple<miniRAID.MobRenderer, miniRAID.Spells.SpellTarget>, System.Collections.IEnumerator>),
+        typeof(System.Func<System.ValueTuple<miniRAID.MobRenderer, miniRAID.Spells.SpellTarget, UnityEngine.Vector3>, System.Collections.IEnumerator>),
+        typeof(System.Func<System.ValueTuple<miniRAID.MobRenderer, Vector2Int>, System.Collections.IEnumerator>),
+        typeof(System.Func<System.ValueTuple<miniRAID.MobRenderer, UnityEngine.Vector2Int>, System.Collections.IEnumerator>),
+        typeof(System.Func<miniRAID.MobRenderer, float>),
 
-        typeof(System.Func<System.ValueTuple<miniRAID.GeneralCombatData, miniRAID.Mob, miniRAID.Spells.SpellTarget>, System.Collections.IEnumerator>),
-        typeof(System.Func<System.ValueTuple<miniRAID.GeneralCombatData, miniRAID.Mob, miniRAID.Spells.SpellTarget, UnityEngine.Vector3>, System.Collections.IEnumerator>),
-        typeof(System.Func<System.ValueTuple<miniRAID.GeneralCombatData, miniRAID.Mob, Vector2Int>, System.Collections.IEnumerator>),
-        typeof(System.Func<System.ValueTuple<miniRAID.GeneralCombatData, miniRAID.Mob, UnityEngine.Vector2Int>, System.Collections.IEnumerator>),
-        typeof(System.Func<System.ValueTuple<miniRAID.Buff.Buff, miniRAID.Cost, miniRAID.RuntimeAction, miniRAID.Mob>, miniRAID.None>),
-        typeof(System.Func<System.ValueTuple<miniRAID.GeneralCombatData, miniRAID.Mob, miniRAID.Mob>, System.Collections.IEnumerator>),
+        typeof(System.Func<System.ValueTuple<miniRAID.GeneralCombatData, miniRAID.MobRenderer, miniRAID.Spells.SpellTarget>, System.Collections.IEnumerator>),
+        typeof(System.Func<System.ValueTuple<miniRAID.GeneralCombatData, miniRAID.MobRenderer, miniRAID.Spells.SpellTarget, UnityEngine.Vector3>, System.Collections.IEnumerator>),
+        typeof(System.Func<System.ValueTuple<miniRAID.GeneralCombatData, miniRAID.MobRenderer, Vector2Int>, System.Collections.IEnumerator>),
+        typeof(System.Func<System.ValueTuple<miniRAID.GeneralCombatData, miniRAID.MobRenderer, UnityEngine.Vector2Int>, System.Collections.IEnumerator>),
+        typeof(System.Func<System.ValueTuple<miniRAID.Buff.Buff, miniRAID.Cost, miniRAID.RuntimeAction, miniRAID.MobRenderer>, miniRAID.None>),
+        typeof(System.Func<System.ValueTuple<miniRAID.GeneralCombatData, miniRAID.MobRenderer, miniRAID.MobRenderer>, System.Collections.IEnumerator>),
+        
+        typeof(System.Func<System.ValueTuple<miniRAID.MobData, miniRAID.Spells.SpellTarget>, System.Collections.IEnumerator>),
+        typeof(System.Func<System.ValueTuple<miniRAID.MobData, miniRAID.Spells.SpellTarget, UnityEngine.Vector3>, System.Collections.IEnumerator>),
+        typeof(System.Func<System.ValueTuple<miniRAID.MobData, Vector2Int>, System.Collections.IEnumerator>),
+        typeof(System.Func<System.ValueTuple<miniRAID.MobData, UnityEngine.Vector2Int>, System.Collections.IEnumerator>),
+        typeof(System.Func<miniRAID.MobData, float>),
+
+        typeof(System.Func<System.ValueTuple<miniRAID.GeneralCombatData, miniRAID.MobData, miniRAID.Spells.SpellTarget>, System.Collections.IEnumerator>),
+        typeof(System.Func<System.ValueTuple<miniRAID.GeneralCombatData, miniRAID.MobData, miniRAID.Spells.SpellTarget, UnityEngine.Vector3>, System.Collections.IEnumerator>),
+        typeof(System.Func<System.ValueTuple<miniRAID.GeneralCombatData, miniRAID.MobData, Vector2Int>, System.Collections.IEnumerator>),
+        typeof(System.Func<System.ValueTuple<miniRAID.GeneralCombatData, miniRAID.MobData, UnityEngine.Vector2Int>, System.Collections.IEnumerator>),
+        typeof(System.Func<System.ValueTuple<miniRAID.Buff.Buff, miniRAID.Cost, miniRAID.RuntimeAction, miniRAID.MobData>, miniRAID.None>),
+        typeof(System.Func<System.ValueTuple<miniRAID.GeneralCombatData, miniRAID.MobData, miniRAID.MobData>, System.Collections.IEnumerator>),
     };
 
     [LuaCallCSharp]
@@ -62,5 +75,8 @@ public static class WrapConfig
                 new List<string>(){"System.IO.DirectoryInfo", "CreateSubdirectory", "System.String", "System.Security.AccessControl.DirectorySecurity"},
                 new List<string>(){"System.IO.DirectoryInfo", "Create", "System.Security.AccessControl.DirectorySecurity"},
                 new List<string>(){"UnityEngine.MonoBehaviour", "runInEditMode"},
+                
+                new List<string>(){"UnityEngine.Transform"},
+                new List<string>(){"UnityEngine.Resources"},
             };
 }

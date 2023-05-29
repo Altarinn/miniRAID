@@ -44,7 +44,7 @@ namespace miniRAID.UI
         public TMPro.TextMeshProUGUI mainMobStatText;
 
         bool waitingAnimation;
-        Mob statViewMob;
+        MobRenderer _statViewMobRenderer;
 
         // Animation related
         public bool isInAnimation
@@ -146,6 +146,11 @@ namespace miniRAID.UI
 
         public void WaitFor(IEnumerator action, IEnumerator onFinished)
         {
+            if (waitingAnimation)
+            {
+                return;
+            }
+            
             IEnumerator Wrapper()
             {
                 if (currentState is UnitMenu)
@@ -158,12 +163,16 @@ namespace miniRAID.UI
                 waitingAnimation = false;
                 yield return new JumpIn(onFinished);
             }
-
-            waitingAnimation = true;
-            combatView.menu.HideMenu();
-            mainMobStatPanel.SetActive(false);
-
-            Globals.combatMgr.Instance.UIPickedAction(action, Wrapper());
+            
+            bool actionAccepted = Globals.combatMgr.Instance.UIPickedAction(action, Wrapper());
+            if (actionAccepted)
+            {
+                // Only change UI state if the action is accepted (there's no actions on-going right now)
+                // This could be triggered by keyboard shortcuts while the animation is playing, in some rare cases.
+                waitingAnimation = true;
+                combatView.menu.HideMenu();
+                mainMobStatPanel.SetActive(false);
+            }
         }
 
         public void WaitFor(IEnumerator action, System.Action onFinished)
@@ -247,7 +256,7 @@ namespace miniRAID.UI
 
         public void RefreshMainMobStats()
         {
-            var mob = statViewMob;
+            var mob = _statViewMobRenderer;
 
 #if UNITY_EDITOR
             Selection.activeGameObject = mob.gameObject;
@@ -259,10 +268,6 @@ namespace miniRAID.UI
                 if (fx.type == MobListenerSO.ListenerType.Buff)
                 {
                     effects += "\n" + fx.name;
-                    if(((Buff.Buff)fx).data.timed)
-                    {
-                        effects += $" ({((Buff.Buff)fx).timeRemain})";
-                    }
                 }
             }
 
@@ -286,9 +291,9 @@ namespace miniRAID.UI
                 $"\n";
         }
 
-        public void ShowMainMobStats(Mob mob)
+        public void ShowMainMobStats(MobRenderer mobRenderer)
         {
-            statViewMob = mob;
+            _statViewMobRenderer = mobRenderer;
             RefreshMainMobStats();
             mainMobStatPanel.SetActive(true);
         }

@@ -45,26 +45,26 @@ namespace miniRAID.Spells
             //};
         }
 
-        public override bool CheckWithTargets(Mob mob, SpellTarget target)
+        public override bool CheckWithTargets(MobData mob, SpellTarget target)
         {
             bool baseResult = base.CheckWithTargets(mob, target);
 
             bool isInRange = true;
             foreach (var item in target.targetPos)
             {
-                isInRange &= Globals.backend.Distance(mob.data.Position, item) <= range;
+                isInRange &= Globals.backend.Distance(mob.Position, item) <= range;
             }
 
             return baseResult && isInRange;
         }
 
-        protected override bool Do(Mob mob, SpellTarget target, OnActionCorotineFinished callback = null, bool cd = true, bool host = false)
+        protected override bool Do(MobData mob, SpellTarget target, OnActionCorotineFinished callback = null, bool cd = true, bool host = false)
         {
             return base.Do(mob, target, callback, cd, host);
         }
 
         
-        protected override IEnumerator Coroutine(Mob mob, SpellTarget target)
+        protected override IEnumerator Coroutine(MobData mob, SpellTarget target)
         {
             yield break;
             /*

@@ -44,9 +44,9 @@ namespace miniRAID.UIElements
             battlePreview.style.visibility = Visibility.Hidden;
         }
 
-        public void BindAsBoss(Mob mob)
+        public void BindAsBoss(MobRenderer mobRenderer)
         {
-            bossStats.Register(mob);
+            bossStats.Register(mobRenderer);
         }
 
         public void Update()

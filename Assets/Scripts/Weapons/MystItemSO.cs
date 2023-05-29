@@ -31,7 +31,7 @@ namespace miniRAID.Weapon
         public MystItem(MobData parent, MystItemSO data) : base(parent, data) { this.data = data; }
         RuntimeAction RspecialAttack;
 
-        public override void OnAttach(Mob mob)
+        public override void OnAttach(MobData mob)
         {
             base.OnAttach(mob);
 
@@ -42,7 +42,7 @@ namespace miniRAID.Weapon
             currentEnergy = 0;
         }
 
-        private void OnActionPostCast(Mob mob, RuntimeAction ract, Spells.SpellTarget target)
+        private void OnActionPostCast(MobData mob, RuntimeAction ract, Spells.SpellTarget target)
         {
             if (ract.data == RregularAttack.data) // Movement
             {
@@ -56,7 +56,7 @@ namespace miniRAID.Weapon
             }
         }
 
-        protected override void OnQueryActions(Mob mob, HashSet<RuntimeAction> actions)
+        protected override void OnQueryActions(MobData mob, HashSet<RuntimeAction> actions)
         {
             base.OnQueryActions(mob, actions);
             if (currentEnergy < data.energyCount)

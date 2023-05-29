@@ -33,7 +33,7 @@ MonoBehaviour:
       Data: 0
     - Name: staticOut
       Entry: 4
-      Data: 8
+      Data: 9
     - Name: LuaExpr
       Entry: 6
       Data: 
@@ -367,7 +367,7 @@ MonoBehaviour:
       Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 9
+      Data: 10
     - Name: 
       Entry: 3
       Data: 7

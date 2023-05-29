@@ -217,13 +217,12 @@ namespace miniRAID
         public SerialCoroutineHandle currentHandle { get; private set; }
 
         [Header("DEBUG")] public bool enableDebugging;
-        public string debugLogPath;
 
         private void Awake()
         {
             if (enableDebugging)
             {
-                File.WriteAllText(debugLogPath, $"- Start of coroutine debug log -\n[{DateTime.Now}] AWAKE\n");
+                Globals.logger.Log("SerialCoroutine awake");
             }
         }
 
@@ -249,7 +248,7 @@ namespace miniRAID
                 handleStack.Push(new SerialCoroutineHandle(obj, context));
                 if (enableDebugging)
                 {
-                    File.AppendAllText(debugLogPath, $"[{DateTime.Now}] StartSerialCoroutine\n");
+                    Globals.logger.Log($"StartSerialCoroutine\n");
                 }
                 StartCoroutine(Tick());
             }
@@ -305,7 +304,7 @@ namespace miniRAID
                             handleStack.Push(new SerialCoroutineHandle(ji.dest, currentHandle.context, ji.info));
                             if (enableDebugging)
                             {
-                                File.AppendAllText(debugLogPath, $"[{DateTime.Now}] new JumpIn at {ji.info.member} ( {ji.info.file} : {ji.info.lineNum} )\n");
+                                Globals.logger.Log($"new JumpIn at {ji.info.member} ( {ji.info.file} : {ji.info.lineNum} )");
                             }
                         }
                         else

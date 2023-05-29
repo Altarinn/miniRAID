@@ -171,7 +171,7 @@ MonoBehaviour:
       addMultiplier: 1
       mulMultiplier: 1
     baseStatsFundamental:
-      VIT: 16
+      VIT: 20
       STR: 14
       MAG: 15
       INT: 0

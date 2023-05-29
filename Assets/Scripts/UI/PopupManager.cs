@@ -14,7 +14,7 @@ public class PopupManager : MonoBehaviour
     RectTransform CanvasRect;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         CanvasRect = canvas.GetComponent<RectTransform>();
     }

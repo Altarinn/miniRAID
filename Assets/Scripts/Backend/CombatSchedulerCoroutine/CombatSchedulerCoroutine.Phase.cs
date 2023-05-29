@@ -12,6 +12,8 @@ namespace miniRAID
 
         public IEnumerator Phase(Consts.UnitGroup group)
         {
+            Globals.logger?.Log($"[csc] PHASE START: {group.ToString()}");
+            
             // Enter phase
             awaitForActions.Clear();
             currentPhase = group;
@@ -57,7 +59,7 @@ namespace miniRAID
 
         public bool CheckPhaseEnd(IEnumerable<MobData> mobs)
         {
-            return !mobs.Any(m => m.isActive);
+            return !mobs.Any(m => m.isControllable);
         }
 
         public IEnumerator WakeUpMobs(IEnumerable<MobData> mobs)

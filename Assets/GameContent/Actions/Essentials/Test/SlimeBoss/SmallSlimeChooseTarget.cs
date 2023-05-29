@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using Sirenix.OdinInspector;
 using System.Linq;
 using miniRAID.ActionHelpers;
 using miniRAID.Spells;
@@ -12,7 +11,8 @@ namespace miniRAID
     public class SmallSlimeChooseTarget : ActionDataSO
     {
         public SpellBuff buff;
-        
+        public ActionHelpers.Projectile indicator;
+
         public override IEnumerator OnPerform(RuntimeAction ract, MobData mob,
             Spells.SpellTarget target)
         {
@@ -31,6 +31,8 @@ namespace miniRAID
             // Find random target
             int idx = Random.Range(0, enemies.Count);
             MobData chosenMob = enemies[idx];
+
+            yield return new JumpIn(indicator.WaitForShootAt(mob, chosenMob.Position));
             
             // Apply the buff as indicator
             yield return new JumpIn(buff.Do(ract, mob, chosenMob));

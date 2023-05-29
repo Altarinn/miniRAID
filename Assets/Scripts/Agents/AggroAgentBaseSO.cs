@@ -99,6 +99,12 @@ namespace miniRAID.Agents
                 {
                     // Remove from aggroList if aggro too small
                     // TODO: Check if dead or out of range
+                    if (entry.Key == null || entry.Key.isDead)
+                    {
+                        shouldRemove.Add(entry.Key);
+                        continue;
+                    }
+                    
                     if (aggroList[entry.Key] <= 1.0)
                     {
                         shouldRemove.Add(entry.Key);
@@ -184,7 +190,7 @@ namespace miniRAID.Agents
                         // TODO: Cache the path in some way in case of performance problems
                         GridPath path = Globals.backend.FindPathTo(mob.Position, Globals.backend.FindNearestEmptyGrid(target.Position, mob.gridBody), mob.movementType, data.eyesight);
 
-                        // The path needs to be at least 2 grids long
+                        // The path needs to be at least 1 grids long
                         if (path.path.Count >= 2)
                         {
                             //throw new System.NotImplementedException();

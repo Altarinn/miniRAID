@@ -165,11 +165,14 @@ namespace miniRAID.UI
             ui.uimenu_uicontainer.Hide();
         }
 
-        public IEnumerator OnPassSelected()
+        public IEnumerator OnPassSelected(bool set = true)
         {
             ui.EnterState();
 
-            yield return new JumpIn(currentUnit.data.SetActive(false));
+            if (set)
+            {
+                yield return new JumpIn(currentUnit.data.SetActive(false));
+            }
         }
 
         public IEnumerator AutoPass(MobRenderer mobRenderer)
@@ -180,7 +183,7 @@ namespace miniRAID.UI
 
             if(mobRenderer.data.isActive == false)
             {
-                yield return new JumpIn(OnPassSelected());
+                yield return new JumpIn(OnPassSelected(false));
             }
         }
     }

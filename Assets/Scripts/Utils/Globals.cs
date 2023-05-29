@@ -26,6 +26,8 @@ namespace miniRAID
 
         public static Databackend backend = Databackend.GetSingleton();
         public static CombatStatistics combatStats = new CombatStatistics();
+
+        public static Logger logger = Logger.Instance;
     }
 
     public static class Settings

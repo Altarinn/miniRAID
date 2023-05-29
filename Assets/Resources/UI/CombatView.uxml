@@ -7,7 +7,7 @@
     <Style src="project://database/Assets/Resources/UI/miniRAID_default.uss?fileID=7433441132597879392&amp;guid=54e6eee580e008a468415140067b7312&amp;type=3#miniRAID_default" />
     <ui:VisualElement name="CombatPanel" picking-mode="Ignore" style="flex-direction: row; height: 100%; width: 100%;">
         <ui:VisualElement name="MainPanel" picking-mode="Ignore" style="flex-grow: 1;">
-            <ui:VisualElement name="UnitMenuContainer" style="position: absolute; left: 99px; top: 99px; flex-direction: row; align-items: flex-start;">
+            <ui:VisualElement name="UnitMenuContainer" style="position: absolute; left: 24px; top: 69px; flex-direction: row; align-items: flex-start;">
                 <ui:ListView focusable="true" name="UnitMenu" fixed-item-height="16" picking-mode="Ignore" selection-type="None" style="width: 140px;" />
                 <ui:VisualElement name="ToolTip" style="visibility: hidden;">
                     <ui:Label tabindex="-1" text="ToolTip" display-tooltip-when-elided="true" name="ToolTipLabel" style="white-space: normal;" />

@@ -154,7 +154,14 @@ namespace miniRAID
 
             result.popup = true;
 
-            yield return new JumpIn(this.OnReceiveDamageFinal?.Invoke(this, result));
+            if (info.type == Consts.Elements.Heal)
+            {
+                yield return new JumpIn(this.OnReceiveHealFinal?.Invoke(this, result));
+            }
+            else
+            {
+                yield return new JumpIn(this.OnReceiveDamageFinal?.Invoke(this, result));
+            }
 
             if(health <= 0)
             {
@@ -180,11 +187,13 @@ namespace miniRAID
             {
                 RemoveListener(listener);
             }
+            
+            yield return new JumpIn(SetActive(false));
 
             if(mobRenderer != null)
                 yield return new JumpIn(mobRenderer.Killed(info));
 
-            yield return new JumpIn(SetActive(false));
+            mobRenderer = null;
             
             // Remove me from world
             Databackend.GetSingleton().ClearMob(Position, gridBody, this, true);

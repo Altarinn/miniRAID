@@ -8,7 +8,6 @@ using miniRAID.Spells;
 using System.Collections.Generic;
 using System.Linq;
 using miniRAID.Backend;
-using Unity.VisualScripting;
 using XLua;
 
 namespace miniRAID
@@ -19,7 +18,6 @@ namespace miniRAID
     /// This is designed to be used when save / restore current game state ... ?
     /// </summary>
     [Serializable]
-    [Inspectable]
     [ParameterDefaultName("mob")]
     [LuaCallCSharp]
     public partial class MobData : BackendState
@@ -325,6 +323,8 @@ namespace miniRAID
         public IEnumerator SetActive(bool value)
         {
             if(isActive == value) { yield break; }
+            
+            Globals.logger?.Log($"[SetActive] {nickname}: {value}");
 
             if (value)
             {

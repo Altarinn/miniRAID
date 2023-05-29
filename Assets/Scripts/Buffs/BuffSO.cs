@@ -197,6 +197,12 @@ namespace miniRAID.Buff
 
             this.stacks = 1;
         }
+        
+        // TODO: FIXME: Remove me
+        public virtual void _TEST_UIPopUp(string message, Vector2 position)
+        {
+            Globals.popupMgr.Instance.Popup(message, position + new Vector2(0.5f, 0.8f));
+        }
 
         public virtual bool Stack()
         {
@@ -216,6 +222,7 @@ namespace miniRAID.Buff
         public virtual bool Refresh()
         {
             this.timeRemain = data.timeMax;
+            _TEST_UIPopUp($"+{data.name}", parentMob.Position);
             return true;
         }
 
@@ -361,10 +368,14 @@ namespace miniRAID.Buff
                 mob.OnCostApply += evt;
                 onRemoveFromMob += (m) => { m.OnCostApply -= evt; };
             }
+            
+            _TEST_UIPopUp($"+{data.name}", mob.Position);
         }
 
         public override void OnRemove(MobData mob)
         {
+            _TEST_UIPopUp($"-{data.name}", mob.Position);
+            
             base.OnRemove(mob);
             mob.OnNextTurn -= BuffBase_OnNextTurn;
             onRemoveFromMob?.Invoke(mob);

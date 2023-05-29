@@ -172,6 +172,8 @@ namespace miniRAID
         {
             // Needs this?
             //RecalculateStats();
+            
+            Globals.logger?.Log($"[DoAction] {nickname} attempts casting {raction.data.name} towards {target.targetPos[0]}");
 
             yield return new JumpIn(ActionPrecheck(raction, target));
             

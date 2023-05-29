@@ -146,6 +146,11 @@ namespace miniRAID.UI
 
         public void WaitFor(IEnumerator action, IEnumerator onFinished)
         {
+            if (waitingAnimation)
+            {
+                return;
+            }
+            
             IEnumerator Wrapper()
             {
                 if (currentState is UnitMenu)
@@ -158,12 +163,16 @@ namespace miniRAID.UI
                 waitingAnimation = false;
                 yield return new JumpIn(onFinished);
             }
-
-            waitingAnimation = true;
-            combatView.menu.HideMenu();
-            mainMobStatPanel.SetActive(false);
-
-            Globals.combatMgr.Instance.UIPickedAction(action, Wrapper());
+            
+            bool actionAccepted = Globals.combatMgr.Instance.UIPickedAction(action, Wrapper());
+            if (actionAccepted)
+            {
+                // Only change UI state if the action is accepted (there's no actions on-going right now)
+                // This could be triggered by keyboard shortcuts while the animation is playing, in some rare cases.
+                waitingAnimation = true;
+                combatView.menu.HideMenu();
+                mainMobStatPanel.SetActive(false);
+            }
         }
 
         public void WaitFor(IEnumerator action, System.Action onFinished)

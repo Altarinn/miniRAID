@@ -537,6 +537,12 @@ namespace CSObjectWrapEditor
 
             foreach (var exclude in BlackList)
             {
+                // My God
+                if (mb.DeclaringType.ToString() == exclude[0] && exclude.Count == 1)
+                {
+                    return true;
+                }
+                
                 if (mb.DeclaringType.ToString() == exclude[0] && mb.Name == exclude[1])
                 {
                     return true;
@@ -564,6 +570,12 @@ namespace CSObjectWrapEditor
 
             foreach (var exclude in BlackList)
             {
+                // My God
+                if (mb.DeclaringType.ToString() == exclude[0] && exclude.Count == 1)
+                {
+                    return true;
+                }
+                
                 if (mb.DeclaringType.ToString() == exclude[0] && mb.Name == exclude[1])
                 {
                     var parameters = mb.GetParameters();

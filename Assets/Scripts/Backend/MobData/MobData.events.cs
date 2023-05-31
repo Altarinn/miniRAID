@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using miniRAID;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.UIElements;
 
 namespace miniRAID
 {
@@ -20,7 +23,6 @@ namespace miniRAID
 
         // TODO: Think about this signature
         public delegate void MobActionQueryDelegate(MobData mob, HashSet<RuntimeAction> actions);
-        public delegate void MobActionDelegate(MobData mob, Action action, Spells.SpellTarget target);
         
         /////////////////////////////  Events  //////////////////////////////
         /// TODO: Invoke order ......
@@ -56,16 +58,20 @@ namespace miniRAID
 
         // Emitted when the mob dealing a damage as the source.
         public CoroutineEvent<MobData, Consts.DamageHeal_FrontEndInput_ByRef> OnDealDmg;
-        public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnDealDamageFinal;
+        // public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnDealDamageFinal;
+        public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnDamageDealt;
 
         public CoroutineEvent<MobData, Consts.DamageHeal_FrontEndInput_ByRef> OnDealHeal;
-        public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnDealHealFinal;
+        // public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnDealHealFinal;
+        public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnHealDealt;
 
         public CoroutineEvent<MobData, Consts.DamageHeal_FrontEndInput_ByRef> OnReceiveDamage;
-        public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnReceiveDamageFinal;
+        // public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnReceiveDamageFinal;
+        public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnDamageReceived;
 
         public CoroutineEvent<MobData, Consts.DamageHeal_FrontEndInput_ByRef> OnReceiveHeal;
-        public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnReceiveHealFinal;
+        // public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnReceiveHealFinal;
+        public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnHealReceived;
 
         public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnKill; // TODO: ByRef?
         public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnPreDeath; // TODO: ByRef?
@@ -84,6 +90,7 @@ namespace miniRAID
         
         /////////////////////////////  Logics  //////////////////////////////
         
+        // TODO: Formalize this !!
         public IEnumerator ReceiveDamage(Consts.DamageHeal_FrontEndInput info, Consts.DamageHeal_Result result)
         {
             if (isDead)
@@ -91,56 +98,87 @@ namespace miniRAID
                 yield return -1;
             }
             
-            int val;
-
-            // TODO: Scale crit% with level.
-            bool isCrit = UnityEngine.Random.Range(0, 100.0f) < info.crit;
-            float multiplier = isCrit ? 2 : 1;
-
-            //Globals.debugMessage.Instance.Message(info.crit.ToString());
-            info.value *= multiplier;
-
+            // TODO: Trigger pre-computation events
+            
+            // Compute information and update to info
+            float defToUse = 1.0f;
             if (info.type == Consts.Elements.Heal)
             {
-                val = Mathf.CeilToInt(Mathf.Min(info.value, maxHealth - health));
-
-                health += val;
-
-                if(Globals.cc.animation && mobRenderer != null)
-                    yield return new JumpIn(mobRenderer.HealAnimation());
+                defToUse = Consts.GetIdenticalDefense(info.source.level);
+                info.hit = Consts.MaxHitAcc;
             }
             else
             {
-                // Defense
                 var defType = Consts.parentType(info.type);
-                float def = 0;
                 if(defType == Consts.AllElements.Physical)
                 {
-                    def = defense;
+                    defToUse = defense;
                 }
                 else if(defType == Consts.AllElements.Elemental)
                 {
-                    def = spDefense;
+                    defToUse = spDefense;
                 }
-                val = Mathf.CeilToInt(Mathf.Max(0.01f, info.value * (1.0f - def * 0.01f)));
+                else
+                {
+                    defToUse = Consts.GetIdenticalDefense(level);
+                }
+            }
 
-                val = Mathf.Min(val, (int)health);
-                health -= val;
+            Consts.DamageHeal_ComputedRates rates = new Consts.DamageHeal_ComputedRates()
+            {
+                value = Consts.GetDamage(info.value, info.source.level, defToUse, level),
+                hit = Consts.GetHitRate(info.hit, dodge, level),
+                crit = Consts.GetCriticalRate(info.crit, antiCrit, level),
+            };
+            
+            // TODO: Trigger post-rateComputation events
+            
+            // Roll the dice
+            bool isHit = Globals.cc.rng.WithProbability(rates.hit, rates.hit > 0);
+            bool isCrit = Globals.cc.rng.WithProbability(rates.crit, rates.crit >= 1.0f);
+
+            // TODO: Trigger post-RNG events
+
+            // TODO: Different multiplier for each type
+            float multiplier = isCrit ? 2 : 1;
+            if (multiplier > 1)
+            {
+                rates.value = Mathf.CeilToInt(rates.value * multiplier);
+            }
+
+            // Manipulate HP
+            int val = 0;
+            if (isHit)
+            {
+                if (info.type == Consts.Elements.Heal)
+                {
+                    val = Mathf.Clamp(rates.value, 0, maxHealth - health);
+
+                    health += val;
+
+                    if(Globals.cc.animation && mobRenderer != null)
+                        yield return new JumpIn(mobRenderer.HealAnimation());
+                }
+                else
+                {
+                    val = Mathf.Clamp(rates.value, 0, (int)health);
+                    health -= val;
                 
-                if(Globals.cc.animation && mobRenderer != null)
-                    yield return new JumpIn(mobRenderer.DamageAnimation());
+                    if(Globals.cc.animation && mobRenderer != null)
+                        yield return new JumpIn(mobRenderer.DamageAnimation());
+                }
             }
 
             // TODO: Refine this
             result.source = info.source;
             result.target = this;
 
-            result.isAvoid = false;
+            result.isAvoid = !isHit;
             result.isBlock = false;
-            result.isCrit = false;
+            result.isCrit = isHit && isCrit;
 
             result.value = val;
-            result.overdeal = Mathf.CeilToInt(info.value - val);
+            result.overdeal = Mathf.CeilToInt(rates.value - val);
             result.type = info.type;
 
             if(info.IsAction)
@@ -153,26 +191,34 @@ namespace miniRAID
             }
 
             result.popup = true;
+            
+            // Do the popup right here before received / dealt events
+            Globals.combatTracker.Record(result);
+            
+            if (isHit)
+            {
+                if (info.type == Consts.Elements.Heal)
+                {
+                    yield return new JumpIn(info.source.OnHealDealt?.Invoke(info.source, result));
+                    yield return new JumpIn(this.OnHealReceived?.Invoke(this, result));
+                }
+                else
+                {
+                    yield return new JumpIn(info.source.OnDamageDealt?.Invoke(info.source, result));
+                    yield return new JumpIn(this.OnDamageReceived?.Invoke(this, result));
+                }
+                
+                if(health <= 0 && !isDead)
+                {
+                    // TODO: Event invoke order; Event termination
+                    yield return new JumpIn(this.OnPreDeath?.Invoke(this, result));
+                }
 
-            if (info.type == Consts.Elements.Heal)
-            {
-                yield return new JumpIn(this.OnReceiveHealFinal?.Invoke(this, result));
-            }
-            else
-            {
-                yield return new JumpIn(this.OnReceiveDamageFinal?.Invoke(this, result));
-            }
-
-            if(health <= 0)
-            {
-                // TODO: Event invoke order; Event termination
-                yield return new JumpIn(this.OnPreDeath?.Invoke(this, result));
-            }
-
-            // If we still dead
-            if(health <= 0)
-            {
-                yield return new JumpIn(this.Killed(result));
+                // If we still dead
+                if(health <= 0 && !isDead)
+                {
+                    yield return new JumpIn(this.Killed(result));
+                }
             }
 
             yield break;
@@ -215,41 +261,17 @@ namespace miniRAID
         [ContextMenu("RefreshStats")]
         public void RecalculateStats()
         {
-            baseStats.VIT = dNumber.CreateComposite(baseStatsFundamental.VIT, "mobbase");
-            baseStats.STR = dNumber.CreateComposite(baseStatsFundamental.STR, "mobbase");
-            baseStats.MAG = dNumber.CreateComposite(baseStatsFundamental.MAG, "mobbase");
-            baseStats.INT = dNumber.CreateComposite(baseStatsFundamental.INT, "mobbase");
-            baseStats.DEX = dNumber.CreateComposite(baseStatsFundamental.DEX, "mobbase");
-            baseStats.TEC = dNumber.CreateComposite(baseStatsFundamental.TEC, "mobbase");
+            baseDescriptor.RecalculateMobBaseStats(this);
 
             OnBaseStatCalculation?.Invoke(this);
 
-            battleStats = new Consts.BattleStats();
-
-            // TODO: Fill Battle stats with Basic calculations
             float healthPercent = (float)health / maxHealth;
-            maxHealth = dNumber.CreateComposite(level * 2 + VIT * 3, "mobbase");
-
-            //data.defense = dNumber.CreateComposite(VIT * 2 + STR, "mobbase");
-            //data.spDefense = dNumber.CreateComposite(MAG * 2 + INT, "mobbase");
-
-            attackPower = dNumber.CreateComposite(STR, "mobbase");
-            spellPower = dNumber.CreateComposite(INT, "mobbase");
             
-            // DEBUG ONLY
-            healPower = dNumber.CreateComposite(MAG, "mobbase");
-            // DEBUG ONLY ENDS
-
-            hitAcc = dNumber.CreateComposite(TEC, "mobbase");
-            crit = dNumber.CreateComposite(TEC, "mobbase");
-            dodge = dNumber.CreateComposite(DEX, "mobbase");
-            antiCrit = dNumber.CreateComposite(DEX, "mobbase");
-
-            aggroMul = dNumber.CreateComposite(1.0, "mobbase");
+            baseDescriptor.RecalculateMobBattleStats(this);
 
             OnStatCalculation?.Invoke(this);
 
-            // Set current health based on pervious percentage
+            // Set current health based on previous percentage
             health = Mathf.CeilToInt(maxHealth * healthPercent);
 
             RefreshActions();

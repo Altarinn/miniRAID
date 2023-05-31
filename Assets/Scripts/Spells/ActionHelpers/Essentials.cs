@@ -87,7 +87,7 @@ namespace miniRAID.ActionHelpers
                     type = type,
 
                     crit = crit.Apply(spellContext.crit),
-                    hit = 1.0f,// hit.Eval(spellContext.hit),
+                    hit = hit.Apply(spellContext.hit),
 
                     sourceAction = spellContext,
                 }));

@@ -286,7 +286,7 @@ namespace miniRAID
             //            var testIE = Globals.xLuaInstance.Instance.luaEnv.Global.Get<ActionOnPerform>($"getCsRoutine_{postfix}");
             //            Debug.Log(testIE);
 
-            Globals.ccNewContext(new SerialCoroutineContext() { animation = true });
+            Globals.ccNewContext(new SerialCoroutineContext() { animation = true, rng = Globals.cc.rng });
             yield return new JumpIn(data.OnPerform(this, mob, target));
 
             // Wait a bit for animation
@@ -344,7 +344,7 @@ namespace miniRAID
                 bool canceled = false;
 
                 // Assume max 1 request at once.
-                data.Requester.Request(mob, (Spells.SpellTarget target) =>
+                data.Requester.Request(mob, this, (Spells.SpellTarget target) =>
                 {
                     catchedTarget = target;
                 }, () => { canceled = true; });
@@ -386,6 +386,10 @@ namespace miniRAID
             // 2. Compute power etc.
             power = dNumber.CreateComposite(data.power.Eval(mob), "actionBase");
             auxPower = dNumber.CreateComposite(data.auxPower.Eval(mob), "actionBase");
+            
+            // TODO: assignable in inspector?
+            hit = dNumber.CreateComposite(mob.hitAcc, "actionBase");
+            crit = dNumber.CreateComposite(mob.crit, "actionBase");
             
             // TODO: FIXME: Assign gridShape here
             shape = null;

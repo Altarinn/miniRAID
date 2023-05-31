@@ -21,7 +21,6 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  fullPath: 
   Guid: db51ef81fc3d433da9bad35ecc680c89
   Id: 33
   icon: {fileID: -6081534058458320081, guid: 7fe9a382566f75a429badd968a5161fa, type: 3}
@@ -29,5 +28,5 @@ MonoBehaviour:
   type: 1
   priority: 0
   wpType: 4
-  regularAttack: {fileID: 11400000, guid: 797ceb3485d46d741b30c3b5a63ee655, type: 2}
+  regularAttack: {fileID: 11400000, guid: 84390d852106740d38b23274a3928b84, type: 2}
   mainElement: 1

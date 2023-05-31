@@ -33,11 +33,14 @@ namespace miniRAID.UI.TargetRequester
     /// 1 UIState start a request, given a mob;
     /// 2 TargetRequester will get control of current UI
     /// 3 After finished, TargetRequester invokes onFinish callback and give back the control of current UI
+    ///
+    /// TODO: The requester is unique upto ActionDataSOs, i.e., it is shared among RuntimeActions. Is it okay?
     /// </summary>
     [System.Serializable]
     public abstract class TargetRequesterBase : UIState
     {
         protected MobData mob;
+        protected RuntimeAction ract;
 
         [FoldoutGroup("Debug info")]
         [LabelText("Current Stage")]
@@ -75,9 +78,10 @@ namespace miniRAID.UI.TargetRequester
         /// This will modify current UI
         /// </summary>
         /// <param name="mob"></param>
-        public virtual void Request(MobData mob, OnRequestFinish onFinish, System.Action onCancel)
+        public virtual void Request(MobData mob, RuntimeAction ract, OnRequestFinish onFinish, System.Action onCancel)
         {
             this.mob = mob;
+            this.ract = ract;
             currentStageCompleted = -1;
             query_stack.Clear();
             choice.Clear();

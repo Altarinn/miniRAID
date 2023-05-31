@@ -158,7 +158,7 @@ namespace miniRAID
 
         public IEnumerator Killed(Consts.DamageHeal_Result info)
         {
-            Globals.debugMessage.Instance.Message($"{info.source?.nickname} 的 {info.sourceAction?.data.ActionName} 击杀了 {data.nickname} !");
+            Globals.combatTracker.Record(info);
             
             // TODO: Proper logic to destroy
             GetComponentInChildren<SpriteRenderer>().enabled = false;

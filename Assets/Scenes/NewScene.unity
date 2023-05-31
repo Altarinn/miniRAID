@@ -291,15 +291,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBoss: 0
   data:
+    baseDescriptor: {fileID: 11400000, guid: 7c782241659924b178893d9776b25d29, type: 2}
     enemyDebug: 0
     movementType: 0
     unitGroup: 0
     moveable: 1
     moveStartCost: 0
-    level: 0
     nickname: 
-    race: 
-    job: 
     _actionPointsMul100: 0
     apRecovery: 3
     apMax: 5
@@ -1025,15 +1023,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBoss: 0
   data:
+    baseDescriptor: {fileID: 11400000, guid: 7c782241659924b178893d9776b25d29, type: 2}
     enemyDebug: 0
     movementType: 0
     unitGroup: 0
     moveable: 1
     moveStartCost: 0
-    level: 0
     nickname: 
-    race: 
-    job: 
     _actionPointsMul100: 0
     apRecovery: 3
     apMax: 5
@@ -2100,15 +2096,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBoss: 0
   data:
+    baseDescriptor: {fileID: 11400000, guid: 1fe514c3358154277972c5781db504c9, type: 2}
     enemyDebug: 0
     movementType: 0
     unitGroup: 0
     moveable: 1
     moveStartCost: 0
-    level: 0
     nickname: 
-    race: 
-    job: 
     _actionPointsMul100: 0
     apRecovery: 3
     apMax: 5
@@ -2772,7 +2766,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7.03125
+  orthographic size: 8.4375
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -3785,15 +3779,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBoss: 0
   data:
+    baseDescriptor: {fileID: 11400000, guid: 3dbe83d42ffb7456893913dd0db4cfca, type: 2}
     enemyDebug: 0
     movementType: 0
     unitGroup: 0
     moveable: 1
     moveStartCost: 0
-    level: 0
     nickname: 
-    race: 
-    job: 
     _actionPointsMul100: 0
     apRecovery: 3
     apMax: 5
@@ -3908,7 +3900,7 @@ MonoBehaviour:
     baseStatsFundamental:
       VIT: 12
       STR: 7
-      MAG: 16
+      MAG: 18
       INT: 14
       DEX: 13
       TEC: 12
@@ -4569,15 +4561,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBoss: 0
   data:
+    baseDescriptor: {fileID: 11400000, guid: 3dbe83d42ffb7456893913dd0db4cfca, type: 2}
     enemyDebug: 0
     movementType: 0
     unitGroup: 0
     moveable: 1
     moveStartCost: 0
-    level: 0
     nickname: 
-    race: 
-    job: 
     _actionPointsMul100: 0
     apRecovery: 3
     apMax: 5
@@ -4692,7 +4682,7 @@ MonoBehaviour:
     baseStatsFundamental:
       VIT: 12
       STR: 7
-      MAG: 16
+      MAG: 18
       INT: 14
       DEX: 13
       TEC: 12
@@ -6780,15 +6770,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBoss: 1
   data:
+    baseDescriptor: {fileID: 11400000, guid: 51208aebc5f444f0ca1f7c7ce5fc37ce, type: 2}
     enemyDebug: 0
     movementType: 0
     unitGroup: 1
     moveable: 1
     moveStartCost: 0
-    level: 10
     nickname: "\u53F2\u83B1\u59C6\u738B"
-    race: 
-    job: 
     _actionPointsMul100: 400
     apRecovery: 3
     apMax: 5
@@ -7461,15 +7449,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBoss: 0
   data:
+    baseDescriptor: {fileID: 11400000, guid: 7c782241659924b178893d9776b25d29, type: 2}
     enemyDebug: 0
     movementType: 0
     unitGroup: 0
     moveable: 1
     moveStartCost: 0
-    level: 0
     nickname: 
-    race: 
-    job: 
     _actionPointsMul100: 0
     apRecovery: 3
     apMax: 5
@@ -8398,15 +8384,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBoss: 0
   data:
+    baseDescriptor: {fileID: 11400000, guid: 1fe514c3358154277972c5781db504c9, type: 2}
     enemyDebug: 0
     movementType: 0
     unitGroup: 0
     moveable: 1
     moveStartCost: 0
-    level: 0
     nickname: 
-    race: 
-    job: 
     _actionPointsMul100: 0
     apRecovery: 3
     apMax: 5

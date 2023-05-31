@@ -35,7 +35,7 @@ namespace miniRAID.UIElements
 
         public void ShowBattlePreview(string text)
         {
-            battlePreview.text = $"<mspace=0.8em>{text}</mspace>";
+            battlePreview.text = $"{text}";
             battlePreview.style.visibility = Visibility.Visible;
         }
 

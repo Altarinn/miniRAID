@@ -102,7 +102,7 @@ namespace miniRAID.UI
                 {
                     //AddActionEntry(action, first);
                     //first = false;
-                    entries.Add(miniRAID.UIElements.UnitMenuController.GetActionEntry(action, currentUnit, $"{currentKey}", null, AutoPass(currentUnit)));
+                    entries.Add(miniRAID.UIElements.UnitMenuController.GetActionEntry(action, currentUnit, $"{currentKey}", null, UIMenuPostAction(currentUnit)));
                     currentKey++;
                 }
             }
@@ -177,13 +177,27 @@ namespace miniRAID.UI
 
         public IEnumerator AutoPass(MobRenderer mobRenderer)
         {
-            keepCameraPosition = true;
-
             yield return new JumpIn(mobRenderer.data.TryAutoEndTurn());
 
             if(mobRenderer.data.isActive == false)
             {
                 yield return new JumpIn(OnPassSelected(false));
+            }
+        }
+
+        public IEnumerator UIMenuPostAction(MobRenderer mobRenderer)
+        {
+            keepCameraPosition = true;
+            
+            // Check if the mob dead
+            if (mobRenderer == null || mobRenderer.data.isDead)
+            {
+                // Finish our work
+                ui.EnterState();
+            }
+            else
+            {
+                yield return new JumpIn(AutoPass(mobRenderer));
             }
         }
     }

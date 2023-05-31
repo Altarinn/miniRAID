@@ -118,6 +118,12 @@ namespace miniRAID
             }
         }
 
+        public struct DamageHeal_ComputedRates
+        {
+            public int value;
+            public float hit, crit;
+        }
+
         public class DamageHeal_Result
         {
             public MobData source;
@@ -141,6 +147,31 @@ namespace miniRAID
             public string Description => NoInfo ? "<NULL ACTION>" : (IsAction ? sourceAction.data.Description : "No description");
 
             public bool popup;
+        }
+
+        public enum BuffEventType
+        {
+            Attached,
+            Stacked,
+            Refreshed,
+            Removed
+        }
+
+        public struct BuffEvents
+        {
+            public Buff.Buff buff;
+            public BuffEventType eventType;
+        }
+
+        public struct KillEvent
+        {
+            public Consts.DamageHeal_Result info;
+        }
+        
+        public struct TrackerActionEvent
+        {
+            public RuntimeAction action;
+            public SpellTarget target;
         }
 
         // ......
@@ -257,6 +288,44 @@ namespace miniRAID
             public dNumber VIT, STR, MAG, INT, DEX, TEC;
         }
 
+        // TODO: Determine our values
+
+        // Extra level added to attacker level during damage calc.
+        // For a smoother early-game experience.
+        // However, this may not be a good solution and should be 0 for now.
+        // Instead, characters will have significant non-zero stats at Lv1.
+        public static int additionalAttackerLevels = 0;
+
+        public static float GetIdenticalDefense(int referenceLevel)
+        {
+            return referenceLevel + additionalAttackerLevels;
+        }
+        
+        // Incremental in the range of +50% hit rate per level.
+        // Hit rate = BaseHit + (attacker.Hit - defender.Dodge) / (HitRangePerLevel * defender.Level)
+        public static float HitRangePerLevel = 5;
+        public static float BaseHit = 0.5f;
+        public static float MaxHitAcc = 1000000.0f;
+        
+        // Same but for critical strikes.
+        public static float CritRangePerLevel = 7;
+        public static float BaseCrit = -0.1f;
+
+        public static float GetHitRate(float spellHit, float defenderDodge, int defenderLevel)
+        {
+            return Mathf.Clamp(BaseHit + (spellHit - defenderDodge) / (HitRangePerLevel * defenderLevel), 0, 1);
+        }
+
+        public static float GetCriticalRate(float spellCrit, float defenderAntiCrit, int defenderLevel)
+        {
+            return Mathf.Clamp(BaseCrit + (spellCrit - defenderAntiCrit) / (CritRangePerLevel * defenderLevel), 0, 1);
+        }
+
+        public static int GetDamage(float spellPower, int attackerLevel, float defense, int defenderLevel)
+        {
+            return Mathf.CeilToInt(spellPower * GetIdenticalDefense(attackerLevel) / (defense + Consts.GetIdenticalDefense(defenderLevel)));
+        }
+        
         [Serializable]
         public struct BattleStats
         {
@@ -519,19 +588,16 @@ namespace miniRAID
             return GridShape.Direction.Up;
         }
 
+        public void RecordDamageHeal(Consts.DamageHeal_Result result)
+            => Globals.combatTracker.Record(result);
+
+        public void RecordBuff(Consts.BuffEvents result)
+            => Globals.combatTracker.Record(result);
+
         public IEnumerator DealDmgHeal(MobData target, Consts.DamageHeal_FrontEndInput input)
         {
             Consts.DamageHeal_Result result = new Consts.DamageHeal_Result();
             yield return new JumpIn(target.ReceiveDamage(input, result));
-
-            Globals.debugMessage.Instance.Message($"{result.source.nickname} 的 {result.Name} 对 {target.nickname} 造成了 {result.value} 点 {result.type} {(result.type == Consts.Elements.Heal ? "" : "伤害")}。");
-
-            // TODO: make a popup manager
-            // {result.Name} 
-            if(target.mobRenderer != null)
-                Globals.popupMgr.Instance.Popup($"{result.value.ToString()}", target.mobRenderer.transform.position);
-
-            Globals.combatStats.Record(result);
 
             //return true;
         }

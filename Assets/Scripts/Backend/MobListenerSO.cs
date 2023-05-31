@@ -53,6 +53,8 @@ namespace miniRAID
     {
         [System.NonSerialized]
         public MobData parentMob;
+        
+        // TODO: FIXME: This is getting hid in derived classes (e.g., Weapon, ActionDataSO, etc.), resulting in unexpected behaviors when calling data.xxx.
         public MobListenerSO data;
 
         public virtual MobListenerSO.ListenerType type => data.type;

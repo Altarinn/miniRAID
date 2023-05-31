@@ -197,32 +197,32 @@ namespace miniRAID.Buff
 
             this.stacks = 1;
         }
-        
-        // TODO: FIXME: Remove me
-        public virtual void _TEST_UIPopUp(string message, Vector2 position)
-        {
-            Globals.popupMgr.Instance.Popup(message, position + new Vector2(0.5f, 0.8f));
-        }
 
         public virtual bool Stack()
         {
-            if (data.stackRefreshesTime)
-            {
-                Refresh();
-            }
-            
             if(stacks < data.maxStack)
             {
                 this.stacks++;
+                
+                // For proper naming in popup-text / logs
+                if (data.stackRefreshesTime) { Refresh(); }
+                
                 return true;
             }
+            
+            if (data.stackRefreshesTime) { Refresh(); }
+            
             return false;
         }
 
         public virtual bool Refresh()
         {
             this.timeRemain = data.timeMax;
-            _TEST_UIPopUp($"+{data.name}", parentMob.Position);
+            Globals.combatTracker.Record(new Consts.BuffEvents()
+            {
+                buff = this,
+                eventType = Consts.BuffEventType.Refreshed
+            });
             return true;
         }
 
@@ -369,12 +369,20 @@ namespace miniRAID.Buff
                 onRemoveFromMob += (m) => { m.OnCostApply -= evt; };
             }
             
-            _TEST_UIPopUp($"+{data.name}", mob.Position);
+            Globals.combatTracker.Record(new Consts.BuffEvents()
+            {
+                buff = this,
+                eventType = Consts.BuffEventType.Attached
+            });
         }
 
         public override void OnRemove(MobData mob)
         {
-            _TEST_UIPopUp($"-{data.name}", mob.Position);
+            Globals.combatTracker.Record(new Consts.BuffEvents()
+            {
+                buff = this,
+                eventType = Consts.BuffEventType.Removed
+            });
             
             base.OnRemove(mob);
             mob.OnNextTurn -= BuffBase_OnNextTurn;

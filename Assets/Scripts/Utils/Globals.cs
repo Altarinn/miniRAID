@@ -25,9 +25,9 @@ namespace miniRAID
         public static MonoSingleton<ActionHost> actionHost = new MonoSingleton<ActionHost>(true);
 
         public static Databackend backend = Databackend.GetSingleton();
-        public static CombatStatistics combatStats = new CombatStatistics();
+        public static CombatTracker combatTracker = new CombatTracker();
 
-        public static Logger logger = Logger.Instance;
+        public static Logger logger = new Logger("miniRAID.log");
     }
 
     public static class Settings

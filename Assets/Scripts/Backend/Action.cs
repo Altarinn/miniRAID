@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
@@ -12,6 +13,7 @@ namespace miniRAID
         Special
     }
 
+    [Obsolete("Check ActionDataSO and RuntimeAction instead.")]
     public abstract class Action : CustomIconScriptableObject
     {
         public string ActionName;
@@ -158,7 +160,7 @@ namespace miniRAID
         {
             if(Check(mob))
             {
-                Requester.Request(mob, (Spells.SpellTarget target) =>
+                Requester.Request(mob, null, (Spells.SpellTarget target) =>
                 {
                     //mob.DoAction(this, target, beforeAnimation, afterAnimation, callback);
                 }, () => { });

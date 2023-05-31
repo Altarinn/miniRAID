@@ -16,13 +16,13 @@ namespace miniRAID
 {
     public static class SpellHelper
     {
-        public static IEnumerator SummonAtGrid(Mob source, Mob summonPrefab, Vector2Int position, System.Func<Mob, IEnumerator> initialization = null)
-        {
-            var resolvedPosition = Globals.backend.FindNearestEmptyGrid(position);
-
-            var summoned = GameObject.Instantiate(summonPrefab.gameObject, Globals.backend.GridToWorldPos(position) + Vector2.one * 0.5f, Quaternion.identity).GetComponent<Mob>();
-            
-            yield return new JumpIn(initialization?.Invoke((summoned)));
-        }
+        // public static IEnumerator SummonAtGrid(Mob source, Mob summonPrefab, Vector2Int position, System.Func<Mob, IEnumerator> initialization = null)
+        // {
+        //     var resolvedPosition = Globals.backend.FindNearestEmptyGrid(position);
+        //
+        //     var summoned = GameObject.Instantiate(summonPrefab.gameObject, Globals.backend.GridToWorldPos(position) + Vector2.one * 0.5f, Quaternion.identity).GetComponent<Mob>();
+        //     
+        //     yield return new JumpIn(initialization?.Invoke((summoned)));
+        // }
     }
 }

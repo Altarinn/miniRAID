@@ -23,7 +23,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: power
       Entry: 7
-      Data: 0|miniRAID.LuaGetter`2[[miniRAID.Mob, Assembly-CSharp],[System.Single,
+      Data: 0|miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Single,
         mscorlib]], Assembly-CSharp
     - Name: type
       Entry: 3
@@ -45,7 +45,7 @@ MonoBehaviour:
       Data: 
     - Name: auxPower
       Entry: 7
-      Data: 1|miniRAID.LuaGetter`2[[miniRAID.Mob, Assembly-CSharp],[System.Single,
+      Data: 1|miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Single,
         mscorlib]], Assembly-CSharp
     - Name: type
       Entry: 3
@@ -103,7 +103,7 @@ MonoBehaviour:
       Data: 0
     - Name: value
       Entry: 7
-      Data: 4|miniRAID.LuaGetter`2[[miniRAID.Mob, Assembly-CSharp],[System.Single,
+      Data: 4|miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Single,
         mscorlib]], Assembly-CSharp
     - Name: type
       Entry: 3
@@ -150,7 +150,7 @@ MonoBehaviour:
       Data: 
     - Name: onNextTurn
       Entry: 7
-      Data: 6|miniRAID.LuaGetter`2[[System.ValueTuple`2[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.Mob,
+      Data: 6|miniRAID.LuaGetter`2[[System.ValueTuple`2[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.MobData,
         Assembly-CSharp]], mscorlib],[System.Collections.IEnumerator, mscorlib]],
         Assembly-CSharp
     - Name: type
@@ -173,7 +173,7 @@ MonoBehaviour:
       Data: 
     - Name: onBaseStatCalculation
       Entry: 7
-      Data: 7|miniRAID.LuaGetter`2[[System.ValueTuple`2[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.Mob,
+      Data: 7|miniRAID.LuaGetter`2[[System.ValueTuple`2[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.MobData,
         Assembly-CSharp]], mscorlib],[miniRAID.None, Assembly-CSharp]], Assembly-CSharp
     - Name: type
       Entry: 3
@@ -195,7 +195,7 @@ MonoBehaviour:
       Data: 
     - Name: onStatCalculation
       Entry: 7
-      Data: 8|miniRAID.LuaGetter`2[[System.ValueTuple`2[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.Mob,
+      Data: 8|miniRAID.LuaGetter`2[[System.ValueTuple`2[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.MobData,
         Assembly-CSharp]], mscorlib],[miniRAID.None, Assembly-CSharp]], Assembly-CSharp
     - Name: type
       Entry: 3
@@ -217,7 +217,7 @@ MonoBehaviour:
       Data: 
     - Name: onStatCalculationFinish
       Entry: 7
-      Data: 9|miniRAID.LuaGetter`2[[System.ValueTuple`2[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.Mob,
+      Data: 9|miniRAID.LuaGetter`2[[System.ValueTuple`2[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.MobData,
         Assembly-CSharp]], mscorlib],[miniRAID.None, Assembly-CSharp]], Assembly-CSharp
     - Name: type
       Entry: 3
@@ -239,7 +239,7 @@ MonoBehaviour:
       Data: 
     - Name: onActionStatCalculation
       Entry: 7
-      Data: 10|miniRAID.LuaGetter`2[[System.ValueTuple`2[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.Mob,
+      Data: 10|miniRAID.LuaGetter`2[[System.ValueTuple`2[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.MobData,
         Assembly-CSharp]], mscorlib],[miniRAID.None, Assembly-CSharp]], Assembly-CSharp
     - Name: type
       Entry: 3
@@ -261,7 +261,7 @@ MonoBehaviour:
       Data: 
     - Name: onQueryActions
       Entry: 7
-      Data: 11|miniRAID.LuaGetter`2[[System.ValueTuple`3[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.Mob,
+      Data: 11|miniRAID.LuaGetter`2[[System.ValueTuple`3[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.MobData,
         Assembly-CSharp],[System.Collections.Generic.HashSet`1[[miniRAID.RuntimeAction,
         Assembly-CSharp]], System.Core]], mscorlib],[miniRAID.None, Assembly-CSharp]],
         Assembly-CSharp
@@ -285,7 +285,7 @@ MonoBehaviour:
       Data: 
     - Name: onActionChosen
       Entry: 7
-      Data: 12|miniRAID.LuaGetter`2[[System.ValueTuple`4[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.Mob,
+      Data: 12|miniRAID.LuaGetter`2[[System.ValueTuple`4[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.MobData,
         Assembly-CSharp],[miniRAID.RuntimeAction, Assembly-CSharp],[miniRAID.Spells.SpellTarget,
         Assembly-CSharp]], mscorlib],[System.Collections.IEnumerator, mscorlib]],
         Assembly-CSharp
@@ -309,7 +309,7 @@ MonoBehaviour:
       Data: 
     - Name: onActionPrecast
       Entry: 7
-      Data: 13|miniRAID.LuaGetter`2[[System.ValueTuple`4[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.Mob,
+      Data: 13|miniRAID.LuaGetter`2[[System.ValueTuple`4[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.MobData,
         Assembly-CSharp],[miniRAID.RuntimeAction, Assembly-CSharp],[miniRAID.Spells.SpellTarget,
         Assembly-CSharp]], mscorlib],[System.Collections.IEnumerator, mscorlib]],
         Assembly-CSharp
@@ -333,7 +333,7 @@ MonoBehaviour:
       Data: 
     - Name: onActionPostcast
       Entry: 7
-      Data: 14|miniRAID.LuaGetter`2[[System.ValueTuple`4[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.Mob,
+      Data: 14|miniRAID.LuaGetter`2[[System.ValueTuple`4[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.MobData,
         Assembly-CSharp],[miniRAID.RuntimeAction, Assembly-CSharp],[miniRAID.Spells.SpellTarget,
         Assembly-CSharp]], mscorlib],[System.Collections.IEnumerator, mscorlib]],
         Assembly-CSharp
@@ -358,7 +358,7 @@ MonoBehaviour:
     - Name: onCostQuery
       Entry: 7
       Data: 15|miniRAID.LuaGetter`2[[System.ValueTuple`4[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.Cost,
-        Assembly-CSharp],[miniRAID.RuntimeAction, Assembly-CSharp],[miniRAID.Mob,
+        Assembly-CSharp],[miniRAID.RuntimeAction, Assembly-CSharp],[miniRAID.MobData,
         Assembly-CSharp]], mscorlib],[miniRAID.None, Assembly-CSharp]], Assembly-CSharp
     - Name: type
       Entry: 3
@@ -381,7 +381,7 @@ MonoBehaviour:
     - Name: onCostQueryDisplay
       Entry: 7
       Data: 16|miniRAID.LuaGetter`2[[System.ValueTuple`4[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.Cost,
-        Assembly-CSharp],[miniRAID.RuntimeAction, Assembly-CSharp],[miniRAID.Mob,
+        Assembly-CSharp],[miniRAID.RuntimeAction, Assembly-CSharp],[miniRAID.MobData,
         Assembly-CSharp]], mscorlib],[miniRAID.None, Assembly-CSharp]], Assembly-CSharp
     - Name: type
       Entry: 3
@@ -404,7 +404,7 @@ MonoBehaviour:
     - Name: onCostApply
       Entry: 7
       Data: 17|miniRAID.LuaGetter`2[[System.ValueTuple`4[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.Cost,
-        Assembly-CSharp],[miniRAID.RuntimeAction, Assembly-CSharp],[miniRAID.Mob,
+        Assembly-CSharp],[miniRAID.RuntimeAction, Assembly-CSharp],[miniRAID.MobData,
         Assembly-CSharp]], mscorlib],[System.Collections.IEnumerator, mscorlib]],
         Assembly-CSharp
     - Name: type
@@ -425,14 +425,14 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  fullPath: Buffs/Test
   Guid: ae6d2a481ded42dab2a6396499973515
   Id: 20
   icon: {fileID: -1203473415, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
-  name: "\u9632\u5FA1\u500D\u5316"
+  name: "\u9632\u5FA1"
   type: 0
   priority: 0
   timed: 1
   timeMax: 1
   stackable: 0
+  stackRefreshesTime: 1
   maxStack: 1

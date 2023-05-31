@@ -97,14 +97,27 @@ namespace miniRAID.UI.TargetRequester
             var pointedMob = Globals.backend.getMap(gridPos.x, gridPos.y)?.mob;
             if (pointedMob == null) { return; }
 
+            // TODO: Formalize me and ask ract for proper info
             if(toEnemies && Consts.ApplyMask(Consts.EnemyMask(mob.unitGroup), pointedMob.unitGroup))
             {
-                ui.combatView.ShowBattlePreview("test");
+                int expectedDamage =
+                    Mathf.CeilToInt(Consts.GetDamage(ract.power, mob.level, pointedMob.defense, pointedMob.level));
+                int expectedSpDamage =
+                    Mathf.CeilToInt(Consts.GetDamage(ract.power, mob.level, pointedMob.spDefense, pointedMob.level));
+
+                int hitrate = Mathf.CeilToInt(Consts.GetHitRate(ract.hit, pointedMob.dodge, pointedMob.level) * 100);
+                int critrate =
+                    Mathf.CeilToInt(Consts.GetCriticalRate(ract.crit, pointedMob.antiCrit, pointedMob.level) * 100);
+                
+                ui.combatView.ShowBattlePreview(
+                    $"<mspace=0.75em>DMG</mspace>: {expectedDamage} or {expectedSpDamage} (Sp)\n" +
+                    $"<mspace=0.75em>HIT</mspace>: {hitrate}\n" +
+                    $"<mspace=0.75em>CRT</mspace>: {critrate}");
             }
 
             if(toAllies && Consts.ApplyMask(Consts.AllyMask(mob.unitGroup), pointedMob.unitGroup))
             {
-                ui.combatView.ShowBattlePreview("test");
+                ui.combatView.ShowBattlePreview("Ally (Healing?)");
             }
         }
 

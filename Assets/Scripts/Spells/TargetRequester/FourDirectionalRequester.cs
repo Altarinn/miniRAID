@@ -19,9 +19,10 @@ namespace miniRAID.UI.TargetRequester
             return stage;
         }
 
-        public override void Request(MobData mob, OnRequestFinish onFinish, System.Action onCancel)
+        public override void Request(MobData mob, RuntimeAction ract, OnRequestFinish onFinish, System.Action onCancel)
         {
             this.mob = mob;
+            this.ract = ract;
             choice.Clear();
 
             this.onFinish = onFinish;

@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d1d0c1d293c45fba23cc65d551d17bd, type: 3}
+  m_Name: EnemyDescriptor
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: gridBody
+      Entry: 6
+      Data: 
+    - Name: baseEnemyStats
+      Entry: 7
+      Data: miniRAID.EnemyMobDescriptorSO+EnemyStatBase, Assembly-CSharp
+    - Name: MaxHP
+      Entry: 3
+      Data: 0
+    - Name: ExHitAcc
+      Entry: 4
+      Data: 0
+    - Name: ExCrit
+      Entry: 4
+      Data: 0
+    - Name: ExDodge
+      Entry: 4
+      Data: 0
+    - Name: ExAntiCrit
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+  Guid: 163e34625457434e9d496213e9c281c3
+  Id: 86
+  icon: {fileID: 0}
+  nickname: 
+  race: 
+  job: 
+  level: 0
+  rendererPrefab: {fileID: 0}
+  movementType: 0
+  moveable: 1
+  moveStartCost: 0
+  mainWeaponSO: {fileID: 0}
+  subWeaponSO: {fileID: 0}
+  listenerSOs: []
+  actionSOs: []

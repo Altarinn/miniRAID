@@ -22,6 +22,8 @@ namespace miniRAID
     [LuaCallCSharp]
     public partial class MobData : BackendState
     {
+        [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
+        public BaseMobDescriptorSO baseDescriptor;
         public bool enemyDebug = false;
         
         public enum MovementType
@@ -50,21 +52,20 @@ namespace miniRAID
         public bool isDead { get; private set; }
         public bool isControllable => isActive && (!isDead);
 
+        private bool initialized = false;
+
         [Header("Basic stats")]
         public MovementType movementType;
 
         public GridShape gridBody;
         public Consts.UnitGroup unitGroup;
 
-        public bool moveable = true;
-        public int moveStartCost = 0;
-
-        public int level;
+        public int level => baseDescriptor.level;
 
         [Header("Identification")]
         public string nickname;
-        public string race;
-        public string job;
+        public string race => baseDescriptor.race;
+        public string job => baseDescriptor.job;
 
         [Header("Battle stats")]
         [SerializeField] private int _actionPointsMul100 = 400;
@@ -85,7 +86,6 @@ namespace miniRAID
 
         public HashSet<GCDGroup> GCDstatus;
 
-        public Consts.BaseStatsInt baseStatsFundamental;
         public Consts.BaseStats baseStats;
         public Consts.BattleStats battleStats;
         
@@ -112,18 +112,13 @@ namespace miniRAID
         public int maxHealth = 100, damageShield;
 
         [Header("Equipments")]
-        public Weapon.WeaponSO mainWeaponSO;
-        public Weapon.WeaponSO subWeaponSO;
         public Weapon.Weapon mainWeapon;
         public Weapon.Weapon subWeapon;
 
         [Header("Listeners")]
-        public List<MobListenerSO> listenerSOs = new List<MobListenerSO>();
         public List<MobListener> listeners = new List<MobListener>();
 
         [Header("Actions")]
-        [Tooltip("Raw action objects.")]
-        public ActionDataSO[] actionSOs;
         [HideInInspector]
         public List<RuntimeAction> actions = new List<RuntimeAction>();
         [Tooltip("Runtime action objects; the available actions to the mob now.")]
@@ -135,40 +130,14 @@ namespace miniRAID
 
         public void Init()
         {
-            if (gridBody == null)
-            {
-                gridBody = new GridShape();
-                gridBody.AddGrid(Vector2Int.zero);
-            }
-            
-            GCDstatus = new HashSet<GCDGroup>();
-            actions = new List<RuntimeAction>();
-            availableActions = new HashSet<RuntimeAction>();
-
-            foreach (var aso in actionSOs)
-            {
-                AddAction(aso);
-            }
-
-            // Duplicate my spells / weapons
-            if (mainWeaponSO != null)
-            {
-                mainWeapon = (Weapon.Weapon)mainWeaponSO.Wrap(this);
-                AddListener(mainWeapon);
-            }
-
-            // Register all listeners
-            foreach (var l in listenerSOs)
-            {
-                //MobListenerSO newL = l.Clone();
-                AddListener(l);
-            }
-            
-            // TODO: FIXME: Why do we need mobRenderer here?
-            Databackend.GetSingleton().SetMob(Position, gridBody, this);
+            baseDescriptor.InitializeMobData(this);
             
             // Initial stats calculation
             RecalculateStats();
+
+            initialized = true;
+
+            Databackend.GetSingleton().SetMob(Position, gridBody, this);
         }
 
         private void _SetActionPoints(float v)
@@ -244,6 +213,11 @@ namespace miniRAID
                 {
                     listeners.Add(listener);
                 }
+            }
+
+            if (initialized)
+            {
+                RecalculateStats();
             }
         }
         

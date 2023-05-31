@@ -15,8 +15,6 @@ namespace miniRAID
             ract.SetData(actSO);
             actions.Add(ract);
             AddListener(ract);
-            
-            RecalculateStats();
 
             return ract;
         }
@@ -172,8 +170,6 @@ namespace miniRAID
         {
             // Needs this?
             //RecalculateStats();
-            
-            Globals.logger?.Log($"[DoAction] {nickname} attempts casting {raction.data.name} towards {target.targetPos[0]}");
 
             yield return new JumpIn(ActionPrecheck(raction, target));
             
@@ -193,6 +189,13 @@ namespace miniRAID
                     yield return new JumpIn(ApplyCost(cost, raction));
                 }
             }
+            
+            Globals.logger?.Log($"[DoAction] {nickname} attempts casting {raction.data.name} towards {target.targetPos[0]}");
+            Globals.combatTracker.Record(new Consts.TrackerActionEvent()
+            {
+                action = raction,
+                target = target
+            });
 
             yield return new JumpIn(ActionBegin(raction, target));
             yield return new JumpIn(raction.Activate(this, target));

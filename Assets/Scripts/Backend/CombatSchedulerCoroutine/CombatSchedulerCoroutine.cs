@@ -39,7 +39,8 @@ namespace miniRAID
             // Changes on default context should not be made here as this will last for entire combat.
             sc.StartSerialCoroutine(Combat(), new SerialCoroutineContext()
             {
-                animation = true
+                animation = true,
+                rng = new RNG()
             });
         }
 
@@ -58,6 +59,10 @@ namespace miniRAID
             while (!IsCombatFinished())
             {
                 yield return new JumpIn(StartTurn());
+                
+                // Wait a moment (2 frames) to wait everything loading-up
+                yield return null;
+                yield return null;
 
                 // Player phase
                 yield return UIPlayerPhase();
@@ -81,7 +86,7 @@ namespace miniRAID
         private IEnumerator StartTurn()
         {
             turn++;
-            Globals.combatStats.Turns = turn;
+            Globals.combatTracker.Turns = turn;
             yield break;
         }
 

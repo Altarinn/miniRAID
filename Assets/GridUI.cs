@@ -257,6 +257,10 @@ namespace miniRAID.UI
         public void RefreshMainMobStats()
         {
             var mob = _statViewMobRenderer;
+            if (mob == null)
+            {
+                return;
+            }
 
 #if UNITY_EDITOR
             Selection.activeGameObject = mob.gameObject;

@@ -20,7 +20,7 @@ namespace miniRAID.UIElements
             damageText = e.Q<VisualElement>("Damage").Q<Label>("Content");
             healText = e.Q<VisualElement>("Healing").Q<Label>("Content");
 
-            Globals.combatStats.SetUI(this);
+            Globals.combatTracker.SetUI(this);
         }
 
         public void UpdateInfo(string dmg, string heal)

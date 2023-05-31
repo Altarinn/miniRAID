@@ -17,11 +17,14 @@ namespace miniRAID
     public class CustomIconScriptableObject : SerializedScriptableObject
     {
         [ScriptableObjectId]
+        [PropertyOrder(-100)]
         public string Guid;
 
         [EffectId]
+        [PropertyOrder(-100)]
         public int Id;
 
+        [PropertyOrder(-100)]
         public Sprite icon;
 
 //        protected T AppendChild<T>() where T : ScriptableObject

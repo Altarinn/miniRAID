@@ -42,7 +42,7 @@ namespace miniRAID.Agents
         {
             base.OnAttach(mob);
 
-            mob.OnReceiveDamageFinal += Mob_OnReceiveDamageFinal;
+            mob.OnDamageReceived += Mob_OnReceiveDamageFinal;
             mob.OnActionPostcast += Mob_OnActionPostcast;
             aggroList = new Dictionary<MobData, float>();
         }
@@ -65,7 +65,7 @@ namespace miniRAID.Agents
             if (!aggroList.ContainsKey(mob))
             {
                 aggroList.Add(mob, 0);
-                mob.OnReceiveHealFinal += TargetMob_OnReceiveHealFinal;
+                mob.OnHealReceived += TargetMob_OnReceiveHealFinal;
                 // TODO: Buffs
             }
 
@@ -78,7 +78,7 @@ namespace miniRAID.Agents
             if (aggroList.ContainsKey(mob))
             {
                 aggroList.Remove(mob);
-                mob.OnReceiveHealFinal -= TargetMob_OnReceiveHealFinal;
+                mob.OnHealReceived -= TargetMob_OnReceiveHealFinal;
                 // TODO: Buffs
             }
             UpdateAggro();

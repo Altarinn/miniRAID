@@ -10,6 +10,7 @@ namespace miniRAID
     public struct SerialCoroutineContext
     {
         public bool animation;
+        public RNG rng;
     }
     
     public class SerialYieldReturns {}

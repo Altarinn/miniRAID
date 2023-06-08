@@ -269,7 +269,8 @@ namespace miniRAID.UI
             string effects = "";
             foreach (var fx in mob.data.listeners)
             {
-                if (fx.type == MobListenerSO.ListenerType.Buff)
+                if (
+                    fx.type is MobListenerSO.ListenerType.Buff or MobListenerSO.ListenerType.Passive)
                 {
                     effects += "\n" + fx.name;
                 }

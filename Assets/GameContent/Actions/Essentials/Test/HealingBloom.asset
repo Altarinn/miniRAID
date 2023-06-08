@@ -232,6 +232,9 @@ MonoBehaviour:
     - Name: explosionDamage
       Entry: 7
       Data: 11|miniRAID.ActionHelpers.SpellDamageHeal, Assembly-CSharp
+    - Name: flags
+      Entry: 3
+      Data: 2
     - Name: type
       Entry: 3
       Data: 11
@@ -288,4 +291,5 @@ MonoBehaviour:
   icon: {fileID: -630566608947986047, guid: 7fe9a382566f75a429badd968a5161fa, type: 3}
   ActionName: "\u7EFD\u653E"
   Description: "\u4E3A\u6240\u6709\u6211\u65B9\u56DE\u590D\u751F\u547D\u3002"
+  flags: 136
   explosionRange: 100

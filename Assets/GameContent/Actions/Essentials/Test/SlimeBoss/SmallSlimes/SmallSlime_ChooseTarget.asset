@@ -260,3 +260,4 @@ MonoBehaviour:
   icon: {fileID: 0}
   ActionName: "\u5C0F\u53F2\u83B1\u59C6\u6807\u8BB0"
   Description: "\u968F\u673A\u6807\u8BB0\u4E00\u540D\u654C\u4EBA\u3002"
+  flags: 0

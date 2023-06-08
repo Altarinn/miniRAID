@@ -293,10 +293,9 @@ MonoBehaviour:
   data:
     baseDescriptor: {fileID: 11400000, guid: 7c782241659924b178893d9776b25d29, type: 2}
     enemyDebug: 0
+    initialized: 0
     movementType: 0
     unitGroup: 0
-    moveable: 1
-    moveStartCost: 0
     nickname: 
     _actionPointsMul100: 0
     apRecovery: 3
@@ -409,13 +408,6 @@ MonoBehaviour:
       addedValue: 0
       addMultiplier: 1
       mulMultiplier: 1
-    baseStatsFundamental:
-      VIT: 11
-      STR: 13
-      MAG: 8
-      INT: 10
-      DEX: 15
-      TEC: 21
     baseStats:
       VIT:
         valueType: 0
@@ -507,14 +499,7 @@ MonoBehaviour:
     health: 100
     maxHealth: 100
     damageShield: 0
-    mainWeaponSO: {fileID: 11400000, guid: 81c0f63dc42685549b9c7ce21252402a, type: 2}
-    subWeaponSO: {fileID: 0}
-    listenerSOs:
-    - {fileID: 11400000, guid: 6d6eaf62470d4ce43a96ddd19bf103a7, type: 2}
     listeners: []
-    actionSOs:
-    - {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
-    - {fileID: 11400000, guid: 50a2bb5f4e3dbd34d8e1cfc1f6aa91c4, type: 2}
   animator: {fileID: 0}
 --- !u!1001 &116129205
 PrefabInstance:
@@ -1025,10 +1010,9 @@ MonoBehaviour:
   data:
     baseDescriptor: {fileID: 11400000, guid: 7c782241659924b178893d9776b25d29, type: 2}
     enemyDebug: 0
+    initialized: 0
     movementType: 0
     unitGroup: 0
-    moveable: 1
-    moveStartCost: 0
     nickname: 
     _actionPointsMul100: 0
     apRecovery: 3
@@ -1141,13 +1125,6 @@ MonoBehaviour:
       addedValue: 0
       addMultiplier: 1
       mulMultiplier: 1
-    baseStatsFundamental:
-      VIT: 11
-      STR: 13
-      MAG: 8
-      INT: 10
-      DEX: 15
-      TEC: 21
     baseStats:
       VIT:
         valueType: 0
@@ -1239,14 +1216,7 @@ MonoBehaviour:
     health: 100
     maxHealth: 100
     damageShield: 0
-    mainWeaponSO: {fileID: 11400000, guid: 81c0f63dc42685549b9c7ce21252402a, type: 2}
-    subWeaponSO: {fileID: 0}
-    listenerSOs:
-    - {fileID: 11400000, guid: 6d6eaf62470d4ce43a96ddd19bf103a7, type: 2}
     listeners: []
-    actionSOs:
-    - {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
-    - {fileID: 11400000, guid: 50a2bb5f4e3dbd34d8e1cfc1f6aa91c4, type: 2}
   animator: {fileID: 0}
 --- !u!4 &216872653
 Transform:
@@ -1911,6 +1881,37 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 612710761447979575, guid: b3f1552ad04ae9642852e91b16b3891a, type: 3}
   m_PrefabInstance: {fileID: 291131044}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &341239309
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 341239310}
+  m_Layer: 0
+  m_Name: ExplodeFx
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &341239310
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341239309}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &370233900
 GameObject:
   m_ObjectHideFlags: 0
@@ -2098,10 +2099,9 @@ MonoBehaviour:
   data:
     baseDescriptor: {fileID: 11400000, guid: 1fe514c3358154277972c5781db504c9, type: 2}
     enemyDebug: 0
+    initialized: 0
     movementType: 0
     unitGroup: 0
-    moveable: 1
-    moveStartCost: 0
     nickname: 
     _actionPointsMul100: 0
     apRecovery: 3
@@ -2214,13 +2214,6 @@ MonoBehaviour:
       addedValue: 0
       addMultiplier: 1
       mulMultiplier: 1
-    baseStatsFundamental:
-      VIT: 20
-      STR: 18
-      MAG: 13
-      INT: 7
-      DEX: 6
-      TEC: 10
     baseStats:
       VIT:
         valueType: 0
@@ -2312,14 +2305,7 @@ MonoBehaviour:
     health: 100
     maxHealth: 100
     damageShield: 0
-    mainWeaponSO: {fileID: 11400000, guid: 21ffb910a6e358c4a994cc7ba70f4cd5, type: 2}
-    subWeaponSO: {fileID: 0}
-    listenerSOs:
-    - {fileID: 11400000, guid: 5a5914c0e685d354f98510cec0417348, type: 2}
     listeners: []
-    actionSOs:
-    - {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
-    - {fileID: 11400000, guid: 864aed35e40c4eb4298ef9498115c257, type: 2}
   animator: {fileID: 0}
 --- !u!1 &427119834
 GameObject:
@@ -2766,7 +2752,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.4375
+  orthographic size: 7.03125
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -3781,10 +3767,9 @@ MonoBehaviour:
   data:
     baseDescriptor: {fileID: 11400000, guid: 3dbe83d42ffb7456893913dd0db4cfca, type: 2}
     enemyDebug: 0
+    initialized: 0
     movementType: 0
     unitGroup: 0
-    moveable: 1
-    moveStartCost: 0
     nickname: 
     _actionPointsMul100: 0
     apRecovery: 3
@@ -3897,13 +3882,6 @@ MonoBehaviour:
       addedValue: 0
       addMultiplier: 1
       mulMultiplier: 1
-    baseStatsFundamental:
-      VIT: 12
-      STR: 7
-      MAG: 18
-      INT: 14
-      DEX: 13
-      TEC: 12
     baseStats:
       VIT:
         valueType: 0
@@ -3995,13 +3973,7 @@ MonoBehaviour:
     health: 100
     maxHealth: 100
     damageShield: 0
-    mainWeaponSO: {fileID: 11400000, guid: 342e5cf4fc58d3b419132c483d918beb, type: 2}
-    subWeaponSO: {fileID: 0}
-    listenerSOs: []
     listeners: []
-    actionSOs:
-    - {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
-    - {fileID: 11400000, guid: c934568e496c1d2438b51d0b0be45afa, type: 2}
   animator: {fileID: 0}
 --- !u!1 &1088969445
 GameObject:
@@ -4563,10 +4535,9 @@ MonoBehaviour:
   data:
     baseDescriptor: {fileID: 11400000, guid: 3dbe83d42ffb7456893913dd0db4cfca, type: 2}
     enemyDebug: 0
+    initialized: 0
     movementType: 0
     unitGroup: 0
-    moveable: 1
-    moveStartCost: 0
     nickname: 
     _actionPointsMul100: 0
     apRecovery: 3
@@ -4679,13 +4650,6 @@ MonoBehaviour:
       addedValue: 0
       addMultiplier: 1
       mulMultiplier: 1
-    baseStatsFundamental:
-      VIT: 12
-      STR: 7
-      MAG: 18
-      INT: 14
-      DEX: 13
-      TEC: 12
     baseStats:
       VIT:
         valueType: 0
@@ -4777,13 +4741,7 @@ MonoBehaviour:
     health: 100
     maxHealth: 100
     damageShield: 0
-    mainWeaponSO: {fileID: 11400000, guid: 342e5cf4fc58d3b419132c483d918beb, type: 2}
-    subWeaponSO: {fileID: 0}
-    listenerSOs: []
     listeners: []
-    actionSOs:
-    - {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
-    - {fileID: 11400000, guid: c934568e496c1d2438b51d0b0be45afa, type: 2}
   animator: {fileID: 0}
 --- !u!1 &1368799605
 GameObject:
@@ -6772,10 +6730,9 @@ MonoBehaviour:
   data:
     baseDescriptor: {fileID: 11400000, guid: 51208aebc5f444f0ca1f7c7ce5fc37ce, type: 2}
     enemyDebug: 0
+    initialized: 0
     movementType: 0
     unitGroup: 1
-    moveable: 1
-    moveStartCost: 0
     nickname: "\u53F2\u83B1\u59C6\u738B"
     _actionPointsMul100: 400
     apRecovery: 3
@@ -6888,13 +6845,6 @@ MonoBehaviour:
       addedValue: 0
       addMultiplier: 1
       mulMultiplier: 1
-    baseStatsFundamental:
-      VIT: 185
-      STR: 14
-      MAG: 0
-      INT: 0
-      DEX: 0
-      TEC: 0
     baseStats:
       VIT:
         valueType: 0
@@ -6986,15 +6936,7 @@ MonoBehaviour:
     health: 100
     maxHealth: 100
     damageShield: 0
-    mainWeaponSO: {fileID: 11400000, guid: 7e14f5e56bc27fc408c2c324ca81853e, type: 2}
-    subWeaponSO: {fileID: 0}
-    listenerSOs:
-    - {fileID: 11400000, guid: 7b1406fca4eab7c48b4098c174d4c832, type: 2}
-    - {fileID: 11400000, guid: fd69a45d3dd82d6409a5796ddd87d372, type: 2}
     listeners: []
-    actionSOs:
-    - {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
-    - {fileID: 11400000, guid: 5c19e84a47d306d45a1f3c2b143a831e, type: 2}
   animator: {fileID: 0}
 --- !u!114 &1865483635
 MonoBehaviour:
@@ -7451,10 +7393,9 @@ MonoBehaviour:
   data:
     baseDescriptor: {fileID: 11400000, guid: 7c782241659924b178893d9776b25d29, type: 2}
     enemyDebug: 0
+    initialized: 0
     movementType: 0
     unitGroup: 0
-    moveable: 1
-    moveStartCost: 0
     nickname: 
     _actionPointsMul100: 0
     apRecovery: 3
@@ -7567,13 +7508,6 @@ MonoBehaviour:
       addedValue: 0
       addMultiplier: 1
       mulMultiplier: 1
-    baseStatsFundamental:
-      VIT: 11
-      STR: 13
-      MAG: 8
-      INT: 10
-      DEX: 15
-      TEC: 21
     baseStats:
       VIT:
         valueType: 0
@@ -7665,14 +7599,7 @@ MonoBehaviour:
     health: 100
     maxHealth: 100
     damageShield: 0
-    mainWeaponSO: {fileID: 11400000, guid: 81c0f63dc42685549b9c7ce21252402a, type: 2}
-    subWeaponSO: {fileID: 0}
-    listenerSOs:
-    - {fileID: 11400000, guid: 6d6eaf62470d4ce43a96ddd19bf103a7, type: 2}
     listeners: []
-    actionSOs:
-    - {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
-    - {fileID: 11400000, guid: 50a2bb5f4e3dbd34d8e1cfc1f6aa91c4, type: 2}
   animator: {fileID: 0}
 --- !u!1001 &1927655709
 PrefabInstance:
@@ -8386,10 +8313,9 @@ MonoBehaviour:
   data:
     baseDescriptor: {fileID: 11400000, guid: 1fe514c3358154277972c5781db504c9, type: 2}
     enemyDebug: 0
+    initialized: 0
     movementType: 0
     unitGroup: 0
-    moveable: 1
-    moveStartCost: 0
     nickname: 
     _actionPointsMul100: 0
     apRecovery: 3
@@ -8502,13 +8428,6 @@ MonoBehaviour:
       addedValue: 0
       addMultiplier: 1
       mulMultiplier: 1
-    baseStatsFundamental:
-      VIT: 20
-      STR: 18
-      MAG: 13
-      INT: 7
-      DEX: 6
-      TEC: 10
     baseStats:
       VIT:
         valueType: 0
@@ -8600,14 +8519,7 @@ MonoBehaviour:
     health: 100
     maxHealth: 100
     damageShield: 0
-    mainWeaponSO: {fileID: 11400000, guid: 21ffb910a6e358c4a994cc7ba70f4cd5, type: 2}
-    subWeaponSO: {fileID: 0}
-    listenerSOs:
-    - {fileID: 11400000, guid: 5a5914c0e685d354f98510cec0417348, type: 2}
     listeners: []
-    actionSOs:
-    - {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
-    - {fileID: 11400000, guid: 864aed35e40c4eb4298ef9498115c257, type: 2}
   animator: {fileID: 0}
 --- !u!1 &2109292874
 GameObject:

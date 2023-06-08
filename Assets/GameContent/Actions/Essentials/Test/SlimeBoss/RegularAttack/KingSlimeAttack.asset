@@ -412,19 +412,37 @@ MonoBehaviour:
       Data: 
     - Name: fxOnExplode
       Entry: 7
-      Data: 14|miniRAID.ActionHelpers.PlayFx, Assembly-CSharp
-    - Name: fx
+      Data: 14|miniRAID.ActionHelpers.SimpleExplosionFx, Assembly-CSharp
+    - Name: image
       Entry: 6
       Data: 
+    - Name: size
+      Entry: 4
+      Data: 0
+    - Name: triggerTime
+      Entry: 4
+      Data: 0
+    - Name: time
+      Entry: 4
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
     - Name: fxOnHit
       Entry: 7
-      Data: 15|miniRAID.ActionHelpers.PlayFx, Assembly-CSharp
-    - Name: fx
+      Data: 15|miniRAID.ActionHelpers.SimpleExplosionFx, Assembly-CSharp
+    - Name: image
       Entry: 6
       Data: 
+    - Name: size
+      Entry: 4
+      Data: 0
+    - Name: triggerTime
+      Entry: 4
+      Data: 0
+    - Name: time
+      Entry: 4
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -488,6 +506,9 @@ MonoBehaviour:
     - Name: damageOrHeal
       Entry: 7
       Data: 17|miniRAID.ActionHelpers.SpellDamageHeal, Assembly-CSharp
+    - Name: flags
+      Entry: 3
+      Data: 0
     - Name: type
       Entry: 3
       Data: 6
@@ -544,3 +565,4 @@ MonoBehaviour:
   icon: {fileID: 0}
   ActionName: "\u53F2\u83B1\u59C6\u653B\u51FB"
   Description: 
+  flags: 68

@@ -63,9 +63,13 @@ namespace miniRAID
         [TextArea(1, 25)]
         public string Description;
 
+        [Title("Flags")] public Consts.ActionFlags flags;
+
         // TODO: Boolean arrays
         // public List<string> Tags;
-        public LuaGetter<MobData, float> power, auxPower;
+        [Title("Power stats")]
+        public LuaGetter<MobData, float> power;
+        public LuaGetter<MobData, float> auxPower;
 
         // Cost related
         [Title("Costs", horizontalLine: true, bold: true)]
@@ -218,6 +222,7 @@ namespace miniRAID
     public class RuntimeAction : MobListener
     {
         public new ActionDataSO data;
+        public Consts.ActionFlags flags => data.flags;
 
         public override MobListenerSO.ListenerType type => MobListenerSO.ListenerType.RuntimeAction;
 

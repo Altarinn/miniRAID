@@ -348,6 +348,9 @@ MonoBehaviour:
     - Name: buff
       Entry: 10
       Data: 2
+    - Name: inheritPower
+      Entry: 5
+      Data: false
     - Name: power
       Entry: 7
       Data: miniRAID.ActionHelpers.FloatModifier, Assembly-CSharp
@@ -404,3 +407,4 @@ MonoBehaviour:
   icon: {fileID: -6448793243531158292, guid: 7fe9a382566f75a429badd968a5161fa, type: 3}
   ActionName: "\u72C2\u98CE\u6307\u5F15"
   Description: "\u4F60\u7684\u6240\u6709\u884C\u52A8AP\u6D88\u8017 -1\uFF08\u6700\u5C0F\u4E3A1\uFF09\uFF0C\u6301\u7EED2\u56DE\u5408\u3002"
+  flags: 0

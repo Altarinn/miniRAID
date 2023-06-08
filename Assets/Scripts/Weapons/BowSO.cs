@@ -22,7 +22,7 @@ namespace miniRAID.Weapon
 
     public class Bow : Weapon
     {
-        public new BowSO data;
+        public BowSO bowData => (BowSO)data;
 
         bool moved = false;
 
@@ -33,7 +33,7 @@ namespace miniRAID.Weapon
         {
             base.OnAttach(mob);
 
-            RaimedAttack = mob.AddAction(data.aimedAttack);
+            RaimedAttack = mob.AddAction(bowData.aimedAttack);
 
             mob.OnNextTurn += OnNextTurn;
             mob.OnActionPostcast += OnActionPostCast;
@@ -57,7 +57,7 @@ namespace miniRAID.Weapon
             base.OnQueryActions(mob, actions);
             if(moved == true)
             {
-                actions.RemoveWhere(x => x.data == data.aimedAttack);
+                actions.RemoveWhere(x => x.data == bowData.aimedAttack);
             }
         }
 

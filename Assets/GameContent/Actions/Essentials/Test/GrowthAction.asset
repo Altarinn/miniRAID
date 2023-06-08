@@ -549,3 +549,4 @@ MonoBehaviour:
   icon: {fileID: -1690489408163389875, guid: 7fe9a382566f75a429badd968a5161fa, type: 3}
   ActionName: "\u683D\u57F9"
   Description: "3\u56DE\u5408\u5185\u4E3A\u76EE\u6807\u6301\u7EED\u6062\u590D\u751F\u547D\u3002"
+  flags: 68

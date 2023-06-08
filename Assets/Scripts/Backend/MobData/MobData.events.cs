@@ -47,6 +47,7 @@ namespace miniRAID
         public event MobArgumentDelegate OnStatCalculation;
         public event MobArgumentDelegate OnActionStatCalculation;
         public event MobArgumentDelegate OnStatCalculationFinish;
+        public event MobArgumentDelegate OnMobMoved;
 
         public event MobActionQueryDelegate OnQueryActions;
         
@@ -89,7 +90,7 @@ namespace miniRAID
         public CoroutineEvent<Cost, RuntimeAction, MobData> OnCostApply;
         
         /////////////////////////////  Logics  //////////////////////////////
-        
+
         // TODO: Formalize this !!
         public IEnumerator ReceiveDamage(Consts.DamageHeal_FrontEndInput info, Consts.DamageHeal_Result result)
         {
@@ -102,10 +103,18 @@ namespace miniRAID
             
             // Compute information and update to info
             float defToUse = 1.0f;
-            if (info.type == Consts.Elements.Heal)
+            Consts.DamageHeal_ComputedRates rates = new Consts.DamageHeal_ComputedRates()
             {
-                defToUse = Consts.GetIdenticalDefense(info.source.level);
-                info.hit = Consts.MaxHitAcc;
+                value = 1,
+                hit = 1,
+                crit = 0,
+            };
+            
+            if (Consts.IsHeal(info))
+            {
+                rates.value = Mathf.CeilToInt(info.value);
+                rates.hit = 1.0f;
+                rates.crit = Consts.GetCriticalRate(info.crit, antiCrit, level);
             }
             else
             {
@@ -122,14 +131,12 @@ namespace miniRAID
                 {
                     defToUse = Consts.GetIdenticalDefense(level);
                 }
-            }
 
-            Consts.DamageHeal_ComputedRates rates = new Consts.DamageHeal_ComputedRates()
-            {
-                value = Consts.GetDamage(info.value, info.source.level, defToUse, level),
-                hit = Consts.GetHitRate(info.hit, dodge, level),
-                crit = Consts.GetCriticalRate(info.crit, antiCrit, level),
-            };
+                rates.value =
+                    Consts.GetDamage(info.value, info.source.level, defToUse, level);
+                rates.hit = Consts.GetHitRate(info.hit, dodge, level);
+                rates.crit = Consts.GetCriticalRate(info.crit, antiCrit, level);
+            }
             
             // TODO: Trigger post-rateComputation events
             
@@ -180,6 +187,8 @@ namespace miniRAID
             result.value = val;
             result.overdeal = Mathf.CeilToInt(rates.value - val);
             result.type = info.type;
+
+            result.flags = info.flags;
 
             if(info.IsAction)
             {

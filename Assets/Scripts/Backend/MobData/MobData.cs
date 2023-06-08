@@ -38,21 +38,22 @@ namespace miniRAID
             get { return _position; }
             set 
             {
-                if(value != _position && mobRenderer != null)
+                if(value != _position)
                 {
                     Globals.backend.MoveMob(
                         _position,
                         value,
                         this);
+                    _position = value; 
+                    OnMobMoved?.Invoke(this);
                 }
-                _position = value; 
             }
         }
         public bool isActive { get; private set; }
         public bool isDead { get; private set; }
         public bool isControllable => isActive && (!isDead);
 
-        private bool initialized = false;
+        public bool initialized = false;
 
         [Header("Basic stats")]
         public MovementType movementType;
@@ -186,23 +187,25 @@ namespace miniRAID
             return this.GCDstatus.Contains(group);
         }
 
-        public void AddListener(MobListenerSO listenerSO, bool addToList = true)
+        public MobListener AddListener(MobListenerSO listenerSO, bool addToList = true)
         {
             if (isDead)
             {
-                return;
+                return null;
             }
             
             MobListener listener = listenerSO.Wrap(this);
-            AddListener(listener, addToList);
+            return AddListener(listener, addToList);
         }
 
-        public void AddListener(MobListener listener, bool addToList = true)
+        public MobListener AddListener(MobListener listener, bool addToList = true)
         {
             if (isDead)
             {
-                return;
+                return null;
             }
+
+            MobListener l = null;
             
             if(listener.TryAdd(this))
             {
@@ -213,35 +216,37 @@ namespace miniRAID
                 {
                     listeners.Add(listener);
                 }
+
+                l = listener;
             }
 
             if (initialized)
             {
                 RecalculateStats();
             }
+
+            return l;
         }
         
-        public bool AddBuff(Buff.BuffSO buff, MobData source)
+        public Buff.Buff AddBuff(Buff.BuffSO buff, MobData source)
         {
             if (isDead)
             {
-                return false;
+                return null;
             }
             
-            AddListener(buff.Wrap(source));
-            return true;
+            return (Buff.Buff)AddListener(buff.Wrap(source));
         }
 
-        public bool AddBuff(Buff.Buff buff)
+        public Buff.Buff AddBuff(Buff.Buff buff)
         {
             if (isDead)
             {
-                return false;
+                return null;
             }
             
             // TODO: Check if buff duplicated
-            AddListener(buff);
-            return true;
+            return (Buff.Buff)AddListener(buff);
         }
 
         public void RemoveListener(MobListenerSO listenerSO)

@@ -88,6 +88,46 @@ namespace miniRAID
             Function = 2
         }
 
+        [Flags]
+        public enum DamageHealFlags
+        {
+            // 间接效果（否则为直接效果；直接效果通常可以触发各种特效）
+            Indirect = 1 << 1,
+            
+            // 随时间发动的效果
+            OvertimeEffect = 1 << 2,
+            
+            // 反击效果
+            Counter = 1 << 3,
+            
+            // 追击效果
+            FollowUp = 1 << 4,
+        }
+
+        [Flags]
+        public enum ActionFlags
+        {
+            // 无法被打断
+            CannotBeInterrupted = 1 << 1,
+            
+            // 武器的普通攻击
+            RegularAction = 1 << 2,
+            
+            // 武器的特殊攻击
+            SpecialAction = 1 << 3,
+            
+            // 团队技能
+            TeamAction = 1 << 4,
+        }
+        
+        [Flags]
+        // TODO: Buff dispel types?
+        public enum BuffFlags
+        {
+            // 无法被驱散
+            CannotBeDispelled = 1 << 1,
+        }
+
         public struct DamageHeal_FrontEndInput
         {
             public MobData source;
@@ -99,6 +139,8 @@ namespace miniRAID
 
             public RuntimeAction sourceAction;
             public Buff.Buff sourceBuff;
+
+            public DamageHealFlags flags;
 
             public bool IsAction => sourceAction != null;
             public int Id => IsAction ? sourceAction.data.Id : sourceBuff.data.Id;
@@ -116,6 +158,11 @@ namespace miniRAID
             {
                 value = val;
             }
+        }
+
+        public static bool IsHeal(DamageHeal_FrontEndInput input)
+        {
+            return input.type == Elements.Heal;
         }
 
         public struct DamageHeal_ComputedRates
@@ -139,6 +186,8 @@ namespace miniRAID
 
             public RuntimeAction sourceAction;
             public Buff.Buff sourceBuff;
+            
+            public DamageHealFlags flags;
 
             public bool IsAction => sourceAction != null;
             public bool NoInfo => sourceAction == null && sourceBuff == null;
@@ -504,6 +553,11 @@ namespace miniRAID
         Dictionary<GridEffect, bool> gridEffectChanges = new();
         public void MoveMob(Vector2Int from, Vector2Int to, MobData mob)
         {
+            if (mob.initialized == false)
+            {
+                return;
+            }
+            
             gridEffectChanges.Clear();
 
             foreach(Vector2Int offset in mob.gridBody.shape)

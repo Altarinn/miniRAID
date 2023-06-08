@@ -5,7 +5,7 @@ using UnityEngine;
 namespace miniRAID.Weapon
 {
     [CreateAssetMenu(menuName = "Weapon/BaseWeaponData")]
-    public class WeaponSO : MobListenerSO
+    public class WeaponSO : StatModifierSO
     {
         public enum WeaponType
         {
@@ -58,9 +58,9 @@ namespace miniRAID.Weapon
         }
     }
 
-    public class Weapon : MobListener
+    public class Weapon : StatModifier
     {
-        public new WeaponSO data;
+        public WeaponSO weaponData => (WeaponSO)data;
         public Weapon(MobData parent, WeaponSO data) : base(parent, data) { this.data = data; }
         protected RuntimeAction RregularAttack;
 
@@ -68,7 +68,7 @@ namespace miniRAID.Weapon
         {
             base.OnAttach(mob);
 
-            RregularAttack = mob.AddAction(data.regularAttack);
+            RregularAttack = mob.AddAction(weaponData.regularAttack);
 
             mob.OnQueryActions += OnQueryActions;
         }

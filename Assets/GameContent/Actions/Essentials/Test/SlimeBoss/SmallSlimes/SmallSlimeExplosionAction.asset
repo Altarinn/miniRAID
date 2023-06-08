@@ -15,7 +15,8 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 2051614829, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -178,10 +179,19 @@ MonoBehaviour:
       Data: 
     - Name: explosionFx
       Entry: 7
-      Data: 9|miniRAID.ActionHelpers.PlayFx, Assembly-CSharp
-    - Name: fx
-      Entry: 6
-      Data: 
+      Data: 9|miniRAID.ActionHelpers.SimpleExplosionFx, Assembly-CSharp
+    - Name: image
+      Entry: 10
+      Data: 0
+    - Name: size
+      Entry: 4
+      Data: 50
+    - Name: triggerTime
+      Entry: 4
+      Data: 0.4
+    - Name: time
+      Entry: 4
+      Data: 0.6
     - Name: 
       Entry: 8
       Data: 
@@ -200,6 +210,9 @@ MonoBehaviour:
     - Name: explosionDamage
       Entry: 7
       Data: 11|miniRAID.ActionHelpers.SpellDamageHeal, Assembly-CSharp
+    - Name: flags
+      Entry: 3
+      Data: 10
     - Name: type
       Entry: 3
       Data: 6
@@ -256,4 +269,5 @@ MonoBehaviour:
   icon: {fileID: 1225552285820372235, guid: 7fe9a382566f75a429badd968a5161fa, type: 3}
   ActionName: "\u5C0F\u53F2\u83B1\u59C6\u7206\u70B8"
   Description: 
+  flags: 0
   explosionRange: 100

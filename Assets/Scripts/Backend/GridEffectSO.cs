@@ -50,12 +50,14 @@ namespace miniRAID.Buff
         public GridEffect(GridEffect from)
             : base(
                   from.source,
-                  from.data,
-                  dNumber.CreateComposite(from.power.Value, "copied"),
-                  dNumber.CreateComposite(from.auxPower.Value, "copied")
+                  from.data
               )
         {
             // Don't create active mobs, entity & register to backend
+            power = dNumber.CreateComposite(from.power.Value, "copied");
+            auxPower = dNumber.CreateComposite(from.auxPower.Value, "copied");
+            hit = dNumber.CreateComposite(from.hit.Value, "copied");
+            crit = dNumber.CreateComposite(from.crit.Value, "copied");
         }
 
         public void Extend(Vector2Int pos)

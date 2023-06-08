@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using miniRAID.Buff;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
@@ -70,6 +71,8 @@ namespace miniRAID.ActionHelpers
 
     public class SpellDamageHeal
     {
+        public Consts.DamageHealFlags flags;
+        
         public Consts.Elements type;
 
         public FloatModifier power = new(1.0f);
@@ -90,6 +93,27 @@ namespace miniRAID.ActionHelpers
                     hit = hit.Apply(spellContext.hit),
 
                     sourceAction = spellContext,
+                    
+                    flags = flags,
+                }));
+        }
+        
+        public IEnumerator Do(Buff.Buff buffContext, MobData src, MobData tgt)
+        {
+            yield return new JumpIn(Globals.backend.DealDmgHeal(
+                tgt,
+                new Consts.DamageHeal_FrontEndInput
+                {
+                    source = src,
+                    value = power.Apply(buffContext.power),
+                    type = type,
+
+                    crit = crit.Apply(buffContext.crit),
+                    hit = hit.Apply(buffContext.hit),
+
+                    sourceBuff = buffContext,
+                    
+                    flags = flags,
                 }));
         }
     }
@@ -193,12 +217,31 @@ namespace miniRAID.ActionHelpers
         }
     }
 
-    public class PlayFx
+    public class SimpleExplosionFx
     {
-        public GameObject fx;
+        public Sprite image;
+        public float size = 200.0f;
+        public float triggerTime = 0.3f;
+        public float time = 0.5f;
 
         public IEnumerator Do(Vector2 position)
         {
+            if (Globals.cc.animation)
+            {
+                GameObject obj = new GameObject("explosion");
+                obj.transform.position = new Vector3(position.x + 0.5f, position.y + 0.5f, 0.0f);
+                var sr = obj.AddComponent<SpriteRenderer>();
+                sr.sprite = image;
+
+                sr.DOColor(Color.clear, time);
+                DOTween.Sequence()
+                    .Append(obj.transform.DOScale(Vector3.one * size, time)
+                        .OnComplete(() => {GameObject.Destroy(obj);}))
+                    .SetLink(obj);
+                
+                yield return new WaitForSeconds(triggerTime);
+            }
+            
             yield return -1;
         }
     }

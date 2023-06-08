@@ -158,7 +158,10 @@ namespace miniRAID
 
         public IEnumerator Killed(Consts.DamageHeal_Result info)
         {
-            Globals.combatTracker.Record(info);
+            Globals.combatTracker.Record(new Consts.KillEvent
+            {
+                info = info
+            });
             
             // TODO: Proper logic to destroy
             GetComponentInChildren<SpriteRenderer>().enabled = false;

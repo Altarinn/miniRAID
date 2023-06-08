@@ -11,7 +11,7 @@ namespace miniRAID
 {
     public class ExplosiveAttack : ActionDataSO
     {
-        public PlayFx explosionFx;
+        public SimpleExplosionFx explosionFx;
         public UnitFilters targetFilter;
         public int explosionRange = 100;
         public SpellDamageHeal explosionDamage;

@@ -23,7 +23,7 @@ namespace miniRAID.Weapon
 
     public class MystItem : Weapon
     {
-        public new MystItemSO data;
+        public MystItemSO mystData => (MystItemSO)data;
 
         bool moved = false;
         int currentEnergy = 0;
@@ -35,7 +35,7 @@ namespace miniRAID.Weapon
         {
             base.OnAttach(mob);
 
-            RspecialAttack = mob.AddAction(data.specialAttack);
+            RspecialAttack = mob.AddAction(mystData.specialAttack);
 
             mob.OnActionPostcast += OnActionPostCast;
 
@@ -47,11 +47,11 @@ namespace miniRAID.Weapon
             if (ract.data == RregularAttack.data) // Movement
             {
                 currentEnergy += 1;
-                currentEnergy = Mathf.Min(data.energyMax, currentEnergy);
+                currentEnergy = Mathf.Min(mystData.energyMax, currentEnergy);
             }
             else if(ract.data == RspecialAttack.data)
             {
-                currentEnergy -= data.energyCount;
+                currentEnergy -= mystData.energyCount;
                 currentEnergy = Mathf.Max(0, currentEnergy);
             }
         }
@@ -59,15 +59,15 @@ namespace miniRAID.Weapon
         protected override void OnQueryActions(MobData mob, HashSet<RuntimeAction> actions)
         {
             base.OnQueryActions(mob, actions);
-            if (currentEnergy < data.energyCount)
+            if (currentEnergy < mystData.energyCount)
             {
-                actions.RemoveWhere(x => x.data == data.specialAttack);
+                actions.RemoveWhere(x => x.data == mystData.specialAttack);
             }
         }
 
         public override string GetInformationString()
         {
-            return $"{base.GetInformationString()}    能量：{currentEnergy} / {data.energyCount}";
+            return $"{base.GetInformationString()}    能量：{currentEnergy} / {mystData.energyCount}";
         }
     }
 }

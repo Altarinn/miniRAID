@@ -8,7 +8,7 @@ namespace miniRAID.Actions
     public class BasicProjectile : ActionDataSO
     {
         public ActionHelpers.Projectile projectile;
-        public PlayFx fxOnHit;
+        public SimpleExplosionFx fxOnHit;
         public SpellBuff buff;
         public SpellDamageHeal damageOrHeal;
         

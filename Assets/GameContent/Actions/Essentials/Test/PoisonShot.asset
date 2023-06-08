@@ -439,6 +439,9 @@ MonoBehaviour:
     - Name: damageOrHeal
       Entry: 7
       Data: 17|miniRAID.ActionHelpers.SpellDamageHeal, Assembly-CSharp
+    - Name: flags
+      Entry: 3
+      Data: 0
     - Name: type
       Entry: 3
       Data: 2
@@ -552,3 +555,4 @@ MonoBehaviour:
   icon: {fileID: 224001176136207997, guid: 7fe9a382566f75a429badd968a5161fa, type: 3}
   ActionName: "\u75BE\u98DE\u4E4B\u7BAD"
   Description: "\u5F13\uFF1A\u7784\u51C6\n\u9020\u6210\u4F24\u5BB3\u548C\u51FA\u8840\uFF1A5\u56DE\u5408"
+  flags: 136

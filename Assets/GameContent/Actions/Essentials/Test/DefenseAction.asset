@@ -407,3 +407,4 @@ MonoBehaviour:
   icon: {fileID: 1307836233, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
   ActionName: "\u9632\u5FA1"
   Description: 
+  flags: 170

@@ -16,8 +16,8 @@ namespace miniRAID
         public UnitFilters targetFilter;
         
         public ActionHelpers.Projectile projectile;
-        public PlayFx fxOnExplode;
-        public PlayFx fxOnHit;
+        public SimpleExplosionFx fxOnExplode;
+        public SimpleExplosionFx fxOnHit;
         public SpellBuff buff;
         public SpellDamageHeal damageOrHeal;
 

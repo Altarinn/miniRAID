@@ -16,7 +16,7 @@ namespace miniRAID
     {
         public BuffSO indicatorBuff;
         public ActionHelpers.Projectile smallSlimeProjectile;
-        public PlayFx onHitFx, smallSlimeSpawnFx;
+        public SimpleExplosionFx onHitFx, smallSlimeSpawnFx;
         public SpellDamageHeal damage;
         public Summon<LockTargetAgent> summon;
         public CreateGridEffect poisonPool;

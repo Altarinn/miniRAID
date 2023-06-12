@@ -6951,12 +6951,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   schedule:
+  - doRegularAttack: 0
+    action: {fileID: 11400000, guid: 5c19e84a47d306d45a1f3c2b143a831e, type: 2}
   - doRegularAttack: 1
     action: {fileID: 11400000, guid: 8a808c2b1fd03ab49b3bedb6f2176570, type: 2}
   - doRegularAttack: 1
     action: {fileID: 11400000, guid: 651ce528935d4564580f2eb1e502fef1, type: 2}
-  - doRegularAttack: 0
-    action: {fileID: 11400000, guid: 5c19e84a47d306d45a1f3c2b143a831e, type: 2}
   - doRegularAttack: 1
     action: {fileID: 11400000, guid: 8a808c2b1fd03ab49b3bedb6f2176570, type: 2}
 --- !u!95 &1865483636

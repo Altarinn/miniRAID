@@ -87,7 +87,10 @@ namespace miniRAID
             // Tell backend that we finished the movement
 
             // TODO: change to use path
-            UseActionPoint((Mathf.Abs(targetPos.x - Position.x) + Mathf.Abs(targetPos.y - Position.y)) / 2.0f);
+            UseActionPoint(
+                (Mathf.Abs(targetPos.x - Position.x)
+                 + Mathf.Abs(targetPos.y - Position.y)
+                 + Mathf.Abs(targetPos.z - Position.z)) / 2.0f);
             Position = targetPos;
         }
         

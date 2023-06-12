@@ -63,7 +63,7 @@ namespace miniRAID.Buff
         public void Extend(Vector3Int pos)
         {
             Globals.backend.AddFxAt(this, pos);
-            entity.AddGrid(pos);
+            entity.AddGrid(Globals.backend.GridToWorldPos(pos));
         }
 
         public void Fx_OnNextTurn(MobData mob)

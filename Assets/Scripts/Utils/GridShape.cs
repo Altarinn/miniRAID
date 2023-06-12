@@ -19,6 +19,9 @@ namespace miniRAID
 
         public HashSet<Vector3Int> shape;
 
+        // Editor only
+        public int canvasSize;
+
         public Vector3Int position;
         public Direction direction;
 
@@ -46,6 +49,11 @@ namespace miniRAID
         public void AddGrid(Vector3Int rPos)
         {
             shape.Add(rPos);
+        }
+        
+        public void RemoveGrid(Vector3Int rPos)
+        {
+            shape.Remove(rPos);
         }
 
         public HashSet<Vector3Int> ApplyTransform()

@@ -17,14 +17,14 @@ namespace miniRAID.UI.TargetRequester
 
     public class RequestStage
     {
-        public Dictionary<Vector2Int, GridOverlay.Types> map;
-        public Dictionary<Vector2Int, GridOverlay.Types> cursor;
+        public Dictionary<Vector3Int, GridOverlay.Types> map;
+        public Dictionary<Vector3Int, GridOverlay.Types> cursor;
         public RequestType type;
 
         public RequestStage()
         {
-            map = new Dictionary<Vector2Int, GridOverlay.Types>();
-            cursor = new Dictionary<Vector2Int, GridOverlay.Types>();
+            map = new Dictionary<Vector3Int, GridOverlay.Types>();
+            cursor = new Dictionary<Vector3Int, GridOverlay.Types>();
             type = RequestType.Target;
         }
     }
@@ -53,7 +53,7 @@ namespace miniRAID.UI.TargetRequester
 
         [FoldoutGroup("Debug info")]
         [ReadOnly]
-        public Stack<Vector2Int> choice = new Stack<Vector2Int>();
+        public Stack<Vector3Int> choice = new Stack<Vector3Int>();
 
         public delegate void OnRequestFinish(Spells.SpellTarget target);
 
@@ -83,7 +83,11 @@ namespace miniRAID.UI.TargetRequester
             this.mob = mob;
             this.ract = ract;
             currentStageCompleted = -1;
+            
+            query_stack ??= new();
             query_stack.Clear();
+
+            choice ??= new();
             choice.Clear();
 
             this.onFinish = onFinish;
@@ -93,7 +97,7 @@ namespace miniRAID.UI.TargetRequester
             _Next(mob.Position, false);
         }
 
-        protected void _Next(Vector2Int coord, bool notFirst = true)
+        protected void _Next(Vector3Int coord, bool notFirst = true)
         {
             if (notFirst)
             {
@@ -109,7 +113,7 @@ namespace miniRAID.UI.TargetRequester
         /// Progress to next step
         /// </summary>
         /// <param name="coord">coord selected in this step by UI</param>
-        public abstract RequestStage Next(Vector2Int coord, bool notFirst = true);
+        public abstract RequestStage Next(Vector3Int coord, bool notFirst = true);
 
         public virtual void Back()
         {
@@ -128,7 +132,7 @@ namespace miniRAID.UI.TargetRequester
             ShowQuery();
         }
 
-        public virtual bool IsChoiceValid(Vector2Int coord)
+        public virtual bool IsChoiceValid(Vector3Int coord)
         {
             return currentQuery.map.ContainsKey(coord);
         }
@@ -179,7 +183,7 @@ namespace miniRAID.UI.TargetRequester
         public override void OnStateExit()
         {
             base.OnStateExit();
-            ui.cursor.cursorShape = new GridShape(Vector2Int.zero);
+            ui.cursor.cursorShape = new GridShape(Vector3Int.zero);
         }
 
         public void ShowQuery()

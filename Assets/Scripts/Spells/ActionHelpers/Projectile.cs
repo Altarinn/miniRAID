@@ -26,7 +26,7 @@ namespace miniRAID.ActionHelpers
         
         public IEnumerator WaitForShootAt(
             MobData mob, 
-            Vector2Int target)
+            Vector3Int target)
         {
             if (Globals.cc.animation && mob.mobRenderer != null)
             {
@@ -34,7 +34,7 @@ namespace miniRAID.ActionHelpers
             
                 obj.GetComponent<TestProjectile>().Init(projectileSprite, projectileTrail, Color.white, Color.white);
 
-                Vector3 dest = Globals.backend.GridToWorldPos(target) + new Vector2(.5f, .5f);
+                Vector3 dest = Globals.backend.GridToWorldPos(target) + new Vector3(.5f, .5f, .5f);
                 dest.z = obj.transform.position.z;
 
                 yield return obj.transform

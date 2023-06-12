@@ -13,7 +13,7 @@ namespace miniRAID.UI.TargetRequester
             return 0;
         }
 
-        public override RequestStage Next(Vector2Int coord, bool notFirst = true)
+        public override RequestStage Next(Vector3Int coord, bool notFirst = true)
         {
             if(currentStageCompleted >= 1)
             {

@@ -60,7 +60,7 @@ namespace miniRAID.Buff
             crit = dNumber.CreateComposite(from.crit.Value, "copied");
         }
 
-        public void Extend(Vector2Int pos)
+        public void Extend(Vector3Int pos)
         {
             Globals.backend.AddFxAt(this, pos);
             entity.AddGrid(pos);

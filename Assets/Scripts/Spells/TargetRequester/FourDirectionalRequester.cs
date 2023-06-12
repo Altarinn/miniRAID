@@ -7,12 +7,12 @@ namespace miniRAID.UI.TargetRequester
     // TODO: Implement this
     public class FourDirectionalRequester : TargetRequesterBase
     {
-        public Vector2Int[] shape;
+        public Vector3Int[] shape;
         public GridOverlay.Types type;
 
         GridShape gridShape;
 
-        public override RequestStage Next(Vector2Int coord, bool notFirst = true)
+        public override RequestStage Next(Vector3Int coord, bool notFirst = true)
         {
             // Empty
             RequestStage stage = new RequestStage();
@@ -46,14 +46,14 @@ namespace miniRAID.UI.TargetRequester
             UpdateCursor(ui.cursor.position);
         }
 
-        public override void PointAtGrid(Vector2Int gridPos)
+        public override void PointAtGrid(Vector3Int gridPos)
         {
             base.PointAtGrid(gridPos);
 
             UpdateCursor(gridPos);
         }
 
-        void UpdateCursor(Vector2Int gridPos)
+        void UpdateCursor(Vector3Int gridPos)
         {
             var dirc = Globals.backend.GetDominantDirection(mob.Position, gridPos);
             if (dirc != gridShape.direction)
@@ -65,16 +65,16 @@ namespace miniRAID.UI.TargetRequester
             switch (dirc)
             {
                 case GridShape.Direction.Up:
-                    ui.cursor.position = mob.Position + new Vector2Int(0, 1);
+                    ui.cursor.position = mob.Position + new Vector3Int(0, 1);
                     break;
                 case GridShape.Direction.Left:
-                    ui.cursor.position = mob.Position + new Vector2Int(-1, 0);
+                    ui.cursor.position = mob.Position + new Vector3Int(-1, 0);
                     break;
                 case GridShape.Direction.Down:
-                    ui.cursor.position = mob.Position + new Vector2Int(0, -1);
+                    ui.cursor.position = mob.Position + new Vector3Int(0, -1);
                     break;
                 case GridShape.Direction.Right:
-                    ui.cursor.position = mob.Position + new Vector2Int(1, 0);
+                    ui.cursor.position = mob.Position + new Vector3Int(1, 0);
                     break;
             }
         }

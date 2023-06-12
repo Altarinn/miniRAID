@@ -8,11 +8,11 @@ namespace miniRAID.Buff
     {
         public GameObject gridFxPrefab;
 
-        public void AddGrid(Vector2 position)
+        public void AddGrid(Vector3 position)
         {
             Instantiate(
                 gridFxPrefab,
-                new Vector3(position.x, position.y, 0),
+                new Vector3(position.x, position.y, position.z),
                 Quaternion.identity,
                 transform
             );

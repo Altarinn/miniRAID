@@ -34,14 +34,14 @@ namespace miniRAID.Spells
             ((UI.TargetRequester.BasicUnitsRequester)Requester).MaxUnits = targetCount;
 
             //Requester = new UI.TargetRequester.FourDirectionalRequester();
-            //(Requester as UI.TargetRequester.FourDirectionalRequester).shape = new Vector2Int[]
+            //(Requester as UI.TargetRequester.FourDirectionalRequester).shape = new Vector3Int[]
             //{
-            //    new Vector2Int( 0, 0),
-            //    new Vector2Int( 0, 1),
-            //    new Vector2Int( 0, 2),
-            //    new Vector2Int( 0, 3),
-            //    new Vector2Int( 1, 0),
-            //    new Vector2Int(-1, 0),
+            //    new Vector3Int( 0, 0),
+            //    new Vector3Int( 0, 1),
+            //    new Vector3Int( 0, 2),
+            //    new Vector3Int( 0, 3),
+            //    new Vector3Int( 1, 0),
+            //    new Vector3Int(-1, 0),
             //};
         }
 

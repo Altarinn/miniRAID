@@ -26,7 +26,7 @@ namespace miniRAID.UI
             return FromMoveableRange(mobRenderer, moveRange);
         }
 
-        public GridOverlay FromMoveableRange(MobRenderer mobRenderer, IEnumerable<Vector2Int> moveRange)
+        public GridOverlay FromMoveableRange(MobRenderer mobRenderer, IEnumerable<Vector3Int> moveRange)
         {
             GridOverlay overlay = Instantiate<GameObject>(overlayPrefab.gameObject, mobRenderer.transform.position, Quaternion.identity).GetComponent<GridOverlay>();
 
@@ -39,7 +39,7 @@ namespace miniRAID.UI
             return overlay;
         }
 
-        public GridOverlay FromDictionary(Dictionary<Vector2Int, GridOverlay.Types> data)
+        public GridOverlay FromDictionary(Dictionary<Vector3Int, GridOverlay.Types> data)
         {
             GridOverlay overlay = Instantiate<GameObject>(overlayPrefab.gameObject, transform.position, Quaternion.identity).GetComponent<GridOverlay>();
             overlay.overlay = data;

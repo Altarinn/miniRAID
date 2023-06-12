@@ -69,10 +69,10 @@ namespace miniRAID
                 .Where(x => !x.IsGenericTypeDefinition)
                 .Where(x => typeof(LuaGetterTemplate<TIn, TOut>).IsAssignableFrom(x));
 
-            if(typeof(IEnumerator).IsAssignableFrom(typeof(TOut)))
-            {
-                q = q.Append(typeof(Sequence<TIn>));
-            }
+            // if(typeof(IEnumerator).IsAssignableFrom(typeof(TOut)))
+            // {
+                // q = q.Append(typeof(Sequence<TIn>));
+            // }
 
             return q;
         }

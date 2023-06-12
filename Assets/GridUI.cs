@@ -28,7 +28,7 @@ namespace miniRAID.UI
         public float panSpeed = 5.0f;
 
         [Obsolete("Use cursor.position instead.")]
-        public Vector2Int currentGridPos => cursor.position;
+        public Vector3Int currentGridPos => cursor.position;
 
         public float gridWorldUnitSize = 1.0f;
         Stack<UIState> stateStack = new Stack<UIState>();
@@ -187,13 +187,14 @@ namespace miniRAID.UI
             WaitFor(action, Wrapper());
         }
 
+        // TODO: Modify for 3D worlds
         public void OnPoint(InputValue input)
         {
             Vector2 cursorPos = cinemachineBrain.ScreenToWorldPoint(input.Get<Vector2>());
             Vector2 _gridPos = (cursorPos / gridWorldUnitSize);
 
-            Vector2Int tmp = cursor.position;
-            cursor.position = new Vector2Int(Mathf.FloorToInt(_gridPos.x), Mathf.FloorToInt(_gridPos.y));
+            Vector3Int tmp = new Vector3Int(cursor.position.x, 0, cursor.position.y);
+            cursor.position = new Vector3Int(Mathf.FloorToInt(_gridPos.x), 0, Mathf.FloorToInt(_gridPos.y));
             if (cursor.position != tmp && currentState != null)
             {
                 currentState.PointAtGrid(cursor.position);
@@ -224,20 +225,22 @@ namespace miniRAID.UI
             //if (currentState.freeNavigation)
             {
                 var inp = input.Get<Vector2>();
-                cursor.position += new Vector2Int(
+                cursor.position += new Vector3Int(
                     inp.x == 0 ? 0 : (inp.x > 0 ? 1 : -1),
+                    0,
                     inp.y == 0 ? 0 : (inp.y > 0 ? 1 : -1));
 
                 cursor.position = 
-                    Vector2Int.Max(
-                        Vector2Int.Min(
+                    Vector3Int.Max(
+                        Vector3Int.Min(
                             cursor.position, 
-                            new Vector2Int(
-                                Globals.backend.mapWidth, 
-                                Globals.backend.mapHeight
+                            new Vector3Int(
+                                Globals.backend.mapSizeX, 
+                                Globals.backend.mapHeight,
+                                Globals.backend.mapSizeZ
                             )
                         ), 
-                        Vector2Int.zero
+                        Vector3Int.zero
                     );
             }
         }

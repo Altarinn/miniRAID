@@ -17,40 +17,40 @@ namespace miniRAID
             Right
         };
 
-        public HashSet<Vector2Int> shape;
+        public HashSet<Vector3Int> shape;
 
-        public Vector2Int position;
+        public Vector3Int position;
         public Direction direction;
 
         public GridShape() 
         { 
-            this.shape = new HashSet<Vector2Int>();
+            this.shape = new HashSet<Vector3Int>();
         }
 
-        public GridShape(Vector2Int shape)
+        public GridShape(Vector3Int shape)
         {
-            this.shape = new HashSet<Vector2Int>();
+            this.shape = new HashSet<Vector3Int>();
             this.shape.Add(shape);
         }
 
-        public GridShape(IEnumerable<Vector2Int> shape)
+        public GridShape(IEnumerable<Vector3Int> shape)
         {
-            this.shape = new HashSet<Vector2Int>(shape);
+            this.shape = new HashSet<Vector3Int>(shape);
         }
 
-        public GridShape(HashSet<Vector2Int> shape)
+        public GridShape(HashSet<Vector3Int> shape)
         {
             this.shape = shape;
         }
 
-        public void AddGrid(Vector2Int rPos)
+        public void AddGrid(Vector3Int rPos)
         {
             shape.Add(rPos);
         }
 
-        public HashSet<Vector2Int> ApplyTransform()
+        public HashSet<Vector3Int> ApplyTransform()
         {
-            HashSet<Vector2Int> result = new HashSet<Vector2Int>();
+            HashSet<Vector3Int> result = new HashSet<Vector3Int>();
 
             foreach (var p in shape)
             {
@@ -60,13 +60,13 @@ namespace miniRAID
                         result.Add(p + position);
                         break;
                     case Direction.Down:
-                        result.Add(new Vector2Int(p.x, -p.y) + position);
+                        result.Add(new Vector3Int(p.x, -p.y) + position);
                         break;
                     case Direction.Left:
-                        result.Add(new Vector2Int(-p.y, p.x) + position);
+                        result.Add(new Vector3Int(-p.y, p.x) + position);
                         break;
                     case Direction.Right:
-                        result.Add(new Vector2Int(p.y, -p.x) + position);
+                        result.Add(new Vector3Int(p.y, -p.x) + position);
                         break;
                 }
             }

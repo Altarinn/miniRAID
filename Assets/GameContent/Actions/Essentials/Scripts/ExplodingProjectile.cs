@@ -23,7 +23,7 @@ namespace miniRAID
 
         public override IEnumerator OnPerform(RuntimeAction ract, MobData mob, SpellTarget targets)
         {
-            Vector2Int target = targets.targetPos[0];
+            Vector3Int target = targets.targetPos[0];
             
             Debug.Log($"Current context: {Globals.cc.animation}");
             
@@ -37,7 +37,7 @@ namespace miniRAID
             explodeShape.position = target;
             var targetMobs = explodeShape.ApplyTransform()
                 .Where(pos => Globals.backend.InMap(pos))
-                .Select(pos => Globals.backend.getMap(pos.x, pos.y).mob)
+                .Select(pos => Globals.backend.getMap(pos.x, pos.y, pos.z).mob)
                 .Where(targetMob => targetMob != null)
                 .Where(targetMob => targetFilter.Check(mob, targetMob));
 

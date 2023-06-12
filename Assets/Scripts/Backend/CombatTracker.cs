@@ -117,7 +117,7 @@ namespace miniRAID
             // No renderer, maybe we are in a detached thread of computation (not what player is looking at)
             if (buffEvent.buff.parentMob.mobRenderer == null) { return; }
             
-            Vector2 popupPosition = buffEvent.buff.parentMob.Position + new Vector2(0.5f, 0.8f);
+            Vector2 popupPosition = buffEvent.buff.parentMob.Position + new Vector3(0.5f, 0.8f, 0.5f);
             switch (buffEvent.eventType)
             {
                 case Consts.BuffEventType.Attached:

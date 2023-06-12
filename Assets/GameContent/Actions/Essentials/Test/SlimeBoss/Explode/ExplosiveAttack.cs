@@ -19,7 +19,7 @@ namespace miniRAID
         public override IEnumerator OnPerform(RuntimeAction ract, MobData mob,
             Spells.SpellTarget target)
         {
-            Vector2Int origin = mob.Position;
+            Vector3Int origin = mob.Position;
 
             if (Globals.cc.animation && explosionFx != null)
                 yield return new JumpIn(explosionFx.Do(origin));

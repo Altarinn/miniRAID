@@ -18,7 +18,7 @@ namespace miniRAID.UI
         public override void Submit(InputValue input)
         {
             base.Submit(input);
-            MobRenderer mobRenderer = Databackend.GetSingleton().getMap(ui.cursor.position.x, ui.cursor.position.y).mob?.mobRenderer;
+            MobRenderer mobRenderer = Databackend.GetSingleton().getMap(ui.cursor.position.x, ui.cursor.position.y, ui.cursor.position.z)?.mob?.mobRenderer;
             if (mobRenderer)
             {
                 if (mobRenderer.data.isControllable)
@@ -43,13 +43,13 @@ namespace miniRAID.UI
             }
         }
 
-        public override void PointAtGrid(Vector2Int gridPos)
+        public override void PointAtGrid(Vector3Int gridPos)
         {
             base.PointAtGrid(gridPos);
 
             if(Globals.backend.InMap(gridPos))
             {
-                var mob = Globals.backend.getMap(gridPos.x, gridPos.y).mob?.mobRenderer;
+                var mob = Globals.backend.getMap(gridPos.x, gridPos.y, gridPos.z).mob?.mobRenderer;
                 if (mob != null)
                 {
                     ui.ShowMainMobStats(mob);

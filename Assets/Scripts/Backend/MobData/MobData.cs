@@ -32,8 +32,8 @@ namespace miniRAID
             Fly
         }
 
-        Vector2Int _position;
-        public Vector2Int Position
+        Vector3Int _position;
+        public Vector3Int Position
         {
             get { return _position; }
             set 

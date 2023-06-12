@@ -40,7 +40,7 @@ namespace miniRAID
             sc.StartSerialCoroutine(Combat(), new SerialCoroutineContext()
             {
                 animation = true,
-                rng = new RNG()
+                rng = new RNG((uint)(DateTime.Now.GetHashCode() - int.MinValue))
             });
         }
 

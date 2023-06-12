@@ -18,7 +18,7 @@ namespace miniRAID.UI
         MobRenderer currentUnit;
         GridOverlay overlay;
 
-        HashSet<Vector2Int> moveRange;
+        HashSet<Vector3Int> moveRange;
 
         public UnitView(MobRenderer mobRenderer)
         {
@@ -123,7 +123,7 @@ namespace miniRAID.UI
             //}
         }
 
-        private bool PreCheckMovement(Vector2Int currentGridPos)
+        private bool PreCheckMovement(Vector3Int currentGridPos)
         {
             return moveRange.Contains(currentGridPos);
         }

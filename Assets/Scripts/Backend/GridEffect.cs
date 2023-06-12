@@ -80,6 +80,6 @@ namespace miniRAID
     //        return name.GetHashCode() ^ source.GetHashCode();
     //    }
 
-    //    public abstract void Invoke(Vector2Int pos, GridData grid);
+    //    public abstract void Invoke(Vector3Int pos, GridData grid);
     //}
 }

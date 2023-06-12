@@ -226,7 +226,7 @@ end";
     //public void Test()
     //{
     //    RuntimeAction action = new RuntimeAction(actionData);
-    //    StartCoroutine(action.Do(mob, new SpellTarget(Vector2Int.zero)));
+    //    StartCoroutine(action.Do(mob, new SpellTarget(Vector3Int.zero)));
     //}
 
     // Update is called once per frame

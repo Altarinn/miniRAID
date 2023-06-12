@@ -16,9 +16,9 @@ namespace miniRAID.ActionHelpers
             throw new NotImplementedException();
         }
 
-        public static MobData MobAtGrid(Vector2Int pos)
+        public static MobData MobAtGrid(Vector3Int pos)
         {
-            return Globals.backend.getMap(pos.x, pos.y)?.mob;
+            return Globals.backend.getMap(pos.x, pos.y, pos.z)?.mob;
         }
     }
 
@@ -158,14 +158,14 @@ namespace miniRAID.ActionHelpers
         public T mobPrefab;
 
         // TODO: FIXME: Problematic
-        public MobRenderer Do(Vector2Int position, bool findEmpty = true)
+        public MobRenderer Do(Vector3Int position, bool findEmpty = true)
         {
             if (findEmpty)
             {
                 position = Globals.backend.FindNearestEmptyGrid(position);
             }
             
-            var summoned = GameObject.Instantiate(mobPrefab.gameObject, Globals.backend.GridToWorldPos(position) + Vector2.one * 0.5f, Quaternion.identity).GetComponent<MobRenderer>();
+            var summoned = GameObject.Instantiate(mobPrefab.gameObject, Globals.backend.GridToWorldPos(position) + Vector3.one * 0.5f, Quaternion.identity).GetComponent<MobRenderer>();
 
             return summoned;
         }
@@ -176,7 +176,7 @@ namespace miniRAID.ActionHelpers
         public Buff.GridEffectSO effect;
         public GridShape shape;
 
-        public IEnumerator Do(RuntimeAction spellContext, MobData src, Vector2Int targetShapeOrigin)
+        public IEnumerator Do(RuntimeAction spellContext, MobData src, Vector3Int targetShapeOrigin)
         {
             // TODO: Animations?
             
@@ -224,12 +224,12 @@ namespace miniRAID.ActionHelpers
         public float triggerTime = 0.3f;
         public float time = 0.5f;
 
-        public IEnumerator Do(Vector2 position)
+        public IEnumerator Do(Vector3 position)
         {
             if (Globals.cc.animation)
             {
                 GameObject obj = new GameObject("explosion");
-                obj.transform.position = new Vector3(position.x + 0.5f, position.y + 0.5f, 0.0f);
+                obj.transform.position = new Vector3(position.x + 0.5f, position.y + 0.5f, position.z + 0.5f);
                 var sr = obj.AddComponent<SpriteRenderer>();
                 sr.sprite = image;
 
@@ -244,5 +244,7 @@ namespace miniRAID.ActionHelpers
             
             yield return -1;
         }
+
+        public IEnumerator Do(Vector3Int gridPosition) => Do(Globals.backend.GridToWorldPos(gridPosition));
     }
 }

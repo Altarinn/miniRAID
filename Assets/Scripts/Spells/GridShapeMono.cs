@@ -30,11 +30,11 @@ namespace miniRAID
             }
         }
 
-        Collider2D mainCollider;
+        Collider mainCollider;
 
         private void Awake()
         {
-            mainCollider = GetComponent<Collider2D>();
+            mainCollider = GetComponent<Collider>();
         }
 
         void GenerateShape()
@@ -43,11 +43,11 @@ namespace miniRAID
 
             Bounds bounds = mainCollider.bounds;
             
-            Vector2Int min = new Vector2Int(
+            Vector3Int min = new Vector3Int(
                 Mathf.FloorToInt(bounds.min.x),
                 Mathf.FloorToInt(bounds.min.y)
             );
-            Vector2Int max = new Vector2Int(
+            Vector3Int max = new Vector3Int(
                 Mathf.CeilToInt(bounds.max.x),
                 Mathf.CeilToInt(bounds.max.y)
             );
@@ -56,8 +56,8 @@ namespace miniRAID
             {
                 for(int y = min.y; y <= max.y; y++)
                 {
-                    var pos = new Vector2Int(x, y);
-                    if (mainCollider.OverlapPoint(pos))
+                    var pos = new Vector3Int(x, y);
+                    if (Consts.IsPointWithinCollider(mainCollider, pos))
                     {
                         _shape.AddGrid(pos);
                     }

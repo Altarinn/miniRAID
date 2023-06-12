@@ -14,7 +14,7 @@ namespace miniRAID.Actions
         
         public override IEnumerator OnPerform(RuntimeAction ract, MobData mob, SpellTarget targets)
         {
-            Vector2Int target = targets.targetPos[0];
+            Vector3Int target = targets.targetPos[0];
             MobData dst = Essentials.MobAtGrid(target);
             
             Debug.Log($"Current context: {Globals.cc.animation}");

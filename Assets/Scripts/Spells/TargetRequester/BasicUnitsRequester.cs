@@ -16,7 +16,7 @@ namespace miniRAID.UI.TargetRequester
         public bool toEnemies = true;
         public bool toAllies = false;
 
-        public override RequestStage Next(Vector2Int coord, bool notFirst = true)
+        public override RequestStage Next(Vector3Int coord, bool notFirst = true)
         {
             if(currentStageCompleted >= MaxUnits)
             {
@@ -39,7 +39,7 @@ namespace miniRAID.UI.TargetRequester
 
                 var validGrids = Globals.backend.GetGridsWithMob(
                     (Databackend.IsMobValidFunc)((MobData mob) => Consts.ApplyMask(mask, mob.unitGroup)),
-                    (Databackend.IsGridValidFunc)((Vector2Int pos, GridData grid) => ((!choice.Contains(pos)) && (Consts.Distance(mob.Position, pos) <= range))));
+                    (Databackend.IsGridValidFunc)((Vector3Int pos, GridData grid) => ((!choice.Contains(pos)) && (Consts.Distance(mob.Position, pos) <= range))));
 
                 foreach (var pos in validGrids)
                 {
@@ -54,7 +54,7 @@ namespace miniRAID.UI.TargetRequester
 
                 var validGrids = Globals.backend.GetGridsWithMob(
                     (Databackend.IsMobValidFunc)((MobData mob) => Consts.ApplyMask(mask, mob.unitGroup)),
-                    (Databackend.IsGridValidFunc)((Vector2Int pos, GridData grid) => ((!choice.Contains(pos)) && (Consts.Distance(mob.Position, pos) <= range))));
+                    (Databackend.IsGridValidFunc)((Vector3Int pos, GridData grid) => ((!choice.Contains(pos)) && (Consts.Distance(mob.Position, pos) <= range))));
 
                 foreach (var pos in validGrids)
                 {
@@ -88,13 +88,13 @@ namespace miniRAID.UI.TargetRequester
             return true;
         }
 
-        public override void PointAtGrid(Vector2Int gridPos)
+        public override void PointAtGrid(Vector3Int gridPos)
         {
             base.PointAtGrid(gridPos);
 
             ui.combatView.HideBattlePreview();
 
-            var pointedMob = Globals.backend.getMap(gridPos.x, gridPos.y)?.mob;
+            var pointedMob = Globals.backend.getMap(gridPos.x, gridPos.y, gridPos.z)?.mob;
             if (pointedMob == null) { return; }
 
             // TODO: Formalize me and ask ract for proper info

@@ -37,7 +37,7 @@ namespace miniRAID.UI
 
         public virtual void Submit(InputValue input) { }
 
-        public virtual void PointAtGrid(Vector2Int gridPos) { }
+        public virtual void PointAtGrid(Vector3Int gridPos) { }
 
         public virtual void Cancel(InputValue input)
         {

@@ -51,7 +51,7 @@ namespace miniRAID
             if (gridBody == null)
             {
                 gridBody = new GridShape();
-                gridBody.AddGrid(Vector2Int.zero);
+                gridBody.AddGrid(Vector3Int.zero);
             }
 
             mob.gridBody = new GridShape();

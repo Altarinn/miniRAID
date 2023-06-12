@@ -51,7 +51,7 @@ namespace miniRAID.Spells
             spell.OnHit += (s, t) =>
             {
                 var gPos = t.targetPos[0];
-                var targetMob = Databackend.GetSingleton().getMap(gPos.x, gPos.y).mob;
+                var targetMob = Databackend.GetSingleton().getMap(gPos.x, gPos.y, gPos.z).mob;
                 //TODO: FIXME:
                 //Databackend.GetSingleton().DealDmgHeal(
                 //    targetMob,

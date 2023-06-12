@@ -16,7 +16,7 @@ namespace miniRAID
 {
     public static class SpellHelper
     {
-        // public static IEnumerator SummonAtGrid(Mob source, Mob summonPrefab, Vector2Int position, System.Func<Mob, IEnumerator> initialization = null)
+        // public static IEnumerator SummonAtGrid(Mob source, Mob summonPrefab, Vector3Int position, System.Func<Mob, IEnumerator> initialization = null)
         // {
         //     var resolvedPosition = Globals.backend.FindNearestEmptyGrid(position);
         //

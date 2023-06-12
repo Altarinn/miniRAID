@@ -19,7 +19,7 @@ public class GridOverlay : MonoBehaviour
     public delegate void OnOverlayChangedDelegate(GridOverlay overlay);
     public OnOverlayChangedDelegate onChange;
 
-    public Dictionary<Vector2Int, Types> overlay = new Dictionary<Vector2Int, Types>();
+    public Dictionary<Vector3Int, Types> overlay = new Dictionary<Vector3Int, Types>();
 
     public GameObject overlayObj;
     public Sprite[] overlaySpriteOverride = new Sprite[Enum.GetNames(typeof(Types)).Length];
@@ -50,7 +50,7 @@ public class GridOverlay : MonoBehaviour
         foreach (var item in overlay)
         {
             // Instantiate a cell and set its sprite
-            Instantiate(overlayObj, new Vector3(item.Key.x, item.Key.y, -1), Quaternion.identity, transform).GetComponent<SpriteRenderer>().sprite = overlaySpriteOverride[(int)item.Value];
+            Instantiate(overlayObj, new Vector3(item.Key.x, item.Key.z, -1), Quaternion.identity, transform).GetComponent<SpriteRenderer>().sprite = overlaySpriteOverride[(int)item.Value];
         }
     }
 

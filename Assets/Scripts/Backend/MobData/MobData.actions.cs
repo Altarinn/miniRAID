@@ -72,7 +72,7 @@ namespace miniRAID
         
         #region Performing actions
         
-        public IEnumerator MoveToCoroutine(Vector2Int targetPos, GridPath path)
+        public IEnumerator MoveToCoroutine(Vector3Int targetPos, GridPath path)
         {
             // Check if targetPos is valid; If not, terminate the movement
             if (!Globals.backend.CanGridPlaceMob(targetPos, gridBody))

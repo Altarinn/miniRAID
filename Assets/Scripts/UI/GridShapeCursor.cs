@@ -20,10 +20,10 @@ namespace miniRAID.UI
             gridsPivot.localRotation = Quaternion.identity;
             gridsPivot.localScale = Vector3.one;
 
-            this.cursorShape = new GridShape(new Vector2Int(0, 0));
+            this.cursorShape = new GridShape(new Vector3Int(0, 0));
         }
 
-        public Vector2Int position
+        public Vector3Int position
         {
             get => Globals.backend.GetGridPos(
                 new Vector2(transform.position.x, transform.position.y)
@@ -46,8 +46,8 @@ namespace miniRAID.UI
                 _cursorShape = value;
 
                 // temporarily remove position
-                Vector2Int _pos = _cursorShape.position;
-                _cursorShape.position = new Vector2Int(0, 0);
+                Vector3Int _pos = _cursorShape.position;
+                _cursorShape.position = new Vector3Int(0, 0);
 
                 var result = _cursorShape.ApplyTransform();
 

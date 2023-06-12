@@ -12,7 +12,7 @@ namespace miniRAID.UI.TargetRequester
             this.type = type;
         }
 
-        public override RequestStage Next(Vector2Int coord, bool notFirst = true)
+        public override RequestStage Next(Vector3Int coord, bool notFirst = true)
         {
             if (currentStageCompleted >= 1)
             {
@@ -28,7 +28,7 @@ namespace miniRAID.UI.TargetRequester
             return stage;
         }
 
-        void Decided(Vector2Int coord)
+        void Decided(Vector3Int coord)
         {
             Finish(new Spells.SpellTarget(coord));
         }

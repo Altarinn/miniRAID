@@ -44,7 +44,7 @@ namespace miniRAID
                 target.RemoveListener(indicatorBuff);
 
                 // Find a proper position to spawn slime
-                Vector2Int spawnPos = Globals.backend.FindNearestEmptyGrid(target.Position);
+                Vector3Int spawnPos = Globals.backend.FindNearestEmptyGrid(target.Position);
                 if (Globals.backend.InMap(spawnPos))
                 {
                     yield return new JumpIn(smallSlimeSpawnFx.Do(spawnPos));

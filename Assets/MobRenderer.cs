@@ -102,9 +102,9 @@ namespace miniRAID
             data.Position = backend.GetGridPos(transform.position);
         }
 
-        public IEnumerator MoveTowards(Vector2Int targetPos)
+        public IEnumerator MoveTowards(Vector3Int targetPos)
         {
-            Vector3 targetPosReal = new Vector3(targetPos.x + 0.5f, targetPos.y + 0.5f, transform.position.z);
+            Vector3 targetPosReal = new Vector3(targetPos.x + 0.5f, targetPos.z + 0.5f, transform.position.z);
 
             // Move until reached target
             while ((transform.position - targetPosReal).magnitude >= 1e-3)

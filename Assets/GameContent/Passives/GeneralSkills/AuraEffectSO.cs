@@ -22,7 +22,7 @@ namespace GameContent.Buffs.Test
 
     public class AuraEffectSORuntimeBuff : Buff
     {
-        private List<MobData> validTargets;
+        private HashSet<MobData> validTargets;
         private Dictionary<MobData, AuraEffectSORuntimeBuff> activeMobs;
         
         public AuraEffectSORuntimeBuff(MobData source, AuraEffectSO data) : base(source, data)
@@ -35,33 +35,55 @@ namespace GameContent.Buffs.Test
             // Source of the aura; Do the check for everything
             if (mob == source)
             {
+                validTargets = new();
                 activeMobs = new();
                 
                 // First get all available mobs
-                validTargets = Globals.backend.GetAllMobs()
+                var targetList = Globals.backend.GetAllMobs()
                     .Where(m => m != source)
                     .Where(m => ((AuraEffectSO)buffData).filter.Check(source, m))
                     .ToList();
-                
-                // Register events to all valid targets
-                source.OnMobMoved += SourceOnMobMoved;
-                foreach (var target in validTargets)
-                {
-                    target.OnMobMoved += TargetOnMobMoved;
-                }
 
+                // Register listeners to all valid targets
+                source.OnMobMoved += SourceOnMobMoved;
+                targetList.ForEach(OnMobAdded);
+
+                // Register listener to any new mobs etc.
+                Globals.backend.onMobAdded += OnMobAdded;
+                Globals.backend.onMobRemoved += OnMobRemoved;
+                
                 onRemoveFromMob += m =>
                 {
+                    Globals.backend.onMobAdded -= OnMobAdded;
+                    Globals.backend.onMobRemoved -= OnMobRemoved;
+                    
+                    validTargets.ToList().ForEach(OnMobRemoved);
                     m.OnMobMoved -= SourceOnMobMoved;
-                    foreach (var target in validTargets)
-                    {
-                        target.OnMobMoved -= TargetOnMobMoved;
-                    }
                 };
             }
         }
 
-        private void SourceOnMobMoved(MobData mob)
+        protected void OnMobAdded(MobData mob)
+        {
+            if (mob != source && ((AuraEffectSO)buffData).filter.Check(source, mob))
+            {
+                validTargets.Add(mob);
+                mob.OnMobMoved += TargetOnMobMoved;
+                TargetOnMobMoved(mob);
+            }
+        }
+        
+        protected void OnMobRemoved(MobData mob)
+        {
+            if (validTargets.Contains(mob))
+            {
+                DeactivateAuraOnMob(mob);
+                mob.OnMobMoved -= TargetOnMobMoved;
+                validTargets.Remove(mob);
+            }
+        }
+
+        protected void SourceOnMobMoved(MobData mob)
         {
             foreach (var target in validTargets)
             {
@@ -69,7 +91,7 @@ namespace GameContent.Buffs.Test
             }
         }
 
-        private void TargetOnMobMoved(MobData mob)
+        protected void TargetOnMobMoved(MobData mob)
         {
             // Ignore non-target mobs. Should not be triggered tho?
             if (!((AuraEffectSO)buffData).filter.Check(source, mob))
@@ -80,25 +102,35 @@ namespace GameContent.Buffs.Test
             // We want to remove the aura
             if (Consts.Distance(source.Position, mob.Position) > ((AuraEffectSO)buffData).range)
             {
-                if (!activeMobs.ContainsKey(mob))
-                {
-                    return;
-                }
-                
-                mob.RemoveListener(activeMobs[mob]);
-                activeMobs.Remove(mob);
+                DeactivateAuraOnMob(mob);
             }
             // We want to add the aura
             else
             {
-                if (activeMobs.ContainsKey(mob))
-                {
-                    return;
-                }
-                
-                var copied = mob.AddBuff((AuraEffectSO)buffData, source);
-                activeMobs.Add(mob, (AuraEffectSORuntimeBuff)copied);
+                ActivateAuraOnMob(mob);
             }
+        }
+
+        private void ActivateAuraOnMob(MobData mob)
+        {
+            if (activeMobs.ContainsKey(mob))
+            {
+                return;
+            }
+
+            var copied = mob.AddBuff((AuraEffectSO)buffData, source);
+            activeMobs.Add(mob, (AuraEffectSORuntimeBuff)copied);
+        }
+
+        private void DeactivateAuraOnMob(MobData mob)
+        {
+            if (!activeMobs.ContainsKey(mob))
+            {
+                return;
+            }
+
+            mob.RemoveListener(activeMobs[mob]);
+            activeMobs.Remove(mob);
         }
     }
 }

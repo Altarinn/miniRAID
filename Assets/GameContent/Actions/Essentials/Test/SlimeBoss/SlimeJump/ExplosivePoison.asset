@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f096bde5dd035e5469a0fa7433078a82, type: 3}
-  m_Name: SmallSlimeExplosionAction
+  m_Name: ExplosivePoison
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 2051614829, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
+    - {fileID: 11400000, guid: 55c5eed4585241247b9923bc02c4fe1a, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -31,7 +32,7 @@ MonoBehaviour:
       Data: 0
     - Name: staticOut
       Entry: 4
-      Data: 10
+      Data: 5
     - Name: LuaExpr
       Entry: 6
       Data: 
@@ -138,14 +139,24 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: choice
-      Entry: 6
+      Entry: 7
+      Data: 7|System.Collections.Generic.Stack`1[[UnityEngine.Vector3Int, UnityEngine.CoreModule]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: onPerform
       Entry: 7
-      Data: 7|miniRAID.LuaFunc`2[[System.ValueTuple`3[[miniRAID.GeneralCombatData,
+      Data: 8|miniRAID.LuaFunc`2[[System.ValueTuple`3[[miniRAID.GeneralCombatData,
         Assembly-CSharp],[miniRAID.MobRenderer, Assembly-CSharp],[miniRAID.Spells.SpellTarget,
         Assembly-CSharp]], mscorlib],[System.Collections.IEnumerator, mscorlib]],
         Assembly-CSharp
@@ -169,25 +180,25 @@ MonoBehaviour:
       Data: 
     - Name: explosionFx
       Entry: 7
-      Data: 8|miniRAID.ActionHelpers.SimpleExplosionFx, Assembly-CSharp
+      Data: 9|miniRAID.ActionHelpers.SimpleExplosionFx, Assembly-CSharp
     - Name: image
       Entry: 10
       Data: 0
     - Name: size
       Entry: 4
-      Data: 50
+      Data: 200
     - Name: triggerTime
       Entry: 4
-      Data: 0.4
+      Data: 0.3
     - Name: time
       Entry: 4
-      Data: 0.6
+      Data: 0.5
     - Name: 
       Entry: 8
       Data: 
     - Name: targetFilter
       Entry: 7
-      Data: 9|miniRAID.ActionHelpers.UnitFilters, Assembly-CSharp
+      Data: 10|miniRAID.ActionHelpers.UnitFilters, Assembly-CSharp
     - Name: toEnemy
       Entry: 5
       Data: true
@@ -199,10 +210,10 @@ MonoBehaviour:
       Data: 
     - Name: explosionDamage
       Entry: 7
-      Data: 10|miniRAID.ActionHelpers.SpellDamageHeal, Assembly-CSharp
+      Data: 11|miniRAID.ActionHelpers.SpellDamageHeal, Assembly-CSharp
     - Name: flags
       Entry: 3
-      Data: 10
+      Data: 0
     - Name: type
       Entry: 3
       Data: 6
@@ -255,12 +266,66 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: explosionBuff
+      Entry: 7
+      Data: 12|miniRAID.ActionHelpers.SpellBuff, Assembly-CSharp
+    - Name: buff
+      Entry: 10
+      Data: 1
+    - Name: inheritPower
+      Entry: 5
+      Data: true
+    - Name: power
+      Entry: 7
+      Data: miniRAID.ActionHelpers.FloatModifier, Assembly-CSharp
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: value
+      Entry: 4
+      Data: 1
+    - Name: expression
       Entry: 6
       Data: 
-  Guid: 5f2d5ede6e49456a9d463725f61e4a46
-  Id: 72
-  icon: {fileID: 1225552285820372235, guid: 7fe9a382566f75a429badd968a5161fa, type: 3}
-  ActionName: "\u5C0F\u53F2\u83B1\u59C6\u7206\u70B8"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: auxPower
+      Entry: 7
+      Data: miniRAID.ActionHelpers.FloatModifier, Assembly-CSharp
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: value
+      Entry: 4
+      Data: 1
+    - Name: expression
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: crit
+      Entry: 7
+      Data: miniRAID.ActionHelpers.FloatModifier, Assembly-CSharp
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: value
+      Entry: 4
+      Data: 1
+    - Name: expression
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  Guid: f72e51a3602e4ac2971584187939dfa4
+  Id: 98
+  icon: {fileID: 0}
+  ActionName: "\u98DE\u6E85\u6BD2\u6DB2"
   Description: 
   flags: 0
   explosionRange: 100

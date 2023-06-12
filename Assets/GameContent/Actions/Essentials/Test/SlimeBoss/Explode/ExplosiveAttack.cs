@@ -15,6 +15,7 @@ namespace miniRAID
         public UnitFilters targetFilter;
         public int explosionRange = 100;
         public SpellDamageHeal explosionDamage;
+        public SpellBuff explosionBuff;
         
         public override IEnumerator OnPerform(RuntimeAction ract, MobData mob,
             Spells.SpellTarget target)
@@ -33,6 +34,9 @@ namespace miniRAID
             {
                 yield return new JumpIn(explosionDamage.Do(
                     ract, mob, targetMob));
+
+                if(explosionBuff != null)
+                    yield return new JumpIn(explosionBuff.Do(ract, mob, targetMob));
             }
         }
     }

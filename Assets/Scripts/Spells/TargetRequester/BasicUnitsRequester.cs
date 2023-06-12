@@ -94,7 +94,7 @@ namespace miniRAID.UI.TargetRequester
 
             ui.combatView.HideBattlePreview();
 
-            var pointedMob = Globals.backend.getMap(gridPos.x, gridPos.y, gridPos.z)?.mob;
+            var pointedMob = Globals.backend.GetMap(gridPos.x, gridPos.y, gridPos.z)?.mob;
             if (pointedMob == null) { return; }
 
             // TODO: Formalize me and ask ract for proper info

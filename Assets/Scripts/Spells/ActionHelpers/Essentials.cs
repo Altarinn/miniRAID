@@ -18,7 +18,7 @@ namespace miniRAID.ActionHelpers
 
         public static MobData MobAtGrid(Vector3Int pos)
         {
-            return Globals.backend.getMap(pos.x, pos.y, pos.z)?.mob;
+            return Globals.backend.GetMap(pos.x, pos.y, pos.z)?.mob;
         }
     }
 

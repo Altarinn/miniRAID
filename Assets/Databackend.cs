@@ -464,6 +464,9 @@ namespace miniRAID
         public Dictionary<GridEffect, List<Vector3Int>> allGridEffects { get; private set; } = new();
         public int mapSizeX, mapHeight, mapSizeZ;
 
+        public event MobData.MobArgumentDelegate onMobAdded;
+        public event MobData.MobArgumentDelegate onMobRemoved;
+
         public Spell testSpell;
 
         private Databackend()
@@ -484,10 +487,24 @@ namespace miniRAID
             mapSizeZ = MAX_MAP_SIZE;
         }
 
-        public GridData getMap(int x, int y, int z)
+        public GridData GetMap(int x, int y, int z)
         {
             if (x < 0 || x >= mapSizeX || y < 0 || y >= mapHeight || z < 0 || z >= mapSizeZ) { return null; }
             return map[x, y, z];
+        }
+
+        public GridData GetMap(Vector3Int pos) => GetMap(pos.x, pos.y, pos.z);
+
+        private void AddMob(MobData mob)
+        {
+            allMobs.Add(mob);
+            onMobAdded?.Invoke(mob);
+        }
+
+        private void RemoveMob(MobData mob)
+        {
+            allMobs.Remove(mob);
+            onMobRemoved?.Invoke(mob);
         }
 
         public void SetMob(int x, int y, int z, GridShape body, MobData mob)
@@ -499,7 +516,7 @@ namespace miniRAID
 
             if (!allMobs.Contains(mob))
             {
-                allMobs.Add(mob);
+                AddMob(mob);
             }
         }
 
@@ -515,7 +532,7 @@ namespace miniRAID
 
             if (remove)
             {
-                allMobs.Remove(mob);
+                RemoveMob(mob);
             }
         }
 
@@ -833,7 +850,7 @@ namespace miniRAID
                     if(!prevGrid.ContainsKey(newPos))
                     {
                         // Get cost of grid
-                        if(InMap(newPos) && IsMoveable(getMap(newPos.x, newPos.y, newPos.z), movementType, out int cost))
+                        if(InMap(newPos) && IsMoveable(GetMap(newPos.x, newPos.y, newPos.z), movementType, out int cost))
                         {
                             if(maxDistance < 0 || (curr.distance + cost) <= maxDistance)
                             {

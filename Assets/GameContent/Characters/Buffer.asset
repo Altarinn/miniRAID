@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d1d0c1d293c45fba23cc65d551d17bd, type: 3}
-  m_Name: BossMu
+  m_Script: {fileID: 11500000, guid: ec7bd0369532437e95c679dfe882de1c, type: 3}
+  m_Name: Buffer
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -54,7 +54,7 @@ MonoBehaviour:
       Data: 
     - Name: canvasSize
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: position
       Entry: 7
       Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
@@ -76,43 +76,26 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: baseEnemyStats
-      Entry: 7
-      Data: miniRAID.EnemyMobDescriptorSO+EnemyStatBase, Assembly-CSharp
-    - Name: MaxHP
-      Entry: 3
-      Data: 680
-    - Name: ExHitAcc
-      Entry: 4
-      Data: 2
-    - Name: ExCrit
-      Entry: 4
-      Data: 0
-    - Name: ExDodge
-      Entry: 4
-      Data: 0
-    - Name: ExAntiCrit
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-  Guid: a6c6d66425ce44e8bce67d8d0d3f888c
-  Id: 91
+  Guid: cb37ffc9640f43479a369467a188723c
+  Id: 88
   icon: {fileID: 0}
   nickname: 
   race: 
-  job: Slime King
+  job: Buffer
   level: 10
   rendererPrefab: {fileID: 0}
   movementType: 0
   moveable: 1
   moveStartCost: 0
-  mainWeaponSO: {fileID: 11400000, guid: 4987ed499923f44c0a29d489d03fda52, type: 2}
+  mainWeaponSO: {fileID: 11400000, guid: 26e73e74e653a0948987f703ed7230eb, type: 2}
   subWeaponSO: {fileID: 0}
-  listenerSOs:
-  - {fileID: 11400000, guid: 7b1406fca4eab7c48b4098c174d4c832, type: 2}
-  - {fileID: 11400000, guid: fd69a45d3dd82d6409a5796ddd87d372, type: 2}
+  listenerSOs: []
   actionSOs:
   - {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
-  - {fileID: 11400000, guid: c8559f206de1dd043b66d354b0a59543, type: 2}
+  baseStats:
+    VIT: 17
+    STR: 7
+    MAG: 12
+    INT: 9
+    DEX: 14
+    TEC: 20

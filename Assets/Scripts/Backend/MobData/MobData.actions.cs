@@ -165,6 +165,15 @@ namespace miniRAID
 
             yield break;
         }
+
+        public IEnumerator DoAction(
+            ActionDataSO actionSO,
+            Spells.SpellTarget target,
+            List<Cost> costs = null)
+        {
+            var ra = GetAction(actionSO) ?? AddAction(actionSO);
+            yield return new JumpIn(DoAction(ra, target, costs));
+        }
         
         public IEnumerator DoAction(
             RuntimeAction raction,

@@ -281,7 +281,7 @@ namespace miniRAID
             OnStatCalculation?.Invoke(this);
 
             // Set current health based on previous percentage
-            health = Mathf.CeilToInt(maxHealth * healthPercent);
+            health = Mathf.Clamp(Mathf.CeilToInt(maxHealth * healthPercent), 0, maxHealth);
 
             RefreshActions();
             OnActionStatCalculation?.Invoke(this);

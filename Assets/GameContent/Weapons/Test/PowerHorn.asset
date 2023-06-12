@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e52da510fd218f4d9dba75e3ae87904, type: 3}
-  m_Name: TestHerb
+  m_Script: {fileID: 11500000, guid: 6e2f68abb484420bb58cfa4fa3a6829d, type: 3}
+  m_Name: PowerHorn
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -48,15 +48,13 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  Guid: 0712dba7a8304c24970e25e5d51ed41e
-  Id: 26
-  icon: {fileID: -312616133, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
-  name: "\u836F\u8349"
+  Guid: 6e3c3f14e1eb47a68982f61c0ae7f6d0
+  Id: 97
+  icon: {fileID: 0}
+  name: "\u53F7\u89D2"
   type: 1
   priority: 0
-  wpType: 9
-  regularAttack: {fileID: 11400000, guid: 7d0a924b74cd61a4cbe3a035bfdee38d, type: 2}
-  mainElement: 6
-  specialAttack: {fileID: 11400000, guid: 63f80b34efe864b4286538e25ecbd4bf, type: 2}
-  energyCount: 4
-  energyMax: 4
+  wpType: 6
+  regularAttack: {fileID: 11400000, guid: 864aed35e40c4eb4298ef9498115c257, type: 2}
+  mainElement: 1
+  buff: {fileID: 11400000, guid: 52ccc5b55c2d75e44ad28f4431137067, type: 2}

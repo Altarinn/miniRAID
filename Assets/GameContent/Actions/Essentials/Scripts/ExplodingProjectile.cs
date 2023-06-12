@@ -37,7 +37,7 @@ namespace miniRAID
             explodeShape.position = target;
             var targetMobs = explodeShape.ApplyTransform()
                 .Where(pos => Globals.backend.InMap(pos))
-                .Select(pos => Globals.backend.getMap(pos.x, pos.y, pos.z).mob)
+                .Select(pos => Globals.backend.GetMap(pos.x, pos.y, pos.z).mob)
                 .Where(targetMob => targetMob != null)
                 .Where(targetMob => targetFilter.Check(mob, targetMob));
 

@@ -5,14 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c36ca183-e7eb-40c1-9aca-56cfe58c3f4d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/Editor/GridShapeDrawer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/Editor/GridShapeDrawer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/InstrumentSO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/InstrumentSO.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.miniRAID-HD2D/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.miniRAID-HD2D/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Databackend.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Databackend.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Scripts/ExplodingProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Scripts/ExplodingProjectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/SlimeBoss/AcidPool/gridGreen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/SlimeBoss/AcidPool/gridGreen.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/SlimeBoss/BossMu.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/SlimeBoss/BossMu.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/SlimeBoss/Explode/ExplosiveAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/SlimeBoss/Explode/ExplosiveAttack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/SlimeBoss/SlimeJump/SlimeJump_new.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/SlimeBoss/SlimeJump/SlimeJump_new.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/SlimeBoss/SlimeJump/SlimeJump_new.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/SlimeBoss/SlimeJump/SlimeJump_new.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/SlimeBoss/SmallSlimes/SmallSlimeExplosionAction.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/SlimeBoss/SmallSlimes/SmallSlimeExplosionAction.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Characters/Healer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Characters/Healer.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Passives/GeneralSkills/AuraEffectSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Passives/GeneralSkills/AuraEffectSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Passives/Test/TestAura.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Passives/Test/TestAura.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Weapons/Test/TestHerb.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Weapons/Test/TestHerb.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameContent_Legacy/Spells/Common/SingleTargetProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent_Legacy/Spells/Common/SingleTargetProjectile.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/NewScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/NewScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatTracker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatTracker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/GridEffectSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/GridEffectSO.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/MobData/MobData.actions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/MobData/MobData.actions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/GridShape.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/GridShape.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/MobData/MobData.events.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/MobData/MobData.events.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spells/ActionHelpers/Essentials.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spells/ActionHelpers/Essentials.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spells/TargetRequester/BasicUnitsRequester.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spells/TargetRequester/BasicUnitsRequester.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/States/FreeView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/States/FreeView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EffectIDRecord.txt" beforeDir="false" afterPath="$PROJECT_DIR$/EffectIDRecord.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/miniRAID.combat.log" beforeDir="false" afterPath="$PROJECT_DIR$/miniRAID.combat.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/miniRAID.log" beforeDir="false" afterPath="$PROJECT_DIR$/miniRAID.log" afterDir="false" />
     </list>
@@ -133,7 +148,7 @@
       <workItem from="1685288319183" duration="5894000" />
       <workItem from="1685347753703" duration="26230000" />
       <workItem from="1685506784270" duration="6252000" />
-      <workItem from="1685671370606" duration="19990000" />
+      <workItem from="1685671370606" duration="26769000" />
     </task>
     <servers />
   </component>

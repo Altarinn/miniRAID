@@ -9,7 +9,8 @@ using Records = System.Collections.Generic.Dictionary<miniRAID.MobData, System.C
 
 namespace miniRAID
 {
-    public class CombatTracker
+    // TODO: UNDO functions? How to implement?
+    public partial class CombatTracker
     {
         public class RecordEntry
         {
@@ -25,7 +26,7 @@ namespace miniRAID
             }
         }
 
-        private Logger combatLog = new Logger("miniRAID.combat.log");
+        private Logger combatLog = new LoggerWithUI("miniRAID.combat.log");
 
         List<Records> pastRecords;
         Records records = new();
@@ -36,7 +37,18 @@ namespace miniRAID
         public int Turns
         {
             get { return _turns; }
-            set { _turns = value; UpdateUI(); combatLog.Log($"回合{_turns}"); }
+            set
+            {
+                _turns = value; 
+                UpdateUI(); 
+                combatLog.Log($"回合{_turns}");
+                OnNextTurn(_turns);
+            }
+        }
+
+        public CombatTracker()
+        {
+            InitJSON();
         }
 
         public void Reset()
@@ -67,7 +79,6 @@ namespace miniRAID
             }
             
             combatLog.Log(damageInfo + $"生命值：{result.target.health}");
-            Globals.debugMessage.Instance.Message(damageInfo);
 
             // TODO: make a popup manager
             // {result.Name} 
@@ -108,6 +119,8 @@ namespace miniRAID
             {
                 records[src][actName].totalDamage += result.value;
             }
+            
+            RecordJSON_DamageHeal(result);
 
             UpdateUI();
         }
@@ -151,7 +164,6 @@ namespace miniRAID
             string message =
                 $"{info.source?.nickname} 的 {info.sourceAction?.data.ActionName} 击杀了 {info.target.nickname} !";
             combatLog.Log(message);
-            Globals.debugMessage.Instance.Message(message);
         }
 
         public void Record(Consts.TrackerActionEvent actionEvent)

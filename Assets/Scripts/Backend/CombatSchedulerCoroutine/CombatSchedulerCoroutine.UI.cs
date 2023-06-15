@@ -11,7 +11,7 @@ namespace miniRAID
         public IEnumerator UIPlayerPhase()
         {
             // notify UI
-            Globals.debugMessage.Instance.Message($"玩家回合");
+            Globals.debugMessage.AddMessage($"玩家回合");
 
             yield break;
         }
@@ -19,7 +19,7 @@ namespace miniRAID
         public IEnumerator UIEnemyPhase()
         {
             // notify UI
-            Globals.debugMessage.Instance.Message($"敌方回合");
+            Globals.debugMessage.AddMessage($"敌方回合");
 
             yield break;
         }
@@ -27,7 +27,7 @@ namespace miniRAID
         public IEnumerator UIAllyPhase()
         {
             // notify UI
-            Globals.debugMessage.Instance.Message($"友方回合");
+            Globals.debugMessage.AddMessage($"友方回合");
 
             yield break;
         }

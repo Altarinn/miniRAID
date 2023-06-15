@@ -32,8 +32,8 @@ namespace miniRAID
 
             foreach (MobData targetMob in capturedMobs)
             {
-                yield return new JumpIn(explosionDamage.Do(
-                    ract, mob, targetMob));
+                if(explosionDamage != null)
+                    yield return new JumpIn(explosionDamage.Do(ract, mob, targetMob));
 
                 if(explosionBuff != null)
                     yield return new JumpIn(explosionBuff.Do(ract, mob, targetMob));

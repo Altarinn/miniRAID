@@ -84,13 +84,15 @@ namespace miniRAID.Editor
     }
 
     // A bit confused ... What is T? LuaGetter or LuaGetter<TIn, TOut>??
-    [DrawerPriority(super:0.1)]
+    [DrawerPriority(super: 0.1)]
     public class LuaGetterDrawer<T, TIn, TOut> : OdinValueDrawer<T> where T : LuaGetter<TIn, TOut>, new()
     {
         public static Vector3 LerpHSV(Color a, Color b, float x)
         {
-            Vector3 ah; Color.RGBToHSV(a, out ah.x, out ah.y, out ah.z);
-            Vector3 bh; Color.RGBToHSV(b, out bh.x, out bh.y, out bh.z);
+            Vector3 ah;
+            Color.RGBToHSV(a, out ah.x, out ah.y, out ah.z);
+            Vector3 bh;
+            Color.RGBToHSV(b, out bh.x, out bh.y, out bh.z);
 
             return new Vector3(
                 Mathf.LerpAngle(ah.x, bh.x, x),
@@ -128,7 +130,11 @@ namespace miniRAID.Editor
                 {
                     int depth = 0;
                     var prop = Property;
-                    while (prop != null) { prop = prop.Parent; ++depth; }
+                    while (prop != null)
+                    {
+                        prop = prop.Parent;
+                        ++depth;
+                    }
 
                     //EditorStyles
                     oldColor = GUI.backgroundColor;
@@ -182,6 +188,7 @@ namespace miniRAID.Editor
                         value.type == LuaGetter<TIn, TOut>.LuaGetterType.STATIC,
                         OnVarTypeSelected, LuaGetter<TIn, TOut>.LuaGetterType.STATIC);
                 }
+
                 typeMenu.AddItem(
                     new GUIContent("Dynamic (Lua)"),
                     value.type == LuaGetter<TIn, TOut>.LuaGetterType.DYNAMIC,
@@ -194,11 +201,26 @@ namespace miniRAID.Editor
                 System.Type typ = typeof(TIn);
 
                 string s = "?";
-                if (!isEvt && value.type == LuaGetter<TIn, TOut>.LuaGetterType.STATIC) { s = "S"; }
-                if (isEvt && value.type == LuaGetter<TIn, TOut>.LuaGetterType.STATIC) { s = "-"; }
-                if (value.type == LuaGetter<TIn, TOut>.LuaGetterType.DYNAMIC) { s = "D"; }
-                if (value.type == LuaGetter<TIn, TOut>.LuaGetterType.TEMPLATE) { s = "T"; }
-                
+                if (!isEvt && value.type == LuaGetter<TIn, TOut>.LuaGetterType.STATIC)
+                {
+                    s = "S";
+                }
+
+                if (isEvt && value.type == LuaGetter<TIn, TOut>.LuaGetterType.STATIC)
+                {
+                    s = "-";
+                }
+
+                if (value.type == LuaGetter<TIn, TOut>.LuaGetterType.DYNAMIC)
+                {
+                    s = "D";
+                }
+
+                if (value.type == LuaGetter<TIn, TOut>.LuaGetterType.TEMPLATE)
+                {
+                    s = "T";
+                }
+
                 if (EditorGUILayout.DropdownButton(new GUIContent(s), FocusType.Keyboard, GUILayout.Width(30)))
                 {
                     typeMenu.ShowAsContext();
@@ -232,10 +254,11 @@ namespace miniRAID.Editor
                         //{
                         //    Property.FindChild(x => x.Name == "staticOut", false).Draw(null);
                         //}
-                        if(!isEvt)
+                        if (!isEvt)
                         {
                             DrawStatic();
                         }
+
                         break;
                     case LuaGetter<TIn, TOut>.LuaGetterType.DYNAMIC:
                     case LuaGetter<TIn, TOut>.LuaGetterType.TEMPLATE:
@@ -250,7 +273,7 @@ namespace miniRAID.Editor
                             intype = string.Join<string>(
                                 ", ",
                                 typeArr.Select(x => XLuaInstance.GetDefaultParamName(x)
-                            ));
+                                ));
                             intype = $"{intype}";
                         }
 
@@ -295,14 +318,14 @@ namespace miniRAID.Editor
                         //SirenixEditorGUI.BeginBoxHeader();
                         //EditorGUILayout.LabelField("TEST");
                         //SirenixEditorGUI.EndBoxHeader();
-                        
+
                         //GUILayout.Space(10 * lvl);
                         p.Draw(null);
                     }
                     //SirenixEditorGUI.draw
                 }
 
-                if(isEvt)
+                if (isEvt)
                 {
                     SirenixEditorGUI.EndBox();
                     GUI.backgroundColor = oldColor;
@@ -315,14 +338,143 @@ namespace miniRAID.Editor
             }
         }
 
-        protected virtual void DrawStatic()
+        void DrawStatic()
         {
             Property.FindChild(x => x.Name == "staticOut", false).Draw(null);
+        }
+        
+        void OnVarTypeSelected(object type)
+        {
+            ValueEntry.SmartValue.type = (LuaGetter<TIn, TOut>.LuaGetterType)type;
+        }
+    }
+
+    [DrawerPriority(super:0.1)]
+    public class PowerGetterDrawer : OdinValueDrawer<PowerGetter>
+    {
+        protected override void DrawPropertyLayout(GUIContent label)
+        {
+            // Handle null values
+            PowerGetter value = ValueEntry.SmartValue;
+            if (ValueEntry.ValueState == PropertyValueState.NullReference)
+            {
+                // Create automatically if null
+                Debug.Log("Null, creating");
+                ValueEntry.SmartValue = new PowerGetter(1);
+            }
+            else
+            {
+                // Label
+                EditorGUILayout.BeginHorizontal();
+                if (label != null)
+                {
+                    GUIContent content = label;
+                    EditorGUILayout.PrefixLabel(label);
+                }
+
+                GenericMenu typeMenu = new GenericMenu();
+                typeMenu.AddItem(
+                    new GUIContent("AttackPower"),
+                    value.powerType == PowerGetter.PowerGetterType.AttackPower,
+                    OnVarTypeSelected, PowerGetter.PowerGetterType.AttackPower);
+                typeMenu.AddItem(
+                    new GUIContent("SpellPower"),
+                    value.powerType == PowerGetter.PowerGetterType.SpellPower,
+                    OnVarTypeSelected, PowerGetter.PowerGetterType.SpellPower);
+                typeMenu.AddItem(
+                    new GUIContent("HealPower"),
+                    value.powerType == PowerGetter.PowerGetterType.HealPower,
+                    OnVarTypeSelected, PowerGetter.PowerGetterType.HealPower);
+                typeMenu.AddItem(
+                    new GUIContent("BuffPower"),
+                    value.powerType == PowerGetter.PowerGetterType.BuffPower,
+                    OnVarTypeSelected, PowerGetter.PowerGetterType.BuffPower);
+                typeMenu.AddItem(
+                    new GUIContent("Static"),
+                    value.powerType == PowerGetter.PowerGetterType.STATIC,
+                    OnVarTypeSelected, PowerGetter.PowerGetterType.STATIC);
+                typeMenu.AddItem(
+                    new GUIContent("Dynamic"),
+                    value.powerType == PowerGetter.PowerGetterType.DYNAMIC,
+                    OnVarTypeSelected, PowerGetter.PowerGetterType.DYNAMIC);
+
+                string s = "?";
+                if (value.powerType == PowerGetter.PowerGetterType.AttackPower) { s = "AttackPower %"; }
+                if (value.powerType == PowerGetter.PowerGetterType.SpellPower) { s = "SpellPower %"; }
+                if (value.powerType == PowerGetter.PowerGetterType.HealPower) { s = "HealPower %"; }
+                if (value.powerType == PowerGetter.PowerGetterType.BuffPower) { s = "BuffPower %"; }
+                if (value.powerType == PowerGetter.PowerGetterType.STATIC) { s = "STATIC"; }
+                if (value.powerType == PowerGetter.PowerGetterType.DYNAMIC) { s = "DYNAMIC"; }
+
+                if (EditorGUILayout.DropdownButton(new GUIContent(s), FocusType.Keyboard, GUILayout.Width(120)))
+                {
+                    typeMenu.ShowAsContext();
+                }
+
+                int lvl = EditorGUI.indentLevel;
+                EditorGUI.indentLevel = 0;
+
+                switch (value.powerType)
+                {
+                    case PowerGetter.PowerGetterType.STATIC:
+                        Property.FindChild(x => x.Name == "staticOut", false).Draw(null);
+                        break;
+                    case PowerGetter.PowerGetterType.DYNAMIC:
+                        string intype = "";
+                        var typeArr = typeof(MobData).GetGenericArguments();
+                        if (typeArr.Length == 0)
+                        {
+                            intype = XLuaInstance.GetDefaultParamName(typeof(MobData));
+                        }
+                        else
+                        {
+                            intype = string.Join<string>(
+                                ", ",
+                                typeArr.Select(x => XLuaInstance.GetDefaultParamName(x)
+                            ));
+                            intype = $"{intype}";
+                        }
+
+                        string outtype = typeof(float).ToString().Split('.').Last();
+
+                        SirenixEditorGUI.Title($"{intype} → {outtype}", null, TextAlignment.Left, false, false);
+                        break;
+                    case PowerGetter.PowerGetterType.AttackPower:
+                    case PowerGetter.PowerGetterType.BuffPower:
+                    case PowerGetter.PowerGetterType.HealPower:
+                    case PowerGetter.PowerGetterType.SpellPower:
+                        Property.FindChild(x => x.Name == "powerFactor", false).Draw(null);
+                        break;
+                }
+
+                EditorGUI.indentLevel = lvl;
+                EditorGUILayout.EndHorizontal();
+
+                if (value.powerType == PowerGetter.PowerGetterType.DYNAMIC)
+                {
+                    SirenixEditorGUI.BeginBox();
+
+                    // if (typeof(T) != typeof(LuaFunc<TIn, TOut>))
+                    // {
+                    //     value.description = SirenixEditorFields.TextField("Description", value.description);
+                    // }
+
+                    //value.LuaExpr = EditorGUILayout.TextArea(value.LuaExpr);
+                    Property.FindChild(x => x.Name == "LuaExpr", false).Draw(null);
+
+                    SirenixEditorGUI.EndBox();
+                }
+
+                //Sirenix.OdinInspector.Editor.Drawers.NullableReferenceDrawer
+
+                //Property.GetActiveDrawerChain().MoveNext();
+                //CallNextDrawer(null);
+            }
         }
 
         void OnVarTypeSelected(object type)
         {
-            ValueEntry.SmartValue.type = (LuaGetter<TIn, TOut>.LuaGetterType)type;
+            ValueEntry.SmartValue.powerType = (PowerGetter.PowerGetterType)type;
         }
     }
 

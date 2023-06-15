@@ -38,7 +38,7 @@ namespace miniRAID
         public void EnemyPhase()
         {
             // notify UI
-            Globals.debugMessage.Instance.Message($"敌方回合");
+            Globals.debugMessage.AddMessage($"敌方回合");
 
             EnterPhase(Consts.UnitGroup.Enemy);
         }
@@ -48,7 +48,7 @@ namespace miniRAID
             turn += 1;
 
             // notify UI
-            Globals.debugMessage.Instance.Message($"玩家回合");
+            Globals.debugMessage.AddMessage($"玩家回合");
 
             EnterPhase(Consts.UnitGroup.Player);
         }

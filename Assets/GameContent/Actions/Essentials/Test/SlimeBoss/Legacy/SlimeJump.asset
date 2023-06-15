@@ -15,9 +15,7 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 3492309287432772861, guid: bbb54d19f10068342a54216bb5f06ccc, type: 3}
-    - {fileID: 11400000, guid: 9e2af50a9fe2072449078fdebd47b282, type: 2}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -25,14 +23,13 @@ MonoBehaviour:
     SerializationNodes:
     - Name: power
       Entry: 7
-      Data: 0|miniRAID.LuaGetter`2[[miniRAID.Mob, Assembly-CSharp],[System.Single,
-        mscorlib]], Assembly-CSharp
+      Data: 0|miniRAID.PowerGetter, Assembly-CSharp
     - Name: type
       Entry: 3
       Data: 0
     - Name: staticOut
       Entry: 4
-      Data: 22
+      Data: 0
     - Name: LuaExpr
       Entry: 6
       Data: 
@@ -42,13 +39,18 @@ MonoBehaviour:
     - Name: getterTemplate
       Entry: 6
       Data: 
+    - Name: powerType
+      Entry: 3
+      Data: 1
+    - Name: powerFactor
+      Entry: 4
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
     - Name: auxPower
       Entry: 7
-      Data: 1|miniRAID.LuaGetter`2[[miniRAID.Mob, Assembly-CSharp],[System.Single,
-        mscorlib]], Assembly-CSharp
+      Data: 1|miniRAID.PowerGetter, Assembly-CSharp
     - Name: type
       Entry: 3
       Data: 0
@@ -64,13 +66,19 @@ MonoBehaviour:
     - Name: getterTemplate
       Entry: 6
       Data: 
+    - Name: powerType
+      Entry: 3
+      Data: 1
+    - Name: powerFactor
+      Entry: 4
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
     - Name: costs
       Entry: 7
-      Data: 2|System.Collections.Generic.Dictionary`2[[miniRAID.Cost+Type, Assembly-CSharp],[miniRAID.LuaBoundedGetter`3[[System.ValueTuple`2[[miniRAID.Mob,
-        Assembly-CSharp],[miniRAID.Spells.SpellTarget, Assembly-CSharp]], mscorlib],[miniRAID.Mob,
+      Data: 2|System.Collections.Generic.Dictionary`2[[miniRAID.Cost+Type, Assembly-CSharp],[miniRAID.LuaBoundedGetter`3[[System.ValueTuple`2[[miniRAID.MobData,
+        Assembly-CSharp],[miniRAID.Spells.SpellTarget, Assembly-CSharp]], mscorlib],[miniRAID.MobData,
         Assembly-CSharp],[System.Double, mscorlib]], Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
@@ -96,9 +104,9 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 7
-      Data: 4|miniRAID.LuaBoundedGetter`3[[System.ValueTuple`2[[miniRAID.Mob, Assembly-CSharp],[miniRAID.Spells.SpellTarget,
-        Assembly-CSharp]], mscorlib],[miniRAID.Mob, Assembly-CSharp],[System.Double,
-        mscorlib]], Assembly-CSharp
+      Data: 4|miniRAID.LuaBoundedGetter`3[[System.ValueTuple`2[[miniRAID.MobData,
+        Assembly-CSharp],[miniRAID.Spells.SpellTarget, Assembly-CSharp]], mscorlib],[miniRAID.MobData,
+        Assembly-CSharp],[System.Double, mscorlib]], Assembly-CSharp
     - Name: type
       Entry: 3
       Data: 0
@@ -134,7 +142,7 @@ MonoBehaviour:
       Data: 
     - Name: isActivelyUsed
       Entry: 7
-      Data: 5|miniRAID.LuaGetter`2[[miniRAID.Mob, Assembly-CSharp],[System.Boolean,
+      Data: 5|miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Boolean,
         mscorlib]], Assembly-CSharp
     - Name: type
       Entry: 3
@@ -177,17 +185,7 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: choice
-      Entry: 7
-      Data: 8|System.Collections.Generic.Stack`1[[UnityEngine.Vector2Int, UnityEngine.CoreModule]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: range
       Entry: 3
@@ -197,8 +195,8 @@ MonoBehaviour:
       Data: 
     - Name: onPerform
       Entry: 7
-      Data: 9|miniRAID.LuaFunc`2[[System.ValueTuple`3[[miniRAID.GeneralCombatData,
-        Assembly-CSharp],[miniRAID.Mob, Assembly-CSharp],[miniRAID.Spells.SpellTarget,
+      Data: 8|miniRAID.LuaFunc`2[[System.ValueTuple`3[[miniRAID.GeneralCombatData,
+        Assembly-CSharp],[miniRAID.MobRenderer, Assembly-CSharp],[miniRAID.Spells.SpellTarget,
         Assembly-CSharp]], mscorlib],[System.Collections.IEnumerator, mscorlib]],
         Assembly-CSharp
     - Name: type
@@ -214,348 +212,14 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: getterTemplate
-      Entry: 7
-      Data: 10|miniRAID.Sequence`1[[System.ValueTuple`3[[miniRAID.GeneralCombatData,
-        Assembly-CSharp],[miniRAID.Mob, Assembly-CSharp],[miniRAID.Spells.SpellTarget,
-        Assembly-CSharp]], mscorlib]], Assembly-CSharp
-    - Name: comment
-      Entry: 6
-      Data: 
-    - Name: sequence
-      Entry: 7
-      Data: 11|System.Collections.Generic.List`1[[miniRAID.LuaFunc`2[[System.ValueTuple`3[[miniRAID.GeneralCombatData,
-        Assembly-CSharp],[miniRAID.Mob, Assembly-CSharp],[miniRAID.Spells.SpellTarget,
-        Assembly-CSharp]], mscorlib],[System.Collections.IEnumerator, mscorlib]],
-        Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 3
-    - Name: 
-      Entry: 7
-      Data: 12|miniRAID.LuaFunc`2[[System.ValueTuple`3[[miniRAID.GeneralCombatData,
-        Assembly-CSharp],[miniRAID.Mob, Assembly-CSharp],[miniRAID.Spells.SpellTarget,
-        Assembly-CSharp]], mscorlib],[System.Collections.IEnumerator, mscorlib]],
-        Assembly-CSharp
-    - Name: type
-      Entry: 3
-      Data: 1
-    - Name: staticOut
-      Entry: 6
-      Data: 
-    - Name: LuaExpr
-      Entry: 1
-      Data: 'targetPos = backend:FindNearestEmptyGrid(target.targetPos[0], mob.gridBody)
-
-        !(mob:MoveToCorotine(targetPos,
-        nil, nil))'
-    - Name: description
-      Entry: 6
-      Data: 
-    - Name: getterTemplate
       Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
-    - Name: 
-      Entry: 7
-      Data: 13|miniRAID.LuaFunc`2[[System.ValueTuple`3[[miniRAID.GeneralCombatData,
-        Assembly-CSharp],[miniRAID.Mob, Assembly-CSharp],[miniRAID.Spells.SpellTarget,
-        Assembly-CSharp]], mscorlib],[System.Collections.IEnumerator, mscorlib]],
-        Assembly-CSharp
-    - Name: type
-      Entry: 3
-      Data: 2
-    - Name: staticOut
-      Entry: 6
-      Data: 
-    - Name: LuaExpr
-      Entry: 6
-      Data: 
-    - Name: description
-      Entry: 6
-      Data: 
-    - Name: getterTemplate
-      Entry: 7
-      Data: 14|miniRAID.AtSelf, Assembly-CSharp
-    - Name: comment
-      Entry: 1
-      Data: AoE Damage
-    - Name: Action
-      Entry: 7
-      Data: 15|miniRAID.LuaFunc`2[[System.ValueTuple`3[[miniRAID.GeneralCombatData,
-        Assembly-CSharp],[miniRAID.Mob, Assembly-CSharp],[UnityEngine.Vector2Int,
-        UnityEngine.CoreModule]], mscorlib],[System.Collections.IEnumerator, mscorlib]],
-        Assembly-CSharp
-    - Name: type
-      Entry: 3
-      Data: 2
-    - Name: staticOut
-      Entry: 6
-      Data: 
-    - Name: LuaExpr
-      Entry: 6
-      Data: 
-    - Name: description
-      Entry: 6
-      Data: 
-    - Name: getterTemplate
-      Entry: 7
-      Data: 16|miniRAID.CaptureAllTargetsWithinRange, Assembly-CSharp
-    - Name: comment
-      Entry: 6
-      Data: 
-    - Name: rangeType
-      Entry: 3
-      Data: 0
-    - Name: rangeOverride
-      Entry: 6
-      Data: 
-    - Name: ballRadius
-      Entry: 3
-      Data: 0
-    - Name: getRange
-      Entry: 7
-      Data: 17|miniRAID.LuaFunc`2[[System.ValueTuple`2[[UnityEngine.Vector2, UnityEngine.CoreModule],[UnityEngine.Vector2,
-        UnityEngine.CoreModule]], mscorlib],[miniRAID.GridShape, Assembly-CSharp]],
-        Assembly-CSharp
-    - Name: type
-      Entry: 3
-      Data: 2
-    - Name: staticOut
-      Entry: 6
-      Data: 
-    - Name: LuaExpr
-      Entry: 6
-      Data: 
-    - Name: description
-      Entry: 6
-      Data: 
-    - Name: getterTemplate
-      Entry: 7
-      Data: 18|miniRAID.PopulateGridShapeMono, Assembly-CSharp
-    - Name: comment
-      Entry: 6
-      Data: 
-    - Name: shape
-      Entry: 10
-      Data: 0
-    - Name: alignRotation
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: captureAllies
-      Entry: 5
-      Data: false
-    - Name: captureEnemies
-      Entry: 5
-      Data: true
-    - Name: captureUnique
-      Entry: 5
-      Data: true
-    - Name: ForEach
-      Entry: 7
-      Data: 19|miniRAID.LuaFunc`2[[System.ValueTuple`3[[miniRAID.GeneralCombatData,
-        Assembly-CSharp],[miniRAID.Mob, Assembly-CSharp],[miniRAID.Mob, Assembly-CSharp]],
-        mscorlib],[System.Collections.IEnumerator, mscorlib]], Assembly-CSharp
-    - Name: type
-      Entry: 3
-      Data: 2
-    - Name: staticOut
-      Entry: 6
-      Data: 
-    - Name: LuaExpr
-      Entry: 6
-      Data: 
-    - Name: description
-      Entry: 6
-      Data: 
-    - Name: getterTemplate
-      Entry: 7
-      Data: 20|miniRAID.DoDamage, Assembly-CSharp
-    - Name: comment
-      Entry: 6
-      Data: 
-    - Name: damageType
-      Entry: 7
-      Data: 21|miniRAID.LuaGetter`2[[miniRAID.Mob, Assembly-CSharp],[miniRAID.Consts+Elements,
-        Assembly-CSharp]], Assembly-CSharp
-    - Name: type
-      Entry: 3
-      Data: 0
-    - Name: staticOut
-      Entry: 3
-      Data: 6
-    - Name: LuaExpr
-      Entry: 6
-      Data: 
-    - Name: description
-      Entry: 6
-      Data: 
-    - Name: getterTemplate
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: power
-      Entry: 7
-      Data: 22|miniRAID.LuaGetter`2[[miniRAID.Mob, Assembly-CSharp],[System.Single,
-        mscorlib]], Assembly-CSharp
-    - Name: type
-      Entry: 3
-      Data: 0
-    - Name: staticOut
-      Entry: 4
-      Data: 1
-    - Name: LuaExpr
-      Entry: 6
-      Data: 
-    - Name: description
-      Entry: 6
-      Data: 
-    - Name: getterTemplate
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 23|miniRAID.LuaFunc`2[[System.ValueTuple`3[[miniRAID.GeneralCombatData,
-        Assembly-CSharp],[miniRAID.Mob, Assembly-CSharp],[miniRAID.Spells.SpellTarget,
-        Assembly-CSharp]], mscorlib],[System.Collections.IEnumerator, mscorlib]],
-        Assembly-CSharp
-    - Name: type
-      Entry: 3
-      Data: 2
-    - Name: staticOut
-      Entry: 6
-      Data: 
-    - Name: LuaExpr
-      Entry: 6
-      Data: 
-    - Name: description
-      Entry: 6
-      Data: 
-    - Name: getterTemplate
-      Entry: 7
-      Data: 24|miniRAID.AtSelf, Assembly-CSharp
-    - Name: comment
-      Entry: 1
-      Data: Acid pool
-    - Name: Action
-      Entry: 7
-      Data: 25|miniRAID.LuaFunc`2[[System.ValueTuple`3[[miniRAID.GeneralCombatData,
-        Assembly-CSharp],[miniRAID.Mob, Assembly-CSharp],[UnityEngine.Vector2Int,
-        UnityEngine.CoreModule]], mscorlib],[System.Collections.IEnumerator, mscorlib]],
-        Assembly-CSharp
-    - Name: type
-      Entry: 3
-      Data: 2
-    - Name: staticOut
-      Entry: 6
-      Data: 
-    - Name: LuaExpr
-      Entry: 6
-      Data: 
-    - Name: description
-      Entry: 6
-      Data: 
-    - Name: getterTemplate
-      Entry: 7
-      Data: 26|miniRAID.CreateGridEffectAt, Assembly-CSharp
-    - Name: comment
-      Entry: 6
-      Data: 
-    - Name: fx
-      Entry: 10
-      Data: 1
-    - Name: getRange
-      Entry: 7
-      Data: 27|miniRAID.LuaFunc`2[[System.ValueTuple`2[[UnityEngine.Vector2, UnityEngine.CoreModule],[UnityEngine.Vector2,
-        UnityEngine.CoreModule]], mscorlib],[miniRAID.GridShape, Assembly-CSharp]],
-        Assembly-CSharp
-    - Name: type
-      Entry: 3
-      Data: 2
-    - Name: staticOut
-      Entry: 6
-      Data: 
-    - Name: LuaExpr
-      Entry: 6
-      Data: 
-    - Name: description
-      Entry: 6
-      Data: 
-    - Name: getterTemplate
-      Entry: 7
-      Data: 28|miniRAID.PopulateGridShapeMono, Assembly-CSharp
-    - Name: comment
-      Entry: 6
-      Data: 
-    - Name: shape
-      Entry: 10
-      Data: 0
-    - Name: alignRotation
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-  fullPath: 
   Guid: 6eb8674ea003416693b3e102e80b18ee
   Id: 43
   icon: {fileID: 4714126544790737456, guid: 7fe9a382566f75a429badd968a5161fa, type: 3}
   ActionName: "\u8DF3\u8DC3"
   Description: 
+  flags: 0

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using Sirenix.OdinInspector.Editor;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -37,6 +36,7 @@ namespace miniRAID
             
             // DEBUG ONLY
             mob.healPower = dNumber.CreateComposite(mob.MAG, "mobbase");
+            mob.buffPower = dNumber.CreateComposite(mob.TEC, "mobbase");
             // DEBUG ONLY ENDS
 
             mob.hitAcc = dNumber.CreateComposite(mob.TEC, "mobbase");

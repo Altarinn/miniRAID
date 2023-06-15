@@ -5,18 +5,24 @@ using UnityEngine.UIElements;
 
 namespace miniRAID.UIElements
 {
+    [RequireComponent(typeof(UIDocument))]
     public class CombatView : MonoBehaviour
     {
         public UnitMenuController menu;
         public BossStatsController bossStats;
         public CombatStatsController combatStats;
+        public MessagePoolController messagePool;
 
         public Label battlePreview;
+
+        private UIDocument uiDocument;
+        [SerializeField] private Vector2Int referenceResolution;
+        [SerializeField] private int minimumScale;
 
         private void OnEnable()
         {
             // The UXML is already instantiated by the UIDocument component
-            var uiDocument = GetComponent<UIDocument>();
+            uiDocument = GetComponent<UIDocument>();
 
             VisualElement unitMenu = uiDocument.rootVisualElement.Q("UnitMenuContainer");
             menu = new UnitMenuController(unitMenu);
@@ -31,6 +37,10 @@ namespace miniRAID.UIElements
             );
 
             battlePreview = uiDocument.rootVisualElement.Q<Label>("BattlePreview");
+
+            messagePool = new MessagePoolController(
+                uiDocument.rootVisualElement.Q("MessagePanel")
+            );
         }
 
         public void ShowBattlePreview(string text)
@@ -52,6 +62,15 @@ namespace miniRAID.UIElements
         public void Update()
         {
             bossStats.Update();
+            UpdateSize();
+        }
+
+        private void UpdateSize()
+        {
+            int widthRatio = Mathf.FloorToInt(Screen.width / referenceResolution.x);
+            int heightRatio = Mathf.FloorToInt(Screen.height / referenceResolution.y);
+
+            uiDocument.panelSettings.scale = Mathf.Max(minimumScale, Mathf.Min(widthRatio, heightRatio));
         }
     }
 }

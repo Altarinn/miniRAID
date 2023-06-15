@@ -19,7 +19,8 @@ namespace miniRAID.Buff
         public bool stackRefreshesTime = true;
         public int maxStack = 1;
 
-        public LuaGetter<MobData, float> power, auxPower, hit, crit;
+        public PowerGetter power, auxPower;
+        // private float hit, crit;
         
         [Title("Flags")] 
         public Consts.BuffFlags flags;
@@ -170,7 +171,10 @@ namespace miniRAID.Buff
         
         public Consts.BuffFlags flags => buffData.flags;
 
-        public dNumber power, auxPower, crit, hit;
+        public dNumber power, auxPower;
+        
+        [ReadOnly]
+        public dNumber crit, hit;
 
         [HideInInspector]
         public MobData source;
@@ -204,8 +208,10 @@ namespace miniRAID.Buff
             
             this.power = dNumber.CreateComposite(buffData.power.Eval(source), "buffbase");
             this.auxPower = dNumber.CreateComposite(buffData.auxPower.Eval(source), "buffbase");
-            this.hit = dNumber.CreateComposite(buffData.hit.Eval(source), "buffbase");
-            this.crit = dNumber.CreateComposite(buffData.crit.Eval(source), "buffBase");
+            // this.hit = dNumber.CreateComposite(buffData.hit.Eval(source), "buffbase");
+            // this.crit = dNumber.CreateComposite(buffData.crit.Eval(source), "buffBase");
+            this.hit = dNumber.CreateComposite(source.hitAcc, "buffbase");
+            this.crit = dNumber.CreateComposite(source.crit, "buffbase");
             
             if(buffData.timed)
             {

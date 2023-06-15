@@ -24,14 +24,13 @@ MonoBehaviour:
     SerializationNodes:
     - Name: power
       Entry: 7
-      Data: 0|miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Single,
-        mscorlib]], Assembly-CSharp
+      Data: 0|miniRAID.PowerGetter, Assembly-CSharp
     - Name: type
       Entry: 3
       Data: 0
     - Name: staticOut
       Entry: 4
-      Data: 10
+      Data: 0
     - Name: LuaExpr
       Entry: 6
       Data: 
@@ -41,13 +40,18 @@ MonoBehaviour:
     - Name: getterTemplate
       Entry: 6
       Data: 
+    - Name: powerType
+      Entry: 3
+      Data: 1
+    - Name: powerFactor
+      Entry: 4
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
     - Name: auxPower
       Entry: 7
-      Data: 1|miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Single,
-        mscorlib]], Assembly-CSharp
+      Data: 1|miniRAID.PowerGetter, Assembly-CSharp
     - Name: type
       Entry: 3
       Data: 0
@@ -63,6 +67,12 @@ MonoBehaviour:
     - Name: getterTemplate
       Entry: 6
       Data: 
+    - Name: powerType
+      Entry: 3
+      Data: 1
+    - Name: powerFactor
+      Entry: 4
+      Data: 1
     - Name: 
       Entry: 8
       Data: 

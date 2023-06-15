@@ -28,8 +28,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: power
       Entry: 7
-      Data: 0|miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Single,
-        mscorlib]], Assembly-CSharp
+      Data: 0|miniRAID.PowerGetter, Assembly-CSharp
     - Name: type
       Entry: 3
       Data: 0
@@ -45,13 +44,18 @@ MonoBehaviour:
     - Name: getterTemplate
       Entry: 6
       Data: 
+    - Name: powerType
+      Entry: 3
+      Data: 1
+    - Name: powerFactor
+      Entry: 4
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
     - Name: auxPower
       Entry: 7
-      Data: 1|miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Single,
-        mscorlib]], Assembly-CSharp
+      Data: 1|miniRAID.PowerGetter, Assembly-CSharp
     - Name: type
       Entry: 3
       Data: 0
@@ -67,6 +71,12 @@ MonoBehaviour:
     - Name: getterTemplate
       Entry: 6
       Data: 
+    - Name: powerType
+      Entry: 3
+      Data: 1
+    - Name: powerFactor
+      Entry: 4
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -142,24 +152,14 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: choice
-      Entry: 7
-      Data: 7|System.Collections.Generic.Stack`1[[UnityEngine.Vector2Int, UnityEngine.CoreModule]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: onPerform
       Entry: 7
-      Data: 8|miniRAID.LuaFunc`2[[System.ValueTuple`3[[miniRAID.GeneralCombatData,
+      Data: 7|miniRAID.LuaFunc`2[[System.ValueTuple`3[[miniRAID.GeneralCombatData,
         Assembly-CSharp],[miniRAID.MobRenderer, Assembly-CSharp],[miniRAID.Spells.SpellTarget,
         Assembly-CSharp]], mscorlib],[System.Collections.IEnumerator, mscorlib]],
         Assembly-CSharp
@@ -183,7 +183,7 @@ MonoBehaviour:
       Data: 
     - Name: smallSlimeProjectile
       Entry: 7
-      Data: 9|miniRAID.ActionHelpers.Projectile, Assembly-CSharp
+      Data: 8|miniRAID.ActionHelpers.Projectile, Assembly-CSharp
     - Name: projectilePrefab
       Entry: 10
       Data: 0
@@ -201,25 +201,46 @@ MonoBehaviour:
       Data: 
     - Name: onHitFx
       Entry: 7
-      Data: 10|miniRAID.ActionHelpers.PlayFx, Assembly-CSharp
-    - Name: fx
+      Data: 9|miniRAID.ActionHelpers.SimpleExplosionFx, Assembly-CSharp
+    - Name: image
       Entry: 6
       Data: 
+    - Name: size
+      Entry: 4
+      Data: 0
+    - Name: triggerTime
+      Entry: 4
+      Data: 0
+    - Name: time
+      Entry: 4
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
     - Name: smallSlimeSpawnFx
       Entry: 7
-      Data: 11|miniRAID.ActionHelpers.PlayFx, Assembly-CSharp
-    - Name: fx
+      Data: 10|miniRAID.ActionHelpers.SimpleExplosionFx, Assembly-CSharp
+    - Name: image
       Entry: 6
       Data: 
+    - Name: size
+      Entry: 4
+      Data: 0
+    - Name: triggerTime
+      Entry: 4
+      Data: 0
+    - Name: time
+      Entry: 4
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
     - Name: damage
       Entry: 7
-      Data: 12|miniRAID.ActionHelpers.SpellDamageHeal, Assembly-CSharp
+      Data: 11|miniRAID.ActionHelpers.SpellDamageHeal, Assembly-CSharp
+    - Name: flags
+      Entry: 3
+      Data: 0
     - Name: type
       Entry: 3
       Data: 6
@@ -273,7 +294,7 @@ MonoBehaviour:
       Data: 
     - Name: summon
       Entry: 7
-      Data: 13|miniRAID.ActionHelpers.Summon`1[[miniRAID.Agents.LockTargetAgent,
+      Data: 12|miniRAID.ActionHelpers.Summon`1[[miniRAID.Agents.LockTargetAgent,
         Assembly-CSharp]], Assembly-CSharp
     - Name: mobPrefab
       Entry: 10
@@ -283,23 +304,41 @@ MonoBehaviour:
       Data: 
     - Name: poisonPool
       Entry: 7
-      Data: 14|miniRAID.ActionHelpers.CreateGridEffect, Assembly-CSharp
+      Data: 13|miniRAID.ActionHelpers.CreateGridEffect, Assembly-CSharp
     - Name: effect
       Entry: 10
       Data: 4
     - Name: shape
       Entry: 7
-      Data: 15|miniRAID.GridShape, Assembly-CSharp
+      Data: 14|miniRAID.GridShape, Assembly-CSharp
     - Name: shape
       Entry: 7
-      Data: 16|System.Collections.Generic.HashSet`1[[UnityEngine.Vector2Int, UnityEngine.CoreModule]],
+      Data: 15|System.Collections.Generic.HashSet`1[[UnityEngine.Vector3Int, UnityEngine.CoreModule]],
         System.Core
     - Name: 
       Entry: 12
-      Data: 5
+      Data: 9
     - Name: 
       Entry: 7
-      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 3
       Data: 0
@@ -311,10 +350,13 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
       Data: -1
+    - Name: 
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 3
       Data: 0
@@ -323,7 +365,22 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: -1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
       Data: 1
@@ -331,11 +388,32 @@ MonoBehaviour:
       Entry: 3
       Data: 0
     - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: -1
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: -1
     - Name: 
       Entry: 3
       Data: 0
@@ -347,13 +425,31 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 1
     - Name: 
       Entry: 3
       Data: 0
     - Name: 
       Entry: 3
+      Data: -1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 3
       Data: 0
+    - Name: 
+      Entry: 3
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -363,15 +459,21 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: position
-      Entry: 7
-      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 8
-    - Name: 
+    - Name: canvasSize
       Entry: 3
       Data: 2
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 10
     - Name: 
       Entry: 8
       Data: 
@@ -389,4 +491,5 @@ MonoBehaviour:
   icon: {fileID: 0}
   ActionName: "\u5C0F\u53F2\u83B1\u59C6\u6295\u63B7"
   Description: "\u7528\u5C0F\u53F2\u83B1\u59C6\u653B\u51FB\u6807\u8BB0\u7684\u6240\u6709\u654C\u4EBA\u3002"
+  flags: 0
   indicatorBuff: {fileID: 11400000, guid: 17ee89bf224feaa409d6630ffe3e73ac, type: 2}

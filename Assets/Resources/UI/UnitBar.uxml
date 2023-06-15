@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Resources/UI/miniRAID_default.uss?fileID=7433441132597879392&amp;guid=54e6eee580e008a468415140067b7312&amp;type=3#miniRAID_default" />
     <Style src="project://database/Assets/Resources/UI/UnitBar.uss?fileID=7433441132597879392&amp;guid=39f187861b79e433082f32c8d6b67639&amp;type=3#UnitBar" />
-    <ui:VisualElement name="BarContainer" style="height: 60px;">
+    <ui:VisualElement name="BarContainer" picking-mode="Ignore" style="height: 60px;">
         <ui:VisualElement name="TopBar" picking-mode="Ignore" style="height: 40px; flex-direction: row; padding-right: 80px;">
             <ui:VisualElement name="UnitBanner" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); width: 80px; flex-direction: row; align-items: flex-end; padding-left: 1px; padding-right: 1px; margin-bottom: 5px; border-bottom-color: rgb(255, 255, 255); border-bottom-width: 1px;">
                 <ui:VisualElement name="UnitIcon" style="flex-grow: 0; background-color: rgba(167, 238, 255, 0); width: 32px; height: 32px; margin-bottom: 1px; margin-right: 3px; background-image: url(&apos;project://database/Assets/SpriteSheets/Mythic.png?fileID=5383714370497100240&amp;guid=cb60126b6c43fc546b28002f68a349c3&amp;type=3#Mythic_0&apos;); -unity-background-scale-mode: stretch-to-fill;" />

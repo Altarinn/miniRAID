@@ -26,14 +26,13 @@ MonoBehaviour:
     SerializationNodes:
     - Name: power
       Entry: 7
-      Data: 0|miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Single,
-        mscorlib]], Assembly-CSharp
+      Data: 0|miniRAID.PowerGetter, Assembly-CSharp
     - Name: type
       Entry: 3
       Data: 0
     - Name: staticOut
       Entry: 4
-      Data: 9
+      Data: 0
     - Name: LuaExpr
       Entry: 6
       Data: 
@@ -43,13 +42,18 @@ MonoBehaviour:
     - Name: getterTemplate
       Entry: 6
       Data: 
+    - Name: powerType
+      Entry: 3
+      Data: 1
+    - Name: powerFactor
+      Entry: 4
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
     - Name: auxPower
       Entry: 7
-      Data: 1|miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Single,
-        mscorlib]], Assembly-CSharp
+      Data: 1|miniRAID.PowerGetter, Assembly-CSharp
     - Name: type
       Entry: 3
       Data: 0
@@ -65,6 +69,12 @@ MonoBehaviour:
     - Name: getterTemplate
       Entry: 6
       Data: 
+    - Name: powerType
+      Entry: 3
+      Data: 1
+    - Name: powerFactor
+      Entry: 4
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -178,17 +188,7 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: choice
-      Entry: 7
-      Data: 8|System.Collections.Generic.Stack`1[[UnityEngine.Vector2Int, UnityEngine.CoreModule]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: MaxUnits
       Entry: 3
@@ -216,7 +216,7 @@ MonoBehaviour:
       Data: 
     - Name: onPerform
       Entry: 7
-      Data: 9|miniRAID.LuaFunc`2[[System.ValueTuple`3[[miniRAID.GeneralCombatData,
+      Data: 8|miniRAID.LuaFunc`2[[System.ValueTuple`3[[miniRAID.GeneralCombatData,
         Assembly-CSharp],[miniRAID.MobRenderer, Assembly-CSharp],[miniRAID.Spells.SpellTarget,
         Assembly-CSharp]], mscorlib],[System.Collections.IEnumerator, mscorlib]],
         Assembly-CSharp
@@ -240,20 +240,23 @@ MonoBehaviour:
       Data: 
     - Name: explodeShape
       Entry: 7
-      Data: 10|miniRAID.GridShape, Assembly-CSharp
+      Data: 9|miniRAID.GridShape, Assembly-CSharp
     - Name: shape
       Entry: 7
-      Data: 11|System.Collections.Generic.HashSet`1[[UnityEngine.Vector2Int, UnityEngine.CoreModule]],
+      Data: 10|System.Collections.Generic.HashSet`1[[UnityEngine.Vector3Int, UnityEngine.CoreModule]],
         System.Core
     - Name: 
       Entry: 12
       Data: 9
     - Name: 
       Entry: 7
-      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: -1
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 3
       Data: 0
@@ -262,7 +265,10 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: -1
     - Name: 
       Entry: 3
       Data: 0
@@ -274,10 +280,43 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 3
       Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 3
       Data: 0
@@ -286,7 +325,10 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 1
     - Name: 
       Entry: 3
       Data: 0
@@ -298,22 +340,13 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: 
       Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 1
+      Data: 0
     - Name: 
       Entry: 3
       Data: -1
@@ -322,22 +355,13 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
       Data: -1
     - Name: 
       Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: -1
+      Data: 0
     - Name: 
       Entry: 3
       Data: -1
@@ -346,7 +370,10 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: -1
     - Name: 
       Entry: 3
       Data: 0
@@ -362,12 +389,18 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: canvasSize
+      Entry: 3
+      Data: 3
     - Name: position
       Entry: 7
-      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 10
+      Data: 9
+    - Name: 
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 3
       Data: 7
@@ -382,7 +415,7 @@ MonoBehaviour:
       Data: 
     - Name: targetFilter
       Entry: 7
-      Data: 12|miniRAID.ActionHelpers.UnitFilters, Assembly-CSharp
+      Data: 11|miniRAID.ActionHelpers.UnitFilters, Assembly-CSharp
     - Name: toEnemy
       Entry: 5
       Data: true
@@ -394,7 +427,7 @@ MonoBehaviour:
       Data: 
     - Name: projectile
       Entry: 7
-      Data: 13|miniRAID.ActionHelpers.Projectile, Assembly-CSharp
+      Data: 12|miniRAID.ActionHelpers.Projectile, Assembly-CSharp
     - Name: projectilePrefab
       Entry: 10
       Data: 0
@@ -412,7 +445,7 @@ MonoBehaviour:
       Data: 
     - Name: fxOnExplode
       Entry: 7
-      Data: 14|miniRAID.ActionHelpers.SimpleExplosionFx, Assembly-CSharp
+      Data: 13|miniRAID.ActionHelpers.SimpleExplosionFx, Assembly-CSharp
     - Name: image
       Entry: 6
       Data: 
@@ -430,7 +463,7 @@ MonoBehaviour:
       Data: 
     - Name: fxOnHit
       Entry: 7
-      Data: 15|miniRAID.ActionHelpers.SimpleExplosionFx, Assembly-CSharp
+      Data: 14|miniRAID.ActionHelpers.SimpleExplosionFx, Assembly-CSharp
     - Name: image
       Entry: 6
       Data: 
@@ -448,7 +481,7 @@ MonoBehaviour:
       Data: 
     - Name: buff
       Entry: 7
-      Data: 16|miniRAID.ActionHelpers.SpellBuff, Assembly-CSharp
+      Data: 15|miniRAID.ActionHelpers.SpellBuff, Assembly-CSharp
     - Name: buff
       Entry: 10
       Data: 2
@@ -505,13 +538,13 @@ MonoBehaviour:
       Data: 
     - Name: damageOrHeal
       Entry: 7
-      Data: 17|miniRAID.ActionHelpers.SpellDamageHeal, Assembly-CSharp
+      Data: 16|miniRAID.ActionHelpers.SpellDamageHeal, Assembly-CSharp
     - Name: flags
       Entry: 3
       Data: 0
     - Name: type
       Entry: 3
-      Data: 6
+      Data: 1
     - Name: power
       Entry: 7
       Data: miniRAID.ActionHelpers.FloatModifier, Assembly-CSharp

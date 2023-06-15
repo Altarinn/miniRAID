@@ -42,6 +42,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Scroll",
+                    "type": "Value",
+                    "id": "b917eb2f-7b47-48fa-9e27-97539eef1310",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "TrackedDevicePosition",
                     "type": "PassThrough",
                     "id": "115db810-83f1-4f9b-9ce9-e7378c0ffd97",
@@ -331,17 +340,6 @@
                 },
                 {
                     "name": "",
-                    "id": "dd9b3f05-446b-40e4-be7d-78a0f7426547",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Submit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "82627dcc-3b13-4ba9-841d-e4b746d6553e",
                     "path": "*/{Cancel}",
                     "interactions": "",
@@ -568,6 +566,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Action5",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e492d0e1-2516-491c-b9de-df748930a025",
+                    "path": "<Mouse>/scroll",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Scroll",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

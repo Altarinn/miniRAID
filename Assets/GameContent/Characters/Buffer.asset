@@ -92,10 +92,11 @@ MonoBehaviour:
   listenerSOs: []
   actionSOs:
   - {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
+  - {fileID: 11400000, guid: 9384695fc8767e341b1eb5a16c10b320, type: 2}
   baseStats:
-    VIT: 17
+    VIT: 16
     STR: 7
     MAG: 12
-    INT: 9
+    INT: 11
     DEX: 14
     TEC: 20

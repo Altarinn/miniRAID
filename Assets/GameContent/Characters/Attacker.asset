@@ -52,6 +52,9 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: canvasSize
+      Entry: 3
+      Data: 0
     - Name: position
       Entry: 7
       Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
@@ -93,7 +96,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 50a2bb5f4e3dbd34d8e1cfc1f6aa91c4, type: 2}
   baseStats:
     VIT: 11
-    STR: 13
+    STR: 15
     MAG: 8
     INT: 10
     DEX: 15

@@ -79,3 +79,5 @@ crashlytics-build.properties
 .vsconfig.private.0
 
 .idea/
+
+CombatLogs/JSON/

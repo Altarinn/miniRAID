@@ -36,20 +36,24 @@ namespace miniRAID.Weapon
             RaimedAttack = mob.AddAction(bowData.aimedAttack);
 
             mob.OnNextTurn += OnNextTurn;
-            mob.OnActionPostcast += OnActionPostCast;
+            mob.OnMobMoved += MobOnOnMobMoved;
+        }
+
+        public override void OnRemove(MobData mob)
+        {
+            // TODO: Remove action?
+            mob.OnNextTurn -= OnNextTurn;
+            mob.OnMobMoved -= MobOnOnMobMoved;
+        }
+
+        private void MobOnOnMobMoved(MobData mob)
+        {
+            moved = true;
         }
 
         private void OnNextTurn(MobData mob)
         {
             moved = false;
-        }
-
-        private void OnActionPostCast(MobData mob, RuntimeAction ract, Spells.SpellTarget target)
-        {
-            if(ract.data.Id == 1) // Movement
-            {
-                moved = true;
-            }
         }
 
         protected override void OnQueryActions(MobData mob, HashSet<RuntimeAction> actions)

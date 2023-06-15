@@ -64,6 +64,15 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Scroll"",
+                    ""type"": ""Value"",
+                    ""id"": ""b917eb2f-7b47-48fa-9e27-97539eef1310"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
                     ""name"": ""TrackedDevicePosition"",
                     ""type"": ""PassThrough"",
                     ""id"": ""115db810-83f1-4f9b-9ce9-e7378c0ffd97"",
@@ -353,17 +362,6 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""dd9b3f05-446b-40e4-be7d-78a0f7426547"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Submit"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""82627dcc-3b13-4ba9-841d-e4b746d6553e"",
                     ""path"": ""*/{Cancel}"",
                     ""interactions"": """",
@@ -592,6 +590,17 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Action5"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e492d0e1-2516-491c-b9de-df748930a025"",
+                    ""path"": ""<Mouse>/scroll"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Scroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -665,6 +674,7 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         m_UI_Submit = m_UI.FindAction("Submit", throwIfNotFound: true);
         m_UI_Cancel = m_UI.FindAction("Cancel", throwIfNotFound: true);
         m_UI_Point = m_UI.FindAction("Point", throwIfNotFound: true);
+        m_UI_Scroll = m_UI.FindAction("Scroll", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
         m_UI_LeftClick = m_UI.FindAction("Left Click", throwIfNotFound: true);
@@ -741,6 +751,7 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_Submit;
     private readonly InputAction m_UI_Cancel;
     private readonly InputAction m_UI_Point;
+    private readonly InputAction m_UI_Scroll;
     private readonly InputAction m_UI_TrackedDevicePosition;
     private readonly InputAction m_UI_TrackedDeviceOrientation;
     private readonly InputAction m_UI_LeftClick;
@@ -760,6 +771,7 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         public InputAction @Submit => m_Wrapper.m_UI_Submit;
         public InputAction @Cancel => m_Wrapper.m_UI_Cancel;
         public InputAction @Point => m_Wrapper.m_UI_Point;
+        public InputAction @Scroll => m_Wrapper.m_UI_Scroll;
         public InputAction @TrackedDevicePosition => m_Wrapper.m_UI_TrackedDevicePosition;
         public InputAction @TrackedDeviceOrientation => m_Wrapper.m_UI_TrackedDeviceOrientation;
         public InputAction @LeftClick => m_Wrapper.m_UI_LeftClick;
@@ -792,6 +804,9 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
             @Point.started += instance.OnPoint;
             @Point.performed += instance.OnPoint;
             @Point.canceled += instance.OnPoint;
+            @Scroll.started += instance.OnScroll;
+            @Scroll.performed += instance.OnScroll;
+            @Scroll.canceled += instance.OnScroll;
             @TrackedDevicePosition.started += instance.OnTrackedDevicePosition;
             @TrackedDevicePosition.performed += instance.OnTrackedDevicePosition;
             @TrackedDevicePosition.canceled += instance.OnTrackedDevicePosition;
@@ -841,6 +856,9 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
             @Point.started -= instance.OnPoint;
             @Point.performed -= instance.OnPoint;
             @Point.canceled -= instance.OnPoint;
+            @Scroll.started -= instance.OnScroll;
+            @Scroll.performed -= instance.OnScroll;
+            @Scroll.canceled -= instance.OnScroll;
             @TrackedDevicePosition.started -= instance.OnTrackedDevicePosition;
             @TrackedDevicePosition.performed -= instance.OnTrackedDevicePosition;
             @TrackedDevicePosition.canceled -= instance.OnTrackedDevicePosition;
@@ -942,6 +960,7 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         void OnSubmit(InputAction.CallbackContext context);
         void OnCancel(InputAction.CallbackContext context);
         void OnPoint(InputAction.CallbackContext context);
+        void OnScroll(InputAction.CallbackContext context);
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
         void OnLeftClick(InputAction.CallbackContext context);

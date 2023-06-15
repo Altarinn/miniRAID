@@ -20,8 +20,34 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
-  fullPath: 
+    SerializationNodes:
+    - Name: modifiers
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[miniRAID.StatModifierSO+StatModTarget,
+        Assembly-CSharp],[miniRAID.StatModifierSO+dNumberModifier, Assembly-CSharp]],
+        mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[miniRAID.StatModifierSO+StatModTarget,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   Guid: b11eba876bf94e39abe6dddd823bf82a
   Id: 41
   icon: {fileID: 0}
@@ -29,5 +55,5 @@ MonoBehaviour:
   type: 1
   priority: 0
   wpType: 0
-  regularAttack: {fileID: 11400000, guid: 4566c9d51823ca54a9eae58975e1ca3b, type: 2}
+  regularAttack: {fileID: 11400000, guid: 49887a44a21fe8546a4361fa2156e919, type: 2}
   mainElement: 6

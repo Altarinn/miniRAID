@@ -23,14 +23,13 @@ MonoBehaviour:
     SerializationNodes:
     - Name: power
       Entry: 7
-      Data: 0|miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Single,
-        mscorlib]], Assembly-CSharp
+      Data: 0|miniRAID.PowerGetter, Assembly-CSharp
     - Name: type
       Entry: 3
       Data: 0
     - Name: staticOut
       Entry: 4
-      Data: 75
+      Data: 0
     - Name: LuaExpr
       Entry: 6
       Data: 
@@ -40,13 +39,18 @@ MonoBehaviour:
     - Name: getterTemplate
       Entry: 6
       Data: 
+    - Name: powerType
+      Entry: 3
+      Data: 1
+    - Name: powerFactor
+      Entry: 4
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
     - Name: auxPower
       Entry: 7
-      Data: 1|miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Single,
-        mscorlib]], Assembly-CSharp
+      Data: 1|miniRAID.PowerGetter, Assembly-CSharp
     - Name: type
       Entry: 3
       Data: 0
@@ -62,6 +66,12 @@ MonoBehaviour:
     - Name: getterTemplate
       Entry: 6
       Data: 
+    - Name: powerType
+      Entry: 3
+      Data: 1
+    - Name: powerFactor
+      Entry: 4
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -213,17 +223,7 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: choice
-      Entry: 7
-      Data: 9|System.Collections.Generic.Stack`1[[UnityEngine.Vector2Int, UnityEngine.CoreModule]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: MaxUnits
       Entry: 3
@@ -251,7 +251,7 @@ MonoBehaviour:
       Data: 
     - Name: onPerform
       Entry: 7
-      Data: 10|miniRAID.LuaFunc`2[[System.ValueTuple`3[[miniRAID.GeneralCombatData,
+      Data: 9|miniRAID.LuaFunc`2[[System.ValueTuple`3[[miniRAID.GeneralCombatData,
         Assembly-CSharp],[miniRAID.MobRenderer, Assembly-CSharp],[miniRAID.Spells.SpellTarget,
         Assembly-CSharp]], mscorlib],[System.Collections.IEnumerator, mscorlib]],
         Assembly-CSharp
@@ -284,7 +284,7 @@ MonoBehaviour:
       Data: 
     - Name: damageOrHeal
       Entry: 7
-      Data: 11|miniRAID.ActionHelpers.SpellDamageHeal, Assembly-CSharp
+      Data: 10|miniRAID.ActionHelpers.SpellDamageHeal, Assembly-CSharp
     - Name: flags
       Entry: 3
       Data: 0

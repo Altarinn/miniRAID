@@ -41,6 +41,58 @@ namespace miniRAID
         }
     }
 
+    public class PowerGetter : LuaGetter<MobData, float>
+    {
+        public enum PowerGetterType
+        {
+            STATIC,
+            AttackPower,
+            SpellPower,
+            HealPower,
+            BuffPower,
+            DYNAMIC,
+        }
+
+        public PowerGetterType powerType;
+        public float powerFactor;
+        
+        public PowerGetter(float val) : base(0)
+        {
+            powerType = PowerGetterType.AttackPower;
+            powerFactor = val;
+        }
+
+        public override float Eval(MobData param)
+        {
+            switch (powerType)
+            {
+                case PowerGetterType.STATIC:
+                case PowerGetterType.DYNAMIC:
+                    type = powerType == PowerGetterType.STATIC ? LuaGetterType.STATIC : LuaGetterType.DYNAMIC;
+                    return base.Eval(param);
+                    break;
+                
+                case PowerGetterType.AttackPower:
+                    return param.attackPower * powerFactor;
+                    break;
+                
+                case PowerGetterType.SpellPower:
+                    return param.spellPower * powerFactor;
+                    break;
+                
+                case PowerGetterType.HealPower:
+                    return param.healPower * powerFactor;
+                    break;
+                
+                case PowerGetterType.BuffPower:
+                    return param.buffPower * powerFactor;
+                    break;
+            }
+
+            return base.Eval(param);
+        }
+    }
+
     /* TODO: Update doc from ActionDataOnPerformSO to ActionDataSO
      * The class for actions (data).
      * To provide a custom implementation (so you can use it in your actions), please
@@ -68,8 +120,8 @@ namespace miniRAID
         // TODO: Boolean arrays
         // public List<string> Tags;
         [Title("Power stats")]
-        public LuaGetter<MobData, float> power;
-        public LuaGetter<MobData, float> auxPower;
+        public PowerGetter power;
+        public PowerGetter auxPower;
 
         // Cost related
         [Title("Costs", horizontalLine: true, bold: true)]
@@ -329,7 +381,7 @@ namespace miniRAID
             return $"{costString}" +
                 //$"------------\n" +
                 $"{data.Description}\n" +
-                $"Power: {data.power.Eval(mob)}\n" +
+                $"Power: {Mathf.CeilToInt(data.power.Eval(mob))}\n" +
                 $"TODO - rAct.GetTooltip().";
         }
 
@@ -339,7 +391,7 @@ namespace miniRAID
 
             if(cooldownRemain > 0)
             {
-                Globals.debugMessage.Instance.Message($"{mob.nickname} 的 {data.name} 还没有准备好！");
+                Globals.debugMessage.AddMessage($"{mob.nickname} 的 {data.name} 还没有准备好！");
                 yield break;
             }
 

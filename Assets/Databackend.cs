@@ -104,6 +104,8 @@ namespace miniRAID
             FollowUp = 1 << 4,
         }
 
+        public static bool IsDirect(DamageHealFlags flags) => (flags & DamageHealFlags.Indirect) == 0;
+
         [Flags]
         public enum ActionFlags
         {
@@ -352,8 +354,8 @@ namespace miniRAID
         
         // Incremental in the range of +50% hit rate per level.
         // Hit rate = BaseHit + (attacker.Hit - defender.Dodge) / (HitRangePerLevel * defender.Level)
-        public static float HitRangePerLevel = 5;
-        public static float BaseHit = 0.5f;
+        public static float HitRangePerLevel = 6;
+        public static float BaseHit = 0.55f;
         public static float MaxHitAcc = 1000000.0f;
         
         // Same but for critical strikes.

@@ -44,7 +44,7 @@ public class XLuaInstance : MonoBehaviour
         luaEnv = new LuaEnv();
         Coroutine InvokeStartCoroutine(IEnumerator routine) => StartCoroutine(routine);
         void InvokeStopCoroutine(Coroutine coroutine) => StopCoroutine(coroutine);
-        void ShowMessage(object msg) => Globals.debugMessage.Instance.Message(msg.ToString());
+        void ShowMessage(object msg) => Globals.debugMessage.AddMessage(msg.ToString());
 
         luaEnv.Global.Set("csStartCoroutine", (Func<IEnumerator, Coroutine>)InvokeStartCoroutine);
         luaEnv.Global.Set("JumpIn", (Func<IEnumerator, JumpIn>)CreateJumpIn);

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using XLua;
 
@@ -54,6 +55,9 @@ namespace miniRAID
 
             // Before entering Turn 1
             yield return new JumpIn(StartCombat());
+            
+            // TODO: FIXME: Remove me from here!
+            FindObjectOfType<BGMLoopWithIntro>().Play();
 
             // The real battle begins; Main loop
             while (!IsCombatFinished())

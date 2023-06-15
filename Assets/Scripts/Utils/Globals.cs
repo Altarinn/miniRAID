@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using miniRAID.UIElements;
 
 namespace miniRAID
 {
@@ -10,7 +11,8 @@ namespace miniRAID
         public static MonoSingleton<CombatSchedulerCoroutine> combatMgr = new MonoSingleton<CombatSchedulerCoroutine>(false);
         public static MonoSingleton<SerialCoroutine> serialCoroutine = new MonoSingleton<SerialCoroutine>(false);
         public static MonoSingleton<XLuaInstance> xLuaInstance = new MonoSingleton<XLuaInstance>(false);
-        public static MonoSingleton<DebugMessagePool> debugMessage = new MonoSingleton<DebugMessagePool>(false);
+        // public static MonoSingleton<DebugMessagePool> debugMessage = new MonoSingleton<DebugMessagePool>(false);
+        public static MessagePoolController debugMessage => ui.Instance.combatView.messagePool;
         public static MonoSingleton<PopupManager> popupMgr = new MonoSingleton<PopupManager>(false);
         public static MonoSingleton<UI.GridOverlayManager> overlayMgr = new MonoSingleton<UI.GridOverlayManager>(false);
         public static MonoSingleton<SerialCoroutine> combatCoroutine = new MonoSingleton<SerialCoroutine>(false);

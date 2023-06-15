@@ -78,10 +78,12 @@ namespace miniRAID.Editor
                     {
                         if (shapeHasTile)
                         {
+                            Property.RecordForUndo("Remove Grid");
                             value.RemoveGrid(tileGridPos);
                         }
                         else
                         {
+                            Property.RecordForUndo("Add Grid");
                             value.AddGrid(tileGridPos);
                         }
                     }

@@ -59,7 +59,7 @@ namespace miniRAID.UI
             base.OnStateDestroyed();
             if (currentUnit)
             {
-                currentUnit.GetComponentInChildren<SpriteRenderer>().color = Color.white;
+                currentUnit.UpdateStatusColor();
             }
 
             //ui.uimenu_uicontainer.Clear();

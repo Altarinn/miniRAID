@@ -12,6 +12,7 @@ namespace miniRAID.UIElements
         public BossStatsController bossStats;
         public CombatStatsController combatStats;
         public MessagePoolController messagePool;
+        public MobDetailsController mobDetails;
 
         public Label battlePreview;
 
@@ -24,8 +25,12 @@ namespace miniRAID.UIElements
             // The UXML is already instantiated by the UIDocument component
             uiDocument = GetComponent<UIDocument>();
 
+            mobDetails = new MobDetailsController(
+                uiDocument.rootVisualElement.Q("MobDetails")
+            );
+
             VisualElement unitMenu = uiDocument.rootVisualElement.Q("UnitMenuContainer");
-            menu = new UnitMenuController(unitMenu);
+            menu = new UnitMenuController(unitMenu, mobDetails);
             
             // TODO: Multiple boss stats panels
             bossStats = new BossStatsController(

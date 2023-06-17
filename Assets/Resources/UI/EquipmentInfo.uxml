@@ -1,0 +1,46 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Resources/UI/miniRAID_default.uss?fileID=7433441132597879392&amp;guid=54e6eee580e008a468415140067b7312&amp;type=3#miniRAID_default" />
+    <Style src="project://database/Assets/Resources/UI/EquipmentInfo.uss?fileID=7433441132597879392&amp;guid=95fd02b552952b04f9f3bcee0d984094&amp;type=3#EquipmentInfo" />
+    <ui:VisualElement name="container" style="background-color: rgb(0, 0, 0); padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;">
+        <ui:VisualElement name="title" class="panel-row" style="background-color: rgba(0, 0, 0, 0); padding-bottom: 8px;">
+            <ui:Label tabindex="-1" text="彗星权杖" display-tooltip-when-elided="true" name="name" class="row-first" />
+            <ui:VisualElement class="row-middle" style="background-color: rgba(0, 0, 0, 0);" />
+            <ui:VisualElement class="row-last" style="background-color: rgba(0, 0, 0, 0);">
+                <ui:Label tabindex="-1" text="法杖" display-tooltip-when-elided="true" name="type" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="iLvl" class="panel-row" style="background-color: rgba(0, 0, 0, 0);">
+            <ui:VisualElement class="row-first">
+                <ui:Label tabindex="-1" text="物品等级" display-tooltip-when-elided="true" />
+            </ui:VisualElement>
+            <ui:VisualElement class="row-middle">
+                <ui:Label tabindex="-1" text="277" display-tooltip-when-elided="true" name="itemLevelText" />
+            </ui:VisualElement>
+            <ui:VisualElement class="row-last">
+                <ui:Label tabindex="-1" text="稀有" display-tooltip-when-elided="true" name="rarity" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="requirements" class="panel-row" style="background-color: rgba(0, 0, 0, 0);">
+            <ui:VisualElement name="Label" class="row-first" style="background-color: rgba(0, 0, 0, 0);">
+                <ui:Label tabindex="-1" text="需求" display-tooltip-when-elided="true" />
+            </ui:VisualElement>
+            <ui:VisualElement class="row-middle" style="background-color: rgba(0, 0, 0, 0);">
+                <ui:Label tabindex="-1" text="等级 5&#10;力量 10&#10;智力 13" display-tooltip-when-elided="true" name="requirementsText" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="stats" class="panel-row" style="background-color: rgba(0, 0, 0, 0);">
+            <ui:VisualElement class="row-first">
+                <ui:Label tabindex="-1" text="装备效果" display-tooltip-when-elided="true" />
+            </ui:VisualElement>
+            <ui:VisualElement class="row-middle">
+                <ui:Label tabindex="-1" text="+103 攻击强度&#10;+226 法术强度&#10;+18 暴击" display-tooltip-when-elided="true" name="statsText" />
+            </ui:VisualElement>
+            <ui:VisualElement class="row-last" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement class="panel-row" style="background-color: rgba(0, 0, 0, 0);">
+        <ui:VisualElement class="row-first" />
+        <ui:VisualElement class="row-middle" />
+        <ui:VisualElement class="row-last" />
+    </ui:VisualElement>
+</ui:UXML>

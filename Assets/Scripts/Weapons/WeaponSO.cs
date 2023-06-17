@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace miniRAID.Weapon
 {
     [CreateAssetMenu(menuName = "Weapon/BaseWeaponData")]
-    public class WeaponSO : StatModifierSO
+    public class WeaponSO : EquipmentSO
     {
         public enum WeaponType
         {
@@ -22,6 +23,7 @@ namespace miniRAID.Weapon
             MystItem
         }
 
+        [Title("Weapon", "", TitleAlignments.Centered)]
         public WeaponType wpType;
 
         public ActionDataSO regularAttack;
@@ -56,9 +58,38 @@ namespace miniRAID.Weapon
         {
             return new Weapon(parent, this);
         }
+
+        public override string GetType()
+        {
+            switch (wpType)
+            {
+                case WeaponType.Sword:
+                    return "剑";
+                case WeaponType.Spear:
+                    return "矛";
+                case WeaponType.HeavyWeapon:
+                    return "重武器";
+                case WeaponType.Bow:
+                    return "弓";
+                case WeaponType.Shield:
+                    return "盾";
+                case WeaponType.Staff:
+                    return "法杖";
+                case WeaponType.Instrument:
+                    return "乐器";
+                case WeaponType.Grimoire:
+                    return "魔导书";
+                case WeaponType.MagicItem:
+                    return "魔法道具";
+                case WeaponType.MystItem:
+                    return "神秘道具";
+                default:
+                    return string.Empty;
+            }
+        }
     }
 
-    public class Weapon : StatModifier
+    public class Weapon : Equipment
     {
         public WeaponSO weaponData => (WeaponSO)data;
         public Weapon(MobData parent, WeaponSO data) : base(parent, data) { this.data = data; }

@@ -2,6 +2,7 @@
 using System.Collections;
 using System;
 using System.Collections.Generic;
+using miniRAID.UIElements;
 
 namespace miniRAID.UI
 {
@@ -107,6 +108,8 @@ namespace miniRAID.UI
                 }
             }
 
+            entries.Add(ui.combatView.menu.GetMobDetailsEntry(currentUnit, "I"));
+            
             //ui.uimenu_uicontainer.AddEntry("*DEBUG", () => { Globals.debugMessage.Instance.Message("Test"); });
             //ui.uimenu_uicontainer.AddEntry("Pass", OnPassSelected());
             entries.Add(new miniRAID.UIElements.UnitMenuController.UIMenuEntry

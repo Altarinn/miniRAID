@@ -1,0 +1,25 @@
+.panel-row {
+    flex-direction: row;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.row-first {
+    width: 25%;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.row-middle {
+    flex-grow: 1;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.row-last {
+    width: 25%;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+}

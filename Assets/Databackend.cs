@@ -332,6 +332,12 @@ namespace miniRAID
         {
             public int VIT, STR, MAG, INT, DEX, TEC;
         }
+        
+        [Serializable]
+        public struct BaseStatsGrowth
+        {
+            public float VIT, STR, MAG, INT, DEX, TEC;
+        }
 
         [Serializable]
         public struct BaseStats
@@ -382,6 +388,73 @@ namespace miniRAID
         {
             public AllTypes<float> exResist;
             public AllTypes<float> exDamage;
+        }
+        
+        // Standard values at iLvl 10
+        private static float SVbaseStats = 10;
+        private static float SVpowers = 10;
+        private static float SVdefense = 10;
+        
+        public static float ValueFromItemLevel(int iLvl, StatModifierSO.StatModTarget entryKey, float val)
+        {
+            float normalizedItemLV = (float)iLvl / 10.0f;
+
+            switch (entryKey)
+            {
+                // Main stats
+                case StatModifierSO.StatModTarget.VIT:
+                case StatModifierSO.StatModTarget.STR:
+                case StatModifierSO.StatModTarget.MAG:
+                case StatModifierSO.StatModTarget.INT:
+                case StatModifierSO.StatModTarget.DEX:
+                case StatModifierSO.StatModTarget.TEC:
+                    return SVbaseStats * normalizedItemLV * val;
+                    break;
+
+                // Sub stats
+                // TODO: Add cases for sub stats
+
+                // Battle stats
+                case StatModifierSO.StatModTarget.AttackPower:
+                case StatModifierSO.StatModTarget.SpellPower:
+                case StatModifierSO.StatModTarget.HealPower:
+                case StatModifierSO.StatModTarget.BuffPower:
+                    return SVpowers * normalizedItemLV * val;
+                    break;
+                
+                case StatModifierSO.StatModTarget.Defense:
+                case StatModifierSO.StatModTarget.SpDefense:
+                    return SVdefense * normalizedItemLV * val;
+                    break;
+                
+                case StatModifierSO.StatModTarget.AggroMul:
+                    break;
+                case StatModifierSO.StatModTarget.Hit:
+                    break;
+                case StatModifierSO.StatModTarget.Dodge:
+                    break;
+                case StatModifierSO.StatModTarget.Crit:
+                    break;
+                case StatModifierSO.StatModTarget.CritRes:
+                    break;
+                case StatModifierSO.StatModTarget.ExRange:
+                    break;
+                case StatModifierSO.StatModTarget.APRegen:
+                    break;
+
+                default:
+                    // Handle any other cases that are not explicitly listed
+                    break;
+            }
+
+            return 0f;
+        }
+
+        private static float baseStatBaseLv1 = 5;
+
+        public static float BaseStatsFromLevel(int lvl, float growthRate)
+        {
+            return lvl * growthRate + baseStatBaseLv1;
         }
 
         public enum UnitGroup

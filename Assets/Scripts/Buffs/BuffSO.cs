@@ -18,8 +18,8 @@ namespace miniRAID.Buff
         public bool stackable = false;
         public bool stackRefreshesTime = true;
         public int maxStack = 1;
-
-        public PowerGetter power, auxPower;
+        public bool snapShot = true;
+        
         // private float hit, crit;
         
         [Title("Flags")] 
@@ -170,8 +170,6 @@ namespace miniRAID.Buff
         protected BuffSO buffData => (BuffSO)data;
         
         public Consts.BuffFlags flags => buffData.flags;
-
-        public dNumber power, auxPower;
         
         [ReadOnly]
         public dNumber crit, hit;
@@ -219,6 +217,17 @@ namespace miniRAID.Buff
             }
 
             this.stacks = 1;
+        }
+
+        protected override void UpdatePower(MobData mob)
+        {
+            if (!buffData.snapShot)
+            {
+                base.UpdatePower(source);
+            }
+            
+            // If snapshot has been enabled, don't modify anything and return
+            return;
         }
 
         public virtual bool Stack()

@@ -53,66 +53,84 @@ namespace miniRAID
             public dNumberModType type;
 
             [HorizontalGroup]
+            [LabelWidth(30)]
+            public bool aux;
+
+            [HorizontalGroup]
+            [LabelText("Power%")]
+            [LabelWidth(56)]
             public LuaGetter<MobData, float> value;
         }
+        
+        public PowerGetter power, auxPower;
 
-        public void ModifydNumber(ref dNumber num, MobData mob, dNumberModifier mod, int stacks)
+        public void ModifydNumber(ref dNumber num, MobData mob, dNumberModifier mod, int stacks, float power)
         {
             for (int i = 0; i < stacks; i++)
             {
                 switch(mod.type)
                 {
                     case dNumberModType.Add:
-                        num.Add(dNumber.CreateStatic(mod.value.Eval(mob), "unknown"));
+                        num.Add(dNumber.CreateStatic(mod.value.Eval(mob) * power, "unknown"));
                         break;
                     case dNumberModType.Mul:
-                        num.Mul(dNumber.CreateStatic(mod.value.Eval(mob), "unknown"));
+                        num.Mul(dNumber.CreateStatic(mod.value.Eval(mob) * power, "unknown"));
                         break;
                     case dNumberModType.MulMul:
-                        num.MulMul(dNumber.CreateStatic(mod.value.Eval(mob), "unknown"));
+                        num.MulMul(dNumber.CreateStatic(mod.value.Eval(mob) * power, "unknown"));
                         break;
                 }
             }
         }
 
-        public void ModifyBaseStats(MobData mob, Dictionary<StatModTarget, dNumberModifier> modifiers, int stacks)
+        public void ModifyBaseStats(StatModifier rsm, MobData mob, Dictionary<StatModTarget, dNumberModifier> modifiers, int stacks)
         {
             foreach (var kv in modifiers)
             {
+                float powerToUse = kv.Value.aux ? rsm.auxPower : rsm.power;
+                
                 switch(kv.Key)
                 {
                     case StatModTarget.VIT: 
-                        ModifydNumber(ref mob.baseStats.VIT, mob, kv.Value, stacks); break;
+                        ModifydNumber(ref mob.baseStats.VIT, mob, kv.Value, stacks, powerToUse); break;
                     case StatModTarget.STR:
-                        ModifydNumber(ref mob.baseStats.STR, mob, kv.Value, stacks); break;
+                        ModifydNumber(ref mob.baseStats.STR, mob, kv.Value, stacks, powerToUse); break;
                     case StatModTarget.MAG:
-                        ModifydNumber(ref mob.baseStats.MAG, mob, kv.Value, stacks); break;
+                        ModifydNumber(ref mob.baseStats.MAG, mob, kv.Value, stacks, powerToUse); break;
                     case StatModTarget.INT:
-                        ModifydNumber(ref mob.baseStats.INT, mob, kv.Value, stacks); break;
+                        ModifydNumber(ref mob.baseStats.INT, mob, kv.Value, stacks, powerToUse); break;
                     case StatModTarget.DEX:
-                        ModifydNumber(ref mob.baseStats.DEX, mob, kv.Value, stacks); break;
+                        ModifydNumber(ref mob.baseStats.DEX, mob, kv.Value, stacks, powerToUse); break;
                     case StatModTarget.TEC:
-                        ModifydNumber(ref mob.baseStats.TEC, mob, kv.Value, stacks); break;
+                        ModifydNumber(ref mob.baseStats.TEC, mob, kv.Value, stacks, powerToUse); break;
                 }
             }
         }
 
-        public void ModifyMoreStats(MobData mob, Dictionary<StatModTarget, dNumberModifier> modifiers, int stacks)
+        public void ModifyMoreStats(StatModifier rsm, MobData mob, Dictionary<StatModTarget, dNumberModifier> modifiers, int stacks)
         {
             foreach (var kv in modifiers)
             {
+                float powerToUse = kv.Value.aux ? rsm.auxPower : rsm.power;
+                
                 switch (kv.Key)
                 {
                     case StatModTarget.Defense:
-                        ModifydNumber(ref mob.defense, mob, kv.Value, stacks); break;
+                        ModifydNumber(ref mob.defense, mob, kv.Value, stacks, powerToUse); break;
                     case StatModTarget.SpDefense:
-                        ModifydNumber(ref mob.spDefense, mob, kv.Value, stacks); break;
+                        ModifydNumber(ref mob.spDefense, mob, kv.Value, stacks, powerToUse); break;
 
                     case StatModTarget.AggroMul:
-                        ModifydNumber(ref mob.aggroMul, mob, kv.Value, stacks); break;
+                        ModifydNumber(ref mob.aggroMul, mob, kv.Value, stacks, powerToUse); break;
 
                     case StatModTarget.AttackPower:
-                        ModifydNumber(ref mob.attackPower, mob, kv.Value, stacks); break;
+                        ModifydNumber(ref mob.attackPower, mob, kv.Value, stacks, powerToUse); break;
+                    case StatModTarget.SpellPower:
+                        ModifydNumber(ref mob.spellPower, mob, kv.Value, stacks, powerToUse); break;
+                    case StatModTarget.HealPower:
+                        ModifydNumber(ref mob.healPower, mob, kv.Value, stacks, powerToUse); break;
+                    case StatModTarget.BuffPower:
+                        ModifydNumber(ref mob.buffPower, mob, kv.Value, stacks, powerToUse); break;
                 }
             }
         }
@@ -130,21 +148,36 @@ namespace miniRAID
     public class StatModifier : MobListener
     {
         private StatModifierSO statData => (StatModifierSO)data;
+        
         public int stacks = 1;
+        public dNumber power, auxPower;
         
         public StatModifier(MobData parent, MobListenerSO data) : base(parent, data)
         {
             stacks = 1;
         }
 
-        protected void ModifyBaseStats(MobData m)
+        protected virtual void RecalculateStats(MobData mob)
         {
-            statData.ModifyBaseStats(m, statData.modifiers, stacks);
+            UpdatePower(mob);
         }
         
-        protected void ModifyMoreStats(MobData m)
+        protected virtual void UpdatePower(MobData mob)
         {
-            statData.ModifyMoreStats(m, statData.modifiers, stacks);
+            power = dNumber.CreateComposite(statData.power.Eval(mob), "base");
+            auxPower = dNumber.CreateComposite(statData.auxPower.Eval(mob), "base");
+        }
+
+        protected virtual void ModifyBaseStats(MobData m)
+        {
+            RecalculateStats(m);
+            statData.ModifyBaseStats(this, m, statData.modifiers, stacks);
+        }
+        
+        protected virtual void ModifyMoreStats(MobData m)
+        {
+            RecalculateStats(m);
+            statData.ModifyMoreStats(this, m, statData.modifiers, stacks);
         }
 
         public override void OnAttach(MobData mob)

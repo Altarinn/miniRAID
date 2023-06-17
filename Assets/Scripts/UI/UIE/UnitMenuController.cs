@@ -18,6 +18,8 @@ namespace miniRAID.UIElements
         VisualElement masterElem, toolTipContainer;
         Label toolTip;
 
+        private MobDetailsController mobDetailsController;
+
         miniRAID.UI.GridUI ui;
 
         Dictionary<string, System.Action> shortcutList;
@@ -27,7 +29,11 @@ namespace miniRAID.UIElements
             public string text;
             public IEnumerator action;
             public IEnumerator onFinished;
+
+            public bool useDefaultToolTip;
             public string toolTip;
+            public System.Action onPointerEnter;
+            public System.Action onPointerLeave;
 
             public string keycode;
 
@@ -38,9 +44,11 @@ namespace miniRAID.UIElements
         public class ButtonData
         {
             public System.Action currentAction;
+            public EventCallback<PointerEnterEvent> pointerEnter;
+            public EventCallback<PointerLeaveEvent> pointerLeave;
         }
 
-        public UnitMenuController(VisualElement elem)
+        public UnitMenuController(VisualElement elem, MobDetailsController mobDetailsController)
         {
             masterElem = elem;
 
@@ -54,6 +62,8 @@ namespace miniRAID.UIElements
             view.fixedItemHeight = 18;
 
             ui = Globals.ui.Instance;
+
+            this.mobDetailsController = mobDetailsController;
         }
 
         public void BindEntryItem(VisualElement e, UIMenuEntry entry)
@@ -67,6 +77,10 @@ namespace miniRAID.UIElements
             {
                 btn.userData = new ButtonData();
             }
+            
+            ////////////////////////////
+            // Click event
+            ////////////////////////////
 
             System.Action act = () => { ui.WaitFor(entry.action, entry.onFinished); };
 
@@ -78,20 +92,63 @@ namespace miniRAID.UIElements
             btn.clicked += act;
             ((ButtonData)btn.userData).currentAction = act;
 
-            btn.RegisterCallback<PointerEnterEvent>(
-                evt =>
+            ////////////////////////////
+            // Pointer Enter event
+            ////////////////////////////
+            
+            if (((ButtonData)btn.userData).pointerEnter != null)
+            {
+                btn.UnregisterCallback(((ButtonData)btn.userData).pointerEnter);
+            }
+
+            if (entry.useDefaultToolTip)
+            {
+                ((ButtonData)btn.userData).pointerEnter = evt =>
                 {
                     toolTipContainer.style.visibility = Visibility.Visible;
                     toolTip.text = entry.toolTip;
-                }
-            );
-            btn.RegisterCallback<PointerLeaveEvent>(
-                evt =>
+                };
+            }
+            else
+            {
+                ((ButtonData)btn.userData).pointerEnter = evt =>
+                {
+                    entry.onPointerEnter?.Invoke();
+                };
+            }
+            
+            btn.RegisterCallback(((ButtonData)btn.userData).pointerEnter);
+            
+            ////////////////////////////
+            // Pointer Leave event
+            ////////////////////////////
+            
+            if (((ButtonData)btn.userData).pointerLeave != null)
+            {
+                btn.UnregisterCallback(((ButtonData)btn.userData).pointerLeave);
+            }
+            
+            if (entry.useDefaultToolTip)
+            {
+                ((ButtonData)btn.userData).pointerLeave = evt =>
                 {
                     toolTipContainer.style.visibility = Visibility.Hidden;
-                }
-            );
+                };
+            }
+            else
+            {
+                ((ButtonData)btn.userData).pointerLeave = evt =>
+                {
+                    entry.onPointerLeave?.Invoke();
+                };
+            }
+            
+            btn.RegisterCallback(((ButtonData)btn.userData).pointerLeave);
 
+            ////////////////////////////
+            // Appearance / Shortcut
+            ////////////////////////////
+            
             if(entry.keycode != null)
             {
                 e.Q<Label>("Key").text = entry.keycode;
@@ -203,9 +260,28 @@ namespace miniRAID.UIElements
                 text = action.data.ActionName,
                 action = action.RequestInUI(source.data),
                 onFinished = onFinished,
+                useDefaultToolTip = true,
                 toolTip = action.GetTooltip(source.data),
                 source = source,
                 runtimeAction = action,
+                keycode = keycode,
+            };
+        }
+        
+        public UIMenuEntry GetMobDetailsEntry(
+            MobRenderer source, string keycode = null,
+            string nameOverride = null, IEnumerator onFinished = null)
+        {
+            return new UIMenuEntry
+            {
+                text = "Info",
+                action = null,
+                onFinished = onFinished,
+                useDefaultToolTip = false,
+                toolTip = "",
+                onPointerEnter = () => { mobDetailsController.Show(source.data); },
+                onPointerLeave = () => { mobDetailsController.Hide(); },
+                source = source,
                 keycode = keycode,
             };
         }

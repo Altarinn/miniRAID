@@ -21,14 +21,68 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
+    - Name: power
+      Entry: 7
+      Data: 0|miniRAID.PowerGetter, Assembly-CSharp
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: staticOut
+      Entry: 4
+      Data: 0
+    - Name: LuaExpr
+      Entry: 6
+      Data: 
+    - Name: description
+      Entry: 6
+      Data: 
+    - Name: getterTemplate
+      Entry: 6
+      Data: 
+    - Name: powerType
+      Entry: 3
+      Data: 1
+    - Name: powerFactor
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: auxPower
+      Entry: 7
+      Data: 1|miniRAID.PowerGetter, Assembly-CSharp
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: staticOut
+      Entry: 4
+      Data: 0
+    - Name: LuaExpr
+      Entry: 6
+      Data: 
+    - Name: description
+      Entry: 6
+      Data: 
+    - Name: getterTemplate
+      Entry: 6
+      Data: 
+    - Name: powerType
+      Entry: 3
+      Data: 1
+    - Name: powerFactor
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: modifiers
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[miniRAID.StatModifierSO+StatModTarget,
+      Data: 2|System.Collections.Generic.Dictionary`2[[miniRAID.StatModifierSO+StatModTarget,
         Assembly-CSharp],[miniRAID.StatModifierSO+dNumberModifier, Assembly-CSharp]],
         mscorlib
     - Name: comparer
       Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[miniRAID.StatModifierSO+StatModTarget,
+      Data: 3|System.Collections.Generic.EnumEqualityComparer`1[[miniRAID.StatModifierSO+StatModTarget,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -54,9 +108,12 @@ MonoBehaviour:
     - Name: type
       Entry: 3
       Data: 0
+    - Name: aux
+      Entry: 5
+      Data: false
     - Name: value
       Entry: 7
-      Data: 2|miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Single,
+      Data: 4|miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Single,
         mscorlib]], Assembly-CSharp
     - Name: type
       Entry: 3
@@ -85,60 +142,6 @@ MonoBehaviour:
     - Name: 
       Entry: 13
       Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: power
-      Entry: 7
-      Data: 3|miniRAID.PowerGetter, Assembly-CSharp
-    - Name: type
-      Entry: 3
-      Data: 0
-    - Name: staticOut
-      Entry: 4
-      Data: 0
-    - Name: LuaExpr
-      Entry: 6
-      Data: 
-    - Name: description
-      Entry: 6
-      Data: 
-    - Name: getterTemplate
-      Entry: 6
-      Data: 
-    - Name: powerType
-      Entry: 3
-      Data: 1
-    - Name: powerFactor
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: auxPower
-      Entry: 7
-      Data: 4|miniRAID.PowerGetter, Assembly-CSharp
-    - Name: type
-      Entry: 3
-      Data: 0
-    - Name: staticOut
-      Entry: 4
-      Data: 0
-    - Name: LuaExpr
-      Entry: 6
-      Data: 
-    - Name: description
-      Entry: 6
-      Data: 
-    - Name: getterTemplate
-      Entry: 6
-      Data: 
-    - Name: powerType
-      Entry: 3
-      Data: 1
-    - Name: powerFactor
-      Entry: 4
-      Data: 1
     - Name: 
       Entry: 8
       Data: 

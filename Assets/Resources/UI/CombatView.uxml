@@ -12,7 +12,7 @@
             <ui:Instance template="MobDetails" name="MobDetails" picking-mode="Ignore" style="position: absolute; left: 164px; top: 69px; width: 500px; visibility: hidden;" />
             <ui:VisualElement name="UnitMenuContainer" picking-mode="Ignore" style="position: absolute; left: 24px; top: 69px; flex-direction: row; align-items: flex-start;">
                 <ui:ListView focusable="true" name="UnitMenu" fixed-item-height="16" picking-mode="Ignore" selection-type="None" style="width: 140px;" />
-                <ui:VisualElement name="ToolTip">
+                <ui:VisualElement name="ToolTip" style="padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;">
                     <ui:Label tabindex="-1" text="ToolTip" display-tooltip-when-elided="true" name="ToolTipLabel" style="white-space: normal;" />
                 </ui:VisualElement>
             </ui:VisualElement>

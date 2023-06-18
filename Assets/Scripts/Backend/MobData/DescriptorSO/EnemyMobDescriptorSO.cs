@@ -17,12 +17,12 @@ namespace miniRAID
 
         protected static float AverageDefense(int level)
         {
-            return level;
+            return Consts.GetIdenticalDefense(level);
         }
 
         protected static float AverageHealth(int level)
         {
-            return level;
+            return Consts.GetHealth(level, Consts.BaseStatsFromLevel(level, Consts.baseStatAverageGrowth));
         }
 
         protected static float BaseHitAccPerLevel = Consts.HitRangePerLevel * 0.6f;
@@ -30,7 +30,7 @@ namespace miniRAID
         protected static float BaseCritPerLevel = 0.0f;
         protected static float BaseAntiCritPerLevel = 0.0f;
 
-        protected static float BaseAttackPowerToTargetHPRatio = 1.0f / 3.0f;
+        protected static float BaseAttackPowerToTargetHPRatio = 1.0f / 4.0f;
         
         [PropertyOrder(-1)]
         public EnemyStatBase baseEnemyStats;

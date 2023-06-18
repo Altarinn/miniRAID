@@ -151,11 +151,11 @@ MonoBehaviour:
   name: "\u6728\u76FE"
   type: 1
   priority: 0
-  itemLevel: 30
-  levelRequirement: 10
+  itemLevel: 24
+  levelRequirement: 8
   baseStatsRequirements:
-    VIT: 0
-    STR: 0
+    VIT: 1.4
+    STR: 1
     MAG: 0
     INT: 0
     DEX: 0

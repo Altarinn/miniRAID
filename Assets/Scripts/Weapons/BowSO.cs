@@ -69,9 +69,9 @@ namespace miniRAID.Weapon
         {
             if(moved == true)
             {
-                return $"{base.GetInformationString()}    瞄准：否";
+                return $"瞄准：否";
             }
-            return $"{base.GetInformationString()}    瞄准：是";
+            return $"瞄准：是";
         }
     }
 }

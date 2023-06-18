@@ -13,6 +13,7 @@ namespace miniRAID.UIElements
         public CombatStatsController combatStats;
         public MessagePoolController messagePool;
         public MobDetailsController mobDetails;
+        public UnitBarController unitBar;
 
         public Label battlePreview;
 
@@ -45,6 +46,10 @@ namespace miniRAID.UIElements
 
             messagePool = new MessagePoolController(
                 uiDocument.rootVisualElement.Q("MessagePanel")
+            );
+
+            unitBar = new UnitBarController(
+                uiDocument.rootVisualElement.Q("UnitBar")
             );
         }
 

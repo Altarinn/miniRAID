@@ -47,7 +47,7 @@ MonoBehaviour:
       Data: 1
     - Name: powerFactor
       Entry: 4
-      Data: 1
+      Data: 0.8
     - Name: 
       Entry: 8
       Data: 

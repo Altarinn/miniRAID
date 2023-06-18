@@ -26,7 +26,7 @@ namespace miniRAID
             // TODO: Fill Battle stats with Basic calculations
             mob.battleStats = new Consts.BattleStats();
             
-            mob.maxHealth = dNumber.CreateComposite(mob.level * 2 + mob.VIT * 3, "mobbase");
+            mob.maxHealth = dNumber.CreateComposite(Consts.GetHealth(mob.level, mob.VIT), "mobbase");
 
             mob.defense = dNumber.CreateComposite(0, "mobbase");
             mob.spDefense = dNumber.CreateComposite(0, "mobbase");
@@ -35,7 +35,7 @@ namespace miniRAID
             mob.spellPower = dNumber.CreateComposite(mob.INT, "mobbase");
             
             // DEBUG ONLY
-            mob.healPower = dNumber.CreateComposite(mob.MAG, "mobbase");
+            mob.healPower = dNumber.CreateComposite(mob.INT, "mobbase");
             mob.buffPower = dNumber.CreateComposite(mob.TEC, "mobbase");
             // DEBUG ONLY ENDS
 

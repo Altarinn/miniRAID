@@ -67,7 +67,7 @@ namespace miniRAID.Weapon
 
         public override string GetInformationString()
         {
-            return $"{base.GetInformationString()}    能量：{currentEnergy} / {mystData.energyCount}";
+            return $"能量：{currentEnergy} / {mystData.energyCount}";
         }
     }
 }

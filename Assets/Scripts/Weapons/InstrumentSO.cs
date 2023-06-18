@@ -36,5 +36,10 @@ namespace miniRAID.Weapon
             base.OnRemove(mob);
             mob.RemoveListener(instrumentData.buff);
         }
+
+        public override string GetInformationString()
+        {
+            return instrumentData.buff.name;
+        }
     }
 }

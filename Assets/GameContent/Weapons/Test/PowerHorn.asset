@@ -110,7 +110,7 @@ MonoBehaviour:
       Data: 0
     - Name: aux
       Entry: 5
-      Data: false
+      Data: true
     - Name: value
       Entry: 7
       Data: 4|miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Single,
@@ -120,7 +120,7 @@ MonoBehaviour:
       Data: 0
     - Name: staticOut
       Entry: 4
-      Data: 1.3
+      Data: 1
     - Name: LuaExpr
       Entry: 6
       Data: 
@@ -151,15 +151,15 @@ MonoBehaviour:
   name: "\u53F7\u89D2"
   type: 1
   priority: 0
-  itemLevel: 27
-  levelRequirement: 5
+  itemLevel: 24
+  levelRequirement: 8
   baseStatsRequirements:
     VIT: 0
     STR: 0
-    MAG: 0
+    MAG: 0.8
     INT: 0
     DEX: 0
-    TEC: 0.3
+    TEC: 0
   wpType: 6
   regularAttack: {fileID: 11400000, guid: 89ffd930e8b71c94aab4df716491fa52, type: 2}
   mainElement: 1

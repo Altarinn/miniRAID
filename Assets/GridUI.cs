@@ -157,7 +157,7 @@ namespace miniRAID.UI
                 {
                     combatView.menu.ShowMenu();
                     RefreshMainMobStats();
-                    mainMobStatPanel.SetActive(true);
+                    // mainMobStatPanel.SetActive(true);
                 }
 
                 waitingAnimation = false;
@@ -171,7 +171,7 @@ namespace miniRAID.UI
                 // This could be triggered by keyboard shortcuts while the animation is playing, in some rare cases.
                 waitingAnimation = true;
                 combatView.menu.HideMenu();
-                mainMobStatPanel.SetActive(false);
+                // mainMobStatPanel.SetActive(false);
             }
         }
 
@@ -269,46 +269,48 @@ namespace miniRAID.UI
             Selection.activeGameObject = mob.gameObject;
 #endif
 
-            string effects = "";
-            foreach (var fx in mob.data.listeners)
-            {
-                if (
-                    fx.type is MobListenerSO.ListenerType.Buff or MobListenerSO.ListenerType.Passive)
-                {
-                    effects += "\n" + fx.name;
-                }
-            }
-
-            mainMobStatText.text =
-                //$"<mspace=0.58em>" +
-                $"<style=\"Title\"><color=#fc0><b><size=12>{mob.gameObject.name}</size></b></color></style>\n" +
-                $"\n" +
-                $"<size=12><color=#0f0>HP {mob.data.health} / {mob.data.maxHealth}</color></size>\n" +
-                $"<size=12><color=#ff0>AP {mob.data.actionPoints} / {mob.data.apMax}</color></size>\n\n" +
-                $"{(mob.data.GCDstatus.Contains(GCDGroup.Common) ? "Action done" : "Action available")}" +
-                $"\n\n" +
-                $"<align=center><style=h3><size=12>===== STATS =====</size></style></align>\n\n" +
-                $"VIT {(int)mob.data.baseStats.VIT,3} | STR {(int)mob.data.baseStats.STR,3}\n" +
-                $"MAG {(int)mob.data.baseStats.MAG,3} | INT {(int)mob.data.baseStats.INT,3}\n" +
-                $"DEX {(int)mob.data.baseStats.DEX,3} | TEC {(int)mob.data.baseStats.TEC,3}\n\n" +
-                $"<align=center><style=h3><size=12>===== EQUIP =====</size></style></align>\n\n" +
-                $"{mob.data.mainWeapon?.GetInformationString()}\n\n" +
-                $"<align=center><style=h3><size=12>=====EFFECTS=====</size></style></align>\n" +
-                $"{effects}" +
-                //$"</mspace>" +
-                $"\n";
+            // string effects = "";
+            // foreach (var fx in mob.data.listeners)
+            // {
+            //     if (
+            //         fx.type is MobListenerSO.ListenerType.Buff or MobListenerSO.ListenerType.Passive)
+            //     {
+            //         effects += "\n" + fx.name;
+            //     }
+            // }
+            //
+            // mainMobStatText.text =
+            //     //$"<mspace=0.58em>" +
+            //     $"<style=\"Title\"><color=#fc0><b><size=12>{mob.gameObject.name}</size></b></color></style>\n" +
+            //     $"\n" +
+            //     $"<size=12><color=#0f0>HP {mob.data.health} / {mob.data.maxHealth}</color></size>\n" +
+            //     $"<size=12><color=#ff0>AP {mob.data.actionPoints} / {mob.data.apMax}</color></size>\n\n" +
+            //     $"{(mob.data.GCDstatus.Contains(GCDGroup.Common) ? "Action done" : "Action available")}" +
+            //     $"\n\n" +
+            //     $"<align=center><style=h3><size=12>===== STATS =====</size></style></align>\n\n" +
+            //     $"VIT {(int)mob.data.baseStats.VIT,3} | STR {(int)mob.data.baseStats.STR,3}\n" +
+            //     $"MAG {(int)mob.data.baseStats.MAG,3} | INT {(int)mob.data.baseStats.INT,3}\n" +
+            //     $"DEX {(int)mob.data.baseStats.DEX,3} | TEC {(int)mob.data.baseStats.TEC,3}\n\n" +
+            //     $"<align=center><style=h3><size=12>===== EQUIP =====</size></style></align>\n\n" +
+            //     $"{mob.data.mainWeapon?.GetInformationString()}\n\n" +
+            //     $"<align=center><style=h3><size=12>=====EFFECTS=====</size></style></align>\n" +
+            //     $"{effects}" +
+            //     //$"</mspace>" +
+            //     $"\n";
+            
+            combatView.unitBar.RefreshWithContents(mob.data);
         }
 
         public void ShowMainMobStats(MobRenderer mobRenderer)
         {
             _statViewMobRenderer = mobRenderer;
             RefreshMainMobStats();
-            mainMobStatPanel.SetActive(true);
+            // mainMobStatPanel.SetActive(true);
         }
 
         public void HideMainMobStats()
         {
-            mainMobStatPanel.SetActive(false);
+            // mainMobStatPanel.SetActive(false);
         }
 
         #region Shortcuts

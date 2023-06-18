@@ -383,6 +383,11 @@ namespace miniRAID
             return Mathf.CeilToInt(spellPower * GetIdenticalDefense(attackerLevel) / (defense + Consts.GetIdenticalDefense(defenderLevel)));
         }
         
+        public static float GetDefenseRate(float defense, int defenderLevel)
+        {
+            return GetIdenticalDefense(defenderLevel) / (defense + GetIdenticalDefense(defenderLevel));
+        }
+        
         [Serializable]
         public struct BattleStats
         {
@@ -392,8 +397,8 @@ namespace miniRAID
         
         // Standard values at iLvl 10
         private static float SVbaseStats = 10;
-        private static float SVpowers = 10;
-        private static float SVdefense = 10;
+        private static float SVpowers = 6.0f;
+        private static float SVdefense = 0.3f;
         
         public static float ValueFromItemLevel(int iLvl, StatModifierSO.StatModTarget entryKey, float val)
         {
@@ -451,10 +456,16 @@ namespace miniRAID
         }
 
         private static float baseStatBaseLv1 = 5;
+        public static float baseStatAverageGrowth = 1.0f;
 
         public static float BaseStatsFromLevel(int lvl, float growthRate)
         {
             return lvl * growthRate + baseStatBaseLv1;
+        }
+
+        public static float GetHealth(int lvl, float VIT)
+        {
+            return lvl * 2 + VIT * 4;
         }
 
         public enum UnitGroup

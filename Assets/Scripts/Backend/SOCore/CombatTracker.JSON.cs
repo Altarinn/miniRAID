@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Object = System.Object;
 
@@ -21,6 +22,24 @@ namespace miniRAID
         private Dictionary<miniRAID.MobData, int> mobID;
         private FullJSONData fullJSONData;
         private List<CombatJSONEntry> currentTurnJSONdata;
+
+        public class TurnSummary
+        {
+            [TableColumnWidth(40, Resizable = false)]
+            [DisplayAsString]
+            public int turn;
+            
+            [DisplayAsString]
+            public float DmgDealt;
+            
+            [DisplayAsString]
+            public float DmgTaken;
+            
+            [DisplayAsString]
+            public float Healing;
+        }
+
+        public List<TurnSummary> turnSummaries = new();
 
         public enum CombatJSONEntryType
         {
@@ -171,6 +190,9 @@ namespace miniRAID
 
                 fullJSONData.events.Add(currentTurnJSONdata);
             }
+            
+            turnSummaries.Add(new TurnSummary());
+            turnSummaries[^1].turn = turn;
         }
 
         public void RecordJSON_DamageHeal(Consts.DamageHeal_Result result)
@@ -197,6 +219,25 @@ namespace miniRAID
                     flags = FlagsToStringArray(result.flags),
                 }
             });
+
+            if (result.type != Consts.Elements.Heal)
+            {
+                if (result.source.unitGroup == Consts.UnitGroup.Player)
+                {
+                    turnSummaries[^1].DmgDealt += result.value;
+                }
+                else if (result.target.unitGroup == Consts.UnitGroup.Player)
+                {
+                    turnSummaries[^1].DmgTaken += result.value;
+                }
+            }
+            else
+            {
+                if (result.source.unitGroup == Consts.UnitGroup.Player)
+                {
+                    turnSummaries[^1].Healing += result.value;
+                }
+            }
         }
 
         public void ExportJSON()

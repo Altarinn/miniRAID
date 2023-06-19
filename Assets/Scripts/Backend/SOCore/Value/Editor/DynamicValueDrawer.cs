@@ -474,6 +474,7 @@ namespace miniRAID.Editor
 
         void OnVarTypeSelected(object type)
         {
+            Property.RecordForUndo();
             ValueEntry.SmartValue.powerType = (PowerGetter.PowerGetterType)type;
         }
     }

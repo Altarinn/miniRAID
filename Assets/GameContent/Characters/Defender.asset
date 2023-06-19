@@ -87,7 +87,7 @@ MonoBehaviour:
   movementType: 0
   moveable: 1
   moveStartCost: 0
-  mainWeaponSO: {fileID: 11400000, guid: 21ffb910a6e358c4a994cc7ba70f4cd5, type: 2}
+  mainWeaponSO: {fileID: 11400000, guid: d6eba2ea009ac4128ae563ca29279acd, type: 2}
   subWeaponSO: {fileID: 0}
   listenerSOs:
   - {fileID: 11400000, guid: 5a5914c0e685d354f98510cec0417348, type: 2}

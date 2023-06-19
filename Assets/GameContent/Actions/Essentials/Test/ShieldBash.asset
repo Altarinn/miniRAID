@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b57b14783baf44469457a18d90be360a, type: 3}
-  m_Name: ArrowShot
+  m_Name: ShieldBash
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 6549173031084157918, guid: 8514406af415f3f45be82aa2f544fa24, type: 3}
-    - {fileID: 2097237514, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
+    - {fileID: 19155450, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
+    - {fileID: -509842225, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -294,7 +295,7 @@ MonoBehaviour:
       Data: 1
     - Name: range
       Entry: 3
-      Data: 12
+      Data: 2
     - Name: enemyType
       Entry: 3
       Data: 1
@@ -344,11 +345,11 @@ MonoBehaviour:
       Entry: 10
       Data: 1
     - Name: projectileTrail
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 2
     - Name: flyTime
       Entry: 4
-      Data: 0.5
+      Data: 0.3
     - Name: 
       Entry: 8
       Data: 
@@ -366,7 +367,7 @@ MonoBehaviour:
       Data: 0
     - Name: type
       Entry: 3
-      Data: 2
+      Data: 1
     - Name: power
       Entry: 7
       Data: miniRAID.ActionHelpers.FloatModifier, Assembly-CSharp
@@ -477,7 +478,7 @@ MonoBehaviour:
       Data: 
   Guid: facb009e11f6449eb3202174cc50d9f9
   Id: 60
-  icon: {fileID: -2094627789, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
-  ActionName: "\u5C04\u51FB"
-  Description: "\u5C04\u51FB\u76EE\u6807"
-  flags: 68
+  icon: {fileID: -173487009, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
+  ActionName: "\u76FE\u51FB"
+  Description: "\u7528\u76FE\u724C\u51B2\u51FB\u654C\u4EBA"
+  flags: 4

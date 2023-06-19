@@ -29,7 +29,7 @@ MonoBehaviour:
       Data: 0
     - Name: staticOut
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: LuaExpr
       Entry: 6
       Data: 
@@ -41,7 +41,7 @@ MonoBehaviour:
       Data: 
     - Name: powerType
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: powerFactor
       Entry: 4
       Data: 1

@@ -545,12 +545,15 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: advancedSettings
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
   Guid: facb009e11f6449eb3202174cc50d9f9
   Id: 60
-  icon: {fileID: 224001176136207997, guid: 7fe9a382566f75a429badd968a5161fa, type: 3}
+  icon: {fileID: -811140673, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
   ActionName: "\u75BE\u98DE\u4E4B\u7BAD"
   Description: "\u5F13\uFF1A\u7784\u51C6\n\u9020\u6210\u4F24\u5BB3\u548C\u51FA\u8840\uFF1A5\u56DE\u5408"
   flags: 136

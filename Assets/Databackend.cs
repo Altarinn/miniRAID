@@ -200,6 +200,8 @@ namespace miniRAID
             public bool popup;
         }
 
+        public static float HealAggroMul = 1.5f;
+
         public enum BuffEventType
         {
             Attached,

@@ -79,42 +79,62 @@ namespace miniRAID.ActionHelpers
         public FloatModifier crit = new(1.0f);
         public FloatModifier hit = new(1.0f);
 
+        [Serializable]
+        public class AdvancedSettings
+        {
+            public float aggroMul = 1.0f;
+        }
+
+        [SerializeField]
+        public AdvancedSettings advancedSettings;
+
+        public IEnumerator DoDamageHeal(RuntimeAction spellContext, Buff.Buff buffContext, MobData src, MobData tgt)
+        {
+            if (advancedSettings != null)
+            {
+                src.aggroMul.MulMul(dNumber.CreateStatic(advancedSettings.aggroMul, "Damage Aggro Multiplier"));
+            }
+
+            var input = new Consts.DamageHeal_FrontEndInput
+            {
+                source = src,
+                type = type,
+
+                sourceAction = spellContext,
+                sourceBuff = buffContext,
+
+                flags = flags,
+            };
+
+            if (input.IsAction)
+            {
+                input.value = power.Apply(spellContext.power);
+                input.crit = crit.Apply(spellContext.crit);
+                input.hit = hit.Apply(spellContext.hit);
+            }
+            else
+            {
+                input.value = power.Apply(buffContext.power);
+                input.crit = crit.Apply(buffContext.crit);
+                input.hit = hit.Apply(buffContext.hit);
+            }
+            
+            yield return new JumpIn(Globals.backend.DealDmgHeal(tgt, input));
+
+            if (advancedSettings != null)
+            {
+                src.aggroMul.MulMul(dNumber.CreateStatic(1.0f / advancedSettings.aggroMul, "Damage Aggro Multiplier"));
+            }
+        }
+
         public IEnumerator Do(RuntimeAction spellContext, MobData src, MobData tgt)
         {
-            yield return new JumpIn(Globals.backend.DealDmgHeal(
-                tgt,
-                new Consts.DamageHeal_FrontEndInput
-                {
-                    source = src,
-                    value = power.Apply(spellContext.power),
-                    type = type,
-
-                    crit = crit.Apply(spellContext.crit),
-                    hit = hit.Apply(spellContext.hit),
-
-                    sourceAction = spellContext,
-                    
-                    flags = flags,
-                }));
+            yield return new JumpIn(DoDamageHeal(spellContext, null, src, tgt));
         }
         
         public IEnumerator Do(Buff.Buff buffContext, MobData src, MobData tgt)
         {
-            yield return new JumpIn(Globals.backend.DealDmgHeal(
-                tgt,
-                new Consts.DamageHeal_FrontEndInput
-                {
-                    source = src,
-                    value = power.Apply(buffContext.power),
-                    type = type,
-
-                    crit = crit.Apply(buffContext.crit),
-                    hit = hit.Apply(buffContext.hit),
-
-                    sourceBuff = buffContext,
-                    
-                    flags = flags,
-                }));
+            yield return new JumpIn(DoDamageHeal(null, buffContext, src, tgt));
         }
     }
     

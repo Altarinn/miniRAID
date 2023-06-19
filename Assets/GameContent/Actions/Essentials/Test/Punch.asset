@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b57b14783baf44469457a18d90be360a, type: 3}
-  m_Name: ArmorShot
+  m_Name: Punch
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -47,7 +47,7 @@ MonoBehaviour:
       Data: 1
     - Name: powerFactor
       Entry: 4
-      Data: 0.4
+      Data: 0.25
     - Name: 
       Entry: 8
       Data: 
@@ -470,6 +470,15 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: advancedSettings
+      Entry: 7
+      Data: 19|miniRAID.ActionHelpers.SpellDamageHeal+AdvancedSettings, Assembly-CSharp
+    - Name: aggroMul
+      Entry: 4
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -477,5 +486,5 @@ MonoBehaviour:
   Id: 60
   icon: {fileID: 224001176136207997, guid: 7fe9a382566f75a429badd968a5161fa, type: 3}
   ActionName: "\u62F3"
-  Description: SO Test
-  flags: 4
+  Description: "\u6682\u65F6\u653E\u4E0B\u6B66\u5668\uFF0C\u7528\u62F3\u5934\u653B\u51FB\u654C\u4EBA\uFF0C\n\u8FD9\u6B21\u653B\u51FB\u9020\u6210\u7684\u4EC7\u6068\u503C\u5927\u5E45\u63D0\u5347\u3002"
+  flags: 0

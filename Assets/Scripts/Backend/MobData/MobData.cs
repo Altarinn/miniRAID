@@ -277,6 +277,11 @@ namespace miniRAID
         {
             return FindListener(x => x.data == data);
         }
+        
+        public MobListener FindListener<T>() where T : MobListener
+        {
+            return FindListener(x => x is T);
+        }
 
         public MobListener FindListener(Predicate<MobListener> condition)
         {

@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace miniRAID.Agents
 {
@@ -55,8 +57,8 @@ namespace miniRAID.Agents
 
         private void TargetMob_OnReceiveHealFinal(MobData mob, Consts.DamageHeal_Result info)
         {
-            if (info.source.unitGroup == mob.unitGroup) { return; }
-            AddToAggro(info.source, info.value * info.source.aggroMul * 2.0f);
+            if (info.source.unitGroup == parentMob.unitGroup) { return; }
+            AddToAggro(info.source, info.value * info.source.aggroMul * Consts.HealAggroMul);
         }
 
         protected void AddToAggro(MobData mob, float aggro)
@@ -229,6 +231,23 @@ namespace miniRAID.Agents
         protected override IEnumerator OnAgentWakeUp(MobData mob)
         {
             yield return new JumpIn(Act(mob));
+        }
+
+        public struct AggroInfo
+        {
+            [DisplayAsString]
+            public string nickname;
+
+            [DisplayAsString]
+            public float aggro;
+        }
+        
+        public List<AggroInfo> GetAggroListUtil()
+        {
+            return aggroList.Select(kv => new KeyValuePair<string, float>(kv.Key.nickname, kv.Value))
+                .OrderByDescending(kv => kv.Value)
+                .Select(kv => new AggroInfo() { nickname = kv.Key, aggro = kv.Value })
+                .ToList();
         }
     }
 }

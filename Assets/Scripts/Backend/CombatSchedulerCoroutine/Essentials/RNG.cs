@@ -1,4 +1,6 @@
-﻿using Unity.Mathematics;
+﻿using System.Collections.Generic;
+using Sirenix.OdinInspector;
+using Unity.Mathematics;
 using Random = Unity.Mathematics.Random;
 
 namespace miniRAID
@@ -7,6 +9,19 @@ namespace miniRAID
     public class RNG
     {
         private Random random;
+
+        public struct RNGHistoryEntry
+        {
+            [DisplayAsString]
+            public float probability;
+
+            [DisplayAsString] public float roll;
+            
+            [DisplayAsString]
+            public bool result;
+        }
+
+        public List<RNGHistoryEntry> history = new List<RNGHistoryEntry>();
 
         public RNG(uint seed = 42)
         {
@@ -20,7 +35,15 @@ namespace miniRAID
 
         public bool WithProbability(float p, bool passOnDefault = true)
         {
-            return random.NextFloat() < p;
+            float roll = random.NextFloat();
+            history.Add(new RNGHistoryEntry
+            {
+                probability = p,
+                roll = roll,
+                result = roll < p
+            });
+            
+            return roll < p;
         }
     }
 }

@@ -69,6 +69,7 @@ namespace miniRAID.ActionHelpers
         }
     }
 
+    [ColoredBox("#f77")]
     public class SpellDamageHeal
     {
         public Consts.DamageHealFlags flags;
@@ -138,6 +139,7 @@ namespace miniRAID.ActionHelpers
         }
     }
     
+    [ColoredBox("#bf7")]
     public class SpellBuff
     {
         public BuffSO buff;
@@ -173,6 +175,7 @@ namespace miniRAID.ActionHelpers
     }
 
     // TODO: Make me to MobData-based.
+    [ColoredBox("#bf7")]
     public class Summon<T> where T : Component
     {
         public T mobPrefab;
@@ -191,6 +194,7 @@ namespace miniRAID.ActionHelpers
         }
     }
 
+    [ColoredBox("#bf7")]
     public class CreateGridEffect
     {
         public Buff.GridEffectSO effect;
@@ -214,6 +218,7 @@ namespace miniRAID.ActionHelpers
         }
     }
 
+    [ColoredBox("#7fd")]
     public class UnitFilters
     {
         public bool toEnemy;
@@ -237,6 +242,7 @@ namespace miniRAID.ActionHelpers
         }
     }
 
+    [ColoredBox("#ff7")]
     public class SimpleExplosionFx
     {
         public Sprite image;

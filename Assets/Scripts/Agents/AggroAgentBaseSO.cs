@@ -49,6 +49,19 @@ namespace miniRAID.Agents
             aggroList = new Dictionary<MobData, float>();
         }
 
+        public override void OnRemove(MobData mob)
+        {
+            base.OnRemove(mob);
+
+            mob.OnDamageReceived -= Mob_OnReceiveDamageFinal;
+            mob.OnActionPostcast -= Mob_OnActionPostcast;
+
+            foreach (MobData targetMob in aggroList.Keys)
+            {
+                targetMob.OnHealReceived -= TargetMob_OnReceiveHealFinal;
+            }
+        }
+
         private void Mob_OnReceiveDamageFinal(MobData mob, Consts.DamageHeal_Result info)
         {
             if (info.source.unitGroup == mob.unitGroup) { return; }

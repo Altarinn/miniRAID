@@ -51,79 +51,79 @@ namespace miniRAID.Buff
 
         #region EventSlots
 
-        [TabGroup("Mob Events")]
-        [PropertyOrder(100)]
-        [EventSlot]
-        [Title("General")]
-        public LuaGetter<(Buff, MobData), IEnumerator> onNextTurn = new();
-
-
-
-        [TabGroup("Mob Events")]
-        [PropertyOrder(100)]
-        [EventSlot]
-        [Title("Stat calc")]
-        public LuaGetter<(Buff, MobData), None> onBaseStatCalculation = new();
-
-        [TabGroup("Mob Events")]
-        [PropertyOrder(100)]
-        [EventSlot]
-        public LuaGetter<(Buff, MobData), None> onStatCalculation = new();
-
-        [TabGroup("Mob Events")]
-        [PropertyOrder(100)]
-        [EventSlot]
-        public LuaGetter<(Buff, MobData), None> onStatCalculationFinish = new();
-
-        [TabGroup("Mob Events")]
-        [PropertyOrder(100)]
-        [EventSlot]
-        public LuaGetter<(Buff, MobData), None> onActionStatCalculation = new();
-
-        [TabGroup("Mob Events")]
-        [PropertyOrder(100)]
-        [EventSlot]
-        public LuaGetter<(Buff, MobData, HashSet<RuntimeAction> actions), None> onQueryActions = new();
-
-
-
-        // TODO: Combat (Dmg / Heal)
-
-
-
-        [TabGroup("Mob Events")]
-        [PropertyOrder(100)]
-        [EventSlot]
-        [Title("Action")]
-        public LuaGetter<(Buff, MobData, RuntimeAction, Spells.SpellTarget), IEnumerator> onActionChosen = new();
-
-        [TabGroup("Mob Events")]
-        [PropertyOrder(100)]
-        [EventSlot]
-        public LuaGetter<(Buff, MobData, RuntimeAction, Spells.SpellTarget), IEnumerator> onActionPrecast = new();
-
-        [TabGroup("Mob Events")]
-        [PropertyOrder(100)]
-        [EventSlot]
-        public LuaGetter<(Buff, MobData, RuntimeAction, Spells.SpellTarget), IEnumerator> onActionPostcast = new();
-
-
-
-        [TabGroup("Mob Events")]
-        [PropertyOrder(100)]
-        [EventSlot]
-        [Title("Cost")]
-        public LuaGetter<(Buff, Cost, RuntimeAction, MobData), None> onCostQuery = new();
-
-        [TabGroup("Mob Events")]
-        [PropertyOrder(100)]
-        [EventSlot]
-        public LuaGetter<(Buff, Cost, RuntimeAction, MobData), None> onCostQueryDisplay = new();
-
-        [TabGroup("Mob Events")]
-        [PropertyOrder(100)]
-        [EventSlot]
-        public LuaGetter<(Buff, Cost, RuntimeAction, MobData), IEnumerator> onCostApply = new();
+        // [TabGroup("Mob Events")]
+        // [PropertyOrder(100)]
+        // [EventSlot]
+        // [Title("General")]
+        // public LuaGetter<(Buff, MobData), IEnumerator> onNextTurn = new();
+        //
+        //
+        //
+        // [TabGroup("Mob Events")]
+        // [PropertyOrder(100)]
+        // [EventSlot]
+        // [Title("Stat calc")]
+        // public LuaGetter<(Buff, MobData), None> onBaseStatCalculation = new();
+        //
+        // [TabGroup("Mob Events")]
+        // [PropertyOrder(100)]
+        // [EventSlot]
+        // public LuaGetter<(Buff, MobData), None> onStatCalculation = new();
+        //
+        // [TabGroup("Mob Events")]
+        // [PropertyOrder(100)]
+        // [EventSlot]
+        // public LuaGetter<(Buff, MobData), None> onStatCalculationFinish = new();
+        //
+        // [TabGroup("Mob Events")]
+        // [PropertyOrder(100)]
+        // [EventSlot]
+        // public LuaGetter<(Buff, MobData), None> onActionStatCalculation = new();
+        //
+        // [TabGroup("Mob Events")]
+        // [PropertyOrder(100)]
+        // [EventSlot]
+        // public LuaGetter<(Buff, MobData, HashSet<RuntimeAction> actions), None> onQueryActions = new();
+        //
+        //
+        //
+        // // TODO: Combat (Dmg / Heal)
+        //
+        //
+        //
+        // [TabGroup("Mob Events")]
+        // [PropertyOrder(100)]
+        // [EventSlot]
+        // [Title("Action")]
+        // public LuaGetter<(Buff, MobData, RuntimeAction, Spells.SpellTarget), IEnumerator> onActionChosen = new();
+        //
+        // [TabGroup("Mob Events")]
+        // [PropertyOrder(100)]
+        // [EventSlot]
+        // public LuaGetter<(Buff, MobData, RuntimeAction, Spells.SpellTarget), IEnumerator> onActionPrecast = new();
+        //
+        // [TabGroup("Mob Events")]
+        // [PropertyOrder(100)]
+        // [EventSlot]
+        // public LuaGetter<(Buff, MobData, RuntimeAction, Spells.SpellTarget), IEnumerator> onActionPostcast = new();
+        //
+        //
+        //
+        // [TabGroup("Mob Events")]
+        // [PropertyOrder(100)]
+        // [EventSlot]
+        // [Title("Cost")]
+        // public LuaGetter<(Buff, Cost, RuntimeAction, MobData), None> onCostQuery = new();
+        //
+        // [TabGroup("Mob Events")]
+        // [PropertyOrder(100)]
+        // [EventSlot]
+        // public LuaGetter<(Buff, Cost, RuntimeAction, MobData), None> onCostQueryDisplay = new();
+        //
+        // [TabGroup("Mob Events")]
+        // [PropertyOrder(100)]
+        // [EventSlot]
+        // public LuaGetter<(Buff, Cost, RuntimeAction, MobData), IEnumerator> onCostApply = new();
 
         #endregion
 
@@ -204,8 +204,8 @@ namespace miniRAID.Buff
         {
             this.source = source;
             
-            this.power = dNumber.CreateComposite(buffData.power.Eval(source), "buffbase");
-            this.auxPower = dNumber.CreateComposite(buffData.auxPower.Eval(source), "buffbase");
+            this.power = dNumber.CreateComposite(buffData.power.Eval(level, source), "buffbase");
+            this.auxPower = dNumber.CreateComposite(buffData.auxPower.Eval(level, source), "buffbase");
             // this.hit = dNumber.CreateComposite(buffData.hit.Eval(source), "buffbase");
             // this.crit = dNumber.CreateComposite(buffData.crit.Eval(source), "buffBase");
             this.hit = dNumber.CreateComposite(source.hitAcc, "buffbase");
@@ -267,107 +267,107 @@ namespace miniRAID.Buff
 
             // Register events
             // Stats
-            if(buffData.onBaseStatCalculation.isNonEmpty())
-            {
-                MobData.MobArgumentDelegate evt = (m) =>
-                {
-                    buffData.onBaseStatCalculation?.Eval((this, m));
-                };
-                mob.OnBaseStatCalculation += evt;
-                onRemoveFromMob += (m) => { m.OnBaseStatCalculation -= evt; };
-            }
-
-            if (buffData.onStatCalculation.isNonEmpty())
-            {
-                MobData.MobArgumentDelegate evt = (m) =>
-                {
-                    buffData.onStatCalculation?.Eval((this, m));
-                };
-                mob.OnStatCalculation += evt;
-                onRemoveFromMob += (m) => { m.OnStatCalculation -= evt; };
-            }
-
-            if (buffData.onActionStatCalculation.isNonEmpty())
-            {
-                MobData.MobArgumentDelegate evt = (m) =>
-                {
-                    buffData.onActionStatCalculation?.Eval((this, m));
-                };
-                mob.OnActionStatCalculation += evt;
-                onRemoveFromMob += (m) => { m.OnActionStatCalculation -= evt; }; 
-            }
-
-            if (buffData.onStatCalculationFinish.isNonEmpty())
-            {
-                MobData.MobArgumentDelegate evt = (m) =>
-                {
-                    buffData.onStatCalculationFinish?.Eval((this, m));
-                };
-                mob.OnStatCalculationFinish += evt;
-                onRemoveFromMob += (m) => { m.OnStatCalculationFinish -= evt; };
-            }
-
-            if (buffData.onQueryActions.isNonEmpty())
-            {
-                MobData.MobActionQueryDelegate evt = (m, a) =>
-                {
-                    buffData.onQueryActions?.Eval((this, m, a));
-                };
-                mob.OnQueryActions += evt;
-                onRemoveFromMob += (m) => { m.OnQueryActions -= evt; };
-            }
-
-
-            // Action events
-            if (buffData.onActionChosen.isNonEmpty())
-            {
-                System.Func<MobData, RuntimeAction, Spells.SpellTarget, IEnumerator> evt = (m, a, t) =>
-                     buffData.onActionChosen?.Eval((this, m, a, t));
-                mob.OnActionChosen += evt;
-                onRemoveFromMob += (m) => { m.OnActionChosen -= evt; };
-            }
-
-            if (buffData.onActionPrecast.isNonEmpty())
-            {
-                System.Func<MobData, RuntimeAction, Spells.SpellTarget, IEnumerator> evt = (m, a, t) =>
-                     buffData.onActionPrecast?.Eval((this, m, a, t));
-                mob.OnActionPrecast += evt;
-                onRemoveFromMob += (m) => { m.OnActionPrecast -= evt; };
-            }
-
-            if (buffData.onActionPostcast.isNonEmpty())
-            {
-                System.Func<MobData, RuntimeAction, Spells.SpellTarget, IEnumerator> evt = (m, a, t) =>
-                    buffData.onActionPostcast?.Eval((this, m, a, t));
-                mob.OnActionPostcast += evt;
-                onRemoveFromMob += (m) => { m.OnActionPostcast -= evt; };
-            }
-
-
-            //Cost
-            if (buffData.onCostQuery.isNonEmpty())
-            {
-                MobData.CostQueryDelegate evt = (c, a, m) =>
-                { buffData.onCostQuery?.Eval((this, c, a, m)); };
-                mob.OnCostQuery += evt;
-                onRemoveFromMob += (m) => { m.OnCostQuery -= evt; };
-            }
-
-            if (buffData.onCostQueryDisplay.isNonEmpty())
-            {
-                MobData.CostQueryDelegate evt = (c, a, m) =>
-                { buffData.onCostQueryDisplay?.Eval((this, c, a, m)); };
-                mob.OnCostQueryDisplay += evt;
-                onRemoveFromMob += (m) => { m.OnCostQueryDisplay -= evt; };
-            }
-
-            if (buffData.onCostApply.isNonEmpty())
-            {
-                System.Func<Cost, RuntimeAction, MobData, IEnumerator> evt = (c, a, m) =>
-                    buffData.onCostApply?.Eval((this, c, a, m));
-                mob.OnCostApply += evt;
-                onRemoveFromMob += (m) => { m.OnCostApply -= evt; };
-            }
+            // if(buffData.onBaseStatCalculation.isNonEmpty())
+            // {
+            //     MobData.MobArgumentDelegate evt = (m) =>
+            //     {
+            //         buffData.onBaseStatCalculation?.Eval((this, m));
+            //     };
+            //     mob.OnBaseStatCalculation += evt;
+            //     onRemoveFromMob += (m) => { m.OnBaseStatCalculation -= evt; };
+            // }
+            //
+            // if (buffData.onStatCalculation.isNonEmpty())
+            // {
+            //     MobData.MobArgumentDelegate evt = (m) =>
+            //     {
+            //         buffData.onStatCalculation?.Eval((this, m));
+            //     };
+            //     mob.OnStatCalculation += evt;
+            //     onRemoveFromMob += (m) => { m.OnStatCalculation -= evt; };
+            // }
+            //
+            // if (buffData.onActionStatCalculation.isNonEmpty())
+            // {
+            //     MobData.MobArgumentDelegate evt = (m) =>
+            //     {
+            //         buffData.onActionStatCalculation?.Eval((this, m));
+            //     };
+            //     mob.OnActionStatCalculation += evt;
+            //     onRemoveFromMob += (m) => { m.OnActionStatCalculation -= evt; }; 
+            // }
+            //
+            // if (buffData.onStatCalculationFinish.isNonEmpty())
+            // {
+            //     MobData.MobArgumentDelegate evt = (m) =>
+            //     {
+            //         buffData.onStatCalculationFinish?.Eval((this, m));
+            //     };
+            //     mob.OnStatCalculationFinish += evt;
+            //     onRemoveFromMob += (m) => { m.OnStatCalculationFinish -= evt; };
+            // }
+            //
+            // if (buffData.onQueryActions.isNonEmpty())
+            // {
+            //     MobData.MobActionQueryDelegate evt = (m, a) =>
+            //     {
+            //         buffData.onQueryActions?.Eval((this, m, a));
+            //     };
+            //     mob.OnQueryActions += evt;
+            //     onRemoveFromMob += (m) => { m.OnQueryActions -= evt; };
+            // }
+            //
+            //
+            // // Action events
+            // if (buffData.onActionChosen.isNonEmpty())
+            // {
+            //     System.Func<MobData, RuntimeAction, Spells.SpellTarget, IEnumerator> evt = (m, a, t) =>
+            //          buffData.onActionChosen?.Eval((this, m, a, t));
+            //     mob.OnActionChosen += evt;
+            //     onRemoveFromMob += (m) => { m.OnActionChosen -= evt; };
+            // }
+            //
+            // if (buffData.onActionPrecast.isNonEmpty())
+            // {
+            //     System.Func<MobData, RuntimeAction, Spells.SpellTarget, IEnumerator> evt = (m, a, t) =>
+            //          buffData.onActionPrecast?.Eval((this, m, a, t));
+            //     mob.OnActionPrecast += evt;
+            //     onRemoveFromMob += (m) => { m.OnActionPrecast -= evt; };
+            // }
+            //
+            // if (buffData.onActionPostcast.isNonEmpty())
+            // {
+            //     System.Func<MobData, RuntimeAction, Spells.SpellTarget, IEnumerator> evt = (m, a, t) =>
+            //         buffData.onActionPostcast?.Eval((this, m, a, t));
+            //     mob.OnActionPostcast += evt;
+            //     onRemoveFromMob += (m) => { m.OnActionPostcast -= evt; };
+            // }
+            //
+            //
+            // //Cost
+            // if (buffData.onCostQuery.isNonEmpty())
+            // {
+            //     MobData.CostQueryDelegate evt = (c, a, m) =>
+            //     { buffData.onCostQuery?.Eval((this, c, a, m)); };
+            //     mob.OnCostQuery += evt;
+            //     onRemoveFromMob += (m) => { m.OnCostQuery -= evt; };
+            // }
+            //
+            // if (buffData.onCostQueryDisplay.isNonEmpty())
+            // {
+            //     MobData.CostQueryDelegate evt = (c, a, m) =>
+            //     { buffData.onCostQueryDisplay?.Eval((this, c, a, m)); };
+            //     mob.OnCostQueryDisplay += evt;
+            //     onRemoveFromMob += (m) => { m.OnCostQueryDisplay -= evt; };
+            // }
+            //
+            // if (buffData.onCostApply.isNonEmpty())
+            // {
+            //     System.Func<Cost, RuntimeAction, MobData, IEnumerator> evt = (c, a, m) =>
+            //         buffData.onCostApply?.Eval((this, c, a, m));
+            //     mob.OnCostApply += evt;
+            //     onRemoveFromMob += (m) => { m.OnCostApply -= evt; };
+            // }
             
             Globals.combatTracker.Record(new Consts.BuffEvents()
             {
@@ -422,7 +422,7 @@ namespace miniRAID.Buff
             }
 
             // Custom events
-            yield return new JumpIn(buffData.onNextTurn?.Eval((this, mob)));
+            // yield return new JumpIn(buffData.onNextTurn?.Eval((this, mob)));
 
             // Handle timer
             if(this.buffData.timed)

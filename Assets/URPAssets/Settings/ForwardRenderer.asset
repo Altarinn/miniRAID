@@ -28,6 +28,7 @@ MonoBehaviour:
     samplingPS: {fileID: 4800000, guid: 04c410c9937594faa893a11dceb85f7e, type: 3}
     stencilDeferredPS: {fileID: 4800000, guid: e9155b26e1bc55942a41e518703fe304, type: 3}
     fallbackErrorPS: {fileID: 4800000, guid: e6e9a19c3678ded42a3bc431ebef7dbd, type: 3}
+    fallbackLoadingPS: {fileID: 4800000, guid: 7f888aff2ac86494babad1c2c5daeee2, type: 3}
     materialErrorPS: {fileID: 4800000, guid: 5fd9a8feb75a4b5894c241777f519d4e, type: 3}
     coreBlitPS: {fileID: 4800000, guid: 93446b5c5339d4f00b85c159e1159b7c, type: 3}
     coreBlitColorAndDepthPS: {fileID: 4800000, guid: d104b2fc1ca6445babb8e90b0758136b, type: 3}
@@ -52,8 +53,6 @@ MonoBehaviour:
   m_DepthPrimingMode: 0
   m_CopyDepthMode: 0
   m_AccurateGbufferNormals: 0
-  m_ClusteredRendering: 0
-  m_TileSize: 32
   m_IntermediateTextureMode: 1
 --- !u!114 &2988532599961602482
 MonoBehaviour:
@@ -67,7 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6ec1bef8c5dd149b779146f9f66913, type: 3}
   m_Name: NewOutlineFeature
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1
   settings:
     outlineMaterial: {fileID: 2100000, guid: 03fe4c89992cb604da0a222fdd09fbb4, type: 2}
 --- !u!114 &7325913791922349474
@@ -82,4 +81,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4ade108e9b0032488199c28c8481ba4, type: 3}
   m_Name: NewDepthNormalsFeature
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1

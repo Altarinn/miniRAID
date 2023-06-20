@@ -93,8 +93,13 @@ public class OutlineFeature : ScriptableRendererFeature
             Debug.LogWarningFormat("Missing Outline Material");
             return;
         }
-        //RTHandle handle;
-        //outlinePass.Setup(renderer.cameraColorTargetHandle, RenderTargetHandle.CameraTarget);
-        //renderer.EnqueuePass(outlinePass);
+        RTHandle handle;
+        renderer.EnqueuePass(outlinePass);
+    }
+
+    public override void SetupRenderPasses(ScriptableRenderer renderer, in RenderingData renderingData)
+    {
+        base.SetupRenderPasses(renderer, in renderingData);
+        outlinePass.Setup(renderer.cameraColorTargetHandle, RenderTargetHandle.CameraTarget);
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace miniRAID.ActionHelpers
 {
+    [ColoredBox("#ffec6e")]
     public class Projectile
     {
         public GameObject projectilePrefab;

@@ -399,14 +399,14 @@ namespace miniRAID.Editor
                     OnVarTypeSelected, PowerGetter.PowerGetterType.DYNAMIC);
 
                 string s = "?";
-                if (value.powerType == PowerGetter.PowerGetterType.AttackPower) { s = "AttackPower %"; }
-                if (value.powerType == PowerGetter.PowerGetterType.SpellPower) { s = "SpellPower %"; }
-                if (value.powerType == PowerGetter.PowerGetterType.HealPower) { s = "HealPower %"; }
-                if (value.powerType == PowerGetter.PowerGetterType.BuffPower) { s = "BuffPower %"; }
+                if (value.powerType == PowerGetter.PowerGetterType.AttackPower) { s = "AttackP %"; }
+                if (value.powerType == PowerGetter.PowerGetterType.SpellPower) { s = "SpellP %"; }
+                if (value.powerType == PowerGetter.PowerGetterType.HealPower) { s = "HealP %"; }
+                if (value.powerType == PowerGetter.PowerGetterType.BuffPower) { s = "BuffP %"; }
                 if (value.powerType == PowerGetter.PowerGetterType.STATIC) { s = "STATIC"; }
                 if (value.powerType == PowerGetter.PowerGetterType.DYNAMIC) { s = "DYNAMIC"; }
 
-                if (EditorGUILayout.DropdownButton(new GUIContent(s), FocusType.Keyboard, GUILayout.Width(120)))
+                if (EditorGUILayout.DropdownButton(new GUIContent(s), FocusType.Keyboard, GUILayout.Width(80)))
                 {
                     typeMenu.ShowAsContext();
                 }
@@ -417,27 +417,10 @@ namespace miniRAID.Editor
                 switch (value.powerType)
                 {
                     case PowerGetter.PowerGetterType.STATIC:
-                        Property.FindChild(x => x.Name == "staticOut", false).Draw(null);
+                        Property.FindChild(x => x.Name == "powerFactor", false).Draw(null);
                         break;
                     case PowerGetter.PowerGetterType.DYNAMIC:
-                        string intype = "";
-                        var typeArr = typeof(MobData).GetGenericArguments();
-                        if (typeArr.Length == 0)
-                        {
-                            intype = XLuaInstance.GetDefaultParamName(typeof(MobData));
-                        }
-                        else
-                        {
-                            intype = string.Join<string>(
-                                ", ",
-                                typeArr.Select(x => XLuaInstance.GetDefaultParamName(x)
-                            ));
-                            intype = $"{intype}";
-                        }
-
-                        string outtype = typeof(float).ToString().Split('.').Last();
-
-                        SirenixEditorGUI.Title($"{intype} → {outtype}", null, TextAlignment.Left, false, false);
+                        EditorGUILayout.LabelField("C# Implementation");
                         break;
                     case PowerGetter.PowerGetterType.AttackPower:
                     case PowerGetter.PowerGetterType.BuffPower:
@@ -450,21 +433,6 @@ namespace miniRAID.Editor
                 EditorGUI.indentLevel = lvl;
                 EditorGUILayout.EndHorizontal();
 
-                if (value.powerType == PowerGetter.PowerGetterType.DYNAMIC)
-                {
-                    SirenixEditorGUI.BeginBox();
-
-                    // if (typeof(T) != typeof(LuaFunc<TIn, TOut>))
-                    // {
-                    //     value.description = SirenixEditorFields.TextField("Description", value.description);
-                    // }
-
-                    //value.LuaExpr = EditorGUILayout.TextArea(value.LuaExpr);
-                    Property.FindChild(x => x.Name == "LuaExpr", false).Draw(null);
-
-                    SirenixEditorGUI.EndBox();
-                }
-
                 //Sirenix.OdinInspector.Editor.Drawers.NullableReferenceDrawer
 
                 //Property.GetActiveDrawerChain().MoveNext();
@@ -476,6 +444,50 @@ namespace miniRAID.Editor
         {
             Property.RecordForUndo();
             ValueEntry.SmartValue.powerType = (PowerGetter.PowerGetterType)type;
+        }
+    }
+    
+    public class LeveledStatsDrawer<T> : OdinValueDrawer<LeveledStats<T>>
+    {
+        protected override void DrawPropertyLayout(GUIContent label)
+        {
+            // Handle null values
+            LeveledStats<T> value = ValueEntry.SmartValue;
+            if (value.values == null)
+            {
+                Property.RecordForUndo();
+                value.values = new T[Consts.MaxListenerLevels];
+                if (typeof(T) == typeof(float))
+                {
+                    for(int i = 0; i < Consts.MaxListenerLevels; i++)
+                    {
+                        value.values[i] = (dynamic)1.0f;
+                    }
+                }
+                ValueEntry.SmartValue = value;
+            }
+            else
+            {
+                var p = Property.FindChild(x => x.Name == "values", false);
+                if (value.isLeveled)
+                {
+                    for (int i = 0; i < value.values.Length; i++)
+                    {
+                        p.Children[i].Draw(null);
+                    }
+                }
+                else
+                {
+                    p.Children[0].Draw(null);
+                }
+                
+                value.isLeveled = SirenixEditorGUI.ToolbarToggle(value.isLeveled, "L");
+                if (value.isLeveled != ValueEntry.SmartValue.isLeveled)
+                {
+                    Property.RecordForUndo();
+                    ValueEntry.SmartValue = value;
+                }
+            }
         }
     }
 

@@ -7,6 +7,7 @@ using UnityEngine;
 
 namespace miniRAID
 {
+    [ColoredBox("#7fd")]
     public class GridShape
     {
         public enum Direction

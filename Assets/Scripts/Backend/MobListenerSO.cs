@@ -48,11 +48,13 @@ namespace miniRAID
         }
     }
 
-    [System.Serializable]
+    // [System.Serializable]
     public class MobListener : Backend.BackendState
     {
         [System.NonSerialized]
         public MobData parentMob;
+        
+        public int level = 1;
         
         // TODO: FIXME: This is getting hid in derived classes (e.g., Weapon, ActionDataSO, etc.), resulting in unexpected behaviors when calling data.xxx.
         public MobListenerSO data;

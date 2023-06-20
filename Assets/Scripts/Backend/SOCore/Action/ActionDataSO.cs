@@ -6,6 +6,7 @@ using XLua;
 
 using Sirenix.OdinInspector;
 using System.Linq;
+using UnityEngine.Serialization;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -41,7 +42,7 @@ namespace miniRAID
         }
     }
 
-    public class PowerGetter : LuaGetter<MobData, float>
+    public class PowerGetter
     {
         public enum PowerGetterType
         {
@@ -54,42 +55,55 @@ namespace miniRAID
         }
 
         public PowerGetterType powerType;
-        public float powerFactor;
-        
-        public PowerGetter(float val) : base(0)
+        public LeveledStats<float> powerFactor;
+        public System.Func<MobData, float> dynamicGetter;
+
+        public PowerGetter(float val)
         {
             powerType = PowerGetterType.AttackPower;
-            powerFactor = val;
+            powerFactor = new LeveledStats<float>();
         }
 
-        public override float Eval(MobData param)
+        public float Eval(int level, MobData param)
         {
             switch (powerType)
             {
                 case PowerGetterType.STATIC:
+                    return powerFactor.Eval(level);
+                    break;
+                    
                 case PowerGetterType.DYNAMIC:
-                    type = powerType == PowerGetterType.STATIC ? LuaGetterType.STATIC : LuaGetterType.DYNAMIC;
-                    return base.Eval(param);
+                    return dynamicGetter(param);
                     break;
                 
                 case PowerGetterType.AttackPower:
-                    return param.attackPower * powerFactor;
+                    return param.attackPower * powerFactor.Eval(level);
                     break;
                 
                 case PowerGetterType.SpellPower:
-                    return param.spellPower * powerFactor;
+                    return param.spellPower * powerFactor.Eval(level);
                     break;
                 
                 case PowerGetterType.HealPower:
-                    return param.healPower * powerFactor;
+                    return param.healPower * powerFactor.Eval(level);
                     break;
                 
                 case PowerGetterType.BuffPower:
-                    return param.buffPower * powerFactor;
+                    return param.buffPower * powerFactor.Eval(level);
                     break;
             }
 
-            return base.Eval(param);
+            return 0;
+        }
+    }
+
+    public class ColoredBoxAttribute : Attribute
+    {
+        public Color color;
+
+        public ColoredBoxAttribute(string hex)
+        {
+            ColorUtility.TryParseHtmlString(hex, out color);
         }
     }
 
@@ -112,6 +126,8 @@ namespace miniRAID
         [Title("Basic info")]
         public string ActionName;
 
+        [FormerlySerializedAs("MaxLevel")] public int maxLevel;
+
         [TextArea(1, 25)]
         public string Description;
 
@@ -122,6 +138,7 @@ namespace miniRAID
         [Title("Power stats")]
         public PowerGetter power;
         public PowerGetter auxPower;
+        // public LeveledStats<float> test;
 
         // Cost related
         [Title("Costs", horizontalLine: true, bold: true)]
@@ -179,25 +196,22 @@ namespace miniRAID
         }
 
         // Functions etc.
-        [Title("Behaviour")]
-        [Sirenix.Serialization.OdinSerialize]
-        [EventSlot]
-        public LuaFunc<(GeneralCombatData, MobRenderer, Spells.SpellTarget), IEnumerator> onPerform = new();
+        [Title("Behavioural Parameters")] [SerializeField] private None _;
+        // [Sirenix.Serialization.OdinSerialize]
+        // [EventSlot]
+        // public LuaFunc<(GeneralCombatData, MobRenderer, Spells.SpellTarget), IEnumerator> onPerform = new();
 
-        // [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
-        // public ActionOnPerformSO onPerform_SO;
         public virtual IEnumerator OnPerform(RuntimeAction ract, MobData mob,
             Spells.SpellTarget target)
         {
             yield return -1;
         }
-        
-        // public ScriptGraphAsset scriptGraph;
 
         [Obsolete("Use RuntimeAction.Do instead.")]
         public virtual IEnumerator OnPerform(GeneralCombatData combatData, MobRenderer mobRenderer, Spells.SpellTarget target)
         {
-            yield return new JumpIn(onPerform.Eval((combatData, mobRenderer, target)));
+            yield break;
+            // yield return new JumpIn(onPerform.Eval((combatData, mobRenderer, target)));
         }
 
         //public override bool Equals(object other)
@@ -209,70 +223,14 @@ namespace miniRAID
         //{
         //    return Guid.GetHashCode();
         //}
-        
-        #region EDITOR UTILITIES; MOVE AWAY PLS
-        #if UNITY_EDITOR
-        
-        /*[ContextMenu("Create onPerform SO")]
-        public void CreateOnPerformSO()
-        {
-            //Show an dialog
-            SOWizard window = ScriptableObject.CreateInstance(typeof(SOWizard)) as SOWizard;
-            window.Setup(typeof(ActionOnPerformSO), (type, str) =>
-            {
-                Debug.Log($"The chosen type is: {type}");
-
-                ActionOnPerformSO so = ScriptableObject.CreateInstance(type) as ActionOnPerformSO;
-                if (so != null)
-                {
-                    so.name = str;
-                
-                    onPerform_SO = so;
-                
-                    AssetDatabase.AddObjectToAsset(onPerform_SO, this);
-                    AssetDatabase.SaveAssets();
-                
-                    EditorUtility.SetDirty(this);
-                    EditorUtility.SetDirty(onPerform_SO);
-                }
-            }, "ActionOnPerformSO");
-            
-            window.ShowModalUtility();
-        }
-
-        [ContextMenu("Remove unreferenced subassets")]
-        public void RemoveUnreferencedSubassets()
-        {
-            bool isConfirmed = UnityEditor.EditorUtility.DisplayDialog(
-                "Confirm deletion",
-                $"Are you sure you want to delete all un-referenced subassets of {this.name}? This operation cannot be undone.",
-                "Yes",
-                "No"
-            );
-
-            if (!isConfirmed) {
-                return;
-            }
-            
-            var path = AssetDatabase.GetAssetPath(this);
-            var allSubassets = AssetDatabase.LoadAllAssetsAtPath(path);
-            
-            foreach (var subasset in allSubassets)
-            {
-                if(subasset != this && subasset != onPerform_SO) // Avoid deleting the main asset itself
-                {
-                    AssetDatabase.RemoveObjectFromAsset(subasset);
-                }
-            }
-            AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate);
-        }*/
-        #endif
-        #endregion
     }
 
     [LuaCallCSharp]
     public class RuntimeAction : MobListener
     {
+        public int Level => level;
+        public int MaxLevel => data.maxLevel;
+
         public new ActionDataSO data;
         public Consts.ActionFlags flags => data.flags;
 
@@ -381,7 +339,7 @@ namespace miniRAID
             return $"{costString}" +
                 //$"------------\n" +
                 $"{data.Description}\n" +
-                $"Power: {Mathf.CeilToInt(data.power.Eval(mob))}\n" +
+                $"Power: {Mathf.CeilToInt(data.power.Eval(level, mob))}\n" +
                 $"TODO - rAct.GetTooltip().";
         }
 
@@ -441,8 +399,8 @@ namespace miniRAID
             }
 
             // 2. Compute power etc.
-            power = dNumber.CreateComposite(data.power.Eval(mob), "actionBase");
-            auxPower = dNumber.CreateComposite(data.auxPower.Eval(mob), "actionBase");
+            power = dNumber.CreateComposite(data.power.Eval(level, mob), "actionBase");
+            auxPower = dNumber.CreateComposite(data.auxPower.Eval(level, mob), "actionBase");
             
             // TODO: assignable in inspector?
             hit = dNumber.CreateComposite(mob.hitAcc, "actionBase");

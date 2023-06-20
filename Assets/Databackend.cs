@@ -397,6 +397,9 @@ namespace miniRAID
             public AllTypes<float> exDamage;
         }
         
+        // Maximum levels for skills, buffs, etc
+        public static int MaxListenerLevels = 5;
+        
         // Standard values at iLvl 10
         private static float SVbaseStats = 10;
         private static float SVpowers = 6.0f;

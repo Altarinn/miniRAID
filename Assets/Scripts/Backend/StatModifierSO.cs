@@ -164,8 +164,8 @@ namespace miniRAID
         
         protected virtual void UpdatePower(MobData mob)
         {
-            power = dNumber.CreateComposite(statData.power.Eval(mob), "base");
-            auxPower = dNumber.CreateComposite(statData.auxPower.Eval(mob), "base");
+            power = dNumber.CreateComposite(statData.power.Eval(level, mob), "base");
+            auxPower = dNumber.CreateComposite(statData.auxPower.Eval(level, mob), "base");
         }
 
         protected virtual void ModifyBaseStats(MobData m)

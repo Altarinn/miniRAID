@@ -51,11 +51,11 @@ Material:
     m_Ints: []
     m_Floats:
     - Color_Sensitivity: 0
-    - Depth_Sensitivity: 0
-    - Normals_Sensitivity: 2
-    - Outline_Thickness: 1
+    - Depth_Sensitivity: 1
+    - Normals_Sensitivity: 1
+    - Outline_Thickness: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - Outline_Color: {r: 0, g: 0, b: 0, a: 0.80784315}
+    - Outline_Color: {r: 1, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

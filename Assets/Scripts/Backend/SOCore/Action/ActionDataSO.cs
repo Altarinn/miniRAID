@@ -201,6 +201,16 @@ namespace miniRAID
         // [EventSlot]
         // public LuaFunc<(GeneralCombatData, MobRenderer, Spells.SpellTarget), IEnumerator> onPerform = new();
 
+        /// <summary>
+        /// The coroutine that handles the action when performed.
+        /// It should be override by the derived class if desired.
+        ///
+        /// Use `Globals.cc` to access the CoroutineContext, for e.g., animation settings & random number generators.
+        /// </summary>
+        /// <param name="ract">The RuntimeAction instance wrapped from this ActionDataSO that will be performed.</param>
+        /// <param name="mob">MobData performing the action.</param>
+        /// <param name="target">Target (List of Vector3Ints) of this action.</param>
+        /// <returns>No return values.</returns>
         public virtual IEnumerator OnPerform(RuntimeAction ract, MobData mob,
             Spells.SpellTarget target)
         {

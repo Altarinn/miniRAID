@@ -70,6 +70,9 @@ namespace miniRAID.Agents
 
         private void TargetMob_OnReceiveHealFinal(MobData mob, Consts.DamageHeal_Result info)
         {
+            // TODO: Why?
+            if (parentMob == null || info.source == null) { return; }
+            
             if (info.source.unitGroup == parentMob.unitGroup) { return; }
             AddToAggro(info.source, info.value * info.source.aggroMul * Consts.HealAggroMul);
         }

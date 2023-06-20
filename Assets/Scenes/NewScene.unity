@@ -258,7 +258,7 @@ GameObject:
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &54478243
 Transform:
   m_ObjectHideFlags: 0
@@ -499,7 +499,6 @@ MonoBehaviour:
     health: 100
     maxHealth: 100
     damageShield: 0
-    listeners: []
   animator: {fileID: 0}
 --- !u!1 &97777221
 GameObject:
@@ -758,7 +757,6 @@ MonoBehaviour:
     health: 100
     maxHealth: 100
     damageShield: 0
-    listeners: []
   animator: {fileID: 0}
 --- !u!1001 &116129205
 PrefabInstance:
@@ -1480,7 +1478,6 @@ MonoBehaviour:
     health: 100
     maxHealth: 100
     damageShield: 0
-    listeners: []
   animator: {fileID: 0}
 --- !u!4 &216872653
 Transform:
@@ -2538,7 +2535,6 @@ MonoBehaviour:
     health: 100
     maxHealth: 100
     damageShield: 0
-    listeners: []
   animator: {fileID: 0}
 --- !u!1 &427119834
 GameObject:
@@ -2588,7 +2584,7 @@ GameObject:
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &447918553
 Transform:
   m_ObjectHideFlags: 0
@@ -2829,7 +2825,6 @@ MonoBehaviour:
     health: 100
     maxHealth: 100
     damageShield: 0
-    listeners: []
   animator: {fileID: 0}
 --- !u!1 &451722308
 GameObject:
@@ -3740,7 +3735,6 @@ MonoBehaviour:
     health: 100
     maxHealth: 100
     damageShield: 0
-    listeners: []
   animator: {fileID: 0}
 --- !u!1 &549045349
 GameObject:
@@ -5472,7 +5466,6 @@ MonoBehaviour:
     health: 100
     maxHealth: 100
     damageShield: 0
-    listeners: []
   animator: {fileID: 0}
 --- !u!1 &1088969445
 GameObject:
@@ -5706,7 +5699,7 @@ GameObject:
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1264087519
 Transform:
   m_ObjectHideFlags: 0
@@ -5947,7 +5940,6 @@ MonoBehaviour:
     health: 100
     maxHealth: 100
     damageShield: 0
-    listeners: []
   animator: {fileID: 0}
 --- !u!1 &1276544226
 GameObject:
@@ -6614,7 +6606,6 @@ MonoBehaviour:
     health: 100
     maxHealth: 100
     damageShield: 0
-    listeners: []
   animator: {fileID: 0}
 --- !u!1 &1368799605
 GameObject:
@@ -8789,7 +8780,7 @@ GameObject:
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1822500752
 Transform:
   m_ObjectHideFlags: 0
@@ -9030,7 +9021,6 @@ MonoBehaviour:
     health: 100
     maxHealth: 100
     damageShield: 0
-    listeners: []
   animator: {fileID: 0}
 --- !u!1 &1843889370
 GameObject:
@@ -9430,7 +9420,6 @@ MonoBehaviour:
     health: 100
     maxHealth: 100
     damageShield: 0
-    listeners: []
   animator: {fileID: 0}
 --- !u!114 &1865483635
 MonoBehaviour:
@@ -10093,7 +10082,6 @@ MonoBehaviour:
     health: 100
     maxHealth: 100
     damageShield: 0
-    listeners: []
   animator: {fileID: 0}
 --- !u!1001 &1927655709
 PrefabInstance:
@@ -11060,7 +11048,6 @@ MonoBehaviour:
     health: 100
     maxHealth: 100
     damageShield: 0
-    listeners: []
   animator: {fileID: 0}
 --- !u!1 &2109292874
 GameObject:

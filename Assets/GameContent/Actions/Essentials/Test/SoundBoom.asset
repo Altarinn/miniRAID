@@ -27,7 +27,7 @@ MonoBehaviour:
       Data: 0|miniRAID.PowerGetter, Assembly-CSharp
     - Name: powerType
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: powerFactor
       Entry: 7
       Data: miniRAID.LeveledStats`1[[System.Single, mscorlib]], Assembly-CSharp
@@ -42,7 +42,7 @@ MonoBehaviour:
       Data: 5
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 4
       Data: 0

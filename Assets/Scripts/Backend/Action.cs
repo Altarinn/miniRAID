@@ -6,13 +6,6 @@ using UnityEngine.InputSystem;
 
 namespace miniRAID
 {
-    public enum GCDGroup
-    {
-        None,
-        Common,
-        Special
-    }
-
     [Obsolete("Check ActionDataSO and RuntimeAction instead.")]
     public abstract class Action : CustomIconScriptableObject
     {

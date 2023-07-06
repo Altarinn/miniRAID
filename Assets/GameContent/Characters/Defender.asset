@@ -91,6 +91,7 @@ MonoBehaviour:
   subWeaponSO: {fileID: 0}
   listenerSOs:
   - {fileID: 11400000, guid: 5a5914c0e685d354f98510cec0417348, type: 2}
+  - {fileID: 11400000, guid: 3d81a9427e5722e44a2a27b96379ef06, type: 2}
   actionSOs:
   - {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
   - {fileID: 11400000, guid: 864aed35e40c4eb4298ef9498115c257, type: 2}
@@ -101,3 +102,4 @@ MonoBehaviour:
     INT: 7
     DEX: 6
     TEC: 13
+  healPriority: 1.4

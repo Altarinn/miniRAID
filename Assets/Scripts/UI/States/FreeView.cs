@@ -39,7 +39,13 @@ namespace miniRAID.UI
                 {
                     Globals.debugMessage.AddMessage($"{mobRenderer.name}已经行动完毕！");
                     Debug.Log($"Unit slept!");
+                    
+                    ui.EnterState(new UnitMenu(mobRenderer), true);
                 }
+            }
+            else
+            {
+                ui.EnterState(new UnitMenu(null), true);
             }
         }
 

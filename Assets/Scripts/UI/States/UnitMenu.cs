@@ -2,6 +2,7 @@
 using System.Collections;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using miniRAID.UIElements;
 
 namespace miniRAID.UI
@@ -23,16 +24,24 @@ namespace miniRAID.UI
 
         public UnitMenu(MobRenderer mobRenderer)
         {
-            stateStr = $"UnitMenu: {mobRenderer.name}";
+            stateStr = $"UnitMenu: {mobRenderer?.name}";
 
             currentUnit = mobRenderer;
             subState = MenuSubState.Root;
 
             keepCameraPosition = false;
 
-            if (currentUnit)
+            if (currentUnit != null)
             {
+                // MobData target = currentUnit.data?.lastTurnTarget;
+                // MobRenderer targetRenderer = target?.mobRenderer;
+                // if (targetRenderer != null)
+                // {
+                //     targetRenderer.GetComponentInChildren<SpriteRenderer>().color = Color.magenta;
+                // }
+                
                 currentUnit.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+
                 ui.ShowMainMobStats(currentUnit);
             }
         }
@@ -40,18 +49,26 @@ namespace miniRAID.UI
         public override void OnStateEnter()
         {
             base.OnStateEnter();
-            currentUnit.data.RecalculateStats();
 
-            switch(subState)
+            if (currentUnit != null)
             {
-                case MenuSubState.Root:
-                    PrepareTopMenu();
-                    break;
-                case MenuSubState.Action:
-                    PrepareSpellMenu();
-                    break;
-            }
+                currentUnit.data.RecalculateStats();
 
+                switch(subState)
+                {
+                    case MenuSubState.Root:
+                        PrepareTopMenu();
+                        break;
+                    case MenuSubState.Action:
+                        PrepareSpellMenu();
+                        break;
+                }
+            }
+            else
+            {
+                PrepareGeneralMenu();
+            }
+            
             //ui.uimenu_uicontainer.Show();
         }
 
@@ -61,19 +78,38 @@ namespace miniRAID.UI
             if (currentUnit)
             {
                 currentUnit.UpdateStatusColor();
-            }
+                //ui.uimenu_uicontainer.Clear();
+                ui.characterFocusVCam.Priority = 0; // Deactivate character camera
 
-            //ui.uimenu_uicontainer.Clear();
-            ui.characterFocusVCam.Priority = 0; // Deactivate character camera
-
-            // Set camera position to current place if keep position (used action)
-            if(keepCameraPosition)
-            {
-                ui.mainVCam.transform.position = ui.characterFocusVCam.transform.position;
-                keepCameraPosition = false;
+                // Set camera position to current place if keep position (used action)
+                if (keepCameraPosition)
+                {
+                    ui.mainVCam.transform.position = ui.characterFocusVCam.transform.position;
+                    keepCameraPosition = false;
+                }
+                
+                // MobData target = currentUnit.data?.lastTurnTarget;
+                // target?.mobRenderer?.UpdateStatusColor();
             }
+            
             ui.combatView.menu.ClearMenu();
             ui.HideMainMobStats();
+        }
+
+        private void PrepareGeneralMenu()
+        {
+            List<miniRAID.UIElements.UnitMenuController.UIMenuEntry> entries = new ();
+            entries.Add(new miniRAID.UIElements.UnitMenuController.UIMenuEntry
+            {
+                text = "EndTurn",
+                action = OnAutoAttackFinishingSelected(Consts.UnitGroup.Player),
+                onFinished = UIMenuPostAction(null),
+                toolTip = "各可行动单位用武器攻击其目标，然后结束回合。",
+                useDefaultToolTip = true,
+                keycode = "R"
+            });
+            
+            ui.combatView.menu.PrepareMenu(entries);
         }
 
         private void PrepareTopMenu()
@@ -94,34 +130,59 @@ namespace miniRAID.UI
 
             List<miniRAID.UIElements.UnitMenuController.UIMenuEntry> entries = new ();
 
-            //ui.uimenu_uicontainer.AddEntry("Action", () => { subState = MenuSubState.Action; PrepareSpellMenu(); }, "Show all avilable actions");
-            //bool first = true;
-            int currentKey = 1;
-            foreach (var action in currentUnit.data.availableActions)
+            if (currentUnit.data.isControllable)
             {
-                if (action.data.isActivelyUsed.Eval(currentUnit.data))
+                //ui.uimenu_uicontainer.AddEntry("Action", () => { subState = MenuSubState.Action; PrepareSpellMenu(); }, "Show all avilable actions");
+                //bool first = true;
+                int currentKey = 1;
+                foreach (var action in currentUnit.data.availableActions)
                 {
-                    //AddActionEntry(action, first);
-                    //first = false;
-                    entries.Add(miniRAID.UIElements.UnitMenuController.GetActionEntry(action, currentUnit, $"{currentKey}", null, UIMenuPostAction(currentUnit)));
-                    currentKey++;
+                    if (action.data.isActivelyUsed.Eval(currentUnit.data))
+                    {
+                        //AddActionEntry(action, first);
+                        //first = false;
+                        entries.Add(miniRAID.UIElements.UnitMenuController.GetActionEntry(action, currentUnit, $"{currentKey}", null, UIMenuPostAction(currentUnit)));
+                        currentKey++;
+                    }
                 }
             }
-
-            entries.Add(ui.combatView.menu.GetMobDetailsEntry(currentUnit, "I"));
             
-            //ui.uimenu_uicontainer.AddEntry("*DEBUG", () => { Globals.debugMessage.Instance.Message("Test"); });
-            //ui.uimenu_uicontainer.AddEntry("Pass", OnPassSelected());
-            entries.Add(new miniRAID.UIElements.UnitMenuController.UIMenuEntry
+            entries.Add(ui.combatView.menu.GetMobDetailsEntry(currentUnit, "I"));
+
+            if (currentUnit.data.isControllable)
             {
-                text = "Pass",
-                action = OnPassSelected(),
-                onFinished = null,
-                toolTip = "",
-                keycode = "R"
-            });
+                //ui.uimenu_uicontainer.AddEntry("*DEBUG", () => { Globals.debugMessage.Instance.Message("Test"); });
+                //ui.uimenu_uicontainer.AddEntry("Pass", OnPassSelected());
+                entries.Add(new miniRAID.UIElements.UnitMenuController.UIMenuEntry
+                {
+                    text = "Pass",
+                    action = OnPassSelected(),
+                    onFinished = null,
+                    toolTip = "",
+                    keycode = "R"
+                });
+            }
+
+            if (Consts.ApplyMask(Consts.EnemyMask(Consts.UnitGroup.Player), currentUnit.data.unitGroup))
+            {
+                entries.Add(new miniRAID.UIElements.UnitMenuController.UIMenuEntry
+                {
+                    text = "Aim",
+                    action = AimOnTarget(currentUnit.data),
+                    onFinished = null,
+                    toolTip = "令所有可以瞄准目标的单位瞄准目标。",
+                    useDefaultToolTip = true,
+                    keycode = "K"
+                });
+            }
 
             ui.combatView.menu.PrepareMenu(entries);
+        }
+
+        protected IEnumerator AimOnTarget(MobData mob)
+        {
+            Globals.backend.AimOnTarget(mob);
+            yield break;
         }
 
         private void PrepareSpellMenu()
@@ -185,6 +246,21 @@ namespace miniRAID.UI
             if(mobRenderer.data.isActive == false)
             {
                 yield return new JumpIn(OnPassSelected(false));
+            }
+        }
+
+        public IEnumerator OnAutoAttackFinishingSelected(Consts.UnitGroup group)
+        {
+            var mobs = Globals.backend.allMobs
+                .Where(x => x.unitGroup == group)
+                .OrderByDescending(x => x.DEX)
+                .ToList();
+            foreach (MobData mob in mobs)
+            {
+                if (mob.isControllable)
+                {
+                    yield return new JumpIn(mob.AutoAttackFinish());
+                }
             }
         }
 

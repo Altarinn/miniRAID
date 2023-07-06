@@ -30,14 +30,13 @@ namespace miniRAID.Agents
     public class AggroAgentBase : MobAgentBase
     {
         protected Dictionary<MobData, float> aggroList;
-        public new AggroAgentBaseSO data;
+        public AggroAgentBaseSO aggroAgentData => (AggroAgentBaseSO)data;
 
         public MobData currentTarget;
         public bool useAggro = true;
 
         public AggroAgentBase(MobData parent, AggroAgentBaseSO data) : base(parent, data)
         {
-            this.data = data;
         }
 
         public override void OnAttach(MobData mob)
@@ -206,7 +205,7 @@ namespace miniRAID.Agents
                         // Do we really need to re-calculate the path everytime?
                         // Will the map change during our action? could be possible though ...
                         // TODO: Cache the path in some way in case of performance problems
-                        GridPath path = Globals.backend.FindPathTo(mob.Position, Globals.backend.FindNearestEmptyGrid(target.Position, mob.gridBody), mob.movementType, data.eyesight);
+                        GridPath path = Globals.backend.FindPathTo(mob.Position, Globals.backend.FindNearestEmptyGrid(target.Position, mob.gridBody), mob.movementType, aggroAgentData.eyesight);
 
                         // The path needs to be at least 1 grids long
                         if (path.path.Count >= 2)

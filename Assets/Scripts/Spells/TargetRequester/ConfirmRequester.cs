@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using miniRAID.Spells;
 
 namespace miniRAID.UI.TargetRequester
 {
@@ -26,6 +27,11 @@ namespace miniRAID.UI.TargetRequester
             stage.map.Add(coord, this.type);
 
             return stage;
+        }
+
+        public override bool CheckTargets(MobData mob, SpellTarget target)
+        {
+            return target.targetPos.Count == 1 && target.targetPos[0] == mob.Position;
         }
 
         void Decided(Vector3Int coord)

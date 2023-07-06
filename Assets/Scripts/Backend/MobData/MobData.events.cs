@@ -37,6 +37,9 @@ namespace miniRAID
 
         // Used for agents, after the regular wakeup process
         public CoroutineEvent<MobData> OnAgentWakeUp;
+        
+        // Used for auto-attack agents
+        public CoroutineEvent<MobData> OnAutoAttackAgentWakeUp;
 
         // Emitted when the mob has entered a new turn ("PHASE" for this mob has started)
         public CoroutineEvent<MobData> OnNextTurn;
@@ -253,6 +256,16 @@ namespace miniRAID
             // Remove me from world
             Databackend.GetSingleton().ClearMob(Position, gridBody, this, true);
         }
+
+        public IEnumerator AutoAttackFinish()
+        {
+            if(!isControllable)
+                yield break;
+            
+            yield return new JumpIn(this.OnAutoAttackAgentWakeUp?.Invoke(this));
+            
+            RecalculateStats();
+        }
         
         /// <summary>
         /// Should be evaluated immediately. No time delay allowed.
@@ -296,7 +309,17 @@ namespace miniRAID
             for (int i = 0; i < actions.Count; i++)
             {
                 actions[i].RecalculateStats(this);
-                availableActions.Add(actions[i]);
+                if (actions[i] == mainWeapon?.GetRegularAttackSpell())
+                {
+                    if (!IsInGCD(GCDGroup.RegularAttack))
+                    {
+                        availableActions.Add(actions[i]);
+                    }
+                }
+                else
+                {
+                    availableActions.Add(actions[i]);
+                }
             }
             
             OnQueryActions?.Invoke(this, availableActions);

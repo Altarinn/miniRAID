@@ -141,7 +141,7 @@ namespace miniRAID
             foreach (T i in Enum.GetValues(typeof(T)))
             {
                 // Ugly ...
-                if (((int)(dynamic)(type) & (int)(dynamic)(i)) > 0)
+                if (((int)(object)(type) & (int)(object)(i)) > 0)
                 {
                     result.Add(i.ToString());
                 }

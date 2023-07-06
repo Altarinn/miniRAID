@@ -89,7 +89,8 @@ MonoBehaviour:
   moveStartCost: 0
   mainWeaponSO: {fileID: 11400000, guid: 26e73e74e653a0948987f703ed7230eb, type: 2}
   subWeaponSO: {fileID: 0}
-  listenerSOs: []
+  listenerSOs:
+  - {fileID: 11400000, guid: 3d81a9427e5722e44a2a27b96379ef06, type: 2}
   actionSOs:
   - {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
   - {fileID: 11400000, guid: 9384695fc8767e341b1eb5a16c10b320, type: 2}
@@ -100,3 +101,4 @@ MonoBehaviour:
     INT: 11
     DEX: 14
     TEC: 20
+  healPriority: 1

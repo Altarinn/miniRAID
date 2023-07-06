@@ -368,12 +368,18 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: targetPicker
+      Entry: 7
+      Data: 16|miniRAID.Weapon.SelfPicker, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: _
       Entry: 6
       Data: 
     - Name: explosionFx
       Entry: 7
-      Data: 16|miniRAID.ActionHelpers.SimpleExplosionFx, Assembly-CSharp
+      Data: 17|miniRAID.ActionHelpers.SimpleExplosionFx, Assembly-CSharp
     - Name: image
       Entry: 10
       Data: 0
@@ -391,7 +397,7 @@ MonoBehaviour:
       Data: 
     - Name: targetFilter
       Entry: 7
-      Data: 17|miniRAID.ActionHelpers.UnitFilters, Assembly-CSharp
+      Data: 18|miniRAID.ActionHelpers.UnitFilters, Assembly-CSharp
     - Name: toEnemy
       Entry: 5
       Data: true
@@ -403,7 +409,7 @@ MonoBehaviour:
       Data: 
     - Name: explosionDamage
       Entry: 7
-      Data: 18|miniRAID.ActionHelpers.SpellDamageHeal, Assembly-CSharp
+      Data: 19|miniRAID.ActionHelpers.SpellDamageHeal, Assembly-CSharp
     - Name: flags
       Entry: 3
       Data: 0
@@ -470,5 +476,5 @@ MonoBehaviour:
   ActionName: "\u54CD\u97F3\u653B\u51FB"
   maxLevel: 0
   Description: "\u53D1\u51FA\u5DE8\u5927\u7684\u58F0\u54CD\uFF0C\u4F24\u5BB34\u683C\u5185\u7684\u6240\u6709\u654C\u4EBA\u3002"
-  flags: 0
+  flags: 4
   explosionRange: 4

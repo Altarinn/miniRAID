@@ -287,13 +287,13 @@ MonoBehaviour:
       Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 8
+      Data: 4
     - Name: 
       Entry: 3
       Data: 0
     - Name: 
       Entry: 3
-      Data: 7
+      Data: 9
     - Name: 
       Entry: 8
       Data: 
@@ -374,12 +374,18 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: targetPicker
+      Entry: 7
+      Data: 16|miniRAID.Weapon.FollowLastTurnPicker, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: _
       Entry: 6
       Data: 
     - Name: projectile
       Entry: 7
-      Data: 16|miniRAID.ActionHelpers.Projectile, Assembly-CSharp
+      Data: 17|miniRAID.ActionHelpers.Projectile, Assembly-CSharp
     - Name: projectilePrefab
       Entry: 10
       Data: 0
@@ -400,7 +406,7 @@ MonoBehaviour:
       Data: 
     - Name: buff
       Entry: 7
-      Data: 17|miniRAID.ActionHelpers.SpellBuff, Assembly-CSharp
+      Data: 18|miniRAID.ActionHelpers.SpellBuff, Assembly-CSharp
     - Name: buff
       Entry: 10
       Data: 3
@@ -457,7 +463,7 @@ MonoBehaviour:
       Data: 
     - Name: damageOrHeal
       Entry: 7
-      Data: 18|miniRAID.ActionHelpers.SpellDamageHeal, Assembly-CSharp
+      Data: 19|miniRAID.ActionHelpers.SpellDamageHeal, Assembly-CSharp
     - Name: flags
       Entry: 3
       Data: 0
@@ -475,7 +481,7 @@ MonoBehaviour:
       Data: 0.333
     - Name: expression
       Entry: 7
-      Data: 19|miniRAID.LuaGetter`2[[System.Single, mscorlib],[System.Single, mscorlib]],
+      Data: 20|miniRAID.LuaGetter`2[[System.Single, mscorlib],[System.Single, mscorlib]],
         Assembly-CSharp
     - Name: type
       Entry: 3
@@ -509,7 +515,7 @@ MonoBehaviour:
       Data: 1
     - Name: expression
       Entry: 7
-      Data: 20|miniRAID.LuaGetter`2[[System.Single, mscorlib],[System.Single, mscorlib]],
+      Data: 21|miniRAID.LuaGetter`2[[System.Single, mscorlib],[System.Single, mscorlib]],
         Assembly-CSharp
     - Name: type
       Entry: 3
@@ -543,7 +549,7 @@ MonoBehaviour:
       Data: 1
     - Name: expression
       Entry: 7
-      Data: 21|miniRAID.LuaGetter`2[[System.Single, mscorlib],[System.Single, mscorlib]],
+      Data: 22|miniRAID.LuaGetter`2[[System.Single, mscorlib],[System.Single, mscorlib]],
         Assembly-CSharp
     - Name: type
       Entry: 3

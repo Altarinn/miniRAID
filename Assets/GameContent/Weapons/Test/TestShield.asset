@@ -187,6 +187,12 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: targetPicker
+      Entry: 7
+      Data: 7|miniRAID.Weapon.FollowLastTurnPicker, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
   Guid: 3810749a6eaa4929806061bb9b51d48e
   Id: 104
   icon: {fileID: -6081534058458320081, guid: 7fe9a382566f75a429badd968a5161fa, type: 3}

@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c36ca183-e7eb-40c1-9aca-56cfe58c3f4d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.miniRAID-HD2D/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.miniRAID-HD2D/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Enemies/SlimeKingAgent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Enemies/SlimeKingAgent.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Config/Editor/AOTGenerationConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Config/Editor/AOTGenerationConfig.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -140,7 +139,7 @@
       <workItem from="1686954359914" duration="13204000" />
       <workItem from="1686988439773" duration="14170000" />
       <workItem from="1687156477875" duration="26964000" />
-      <workItem from="1688630630546" duration="19628000" />
+      <workItem from="1688630630546" duration="24073000" />
     </task>
     <servers />
   </component>

@@ -92,8 +92,10 @@ MonoBehaviour:
   listenerSOs:
   - {fileID: 11400000, guid: 5a5914c0e685d354f98510cec0417348, type: 2}
   actionSOs:
-  - {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
-  - {fileID: 11400000, guid: 864aed35e40c4eb4298ef9498115c257, type: 2}
+  - data: {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
+    level: 0
+  - data: {fileID: 0}
+    level: 0
   baseStats:
     VIT: 18
     STR: 18

@@ -13,7 +13,7 @@ namespace GameContent.Buffs.Test
     public class SkillOnHealthPercentageDamage : BuffSO
     {
         public float healthRatio = 0.1f;
-        public ActionDataSO skill;
+        public ActionSOEntry skill;
 
         public override MobListener Wrap(MobData parent)
         {
@@ -26,7 +26,7 @@ namespace GameContent.Buffs.Test
         private float damageTotal = 0;
         private float healthRatio;
         
-        private ActionDataSO skillData;
+        private ActionSOEntry skillData;
         private RuntimeAction runtimeSkill;
 
         public override string name

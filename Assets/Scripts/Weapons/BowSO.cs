@@ -12,7 +12,7 @@ namespace miniRAID.Weapon
             wpType = WeaponType.Bow;
         }
 
-        public ActionDataSO aimedAttack;
+        public ActionSOEntry aimedAttack;
 
         public override MobListener Wrap(MobData parent)
         {
@@ -61,7 +61,7 @@ namespace miniRAID.Weapon
             base.OnQueryActions(mob, actions);
             if(moved == true)
             {
-                actions.RemoveWhere(x => x.data == bowData.aimedAttack);
+                actions.RemoveWhere(x => x.data == bowData.aimedAttack.data);
             }
         }
 

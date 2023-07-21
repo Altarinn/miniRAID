@@ -203,6 +203,8 @@ MonoBehaviour:
     DEX: 0
     TEC: 0
   wpType: 6
-  regularAttack: {fileID: 11400000, guid: 89ffd930e8b71c94aab4df716491fa52, type: 2}
+  regularAttack:
+    data: {fileID: 11400000, guid: 89ffd930e8b71c94aab4df716491fa52, type: 2}
+    level: 0
   mainElement: 1
   buff: {fileID: 11400000, guid: 52ccc5b55c2d75e44ad28f4431137067, type: 2}

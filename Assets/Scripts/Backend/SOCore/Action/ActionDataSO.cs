@@ -235,6 +235,13 @@ namespace miniRAID
         //}
     }
 
+    [System.Serializable]
+    public struct ActionSOEntry
+    {
+        public ActionDataSO data;
+        public int level;
+    }
+
     [LuaCallCSharp]
     public class RuntimeAction : MobListener
     {
@@ -265,9 +272,10 @@ namespace miniRAID
 
         string paddedLuaExpr;
 
-        public RuntimeAction(MobData source, ActionDataSO data) : base(source, null)
+        public RuntimeAction(MobData source, ActionDataSO data, int level) : base(source, null)
         {
             this.data = data;
+            this.level = level;
         }
 
         public void SetData(ActionDataSO data)

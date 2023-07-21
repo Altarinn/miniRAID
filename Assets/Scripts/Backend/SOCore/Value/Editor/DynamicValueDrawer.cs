@@ -490,6 +490,30 @@ namespace miniRAID.Editor
             }
         }
     }
+    
+    public class ActionSOEntryDrawer : OdinValueDrawer<ActionSOEntry>
+    {
+        protected override void DrawPropertyLayout(GUIContent label)
+        {
+            EditorGUILayout.BeginHorizontal();
+            
+            // Handle null values
+            ActionSOEntry value = ValueEntry.SmartValue;
+            var pD = Property.FindChild(x => x.Name == "data", false);
+            var pL = Property.FindChild(x => x.Name == "level", false);
+
+            pD.Draw(label);
+            value.level = SirenixEditorFields.IntField((string)null, value.level + 1, GUILayoutOptions.MaxWidth(35)) - 1;
+            
+            if(value.level != ValueEntry.SmartValue.level)
+            {
+                Property.RecordForUndo();
+                ValueEntry.SmartValue = value;
+            }
+            
+            EditorGUILayout.EndHorizontal();
+        }
+    }
 
     [DrawerPriority(super: 0.1)]
     public class NoneAsSpacerDrawer : OdinValueDrawer<None>

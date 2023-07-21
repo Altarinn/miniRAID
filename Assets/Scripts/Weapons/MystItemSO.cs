@@ -12,7 +12,7 @@ namespace miniRAID.Weapon
             wpType = WeaponType.MystItem;
         }
 
-        public ActionDataSO specialAttack;
+        public ActionSOEntry specialAttack;
         public int energyCount, energyMax;
 
         public override MobListener Wrap(MobData parent)
@@ -61,7 +61,7 @@ namespace miniRAID.Weapon
             base.OnQueryActions(mob, actions);
             if (currentEnergy < mystData.energyCount)
             {
-                actions.RemoveWhere(x => x.data == mystData.specialAttack);
+                actions.RemoveWhere(x => x.data == mystData.specialAttack.data);
             }
         }
 

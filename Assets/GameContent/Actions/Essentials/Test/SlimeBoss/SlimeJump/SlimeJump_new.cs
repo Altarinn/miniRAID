@@ -15,7 +15,7 @@ namespace miniRAID
     public class SlimeJump_new : ActionDataSO
     {
         public CreateGridEffect poisonPool;
-        public ActionDataSO skillJumpOnPool;
+        public ActionSOEntry skillJumpOnPool;
 
         private bool CheckGridHasPoisonPool(GridData grid)
         {

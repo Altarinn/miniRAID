@@ -160,5 +160,7 @@ MonoBehaviour:
     DEX: 0
     TEC: 0
   wpType: 0
-  regularAttack: {fileID: 11400000, guid: e06771442c6e8db459e29b1d6d0072f5, type: 2}
+  regularAttack:
+    data: {fileID: 11400000, guid: e06771442c6e8db459e29b1d6d0072f5, type: 2}
+    level: 0
   mainElement: 6

@@ -203,6 +203,10 @@ MonoBehaviour:
     DEX: 0
     TEC: 0
   wpType: 4
-  regularAttack: {fileID: 11400000, guid: 4166a53a4453f430ca196f49625fb519, type: 2}
+  regularAttack:
+    data: {fileID: 11400000, guid: 4166a53a4453f430ca196f49625fb519, type: 2}
+    level: 0
   mainElement: 0
-  defenseAction: {fileID: 11400000, guid: ad58b49a71ce3fb4dabe4d935b7437a0, type: 2}
+  defenseAction:
+    data: {fileID: 11400000, guid: ad58b49a71ce3fb4dabe4d935b7437a0, type: 2}
+    level: 0

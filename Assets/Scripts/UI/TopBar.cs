@@ -17,9 +17,9 @@ public class TopBar : MonoBehaviour
     //}
 
     public TMPro.TextMeshProUGUI title;
-    public SubActionBar defBar, atkBar;
+    public miniRAID.UI.SubActionBar defBar, atkBar;
 
-    public void SetAction(ActionEntry entry)
+    public void SetAction(miniRAID.UI.ActionEntry entry)
     {
         title.text = entry.name;
     }

@@ -9,10 +9,15 @@ namespace miniRAID
     {
         #region Manipulating actions
         
-        public RuntimeAction AddAction(ActionDataSO actSO)
+        public RuntimeAction AddAction(ActionSOEntry actSO)
         {
-            var ract = new RuntimeAction(this, actSO);
-            ract.SetData(actSO);
+            if (actSO.data == null)
+            {
+                Debug.LogError("Action to be added has null data. Action ignored.");
+                return null;
+            }
+            var ract = new RuntimeAction(this, actSO.data, actSO.level);
+            ract.SetData(actSO.data);
             actions.Add(ract);
             AddListener(ract);
 
@@ -167,12 +172,24 @@ namespace miniRAID
         }
 
         public IEnumerator DoAction(
-            ActionDataSO actionSO,
+            ActionSOEntry actionEntry,
             Spells.SpellTarget target,
             List<Cost> costs = null)
         {
-            var ra = GetAction(actionSO) ?? AddAction(actionSO);
+            var ra = GetAction(actionEntry.data) ?? AddAction(actionEntry);
+            int tempLevel = -99;
+            if (ra.level != actionEntry.level)
+            {
+                tempLevel = ra.level;
+                ra.level = actionEntry.level;
+            }
+            
             yield return new JumpIn(DoAction(ra, target, costs));
+            
+            if(tempLevel != -99)
+            {
+                ra.level = tempLevel;
+            }
         }
         
         public IEnumerator DoAction(

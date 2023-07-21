@@ -26,7 +26,7 @@ namespace miniRAID.Weapon
         [Title("Weapon", "", TitleAlignments.Centered)]
         public WeaponType wpType;
 
-        public ActionDataSO regularAttack;
+        public ActionSOEntry regularAttack;
         public Consts.Elements mainElement;
 
         public WeaponSO()
@@ -46,9 +46,9 @@ namespace miniRAID.Weapon
         {
             var copied = base.Clone();
 
-            if (regularAttack != null)
+            if (regularAttack.data != null)
             {
-                (copied as WeaponSO).regularAttack = Instantiate(regularAttack);
+                (copied as WeaponSO).regularAttack = new ActionSOEntry() { data = Instantiate(regularAttack.data), level = regularAttack.level };
             }
 
             return copied;

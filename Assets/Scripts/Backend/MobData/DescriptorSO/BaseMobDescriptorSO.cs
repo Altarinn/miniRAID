@@ -43,7 +43,7 @@ namespace miniRAID
         public List<MobListenerSO> listenerSOs = new List<MobListenerSO>();
         
         [Header("Available actions")]
-        public ActionDataSO[] actionSOs;
+        public ActionSOEntry[] actionSOs;
 
         public virtual void InitializeMobData(MobData mob)
         {
@@ -67,9 +67,15 @@ namespace miniRAID
             // Compute some basic stats for later listeners
             mob.RecalculateStats();
 
-            foreach (var aso in actionSOs)
+            if (actionSOs != null)
             {
-                mob.AddAction(aso);
+                foreach (var aso in actionSOs)
+                {
+                    if (aso.data != null)
+                    {
+                        mob.AddAction(aso);
+                    }
+                }
             }
 
             // Duplicate my spells / weapons

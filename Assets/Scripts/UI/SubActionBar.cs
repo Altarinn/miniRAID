@@ -2,39 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct ActionEntry
+namespace miniRAID.UI
 {
-    public string name;
-}
-
-public class SubActionBar : MonoBehaviour
-{
-    public TMPro.TextMeshProUGUI textPrefab;
-
-    //// Start is called before the first frame update
-    //void Start()
-    //{
-        
-    //}
-
-    //// Update is called once per frame
-    //void Update()
-    //{
-        
-    //}
-
-    public void AppendEntry(ActionEntry entry)
+    public struct ActionEntry
     {
-        Instantiate(textPrefab.gameObject, this.transform).GetComponent<TMPro.TextMeshProUGUI>().text = entry.name;
+        public string name;
     }
 
-    public void Clear()
+    public class SubActionBar : MonoBehaviour
     {
-        foreach (Transform child in transform)
+        public TMPro.TextMeshProUGUI textPrefab;
+
+        //// Start is called before the first frame update
+        //void Start()
+        //{
+
+        //}
+
+        //// Update is called once per frame
+        //void Update()
+        //{
+
+        //}
+
+        public void AppendEntry(ActionEntry entry)
         {
-            if(child.gameObject.name != "Title")
+            Instantiate(textPrefab.gameObject, this.transform).GetComponent<TMPro.TextMeshProUGUI>().text = entry.name;
+        }
+
+        public void Clear()
+        {
+            foreach (Transform child in transform)
             {
-                Destroy(child.gameObject);
+                if (child.gameObject.name != "Title")
+                {
+                    Destroy(child.gameObject);
+                }
             }
         }
     }

@@ -10,7 +10,7 @@ namespace miniRAID.Weapon
             wpType = WeaponType.Shield;
         }
 
-        public ActionDataSO defenseAction;
+        public ActionSOEntry defenseAction;
 
         public override MobListener Wrap(MobData parent)
         {
@@ -32,7 +32,7 @@ namespace miniRAID.Weapon
 
         public override string GetInformationString()
         {
-            return $"{shieldData.defenseAction.ActionName}";
+            return $"{shieldData.defenseAction.data.ActionName}";
         }
     }
 }

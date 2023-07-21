@@ -34,7 +34,7 @@ MonoBehaviour:
       Data: miniRAID.LeveledStats`1[[System.Single, mscorlib]], Assembly-CSharp
     - Name: isLeveled
       Entry: 5
-      Data: false
+      Data: true
     - Name: values
       Entry: 7
       Data: 1|System.Single[], mscorlib
@@ -46,16 +46,16 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 4
-      Data: 1
+      Data: 1.5
     - Name: 
       Entry: 4
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 4
-      Data: 1
+      Data: 2.5
     - Name: 
       Entry: 4
-      Data: 1
+      Data: 3
     - Name: 
       Entry: 13
       Data: 

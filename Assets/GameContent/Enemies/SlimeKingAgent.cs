@@ -18,7 +18,7 @@ namespace miniRAID.Agents
 
             [HorizontalGroup]
             [HideLabel]
-            public ActionDataSO action;
+            public ActionSOEntry action;
         }
 
         public List<TurnSchedule> schedule;
@@ -33,18 +33,23 @@ namespace miniRAID.Agents
             TurnSchedule todo = schedule[(turn - 1) % schedule.Count];
 
             RuntimeAction ract = null;
-            if (todo.action != null)
+            if (todo.action.data != null)
             {
-                ract = mob.GetAction(todo.action);
+                ract = mob.GetAction(todo.action.data);
                 if (ract == null)
                 {
-                    Debug.LogWarning($"Specified action {todo.action.name} in schedule has not been added to the mob {mob.nickname}. Adding it automatically.");
+                    Debug.LogWarning($"Specified action {todo.action.data.name} in schedule has not been added to the mob {mob.nickname}. Adding it automatically.");
                     ract = mob.AddAction(todo.action);
 
                     if (ract == null)
                     {
-                        Debug.LogError($"Cannot add {todo.action.name} to mob {mob.nickname}. Action skipped.");
+                        Debug.LogError($"Cannot add {todo.action.data.name} to mob {mob.nickname}. Action skipped.");
                     }
+                }
+
+                if (ract.level != todo.action.level)
+                {
+                    Debug.LogError($"Action {todo.action.data.name}: level in schedule does not match the level of the action in the mob.");
                 }
             }
             
@@ -76,8 +81,8 @@ namespace miniRAID.Agents
 
             string result = "";
 
-            if(schedule[nextTurn].action != null) 
-            { result += $"{schedule[nextTurn].action.ActionName}\n"; }
+            if(schedule[nextTurn].action.data != null) 
+            { result += $"{schedule[nextTurn].action.data.ActionName}\n"; }
 
             if(schedule[nextTurn].doRegularAttack)
             { result += "Regular Attack\n"; }

@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using miniRAID.Spells;
+using miniRAID.UI.TargetRequester;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -112,6 +114,20 @@ namespace miniRAID.Weapon
         public virtual RuntimeAction GetRegularAttackSpell()
         {
             return RregularAttack;
+        }
+
+        public SpellTarget QueryTarget(MobData source)
+        {
+            RuntimeAction action = GetRegularAttackSpell();
+            ActionTargetPickerBase picker = action?.data?.targetPicker;
+            
+            if (picker == null)
+            {
+                Debug.LogError($"{weaponData.name} : {action?.data.ActionName} has no target picker!");
+                return null;
+            }
+            
+            return picker.Pick(source, action);
         }
     }
 }

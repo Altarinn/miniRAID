@@ -80,7 +80,11 @@ namespace miniRAID.UI.TargetRequester
         {
             foreach (var pos in target.targetPos)
             {
-                if(Globals.backend.Distance(mob.Position, pos) > range)
+                if(
+                    Globals.backend.Distance(mob.Position, pos) > range ||
+                    Globals.backend.GetMap(pos).mob == null ||
+                    (!toEnemies && Consts.ApplyMask(Consts.EnemyMask(mob.unitGroup), Globals.backend.GetMap(pos).mob.unitGroup)) ||
+                    (!toAllies && Consts.ApplyMask(Consts.AllyMask(mob.unitGroup), Globals.backend.GetMap(pos).mob.unitGroup)))
                 {
                     return false;
                 }

@@ -111,6 +111,15 @@ namespace miniRAID
 
         public IEnumerator ActionDone(RuntimeAction raction, Spells.SpellTarget target)
         {
+            if (raction == mainWeapon.GetRegularAttackSpell())
+            {
+                MobData targetMob = Globals.backend.GetMap(target.targetPos[0])?.mob;
+                if (targetMob != null)
+                    lastTurnTarget = targetMob;
+                
+                // this.SetGCD(GCDGroup.RegularAttack);
+            }
+            
             yield return new JumpIn(OnActionPostcast?.Invoke(this, raction, target));
 
             RecalculateStats();

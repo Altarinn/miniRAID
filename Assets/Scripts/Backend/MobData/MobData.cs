@@ -12,6 +12,14 @@ using XLua;
 
 namespace miniRAID
 {
+    public enum GCDGroup
+    {
+        None,
+        Common,
+        RegularAttack,
+        Special
+    }
+    
     /// <summary>
     /// MobData is more like a struct that just hold data and have some utility functions.
     /// Unlike "PhaserPlayground", events are all handled in Mob.
@@ -83,7 +91,7 @@ namespace miniRAID
         public dNumber extraRange;
 
         public dNumber aggroMul = (dNumber)1.0f;
-        //public float healPriority = 1.0f;
+        public float healPriority = 1.0f;
 
         public HashSet<GCDGroup> GCDstatus;
 
@@ -124,6 +132,8 @@ namespace miniRAID
         public List<RuntimeAction> actions = new List<RuntimeAction>();
         [Tooltip("Runtime action objects; the available actions to the mob now.")]
         public HashSet<RuntimeAction> availableActions = new HashSet<RuntimeAction>();
+
+        public MobData lastTurnTarget = null;
 
         //[HideInInspector]
         [NonSerialized]

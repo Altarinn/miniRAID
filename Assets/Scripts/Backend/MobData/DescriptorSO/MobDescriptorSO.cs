@@ -11,6 +11,8 @@ namespace miniRAID
         [FormerlySerializedAs("baseStatsFundamental")] [PropertyOrder(-1)]
         public Consts.BaseStatsInt baseStats;
 
+        public float healPriority;
+
         public override void RecalculateMobBaseStats(MobData mob)
         {
             mob.baseStats.VIT = dNumber.CreateComposite(baseStats.VIT, "mobbase");
@@ -45,6 +47,8 @@ namespace miniRAID
             mob.antiCrit = dNumber.CreateComposite(mob.DEX, "mobbase");
 
             mob.aggroMul = dNumber.CreateComposite(1.0, "mobbase");
+
+            mob.healPriority = healPriority;
         }
     }
 }

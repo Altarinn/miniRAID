@@ -20,7 +20,7 @@ namespace miniRAID.Agents
 
     public abstract class MobAgentBase : MobListener
     {
-        public new MobAgentBaseSO data;
+        public MobAgentBaseSO agentData => (MobAgentBaseSO)data;
 
         public MobAgentBase(MobData parent, MobAgentBaseSO data) : base(parent, data)
         {
@@ -37,6 +37,13 @@ namespace miniRAID.Agents
             base.OnAttach(mob);
 
             mob.OnAgentWakeUp += OnAgentWakeUp;
+        }
+
+        public override void OnRemove(MobData mob)
+        {
+            base.OnRemove(mob);
+
+            mob.OnAgentWakeUp -= OnAgentWakeUp;
         }
 
         protected abstract IEnumerator OnAgentWakeUp(MobData mob);

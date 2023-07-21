@@ -473,6 +473,9 @@ namespace miniRAID
             return lvl * 2 + VIT * 4;
         }
 
+        public static float HealerSelfFocusThresholdHPPercentage = 0.4f;
+        public static float HealerSelfFocusPriorityBoost = 1.5f;
+
         public enum UnitGroup
         {
             Player = 0,
@@ -1050,6 +1053,20 @@ namespace miniRAID
             
             // TODO
             allStates.Add(state);
+        }
+
+        public void AimOnTarget(MobData targetMob)
+        {
+            // TODO: Enemy?
+            var mobs = Globals.backend.allMobs.Where(x => x.unitGroup == Consts.UnitGroup.Player);
+            SpellTarget target = new SpellTarget(targetMob.Position);
+            foreach (MobData mob in mobs)
+            {
+                if (mob.mainWeapon?.GetRegularAttackSpell()?.data.CheckWithTargets(mob, target) ?? false)
+                {
+                    mob.lastTurnTarget = targetMob;
+                }
+            }
         }
 
         #endregion

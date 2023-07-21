@@ -215,14 +215,14 @@ MonoBehaviour:
       Data: 
     - Name: currentStageCompleted
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: query_stack
       Entry: 7
       Data: 9|System.Collections.Generic.Stack`1[[miniRAID.UI.TargetRequester.RequestStage,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 7
       Data: 10|miniRAID.UI.TargetRequester.RequestStage, Assembly-CSharp
@@ -239,7 +239,31 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 4
+    - Name: 
+      Entry: 3
       Data: 0
+    - Name: 
+      Entry: 3
+      Data: 9
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: $v
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -269,6 +293,9 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
+      Entry: 6
+      Data: 
+    - Name: 
       Entry: 13
       Data: 
     - Name: 
@@ -280,7 +307,22 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 4
+    - Name: 
+      Entry: 3
       Data: 0
+    - Name: 
+      Entry: 3
+      Data: 9
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -311,12 +353,18 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: targetPicker
+      Entry: 7
+      Data: 15|miniRAID.Weapon.FollowLastTurnPicker, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: _
       Entry: 6
       Data: 
     - Name: projectile
       Entry: 7
-      Data: 15|miniRAID.ActionHelpers.Projectile, Assembly-CSharp
+      Data: 16|miniRAID.ActionHelpers.Projectile, Assembly-CSharp
     - Name: projectilePrefab
       Entry: 10
       Data: 0
@@ -340,7 +388,7 @@ MonoBehaviour:
       Data: 
     - Name: damageOrHeal
       Entry: 7
-      Data: 16|miniRAID.ActionHelpers.SpellDamageHeal, Assembly-CSharp
+      Data: 17|miniRAID.ActionHelpers.SpellDamageHeal, Assembly-CSharp
     - Name: flags
       Entry: 3
       Data: 0
@@ -348,40 +396,6 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: power
-      Entry: 7
-      Data: miniRAID.ActionHelpers.FloatModifier, Assembly-CSharp
-    - Name: type
-      Entry: 3
-      Data: 0
-    - Name: value
-      Entry: 4
-      Data: 1
-    - Name: expression
-      Entry: 7
-      Data: 17|miniRAID.LuaGetter`2[[System.Single, mscorlib],[System.Single, mscorlib]],
-        Assembly-CSharp
-    - Name: type
-      Entry: 3
-      Data: 0
-    - Name: staticOut
-      Entry: 4
-      Data: 0
-    - Name: LuaExpr
-      Entry: 6
-      Data: 
-    - Name: description
-      Entry: 6
-      Data: 
-    - Name: getterTemplate
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: crit
       Entry: 7
       Data: miniRAID.ActionHelpers.FloatModifier, Assembly-CSharp
     - Name: type
@@ -415,7 +429,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: hit
+    - Name: crit
       Entry: 7
       Data: miniRAID.ActionHelpers.FloatModifier, Assembly-CSharp
     - Name: type
@@ -427,6 +441,40 @@ MonoBehaviour:
     - Name: expression
       Entry: 7
       Data: 19|miniRAID.LuaGetter`2[[System.Single, mscorlib],[System.Single, mscorlib]],
+        Assembly-CSharp
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: staticOut
+      Entry: 4
+      Data: 0
+    - Name: LuaExpr
+      Entry: 6
+      Data: 
+    - Name: description
+      Entry: 6
+      Data: 
+    - Name: getterTemplate
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: hit
+      Entry: 7
+      Data: miniRAID.ActionHelpers.FloatModifier, Assembly-CSharp
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: value
+      Entry: 4
+      Data: 1
+    - Name: expression
+      Entry: 7
+      Data: 20|miniRAID.LuaGetter`2[[System.Single, mscorlib],[System.Single, mscorlib]],
         Assembly-CSharp
     - Name: type
       Entry: 3

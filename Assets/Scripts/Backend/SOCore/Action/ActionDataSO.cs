@@ -6,6 +6,7 @@ using XLua;
 
 using Sirenix.OdinInspector;
 using System.Linq;
+using miniRAID.Weapon;
 using UnityEngine.Serialization;
 
 #if UNITY_EDITOR
@@ -153,6 +154,7 @@ namespace miniRAID
         [Title("Requester & Validation", horizontalLine: true, bold: true)]
         [Sirenix.OdinInspector.TypeFilter("GetRequesterTypes")]
         public UI.TargetRequester.TargetRequesterBase Requester;
+        public ActionTargetPickerBase targetPicker;
 
         public virtual bool CheckCosts(MobRenderer mobRenderer, RuntimeAction ract)
         {

@@ -16,15 +16,15 @@ MonoBehaviour:
   deleteDllAfterBuilds: 1
   AutomateForAllAOTPlatforms: 1
   automateForPlatforms: 0900000014000000
-  lastScan: 638222748063638676
+  lastScan: 638242903653150803
   supportSerializedTypes:
+  - TypeName: miniRAID.Weapon.ActionTargetPickerBase, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
   - TypeName: miniRAID.UI.TargetRequester.BasicUnitsRequester, Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: System.Boolean, mscorlib
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.Buff.Buff, Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.Buff.BuffSO, Assembly-CSharp
@@ -40,9 +40,6 @@ MonoBehaviour:
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.Consts+Elements, Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.Cost, Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.Cost+Type, Assembly-CSharp
@@ -82,16 +79,23 @@ MonoBehaviour:
   - TypeName: System.Single, mscorlib
     IsCustom: 0
     Emit: 1
+  - TypeName: System.Single[], mscorlib
+    IsCustom: 0
+    Emit: 1
   - TypeName: miniRAID.ActionHelpers.FloatModifier, Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.ActionHelpers.FloatModifierType, Assembly-CSharp
     IsCustom: 0
     Emit: 1
-  - TypeName: UnityEngine.GameObject, UnityEngine.CoreModule
+  - TypeName: miniRAID.Weapon.FollowLastTurnPicker, Assembly-CSharp
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.GeneralCombatData, Assembly-CSharp
+  - TypeName: System.Func`2[[miniRAID.MobData, Assembly-CSharp],[System.Single, mscorlib]],
+      mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: UnityEngine.GameObject, UnityEngine.CoreModule
     IsCustom: 0
     Emit: 1
   - TypeName: System.Collections.Generic.GenericEqualityComparer`1[[UnityEngine.Vector3Int,
@@ -110,15 +114,11 @@ MonoBehaviour:
   - TypeName: miniRAID.GridShape+Direction, Assembly-CSharp
     IsCustom: 0
     Emit: 1
-  - TypeName: System.Collections.Generic.HashSet`1[[miniRAID.RuntimeAction, Assembly-CSharp]],
-      System.Core
-    IsCustom: 0
-    Emit: 1
   - TypeName: System.Collections.Generic.HashSet`1[[UnityEngine.Vector3Int, UnityEngine.CoreModule]],
       System.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: System.Collections.IEnumerator, mscorlib
+  - TypeName: miniRAID.Weapon.HealerPicker, Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: System.Collections.Generic.IEqualityComparer`1[[miniRAID.Cost+Type,
@@ -136,6 +136,9 @@ MonoBehaviour:
   - TypeName: System.Int32, mscorlib
     IsCustom: 0
     Emit: 1
+  - TypeName: miniRAID.LeveledStats`1[[System.Single, mscorlib]], Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
   - TypeName: System.Collections.Generic.List`1[[miniRAID.Buff.BuffSO+BuffDHOTDef,
       Assembly-CSharp]], mscorlib
     IsCustom: 0
@@ -146,11 +149,6 @@ MonoBehaviour:
   - TypeName: miniRAID.LuaBoundedGetter`3[[System.ValueTuple`2[[miniRAID.MobData,
       Assembly-CSharp],[miniRAID.Spells.SpellTarget, Assembly-CSharp]], mscorlib],[miniRAID.MobData,
       Assembly-CSharp],[System.Double, mscorlib]], Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaFunc`2[[System.ValueTuple`3[[miniRAID.GeneralCombatData,
-      Assembly-CSharp],[miniRAID.MobRenderer, Assembly-CSharp],[miniRAID.Spells.SpellTarget,
-      Assembly-CSharp]], mscorlib],[System.Collections.IEnumerator, mscorlib]], Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.LuaGetter`2[[System.Single, mscorlib],[System.Single, mscorlib]],
@@ -177,81 +175,17 @@ MonoBehaviour:
       mscorlib]], Assembly-CSharp
     IsCustom: 0
     Emit: 1
+  - TypeName: miniRAID.LuaGetter`2+LuaGetterType[[miniRAID.MobData, Assembly-CSharp],[System.Double,
+      mscorlib]], Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
   - TypeName: miniRAID.LuaGetter`2+LuaGetterType[[miniRAID.MobData, Assembly-CSharp],[System.Single,
       mscorlib]], Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetter`2+LuaGetterType[[System.ValueTuple`4[[miniRAID.Buff.Buff,
-      Assembly-CSharp],[miniRAID.Cost, Assembly-CSharp],[miniRAID.RuntimeAction,
-      Assembly-CSharp],[miniRAID.MobData, Assembly-CSharp]], mscorlib],[System.Collections.IEnumerator,
-      mscorlib]], Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetter`2+LuaGetterType[[System.ValueTuple`4[[miniRAID.Buff.Buff,
-      Assembly-CSharp],[miniRAID.Cost, Assembly-CSharp],[miniRAID.RuntimeAction,
-      Assembly-CSharp],[miniRAID.MobData, Assembly-CSharp]], mscorlib],[miniRAID.None,
-      Assembly-CSharp]], Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetter`2+LuaGetterType[[System.ValueTuple`3[[miniRAID.Buff.Buff,
-      Assembly-CSharp],[miniRAID.MobData, Assembly-CSharp],[System.Collections.Generic.HashSet`1[[miniRAID.RuntimeAction,
-      Assembly-CSharp]], System.Core]], mscorlib],[miniRAID.None, Assembly-CSharp]],
-      Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetter`2+LuaGetterType[[System.ValueTuple`4[[miniRAID.Buff.Buff,
-      Assembly-CSharp],[miniRAID.MobData, Assembly-CSharp],[miniRAID.RuntimeAction,
-      Assembly-CSharp],[miniRAID.Spells.SpellTarget, Assembly-CSharp]], mscorlib],[System.Collections.IEnumerator,
-      mscorlib]], Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetter`2+LuaGetterType[[System.ValueTuple`2[[miniRAID.Buff.Buff,
-      Assembly-CSharp],[miniRAID.MobData, Assembly-CSharp]], mscorlib],[System.Collections.IEnumerator,
-      mscorlib]], Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetter`2+LuaGetterType[[System.ValueTuple`2[[miniRAID.Buff.Buff,
-      Assembly-CSharp],[miniRAID.MobData, Assembly-CSharp]], mscorlib],[miniRAID.None,
-      Assembly-CSharp]], Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetter`2+LuaGetterType[[System.ValueTuple`3[[miniRAID.GeneralCombatData,
-      Assembly-CSharp],[miniRAID.MobRenderer, Assembly-CSharp],[miniRAID.Spells.SpellTarget,
-      Assembly-CSharp]], mscorlib],[System.Collections.IEnumerator, mscorlib]], Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.LuaGetter`2+LuaGetterType[[System.ValueTuple`2[[miniRAID.MobData,
       Assembly-CSharp],[miniRAID.Spells.SpellTarget, Assembly-CSharp]], mscorlib],[System.Double,
       mscorlib]], Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetter`2[[System.ValueTuple`4[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.Cost,
-      Assembly-CSharp],[miniRAID.RuntimeAction, Assembly-CSharp],[miniRAID.MobData,
-      Assembly-CSharp]], mscorlib],[System.Collections.IEnumerator, mscorlib]], Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetter`2[[System.ValueTuple`4[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.Cost,
-      Assembly-CSharp],[miniRAID.RuntimeAction, Assembly-CSharp],[miniRAID.MobData,
-      Assembly-CSharp]], mscorlib],[miniRAID.None, Assembly-CSharp]], Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetter`2[[System.ValueTuple`3[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.MobData,
-      Assembly-CSharp],[System.Collections.Generic.HashSet`1[[miniRAID.RuntimeAction,
-      Assembly-CSharp]], System.Core]], mscorlib],[miniRAID.None, Assembly-CSharp]],
-      Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetter`2[[System.ValueTuple`4[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.MobData,
-      Assembly-CSharp],[miniRAID.RuntimeAction, Assembly-CSharp],[miniRAID.Spells.SpellTarget,
-      Assembly-CSharp]], mscorlib],[System.Collections.IEnumerator, mscorlib]], Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetter`2[[System.ValueTuple`2[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.MobData,
-      Assembly-CSharp]], mscorlib],[System.Collections.IEnumerator, mscorlib]], Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetter`2[[System.ValueTuple`2[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.MobData,
-      Assembly-CSharp]], mscorlib],[miniRAID.None, Assembly-CSharp]], Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.LuaGetterTemplate`2[[System.Single, mscorlib],[System.Single,
@@ -262,47 +196,12 @@ MonoBehaviour:
       mscorlib]], Assembly-CSharp
     IsCustom: 0
     Emit: 1
+  - TypeName: miniRAID.LuaGetterTemplate`2[[miniRAID.MobData, Assembly-CSharp],[System.Double,
+      mscorlib]], Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
   - TypeName: miniRAID.LuaGetterTemplate`2[[miniRAID.MobData, Assembly-CSharp],[System.Single,
       mscorlib]], Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetterTemplate`2[[System.ValueTuple`4[[miniRAID.Buff.Buff,
-      Assembly-CSharp],[miniRAID.Cost, Assembly-CSharp],[miniRAID.RuntimeAction,
-      Assembly-CSharp],[miniRAID.MobData, Assembly-CSharp]], mscorlib],[System.Collections.IEnumerator,
-      mscorlib]], Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetterTemplate`2[[System.ValueTuple`4[[miniRAID.Buff.Buff,
-      Assembly-CSharp],[miniRAID.Cost, Assembly-CSharp],[miniRAID.RuntimeAction,
-      Assembly-CSharp],[miniRAID.MobData, Assembly-CSharp]], mscorlib],[miniRAID.None,
-      Assembly-CSharp]], Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetterTemplate`2[[System.ValueTuple`3[[miniRAID.Buff.Buff,
-      Assembly-CSharp],[miniRAID.MobData, Assembly-CSharp],[System.Collections.Generic.HashSet`1[[miniRAID.RuntimeAction,
-      Assembly-CSharp]], System.Core]], mscorlib],[miniRAID.None, Assembly-CSharp]],
-      Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetterTemplate`2[[System.ValueTuple`4[[miniRAID.Buff.Buff,
-      Assembly-CSharp],[miniRAID.MobData, Assembly-CSharp],[miniRAID.RuntimeAction,
-      Assembly-CSharp],[miniRAID.Spells.SpellTarget, Assembly-CSharp]], mscorlib],[System.Collections.IEnumerator,
-      mscorlib]], Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetterTemplate`2[[System.ValueTuple`2[[miniRAID.Buff.Buff,
-      Assembly-CSharp],[miniRAID.MobData, Assembly-CSharp]], mscorlib],[System.Collections.IEnumerator,
-      mscorlib]], Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetterTemplate`2[[System.ValueTuple`2[[miniRAID.Buff.Buff,
-      Assembly-CSharp],[miniRAID.MobData, Assembly-CSharp]], mscorlib],[miniRAID.None,
-      Assembly-CSharp]], Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetterTemplate`2[[System.ValueTuple`3[[miniRAID.GeneralCombatData,
-      Assembly-CSharp],[miniRAID.MobRenderer, Assembly-CSharp],[miniRAID.Spells.SpellTarget,
-      Assembly-CSharp]], mscorlib],[System.Collections.IEnumerator, mscorlib]], Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.LuaGetterTemplate`2[[System.ValueTuple`2[[miniRAID.MobData,
@@ -313,13 +212,19 @@ MonoBehaviour:
   - TypeName: miniRAID.MobData, Assembly-CSharp
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.MobRenderer, Assembly-CSharp
+  - TypeName: miniRAID.MobListenerSO, Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.UI.TargetRequester.MovementRequester, Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.None, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: miniRAID.PowerGetter, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: miniRAID.PowerGetter+PowerGetterType, Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.ActionHelpers.Projectile, Assembly-CSharp
@@ -331,7 +236,7 @@ MonoBehaviour:
   - TypeName: miniRAID.UI.TargetRequester.RequestType, Assembly-CSharp
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.RuntimeAction, Assembly-CSharp
+  - TypeName: miniRAID.Weapon.SelfPicker, Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.ActionHelpers.SimpleExplosionFx, Assembly-CSharp
@@ -341,6 +246,9 @@ MonoBehaviour:
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.ActionHelpers.SpellDamageHeal, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: miniRAID.ActionHelpers.SpellDamageHeal+AdvancedSettings, Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.Spells.SpellTarget, Assembly-CSharp
@@ -377,29 +285,6 @@ MonoBehaviour:
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.ActionHelpers.UnitFilters, Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: System.ValueTuple`4[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.Cost,
-      Assembly-CSharp],[miniRAID.RuntimeAction, Assembly-CSharp],[miniRAID.MobData,
-      Assembly-CSharp]], mscorlib
-    IsCustom: 0
-    Emit: 1
-  - TypeName: System.ValueTuple`3[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.MobData,
-      Assembly-CSharp],[System.Collections.Generic.HashSet`1[[miniRAID.RuntimeAction,
-      Assembly-CSharp]], System.Core]], mscorlib
-    IsCustom: 0
-    Emit: 1
-  - TypeName: System.ValueTuple`4[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.MobData,
-      Assembly-CSharp],[miniRAID.RuntimeAction, Assembly-CSharp],[miniRAID.Spells.SpellTarget,
-      Assembly-CSharp]], mscorlib
-    IsCustom: 0
-    Emit: 1
-  - TypeName: System.ValueTuple`2[[miniRAID.Buff.Buff, Assembly-CSharp],[miniRAID.MobData,
-      Assembly-CSharp]], mscorlib
-    IsCustom: 0
-    Emit: 1
-  - TypeName: System.ValueTuple`3[[miniRAID.GeneralCombatData, Assembly-CSharp],[miniRAID.MobRenderer,
-      Assembly-CSharp],[miniRAID.Spells.SpellTarget, Assembly-CSharp]], mscorlib
     IsCustom: 0
     Emit: 1
   - TypeName: System.ValueTuple`2[[miniRAID.MobData, Assembly-CSharp],[miniRAID.Spells.SpellTarget,

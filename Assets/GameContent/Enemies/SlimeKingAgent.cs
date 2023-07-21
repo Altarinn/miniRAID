@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using miniRAID.Spells;
+using miniRAID.UI.TargetRequester;
 using UnityEngine;
 
 using Sirenix.OdinInspector;
@@ -55,9 +57,20 @@ namespace miniRAID.Agents
             
             if(ract != null && agent.currentTarget != null)
             {
+                Spells.SpellTarget sTarget;
+                
+                if (ract.data?.Requester?.GetType().IsAssignableFrom(typeof(ConfirmRequester)) ?? false)
+                {
+                    sTarget = new SpellTarget(mob.Position);
+                }
+                else
+                {
+                    sTarget = new Spells.SpellTarget(agent.currentTarget.Position);
+                }
+                
                 yield return new JumpIn(mob.DoActionWithDefaultCosts(
                     ract,
-                    new Spells.SpellTarget(agent.currentTarget.Position)
+                    sTarget
                 ));
             }
 

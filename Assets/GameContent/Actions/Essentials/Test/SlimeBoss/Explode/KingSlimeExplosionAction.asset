@@ -42,7 +42,7 @@ MonoBehaviour:
       Data: 5
     - Name: 
       Entry: 4
-      Data: 0.8
+      Data: 0.65
     - Name: 
       Entry: 4
       Data: 1
@@ -212,6 +212,9 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 8
+      Data: 
+    - Name: targetPicker
+      Entry: 6
       Data: 
     - Name: _
       Entry: 6

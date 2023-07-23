@@ -65,7 +65,7 @@ namespace miniRAID.Spells
 
                 foreach (var buff in buffsToTarget)
                 {
-                    targetMob.AddBuff(Instantiate(buff), mob);
+                    targetMob.AddBuff(Instantiate(buff), 0, mob);
                 }
             };
 

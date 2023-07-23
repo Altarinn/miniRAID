@@ -18,7 +18,7 @@ namespace miniRAID.Buff
         [PropertyOrder(-1)]
         public bool toEnemies = true;
 
-        public MobListener WrapFx(MobData parent, Vector3 position)
+        public MobListener LeveledWrapFx(MobData parent, int level, Vector3 position)
         {
             return new GridEffect(parent, this, position);
         }
@@ -58,6 +58,8 @@ namespace miniRAID.Buff
             auxPower = dNumber.CreateComposite(from.auxPower.Value, "copied");
             hit = dNumber.CreateComposite(from.hit.Value, "copied");
             crit = dNumber.CreateComposite(from.crit.Value, "copied");
+
+            level = from.level;
         }
 
         public void Extend(Vector3Int pos)

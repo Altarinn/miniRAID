@@ -24,6 +24,8 @@ namespace miniRAID
         [TableList]
         public AggroAgentBase.AggroInfo[] targetAggro;
 
+        public string agentInfo;
+
         private void OnInspectorUpdate()
         {
             if (targetMob != null)
@@ -32,6 +34,8 @@ namespace miniRAID
                 if (agent != null)
                 {
                     targetAggro = ((AggroAgentBase)agent).GetAggroListUtil().ToArray();
+
+                    agentInfo = agent.GetInformationString();
                 }
                 else
                 {

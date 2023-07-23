@@ -111,7 +111,8 @@ namespace miniRAID
 
         public IEnumerator ActionDone(RuntimeAction raction, Spells.SpellTarget target)
         {
-            if (raction == mainWeapon.GetRegularAttackSpell())
+            // TODO: FIXME: move last-turn target switching logic to weapons?
+            if (raction == mainWeapon.GetRegularAttackSpell() || (raction.flags & Consts.ActionFlags.SpecialAction) > 0)
             {
                 MobData targetMob = Globals.backend.GetMap(target.targetPos[0])?.mob;
                 if (targetMob != null)

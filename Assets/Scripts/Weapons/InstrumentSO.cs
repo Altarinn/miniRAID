@@ -11,7 +11,7 @@ namespace miniRAID.Weapon
             wpType = WeaponType.Instrument;
         }
 
-        public BuffSO buff;
+        public BuffSOEntry buff;
 
         public override MobListener Wrap(MobData parent)
         {
@@ -28,18 +28,18 @@ namespace miniRAID.Weapon
         public override void OnAttach(MobData mob)
         {
             base.OnAttach(mob);
-            mob.AddBuff(instrumentData.buff, mob);
+            mob.AddBuff(instrumentData.buff.data, instrumentData.buff.level, mob);
         }
 
         public override void OnRemove(MobData mob)
         {
             base.OnRemove(mob);
-            mob.RemoveListener(instrumentData.buff);
+            mob.RemoveListener(instrumentData.buff.data);
         }
 
         public override string GetInformationString()
         {
-            return instrumentData.buff.name;
+            return instrumentData.buff.data.name;
         }
     }
 }

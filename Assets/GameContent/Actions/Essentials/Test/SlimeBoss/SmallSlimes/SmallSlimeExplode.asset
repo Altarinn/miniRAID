@@ -41,7 +41,7 @@ MonoBehaviour:
       Data: 5
     - Name: 
       Entry: 4
-      Data: 0.7
+      Data: 0.5
     - Name: 
       Entry: 4
       Data: 0
@@ -174,4 +174,6 @@ MonoBehaviour:
   snapShot: 1
   flags: 34
   healthRatio: 1
-  skill: {fileID: 11400000, guid: 076e1297762850c44a9c46459ae1cf6e, type: 2}
+  skill:
+    data: {fileID: 11400000, guid: 076e1297762850c44a9c46459ae1cf6e, type: 2}
+    level: 0

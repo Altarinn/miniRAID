@@ -4,9 +4,17 @@ using UnityEngine;
 
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
+using Cinemachine;
 
 namespace miniRAID.Buff
 {
+    [System.Serializable]
+    public struct BuffSOEntry
+    {
+        public BuffSO data;
+        public int level;
+    }
+    
     [CreateAssetMenu(menuName = "Buffs/GeneralBuff")]
     public partial class BuffSO : StatModifierSO
     {
@@ -137,6 +145,14 @@ namespace miniRAID.Buff
             return new Buff(parent, this);
         }
 
+        public MobListener LeveledWrap(MobData parent, int level)
+        {
+            var result = Wrap(parent);
+            result.level = level;
+
+            return result;
+        }
+
         public override bool TryAdd(MobData target)
         {
             if(base.TryAdd(target))
@@ -177,7 +193,7 @@ namespace miniRAID.Buff
         [HideInInspector]
         public MobData source;
 
-        public override string name
+        public string detailedName
         {
             get
             {

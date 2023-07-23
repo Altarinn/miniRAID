@@ -1,4 +1,5 @@
 using C5;
+using miniRAID.Buff;
 using miniRAID.Weapon;
 using UnityEngine.UIElements;
 
@@ -37,6 +38,7 @@ namespace miniRAID.UIElements
     {
         private VisualElement masterElem;
         private EquipmentController mainWeapon, subWeapon;
+        private Label skills;
         
         public MobDetailsController(VisualElement elem)
         {
@@ -44,12 +46,44 @@ namespace miniRAID.UIElements
             
             mainWeapon = new EquipmentController(elem.Q("mainWeaponInfo"));
             subWeapon = new EquipmentController(elem.Q("subWeaponInfo"));
+            
+            // TODO: For test only.
+            skills = elem.Q<Label>("Skills");
         }
 
         public void Show(MobData mob)
         {
             mainWeapon.RefreshWithContents(mob.mainWeapon);
             subWeapon.Hide();
+
+            skills.text = "";
+            foreach (var listener in mob.listeners)
+            {
+                if (listener.GetType().IsAssignableFrom(typeof(RuntimeAction)))
+                {
+                    skills.text += $"Lv{((RuntimeAction)listener).level + 1} {((RuntimeAction)listener).data.ActionName}\n";
+                }
+            }
+            
+            skills.text += "\n";
+
+            foreach (var listener in mob.listeners)
+            {
+                if (listener.type is MobListenerSO.ListenerType.Passive)
+                {
+                    skills.text += $"Lv{listener.level + 1} {listener.data.name}\n";
+                }
+            }
+
+            skills.text += "\n";
+            
+            foreach (var listener in mob.listeners)
+            {
+                if (listener.type is MobListenerSO.ListenerType.Buff)
+                {
+                    skills.text += $"{listener.name}\n";
+                }
+            }
             
             masterElem.visible = true;
         }

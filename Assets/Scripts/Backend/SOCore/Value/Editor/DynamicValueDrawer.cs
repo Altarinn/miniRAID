@@ -9,6 +9,7 @@ using Sirenix.OdinInspector.Editor;
 using Sirenix.Utilities;
 using Sirenix.Utilities.Editor;
 using System;
+using miniRAID.Buff;
 using Sirenix.Serialization;
 
 namespace miniRAID.Editor
@@ -499,6 +500,30 @@ namespace miniRAID.Editor
             
             // Handle null values
             ActionSOEntry value = ValueEntry.SmartValue;
+            var pD = Property.FindChild(x => x.Name == "data", false);
+            var pL = Property.FindChild(x => x.Name == "level", false);
+
+            pD.Draw(label);
+            value.level = SirenixEditorFields.IntField((string)null, value.level + 1, GUILayoutOptions.MaxWidth(35)) - 1;
+            
+            if(value.level != ValueEntry.SmartValue.level)
+            {
+                Property.RecordForUndo();
+                ValueEntry.SmartValue = value;
+            }
+            
+            EditorGUILayout.EndHorizontal();
+        }
+    }
+    
+    public class BuffSOEntryDrawer : OdinValueDrawer<BuffSOEntry>
+    {
+        protected override void DrawPropertyLayout(GUIContent label)
+        {
+            EditorGUILayout.BeginHorizontal();
+            
+            // Handle null values
+            BuffSOEntry value = ValueEntry.SmartValue;
             var pD = Property.FindChild(x => x.Name == "data", false);
             var pL = Property.FindChild(x => x.Name == "level", false);
 

@@ -208,6 +208,9 @@ MonoBehaviour:
     - Name: Requester
       Entry: 6
       Data: 
+    - Name: targetPicker
+      Entry: 6
+      Data: 
     - Name: _
       Entry: 6
       Data: 
@@ -556,13 +559,13 @@ MonoBehaviour:
       Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 11
-    - Name: 
-      Entry: 3
-      Data: 8
+      Data: 9
     - Name: 
       Entry: 3
       Data: 0
+    - Name: 
+      Entry: 3
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
@@ -582,4 +585,6 @@ MonoBehaviour:
   maxLevel: 0
   Description: 
   flags: 0
-  skillJumpOnPool: {fileID: 11400000, guid: 652e055f6803bbc4fbcf80ed8da6700e, type: 2}
+  skillJumpOnPool:
+    data: {fileID: 11400000, guid: 652e055f6803bbc4fbcf80ed8da6700e, type: 2}
+    level: 0

@@ -238,14 +238,14 @@ namespace miniRAID
             return l;
         }
         
-        public Buff.Buff AddBuff(Buff.BuffSO buff, MobData source)
+        public Buff.Buff AddBuff(Buff.BuffSO buff, int level, MobData source)
         {
             if (isDead)
             {
                 return null;
             }
             
-            return (Buff.Buff)AddListener(buff.Wrap(source));
+            return (Buff.Buff)AddListener(buff.LeveledWrap(source, level));
         }
 
         public Buff.Buff AddBuff(Buff.Buff buff)

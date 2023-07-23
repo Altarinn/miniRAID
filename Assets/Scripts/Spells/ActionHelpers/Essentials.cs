@@ -143,6 +143,7 @@ namespace miniRAID.ActionHelpers
     public class SpellBuff
     {
         public BuffSO buff;
+        public bool inheritLevel = true;
         public bool inheritPower = true;
         
         [ShowIf("inheritPower")] 
@@ -159,7 +160,7 @@ namespace miniRAID.ActionHelpers
             // TODO: Change to coroutine.
             Debug.LogError("Refactor this to coroutine and find better solutions than (power, auxPower).");
             
-            Buff.Buff rbuff = (Buff.Buff)buff.Wrap(src);
+            Buff.Buff rbuff = (Buff.Buff)buff.LeveledWrap(src, inheritLevel ? spellContext.level : 0);
 
             if (inheritPower)
             {
@@ -200,6 +201,8 @@ namespace miniRAID.ActionHelpers
         public Buff.GridEffectSO effect;
         public GridShape shape;
 
+        public bool inheritLevel = true;
+
         public IEnumerator Do(RuntimeAction spellContext, MobData src, Vector3Int targetShapeOrigin)
         {
             // TODO: Animations?
@@ -207,7 +210,10 @@ namespace miniRAID.ActionHelpers
             shape.position = targetShapeOrigin;
             var grids = shape.ApplyTransform();
             GridEffect rfx =
-                (Buff.GridEffect)effect.WrapFx(src, new Vector3(targetShapeOrigin.x, targetShapeOrigin.y, 0));
+                (Buff.GridEffect)effect.LeveledWrapFx(
+                    src, 
+                    inheritLevel ? spellContext.level : 1,
+                    new Vector3(targetShapeOrigin.x, targetShapeOrigin.y, 0));
             
             foreach (var grid in grids)
             {

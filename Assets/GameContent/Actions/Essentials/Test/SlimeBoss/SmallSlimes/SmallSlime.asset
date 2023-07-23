@@ -52,6 +52,9 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: canvasSize
+      Entry: 3
+      Data: 2
     - Name: position
       Entry: 7
       Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
@@ -78,7 +81,7 @@ MonoBehaviour:
       Data: miniRAID.EnemyMobDescriptorSO+EnemyStatBase, Assembly-CSharp
     - Name: MaxHP
       Entry: 3
-      Data: 95
+      Data: 120
     - Name: ExHitAcc
       Entry: 4
       Data: 0
@@ -111,4 +114,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7b1406fca4eab7c48b4098c174d4c832, type: 2}
   - {fileID: 11400000, guid: a0fd44a199c1fac41bc053de25c0afc6, type: 2}
   actionSOs:
-  - {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
+  - data: {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
+    level: 0

@@ -7,6 +7,7 @@ using miniRAID;
 using miniRAID.ActionHelpers;
 using miniRAID.Buff;
 using miniRAID.Spells;
+using UnityEngine.Animations;
 
 namespace GameContent.Buffs.Test
 {
@@ -52,9 +53,12 @@ namespace GameContent.Buffs.Test
             runtimeSkill = mob.AddAction(skillData);
             
             mob.OnDamageReceived += OnReceiveDamageFinal;
+            mob.OnHealReceived += OnReceiveHealFinal;
+            
             onRemoveFromMob += m =>
             {
                 m.OnDamageReceived -= OnReceiveDamageFinal;
+                m.OnHealReceived -= OnReceiveHealFinal;
             };
         }
 
@@ -69,6 +73,12 @@ namespace GameContent.Buffs.Test
                     yield return new JumpIn(mob.DoAction(runtimeSkill, new SpellTarget(mob.Position)));
                 }
             }
+        }
+
+        public IEnumerator OnReceiveHealFinal(MobData mob, Consts.DamageHeal_Result info)
+        {
+            damageTotal -= info.value;
+            yield break;
         }
     }
 }

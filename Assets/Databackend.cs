@@ -1035,7 +1035,7 @@ namespace miniRAID
         public int Distance(Vector3Int a, Vector3Int b)
         {
             var tmp = (a - b);
-            return Mathf.Abs(tmp.x) + Mathf.Abs(tmp.y);
+            return Mathf.Abs(tmp.x) + Mathf.Abs(tmp.y) + Mathf.Abs(tmp.z);
         }
 
         public List<MobData> GetAllMobs()

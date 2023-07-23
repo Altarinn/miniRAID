@@ -37,9 +37,18 @@ namespace miniRAID
             return Instantiate(this);
         }
 
+        // Why do we need "parent" argument right now?
         public virtual MobListener Wrap(MobData parent)
         {
             return new MobListener(parent, this);
+        }
+
+        public virtual MobListener LeveledWrap(MobData parent, int level)
+        {
+            var ml = new MobListener(parent, this);
+            ml.level = level;
+            
+            return ml;
         }
 
         public virtual bool TryAdd(MobData target)
@@ -54,7 +63,7 @@ namespace miniRAID
         [System.NonSerialized]
         public MobData parentMob;
         
-        public int level = 1;
+        public int level = 0;
         
         // TODO: FIXME: This is getting hid in derived classes (e.g., Weapon, ActionDataSO, etc.), resulting in unexpected behaviors when calling data.xxx.
         public MobListenerSO data;

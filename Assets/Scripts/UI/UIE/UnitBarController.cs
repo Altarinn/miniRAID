@@ -76,7 +76,7 @@ namespace miniRAID.UIElements
                 if (
                     fx.type is MobListenerSO.ListenerType.Buff or MobListenerSO.ListenerType.Passive)
                 {
-                    effects += "\n" + fx.name;
+                    effects += "\n" + ((Buff.Buff)fx).detailedName;
                 }
             }
 

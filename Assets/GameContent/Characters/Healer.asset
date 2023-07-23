@@ -94,8 +94,8 @@ MonoBehaviour:
   actionSOs:
   - data: {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
     level: 0
-  - data: {fileID: 11400000, guid: 89ffd930e8b71c94aab4df716491fa52, type: 2}
-    level: 2
+  - data: {fileID: 11400000, guid: c934568e496c1d2438b51d0b0be45afa, type: 2}
+    level: 0
   baseStats:
     VIT: 12
     STR: 7

@@ -118,7 +118,7 @@ namespace GameContent.Buffs.Test
                 return;
             }
 
-            var copied = mob.AddBuff((AuraEffectSO)buffData, source);
+            var copied = mob.AddBuff((AuraEffectSO)buffData, this.level, source);
             activeMobs.Add(mob, (AuraEffectSORuntimeBuff)copied);
         }
 

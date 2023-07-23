@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace miniRAID
 {
@@ -26,6 +27,8 @@ namespace miniRAID
             
             /** Resources */
             Resource,
+            
+            Internal
         }
 
         // Basic properties
@@ -74,12 +77,50 @@ namespace miniRAID
         public virtual MobListenerSO.ListenerType type => data.type;
         public virtual string name => data.name;
 
+        public HashSet<IMobListenerIndicator> indicators;
+
         public MobListener(MobData parent, MobListenerSO data) { this.parentMob = parent; this.data = data; }
 
         public virtual bool TryAdd(MobData mob)
         {
             if(data == null) { return true; }
             return data.TryAdd(mob);
+        }
+
+        public void AddIndicator(IMobListenerIndicator indicator)
+        {
+            if (indicators == null)
+            {
+                indicators = new();
+            }
+            
+            if(indicators.Add(indicator))
+            {
+                indicator.Instantiate();
+            }
+        }
+
+        public void RemoveIndicator(IMobListenerIndicator indicator)
+        {
+            if (indicators.Remove(indicator))
+            {
+                indicator.Destroy();
+            }
+        }
+        
+        public void RemoveAllIndicators()
+        {
+            if (indicators == null)
+            {
+                return;
+            }
+            
+            foreach(var indicator in indicators)
+            {
+                indicator.Destroy();
+            }
+            
+            indicators.Clear();
         }
 
         ////////////////////////////////////////////////////
@@ -102,6 +143,9 @@ namespace miniRAID
         // Emitted before it is going to be removed from a mob.
         public virtual void OnRemove(MobData mob)
         {
+            // Destroy all indicators
+            RemoveAllIndicators();
+            
             this.parentMob = null;
         }
 

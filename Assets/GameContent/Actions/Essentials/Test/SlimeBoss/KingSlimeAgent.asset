@@ -35,7 +35,9 @@ MonoBehaviour:
       canReturnTo: 0
     phaseSchedule:
     - doRegularAttack: 1
-      actions: []
+      actions:
+      - data: {fileID: 11400000, guid: d36a1d95636ff4a718304d182e15483e, type: 2}
+        level: 0
     - doRegularAttack: 1
       actions:
       - data: {fileID: 11400000, guid: 8a808c2b1fd03ab49b3bedb6f2176570, type: 2}

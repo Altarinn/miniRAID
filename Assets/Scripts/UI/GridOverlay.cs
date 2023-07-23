@@ -13,7 +13,10 @@ public class GridOverlay : MonoBehaviour
         BUFF = 3,
         DEBUFF = 4,
         SUMMON = 5,
-        SELECTED = 6
+        SELECTED = 6,
+        
+        CUSTOM = 7,
+        INCOMING_ATTACK = 8,
     }
 
     public delegate void OnOverlayChangedDelegate(GridOverlay overlay);
@@ -29,6 +32,11 @@ public class GridOverlay : MonoBehaviour
     private void Start()
     {
         
+    }
+
+    public void SetCustomSprite(Sprite sprite)
+    {
+        overlaySpriteOverride[7] = sprite;
     }
 
     private void LateUpdate()

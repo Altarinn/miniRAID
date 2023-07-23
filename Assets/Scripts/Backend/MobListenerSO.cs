@@ -23,6 +23,9 @@ namespace miniRAID
 
             /** Action instances at runtime; Spells etc. */
             RuntimeAction,
+            
+            /** Resources */
+            Resource,
         }
 
         // Basic properties

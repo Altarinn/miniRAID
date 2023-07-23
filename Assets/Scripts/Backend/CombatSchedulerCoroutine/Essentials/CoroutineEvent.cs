@@ -4,10 +4,59 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.Timeline.Actions;
 using UnityEngine;
 
 namespace miniRAID
 {
+    public class SequentialAny<T> where T : Delegate
+    {
+        private List<T> listeners = new();
+
+        public bool Invoke(params object[] vs)
+        {
+            foreach (var e in listeners.ToList())
+            {
+                var result = (bool)(e.DynamicInvoke(vs));
+                if (result)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public bool InvokeWhenNot(bool initialValue, params object[] vs)
+        {
+            return initialValue || Invoke(vs);
+        }
+        
+        public static SequentialAny<T> operator +(SequentialAny<T> evt, T listener)
+        {
+            if(evt == null) { evt = new(); }
+
+            if(!evt.listeners.Contains(listener))
+            {
+                evt.listeners.Add(listener);
+            }
+
+            return evt;
+        }
+
+        public static SequentialAny<T> operator -(SequentialAny<T> evt, T listener)
+        {
+            if(evt == null) { return null; }
+
+            if (evt.listeners.Contains(listener))
+            {
+                evt.listeners.Remove(listener);
+            }
+
+            return evt;
+        }
+    }
+    
     public class CoroutineEvent<T0>
     {
         HashSet<Func<T0, IEnumerator>> listeners = new();

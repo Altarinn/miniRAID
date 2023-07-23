@@ -8,11 +8,11 @@ namespace miniRAID.UIElements
         private VisualElement masterElem;
 
         public Label name, level, weaponName, weaponDesc, defense, spDefense, dodge;
-        public Label currentHP, maxHP, currentAPInt, currentAPFract, maxAP;
+        public Label currentHP, maxHP, currentMP, maxMP, currentAPInt, currentAPFract, maxAP;
         public Label VIT, STR, MAG, INT, TEC, AGI;
         public Label tempBuffList;
 
-        public VisualElement unitIcon;
+        public VisualElement unitIcon, HPBar, MPBar;
 
         public UnitBarController(VisualElement elem)
         {
@@ -34,6 +34,12 @@ namespace miniRAID.UIElements
 
             currentHP = elem.Q<Label>("currHP");
             maxHP = elem.Q<Label>("maxHP");
+            HPBar = elem.Q<VisualElement>("HPBarContent");
+
+            currentMP = elem.Q<Label>("currMP");
+            maxMP = elem.Q<Label>("maxMP");
+            MPBar = elem.Q<VisualElement>("MPBarContent");
+            
             currentAPInt = elem.Q<Label>("currAPInt");
             currentAPFract = elem.Q<Label>("currAPFract");
             maxAP = elem.Q<Label>("maxAPInt");
@@ -57,6 +63,8 @@ namespace miniRAID.UIElements
 
             currentHP.text = $"{mob.health}";
             maxHP.text = $"{mob.maxHealth}";
+            HPBar.style.width = Length.Percent(100.0f * mob.health / (float)(mob.maxHealth == 0 ? 1 : mob.maxHealth));
+            
             currentAPInt.text = $"{Mathf.FloorToInt(mob.actionPoints)}";
             currentAPFract.text = $".{(int)(100 * (mob.actionPoints - Mathf.FloorToInt(mob.actionPoints)))}";
             maxAP.text = $"{mob.apMax}";
@@ -81,6 +89,22 @@ namespace miniRAID.UIElements
             }
 
             tempBuffList.text = effects.TrimStart('\n');
+            
+            // General Resources
+            // Mana
+            var manaListener = mob.FindListener<GeneralManaListener>();
+            if (manaListener == null)
+            {
+                currentMP.text = "0";
+                maxMP.text = "0";
+                MPBar.style.width = Length.Percent(0);
+            }
+            else
+            {
+                currentMP.text = $"{manaListener.current}";
+                maxMP.text = $"{manaListener.max}";
+                MPBar.style.width = Length.Percent(100.0f * manaListener.current / (float)(manaListener.max == 0 ? 1 : manaListener.max));
+            }
         }
     }
 }

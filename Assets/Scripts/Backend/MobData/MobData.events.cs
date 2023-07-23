@@ -18,6 +18,7 @@ namespace miniRAID
         public delegate void MobMenuGUIDelegate(MobData data, UI.UnitMenu state, UI.UIMenu_UIContainer menu);
 
         public delegate void CostQueryDelegate(Cost cost, RuntimeAction ract, MobData mob);
+        public delegate bool CostCheckDelegate(Cost cost, RuntimeAction ract, MobData mob);
         // WTF??? How about mana-draining attacks?
         // Cost = Damage ?
 
@@ -53,16 +54,25 @@ namespace miniRAID
         public event MobArgumentDelegate OnMobMoved;
 
         public event MobActionQueryDelegate OnQueryActions;
-        
+
         //// User Interface
         // TODO: ?
         public event MobMenuGUIDelegate OnShowMobMenu;
         
         //// Combat-related
 
-        // Emitted when the mob dealing a damage as the source.
+        /// <summary>
+        /// Emitted when the mob dealing a damage as the source.
+        /// This event happens before the damage is dealt. Damage can be modified.
+        /// This event also happens before rolling the RNG for hit/dodge and critical strikes.
+        /// As they are represented as corresponding probabilities (values) instead of rolled results.
+        /// </summary>
         public CoroutineEvent<MobData, Consts.DamageHeal_FrontEndInput_ByRef> OnDealDmg;
         // public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnDealDamageFinal;
+        
+        /// <summary>
+        /// Emitted when the mob has finished dealt a damage as the source.
+        /// </summary>
         public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnDamageDealt;
 
         public CoroutineEvent<MobData, Consts.DamageHeal_FrontEndInput_ByRef> OnDealHeal;
@@ -88,9 +98,18 @@ namespace miniRAID
         // Action finished
         public CoroutineEvent<MobData, RuntimeAction, Spells.SpellTarget> OnActionPostcast;
 
-        public event CostQueryDelegate OnCostQuery;
+        public event CostQueryDelegate OnModifyCost;
+        
+        /// <summary>
+        /// Emits when the mob is checking a cost to see if it meets the requirements.
+        /// Costs include mana, HP, etc.
+        /// The check passes if any of the delegates returns true.
+        /// Therefore, make sure you return false if 1) the cost is not applicable, or 2) the requirement is not met.
+        /// </summary>
+        public SequentialAny<CostCheckDelegate> OnCheckCost;
+        public CoroutineEvent<Cost, RuntimeAction, MobData> OnApplyCost;
+
         public event CostQueryDelegate OnCostQueryDisplay;
-        public CoroutineEvent<Cost, RuntimeAction, MobData> OnCostApply;
         
         /////////////////////////////  Logics  //////////////////////////////
 

@@ -17,8 +17,8 @@
                             <ui:VisualElement name="HPLabel" style="flex-grow: 0; width: 60px; align-items: stretch; flex-direction: row-reverse;">
                                 <ui:Label tabindex="-1" text="HP" display-tooltip-when-elided="true" class="ap-bar-label" style="-unity-text-align: middle-right; padding-right: 3px;" />
                             </ui:VisualElement>
-                            <ui:VisualElement name="HPBar" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-direction: row; align-items: center;">
-                                <ui:VisualElement name="StarPlaceholder" class="ap-star" style="flex-grow: 0; background-color: rgb(219, 255, 162); width: 100px; height: 8px;" />
+                            <ui:VisualElement name="HPBar" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-direction: row; align-items: center; width: 102px; padding-left: 1px; padding-right: 1px;">
+                                <ui:VisualElement name="HPBarContent" class="ap-star" style="flex-grow: 0; background-color: rgb(219, 255, 162); width: 80%; height: 8px;" />
                             </ui:VisualElement>
                             <ui:VisualElement name="CurrentHP" style="flex-grow: 0; width: 60px; flex-direction: row; align-items: stretch;">
                                 <ui:VisualElement name="CurrentHPDisplay" class="ap-bar-label" style="flex-grow: 0; flex-direction: row; align-items: flex-end;">
@@ -32,8 +32,8 @@
                             <ui:VisualElement name="MPLabel" style="flex-grow: 0; width: 60px; align-items: stretch; flex-direction: row-reverse;">
                                 <ui:Label tabindex="-1" text="MP" display-tooltip-when-elided="true" class="ap-bar-label small-font" style="-unity-text-align: middle-right; padding-right: 3px;" />
                             </ui:VisualElement>
-                            <ui:VisualElement name="MPBar" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-direction: row; align-items: center;">
-                                <ui:VisualElement name="StarPlaceholder" class="ap-star" style="flex-grow: 0; background-color: rgb(162, 219, 255); width: 100px; height: 4px;" />
+                            <ui:VisualElement name="MPBar" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-direction: row; align-items: center; width: 102px; padding-left: 1px; padding-right: 1px;">
+                                <ui:VisualElement name="MPBarContent" class="ap-star" style="flex-grow: 0; background-color: rgb(162, 219, 255); width: 40%; height: 4px;" />
                             </ui:VisualElement>
                             <ui:VisualElement name="CurrentMP" style="flex-grow: 0; width: 60px; flex-direction: row; align-items: stretch;">
                                 <ui:VisualElement name="CurrentMPDisplay" class="ap-bar-label" style="flex-grow: 0; flex-direction: row; align-items: flex-end;">

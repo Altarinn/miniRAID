@@ -136,7 +136,7 @@ namespace miniRAID
         public Cost GetModifiedCost(Cost cost, RuntimeAction ract)
         {
             // TODO: Dummy action
-            OnCostQuery?.Invoke(cost, ract, this);
+            OnModifyCost?.Invoke(cost, ract, this);
             return cost;
         }
         
@@ -144,26 +144,24 @@ namespace miniRAID
         {
             // TODO: Dummy action
             var mCost = GetModifiedCost(cost, ract);
+            bool pass = false;
 
             switch(mCost.type)
             {
                 case Cost.Type.AP:
-                    return cost.value <= actionPoints;
-                    break;
-                case Cost.Type.Mana:
-                    Debug.LogWarning("Please implement CheckCost for Mana.");
+                    pass = cost.value <= actionPoints;
                     break;
                 case Cost.Type.CD:
-                    return ract.cooldownRemain <= 0;
+                    pass = ract.cooldownRemain <= 0;
                     break;
             }
 
-            return true;
+            return OnCheckCost?.InvokeWhenNot(pass, cost, ract, this) ?? pass;
         }
         
         public IEnumerator ApplyCost(Cost cost, RuntimeAction ract)
         {
-            yield return new JumpIn(OnCostApply?.Invoke(cost, ract, this));
+            yield return new JumpIn(OnApplyCost?.Invoke(cost, ract, this));
 
             switch (cost.type)
             {
@@ -175,6 +173,9 @@ namespace miniRAID
                     break;
                 case Cost.Type.CD:
                     ract.SetCoolDown(cost.value);
+                    break;
+                default:
+                    // This should be handled in OnApplyCost() event.
                     break;
             }
 

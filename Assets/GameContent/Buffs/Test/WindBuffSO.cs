@@ -20,14 +20,14 @@ namespace GameContent.Buffs.Test
         {
             base.OnAttach(mob);
             
-            mob.OnCostQuery += MobOnCostQuery;
+            mob.OnModifyCost += MobOnModifyCost;
             onRemoveFromMob += m =>
             {
-                m.OnCostQuery -= MobOnCostQuery;
+                m.OnModifyCost -= MobOnModifyCost;
             };
         }
 
-        private void MobOnCostQuery(Cost cost, RuntimeAction ract, MobData mob)
+        private void MobOnModifyCost(Cost cost, RuntimeAction ract, MobData mob)
         {
             if (cost.type == Cost.Type.AP)
             {

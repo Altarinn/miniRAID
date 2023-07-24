@@ -279,4 +279,23 @@ namespace miniRAID.ActionHelpers
 
         public IEnumerator Do(Vector3Int gridPosition) => Do(Globals.backend.GridToWorldPos(gridPosition));
     }
+
+    [ColoredBox("#ff7")]
+    public class ShowImportantMessage
+    {
+        public string message;
+        public float seconds;
+        
+        public IEnumerator Do()
+        {
+            if (Globals.cc.animation)
+            {
+                Globals.debugMessage.AddMessage($"!! {message} !!");
+                yield return new JumpIn(Globals.ui.Instance.combatView.ShowImportantText(message, seconds));
+                // Globals.ui.Instance.combatView.ShowImportantText(message);
+                // yield return new WaitForSeconds(seconds);
+                // Globals.ui.Instance.combatView.HideImportantText();
+            }
+        }
+    }
 }

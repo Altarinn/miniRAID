@@ -16,6 +16,7 @@ namespace miniRAID
     {
         public CreateGridEffect poisonPool;
         public ActionSOEntry skillJumpOnPool;
+        public ShowImportantMessage importantMessage;
 
         private bool CheckGridHasPoisonPool(GridData grid)
         {
@@ -35,6 +36,7 @@ namespace miniRAID
             // Check if landed on poison pool
             if (CheckGridHasPoisonPool(Globals.backend.GetMap(mob.Position)))
             {
+                yield return new JumpIn(importantMessage.Do());
                 yield return new JumpIn(mob.DoAction(skillJumpOnPool, new SpellTarget(mob.Position)));
             }
             

@@ -455,8 +455,19 @@ MonoBehaviour:
   Guid: d23bf6e808e54e89b22f3114bd52e650
   Id: 101
   icon: {fileID: 0}
-  ActionName: "\u54CD\u97F3\u653B\u51FB"
+  ActionNameKey:
+    m_TableReference:
+      m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
+    m_TableEntryReference:
+      m_KeyId: 18280524800000
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   maxLevel: 0
   Description: "\u53D1\u51FA\u5DE8\u5927\u7684\u58F0\u54CD\uFF0C\u4F24\u5BB34\u683C\u5185\u7684\u6240\u6709\u654C\u4EBA\u3002"
   flags: 4
   explosionRange: 4
+  references:
+    version: 2
+    RefIds: []

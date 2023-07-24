@@ -506,7 +506,18 @@ MonoBehaviour:
   Guid: facb009e11f6449eb3202174cc50d9f9
   Id: 60
   icon: {fileID: -173487009, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
-  ActionName: "\u76FE\u51FB"
+  ActionNameKey:
+    m_TableReference:
+      m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
+    m_TableEntryReference:
+      m_KeyId: 18215387258880
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   maxLevel: 0
   Description: "\u7528\u76FE\u724C\u51B2\u51FB\u654C\u4EBA"
   flags: 4
+  references:
+    version: 2
+    RefIds: []

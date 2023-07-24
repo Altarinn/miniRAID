@@ -330,6 +330,9 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: targetPicker
+      Entry: 6
+      Data: 
     - Name: _
       Entry: 6
       Data: 
@@ -448,8 +451,19 @@ MonoBehaviour:
   Guid: 7bdd7ccc5bf14f3b9202c5cc03ed3cd1
   Id: 81
   icon: {fileID: -630566608947986047, guid: 7fe9a382566f75a429badd968a5161fa, type: 3}
-  ActionName: "\u7EFD\u653E"
+  ActionNameKey:
+    m_TableReference:
+      m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
+    m_TableEntryReference:
+      m_KeyId: 17740373942272
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   maxLevel: 0
   Description: "\u4E3A\u6240\u6709\u6211\u65B9\u56DE\u590D\u751F\u547D\u3002"
   flags: 136
   explosionRange: 100
+  references:
+    version: 2
+    RefIds: []

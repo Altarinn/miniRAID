@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Actions Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Actions
+  m_TableCollectionNameGuidString: 6ebb20b243c324310be673530903a313
+  m_Entries:
+  - m_Id: 5403847942144
+    m_Key: test
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16990428192768
+    m_Key: move.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17320603803648
+    m_Key: arrowshot.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17434508517376
+    m_Key: basichealing.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17521674543104
+    m_Key: defenseaction.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17601206935552
+    m_Key: growthaction.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17740373942272
+    m_Key: healingbloom.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17818627072000
+    m_Key: poisonshot.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17977729605632
+    m_Key: punch.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18078019608576
+    m_Key: seawhip.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18215387258880
+    m_Key: shieldbash.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18280524800000
+    m_Key: soundboom.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18380403761152
+    m_Key: windbuffaction.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18704380190720
+    m_Key: slimewave.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18786383028224
+    m_Key: kingslimeexplosion.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18897041350656
+    m_Key: slimeattack.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18984651972608
+    m_Key: slimejump.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19046752837632
+    m_Key: splashpoison.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19184619610112
+    m_Key: smallslimechoosetarget.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19291981209600
+    m_Key: smallslimecure.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19383484145664
+    m_Key: smallslimeexplosion.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19499897053184
+    m_Key: smallslimes.name
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 2873990907034075160
+  references:
+    version: 2
+    RefIds:
+    - rid: 2873990907034075160
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1690192694710

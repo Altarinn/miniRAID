@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f096bde5dd035e5469a0fa7433078a82, type: 3}
-  m_Name: ExplosivePoison
+  m_Name: SplashPoison
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -206,6 +206,9 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: targetPicker
+      Entry: 6
+      Data: 
     - Name: _
       Entry: 6
       Data: 
@@ -305,6 +308,9 @@ MonoBehaviour:
     - Name: buff
       Entry: 10
       Data: 1
+    - Name: inheritLevel
+      Entry: 5
+      Data: false
     - Name: inheritPower
       Entry: 5
       Data: true
@@ -359,8 +365,19 @@ MonoBehaviour:
   Guid: f72e51a3602e4ac2971584187939dfa4
   Id: 98
   icon: {fileID: 0}
-  ActionName: "\u98DE\u6E85\u6BD2\u6DB2"
+  ActionNameKey:
+    m_TableReference:
+      m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
+    m_TableEntryReference:
+      m_KeyId: 19046752837632
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   maxLevel: 0
   Description: 
   flags: 0
   explosionRange: 100
+  references:
+    version: 2
+    RefIds: []

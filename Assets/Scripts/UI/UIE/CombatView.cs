@@ -15,7 +15,8 @@ namespace miniRAID.UIElements
         public MobDetailsController mobDetails;
         public UnitBarController unitBar;
 
-        public Label battlePreview;
+        public Label battlePreview, centerTitleText, importantText;
+        public VisualElement centerTitlePanel, importantPanel, importantPanelProgressBar;
 
         private UIDocument uiDocument;
         [SerializeField] private Vector2Int referenceResolution;
@@ -43,6 +44,12 @@ namespace miniRAID.UIElements
             );
 
             battlePreview = uiDocument.rootVisualElement.Q<Label>("BattlePreview");
+            centerTitlePanel = uiDocument.rootVisualElement.Q("MiddleTitle");
+            centerTitleText = centerTitlePanel.Q<Label>("TitleText");
+            
+            importantPanel = uiDocument.rootVisualElement.Q("ImportantTextPanel");
+            importantText = importantPanel.Q<Label>("ImportantText");
+            importantPanelProgressBar = importantPanel.Q("ProgressBar");
 
             messagePool = new MessagePoolController(
                 uiDocument.rootVisualElement.Q("MessagePanel")
@@ -62,6 +69,43 @@ namespace miniRAID.UIElements
         public void HideBattlePreview()
         {
             battlePreview.style.visibility = Visibility.Hidden;
+        }
+        
+        public void ShowCenterTitle(string text)
+        {
+            centerTitleText.text = $"{text}";
+            centerTitlePanel.style.visibility = Visibility.Visible;
+        }
+        
+        public void HideCenterTitle()
+        {
+            centerTitlePanel.style.visibility = Visibility.Hidden;
+        }
+        
+        public void ShowImportantText(string text)
+        {
+            importantText.text = $"{text}";
+            importantPanel.style.visibility = Visibility.Visible;
+        }
+        
+        public void HideImportantText()
+        {
+            importantPanel.style.visibility = Visibility.Hidden;
+        }
+
+        public IEnumerator ShowImportantText(string text, float time)
+        {
+            ShowImportantText(text);
+
+            float timer = time;
+            while (timer > 0)
+            {
+                timer -= Time.deltaTime;
+                importantPanelProgressBar.style.width = Length.Percent(100.0f * timer / time);
+                yield return null;
+            }
+            
+            HideImportantText();
         }
 
         public void BindAsBoss(MobRenderer mobRenderer)

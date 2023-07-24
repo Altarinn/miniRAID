@@ -7,6 +7,7 @@ using XLua;
 using Sirenix.OdinInspector;
 using System.Linq;
 using miniRAID.Weapon;
+using UnityEngine.Localization;
 using UnityEngine.Serialization;
 
 #if UNITY_EDITOR
@@ -125,7 +126,9 @@ namespace miniRAID
     public class ActionDataSO : CustomIconScriptableObject
     {
         [Title("Basic info")]
-        public string ActionName;
+        public LocalizedString ActionNameKey;
+
+        public string ActionName => Globals.localizer.L(ActionNameKey) ?? "BAD_STRING";
 
         [FormerlySerializedAs("MaxLevel")] public int maxLevel;
 

@@ -47,6 +47,33 @@ namespace miniRAID.UI
             overlay.RequestRedraw();
             return overlay;
         }
+        
+        public GridOverlay FromShape(GridShape shape, GridOverlay.Types type)
+        {
+            GridOverlay overlay = Instantiate<GameObject>(overlayPrefab.gameObject, transform.position, Quaternion.identity).GetComponent<GridOverlay>();
+            
+            foreach (var p in shape.ApplyTransform())
+            {
+                overlay.overlay.Add(p, type);
+            }
+            
+            overlay.RequestRedraw();
+            return overlay;
+        }
+        
+        public GridOverlay FromShape(GridShape shape, Sprite icon)
+        {
+            GridOverlay overlay = Instantiate<GameObject>(overlayPrefab.gameObject, transform.position, Quaternion.identity).GetComponent<GridOverlay>();
+            overlay.SetCustomSprite(icon);
+            
+            foreach (var p in shape.ApplyTransform())
+            {
+                overlay.overlay.Add(p, GridOverlay.Types.CUSTOM);
+            }
+            
+            overlay.RequestRedraw();
+            return overlay;
+        }
 
         // It WORKS.
         //IEnumerator Coro1(int depth)

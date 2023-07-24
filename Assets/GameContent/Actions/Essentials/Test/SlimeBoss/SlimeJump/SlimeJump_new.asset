@@ -575,16 +575,42 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: inheritLevel
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: importantMessage
+      Entry: 7
+      Data: 11|miniRAID.ActionHelpers.ShowImportantMessage, Assembly-CSharp
+    - Name: message
+      Entry: 1
+      Data: "*\u53F2\u83B1\u59C6\u738B\u7684\u8DF3\u8DC3\u4F7F\u811A\u4E0B\u7684\u6BD2\u6DB2\u56DB\u6E85\uFF01"
+    - Name: seconds
+      Entry: 4
+      Data: 2.5
     - Name: 
       Entry: 8
       Data: 
   Guid: 9e0b2fc04734404d94db8fe98eb84b84
   Id: 47
   icon: {fileID: 0}
-  ActionName: "\u53F2\u83B1\u59C6\u8DF3\u8DC3"
+  ActionNameKey:
+    m_TableReference:
+      m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
+    m_TableEntryReference:
+      m_KeyId: 18984651972608
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   maxLevel: 0
   Description: 
   flags: 0
   skillJumpOnPool:
     data: {fileID: 11400000, guid: 652e055f6803bbc4fbcf80ed8da6700e, type: 2}
     level: 0
+  references:
+    version: 2
+    RefIds: []

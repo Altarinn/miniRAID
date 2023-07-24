@@ -13,6 +13,28 @@ namespace miniRAID
         public IEnumerator Phase(Consts.UnitGroup group)
         {
             Globals.logger?.Log($"[csc] PHASE START: {group.ToString()}");
+
+            if (group == Consts.UnitGroup.Player)
+            {
+                Globals.ui.Instance.combatView.ShowCenterTitle("Player Phase");
+            }
+            else if (group == Consts.UnitGroup.Ally)
+            {
+                Globals.ui.Instance.combatView.ShowCenterTitle("Ally Phase");
+            }
+            else if (group == Consts.UnitGroup.Enemy)
+            {
+                Globals.ui.Instance.combatView.ShowCenterTitle("Enemy Phase");
+            }
+            else
+            {
+                Globals.ui.Instance.combatView.ShowCenterTitle("Phase");
+            }
+            
+            // Wait some time
+            yield return new WaitForSeconds(1f);
+            
+            Globals.ui.Instance.combatView.HideCenterTitle();
             
             // Enter phase
             awaitForActions.Clear();

@@ -681,7 +681,18 @@ MonoBehaviour:
   Guid: 20581ce0f4954d44970dbf270ed0a1cc
   Id: 66
   icon: {fileID: -4228980654789970603, guid: 7fe9a382566f75a429badd968a5161fa, type: 3}
-  ActionName: "\u6CBB\u7597\u672F"
+  ActionNameKey:
+    m_TableReference:
+      m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
+    m_TableEntryReference:
+      m_KeyId: 17434508517376
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   maxLevel: 0
   Description: "\u6CBB\u7597\u961F\u53CB\u3002"
   flags: 0
+  references:
+    version: 2
+    RefIds: []

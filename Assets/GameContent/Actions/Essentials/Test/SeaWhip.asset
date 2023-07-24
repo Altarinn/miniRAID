@@ -407,6 +407,9 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: targetPicker
+      Entry: 6
+      Data: 
     - Name: _
       Entry: 6
       Data: 
@@ -449,6 +452,9 @@ MonoBehaviour:
     - Name: buff
       Entry: 10
       Data: 1
+    - Name: inheritLevel
+      Entry: 5
+      Data: false
     - Name: inheritPower
       Entry: 5
       Data: true
@@ -503,8 +509,19 @@ MonoBehaviour:
   Guid: 6f16fc5c7f8b4df9a23f09bb7b59cafe
   Id: 99
   icon: {fileID: 0}
-  ActionName: "\u6D77\u795E\u4E4B\u97AD"
+  ActionNameKey:
+    m_TableReference:
+      m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
+    m_TableEntryReference:
+      m_KeyId: 18078019608576
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   maxLevel: 0
   Description: "\u63A5\u4E0B\u6765\u76843\u56DE\u5408\u5185\uFF0C\u6240\u6709\u961F\u5458\u9020\u6210\u7684\u76F4\u63A5\u4F24\u5BB3\n\u4F1A\u89E6\u53D1\u6D77\u795E\u4E4B\u97AD\uFF0C\u5BF9\u76EE\u6807\u989D\u5916\u9020\u6210\u4F24\u5BB3\u3002"
   flags: 0
   explosionRange: 100
+  references:
+    version: 2
+    RefIds: []

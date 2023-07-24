@@ -1,52 +1,142 @@
 - Start of debug log -
-[7/21/2023 8:21:48 PM] AWAKE
-[7/21/2023 8:21:51 PM] 回合1
-[7/21/2023 8:21:51 PM] Attacker (2) 获得了来自 Attacker (2) 的 攻击者
-[7/21/2023 8:21:51 PM] Attacker 获得了来自 Attacker 的 攻击者
-[7/21/2023 8:21:51 PM] Defender 获得了来自 Defender 的 防卫者
-[7/21/2023 8:21:51 PM] Buffer 获得了来自 Buffer 的 力量光环
-[7/21/2023 8:21:51 PM] Attacker (2) 获得了来自 Buffer 的 力量光环
-[7/21/2023 8:21:51 PM] Attacker 获得了来自 Buffer 的 力量光环
-[7/21/2023 8:21:51 PM] Defender 获得了来自 Buffer 的 力量光环
-[7/21/2023 8:21:51 PM] Healer 获得了来自 Buffer 的 力量光环
-[7/21/2023 8:21:51 PM] Healer (1) 获得了来自 Buffer 的 力量光环
-[7/21/2023 8:21:51 PM] BossMu 获得了来自 BossMu 的 史莱姆爆发 [224]
-[7/21/2023 8:21:51 PM] Attacker (1) 获得了来自 Attacker (1) 的 攻击者
-[7/21/2023 8:21:51 PM] Attacker (1) 获得了来自 Buffer 的 力量光环
-[7/21/2023 8:21:51 PM] Defender (1) 获得了来自 Defender (1) 的 防卫者
-[7/21/2023 8:21:51 PM] Defender (1) 获得了来自 Buffer 的 力量光环
-[7/21/2023 8:21:57 PM] Attacker (2) 施放了 射击, 目标：(8, 0) 
-[7/21/2023 8:21:58 PM] Attacker (2) 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：2205
-[7/21/2023 8:21:58 PM] Attacker 施放了 射击, 目标：(8, 0) 
-[7/21/2023 8:21:59 PM] Attacker 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：2170
-[7/21/2023 8:21:59 PM] Attacker (1) 施放了 射击, 目标：(8, 0) 
-[7/21/2023 8:21:59 PM] Attacker (1) 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：2135
-[7/21/2023 8:22:00 PM] Buffer 施放了 响音攻击, 目标：(6, 0) 
-[7/21/2023 8:22:00 PM] Buffer 的 响音攻击 对 BossMu 造成了 11 点 Knock 伤害。生命值：2124
-[7/21/2023 8:22:00 PM] Healer 施放了 栽培, 目标：(9, 0) 
-[7/21/2023 8:22:01 PM] Defender 获得了来自 Healer 的 栽培 (3T)
-[7/21/2023 8:22:01 PM] Healer (1) 施放了 栽培, 目标：(8, 0) 
-[7/21/2023 8:22:02 PM] Defender (1) 获得了来自 Healer (1) 的 栽培 (3T)
-[7/21/2023 8:22:02 PM] Defender 施放了 盾击, 目标：(8, 0) 
-[7/21/2023 8:22:03 PM] Defender 的 盾击 对 BossMu 造成了 46 点 Knock 伤害（暴击）。生命值：2078
-[7/21/2023 8:22:03 PM] Defender (1) 施放了 盾击, 目标：(8, 0) 
-[7/21/2023 8:22:03 PM] Defender (1) 的 盾击 对 BossMu 造成了 23 点 Knock 伤害。生命值：2055
-[7/21/2023 8:22:03 PM] BossMu 施放了 史莱姆攻击, 目标：(9, 0) 
-[7/21/2023 8:22:04 PM] BossMu 的 史莱姆攻击 对 Defender 造成了 19 点 Knock 伤害。生命值：73
-[7/21/2023 8:22:04 PM] Defender 获得了来自 BossMu 的 史莱姆毒素 (3T)
-[7/21/2023 8:22:04 PM] 回合2
-[7/21/2023 8:22:05 PM] Healer 的 栽培 对 Defender 造成了 6 点 Heal 。生命值：79
-[7/21/2023 8:22:05 PM] BossMu 的 史莱姆毒素 对 Defender 造成了 6 点 Nature 伤害。生命值：73
-[7/21/2023 8:22:05 PM] Healer (1) 的 栽培 对 Defender (1) 造成了 0 点 Heal 。生命值：92
-[7/21/2023 8:22:07 PM] Healer 施放了 Move, 目标：(6, 0) 
-[7/21/2023 8:22:10 PM] Healer (1) 施放了 Move, 目标：(6, 0) 
-[7/21/2023 8:22:12 PM] Attacker (2) 施放了 射击, 目标：(8, 0) 
-[7/21/2023 8:22:12 PM] Attacker (2) 的 射击 没有击中 BossMu。生命值：2055
-[7/21/2023 8:22:12 PM] Attacker (2) 施放了 射击, 目标：(8, 0) 
-[7/21/2023 8:22:13 PM] Attacker (2) 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：2020
-[7/21/2023 8:22:13 PM] Attacker 施放了 射击, 目标：(8, 0) 
-[7/21/2023 8:22:13 PM] Attacker 的 射击 没有击中 BossMu。生命值：2020
-[7/21/2023 8:22:13 PM] Attacker 施放了 射击, 目标：(8, 0) 
-[7/21/2023 8:22:14 PM] Attacker 的 射击 没有击中 BossMu。生命值：2020
-[7/21/2023 8:22:14 PM] Attacker (1) 施放了 射击, 目标：(8, 0) 
-[7/21/2023 8:22:15 PM] Attacker (1) 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：1985
+[7/24/2023 8:15:59 PM] AWAKE
+[7/24/2023 8:16:03 PM] SmallMu (6) 获得了来自 SmallMu (6) 的 死亡爆裂 [120]
+[7/24/2023 8:16:03 PM] SmallMu (7) 获得了来自 SmallMu (7) 的 死亡爆裂 [120]
+[7/24/2023 8:16:03 PM] SmallMu 获得了来自 SmallMu 的 死亡爆裂 [120]
+[7/24/2023 8:16:03 PM] SmallMu (3) 获得了来自 SmallMu (3) 的 死亡爆裂 [120]
+[7/24/2023 8:16:03 PM] SmallMu (5) 获得了来自 SmallMu (5) 的 死亡爆裂 [120]
+[7/24/2023 8:16:03 PM] SmallMu (4) 获得了来自 SmallMu (4) 的 死亡爆裂 [120]
+[7/24/2023 8:16:03 PM] Attacker (2) 获得了来自 Attacker (2) 的 攻击者
+[7/24/2023 8:16:03 PM] Attacker 获得了来自 Attacker 的 攻击者
+[7/24/2023 8:16:03 PM] Defender 获得了来自 Defender 的 防卫者
+[7/24/2023 8:16:03 PM] Buffer 获得了来自 Buffer 的 力量光环
+[7/24/2023 8:16:03 PM] Attacker (2) 获得了来自 Buffer 的 力量光环
+[7/24/2023 8:16:03 PM] Defender 获得了来自 Buffer 的 力量光环
+[7/24/2023 8:16:03 PM] Healer 获得了来自 Buffer 的 力量光环
+[7/24/2023 8:16:03 PM] Healer (1) 获得了来自 Buffer 的 力量光环
+[7/24/2023 8:16:03 PM] Attacker (3) 获得了来自 Attacker (3) 的 攻击者
+[7/24/2023 8:16:03 PM] Attacker (3) 获得了来自 Buffer 的 力量光环
+[7/24/2023 8:16:03 PM] Buffer (1) 获得了来自 Buffer (1) 的 力量光环
+[7/24/2023 8:16:03 PM] Attacker (2) 重新获得了来自 Buffer 的 力量光环
+[7/24/2023 8:16:03 PM] Attacker 获得了来自 Buffer (1) 的 力量光环
+[7/24/2023 8:16:03 PM] Defender 重新获得了来自 Buffer 的 力量光环
+[7/24/2023 8:16:03 PM] Buffer 重新获得了来自 Buffer 的 力量光环
+[7/24/2023 8:16:03 PM] Healer 重新获得了来自 Buffer 的 力量光环
+[7/24/2023 8:16:03 PM] Healer (1) 重新获得了来自 Buffer 的 力量光环
+[7/24/2023 8:16:03 PM] Buffer (1) 重新获得了来自 Buffer (1) 的 力量光环
+[7/24/2023 8:16:03 PM] BossMu 获得了来自 BossMu 的 史莱姆爆发 [224]
+[7/24/2023 8:16:03 PM] Attacker (1) 获得了来自 Attacker (1) 的 攻击者
+[7/24/2023 8:16:03 PM] Attacker (1) 获得了来自 Buffer 的 力量光环
+[7/24/2023 8:16:03 PM] Attacker (1) 重新获得了来自 Buffer 的 力量光环
+[7/24/2023 8:16:03 PM] Defender (1) 获得了来自 Defender (1) 的 防卫者
+[7/24/2023 8:16:03 PM] Defender (1) 获得了来自 Buffer 的 力量光环
+[7/24/2023 8:16:03 PM] Defender (1) 重新获得了来自 Buffer 的 力量光环
+[7/24/2023 8:16:04 PM] 回合1
+[7/24/2023 8:16:27 PM] Defender 施放了 Move, 目标：(10, 0) 
+[7/24/2023 8:16:28 PM] Defender 施放了 Punch, 目标：(11, 0) 
+[7/24/2023 8:16:28 PM] Defender 的 Punch 对 BossMu 造成了 6 点 Knock 伤害。生命值：2234
+[7/24/2023 8:16:30 PM] Buffer 施放了 Sound boom, 目标：(8, 0) 
+[7/24/2023 8:16:31 PM] Buffer 的 Sound boom 对 SmallMu (3) 造成了 11 点 Knock 伤害。生命值：109
+[7/24/2023 8:16:31 PM] Buffer (1) 施放了 Sound boom, 目标：(8, 0) 
+[7/24/2023 8:16:31 PM] Buffer (1) 的 Sound boom 对 SmallMu 造成了 11 点 Knock 伤害。生命值：109
+[7/24/2023 8:16:32 PM] Healer 施放了 Growth, 目标：(10, 0) 
+[7/24/2023 8:16:32 PM] Defender 获得了来自 Healer 的 栽培
+[7/24/2023 8:16:33 PM] Healer (1) 施放了 Growth, 目标：(9, 0) 
+[7/24/2023 8:16:33 PM] Defender (1) 获得了来自 Healer (1) 的 栽培
+[7/24/2023 8:16:35 PM] SmallMu (6) 施放了 Move, 目标：(14, 0) 
+[7/24/2023 8:16:35 PM] SmallMu (6) 施放了 Move, 目标：(14, 0) 
+[7/24/2023 8:16:35 PM] SmallMu (6) 施放了 Move, 目标：(12, 0) 
+[7/24/2023 8:16:36 PM] SmallMu (7) 施放了 Move, 目标：(14, 0) 
+[7/24/2023 8:16:37 PM] SmallMu (7) 施放了 Move, 目标：(12, 0) 
+[7/24/2023 8:16:37 PM] SmallMu 施放了 Move, 目标：(11, 0) 
+[7/24/2023 8:16:38 PM] SmallMu 施放了 Small slime cure, 目标：(11, 0) 
+[7/24/2023 8:16:38 PM] SmallMu 的 Small slime cure 对 BossMu 造成了 6 点 Heal 。生命值：2240
+[7/24/2023 8:16:38 PM] SmallMu (3) 施放了 Move, 目标：(11, 0) 
+[7/24/2023 8:16:38 PM] SmallMu (3) 施放了 Small slime cure, 目标：(11, 0) 
+[7/24/2023 8:16:38 PM] SmallMu (3) 的 Small slime cure 对 BossMu 造成了 0 点 Heal 。生命值：2240
+[7/24/2023 8:16:39 PM] SmallMu (5) 施放了 Move, 目标：(12, 0) 
+[7/24/2023 8:16:39 PM] SmallMu (5) 施放了 Small slime cure, 目标：(11, 0) 
+[7/24/2023 8:16:39 PM] SmallMu (5) 的 Small slime cure 对 BossMu 造成了 0 点 Heal 。生命值：2240
+[7/24/2023 8:16:39 PM] SmallMu (4) 施放了 Move, 目标：(12, 0) 
+[7/24/2023 8:16:40 PM] SmallMu (4) 施放了 Small slime cure, 目标：(11, 0) 
+[7/24/2023 8:16:40 PM] SmallMu (4) 的 Small slime cure 对 BossMu 造成了 0 点 Heal 。生命值：2240
+[7/24/2023 8:16:40 PM] BossMu 施放了 Slime wave, 目标：(11, 0) 
+[7/24/2023 8:16:40 PM] BossMu 施放了 Slime attack, 目标：(10, 0) 
+[7/24/2023 8:16:41 PM] BossMu 的 Slime attack 对 Defender 造成了 19 点 Knock 伤害。生命值：73
+[7/24/2023 8:16:41 PM] Defender 获得了来自 BossMu 的 史莱姆毒素
+[7/24/2023 8:16:41 PM] 回合2
+[7/24/2023 8:16:42 PM] Healer 的 栽培 对 Defender 造成了 6 点 Heal 。生命值：79
+[7/24/2023 8:16:42 PM] BossMu 的 史莱姆毒素 对 Defender 造成了 6 点 Nature 伤害。生命值：73
+[7/24/2023 8:16:42 PM] Healer (1) 的 栽培 对 Defender (1) 造成了 0 点 Heal 。生命值：92
+[7/24/2023 8:16:49 PM] Healer 施放了 Growth, 目标：(5, 0) 
+[7/24/2023 8:16:49 PM] Attacker (2) 获得了来自 Healer 的 栽培
+[7/24/2023 8:16:50 PM] Healer (1) 施放了 Growth, 目标：(6, 0) 
+[7/24/2023 8:16:50 PM] Attacker 获得了来自 Healer (1) 的 栽培
+[7/24/2023 8:16:52 PM] SmallMu (6) 施放了 Move, 目标：(12, 0) 
+[7/24/2023 8:16:52 PM] SmallMu (6) 施放了 Move, 目标：(12, 0) 
+[7/24/2023 8:16:52 PM] SmallMu (6) 施放了 Move, 目标：(12, 0) 
+[7/24/2023 8:16:52 PM] SmallMu (7) 施放了 Move, 目标：(12, 0) 
+[7/24/2023 8:16:52 PM] SmallMu (7) 施放了 Move, 目标：(12, 0) 
+[7/24/2023 8:16:52 PM] SmallMu (7) 施放了 Move, 目标：(12, 0) 
+[7/24/2023 8:16:52 PM] SmallMu 施放了 Small slime cure, 目标：(11, 0) 
+[7/24/2023 8:16:53 PM] SmallMu 的 Small slime cure 对 BossMu 造成了 0 点 Heal 。生命值：2240
+[7/24/2023 8:16:53 PM] SmallMu (3) 施放了 Small slime cure, 目标：(11, 0) 
+[7/24/2023 8:16:53 PM] SmallMu (3) 的 Small slime cure 对 BossMu 造成了 0 点 Heal 。生命值：2240
+[7/24/2023 8:16:53 PM] SmallMu (5) 施放了 Small slime cure, 目标：(11, 0) 
+[7/24/2023 8:16:53 PM] SmallMu (5) 的 Small slime cure 对 BossMu 造成了 0 点 Heal 。生命值：2240
+[7/24/2023 8:16:54 PM] SmallMu (4) 施放了 Small slime cure, 目标：(11, 0) 
+[7/24/2023 8:16:54 PM] SmallMu (4) 的 Small slime cure 对 BossMu 造成了 0 点 Heal 。生命值：2240
+[7/24/2023 8:16:54 PM] BossMu 施放了 Small slimes lock-on, 目标：(11, 0) 
+[7/24/2023 8:16:55 PM] Healer (1) 获得了来自 BossMu 的 锁定
+[7/24/2023 8:16:55 PM] BossMu 施放了 Slime attack, 目标：(10, 0) 
+[7/24/2023 8:16:55 PM] BossMu 的 Slime attack 对 Defender 造成了 19 点 Knock 伤害。生命值：54
+[7/24/2023 8:16:55 PM] Defender 重新获得了来自 BossMu 的 史莱姆毒素
+[7/24/2023 8:16:56 PM] 回合3
+[7/24/2023 8:16:57 PM] Healer 的 栽培 对 Attacker (2) 造成了 0 点 Heal 。生命值：64
+[7/24/2023 8:16:57 PM] Healer (1) 的 栽培 对 Attacker 造成了 0 点 Heal 。生命值：64
+[7/24/2023 8:16:57 PM] Healer 的 栽培 对 Defender 造成了 6 点 Heal 。生命值：60
+[7/24/2023 8:16:57 PM] BossMu 的 史莱姆毒素 对 Defender 造成了 12 点 Nature 伤害。生命值：48
+[7/24/2023 8:16:57 PM] Healer (1) 的 栽培 对 Defender (1) 造成了 0 点 Heal 。生命值：92
+[7/24/2023 8:17:03 PM] Buffer 施放了 Sound boom, 目标：(8, 0) 
+[7/24/2023 8:17:03 PM] Buffer 的 Sound boom 对 SmallMu (6) 造成了 11 点 Knock 伤害。生命值：109
+[7/24/2023 8:17:04 PM] Buffer 的 Sound boom 对 SmallMu (3) 造成了 11 点 Knock 伤害。生命值：98
+[7/24/2023 8:17:04 PM] Buffer (1) 施放了 Sound boom, 目标：(8, 0) 
+[7/24/2023 8:17:04 PM] Buffer (1) 的 Sound boom 对 SmallMu (7) 造成了 11 点 Knock 伤害。生命值：109
+[7/24/2023 8:17:04 PM] Buffer (1) 的 Sound boom 对 SmallMu 造成了 11 点 Knock 伤害。生命值：98
+[7/24/2023 8:17:05 PM] Healer 施放了 Growth, 目标：(8, 0) 
+[7/24/2023 8:17:05 PM] Buffer 获得了来自 Healer 的 栽培
+[7/24/2023 8:17:05 PM] Healer (1) 施放了 Growth, 目标：(7, 0) 
+[7/24/2023 8:17:06 PM] Healer 获得了来自 Healer (1) 的 栽培
+[7/24/2023 8:17:08 PM] SmallMu (6) 施放了 Move, 目标：(12, 0) 
+[7/24/2023 8:17:08 PM] SmallMu (6) 施放了 Move, 目标：(12, 0) 
+[7/24/2023 8:17:08 PM] SmallMu (6) 施放了 Move, 目标：(12, 0) 
+[7/24/2023 8:17:08 PM] SmallMu (7) 施放了 Move, 目标：(12, 0) 
+[7/24/2023 8:17:08 PM] SmallMu (7) 施放了 Move, 目标：(12, 0) 
+[7/24/2023 8:17:08 PM] SmallMu (7) 施放了 Move, 目标：(12, 0) 
+[7/24/2023 8:17:08 PM] SmallMu 施放了 Small slime cure, 目标：(11, 0) 
+[7/24/2023 8:17:09 PM] SmallMu 的 Small slime cure 对 BossMu 造成了 0 点 Heal 。生命值：2240
+[7/24/2023 8:17:09 PM] SmallMu (3) 施放了 Small slime cure, 目标：(11, 0) 
+[7/24/2023 8:17:09 PM] SmallMu (3) 的 Small slime cure 对 BossMu 造成了 0 点 Heal 。生命值：2240
+[7/24/2023 8:17:09 PM] SmallMu (5) 施放了 Small slime cure, 目标：(11, 0) 
+[7/24/2023 8:17:09 PM] SmallMu (5) 的 Small slime cure 对 BossMu 造成了 0 点 Heal 。生命值：2240
+[7/24/2023 8:17:10 PM] SmallMu (4) 施放了 Small slime cure, 目标：(11, 0) 
+[7/24/2023 8:17:10 PM] SmallMu (4) 的 Small slime cure 对 BossMu 造成了 0 点 Heal 。生命值：2240
+[7/24/2023 8:17:10 PM] BossMu 施放了 Small slimes, 目标：(11, 0) 
+[7/24/2023 8:17:11 PM] BossMu 的 Small slimes 对 Healer (1) 造成了 10 点 Nature 伤害。生命值：58
+[7/24/2023 8:17:11 PM] Healer (1) 失去了来自 BossMu 的 锁定
+[7/24/2023 8:17:11 PM] Healer (1) 获得了来自 BossMu 的 腐化酸池
+[7/24/2023 8:17:11 PM] BossMu 施放了 Slime attack, 目标：(10, 0) 
+[7/24/2023 8:17:11 PM] SmallMu(Clone) 获得了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[7/24/2023 8:17:12 PM] BossMu 的 Slime attack 对 Defender 造成了 19 点 Knock 伤害。生命值：29
+[7/24/2023 8:17:12 PM] Defender 重新获得了来自 BossMu 的 史莱姆毒素
+[7/24/2023 8:17:12 PM] 回合4
+[7/24/2023 8:17:13 PM] Healer 的 栽培 对 Attacker (2) 造成了 0 点 Heal 。生命值：64
+[7/24/2023 8:17:13 PM] Healer (1) 的 栽培 对 Attacker 造成了 0 点 Heal 。生命值：64
+[7/24/2023 8:17:13 PM] Healer 的 栽培 对 Defender 造成了 6 点 Heal 。生命值：36
+[7/24/2023 8:17:13 PM] Defender 失去了来自 Healer 的 栽培
+[7/24/2023 8:17:13 PM] BossMu 的 史莱姆毒素 对 Defender 造成了 18 点 Nature 伤害。生命值：18
+[7/24/2023 8:17:13 PM] Healer 的 栽培 对 Buffer 造成了 0 点 Heal 。生命值：84
+[7/24/2023 8:17:14 PM] Healer (1) 的 栽培 对 Healer 造成了 0 点 Heal 。生命值：68
+[7/24/2023 8:17:14 PM] BossMu 的 腐化酸池 对 Healer (1) 造成了 12 点 Nature 伤害。生命值：46
+[7/24/2023 8:17:14 PM] Healer (1) 的 栽培 对 Defender (1) 造成了 0 点 Heal 。生命值：92
+[7/24/2023 8:17:14 PM] Defender (1) 失去了来自 Healer (1) 的 栽培

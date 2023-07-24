@@ -47,6 +47,9 @@ namespace miniRAID
 
         public IEnumerator Combat()
         {
+            // TODO: Move me to the game's beginning scene
+            yield return new JumpIn(Globals.localizer.Initialization());
+            
             // For debug
             //yield return new JumpIn(Test());
 

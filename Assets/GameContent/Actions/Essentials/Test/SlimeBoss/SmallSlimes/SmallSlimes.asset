@@ -199,6 +199,9 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: targetPicker
+      Entry: 6
+      Data: 
     - Name: _
       Entry: 6
       Data: 
@@ -507,14 +510,28 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: inheritLevel
+      Entry: 5
+      Data: false
     - Name: 
       Entry: 8
       Data: 
   Guid: c99e5ab351e342c2bcb87b5204cedfda
   Id: 69
   icon: {fileID: 0}
-  ActionName: "\u5C0F\u53F2\u83B1\u59C6\u6295\u63B7"
+  ActionNameKey:
+    m_TableReference:
+      m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
+    m_TableEntryReference:
+      m_KeyId: 19499897053184
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   maxLevel: 0
   Description: "\u7528\u5C0F\u53F2\u83B1\u59C6\u653B\u51FB\u6807\u8BB0\u7684\u6240\u6709\u654C\u4EBA\u3002"
   flags: 0
   indicatorBuff: {fileID: 11400000, guid: 17ee89bf224feaa409d6630ffe3e73ac, type: 2}
+  references:
+    version: 2
+    RefIds: []

@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Actions_en-US
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en-US
+  m_SharedData: {fileID: 11400000, guid: 6ebb20b243c324310be673530903a313, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 5403847942144
+    m_Localized: test
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16990428192768
+    m_Localized: Move
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17320603803648
+    m_Localized: Shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17434508517376
+    m_Localized: Heal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17521674543104
+    m_Localized: Defense
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17601206935552
+    m_Localized: Growth
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17740373942272
+    m_Localized: Bloom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17818627072000
+    m_Localized: Poison shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17977729605632
+    m_Localized: Punch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18078019608576
+    m_Localized: Team buff
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18215387258880
+    m_Localized: Shield bash
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18280524800000
+    m_Localized: Sound boom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18380403761152
+    m_Localized: Self buff
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18704380190720
+    m_Localized: Slime wave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18786383028224
+    m_Localized: Slime explosion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18897041350656
+    m_Localized: Slime attack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18984651972608
+    m_Localized: Slime jump
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19046752837632
+    m_Localized: Splashing acid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19184619610112
+    m_Localized: Small slimes lock-on
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19291981209600
+    m_Localized: Small slime cure
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19383484145664
+    m_Localized: Small slime explosion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19499897053184
+    m_Localized: Small slimes
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

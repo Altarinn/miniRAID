@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using miniRAID.UI;
 using miniRAID.UIElements;
 
 namespace miniRAID
@@ -16,6 +17,7 @@ namespace miniRAID
         public static MonoSingleton<PopupManager> popupMgr = new MonoSingleton<PopupManager>(false);
         public static MonoSingleton<UI.GridOverlayManager> overlayMgr = new MonoSingleton<UI.GridOverlayManager>(false);
         public static MonoSingleton<SerialCoroutine> combatCoroutine = new MonoSingleton<SerialCoroutine>(false);
+        public static MonoSingleton<PrefabPool> prefabs = new MonoSingleton<PrefabPool>(false);
 
         public static SerialCoroutineContext combatContext => combatCoroutine.Instance.currentContext;
         public static void CombatCoroutineNewContext(SerialCoroutineContext ctx) => combatCoroutine.Instance.SwitchContext(ctx);

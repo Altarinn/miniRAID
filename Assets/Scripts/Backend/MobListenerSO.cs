@@ -87,7 +87,7 @@ namespace miniRAID
             return data.TryAdd(mob);
         }
 
-        public void AddIndicator(IMobListenerIndicator indicator)
+        public T AddIndicator<T>(T indicator) where T : IMobListenerIndicator
         {
             if (indicators == null)
             {
@@ -97,7 +97,10 @@ namespace miniRAID
             if(indicators.Add(indicator))
             {
                 indicator.Instantiate();
+                return indicator;
             }
+
+            return default;
         }
 
         public void RemoveIndicator(IMobListenerIndicator indicator)

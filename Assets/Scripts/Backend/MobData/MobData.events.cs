@@ -110,6 +110,13 @@ namespace miniRAID
         public CoroutineEvent<Cost, RuntimeAction, MobData> OnApplyCost;
 
         public event CostQueryDelegate OnCostQueryDisplay;
+
+        /// <summary>
+        /// Emitted when the mob is being selected in the UI.
+        /// Perhaps always comes with a valid MobRenderer.
+        /// </summary>
+        public event MobArgumentDelegate OnMobSelectedInUI;
+        public event MobArgumentDelegate OnMobDeselectedInUI;
         
         /////////////////////////////  Logics  //////////////////////////////
 
@@ -342,6 +349,16 @@ namespace miniRAID
             }
             
             OnQueryActions?.Invoke(this, availableActions);
+        }
+
+        public void SelectedInUI()
+        {
+            OnMobSelectedInUI?.Invoke(this);
+        }
+        
+        public void DeselectedInUI()
+        {
+            OnMobDeselectedInUI?.Invoke(this);
         }
     }
 }

@@ -3,6 +3,8 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using miniRAID.Agents;
+using miniRAID.Spells;
 using miniRAID.UIElements;
 
 namespace miniRAID.UI
@@ -33,13 +35,9 @@ namespace miniRAID.UI
 
             if (currentUnit != null)
             {
-                // MobData target = currentUnit.data?.lastTurnTarget;
-                // MobRenderer targetRenderer = target?.mobRenderer;
-                // if (targetRenderer != null)
-                // {
-                //     targetRenderer.GetComponentInChildren<SpriteRenderer>().color = Color.magenta;
-                // }
-                
+                // SpellTarget target = currentUnit.data?.FindListener<PlayerAutoAttackAgentBase>()?.GetTarget(currentUnit.data);
+                currentUnit.data.SelectedInUI();
+
                 currentUnit.GetComponentInChildren<SpriteRenderer>().color = Color.red;
 
                 ui.ShowMainMobStats(currentUnit);
@@ -88,8 +86,7 @@ namespace miniRAID.UI
                     keepCameraPosition = false;
                 }
                 
-                // MobData target = currentUnit.data?.lastTurnTarget;
-                // target?.mobRenderer?.UpdateStatusColor();
+                currentUnit.data.DeselectedInUI();
             }
             
             ui.combatView.menu.ClearMenu();

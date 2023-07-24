@@ -31,7 +31,8 @@ namespace miniRAID
                 case 1:
                     // Show inner circ warning
                     innerCircleShape.position = target.targetPos[0];
-                    dummy.AddIndicator(new GridShapeIndicator(innerCircleShape, GridOverlay.Types.INCOMING_ATTACK));
+                    dummy.AddIndicator(new GridShapeIndicator(innerCircleShape, GridOverlay.Types.INCOMING_ATTACK))
+                        ?.Move(Vector3.forward * 10.0f);
                     break;
                 case 2:
                     // Inner explodes
@@ -39,7 +40,8 @@ namespace miniRAID
                     
                     // Show middle ring warning
                     middleRingShape.position = target.targetPos[0];
-                    dummy.AddIndicator(new GridShapeIndicator(middleRingShape, GridOverlay.Types.INCOMING_ATTACK));
+                    dummy.AddIndicator(new GridShapeIndicator(middleRingShape, GridOverlay.Types.INCOMING_ATTACK))
+                        ?.Move(Vector3.forward * 10.0f);
                     break;
                 case 3:
                     // Ring explodes
@@ -47,7 +49,8 @@ namespace miniRAID
                     
                     // Show outer warning
                     outerRingShape.position = target.targetPos[0];
-                    dummy.AddIndicator(new GridShapeIndicator(outerRingShape, GridOverlay.Types.INCOMING_ATTACK));
+                    dummy.AddIndicator(new GridShapeIndicator(outerRingShape, GridOverlay.Types.INCOMING_ATTACK))
+                        ?.Move(Vector3.forward * 10.0f);
                     break;
                 case 4:
                     // Outer explodes

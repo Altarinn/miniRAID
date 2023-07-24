@@ -58,7 +58,7 @@ public class GridOverlay : MonoBehaviour
         foreach (var item in overlay)
         {
             // Instantiate a cell and set its sprite
-            Instantiate(overlayObj, new Vector3(item.Key.x, item.Key.z, -1), Quaternion.identity, transform).GetComponent<SpriteRenderer>().sprite = overlaySpriteOverride[(int)item.Value];
+            Instantiate(overlayObj, new Vector3(item.Key.x, item.Key.z, transform.position.z - 1), Quaternion.identity, transform).GetComponent<SpriteRenderer>().sprite = overlaySpriteOverride[(int)item.Value];
         }
     }
 

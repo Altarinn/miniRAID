@@ -16,7 +16,7 @@ MonoBehaviour:
   deleteDllAfterBuilds: 1
   AutomateForAllAOTPlatforms: 1
   automateForPlatforms: 0900000014000000
-  lastScan: 638242903653150803
+  lastScan: 638258466296520149
   supportSerializedTypes:
   - TypeName: miniRAID.Weapon.ActionTargetPickerBase, Assembly-CSharp
     IsCustom: 0
@@ -237,6 +237,9 @@ MonoBehaviour:
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.Weapon.SelfPicker, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: miniRAID.ActionHelpers.ShowImportantMessage, Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.ActionHelpers.SimpleExplosionFx, Assembly-CSharp

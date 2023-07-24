@@ -72,6 +72,19 @@ namespace miniRAID
 
             return null;
         }
+        
+        public RuntimeAction GetActionFromSO<T>() where T : ActionDataSO
+        {
+            foreach (var act in availableActions)
+            {
+                if (act.data is T)
+                {
+                    return act;
+                }
+            }
+
+            return null;
+        }
 
         #endregion
         

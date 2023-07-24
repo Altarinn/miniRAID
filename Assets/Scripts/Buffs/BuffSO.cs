@@ -27,6 +27,8 @@ namespace miniRAID.Buff
         public bool stackRefreshesTime = true;
         public int maxStack = 1;
         public bool snapShot = true;
+
+        public Sprite alwaysOnIndicator = null;
         
         // private float hit, crit;
         
@@ -281,6 +283,16 @@ namespace miniRAID.Buff
 
             mob.OnNextTurn += BuffBase_OnNextTurn;
 
+            // TODO: Separate me into something else
+            if (Globals.cc.animation && buffData.alwaysOnIndicator)
+            {
+                AddIndicator(new SimpleSpriteIndicator(
+                    buffData.alwaysOnIndicator,
+                    Globals.backend.GridToWorldPos(mob.Position)))
+                    .Move(new Vector3(0.5f, 0.5f, -3.0f))
+                    .Follow(mob.mobRenderer);
+            }
+
             // Register events
             // Stats
             // if(buffData.onBaseStatCalculation.isNonEmpty())
@@ -399,7 +411,7 @@ namespace miniRAID.Buff
                 buff = this,
                 eventType = Consts.BuffEventType.Removed
             });
-            
+
             base.OnRemove(mob);
             mob.OnNextTurn -= BuffBase_OnNextTurn;
             onRemoveFromMob?.Invoke(mob);

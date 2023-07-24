@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using miniRAID.Actions;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -212,7 +213,7 @@ namespace miniRAID.Agents
                         {
                             //throw new System.NotImplementedException();
                             // TODO: Make agent use coroutine actions.
-                            pickedAction = mob.GetAction("Move");
+                            pickedAction = mob.GetActionFromSO<Movement>();
                             yield return new JumpIn(mob.DoActionWithDefaultCosts(
                                 pickedAction,
                                 new Spells.SpellTarget(path.path[1])

@@ -52,5 +52,15 @@ namespace miniRAID
                 GameObject.Destroy(instantiatedOverlay.gameObject);
             }
         }
+
+        public GridShapeIndicator Move(Vector3 direction)
+        {
+            if (instantiatedOverlay != null)
+            {
+                instantiatedOverlay.transform.position += direction;
+            }
+
+            return this;
+        }
     }
 }

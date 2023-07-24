@@ -28,6 +28,8 @@ namespace miniRAID.Agents
             base.OnAttach(mob);
 
             mob.OnAutoAttackAgentWakeUp += OnAgentWakeUp;
+            mob.OnMobSelectedInUI += MobOnOnMobSelectedInUI;
+            mob.OnMobDeselectedInUI += MobOnOnMobDeselectedInUI;
         }
 
         public override void OnRemove(MobData mob)
@@ -35,6 +37,24 @@ namespace miniRAID.Agents
             base.OnRemove(mob);
 
             mob.OnAutoAttackAgentWakeUp -= OnAgentWakeUp;
+            mob.OnMobSelectedInUI -= MobOnOnMobSelectedInUI;
+            mob.OnMobDeselectedInUI -= MobOnOnMobDeselectedInUI;
+        }
+
+        private void MobOnOnMobSelectedInUI(MobData mob)
+        {
+            var sTarget = GetTarget(mob);
+            if (sTarget != null)
+            {
+                AddIndicator(new SimpleSpriteIndicator(
+                    null, 
+                    Globals.backend.GridToWorldPos(GetTarget(mob).targetPos[0]) + Vector3.back * 5.0f));
+            }
+        }
+        
+        private void MobOnOnMobDeselectedInUI(MobData mob)
+        {
+            RemoveAllIndicators();
         }
 
         protected IEnumerator OnAgentWakeUp(MobData mob)
@@ -75,6 +95,11 @@ namespace miniRAID.Agents
 
             // Cast the action
             yield return new JumpIn(mob.DoActionWithDefaultCosts(ract, target));
+        }
+        
+        public SpellTarget GetTarget(MobData mob)
+        {
+            return mob.mainWeapon.QueryTarget(mob);
         }
     }
 }

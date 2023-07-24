@@ -172,4 +172,5 @@ MonoBehaviour:
   stackRefreshesTime: 1
   maxStack: 1
   snapShot: 1
+  alwaysOnIndicator: {fileID: 21300000, guid: 7ade536c9d33df748b85da683c407e26, type: 3}
   flags: 34

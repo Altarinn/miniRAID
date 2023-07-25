@@ -194,7 +194,7 @@ MonoBehaviour:
       Data: 0
     - Name: staticOut
       Entry: 4
-      Data: 20
+      Data: 7
     - Name: LuaExpr
       Entry: 6
       Data: 
@@ -252,14 +252,14 @@ MonoBehaviour:
       Data: 
     - Name: currentStageCompleted
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: query_stack
       Entry: 7
       Data: 10|System.Collections.Generic.Stack`1[[miniRAID.UI.TargetRequester.RequestStage,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 7
       Data: 11|miniRAID.UI.TargetRequester.RequestStage, Assembly-CSharp
@@ -333,7 +333,7 @@ MonoBehaviour:
       Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 9
+      Data: 10
     - Name: 
       Entry: 3
       Data: 0
@@ -546,6 +546,9 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
+      Entry: 6
+      Data: 
+    - Name: 
       Entry: 13
       Data: 
     - Name: 
@@ -557,7 +560,22 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 3
       Data: 0
+    - Name: 
+      Entry: 3
+      Data: 8
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -691,7 +709,15 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   maxLevel: 0
-  Description: "\u6CBB\u7597\u961F\u53CB\u3002"
+  DescriptionKey:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   flags: 0
   references:
     version: 2

@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f5e382b98ff1ad4185e3111d63cb82c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridFxPrefab: {fileID: 8823596115559563046, guid: d148241aa75a87840ba107cb573205d6, type: 3}
+  gridFxPrefab: {fileID: 6020868349087846883, guid: d148241aa75a87840ba107cb573205d6, type: 3}

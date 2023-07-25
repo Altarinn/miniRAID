@@ -132,8 +132,9 @@ namespace miniRAID
 
         [FormerlySerializedAs("MaxLevel")] public int maxLevel;
 
-        [TextArea(1, 25)]
-        public string Description;
+        // [TextArea(1, 25)]
+        public LocalizedString DescriptionKey;
+        public string Description => Globals.localizer.L(DescriptionKey) ?? "BAD_STRING";
 
         [Title("Flags")] public Consts.ActionFlags flags;
 

@@ -19,7 +19,7 @@ MonoBehaviour:
     - {fileID: 6549173031084157918, guid: 8514406af415f3f45be82aa2f544fa24, type: 3}
     - {fileID: -2102465721, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
     - {fileID: 2132322813, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
-    - {fileID: -6969019455269956120, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
+    - {fileID: 2390354673250043810, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
     - {fileID: 11400000, guid: 9e2af50a9fe2072449078fdebd47b282, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
@@ -494,13 +494,13 @@ MonoBehaviour:
       Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 3
+      Data: 5
     - Name: 
       Entry: 3
       Data: 0
     - Name: 
       Entry: 3
-      Data: 10
+      Data: 8
     - Name: 
       Entry: 8
       Data: 
@@ -529,7 +529,15 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   maxLevel: 0
-  Description: "\u7528\u5C0F\u53F2\u83B1\u59C6\u653B\u51FB\u6807\u8BB0\u7684\u6240\u6709\u654C\u4EBA\u3002"
+  DescriptionKey:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   flags: 0
   indicatorBuff: {fileID: 11400000, guid: 17ee89bf224feaa409d6630ffe3e73ac, type: 2}
   references:

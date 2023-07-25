@@ -42,6 +42,13 @@ namespace miniRAID.Weapon
             currentEnergy = 0;
         }
 
+        public override void OnRemove(MobData mob)
+        {
+            mob.OnActionPostcast -= OnActionPostCast;
+            
+            base.OnRemove(mob);
+        }
+
         private void OnActionPostCast(MobData mob, RuntimeAction ract, Spells.SpellTarget target)
         {
             if (ract.data == RregularAttack.data) // Movement

@@ -137,13 +137,13 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 7
       Data: 
     - Name: $k
       Entry: 3
-      Data: 8
+      Data: 7
     - Name: $v
       Entry: 7
       Data: miniRAID.StatModifierSO+dNumberModifier, Assembly-CSharp
@@ -162,7 +162,50 @@ MonoBehaviour:
       Data: 0
     - Name: staticOut
       Entry: 4
-      Data: 1
+      Data: 0.8
+    - Name: LuaExpr
+      Entry: 6
+      Data: 
+    - Name: description
+      Entry: 6
+      Data: 
+    - Name: getterTemplate
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 13
+    - Name: $v
+      Entry: 7
+      Data: miniRAID.StatModifierSO+dNumberModifier, Assembly-CSharp
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: aux
+      Entry: 5
+      Data: false
+    - Name: value
+      Entry: 7
+      Data: 7|miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Single,
+        mscorlib]], Assembly-CSharp
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: staticOut
+      Entry: 4
+      Data: 4
     - Name: LuaExpr
       Entry: 6
       Data: 
@@ -190,7 +233,7 @@ MonoBehaviour:
   Guid: 76a9c57ee01848339e412b260f53a1b2
   Id: 117
   icon: {fileID: 0}
-  name: "\u6CBB\u7597\u6756"
+  name: "\u5F57\u661F\u6756"
   type: 1
   priority: 0
   itemLevel: 24
@@ -204,10 +247,10 @@ MonoBehaviour:
     TEC: 0
   wpType: 5
   regularAttack:
-    data: {fileID: 11400000, guid: 7d0a924b74cd61a4cbe3a035bfdee38d, type: 2}
+    data: {fileID: 11400000, guid: 8b916b35a6fafab489e1fdc98610cdd5, type: 2}
     level: 0
-  mainElement: 0
+  mainElement: 4
   specialAttack:
-    data: {fileID: 11400000, guid: c934568e496c1d2438b51d0b0be45afa, type: 2}
+    data: {fileID: 11400000, guid: e024be0bdd80df747869dade38c631b9, type: 2}
     level: 0
   regenTime: 2

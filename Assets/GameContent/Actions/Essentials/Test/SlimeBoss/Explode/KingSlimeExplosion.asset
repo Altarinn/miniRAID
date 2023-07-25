@@ -172,8 +172,9 @@ MonoBehaviour:
   stackRefreshesTime: 1
   maxStack: 1
   snapShot: 1
+  alwaysOnIndicator: {fileID: 0}
   flags: 34
-  healthRatio: 0.1
+  healthRatio: 0.2
   skill:
     data: {fileID: 11400000, guid: 082ff71e399658b44bde385d92e8efbc, type: 2}
     level: 0

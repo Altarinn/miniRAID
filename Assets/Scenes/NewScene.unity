@@ -315,7 +315,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1776337542, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
+  m_Sprite: {fileID: -1140304124, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -743,7 +743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 32
-  m_ScaleFactor: 2
+  m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1280, y: 720}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
@@ -863,6 +863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteIndicator: {fileID: 4690334935109465677, guid: 6f5974462dfe6c04395608e666ff592a, type: 3}
+  ray: {fileID: -6101613858955607381, guid: 294e6b8669202294bb752793e077dc83, type: 3}
 --- !u!1 &141169435
 GameObject:
   m_ObjectHideFlags: 0
@@ -5420,7 +5421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceResolution: {x: 800, y: 450}
-  minimumScale: 2
+  minimumScale: 1
 --- !u!1001 &883232249
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6788,7 +6789,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBoss: 0
   data:
-    baseDescriptor: {fileID: 11400000, guid: 3dbe83d42ffb7456893913dd0db4cfca, type: 2}
+    baseDescriptor: {fileID: 11400000, guid: 5962f619817136d4dbda4c4d36c9f58f, type: 2}
     enemyDebug: 0
     initialized: 0
     movementType: 0
@@ -7123,7 +7124,7 @@ GameObject:
   - component: {fileID: 1346971154}
   - component: {fileID: 1346971155}
   m_Layer: 0
-  m_Name: Attacker (3)
+  m_Name: Astro
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -7137,7 +7138,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1346971153}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.5, y: 4.5, z: 0}
+  m_LocalPosition: {x: 8.5, y: 7.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7161,7 +7162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBoss: 0
   data:
-    baseDescriptor: {fileID: 11400000, guid: 7c782241659924b178893d9776b25d29, type: 2}
+    baseDescriptor: {fileID: 11400000, guid: 686bb55f21b7e8a41bdb6b5285520300, type: 2}
     enemyDebug: 0
     initialized: 0
     movementType: 0

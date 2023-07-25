@@ -120,6 +120,9 @@ namespace miniRAID
                     case StatModTarget.SpDefense:
                         ModifydNumber(ref mob.spDefense, mob, kv.Value, stacks, powerToUse); break;
 
+                    case StatModTarget.Hit:
+                        ModifydNumber(ref mob.hitAcc, mob, kv.Value, stacks, powerToUse); break;
+                    
                     case StatModTarget.AggroMul:
                         ModifydNumber(ref mob.aggroMul, mob, kv.Value, stacks, powerToUse); break;
 

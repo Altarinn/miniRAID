@@ -411,10 +411,11 @@ namespace miniRAID.Buff
                 buff = this,
                 eventType = Consts.BuffEventType.Removed
             });
-
-            base.OnRemove(mob);
+            
             mob.OnNextTurn -= BuffBase_OnNextTurn;
             onRemoveFromMob?.Invoke(mob);
+
+            base.OnRemove(mob);
         }
 
         public virtual void OnNextTurn(MobData mob) { }

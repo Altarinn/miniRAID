@@ -9,6 +9,7 @@ namespace miniRAID.Actions
     {
         public ActionHelpers.Projectile projectile;
         public SimpleExplosionFx fxOnHit;
+        public bool buffAppliedFirst = false;
         public SpellBuff buff;
         public SpellDamageHeal damageOrHeal;
         
@@ -25,10 +26,13 @@ namespace miniRAID.Actions
             if(fxOnHit != null)
                 yield return new JumpIn(fxOnHit.Do(target));
             
+            if(buff != null && buffAppliedFirst)
+                yield return new JumpIn(buff.Do(ract, mob, dst));
+                
             if(damageOrHeal != null)
                 yield return new JumpIn(damageOrHeal.Do(ract, mob, dst));
 
-            if (buff != null)
+            if (buff != null && !buffAppliedFirst)
                 yield return new JumpIn(buff.Do(ract, mob, dst));
         }
     }

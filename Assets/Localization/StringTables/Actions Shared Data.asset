@@ -28,7 +28,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 17434508517376
-    m_Key: basichealing.name
+    m_Key: emergencyheal.name
     m_Metadata:
       m_Items: []
   - m_Id: 17521674543104
@@ -101,6 +101,18 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 19499897053184
     m_Key: smallslimes.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 238622337474560
+    m_Key: starlightpulse.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 472736906944512
+    m_Key: chainheal.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 476246885081088
+    m_Key: basicheal.name
     m_Metadata:
       m_Items: []
   m_Metadata:

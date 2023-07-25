@@ -6,6 +6,7 @@ using miniRAID.Buff;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
+using Object = System.Object;
 
 namespace miniRAID.ActionHelpers
 {
@@ -84,10 +85,25 @@ namespace miniRAID.ActionHelpers
         public class AdvancedSettings
         {
             public float aggroMul = 1.0f;
+
+            public AdvancedSettings(AdvancedSettings settings)
+            {
+                aggroMul = settings.aggroMul;
+            }
         }
 
         [SerializeField]
         public AdvancedSettings advancedSettings;
+        
+        public SpellDamageHeal(SpellDamageHeal damageHeal)
+        {
+            flags = damageHeal.flags;
+            type = damageHeal.type;
+            power = damageHeal.power;
+            crit = damageHeal.crit;
+            hit = damageHeal.hit;
+            advancedSettings = damageHeal.advancedSettings == null ? null : new AdvancedSettings(damageHeal.advancedSettings);
+        }
 
         public IEnumerator DoDamageHeal(RuntimeAction spellContext, Buff.Buff buffContext, MobData src, MobData tgt)
         {
@@ -246,38 +262,6 @@ namespace miniRAID.ActionHelpers
 
             return flag;
         }
-    }
-
-    [ColoredBox("#ff7")]
-    public class SimpleExplosionFx
-    {
-        public Sprite image;
-        public float size = 200.0f;
-        public float triggerTime = 0.3f;
-        public float time = 0.5f;
-
-        public IEnumerator Do(Vector3 position)
-        {
-            if (Globals.cc.animation)
-            {
-                GameObject obj = new GameObject("explosion");
-                obj.transform.position = new Vector3(position.x + 0.5f, position.y + 0.5f, position.z + 0.5f);
-                var sr = obj.AddComponent<SpriteRenderer>();
-                sr.sprite = image;
-
-                sr.DOColor(Color.clear, time);
-                DOTween.Sequence()
-                    .Append(obj.transform.DOScale(Vector3.one * size, time)
-                        .OnComplete(() => {GameObject.Destroy(obj);}))
-                    .SetLink(obj);
-                
-                yield return new WaitForSeconds(triggerTime);
-            }
-            
-            yield return -1;
-        }
-
-        public IEnumerator Do(Vector3Int gridPosition) => Do(Globals.backend.GridToWorldPos(gridPosition));
     }
 
     [ColoredBox("#ff7")]

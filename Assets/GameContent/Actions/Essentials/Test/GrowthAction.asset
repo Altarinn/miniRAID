@@ -667,6 +667,9 @@ MonoBehaviour:
     - Name: lowestHealthFirst
       Entry: 5
       Data: true
+    - Name: captureFullHealthTargets
+      Entry: 5
+      Data: true
     - Name: 
       Entry: 8
       Data: 
@@ -770,8 +773,17 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   maxLevel: 0
-  Description: "3\u56DE\u5408\u5185\u4E3A\u76EE\u6807\u6301\u7EED\u6062\u590D\u751F\u547D\u3002"
+  DescriptionKey:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   flags: 68
+  buffAppliedFirst: 0
   references:
     version: 2
     RefIds: []

@@ -1,0 +1,888 @@
+- Start of debug log -
+[2023/7/26 3:32:52] AWAKE
+[回合0] 00m 07s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [120]
+[回合0] 00m 07s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [120]
+[回合0] 00m 07s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [120]
+[回合0] 00m 07s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [120]
+[回合0] 00m 07s:  Attacker (2) 获得了来自 Attacker (2) 的 攻击者
+[回合0] 00m 07s:  Attacker 获得了来自 Attacker 的 攻击者
+[回合0] 00m 07s:  Defender 获得了来自 Defender 的 防卫者
+[回合0] 00m 07s:  Buffer 获得了来自 Buffer 的 力量光环
+[回合0] 00m 07s:  Attacker (2) 获得了来自 Buffer 的 力量光环
+[回合0] 00m 07s:  Defender 获得了来自 Buffer 的 力量光环
+[回合0] 00m 07s:  Healer 获得了来自 Buffer 的 力量光环
+[回合0] 00m 07s:  Healer (1) 获得了来自 Buffer 的 力量光环
+[回合0] 00m 07s:  Astro 获得了来自 Astro 的 FallenStar
+[回合0] 00m 07s:  Astro 获得了来自 Astro 的 StarEnergy
+[回合0] 00m 07s:  Astro 获得了来自 Buffer 的 力量光环
+[回合0] 00m 07s:  Buffer (1) 获得了来自 Buffer (1) 的 力量光环
+[回合0] 00m 07s:  Attacker (2) 重新获得了来自 Buffer 的 力量光环
+[回合0] 00m 07s:  Attacker 获得了来自 Buffer (1) 的 力量光环
+[回合0] 00m 07s:  Defender 重新获得了来自 Buffer 的 力量光环
+[回合0] 00m 07s:  Buffer 重新获得了来自 Buffer 的 力量光环
+[回合0] 00m 07s:  Healer 重新获得了来自 Buffer 的 力量光环
+[回合0] 00m 07s:  Healer (1) 重新获得了来自 Buffer 的 力量光环
+[回合0] 00m 07s:  Astro 重新获得了来自 Buffer 的 力量光环
+[回合0] 00m 07s:  Buffer (1) 重新获得了来自 Buffer (1) 的 力量光环
+[回合0] 00m 07s:  BossMu 获得了来自 BossMu 的 史莱姆爆发 [224]
+[回合0] 00m 07s:  Attacker (1) 获得了来自 Attacker (1) 的 攻击者
+[回合0] 00m 07s:  Attacker (1) 获得了来自 Buffer 的 力量光环
+[回合0] 00m 07s:  Attacker (1) 重新获得了来自 Buffer 的 力量光环
+[回合0] 00m 07s:  Defender (1) 获得了来自 Defender (1) 的 防卫者
+[回合0] 00m 07s:  Defender (1) 获得了来自 Buffer 的 力量光环
+[回合0] 00m 07s:  Defender (1) 重新获得了来自 Buffer 的 力量光环
+[回合1] 00m 10s:  回合1
+[回合1] 00m 20s:  Astro 施放了 星光超流, 目标：(11, 0) 
+[回合1] 00m 21s:  Astro 的 星光超流 对 BossMu 造成了 56 点 Light 伤害（暴击）。生命值：2184
+[回合1] 00m 21s:  BossMu 获得了来自 Astro 的 星光超流
+[回合1] 00m 22s:  Astro 施放了 星光超流, 目标：(11, 0) 
+[回合1] 00m 23s:  Astro 的 星光超流 没有击中 BossMu。生命值：2184
+[回合1] 00m 23s:  BossMu 重新获得了来自 Astro 的 星光超流
+[回合1] 00m 24s:  Astro 施放了 星光超流, 目标：(11, 0) 
+[回合1] 00m 25s:  Astro 的 星光超流 对 BossMu 造成了 28 点 Light 伤害。生命值：2156
+[回合1] 00m 25s:  Astro 的 星光超流 对 BossMu 造成了 28 点 Light 伤害。生命值：2128
+[回合1] 00m 26s:  Astro 的 星光超流 对 BossMu 造成了 56 点 Light 伤害（暴击）。生命值：2072
+[回合1] 00m 27s:  BossMu 重新获得了来自 Astro 的 星光超流
+[回合1] 01m 02s:  Defender 施放了 移动, 目标：(10, 0) 
+[回合1] 01m 02s:  Defender 施放了 拳, 目标：(11, 0) 
+[回合1] 01m 03s:  Defender 的 拳 没有击中 BossMu。生命值：2072
+[回合1] 01m 04s:  Defender 施放了 拳, 目标：(11, 0) 
+[回合1] 01m 04s:  Defender 的 拳 对 BossMu 造成了 6 点 Knock 伤害。生命值：2066
+[回合1] 01m 05s:  Defender (1) 施放了 移动, 目标：(10, 0) 
+[回合1] 01m 06s:  Defender (1) 施放了 拳, 目标：(11, 0) 
+[回合1] 01m 06s:  Defender (1) 的 拳 对 BossMu 造成了 6 点 Knock 伤害。生命值：2060
+[回合1] 01m 07s:  Defender (1) 施放了 拳, 目标：(11, 0) 
+[回合1] 01m 08s:  Defender (1) 的 拳 对 BossMu 造成了 6 点 Knock 伤害。生命值：2054
+[回合1] 01m 10s:  Healer (1) 施放了 移动, 目标：(7, 0) 
+[回合1] 01m 11s:  Buffer 施放了 移动, 目标：(9, 0) 
+[回合1] 01m 13s:  Healer 施放了 移动, 目标：(7, 0) 
+[回合1] 01m 15s:  Buffer (1) 施放了 移动, 目标：(9, 0) 
+[回合1] 01m 18s:  Attacker 施放了 疾飞之箭, 目标：(14, 0) 
+[回合1] 01m 18s:  Attacker 的 疾飞之箭 对 SmallMu 造成了 18 点 Pierce 伤害。生命值：102
+[回合1] 01m 18s:  SmallMu 获得了来自 Attacker 的 出血
+[回合1] 01m 20s:  Attacker (2) 施放了 疾飞之箭, 目标：(11, 0) 
+[回合1] 01m 21s:  Attacker (2) 的 疾飞之箭 对 SmallMu 造成了 18 点 Pierce 伤害。生命值：102
+[回合1] 01m 21s:  SmallMu 获得了来自 Attacker (2) 的 出血
+[回合1] 01m 22s:  Attacker (1) 施放了 疾飞之箭, 目标：(11, 0) 
+[回合1] 01m 23s:  Attacker (1) 的 疾飞之箭 对 SmallMu 造成了 18 点 Pierce 伤害。生命值：102
+[回合1] 01m 23s:  SmallMu 获得了来自 Attacker (1) 的 出血
+[回合1] 01m 28s:  Buffer 施放了 响音攻击, 目标：(9, 0) 
+[回合1] 01m 29s:  Buffer 的 响音攻击 对 SmallMu 造成了 11 点 Knock 伤害。生命值：91
+[回合1] 01m 29s:  Buffer 的 响音攻击 对 BossMu 造成了 11 点 Knock 伤害。生命值：2043
+[回合1] 01m 29s:  Buffer (1) 施放了 响音攻击, 目标：(9, 0) 
+[回合1] 01m 30s:  Buffer (1) 的 响音攻击 对 SmallMu 造成了 11 点 Knock 伤害。生命值：91
+[回合1] 01m 30s:  Buffer (1) 的 响音攻击 对 BossMu 造成了 22 点 Knock 伤害（暴击）。生命值：2021
+[回合1] 01m 30s:  Healer 施放了 栽培, 目标：(10, 0) 
+[回合1] 01m 31s:  Defender 获得了来自 Healer 的 栽培
+[回合1] 01m 33s:  Attacker (2) 的 出血 对 SmallMu 造成了 7 点 Pierce 伤害。生命值：84
+[回合1] 01m 33s:  Attacker (1) 的 出血 对 SmallMu 造成了 7 点 Pierce 伤害。生命值：84
+[回合1] 01m 33s:  Attacker 的 出血 对 SmallMu 造成了 7 点 Pierce 伤害。生命值：95
+[回合1] 01m 33s:  SmallMu 施放了 移动, 目标：(14, 0) 
+[回合1] 01m 34s:  SmallMu 施放了 移动, 目标：(14, 0) 
+[回合1] 01m 34s:  SmallMu 施放了 移动, 目标：(11, 0) 
+[回合1] 01m 35s:  SmallMu 施放了 小史莱姆治愈, 目标：(11, 0) 
+[回合1] 01m 35s:  SmallMu 的 小史莱姆治愈 对 BossMu 造成了 120 点 Heal 。生命值：2141
+[回合1] 01m 35s:  SmallMu 施放了 移动, 目标：(11, 0) 
+[回合1] 01m 35s:  SmallMu 施放了 小史莱姆治愈, 目标：(11, 0) 
+[回合1] 01m 35s:  SmallMu 的 小史莱姆治愈 对 BossMu 造成了 99 点 Heal 。生命值：2240
+[回合1] 01m 36s:  SmallMu 施放了 移动, 目标：(14, 0) 
+[回合1] 01m 36s:  SmallMu 施放了 移动, 目标：(12, 0) 
+[回合1] 01m 37s:  BossMu 施放了 粘液翻腾, 目标：(11, 0) 
+[回合1] 01m 37s:  BossMu 施放了 史莱姆攻击, 目标：(8, 0) 
+[回合1] 01m 38s:  BossMu 的 史莱姆攻击 对 Astro 造成了 20 点 Knock 伤害。生命值：40
+[回合1] 01m 38s:  Astro 获得了来自 BossMu 的 史莱姆毒素
+[回合2] 01m 38s:  回合2
+[回合2] 01m 39s:  Healer 的 栽培 对 Defender 造成了 0 点 Heal 。生命值：92
+[回合2] 01m 39s:  BossMu 的 史莱姆毒素 对 Astro 造成了 6 点 Nature 伤害。生命值：34
+[回合2] 01m 43s:  Astro 施放了 射击, 目标：(11, 0) 
+[回合2] 01m 43s:  Astro 的 射击 对 SmallMu 造成了 28 点 Pierce 伤害。生命值：56
+[回合2] 01m 45s:  Attacker 施放了 射击, 目标：(11, 0) 
+[回合2] 01m 46s:  Attacker 的 射击 对 SmallMu 造成了 35 点 Pierce 伤害。生命值：21
+[回合2] 01m 47s:  Attacker 施放了 射击, 目标：(11, 0) 
+[回合2] 01m 48s:  Attacker 的 射击 对 SmallMu 造成了 21 点 Pierce 伤害。生命值：0
+[回合2] 01m 48s:  SmallMu 施放了 小史莱姆爆炸, 目标：(11, 0) 
+[回合2] 01m 48s:  SmallMu 的 小史莱姆爆炸 对 Attacker (2) 造成了 12 点 Nature 伤害。生命值：52
+[回合2] 01m 48s:  SmallMu 的 小史莱姆爆炸 没有击中 Attacker。生命值：64
+[回合2] 01m 48s:  SmallMu 的 小史莱姆爆炸 对 Defender 造成了 12 点 Nature 伤害。生命值：80
+[回合2] 01m 48s:  SmallMu 的 小史莱姆爆炸 对 Buffer 造成了 12 点 Nature 伤害。生命值：72
+[回合2] 01m 49s:  SmallMu 的 小史莱姆爆炸 对 Healer 造成了 12 点 Nature 伤害。生命值：56
+[回合2] 01m 49s:  SmallMu 的 小史莱姆爆炸 没有击中 Healer (1)。生命值：68
+[回合2] 01m 49s:  SmallMu 的 小史莱姆爆炸 对 Astro 造成了 12 点 Nature 伤害。生命值：22
+[回合2] 01m 49s:  SmallMu 的 小史莱姆爆炸 对 Buffer (1) 造成了 12 点 Nature 伤害。生命值：72
+[回合2] 01m 49s:  SmallMu 的 小史莱姆爆炸 没有击中 Attacker (1)。生命值：64
+[回合2] 01m 49s:  SmallMu 的 小史莱姆爆炸 对 Defender (1) 造成了 12 点 Nature 伤害。生命值：80
+[回合2] 01m 49s:  SmallMu 失去了来自 SmallMu 的 死亡爆裂 [120]
+[回合2] 01m 49s:  SmallMu 失去了来自 Attacker (2) 的 出血
+[回合2] 01m 49s:  Attacker 的 射击 击杀了 SmallMu !
+[回合2] 01m 59s:  Healer 施放了 治疗术, 目标：(8, 0) 
+[回合2] 02m 00s:  Healer 的 治疗术 对 Astro 造成了 29 点 Heal 。生命值：51
+[回合2] 02m 09s:  Defender (1) 施放了 拳, 目标：(11, 0) 
+[回合2] 02m 10s:  Defender (1) 的 拳 对 BossMu 造成了 6 点 Knock 伤害。生命值：2234
+[回合2] 02m 11s:  Defender (1) 施放了 拳, 目标：(11, 0) 
+[回合2] 02m 11s:  Defender (1) 的 拳 对 BossMu 造成了 6 点 Knock 伤害。生命值：2228
+[回合2] 02m 12s:  Defender (1) 施放了 拳, 目标：(11, 0) 
+[回合2] 02m 13s:  Defender (1) 的 拳 对 BossMu 造成了 12 点 Knock 伤害（暴击）。生命值：2216
+[回合2] 02m 17s:  Buffer 施放了 移动, 目标：(9, 0) 
+[回合2] 02m 17s:  Attacker (2) 失去了来自 Buffer 的 力量光环
+[回合2] 02m 20s:  Defender 施放了 盾击, 目标：(11, 0) 
+[回合2] 02m 21s:  Defender 的 盾击 对 BossMu 造成了 46 点 Knock 伤害（暴击）。生命值：2170
+[回合2] 02m 28s:  Attacker (2) 施放了 射击, 目标：(11, 0) 
+[回合2] 02m 29s:  Attacker (2) 的 射击 对 SmallMu 造成了 30 点 Pierce 伤害。生命值：54
+[回合2] 02m 30s:  Attacker (2) 施放了 射击, 目标：(11, 0) 
+[回合2] 02m 31s:  Attacker (2) 的 射击 对 SmallMu 造成了 30 点 Pierce 伤害。生命值：24
+[回合2] 02m 34s:  Attacker (1) 施放了 射击, 目标：(11, 0) 
+[回合2] 02m 35s:  Attacker (1) 的 射击 对 SmallMu 造成了 24 点 Pierce 伤害。生命值：0
+[回合2] 02m 35s:  SmallMu 施放了 小史莱姆爆炸, 目标：(11, 0) 
+[回合2] 02m 35s:  SmallMu 的 小史莱姆爆炸 对 Attacker (2) 造成了 12 点 Nature 伤害。生命值：40
+[回合2] 02m 35s:  SmallMu 的 小史莱姆爆炸 对 Attacker 造成了 12 点 Nature 伤害。生命值：52
+[回合2] 02m 35s:  SmallMu 的 小史莱姆爆炸 对 Defender 造成了 12 点 Nature 伤害。生命值：68
+[回合2] 02m 36s:  SmallMu 的 小史莱姆爆炸 对 Buffer 造成了 12 点 Nature 伤害。生命值：60
+[回合2] 02m 36s:  SmallMu 的 小史莱姆爆炸 对 Healer 造成了 12 点 Nature 伤害。生命值：44
+[回合2] 02m 36s:  SmallMu 的 小史莱姆爆炸 对 Healer (1) 造成了 12 点 Nature 伤害。生命值：56
+[回合2] 02m 36s:  SmallMu 的 小史莱姆爆炸 对 Astro 造成了 12 点 Nature 伤害。生命值：39
+[回合2] 02m 36s:  SmallMu 的 小史莱姆爆炸 对 Buffer (1) 造成了 12 点 Nature 伤害。生命值：60
+[回合2] 02m 36s:  SmallMu 的 小史莱姆爆炸 对 Attacker (1) 造成了 12 点 Nature 伤害。生命值：52
+[回合2] 02m 36s:  SmallMu 的 小史莱姆爆炸 对 Defender (1) 造成了 12 点 Nature 伤害。生命值：68
+[回合2] 02m 36s:  SmallMu 失去了来自 SmallMu 的 死亡爆裂 [120]
+[回合2] 02m 36s:  SmallMu 失去了来自 Attacker (1) 的 出血
+[回合2] 02m 36s:  Attacker (1) 的 射击 击杀了 SmallMu !
+[回合2] 02m 36s:  Attacker (1) 施放了 射击, 目标：(11, 0) 
+[回合2] 02m 37s:  Healer 施放了 栽培, 目标：(10, 0) 
+[回合2] 02m 38s:  Defender (1) 获得了来自 Healer 的 栽培
+[回合2] 02m 38s:  Healer (1) 施放了 治疗链, 目标：(10, 0) 
+[回合2] 02m 38s:  Healer (1) 的 治疗链 对 Defender (1) 造成了 18 点 Heal 。生命值：86
+[回合2] 02m 38s:  Healer (1) 的 治疗链 对 Defender 造成了 12 点 Heal 。生命值：80
+[回合2] 02m 38s:  Healer (1) 的 治疗链 对 Healer 造成了 9 点 Heal 。生命值：53
+[回合2] 02m 39s:  Healer (1) 施放了 治疗链, 目标：(5, 0) 
+[回合2] 02m 39s:  Healer (1) 的 治疗链 对 Attacker (2) 造成了 18 点 Heal 。生命值：58
+[回合2] 02m 39s:  Healer (1) 的 治疗链 对 Astro 造成了 12 点 Heal 。生命值：51
+[回合2] 02m 39s:  Healer (1) 的 治疗链 对 Defender 造成了 9 点 Heal 。生命值：89
+[回合2] 02m 42s:  Attacker 的 出血 对 SmallMu 造成了 7 点 Pierce 伤害。生命值：88
+[回合2] 02m 42s:  BossMu 失去了来自 Astro 的 星光超流
+[回合2] 02m 42s:  SmallMu 施放了 移动, 目标：(12, 0) 
+[回合2] 02m 43s:  SmallMu 施放了 小史莱姆治愈, 目标：(11, 0) 
+[回合2] 02m 43s:  SmallMu 的 小史莱姆治愈 对 BossMu 造成了 70 点 Heal 。生命值：2240
+[回合2] 02m 43s:  SmallMu 施放了 移动, 目标：(12, 0) 
+[回合2] 02m 44s:  SmallMu 施放了 小史莱姆治愈, 目标：(11, 0) 
+[回合2] 02m 44s:  SmallMu 的 小史莱姆治愈 对 BossMu 造成了 0 点 Heal 。生命值：2240
+[回合2] 02m 44s:  BossMu 施放了 小史莱姆标记, 目标：(11, 0) 
+[回合2] 02m 45s:  Attacker (2) 获得了来自 BossMu 的 锁定
+[回合2] 02m 45s:  BossMu 施放了 史莱姆攻击, 目标：(10, 0) 
+[回合2] 02m 45s:  BossMu 的 史莱姆攻击 对 Defender (1) 造成了 19 点 Knock 伤害。生命值：67
+[回合2] 02m 45s:  Defender (1) 获得了来自 BossMu 的 史莱姆毒素
+[回合3] 02m 46s:  回合3
+[回合3] 02m 47s:  Healer 的 栽培 对 Defender 造成了 3 点 Heal 。生命值：92
+[回合3] 02m 47s:  BossMu 的 史莱姆毒素 对 Astro 造成了 6 点 Nature 伤害。生命值：45
+[回合3] 02m 47s:  Healer 的 栽培 对 Defender (1) 造成了 6 点 Heal 。生命值：73
+[回合3] 02m 47s:  BossMu 的 史莱姆毒素 对 Defender (1) 造成了 6 点 Nature 伤害。生命值：67
+[回合3] 02m 54s:  Astro 施放了 射击, 目标：(12, 0) 
+[回合3] 02m 55s:  Astro 的 射击 对 SmallMu 造成了 28 点 Pierce 伤害。生命值：60
+[回合3] 03m 16s:  Defender (1) 施放了 拳, 目标：(11, 0) 
+[回合3] 03m 16s:  Defender (1) 的 拳 对 BossMu 造成了 6 点 Knock 伤害。生命值：2234
+[回合3] 03m 23s:  Defender 施放了 盾击, 目标：(12, 0) 
+[回合3] 03m 24s:  Defender 的 盾击 对 SmallMu 造成了 23 点 Knock 伤害。生命值：37
+[回合3] 03m 25s:  Defender 施放了 盾击, 目标：(12, 0) 
+[回合3] 03m 25s:  Defender 的 盾击 对 SmallMu 造成了 23 点 Knock 伤害。生命值：14
+[回合3] 03m 28s:  Defender (1) 施放了 盾击, 目标：(12, 0) 
+[回合3] 03m 29s:  Defender (1) 的 盾击 对 SmallMu 造成了 23 点 Knock 伤害。生命值：97
+[回合3] 03m 32s:  Attacker (1) 施放了 射击, 目标：(12, 0) 
+[回合3] 03m 33s:  Attacker (1) 的 射击 对 SmallMu 造成了 14 点 Pierce 伤害（暴击）。生命值：0
+[回合3] 03m 33s:  SmallMu 施放了 小史莱姆爆炸, 目标：(12, 0) 
+[回合3] 03m 33s:  SmallMu 的 小史莱姆爆炸 对 Attacker (2) 造成了 12 点 Nature 伤害。生命值：46
+[回合3] 03m 33s:  SmallMu 的 小史莱姆爆炸 对 Attacker 造成了 12 点 Nature 伤害。生命值：40
+[回合3] 03m 34s:  SmallMu 的 小史莱姆爆炸 对 Defender 造成了 12 点 Nature 伤害。生命值：80
+[回合3] 03m 34s:  SmallMu 的 小史莱姆爆炸 对 Buffer 造成了 12 点 Nature 伤害。生命值：48
+[回合3] 03m 34s:  SmallMu 的 小史莱姆爆炸 对 Healer 造成了 12 点 Nature 伤害。生命值：41
+[回合3] 03m 34s:  SmallMu 的 小史莱姆爆炸 对 Healer (1) 造成了 12 点 Nature 伤害。生命值：44
+[回合3] 03m 34s:  SmallMu 的 小史莱姆爆炸 对 Astro 造成了 12 点 Nature 伤害。生命值：33
+[回合3] 03m 34s:  SmallMu 的 小史莱姆爆炸 对 Buffer (1) 造成了 12 点 Nature 伤害。生命值：48
+[回合3] 03m 34s:  SmallMu 的 小史莱姆爆炸 对 Attacker (1) 造成了 12 点 Nature 伤害。生命值：40
+[回合3] 03m 34s:  SmallMu 的 小史莱姆爆炸 对 Defender (1) 造成了 12 点 Nature 伤害。生命值：55
+[回合3] 03m 34s:  SmallMu 失去了来自 SmallMu 的 死亡爆裂 [120]
+[回合3] 03m 34s:  SmallMu 失去了来自 Attacker 的 出血
+[回合3] 03m 34s:  Attacker (1) 的 射击 击杀了 SmallMu !
+[回合3] 03m 41s:  Attacker 施放了 射击, 目标：(12, 0) 
+[回合3] 03m 41s:  Attacker 的 射击 对 SmallMu 造成了 35 点 Pierce 伤害。生命值：62
+[回合3] 03m 44s:  Attacker (2) 施放了 射击, 目标：(12, 0) 
+[回合3] 03m 45s:  Attacker (2) 的 射击 对 SmallMu 造成了 30 点 Pierce 伤害。生命值：32
+[回合3] 03m 49s:  Buffer 施放了 移动, 目标：(11, 0) 
+[回合3] 03m 49s:  Healer 失去了来自 Buffer 的 力量光环
+[回合3] 03m 49s:  Attacker (1) 失去了来自 Buffer 的 力量光环
+[回合3] 03m 52s:  Buffer 施放了 响音攻击, 目标：(11, 0) 
+[回合3] 03m 53s:  Buffer 的 响音攻击 对 SmallMu 造成了 11 点 Knock 伤害。生命值：21
+[回合3] 03m 53s:  Buffer 的 响音攻击 对 BossMu 造成了 11 点 Knock 伤害。生命值：2223
+[回合3] 03m 54s:  Buffer 施放了 移动, 目标：(9, 0) 
+[回合3] 03m 54s:  Healer 获得了来自 Buffer 的 力量光环
+[回合3] 03m 54s:  Attacker (1) 获得了来自 Buffer 的 力量光环
+[回合3] 03m 59s:  Buffer (1) 施放了 移动, 目标：(9, 0) 
+[回合3] 04m 00s:  Buffer (1) 施放了 响音攻击, 目标：(9, 0) 
+[回合3] 04m 01s:  Buffer (1) 的 响音攻击 对 SmallMu 造成了 11 点 Knock 伤害。生命值：10
+[回合3] 04m 01s:  Buffer (1) 的 响音攻击 没有击中 BossMu。生命值：2223
+[回合3] 04m 01s:  Buffer (1) 施放了 移动, 目标：(9, 0) 
+[回合3] 04m 12s:  Healer 施放了 栽培, 目标：(8, 0) 
+[回合3] 04m 12s:  Astro 获得了来自 Healer 的 栽培
+[回合3] 04m 13s:  Healer (1) 施放了 治疗链, 目标：(10, 0) 
+[回合3] 04m 13s:  Healer (1) 的 治疗链 对 Defender (1) 造成了 18 点 Heal 。生命值：73
+[回合3] 04m 13s:  Healer (1) 的 治疗链 对 Astro 造成了 12 点 Heal 。生命值：45
+[回合3] 04m 13s:  Healer (1) 的 治疗链 对 Defender (1) 造成了 9 点 Heal 。生命值：82
+[回合3] 04m 14s:  Healer (1) 施放了 治疗链, 目标：(9, 0) 
+[回合3] 04m 14s:  Healer (1) 的 治疗链 对 Buffer 造成了 18 点 Heal 。生命值：67
+[回合3] 04m 14s:  Healer (1) 的 治疗链 对 Defender (1) 造成了 10 点 Heal 。生命值：92
+[回合3] 04m 14s:  Healer (1) 的 治疗链 对 Buffer (1) 造成了 9 点 Heal 。生命值：58
+[回合3] 04m 15s:  Astro 施放了 射击, 目标：(12, 0) 
+[回合3] 04m 17s:  SmallMu 施放了 小史莱姆治愈, 目标：(11, 0) 
+[回合3] 04m 17s:  SmallMu 的 小史莱姆治愈 对 BossMu 造成了 17 点 Heal 。生命值：2240
+[回合3] 04m 17s:  BossMu 施放了 小史莱姆投掷, 目标：(11, 0) 
+[回合3] 04m 18s:  BossMu 的 小史莱姆投掷 对 Attacker (2) 造成了 10 点 Nature 伤害。生命值：36
+[回合3] 04m 18s:  Attacker (2) 失去了来自 BossMu 的 锁定
+[回合3] 04m 19s:  Attacker (2) 获得了来自 BossMu 的 腐化酸池
+[回合3] 04m 19s:  BossMu 施放了 史莱姆攻击, 目标：(10, 0) 
+[回合3] 04m 19s:  SmallMu(Clone) 获得了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[回合3] 04m 19s:  BossMu 的 史莱姆攻击 对 Defender (1) 造成了 19 点 Knock 伤害。生命值：73
+[回合3] 04m 19s:  Defender (1) 重新获得了来自 BossMu 的 史莱姆毒素
+[回合4] 04m 19s:  回合4
+[回合4] 04m 21s:  BossMu 的 腐化酸池 对 Attacker (2) 造成了 12 点 Nature 伤害。生命值：24
+[回合4] 04m 21s:  Healer 的 栽培 对 Defender 造成了 6 点 Heal 。生命值：86
+[回合4] 04m 21s:  Defender 失去了来自 Healer 的 栽培
+[回合4] 04m 21s:  BossMu 的 史莱姆毒素 对 Astro 造成了 6 点 Nature 伤害。生命值：39
+[回合4] 04m 21s:  Astro 失去了来自 BossMu 的 史莱姆毒素
+[回合4] 04m 21s:  Healer 的 栽培 对 Astro 造成了 6 点 Heal 。生命值：45
+[回合4] 04m 21s:  Healer 的 栽培 对 Defender (1) 造成了 6 点 Heal 。生命值：79
+[回合4] 04m 21s:  BossMu 的 史莱姆毒素 对 Defender (1) 造成了 12 点 Nature 伤害。生命值：67
+[回合4] 04m 25s:  Attacker (2) 施放了 移动, 目标：(7, 0) 
+[回合4] 04m 25s:  Attacker (2) 失去了来自 BossMu 的 腐化酸池
+[回合4] 04m 25s:  Attacker (2) 获得了来自 Buffer 的 力量光环
+[回合4] 04m 31s:  Attacker (2) 施放了 射击, 目标：(12, 0) 
+[回合4] 04m 32s:  Attacker (2) 的 射击 对 SmallMu 造成了 10 点 Pierce 伤害（暴击）。生命值：0
+[回合4] 04m 32s:  SmallMu 施放了 小史莱姆爆炸, 目标：(12, 0) 
+[回合4] 04m 32s:  SmallMu 的 小史莱姆爆炸 对 Attacker (2) 造成了 12 点 Nature 伤害。生命值：12
+[回合4] 04m 32s:  SmallMu 的 小史莱姆爆炸 没有击中 Attacker。生命值：40
+[回合4] 04m 32s:  SmallMu 的 小史莱姆爆炸 对 Defender 造成了 12 点 Nature 伤害。生命值：74
+[回合4] 04m 32s:  SmallMu 的 小史莱姆爆炸 对 Buffer 造成了 12 点 Nature 伤害。生命值：55
+[回合4] 04m 32s:  SmallMu 的 小史莱姆爆炸 没有击中 Healer。生命值：41
+[回合4] 04m 32s:  SmallMu 的 小史莱姆爆炸 对 Healer (1) 造成了 12 点 Nature 伤害。生命值：32
+[回合4] 04m 33s:  SmallMu 的 小史莱姆爆炸 对 Astro 造成了 12 点 Nature 伤害。生命值：33
+[回合4] 04m 33s:  SmallMu 的 小史莱姆爆炸 对 Buffer (1) 造成了 12 点 Nature 伤害。生命值：46
+[回合4] 04m 33s:  SmallMu 的 小史莱姆爆炸 对 Attacker (1) 造成了 12 点 Nature 伤害。生命值：28
+[回合4] 04m 33s:  SmallMu 的 小史莱姆爆炸 对 Defender (1) 造成了 12 点 Nature 伤害。生命值：55
+[回合4] 04m 33s:  SmallMu 失去了来自 SmallMu 的 死亡爆裂 [120]
+[回合4] 04m 33s:  Attacker (2) 的 射击 击杀了 SmallMu !
+[回合4] 04m 36s:  Healer 施放了 治疗术, 目标：(7, 0) 
+[回合4] 04m 37s:  Healer 的 治疗术 对 Attacker (2) 造成了 29 点 Heal 。生命值：41
+[回合4] 04m 43s:  Healer (1) 施放了 治疗链, 目标：(7, 0) 
+[回合4] 04m 43s:  Healer (1) 的 治疗链 对 Healer (1) 造成了 18 点 Heal 。生命值：50
+[回合4] 04m 43s:  Healer (1) 的 治疗链 对 Defender (1) 造成了 12 点 Heal 。生命值：67
+[回合4] 04m 43s:  Healer (1) 的 治疗链 对 Buffer (1) 造成了 9 点 Heal 。生命值：55
+[回合4] 05m 28s:  Healer 施放了 栽培, 目标：(5, 0) 
+[回合4] 05m 29s:  Attacker (1) 获得了来自 Healer 的 栽培
+[回合4] 05m 31s:  Healer 施放了 绽放, 目标：(7, 0) 
+[回合4] 05m 31s:  Healer 的 绽放 对 Attacker (2) 造成了 20 点 Heal 。生命值：61
+[回合4] 05m 31s:  Healer 的 绽放 对 Attacker 造成了 20 点 Heal 。生命值：60
+[回合4] 05m 32s:  Healer 的 绽放 对 Defender 造成了 18 点 Heal 。生命值：92
+[回合4] 05m 32s:  Healer 的 绽放 对 Buffer 造成了 20 点 Heal 。生命值：75
+[回合4] 05m 32s:  Healer 的 绽放 对 Healer 造成了 20 点 Heal 。生命值：61
+[回合4] 05m 32s:  Healer 的 绽放 对 Healer (1) 造成了 18 点 Heal 。生命值：68
+[回合4] 05m 32s:  Healer 的 绽放 对 Astro 造成了 20 点 Heal 。生命值：53
+[回合4] 05m 32s:  Healer 的 绽放 对 Buffer (1) 造成了 20 点 Heal 。生命值：75
+[回合4] 05m 32s:  Healer 的 绽放 对 Attacker (1) 造成了 20 点 Heal 。生命值：48
+[回合4] 05m 32s:  Healer 的 绽放 对 Defender (1) 造成了 20 点 Heal 。生命值：87
+[回合4] 05m 59s:  Astro 施放了 射击, 目标：(4, 0) 
+[回合4] 06m 00s:  Astro 的 射击 没有击中 SmallMu(Clone)。生命值：120
+[回合4] 06m 10s:  Defender (1) 施放了 拳, 目标：(11, 0) 
+[回合4] 06m 10s:  Defender (1) 的 拳 没有击中 BossMu。生命值：2240
+[回合4] 06m 11s:  Defender (1) 施放了 拳, 目标：(11, 0) 
+[回合4] 06m 12s:  Defender (1) 的 拳 对 BossMu 造成了 6 点 Knock 伤害。生命值：2234
+[回合4] 06m 15s:  Defender (1) 施放了 拳, 目标：(11, 0) 
+[回合4] 06m 15s:  Defender (1) 的 拳 对 BossMu 造成了 6 点 Knock 伤害。生命值：2228
+[回合4] 06m 30s:  Defender 施放了 盾击, 目标：(11, 0) 
+[回合4] 06m 31s:  Defender 的 盾击 对 BossMu 造成了 46 点 Knock 伤害（暴击）。生命值：2182
+[回合4] 06m 32s:  Defender 施放了 拳, 目标：(11, 0) 
+[回合4] 06m 33s:  Defender 的 拳 对 BossMu 造成了 6 点 Knock 伤害。生命值：2176
+[回合4] 06m 43s:  Attacker 施放了 射击, 目标：(4, 0) 
+[回合4] 06m 43s:  Attacker 的 射击 对 SmallMu(Clone) 造成了 35 点 Pierce 伤害。生命值：85
+[回合4] 06m 44s:  Attacker 施放了 射击, 目标：(4, 0) 
+[回合4] 06m 45s:  Attacker 的 射击 对 SmallMu(Clone) 造成了 70 点 Pierce 伤害（暴击）。生命值：15
+[回合4] 06m 47s:  Attacker (1) 施放了 射击, 目标：(4, 0) 
+[回合4] 06m 48s:  Attacker (1) 的 射击 对 SmallMu(Clone) 造成了 15 点 Pierce 伤害。生命值：0
+[回合4] 06m 48s:  SmallMu(Clone) 施放了 小史莱姆爆炸, 目标：(4, 0) 
+[回合4] 06m 48s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Attacker (2) 造成了 12 点 Nature 伤害。生命值：49
+[回合4] 06m 48s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Attacker 造成了 12 点 Nature 伤害。生命值：48
+[回合4] 06m 49s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Defender 造成了 12 点 Nature 伤害。生命值：80
+[回合4] 06m 49s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Buffer 造成了 12 点 Nature 伤害。生命值：63
+[回合4] 06m 49s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Healer 造成了 12 点 Nature 伤害。生命值：49
+[回合4] 06m 49s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Healer (1) 造成了 12 点 Nature 伤害。生命值：56
+[回合4] 06m 49s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Astro 造成了 12 点 Nature 伤害。生命值：41
+[回合4] 06m 49s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Buffer (1) 造成了 12 点 Nature 伤害。生命值：63
+[回合4] 06m 49s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Attacker (1) 造成了 12 点 Nature 伤害。生命值：36
+[回合4] 06m 49s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Defender (1) 造成了 12 点 Nature 伤害。生命值：75
+[回合4] 06m 49s:  SmallMu(Clone) 失去了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[回合4] 06m 49s:  Attacker (1) 的 射击 击杀了 SmallMu(Clone) !
+[回合4] 07m 12s:  Astro 施放了 星光超流, 目标：(11, 0) 
+[回合4] 07m 13s:  Astro 的 星光超流 对 BossMu 造成了 28 点 Light 伤害。生命值：2148
+[回合4] 07m 13s:  Astro 的 星光超流 对 BossMu 造成了 28 点 Light 伤害。生命值：2120
+[回合4] 07m 13s:  Astro 的 FallenStar 对 BossMu 造成了 8 点 Knock 伤害。生命值：2112
+[回合4] 07m 14s:  Astro 的 星光超流 对 BossMu 造成了 28 点 Light 伤害。生命值：2084
+[回合4] 07m 15s:  Astro 的 星光超流 对 BossMu 造成了 28 点 Light 伤害。生命值：2056
+[回合4] 07m 16s:  BossMu 获得了来自 Astro 的 星光超流
+[回合4] 07m 44s:  Attacker (1) 施放了 射击, 目标：(11, 0) 
+[回合4] 07m 47s:  BossMu 施放了 粘液翻腾, 目标：(11, 0) 
+[回合4] 07m 47s:  BossMu 施放了 史莱姆攻击, 目标：(10, 0) 
+[回合4] 07m 47s:  BossMu 的 史莱姆攻击 对 Defender (1) 造成了 19 点 Knock 伤害。生命值：56
+[回合4] 07m 47s:  Defender (1) 重新获得了来自 BossMu 的 史莱姆毒素
+[回合5] 07m 48s:  回合5
+[回合5] 07m 49s:  Healer 的 栽培 对 Astro 造成了 6 点 Heal 。生命值：47
+[回合5] 07m 49s:  Healer 的 栽培 对 Attacker (1) 造成了 6 点 Heal 。生命值：42
+[回合5] 07m 49s:  Healer 的 栽培 对 Defender (1) 造成了 6 点 Heal 。生命值：62
+[回合5] 07m 49s:  Defender (1) 失去了来自 Healer 的 栽培
+[回合5] 07m 49s:  BossMu 的 史莱姆毒素 对 Defender (1) 造成了 18 点 Nature 伤害。生命值：44
+[回合5] 08m 17s:  Healer (1) 施放了 治疗链, 目标：(10, 0) 
+[回合5] 08m 17s:  Healer (1) 的 治疗链 对 Defender (1) 造成了 18 点 Heal 。生命值：62
+[回合5] 08m 17s:  Healer (1) 的 治疗链 对 Defender 造成了 12 点 Heal 。生命值：92
+[回合5] 08m 17s:  Healer (1) 的 治疗链 对 Defender (1) 造成了 9 点 Heal 。生命值：71
+[回合5] 08m 21s:  Healer (1) 施放了 治疗链, 目标：(7, 0) 
+[回合5] 08m 22s:  Healer (1) 的 治疗链 对 Attacker (2) 造成了 15 点 Heal 。生命值：64
+[回合5] 08m 22s:  Healer (1) 的 治疗链 对 Attacker (1) 造成了 12 点 Heal 。生命值：54
+[回合5] 08m 22s:  Healer (1) 的 治疗链 对 Astro 造成了 9 点 Heal 。生命值：56
+[回合5] 08m 39s:  Attacker (2) 施放了 射击, 目标：(11, 0) 
+[回合5] 08m 40s:  Attacker (2) 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：2021
+[回合5] 08m 41s:  Attacker (2) 施放了 射击, 目标：(11, 0) 
+[回合5] 08m 41s:  Attacker (2) 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：1986
+[回合5] 08m 41s:  BossMu 施放了 史莱姆爆炸, 目标：(11, 0) 
+[回合5] 08m 42s:  BossMu 的 史莱姆爆炸 对 Attacker (2) 造成了 13 点 Nature 伤害。生命值：51
+[回合5] 08m 42s:  BossMu 的 史莱姆爆炸 对 Attacker 造成了 13 点 Nature 伤害。生命值：35
+[回合5] 08m 42s:  BossMu 的 史莱姆爆炸 对 Defender 造成了 13 点 Nature 伤害。生命值：79
+[回合5] 08m 42s:  BossMu 的 史莱姆爆炸 对 Buffer 造成了 13 点 Nature 伤害。生命值：50
+[回合5] 08m 42s:  BossMu 的 史莱姆爆炸 对 Healer 造成了 13 点 Nature 伤害。生命值：36
+[回合5] 08m 42s:  BossMu 的 史莱姆爆炸 对 Healer (1) 造成了 13 点 Nature 伤害。生命值：43
+[回合5] 08m 42s:  BossMu 的 史莱姆爆炸 对 Astro 造成了 13 点 Nature 伤害。生命值：43
+[回合5] 08m 42s:  BossMu 的 史莱姆爆炸 对 Buffer (1) 造成了 13 点 Nature 伤害。生命值：50
+[回合5] 08m 43s:  BossMu 的 史莱姆爆炸 对 Attacker (1) 造成了 13 点 Nature 伤害。生命值：41
+[回合5] 08m 43s:  BossMu 的 史莱姆爆炸 对 Defender (1) 造成了 13 点 Nature 伤害。生命值：58
+[回合5] 08m 45s:  Attacker 施放了 射击, 目标：(11, 0) 
+[回合5] 08m 46s:  Attacker 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：1951
+[回合5] 08m 48s:  Attacker (1) 施放了 射击, 目标：(11, 0) 
+[回合5] 08m 49s:  Attacker (1) 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：1916
+[回合5] 08m 56s:  Defender 施放了 拳, 目标：(11, 0) 
+[回合5] 08m 56s:  Defender 的 拳 对 BossMu 造成了 6 点 Knock 伤害。生命值：1910
+[回合5] 08m 58s:  Defender 施放了 拳, 目标：(11, 0) 
+[回合5] 08m 58s:  Defender 的 拳 对 BossMu 造成了 6 点 Knock 伤害。生命值：1904
+[回合5] 08m 59s:  Defender 施放了 拳, 目标：(11, 0) 
+[回合5] 09m 00s:  Defender 的 拳 对 BossMu 造成了 6 点 Knock 伤害。生命值：1898
+[回合5] 09m 05s:  Defender (1) 施放了 防御, 目标：(10, 0) 
+[回合5] 09m 06s:  Defender (1) 获得了来自 Defender (1) 的 防御
+[回合5] 09m 08s:  Buffer 施放了 响音攻击, 目标：(9, 0) 
+[回合5] 09m 09s:  Buffer (1) 施放了 响音攻击, 目标：(9, 0) 
+[回合5] 09m 09s:  Buffer (1) 的 响音攻击 对 BossMu 造成了 11 点 Knock 伤害。生命值：1887
+[回合5] 09m 09s:  Healer 施放了 栽培, 目标：(10, 0) 
+[回合5] 09m 10s:  Defender (1) 获得了来自 Healer 的 栽培
+[回合5] 09m 10s:  Astro 施放了 射击, 目标：(4, 0) 
+[回合5] 09m 12s:  BossMu 失去了来自 Astro 的 星光超流
+[回合5] 09m 12s:  BossMu 施放了 小史莱姆标记, 目标：(11, 0) 
+[回合5] 09m 13s:  Defender (1) 获得了来自 BossMu 的 锁定
+[回合5] 09m 13s:  BossMu 施放了 史莱姆跳跃, 目标：(10, 0) 
+[回合5] 09m 13s:  Buffer (1) 获得了来自 BossMu 的 腐化酸池
+[回合5] 09m 13s:  Defender (1) 获得了来自 BossMu 的 腐化酸池
+[回合5] 09m 13s:  Defender 获得了来自 BossMu 的 腐化酸池
+[回合5] 09m 13s:  BossMu 施放了 史莱姆攻击, 目标：(10, 0) 
+[回合5] 09m 13s:  BossMu 的 史莱姆攻击 对 Defender 造成了 19 点 Knock 伤害。生命值：60
+[回合5] 09m 13s:  Defender 获得了来自 BossMu 的 史莱姆毒素
+[回合5] 09m 14s:  BossMu 的 史莱姆攻击 对 Buffer (1) 造成了 20 点 Knock 伤害。生命值：30
+[回合5] 09m 14s:  Buffer (1) 获得了来自 BossMu 的 史莱姆毒素
+[回合6] 09m 14s:  回合6
+[回合6] 09m 15s:  BossMu 的 腐化酸池 对 Defender 造成了 12 点 Nature 伤害。生命值：49
+[回合6] 09m 15s:  BossMu 的 史莱姆毒素 对 Defender 造成了 6 点 Nature 伤害。生命值：43
+[回合6] 09m 15s:  Healer 的 栽培 对 Astro 造成了 6 点 Heal 。生命值：49
+[回合6] 09m 15s:  Astro 失去了来自 Healer 的 栽培
+[回合6] 09m 15s:  BossMu 的 腐化酸池 对 Buffer (1) 造成了 12 点 Nature 伤害。生命值：18
+[回合6] 09m 15s:  BossMu 的 史莱姆毒素 对 Buffer (1) 造成了 6 点 Nature 伤害。生命值：12
+[回合6] 09m 16s:  Healer 的 栽培 对 Attacker (1) 造成了 6 点 Heal 。生命值：47
+[回合6] 09m 16s:  Defender (1) 失去了来自 Defender (1) 的 防御
+[回合6] 09m 16s:  BossMu 的 史莱姆毒素 对 Defender (1) 造成了 18 点 Nature 伤害。生命值：43
+[回合6] 09m 16s:  Healer 的 栽培 对 Defender (1) 造成了 6 点 Heal 。生命值：49
+[回合6] 09m 16s:  BossMu 的 腐化酸池 对 Defender (1) 造成了 12 点 Nature 伤害。生命值：37
+[回合6] 10m 52s:  Healer 施放了 治疗术, 目标：(9, 0) 
+[回合6] 10m 53s:  Healer 的 治疗术 对 Buffer (1) 造成了 29 点 Heal 。生命值：42
+[回合6] 10m 54s:  Healer 施放了 治疗术, 目标：(10, 0) 
+[回合6] 10m 55s:  Healer 的 治疗术 对 Defender 造成了 29 点 Heal 。生命值：72
+[回合6] 10m 57s:  Buffer (1) 施放了 移动, 目标：(8, 0) 
+[回合6] 10m 57s:  Buffer (1) 失去了来自 BossMu 的 腐化酸池
+[回合6] 11m 13s:  Defender 施放了 拳, 目标：(11, 0) 
+[回合6] 11m 13s:  Defender 的 拳 对 BossMu 造成了 6 点 Knock 伤害。生命值：1882
+[回合6] 11m 17s:  Defender 施放了 盾击, 目标：(11, 0) 
+[回合6] 11m 17s:  Defender 的 盾击 没有击中 BossMu。生命值：1882
+[回合6] 11m 24s:  Defender (1) 施放了 移动, 目标：(7, 0) 
+[回合6] 11m 25s:  Defender (1) 失去了来自 BossMu 的 腐化酸池
+[回合6] 11m 27s:  Buffer 施放了 移动, 目标：(9, 0) 
+[回合6] 11m 28s:  Attacker 重新获得了来自 Buffer (1) 的 力量光环
+[回合6] 11m 41s:  Attacker (2) 施放了 射击, 目标：(11, 0) 
+[回合6] 11m 42s:  Attacker (2) 的 射击 没有击中 BossMu。生命值：1882
+[回合6] 11m 44s:  Attacker 施放了 射击, 目标：(11, 0) 
+[回合6] 11m 44s:  Attacker 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：1847
+[回合6] 11m 52s:  Healer 施放了 栽培, 目标：(8, 0) 
+[回合6] 11m 53s:  Buffer (1) 获得了来自 Healer 的 栽培
+[回合6] 11m 53s:  Astro 施放了 射击, 目标：(4, 0) 
+[回合6] 11m 53s:  Astro 施放了 射击, 目标：(4, 0) 
+[回合6] 11m 55s:  BossMu 施放了 小史莱姆投掷, 目标：(11, 0) 
+[回合6] 11m 56s:  BossMu 的 小史莱姆投掷 对 Defender (1) 造成了 10 点 Nature 伤害。生命值：27
+[回合6] 11m 56s:  Defender (1) 失去了来自 BossMu 的 锁定
+[回合6] 11m 56s:  Defender (1) 获得了来自 BossMu 的 腐化酸池
+[回合6] 11m 56s:  BossMu 施放了 小史莱姆标记, 目标：(11, 0) 
+[回合6] 11m 56s:  SmallMu(Clone) 获得了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[回合6] 11m 57s:  Healer (1) 获得了来自 BossMu 的 锁定
+[回合6] 11m 57s:  BossMu 施放了 史莱姆攻击, 目标：(10, 0) 
+[回合6] 11m 58s:  BossMu 的 史莱姆攻击 对 Defender 造成了 19 点 Knock 伤害。生命值：53
+[回合6] 11m 58s:  Defender 重新获得了来自 BossMu 的 史莱姆毒素
+[回合7] 11m 58s:  回合7
+[回合7] 11m 59s:  BossMu 的 腐化酸池 对 Defender 造成了 12 点 Nature 伤害。生命值：41
+[回合7] 11m 59s:  BossMu 的 史莱姆毒素 对 Defender 造成了 12 点 Nature 伤害。生命值：29
+[回合7] 11m 59s:  Healer 的 栽培 对 Buffer (1) 造成了 6 点 Heal 。生命值：48
+[回合7] 11m 59s:  BossMu 的 史莱姆毒素 对 Buffer (1) 造成了 6 点 Nature 伤害。生命值：42
+[回合7] 11m 59s:  Healer 的 栽培 对 Attacker (1) 造成了 6 点 Heal 。生命值：53
+[回合7] 11m 59s:  Attacker (1) 失去了来自 Healer 的 栽培
+[回合7] 12m 00s:  BossMu 的 史莱姆毒素 对 Defender (1) 造成了 18 点 Nature 伤害。生命值：9
+[回合7] 12m 00s:  Defender (1) 失去了来自 BossMu 的 史莱姆毒素
+[回合7] 12m 00s:  Healer 的 栽培 对 Defender (1) 造成了 6 点 Heal 。生命值：15
+[回合7] 12m 00s:  BossMu 的 腐化酸池 对 Defender (1) 造成了 12 点 Nature 伤害。生命值：3
+[回合7] 12m 10s:  Astro 施放了 星光超流, 目标：(11, 0) 
+[回合7] 12m 11s:  Astro 的 星光超流 对 BossMu 造成了 28 点 Light 伤害。生命值：1819
+[回合7] 12m 12s:  Astro 的 FallenStar 对 BossMu 造成了 8 点 Knock 伤害。生命值：1811
+[回合7] 12m 12s:  Astro 的 星光超流 对 BossMu 造成了 28 点 Light 伤害。生命值：1783
+[回合7] 12m 12s:  BossMu 施放了 史莱姆爆炸, 目标：(11, 0) 
+[回合7] 12m 12s:  BossMu 的 史莱姆爆炸 对 Attacker (2) 造成了 13 点 Nature 伤害。生命值：38
+[回合7] 12m 13s:  BossMu 的 史莱姆爆炸 对 Attacker 造成了 13 点 Nature 伤害。生命值：22
+[回合7] 12m 13s:  BossMu 的 史莱姆爆炸 对 Defender 造成了 13 点 Nature 伤害。生命值：18
+[回合7] 12m 13s:  BossMu 的 史莱姆爆炸 对 Buffer 造成了 13 点 Nature 伤害。生命值：37
+[回合7] 12m 13s:  BossMu 的 史莱姆爆炸 对 Healer 造成了 13 点 Nature 伤害。生命值：23
+[回合7] 12m 13s:  BossMu 的 史莱姆爆炸 对 Healer (1) 造成了 13 点 Nature 伤害。生命值：30
+[回合7] 12m 13s:  BossMu 的 史莱姆爆炸 对 Astro 造成了 13 点 Nature 伤害。生命值：36
+[回合7] 12m 13s:  BossMu 的 史莱姆爆炸 对 Buffer (1) 造成了 13 点 Nature 伤害。生命值：29
+[回合7] 12m 13s:  BossMu 的 史莱姆爆炸 对 Attacker (1) 造成了 13 点 Nature 伤害。生命值：40
+[回合7] 12m 13s:  BossMu 的 史莱姆爆炸 对 Defender (1) 造成了 3 点 Nature 伤害。生命值：0
+[回合7] 12m 13s:  Defender (1) 失去了来自 Defender (1) 的 防卫者
+[回合7] 12m 13s:  Defender (1) 失去了来自 Buffer 的 力量光环
+[回合7] 12m 13s:  Defender (1) 失去了来自 Healer 的 栽培
+[回合7] 12m 13s:  Defender (1) 失去了来自 BossMu 的 腐化酸池
+[回合7] 12m 14s:  BossMu 的 史莱姆爆炸 击杀了 Defender (1) !
+[回合7] 12m 15s:  Astro 的 星光超流 没有击中 BossMu。生命值：1783
+[回合7] 12m 16s:  Astro 的 星光超流 对 BossMu 造成了 56 点 Light 伤害（暴击）。生命值：1727
+[回合7] 12m 17s:  Astro 的 星光超流 对 BossMu 造成了 28 点 Light 伤害。生命值：1699
+[回合7] 12m 17s:  BossMu 获得了来自 Astro 的 星光超流
+[回合7] 12m 23s:  Healer (1) 施放了 移动, 目标：(7, 0) 
+[回合7] 12m 24s:  Healer (1) 施放了 治疗链, 目标：(7, 0) 
+[回合7] 12m 24s:  Healer (1) 的 治疗链 对 Healer (1) 造成了 18 点 Heal 。生命值：48
+[回合7] 12m 25s:  Healer (1) 的 治疗链 对 Healer 造成了 12 点 Heal 。生命值：35
+[回合7] 12m 25s:  Healer (1) 的 治疗链 对 Defender 造成了 9 点 Heal 。生命值：27
+[回合7] 12m 26s:  Healer (1) 施放了 治疗链, 目标：(7, 0) 
+[回合7] 12m 26s:  Healer (1) 的 治疗链 对 Healer (1) 造成了 18 点 Heal 。生命值：66
+[回合7] 12m 26s:  Healer (1) 的 治疗链 对 Buffer (1) 造成了 12 点 Heal 。生命值：41
+[回合7] 12m 26s:  Healer (1) 的 治疗链 对 Defender 造成了 9 点 Heal 。生命值：36
+[回合7] 12m 34s:  Defender 施放了 拳, 目标：(11, 0) 
+[回合7] 12m 34s:  Defender 的 拳 对 BossMu 造成了 6 点 Knock 伤害。生命值：1693
+[回合7] 12m 35s:  Defender 施放了 拳, 目标：(11, 0) 
+[回合7] 12m 35s:  Defender 的 拳 对 BossMu 造成了 6 点 Knock 伤害。生命值：1687
+[回合7] 12m 40s:  Defender 施放了 移动, 目标：(10, 0) 
+[回合7] 12m 41s:  Defender 失去了来自 BossMu 的 腐化酸池
+[回合7] 12m 46s:  Healer 施放了 治疗术, 目标：(10, 0) 
+[回合7] 12m 46s:  Healer 的 治疗术 对 Defender 造成了 29 点 Heal 。生命值：65
+[回合7] 12m 51s:  Attacker (2) 施放了 射击, 目标：(8, 0) 
+[回合7] 12m 52s:  Attacker (2) 的 射击 没有击中 SmallMu(Clone)。生命值：120
+[回合7] 12m 53s:  Attacker (2) 施放了 射击, 目标：(8, 0) 
+[回合7] 12m 54s:  Attacker (2) 的 射击 对 SmallMu(Clone) 造成了 35 点 Pierce 伤害。生命值：85
+[回合7] 12m 55s:  Attacker (1) 施放了 射击, 目标：(8, 0) 
+[回合7] 12m 56s:  Attacker (1) 的 射击 对 SmallMu(Clone) 造成了 35 点 Pierce 伤害。生命值：50
+[回合7] 12m 57s:  Attacker (1) 施放了 射击, 目标：(8, 0) 
+[回合7] 12m 57s:  Attacker (1) 的 射击 对 SmallMu(Clone) 造成了 35 点 Pierce 伤害。生命值：15
+[回合7] 13m 09s:  Attacker 施放了 射击, 目标：(11, 0) 
+[回合7] 13m 10s:  Attacker 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：1652
+[回合7] 13m 10s:  Attacker 施放了 射击, 目标：(11, 0) 
+[回合7] 13m 11s:  Attacker 的 射击 对 BossMu 造成了 70 点 Pierce 伤害（暴击）。生命值：1582
+[回合7] 13m 23s:  Astro 施放了 移动, 目标：(8, 0) 
+[回合7] 13m 24s:  Buffer 施放了 响音攻击, 目标：(9, 0) 
+[回合7] 13m 25s:  Buffer 的 响音攻击 对 SmallMu(Clone) 造成了 11 点 Knock 伤害。生命值：4
+[回合7] 13m 25s:  Buffer 的 响音攻击 对 BossMu 造成了 22 点 Knock 伤害（暴击）。生命值：1560
+[回合7] 13m 25s:  BossMu 施放了 史莱姆爆炸, 目标：(11, 0) 
+[回合7] 13m 25s:  BossMu 的 史莱姆爆炸 对 Attacker (2) 造成了 13 点 Nature 伤害。生命值：25
+[回合7] 13m 25s:  BossMu 的 史莱姆爆炸 对 Attacker 造成了 13 点 Nature 伤害。生命值：9
+[回合7] 13m 26s:  BossMu 的 史莱姆爆炸 对 Defender 造成了 13 点 Nature 伤害。生命值：52
+[回合7] 13m 26s:  BossMu 的 史莱姆爆炸 对 Buffer 造成了 13 点 Nature 伤害。生命值：24
+[回合7] 13m 26s:  BossMu 的 史莱姆爆炸 对 Healer 造成了 13 点 Nature 伤害。生命值：22
+[回合7] 13m 26s:  BossMu 的 史莱姆爆炸 对 Healer (1) 造成了 13 点 Nature 伤害。生命值：53
+[回合7] 13m 26s:  BossMu 的 史莱姆爆炸 对 Astro 造成了 13 点 Nature 伤害。生命值：23
+[回合7] 13m 26s:  BossMu 的 史莱姆爆炸 对 Buffer (1) 造成了 13 点 Nature 伤害。生命值：28
+[回合7] 13m 26s:  BossMu 的 史莱姆爆炸 对 Attacker (1) 造成了 13 点 Nature 伤害。生命值：27
+[回合7] 13m 27s:  Buffer (1) 施放了 响音攻击, 目标：(8, 0) 
+[回合7] 13m 27s:  Buffer (1) 的 响音攻击 对 BossMu 造成了 11 点 Knock 伤害。生命值：1549
+[回合7] 13m 27s:  Healer 施放了 栽培, 目标：(6, 0) 
+[回合7] 13m 28s:  Attacker 获得了来自 Healer 的 栽培
+[回合7] 13m 30s:  SmallMu(Clone) 施放了 移动, 目标：(8, 0) 
+[回合7] 13m 30s:  SmallMu(Clone) 施放了 移动, 目标：(8, 0) 
+[回合7] 13m 30s:  SmallMu(Clone) 施放了 移动, 目标：(8, 0) 
+[回合7] 13m 30s:  BossMu 施放了 小史莱姆投掷, 目标：(11, 0) 
+[回合7] 13m 31s:  BossMu 的 小史莱姆投掷 对 Healer (1) 造成了 10 点 Nature 伤害。生命值：43
+[回合7] 13m 31s:  Healer (1) 失去了来自 BossMu 的 锁定
+[回合7] 13m 31s:  Healer (1) 获得了来自 BossMu 的 腐化酸池
+[回合7] 13m 31s:  Astro 获得了来自 BossMu 的 腐化酸池
+[回合7] 13m 31s:  BossMu 施放了 移动, 目标：(11, 0) 
+[回合7] 13m 31s:  SmallMu(Clone) 获得了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[回合7] 13m 32s:  BossMu 施放了 史莱姆攻击, 目标：(10, 0) 
+[回合7] 13m 32s:  BossMu 的 史莱姆攻击 对 Defender 造成了 19 点 Knock 伤害。生命值：33
+[回合7] 13m 32s:  Defender 重新获得了来自 BossMu 的 史莱姆毒素
+[回合8] 13m 32s:  回合8
+[回合8] 13m 34s:  Healer 的 栽培 对 Attacker 造成了 6 点 Heal 。生命值：15
+[回合8] 13m 34s:  BossMu 的 史莱姆毒素 对 Defender 造成了 18 点 Nature 伤害。生命值：15
+[回合8] 13m 34s:  BossMu 的 腐化酸池 对 Healer (1) 造成了 12 点 Nature 伤害。生命值：31
+[回合8] 13m 34s:  BossMu 的 腐化酸池 对 Astro 造成了 12 点 Nature 伤害。生命值：11
+[回合8] 13m 34s:  Healer 的 栽培 对 Buffer (1) 造成了 6 点 Heal 。生命值：34
+[回合8] 13m 34s:  BossMu 的 史莱姆毒素 对 Buffer (1) 造成了 6 点 Nature 伤害。生命值：28
+[回合8] 13m 34s:  Buffer (1) 失去了来自 BossMu 的 史莱姆毒素
+[回合8] 13m 43s:  Defender 施放了 拳, 目标：(11, 0) 
+[回合8] 13m 43s:  Defender 的 拳 对 BossMu 造成了 6 点 Knock 伤害。生命值：1543
+[回合8] 13m 46s:  Defender 施放了 拳, 目标：(11, 0) 
+[回合8] 13m 46s:  Defender 的 拳 没有击中 BossMu。生命值：1543
+[回合8] 13m 47s:  Defender 施放了 移动, 目标：(8, 0) 
+[回合8] 13m 55s:  Astro 施放了 移动, 目标：(5, 0) 
+[回合8] 13m 55s:  Astro 失去了来自 BossMu 的 腐化酸池
+[回合8] 13m 57s:  Astro 施放了 星光超流, 目标：(6, 0) 
+[回合8] 13m 57s:  Astro 的 星光超流 对 SmallMu(Clone) 造成了 28 点 Light 伤害。生命值：92
+[回合8] 13m 57s:  SmallMu(Clone) 获得了来自 Astro 的 星光超流
+[回合8] 13m 59s:  Astro 施放了 星光超流, 目标：(6, 0) 
+[回合8] 14m 00s:  Astro 的 星光超流 对 SmallMu(Clone) 造成了 56 点 Light 伤害（暴击）。生命值：36
+[回合8] 14m 00s:  Astro 的 星光超流 对 SmallMu(Clone) 造成了 28 点 Light 伤害。生命值：8
+[回合8] 14m 01s:  SmallMu(Clone) 重新获得了来自 Astro 的 星光超流
+[回合8] 14m 11s:  Healer (1) 施放了 应急治疗, 目标：(5, 0) 
+[回合8] 14m 12s:  Astro 获得了来自 Healer (1) 的 应急治疗
+[回合8] 14m 12s:  Healer (1) 的 应急治疗 对 Astro 造成了 75 点 Heal 。生命值：92
+[回合8] 14m 13s:  Healer (1) 施放了 移动, 目标：(4, 0) 
+[回合8] 14m 14s:  Healer (1) 失去了来自 BossMu 的 腐化酸池
+[回合8] 15m 01s:  Healer 施放了 移动, 目标：(7, 0) 
+[回合8] 15m 04s:  Healer 施放了 栽培, 目标：(8, 0) 
+[回合8] 15m 05s:  Defender 获得了来自 Healer 的 栽培
+[回合8] 15m 06s:  Healer 施放了 绽放, 目标：(7, 0) 
+[回合8] 15m 07s:  Healer 的 绽放 对 Attacker (2) 造成了 20 点 Heal 。生命值：45
+[回合8] 15m 07s:  Healer 的 绽放 对 Attacker 造成了 20 点 Heal 。生命值：35
+[回合8] 15m 07s:  Healer 的 绽放 对 Defender 造成了 20 点 Heal 。生命值：36
+[回合8] 15m 07s:  Healer 的 绽放 对 Buffer 造成了 20 点 Heal 。生命值：45
+[回合8] 15m 07s:  Healer 的 绽放 对 Healer 造成了 20 点 Heal 。生命值：42
+[回合8] 15m 07s:  Healer 的 绽放 对 Healer (1) 造成了 20 点 Heal 。生命值：51
+[回合8] 15m 08s:  Healer 的 绽放 对 Astro 造成了 0 点 Heal 。生命值：92
+[回合8] 15m 08s:  Healer 的 绽放 对 Buffer (1) 造成了 20 点 Heal 。生命值：48
+[回合8] 15m 08s:  Healer 的 绽放 对 Attacker (1) 造成了 20 点 Heal 。生命值：47
+[回合8] 15m 30s:  Attacker (2) 施放了 射击, 目标：(11, 0) 
+[回合8] 15m 31s:  Attacker (2) 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：1508
+[回合8] 15m 31s:  Attacker 施放了 射击, 目标：(11, 0) 
+[回合8] 15m 31s:  Attacker 的 射击 没有击中 BossMu。生命值：1508
+[回合8] 15m 31s:  Attacker 施放了 射击, 目标：(11, 0) 
+[回合8] 15m 32s:  Attacker 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：1473
+[回合8] 15m 32s:  Attacker (1) 施放了 射击, 目标：(11, 0) 
+[回合8] 15m 33s:  Attacker (1) 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：1438
+[回合8] 15m 33s:  Attacker (1) 施放了 射击, 目标：(11, 0) 
+[回合8] 15m 33s:  Attacker (1) 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：1403
+[回合8] 15m 35s:  BossMu 失去了来自 Astro 的 星光超流
+[回合8] 15m 35s:  SmallMu(Clone) 施放了 移动, 目标：(8, 0) 
+[回合8] 15m 36s:  SmallMu(Clone) 施放了 移动, 目标：(8, 0) 
+[回合8] 15m 37s:  BossMu 施放了 小史莱姆标记, 目标：(11, 0) 
+[回合8] 15m 37s:  Astro 获得了来自 BossMu 的 锁定
+[回合8] 15m 37s:  BossMu 施放了 史莱姆跳跃, 目标：(7, 0) 
+[回合8] 15m 38s:  Defender 获得了来自 BossMu 的 腐化酸池
+[回合8] 15m 38s:  Healer 获得了来自 BossMu 的 腐化酸池
+[回合8] 15m 38s:  Attacker 获得了来自 BossMu 的 腐化酸池
+[回合8] 15m 38s:  BossMu 施放了 史莱姆攻击, 目标：(7, 0) 
+[回合8] 15m 39s:  BossMu 的 史莱姆攻击 对 Healer 造成了 20 点 Knock 伤害。生命值：22
+[回合8] 15m 39s:  Healer 获得了来自 BossMu 的 史莱姆毒素
+[回合8] 15m 39s:  BossMu 的 史莱姆攻击 对 Defender 造成了 19 点 Knock 伤害。生命值：17
+[回合8] 15m 39s:  Defender 重新获得了来自 BossMu 的 史莱姆毒素
+[回合8] 15m 39s:  BossMu 的 史莱姆攻击 对 Attacker 造成了 20 点 Knock 伤害。生命值：15
+[回合8] 15m 39s:  Attacker 获得了来自 BossMu 的 史莱姆毒素
+[回合8] 15m 40s:  SmallMu(Clone) 施放了 移动, 目标：(6, 0) 
+[回合8] 15m 40s:  SmallMu(Clone) 施放了 移动, 目标：(6, 0) 
+[回合8] 15m 40s:  SmallMu(Clone) 施放了 移动, 目标：(6, 0) 
+[回合9] 15m 40s:  回合9
+[回合9] 15m 41s:  Healer 的 栽培 对 Attacker 造成了 6 点 Heal 。生命值：21
+[回合9] 15m 42s:  BossMu 的 腐化酸池 对 Attacker 造成了 12 点 Nature 伤害。生命值：9
+[回合9] 15m 42s:  BossMu 的 史莱姆毒素 对 Attacker 造成了 6 点 Nature 伤害。生命值：3
+[回合9] 15m 42s:  Healer 的 栽培 对 Defender 造成了 6 点 Heal 。生命值：23
+[回合9] 15m 42s:  BossMu 的 史莱姆毒素 对 Defender 造成了 23 点 Nature 伤害。生命值：0
+[回合9] 15m 42s:  Defender 失去了来自 Defender 的 防卫者
+[回合9] 15m 42s:  Defender 失去了来自 Buffer 的 力量光环
+[回合9] 15m 42s:  Defender 失去了来自 BossMu 的 史莱姆毒素
+[回合9] 15m 42s:  Defender 失去了来自 Healer 的 栽培
+[回合9] 15m 42s:  Defender 失去了来自 BossMu 的 腐化酸池
+[回合9] 15m 42s:  BossMu 的  击杀了 Defender !
+[回合9] 15m 42s:  BossMu 的 腐化酸池 对 Healer 造成了 12 点 Nature 伤害。生命值：10
+[回合9] 15m 42s:  BossMu 的 史莱姆毒素 对 Healer 造成了 6 点 Nature 伤害。生命值：4
+[回合9] 15m 42s:  Healer 的 栽培 对 Buffer (1) 造成了 6 点 Heal 。生命值：55
+[回合9] 15m 42s:  Buffer (1) 失去了来自 Healer 的 栽培
+[回合9] 15m 53s:  Astro 施放了 射击, 目标：(8, 0) 
+[回合9] 15m 54s:  Astro 的 射击 对 SmallMu(Clone) 造成了 4 点 Pierce 伤害。生命值：0
+[回合9] 15m 54s:  SmallMu(Clone) 施放了 小史莱姆爆炸, 目标：(8, 0) 
+[回合9] 15m 55s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Attacker (2) 造成了 12 点 Nature 伤害。生命值：33
+[回合9] 15m 55s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Attacker 造成了 3 点 Nature 伤害。生命值：0
+[回合9] 15m 55s:  Attacker 失去了来自 Attacker 的 攻击者
+[回合9] 15m 55s:  Attacker 失去了来自 Buffer (1) 的 力量光环
+[回合9] 15m 55s:  Attacker 失去了来自 Healer 的 栽培
+[回合9] 15m 55s:  Attacker 失去了来自 BossMu 的 腐化酸池
+[回合9] 15m 55s:  Attacker 失去了来自 BossMu 的 史莱姆毒素
+[回合9] 15m 55s:  SmallMu(Clone) 的 小史莱姆爆炸 击杀了 Attacker !
+[回合9] 15m 55s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Buffer 造成了 12 点 Nature 伤害。生命值：33
+[回合9] 15m 55s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Healer 造成了 4 点 Nature 伤害。生命值：0
+[回合9] 15m 55s:  Healer 失去了来自 Buffer 的 力量光环
+[回合9] 15m 55s:  Healer 失去了来自 BossMu 的 腐化酸池
+[回合9] 15m 55s:  Healer 失去了来自 BossMu 的 史莱姆毒素
+[回合9] 15m 55s:  SmallMu(Clone) 的 小史莱姆爆炸 击杀了 Healer !
+[回合9] 15m 56s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Healer (1) 造成了 12 点 Nature 伤害。生命值：39
+[回合9] 15m 56s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Astro 造成了 12 点 Nature 伤害。生命值：80
+[回合9] 15m 56s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Buffer (1) 造成了 12 点 Nature 伤害。生命值：43
+[回合9] 15m 56s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Attacker (1) 造成了 12 点 Nature 伤害。生命值：35
+[回合9] 15m 56s:  SmallMu(Clone) 失去了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[回合9] 15m 56s:  Astro 的 射击 击杀了 SmallMu(Clone) !
+[回合9] 17m 04s:  Attacker (2) 施放了 射击, 目标：(6, 0) 
+[回合9] 17m 05s:  Attacker (2) 的 射击 没有击中 SmallMu(Clone)。生命值：8
+[回合9] 17m 06s:  Attacker (2) 施放了 射击, 目标：(6, 0) 
+[回合9] 17m 07s:  Attacker (2) 的 射击 对 SmallMu(Clone) 造成了 8 点 Pierce 伤害。生命值：0
+[回合9] 17m 07s:  SmallMu(Clone) 施放了 小史莱姆爆炸, 目标：(6, 0) 
+[回合9] 17m 07s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Attacker (2) 造成了 12 点 Nature 伤害。生命值：21
+[回合9] 17m 07s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Buffer 造成了 12 点 Nature 伤害。生命值：21
+[回合9] 17m 07s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Healer (1) 造成了 12 点 Nature 伤害。生命值：27
+[回合9] 17m 07s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Astro 造成了 12 点 Nature 伤害。生命值：68
+[回合9] 17m 07s:  SmallMu(Clone) 的 小史莱姆爆炸 没有击中 Buffer (1)。生命值：43
+[回合9] 17m 07s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Attacker (1) 造成了 12 点 Nature 伤害。生命值：23
+[回合9] 17m 07s:  SmallMu(Clone) 失去了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[回合9] 17m 07s:  SmallMu(Clone) 失去了来自 Astro 的 星光超流
+[回合9] 17m 07s:  Attacker (2) 的 射击 击杀了 SmallMu(Clone) !
+[回合9] 17m 13s:  Astro 施放了 移动, 目标：(2, 0) 
+[回合9] 17m 14s:  Astro 失去了来自 Buffer 的 力量光环
+[回合9] 17m 17s:  Healer (1) 施放了 移动, 目标：(3, 0) 
+[回合9] 17m 19s:  Buffer (1) 施放了 移动, 目标：(5, 0) 
+[回合9] 17m 20s:  Astro 获得了来自 Buffer (1) 的 力量光环
+[回合9] 17m 22s:  Buffer 施放了 移动, 目标：(4, 0) 
+[回合9] 17m 23s:  Attacker (2) 失去了来自 Buffer 的 力量光环
+[回合9] 17m 23s:  Astro 重新获得了来自 Buffer (1) 的 力量光环
+[回合9] 17m 25s:  Attacker (1) 施放了 移动, 目标：(3, 0) 
+[回合9] 17m 30s:  BossMu 施放了 小史莱姆投掷, 目标：(6, 0) 
+[回合9] 17m 31s:  BossMu 的 小史莱姆投掷 对 Astro 造成了 10 点 Nature 伤害。生命值：58
+[回合9] 17m 31s:  Astro 失去了来自 BossMu 的 锁定
+[回合9] 17m 31s:  Astro 获得了来自 BossMu 的 腐化酸池
+[回合9] 17m 31s:  BossMu 施放了 小史莱姆标记, 目标：(6, 0) 
+[回合9] 17m 31s:  SmallMu(Clone) 获得了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[回合9] 17m 32s:  Buffer (1) 获得了来自 BossMu 的 锁定
+[回合9] 17m 32s:  BossMu 施放了 移动, 目标：(6, 0) 
+[回合9] 17m 32s:  BossMu 施放了 移动, 目标：(4, 0) 
+[回合10] 17m 33s:  回合10
+[回合10] 17m 34s:  BossMu 的 腐化酸池 对 Astro 造成了 12 点 Nature 伤害。生命值：47
+[回合10] 17m 38s:  Attacker (2) 施放了 移动, 目标：(5, 0) 
+[回合10] 17m 39s:  Attacker (2) 获得了来自 Buffer 的 力量光环
+[回合10] 17m 42s:  Buffer (1) 施放了 移动, 目标：(9, 0) 
+[回合10] 18m 56s:  Astro 施放了 射击, 目标：(3, 0) 
+[回合10] 18m 56s:  Astro 的 射击 对 SmallMu(Clone) 造成了 28 点 Pierce 伤害。生命值：92
+[回合10] 18m 58s:  Attacker (1) 施放了 狂风加护, 目标：(3, 0) 
+[回合10] 18m 59s:  Attacker (1) 获得了来自 Attacker (1) 的 狂风指引
+[回合10] 19m 00s:  Attacker (1) 施放了 射击, 目标：(3, 0) 
+[回合10] 19m 01s:  Attacker (1) 的 射击 对 SmallMu(Clone) 造成了 35 点 Pierce 伤害。生命值：57
+[回合10] 19m 01s:  Attacker (1) 施放了 射击, 目标：(3, 0) 
+[回合10] 19m 02s:  Attacker (1) 的 射击 对 SmallMu(Clone) 造成了 35 点 Pierce 伤害。生命值：22
+[回合10] 19m 08s:  Healer (1) 施放了 治疗链, 目标：(5, 0) 
+[回合10] 19m 08s:  Healer (1) 的 治疗链 对 Attacker (2) 造成了 18 点 Heal 。生命值：39
+[回合10] 19m 09s:  Healer (1) 的 治疗链 对 Buffer 造成了 12 点 Heal 。生命值：33
+[回合10] 19m 09s:  Healer (1) 的 治疗链 对 Attacker (1) 造成了 9 点 Heal 。生命值：32
+[回合10] 19m 10s:  Healer (1) 施放了 治疗链, 目标：(5, 0) 
+[回合10] 19m 10s:  Healer (1) 的 治疗链 对 Attacker (2) 造成了 18 点 Heal 。生命值：57
+[回合10] 19m 10s:  Healer (1) 的 治疗链 对 Buffer 造成了 12 点 Heal 。生命值：45
+[回合10] 19m 10s:  Healer (1) 的 治疗链 对 Attacker (1) 造成了 9 点 Heal 。生命值：41
+[回合10] 19m 13s:  Healer (1) 施放了 移动, 目标：(4, 0) 
+[回合10] 19m 13s:  Healer (1) 重新获得了来自 Buffer 的 力量光环
+[回合10] 19m 18s:  Buffer 施放了 响音攻击, 目标：(4, 0) 
+[回合10] 19m 18s:  Buffer 的 响音攻击 对 SmallMu(Clone) 造成了 11 点 Knock 伤害。生命值：11
+[回合10] 19m 19s:  Buffer 施放了 海神之鞭, 目标：(4, 0) 
+[回合10] 19m 20s:  Attacker (2) 获得了来自 Buffer 的 海神之鞭
+[回合10] 19m 20s:  Buffer 获得了来自 Buffer 的 海神之鞭
+[回合10] 19m 20s:  Healer (1) 获得了来自 Buffer 的 海神之鞭
+[回合10] 19m 20s:  Astro 获得了来自 Buffer 的 海神之鞭
+[回合10] 19m 20s:  Buffer (1) 获得了来自 Buffer 的 海神之鞭
+[回合10] 19m 20s:  Attacker (1) 获得了来自 Buffer 的 海神之鞭
+[回合10] 19m 23s:  Buffer (1) 施放了 移动, 目标：(5, 0) 
+[回合10] 19m 23s:  Attacker (1) 重新获得了来自 Buffer 的 力量光环
+[回合10] 19m 26s:  Buffer (1) 施放了 移动, 目标：(5, 0) 
+[回合10] 19m 26s:  Buffer (1) 施放了 移动, 目标：(6, 0) 
+[回合10] 19m 26s:  Buffer (1) 获得了来自 BossMu 的 腐化酸池
+[回合10] 19m 28s:  BossMu 施放了 小史莱姆投掷, 目标：(4, 0) 
+[回合10] 19m 29s:  BossMu 的 小史莱姆投掷 对 Buffer (1) 造成了 10 点 Nature 伤害。生命值：33
+[回合10] 19m 29s:  Buffer (1) 失去了来自 BossMu 的 锁定
+[回合10] 19m 29s:  Buffer (1) 重新获得了来自 BossMu 的 腐化酸池
+[回合10] 19m 29s:  Attacker (2) 获得了来自 BossMu 的 腐化酸池
+[回合10] 19m 29s:  BossMu 施放了 史莱姆攻击, 目标：(4, 0) 
+[回合10] 19m 29s:  SmallMu(Clone) 获得了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[回合10] 19m 30s:  BossMu 的 史莱姆攻击 对 Healer (1) 造成了 20 点 Knock 伤害。生命值：7
+[回合10] 19m 30s:  Healer (1) 获得了来自 BossMu 的 史莱姆毒素
+[回合10] 19m 30s:  SmallMu(Clone) 施放了 移动, 目标：(3, 0) 
+[回合10] 19m 31s:  SmallMu(Clone) 施放了 移动, 目标：(5, 0) 
+[回合11] 19m 32s:  回合11
+[回合11] 19m 33s:  BossMu 的 腐化酸池 对 Attacker (2) 造成了 12 点 Nature 伤害。生命值：45
+[回合11] 19m 33s:  BossMu 的 史莱姆毒素 对 Healer (1) 造成了 6 点 Nature 伤害。生命值：1
+[回合11] 19m 33s:  BossMu 的 腐化酸池 对 Astro 造成了 12 点 Nature 伤害。生命值：35
+[回合11] 19m 33s:  Astro 失去了来自 Healer (1) 的 应急治疗
+[回合11] 19m 33s:  BossMu 的 腐化酸池 对 Buffer (1) 造成了 12 点 Nature 伤害。生命值：21
+[回合11] 19m 37s:  Healer (1) 施放了 应急治疗, 目标：(4, 0) 
+[回合11] 19m 37s:  Healer (1) 获得了来自 Healer (1) 的 应急治疗
+[回合11] 19m 38s:  Healer (1) 的 应急治疗 对 Healer (1) 造成了 86 点 Heal 。生命值：88
+[回合11] 19m 41s:  Healer (1) 施放了 移动, 目标：(3, 0) 
+[回合11] 20m 10s:  Buffer (1) 施放了 响音攻击, 目标：(6, 0) 
+[回合11] 20m 10s:  Buffer (1) 的 响音攻击 对 SmallMu(Clone) 造成了 11 点 Knock 伤害。生命值：109
+[回合11] 20m 10s:  Buffer 的 海神之鞭 对 SmallMu(Clone) 造成了 4 点 Water 伤害。生命值：105
+[回合11] 20m 11s:  Buffer (1) 的 响音攻击 对 SmallMu(Clone) 造成了 11 点 Knock 伤害（暴击）。生命值：0
+[回合11] 20m 11s:  Buffer 的 海神之鞭 对 SmallMu(Clone) 造成了 0 点 Water 伤害。生命值：0
+[回合11] 20m 11s:  SmallMu(Clone) 失去了来自 SmallMu(Clone) 的 死亡爆裂 [11]
+[回合11] 20m 11s:  Buffer 的  击杀了 SmallMu(Clone) !
+[回合11] 20m 13s:  Buffer (1) 施放了 移动, 目标：(4, 0) 
+[回合11] 20m 13s:  Buffer (1) 失去了来自 BossMu 的 腐化酸池
+[回合11] 20m 15s:  Attacker (2) 施放了 移动, 目标：(5, 0) 
+[回合11] 20m 15s:  Attacker (2) 失去了来自 BossMu 的 腐化酸池
+[回合11] 20m 16s:  Attacker (2) 施放了 射击, 目标：(5, 0) 
+[回合11] 20m 17s:  Attacker (2) 的 射击 对 SmallMu(Clone) 造成了 70 点 Pierce 伤害（暴击）。生命值：35
+[回合11] 20m 17s:  Buffer 的 海神之鞭 对 SmallMu(Clone) 造成了 4 点 Water 伤害。生命值：31
+[回合11] 20m 20s:  Attacker (1) 施放了 射击, 目标：(5, 0) 
+[回合11] 20m 21s:  Attacker (1) 的 射击 对 SmallMu(Clone) 造成了 31 点 Pierce 伤害。生命值：0
+[回合11] 20m 21s:  Buffer 的 海神之鞭 对 SmallMu(Clone) 造成了 0 点 Water 伤害（暴击）。生命值：0
+[回合11] 20m 21s:  SmallMu(Clone) 失去了来自 SmallMu(Clone) 的 死亡爆裂 [31]
+[回合11] 20m 21s:  Buffer 的  击杀了 SmallMu(Clone) !
+[回合11] 20m 29s:  Attacker (1) 施放了 射击, 目标：(4, 0) 
+[回合11] 20m 30s:  Attacker (1) 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：1368
+[回合11] 20m 30s:  Buffer 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：1364
+[回合11] 20m 33s:  Attacker (1) 施放了 射击, 目标：(4, 0) 
+[回合11] 20m 34s:  Attacker (1) 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：1329
+[回合11] 20m 34s:  Buffer 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：1325
+[回合11] 20m 34s:  BossMu 施放了 史莱姆爆炸, 目标：(4, 0) 
+[回合11] 20m 34s:  BossMu 的 史莱姆爆炸 对 Attacker (2) 造成了 13 点 Nature 伤害。生命值：32
+[回合11] 20m 35s:  BossMu 的 史莱姆爆炸 对 Buffer 造成了 13 点 Nature 伤害。生命值：32
+[回合11] 20m 35s:  BossMu 的 史莱姆爆炸 对 Healer (1) 造成了 13 点 Nature 伤害。生命值：75
+[回合11] 20m 35s:  BossMu 的 史莱姆爆炸 对 Astro 造成了 13 点 Nature 伤害。生命值：10
+[回合11] 20m 35s:  BossMu 的 史莱姆爆炸 对 Buffer (1) 造成了 13 点 Nature 伤害。生命值：8
+[回合11] 20m 35s:  BossMu 的 史莱姆爆炸 对 Attacker (1) 造成了 13 点 Nature 伤害。生命值：28
+[回合11] 20m 41s:  Astro 施放了 移动, 目标：(4, 0) 
+[回合11] 20m 42s:  Astro 失去了来自 BossMu 的 腐化酸池
+[回合11] 20m 43s:  Astro 施放了 星光超流, 目标：(4, 0) 
+[回合11] 20m 44s:  Astro 的 星光超流 对 BossMu 造成了 28 点 Light 伤害。生命值：1297
+[回合11] 20m 45s:  Buffer 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：1293
+[回合11] 20m 45s:  Astro 的 星光超流 对 BossMu 造成了 28 点 Light 伤害。生命值：1265
+[回合11] 20m 45s:  Buffer 的 海神之鞭 对 BossMu 造成了 8 点 Water 伤害（暴击）。生命值：1257
+[回合11] 20m 46s:  Astro 的 星光超流 没有击中 BossMu。生命值：1257
+[回合11] 20m 47s:  Astro 的 星光超流 对 BossMu 造成了 28 点 Light 伤害。生命值：1229
+[回合11] 20m 48s:  Buffer 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：1225
+[回合11] 20m 48s:  Astro 的 星光超流 没有击中 BossMu。生命值：1225
+[回合11] 20m 49s:  Astro 的 星光超流 没有击中 BossMu。生命值：1225
+[回合11] 20m 50s:  BossMu 获得了来自 Astro 的 星光超流
+[回合11] 21m 01s:  BossMu 施放了 小史莱姆标记, 目标：(4, 0) 
+[回合11] 21m 01s:  Astro 获得了来自 BossMu 的 锁定
+[回合11] 21m 01s:  BossMu 施放了 史莱姆跳跃, 目标：(3, 0) 
+[回合11] 21m 04s:  BossMu 施放了 飞溅毒液, 目标：(4, 0) 
+[回合11] 21m 05s:  BossMu 的 飞溅毒液 对 Attacker (2) 造成了 20 点 Nature 伤害。生命值：12
+[回合11] 21m 05s:  Attacker (2) 获得了来自 BossMu 的 史莱姆毒素
+[回合11] 21m 05s:  BossMu 的 飞溅毒液 对 Buffer 造成了 20 点 Nature 伤害。生命值：12
+[回合11] 21m 05s:  Buffer 获得了来自 BossMu 的 史莱姆毒素
+[回合11] 21m 05s:  BossMu 的 飞溅毒液 对 Healer (1) 造成了 20 点 Nature 伤害。生命值：55
+[回合11] 21m 05s:  Healer (1) 重新获得了来自 BossMu 的 史莱姆毒素
+[回合11] 21m 05s:  BossMu 的 飞溅毒液 对 Astro 造成了 10 点 Nature 伤害。生命值：0
+[回合11] 21m 05s:  Astro 失去了来自 Astro 的 FallenStar
+[回合11] 21m 05s:  Astro 失去了来自 Astro 的 StarEnergy
+[回合11] 21m 05s:  Astro 失去了来自 Buffer (1) 的 力量光环
+[回合11] 21m 05s:  Astro 失去了来自 Buffer 的 海神之鞭
+[回合11] 21m 05s:  Astro 失去了来自 BossMu 的 锁定
+[回合11] 21m 05s:  BossMu 的 飞溅毒液 击杀了 Astro !
+[回合11] 21m 05s:  BossMu 的 飞溅毒液 对 Buffer (1) 造成了 8 点 Nature 伤害。生命值：0
+[回合11] 21m 05s:  Buffer (1) 失去了来自 Buffer (1) 的 力量光环
+[回合11] 21m 05s:  Buffer (1) 失去了来自 Buffer 的 海神之鞭
+[回合11] 21m 05s:  BossMu 的 飞溅毒液 击杀了 Buffer (1) !
+[回合11] 21m 05s:  BossMu 的 飞溅毒液 对 Attacker (1) 造成了 20 点 Nature 伤害。生命值：8
+[回合11] 21m 05s:  Attacker (1) 获得了来自 BossMu 的 史莱姆毒素
+[回合11] 21m 05s:  Healer (1) 获得了来自 BossMu 的 腐化酸池
+[回合11] 21m 05s:  BossMu 施放了 史莱姆攻击, 目标：(3, 0) 
+[回合11] 21m 06s:  BossMu 的 史莱姆攻击 对 Healer (1) 造成了 20 点 Knock 伤害。生命值：35
+[回合11] 21m 06s:  Healer (1) 重新获得了来自 BossMu 的 史莱姆毒素
+[回合12] 21m 06s:  回合12
+[回合12] 21m 08s:  BossMu 的 史莱姆毒素 对 Attacker (2) 造成了 12 点 Nature 伤害。生命值：0
+[回合12] 21m 08s:  Attacker (2) 失去了来自 Attacker (2) 的 攻击者
+[回合12] 21m 08s:  Attacker (2) 失去了来自 Buffer 的 力量光环
+[回合12] 21m 08s:  Attacker (2) 失去了来自 Buffer 的 海神之鞭
+[回合12] 21m 08s:  Attacker (2) 失去了来自 BossMu 的 史莱姆毒素
+[回合12] 21m 08s:  BossMu 的  击杀了 Attacker (2) !
+[回合12] 21m 08s:  BossMu 的 史莱姆毒素 对 Buffer 造成了 13 点 Nature 伤害。生命值：0
+[回合12] 21m 08s:  Buffer 失去了来自 Buffer 的 力量光环
+[回合12] 21m 08s:  Healer (1) 失去了来自 Buffer 的 力量光环
+[回合12] 21m 08s:  Attacker (1) 失去了来自 Buffer 的 力量光环
+[回合12] 21m 08s:  Buffer 失去了来自 Buffer 的 海神之鞭
+[回合12] 21m 08s:  Buffer 失去了来自 BossMu 的 史莱姆毒素
+[回合12] 21m 08s:  BossMu 的  击杀了 Buffer !
+[回合12] 21m 08s:  BossMu 的 史莱姆毒素 对 Healer (1) 造成了 18 点 Nature 伤害。生命值：17
+[回合12] 21m 08s:  BossMu 的 腐化酸池 对 Healer (1) 造成了 12 点 Nature 伤害。生命值：5
+[回合12] 21m 08s:  Attacker (1) 失去了来自 Attacker (1) 的 狂风指引
+[回合12] 21m 08s:  BossMu 的 史莱姆毒素 对 Attacker (1) 造成了 8 点 Nature 伤害。生命值：0
+[回合12] 21m 08s:  Attacker (1) 失去了来自 Attacker (1) 的 攻击者
+[回合12] 21m 08s:  Attacker (1) 失去了来自 Buffer 的 海神之鞭
+[回合12] 21m 08s:  Attacker (1) 失去了来自 BossMu 的 史莱姆毒素
+[回合12] 21m 08s:  BossMu 的  击杀了 Attacker (1) !
+[回合12] 21m 12s:  Healer (1) 施放了 治疗术, 目标：(3, 0) 
+[回合12] 21m 13s:  Healer (1) 的 治疗术 对 Healer (1) 造成了 29 点 Heal 。生命值：34
+[回合12] 21m 13s:  Healer (1) 施放了 移动, 目标：(1, 0) 
+[回合12] 21m 14s:  Healer (1) 失去了来自 BossMu 的 腐化酸池
+[回合12] 21m 15s:  BossMu 失去了来自 Astro 的 星光超流
+[回合12] 21m 15s:  BossMu 施放了 小史莱姆投掷, 目标：(4, 0) 
+[回合12] 21m 15s:  BossMu 施放了 小史莱姆标记, 目标：(4, 0) 
+[回合12] 21m 16s:  Healer (1) 获得了来自 BossMu 的 锁定
+[回合12] 21m 16s:  BossMu 施放了 史莱姆攻击, 目标：(1, 0) 
+[回合12] 21m 17s:  BossMu 的 史莱姆攻击 对 Healer (1) 造成了 20 点 Knock 伤害。生命值：14
+[回合12] 21m 17s:  Healer (1) 重新获得了来自 BossMu 的 史莱姆毒素
+[回合13] 21m 17s:  回合13
+[回合13] 21m 18s:  Healer (1) 失去了来自 Buffer 的 海神之鞭
+[回合13] 21m 18s:  BossMu 的 史莱姆毒素 对 Healer (1) 造成了 14 点 Nature 伤害。生命值：0
+[回合13] 21m 18s:  Healer (1) 失去了来自 BossMu 的 史莱姆毒素
+[回合13] 21m 18s:  Healer (1) 失去了来自 Healer (1) 的 应急治疗
+[回合13] 21m 18s:  Healer (1) 失去了来自 BossMu 的 锁定
+[回合13] 21m 18s:  BossMu 的  击杀了 Healer (1) !
+[回合13] 21m 19s:  BossMu 施放了 小史莱姆投掷, 目标：(4, 0) 
+[回合14] 21m 19s:  回合14
+
+(战斗结束) 1225 / 2240 (54.7% - Phase 2, Turn #9)
+
+JSON: ./JSON/23-07-26--03-59-53-miniRAIDCombat.json
+
+=== Comments ===
+
+星光超流 - 效果没有正常结束
+星光超流 - 冗余特效没删
+T - 没有嘲讽
+T - 似乎输出有点低
+治疗 - OT bot, 但就算这样也加不住 / BossMu 削血量 + 爆炸改为每20%一次？
+绽放 - 什么破技能）
+
+=== Turn summary ===
+
+#Turn   Dmg->   Dmg<-   Heal<-  Raw dmg<-
+1       316     20      0       -20
+2       245     229     107     -122
+3       215     161     85      -76
+4       314     265     282     +17
+5       169     187     93      -94
+6       41      95      76      +19
+7       414     326     125     -201
+8       258     107     247     +140
+9       12      208     18      -190
+10      109     42      78      +36
+11      309     238     86      -152
+12      0       83      29      -54
+13      0       14      0       -14
+
+=== Combat stats ===
+Damage dealt
+1. Astro        720 (51.4)
+2. Attacker     438 (31.3)
+3. Attacker (1) 424 (30.3)
+4. Attacker (2) 343 (24.5)
+5. Defender     192 (13.7)
+6. Buffer       120 (8.6)
+7. Buffer (1)    88 (6.3)
+8. Defender (1)  77 (5.5)
+9. Healer         -
+10.Healer (1)     -
+
+Healing
+1. Healer (1)   614 (43.9) - 治疗术 / 治疗链 / 应急治疗
+2. Healer       612 (43.7) - 治疗术 / 栽培 / 绽放

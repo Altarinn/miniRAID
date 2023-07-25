@@ -44,7 +44,7 @@ MonoBehaviour:
       Data: 5
     - Name: 
       Entry: 4
-      Data: 0.25
+      Data: 0.4
     - Name: 
       Entry: 4
       Data: 0
@@ -248,13 +248,13 @@ MonoBehaviour:
       Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 8
+      Data: 11
     - Name: 
       Entry: 3
       Data: 0
     - Name: 
       Entry: 3
-      Data: 7
+      Data: 10
     - Name: 
       Entry: 8
       Data: 
@@ -313,13 +313,13 @@ MonoBehaviour:
       Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 8
+      Data: 11
     - Name: 
       Entry: 3
       Data: 0
     - Name: 
       Entry: 3
-      Data: 7
+      Data: 10
     - Name: 
       Entry: 8
       Data: 
@@ -519,8 +519,17 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   maxLevel: 0
-  Description: "\u6682\u65F6\u653E\u4E0B\u6B66\u5668\uFF0C\u7528\u62F3\u5934\u653B\u51FB\u654C\u4EBA\uFF0C\n\u8FD9\u6B21\u653B\u51FB\u9020\u6210\u7684\u4EC7\u6068\u503C\u5927\u5E45\u63D0\u5347\u3002"
+  DescriptionKey:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   flags: 0
+  buffAppliedFirst: 0
   references:
     version: 2
     RefIds: []

@@ -70,8 +70,13 @@ namespace miniRAID
         
         private void MobOnWakeUp(MobData mob)
         {
-            current += Mathf.FloorToInt(mob.MAG * 0.2f);
-            if(current > max) current = max;
+            AddMana(Mathf.FloorToInt(mob.MAG * 0.2f));
+        }
+
+        public void AddMana(int value)
+        {
+            current += value;
+            if (current > max) current = max;
         }
     }
 }

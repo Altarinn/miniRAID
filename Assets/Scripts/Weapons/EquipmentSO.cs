@@ -173,8 +173,13 @@ namespace miniRAID.Weapon
             if (derivedModifiers.ContainsKey(StatModifierSO.StatModTarget.SpDefense))
                 stats += $"+{Mathf.CeilToInt(derivedModifiers[StatModifierSO.StatModTarget.SpDefense].value.staticOut)} 魔法抗性\n";
 
+            if (derivedModifiers.ContainsKey(StatModifierSO.StatModTarget.Hit))
+            {
+                float hit = derivedModifiers[StatModifierSO.StatModTarget.Hit].value.staticOut;
+                stats += $"+{Mathf.CeilToInt(hit)} 命中\n";
+            }
+            
             ui.stats.text = stats.TrimEnd('\n');
-
         }
     }
 }

@@ -277,8 +277,8 @@ namespace miniRAID
                 .FindAll(l => l == listener)
                 .ForEach(l =>
                 {
-                    l.OnExitScene(this);
                     l.OnRemove(this);
+                    l.OnExitScene(this);
                 });
             listeners.RemoveAll(l => l == listener);
         }

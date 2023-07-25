@@ -73,7 +73,7 @@
         <ui:VisualElement name="MainBar" style="flex-grow: 1; background-color: rgb(0, 0, 0); flex-direction: row; padding-top: 0; padding-left: 0; padding-right: 0; padding-bottom: 0;">
             <ui:VisualElement name="Left" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-direction: row; width: 50%;">
                 <ui:VisualElement name="UnitInfo" style="background-color: rgb(0, 0, 0); flex-grow: 0; flex-direction: row; justify-content: space-between; width: 38.889%; padding-left: 4px; padding-right: 2px; padding-bottom: 1px; border-left-color: rgb(116, 101, 78); border-right-color: rgb(116, 101, 78); border-top-color: rgb(116, 101, 78); border-bottom-color: rgb(116, 101, 78); border-right-width: 1px; align-self: auto; margin-top: 5px; margin-bottom: 2px;">
-                    <ui:Label tabindex="-1" text="Lake Elf / Lancer" display-tooltip-when-elided="true" name="Class" />
+                    <ui:Label tabindex="-1" text="Lake Elf / Lancer" display-tooltip-when-elided="true" name="UnitClass" />
                     <ui:VisualElement name="LevelTab" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-direction: row;">
                         <ui:Label tabindex="-1" text="L" display-tooltip-when-elided="true" name="LevelLabel" class="small-font" style="padding-top: 2px;" />
                         <ui:Label tabindex="-1" text="17" display-tooltip-when-elided="true" name="Level" />

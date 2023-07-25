@@ -7,7 +7,7 @@ namespace miniRAID.UIElements
     {
         private VisualElement masterElem;
 
-        public Label name, level, weaponName, weaponDesc, defense, spDefense, dodge;
+        public Label name, unitClass, level, weaponName, weaponDesc, defense, spDefense, dodge;
         public Label currentHP, maxHP, currentMP, maxMP, currentAPInt, currentAPFract, maxAP;
         public Label VIT, STR, MAG, INT, TEC, AGI;
         public Label tempBuffList;
@@ -19,6 +19,7 @@ namespace miniRAID.UIElements
             masterElem = elem;
 
             name = elem.Q<Label>("UnitName");
+            unitClass = elem.Q<Label>("UnitClass");
             level = elem.Q<Label>("Level");
             weaponName = elem.Q<Label>("CurrentWeapon");
             weaponDesc = elem.Q<Label>("WeaponStats");
@@ -52,6 +53,7 @@ namespace miniRAID.UIElements
         public void RefreshWithContents(MobData mob)
         {
             name.text = mob.nickname;
+            unitClass.text = $"{mob.baseDescriptor.race} / {mob.baseDescriptor.job}";
             level.text = mob.level.ToString();
             
             weaponName.text = $"{mob.mainWeapon?.name} [E]";

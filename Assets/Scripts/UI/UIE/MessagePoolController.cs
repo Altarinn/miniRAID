@@ -79,9 +79,13 @@ namespace miniRAID.UIElements
         {
             string minSec = string.Format("<color=#92d7e7>回合{0}</color> <color=#d3e173>{1:00}m {2:00}s</color>", miniRAID.Globals.combatMgr.Instance.turn, (int)Time.realtimeSinceStartup / 60, (int)Time.realtimeSinceStartup % 60);
             
+            recentMessage.text = $"{minSec} {message}";
+            
+            // TODO: FIXME: Re-enable this with a more efficient way
+            return;
+            
             this.message += $"{minSec} {message}\n";
             allMessage.text = this.message;
-            recentMessage.text = $"{minSec} {message}";
         }
     }
 }

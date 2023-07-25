@@ -200,7 +200,7 @@ namespace miniRAID
             public bool popup;
         }
 
-        public static float HealAggroMul = 1.5f;
+        public static float HealAggroMul = 1.35f;
 
         public enum BuffEventType
         {
@@ -404,6 +404,7 @@ namespace miniRAID
         private static float SVbaseStats = 10;
         private static float SVpowers = 6.0f;
         private static float SVdefense = 0.3f;
+        private static float SVhit = 1.0f;
         
         public static float ValueFromItemLevel(int iLvl, StatModifierSO.StatModTarget entryKey, float val)
         {
@@ -440,6 +441,7 @@ namespace miniRAID
                 case StatModifierSO.StatModTarget.AggroMul:
                     break;
                 case StatModifierSO.StatModTarget.Hit:
+                    return SVhit * normalizedItemLV * val;
                     break;
                 case StatModifierSO.StatModTarget.Dodge:
                     break;
@@ -475,6 +477,23 @@ namespace miniRAID
 
         public static float HealerSelfFocusThresholdHPPercentage = 0.4f;
         public static float HealerSelfFocusPriorityBoost = 1.5f;
+        
+        public static float GetPrioritizedHealthRatio(MobData source, MobData mob)
+        {
+            float healP = mob.healPriority;
+            if (healP == 0) healP = 1;
+            
+            if (mob == source && mob.health < mob.maxHealth * Consts.HealerSelfFocusThresholdHPPercentage)
+            {
+                healP *= Consts.HealerSelfFocusPriorityBoost;
+            }
+
+            return (
+                (float)mob.health / ((float)mob.maxHealth * healP) // % of max HP, while focusing on self more when in danger
+                - 0.01f * mob.healPriority); // Focus on high priority targets when at full HP (or rarely, same %)
+        }
+
+        public static float GetPrioritizedHealthRatio(MobData mob) => GetPrioritizedHealthRatio(null, mob);
 
         public enum UnitGroup
         {
@@ -735,6 +754,11 @@ namespace miniRAID
         public Vector3 GridToWorldPos(Vector3Int gridPos)
         {
             return new Vector3(gridPos.x, gridPos.z, 0) * 1.0f;
+        }
+
+        public Vector3 GridToWorldPosCentered(Vector3Int gridPos)
+        {
+            return GridToWorldPos(gridPos) + new Vector3(0.5f, 0.5f, 0.0f);
         }
 
         // TODO: Map border

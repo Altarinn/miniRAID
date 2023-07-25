@@ -31,7 +31,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 17434508517376
-    m_Localized: Heal
+    m_Localized: First aid
     m_Metadata:
       m_Items: []
   - m_Id: 17521674543104
@@ -104,6 +104,18 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 19499897053184
     m_Localized: Small slimes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 238622337474560
+    m_Localized: Starlight Pulse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 472736906944512
+    m_Localized: Chain heal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 476246885081088
+    m_Localized: Basic heal
     m_Metadata:
       m_Items: []
   references:

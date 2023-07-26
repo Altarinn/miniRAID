@@ -49,6 +49,8 @@ namespace miniRAID
             mob.aggroMul = dNumber.CreateComposite(1.0, "mobbase");
 
             mob.healPriority = healPriority;
+
+            mob.apRecovery = 3;
         }
     }
 }

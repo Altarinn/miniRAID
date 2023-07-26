@@ -9454,7 +9454,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1883285725, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
+  m_Sprite: {fileID: -29721864, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -12311,7 +12311,7 @@ GameObject:
   - component: {fileID: 2095259491}
   - component: {fileID: 2095259492}
   m_Layer: 0
-  m_Name: Defender (1)
+  m_Name: Felivol
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -12349,7 +12349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBoss: 0
   data:
-    baseDescriptor: {fileID: 11400000, guid: 1fe514c3358154277972c5781db504c9, type: 2}
+    baseDescriptor: {fileID: 11400000, guid: 2297d2e86b30cf3408c1e4c359efbf8f, type: 2}
     enemyDebug: 0
     initialized: 0
     movementType: 0

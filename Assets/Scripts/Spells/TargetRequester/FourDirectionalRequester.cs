@@ -7,10 +7,8 @@ namespace miniRAID.UI.TargetRequester
     // TODO: Implement this
     public class FourDirectionalRequester : TargetRequesterBase
     {
-        public Vector3Int[] shape;
+        public GridShape shape;
         public GridOverlay.Types type;
-
-        GridShape gridShape;
 
         public override RequestStage Next(Vector3Int coord, bool notFirst = true)
         {
@@ -28,10 +26,8 @@ namespace miniRAID.UI.TargetRequester
             this.onFinish = onFinish;
             this.onCancel = onCancel;
 
-            gridShape = new GridShape(shape);
-
             ui.EnterState(this, true);
-            ui.cursor.cursorShape = gridShape;
+            ui.cursor.cursorShape = shape;
         }
 
         public override void Submit(InputValue input)
@@ -56,25 +52,25 @@ namespace miniRAID.UI.TargetRequester
         void UpdateCursor(Vector3Int gridPos)
         {
             var dirc = Globals.backend.GetDominantDirection(mob.Position, gridPos);
-            if (dirc != gridShape.direction)
+            if (dirc != shape.direction)
             {
-                gridShape.direction = dirc;
-                ui.cursor.cursorShape = gridShape;
+                shape.direction = dirc;
+                ui.cursor.cursorShape = shape;
             }
 
             switch (dirc)
             {
                 case GridShape.Direction.Up:
-                    ui.cursor.position = mob.Position + new Vector3Int(0, 1);
+                    ui.cursor.position = mob.Position;// + new Vector3Int(0, 0, 1);
                     break;
                 case GridShape.Direction.Left:
-                    ui.cursor.position = mob.Position + new Vector3Int(-1, 0);
+                    ui.cursor.position = mob.Position;// + new Vector3Int(-1, 0, 0);
                     break;
                 case GridShape.Direction.Down:
-                    ui.cursor.position = mob.Position + new Vector3Int(0, -1);
+                    ui.cursor.position = mob.Position;// + new Vector3Int(0, 0, -1);
                     break;
                 case GridShape.Direction.Right:
-                    ui.cursor.position = mob.Position + new Vector3Int(1, 0);
+                    ui.cursor.position = mob.Position;//+ new Vector3Int(1, 0, 0);
                     break;
             }
         }

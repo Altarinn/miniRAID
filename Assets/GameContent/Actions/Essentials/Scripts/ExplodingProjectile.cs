@@ -8,7 +8,7 @@ using miniRAID.ActionHelpers;
 using miniRAID.Spells;
 using Sirenix.Utilities;
 
-namespace miniRAID
+namespace miniRAID.Actions
 {
     public class ExplodingProjectile : ActionDataSO
     {

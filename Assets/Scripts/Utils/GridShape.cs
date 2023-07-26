@@ -69,13 +69,13 @@ namespace miniRAID
                         result.Add(p + position);
                         break;
                     case Direction.Down:
-                        result.Add(new Vector3Int(p.x, -p.y) + position);
+                        result.Add(new Vector3Int(p.x, 0, -p.z) + position);
                         break;
                     case Direction.Left:
-                        result.Add(new Vector3Int(-p.y, p.x) + position);
+                        result.Add(new Vector3Int(-p.z, 0, p.x) + position);
                         break;
                     case Direction.Right:
-                        result.Add(new Vector3Int(p.y, -p.x) + position);
+                        result.Add(new Vector3Int(p.z, 0, -p.x) + position);
                         break;
                 }
             }

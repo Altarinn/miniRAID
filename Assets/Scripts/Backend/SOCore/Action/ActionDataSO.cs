@@ -230,6 +230,11 @@ namespace miniRAID
             // yield return new JumpIn(onPerform.Eval((combatData, mobRenderer, target)));
         }
 
+        public virtual RuntimeAction LeveledWrap(MobData source, int level)
+        {
+            return new RuntimeAction(source, this, level);
+        }
+
         //public override bool Equals(object other)
         //{
         //    return Guid == ((ActionDataSO)other).Guid;
@@ -247,6 +252,22 @@ namespace miniRAID
         public ActionDataSO data;
         public int level;
     }
+    
+    [System.Serializable]
+    public struct ActionSOEntry<T> where T : ActionDataSO
+    {
+        public T data;
+        public int level;
+        
+        public ActionSOEntry ToBase()
+        {
+            return new ActionSOEntry()
+            {
+                data = data,
+                level = level
+            };
+        }
+    }
 
     [LuaCallCSharp]
     public class RuntimeAction : MobListener
@@ -255,7 +276,11 @@ namespace miniRAID
         public int MaxLevel => data.maxLevel;
 
         public new ActionDataSO data;
-        public Consts.ActionFlags flags => data.flags;
+        public virtual Consts.ActionFlags flags => data.flags;
+
+        public virtual Dictionary<
+            Cost.Type,
+            LuaBoundedGetter<(MobData, Spells.SpellTarget), MobData, double>> costs => data.costs;
 
         public override MobListenerSO.ListenerType type => MobListenerSO.ListenerType.RuntimeAction;
 
@@ -306,7 +331,7 @@ namespace miniRAID
          * > Do()
          */
         // TODO: Move Get delegate to Ctor
-        public IEnumerator Do(MobData mob, Spells.SpellTarget target/*, bool cd = true*//*, bool host = false*/)
+        public virtual IEnumerator Do(MobData mob, Spells.SpellTarget target/*, bool cd = true*//*, bool host = false*/)
         {
             //            string postfix = data.Id;
             //            paddedLuaExpr = @$"function routine_{postfix}(mob, target)
@@ -325,7 +350,7 @@ namespace miniRAID
             //            var testIE = Globals.xLuaInstance.Instance.luaEnv.Global.Get<ActionOnPerform>($"getCsRoutine_{postfix}");
             //            Debug.Log(testIE);
 
-            Globals.ccNewContext(new SerialCoroutineContext() { animation = true, rng = Globals.cc.rng });
+            // Globals.ccNewContext(new SerialCoroutineContext() { animation = true, rng = Globals.cc.rng });
             yield return new JumpIn(data.OnPerform(this, mob, target));
 
             // Wait a bit for animation
@@ -394,7 +419,7 @@ namespace miniRAID
                 }
                 if (canceled) { yield break; }
 
-                List<Cost> cost = data.costs.Select(pair =>
+                List<Cost> cost = costs.Select(pair =>
                 new Cost(dNumber.CreateComposite(pair.Value.Eval((mob, catchedTarget))), pair.Key)).ToList();
 
                 yield return new JumpIn(mob.DoAction(this, catchedTarget, cost));

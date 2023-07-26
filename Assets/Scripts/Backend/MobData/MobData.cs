@@ -325,7 +325,7 @@ namespace miniRAID
                 isActive = true;
 
                 OnWakeUp();
-                RecalculateStats(); // Do we need it here?
+                RecalculateStats(); // Do we need it here? <- Yes (e.g., ChargedAction will modify AP regen here)
                 yield return new JumpIn(OnWakeup?.Invoke(this));
 
                 RecalculateStats();

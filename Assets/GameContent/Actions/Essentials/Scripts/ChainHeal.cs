@@ -7,7 +7,7 @@ using System.Linq;
 using miniRAID.ActionHelpers;
 using miniRAID.Spells;
 
-namespace miniRAID
+namespace miniRAID.Actions
 {
     public class ChainHeal : ActionDataSO
     {

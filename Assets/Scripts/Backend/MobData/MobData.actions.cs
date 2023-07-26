@@ -16,7 +16,7 @@ namespace miniRAID
                 Debug.LogError("Action to be added has null data. Action ignored.");
                 return null;
             }
-            var ract = new RuntimeAction(this, actSO.data, actSO.level);
+            var ract = actSO.data.LeveledWrap(this, actSO.level);
             ract.SetData(actSO.data);
             actions.Add(ract);
             AddListener(ract);
@@ -259,7 +259,7 @@ namespace miniRAID
             RuntimeAction raction,
             Spells.SpellTarget target)
         {
-            List<Cost> cost = raction.data.costs.Select(pair =>
+            List<Cost> cost = raction.costs.Select(pair =>
                 new Cost(dNumber.CreateComposite(pair.Value.Eval((this, target))), pair.Key)).ToList();
             yield return new JumpIn(DoAction(raction, target, cost));
         }

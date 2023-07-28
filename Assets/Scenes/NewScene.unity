@@ -375,7 +375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBoss: 0
   data:
-    baseDescriptor: {fileID: 11400000, guid: 7c782241659924b178893d9776b25d29, type: 2}
+    baseDescriptor: {fileID: 11400000, guid: 3fda409230f151743bd119ccd81d9cd6, type: 2}
     enemyDebug: 0
     initialized: 0
     movementType: 0
@@ -384,6 +384,16 @@ MonoBehaviour:
     _actionPointsMul100: 0
     apRecovery: 3
     apMax: 5
+    moveRange:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    movedGrids: 0
     attackPower:
       valueType: 0
       staticValue: 0
@@ -943,6 +953,16 @@ MonoBehaviour:
     _actionPointsMul100: 400
     apRecovery: 3
     apMax: 5
+    moveRange:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    movedGrids: 0
     attackPower:
       valueType: 0
       staticValue: 0
@@ -1576,6 +1596,16 @@ MonoBehaviour:
     _actionPointsMul100: 0
     apRecovery: 3
     apMax: 5
+    moveRange:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    movedGrids: 0
     attackPower:
       valueType: 0
       staticValue: 0
@@ -2748,6 +2778,16 @@ MonoBehaviour:
     _actionPointsMul100: 0
     apRecovery: 3
     apMax: 5
+    moveRange:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    movedGrids: 0
     attackPower:
       valueType: 0
       staticValue: 0
@@ -4059,6 +4099,16 @@ MonoBehaviour:
     _actionPointsMul100: 0
     apRecovery: 3
     apMax: 5
+    moveRange:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    movedGrids: 0
     attackPower:
       valueType: 0
       staticValue: 0
@@ -5158,6 +5208,16 @@ MonoBehaviour:
     _actionPointsMul100: 400
     apRecovery: 3
     apMax: 5
+    moveRange:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    movedGrids: 0
     attackPower:
       valueType: 0
       staticValue: 0
@@ -6003,6 +6063,16 @@ MonoBehaviour:
     _actionPointsMul100: 0
     apRecovery: 3
     apMax: 5
+    moveRange:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    movedGrids: 0
     attackPower:
       valueType: 0
       staticValue: 0
@@ -6798,6 +6868,16 @@ MonoBehaviour:
     _actionPointsMul100: 0
     apRecovery: 3
     apMax: 5
+    moveRange:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    movedGrids: 0
     attackPower:
       valueType: 0
       staticValue: 0
@@ -7171,6 +7251,16 @@ MonoBehaviour:
     _actionPointsMul100: 0
     apRecovery: 3
     apMax: 5
+    moveRange:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    movedGrids: 0
     attackPower:
       valueType: 0
       staticValue: 0
@@ -7451,6 +7541,16 @@ MonoBehaviour:
     _actionPointsMul100: 400
     apRecovery: 3
     apMax: 5
+    moveRange:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    movedGrids: 0
     attackPower:
       valueType: 0
       staticValue: 0
@@ -8850,6 +8950,16 @@ MonoBehaviour:
     _actionPointsMul100: 400
     apRecovery: 3
     apMax: 5
+    moveRange:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    movedGrids: 0
     attackPower:
       valueType: 0
       staticValue: 0
@@ -10023,7 +10133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBoss: 0
   data:
-    baseDescriptor: {fileID: 11400000, guid: 7626a1dcca487de4d98b2b37c5439dc5, type: 2}
+    baseDescriptor: {fileID: 11400000, guid: 44c038e7c3ab32f4182a071797dda035, type: 2}
     enemyDebug: 0
     initialized: 0
     movementType: 0
@@ -10032,6 +10142,16 @@ MonoBehaviour:
     _actionPointsMul100: 0
     apRecovery: 3
     apMax: 5
+    moveRange:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    movedGrids: 0
     attackPower:
       valueType: 0
       staticValue: 0
@@ -10583,6 +10703,16 @@ MonoBehaviour:
     _actionPointsMul100: 0
     apRecovery: 3
     apMax: 5
+    moveRange:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    movedGrids: 0
     attackPower:
       valueType: 0
       staticValue: 0
@@ -11216,7 +11346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBoss: 0
   data:
-    baseDescriptor: {fileID: 11400000, guid: 7c782241659924b178893d9776b25d29, type: 2}
+    baseDescriptor: {fileID: 11400000, guid: 05513a5b5491da3459f45c0d9dd12cb8, type: 2}
     enemyDebug: 0
     initialized: 0
     movementType: 0
@@ -11225,6 +11355,16 @@ MonoBehaviour:
     _actionPointsMul100: 0
     apRecovery: 3
     apMax: 5
+    moveRange:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    movedGrids: 0
     attackPower:
       valueType: 0
       staticValue: 0
@@ -12358,6 +12498,16 @@ MonoBehaviour:
     _actionPointsMul100: 0
     apRecovery: 3
     apMax: 5
+    moveRange:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    movedGrids: 0
     attackPower:
       valueType: 0
       staticValue: 0

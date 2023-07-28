@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc19fe725427466a9739a8a53da196fb, type: 3}
+  m_Name: Archer
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  Guid: e9cf6b33d551407fa88ed5742c8553f7
+  Id: 164
+  icon: {fileID: 0}
+  className: "\u5F13\u7BAD\u624B"
+  baseStatsLv1:
+    VIT: 0
+    STR: 0
+    MAG: 0
+    INT: 0
+    DEX: 0
+    TEC: 0
+  baseGrowth:
+    VIT:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    STR:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    MAG:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    INT:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    DEX:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    TEC:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+  classPassives: []
+  classActions: []

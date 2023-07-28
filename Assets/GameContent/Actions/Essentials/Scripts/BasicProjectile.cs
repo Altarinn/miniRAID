@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using miniRAID.ActionHelpers;
 using miniRAID.Spells;
 using UnityEngine;
@@ -12,7 +13,16 @@ namespace miniRAID.Actions
         public bool buffAppliedFirst = false;
         public SpellBuff buff;
         public SpellDamageHeal damageOrHeal;
-        
+
+        public override Dictionary<string, object> LazyPrepareTooltipVariables(RuntimeAction ract)
+        {
+            var result = base.LazyPrepareTooltipVariables(ract);
+            result.Add("HitPower", damageOrHeal?.GetPower(ract));
+            result.Add("BuffPower", buff?.GetPower(ract));
+
+            return result;
+        }
+
         public override IEnumerator OnPerform(RuntimeAction ract, MobData mob, SpellTarget targets)
         {
             Vector3Int target = targets.targetPos[0];

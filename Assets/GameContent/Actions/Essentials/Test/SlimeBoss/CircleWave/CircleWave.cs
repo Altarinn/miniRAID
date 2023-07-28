@@ -12,11 +12,12 @@ namespace miniRAID
 {
     public class CircleWave : ActionDataSO
     {
-        private SimpleMultiTurnAction multiTurnWrapper = new SimpleMultiTurnAction(4);
+        private SimpleMultiTurnAction multiTurnWrapper = new SimpleMultiTurnAction(3);
         
         public GridShape innerCircleShape;
         public GridShape middleRingShape;
-        public GridShape outerRingShape;
+        
+        private GridShape outerRingShape;
 
         public override IEnumerator OnPerform(RuntimeAction ract, MobData mob,
             Spells.SpellTarget target)
@@ -46,16 +47,24 @@ namespace miniRAID
                 case 3:
                     // Ring explodes
                     dummy.RemoveAllIndicators();
-                    
+                    break;
                     // Show outer warning
-                    outerRingShape.position = target.targetPos[0];
-                    dummy.AddIndicator(new GridShapeIndicator(outerRingShape, GridOverlay.Types.INCOMING_ATTACK))
-                        ?.Move(Vector3.forward * 10.0f);
-                    break;
-                case 4:
-                    // Outer explodes
-                    dummy.RemoveAllIndicators();
-                    break;
+                //     innerCircleShape.position = target.targetPos[0];
+                //     middleRingShape.position = target.targetPos[0];
+                //     outerRingShape = GridShape.Negate(GridShape.Combine(
+                //         innerCircleShape.ApplyTransform(), 
+                //         middleRingShape.ApplyTransform()));
+                //     outerRingShape.position = Vector3Int.zero;
+                //
+                //     dummy.AddIndicator(new GridShapeIndicator(
+                //             outerRingShape,
+                //             GridOverlay.Types.INCOMING_ATTACK))
+                //         ?.Move(Vector3.forward * 10.0f);
+                //     break;
+                // case 4:
+                //     // Outer explodes
+                //     dummy.RemoveAllIndicators();
+                //     break;
             }
             
             yield break;

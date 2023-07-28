@@ -264,6 +264,20 @@ namespace miniRAID.Buff
             
             return false;
         }
+        
+        public virtual bool RemoveStacks(int amount)
+        {
+            if (stacks > amount)
+            {
+                stacks -= amount;
+                return true;
+            }
+            else
+            {
+                Destroy();
+                return false;
+            }
+        }
 
         public virtual bool Refresh()
         {

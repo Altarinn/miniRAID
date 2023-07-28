@@ -29,7 +29,7 @@ namespace miniRAID.UI.TargetRequester
 
             foreach (var gridPos in moveRange)
             {
-                stage.map.Add(gridPos, GridOverlay.Types.MOVE);
+                stage.map.Add(gridPos.Key, gridPos.Value >= mob.actionPoints ? GridOverlay.Types.MOVE : GridOverlay.Types.BUFF);
             }
 
             return stage;

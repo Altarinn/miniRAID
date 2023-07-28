@@ -1,9 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Localization;
 
 namespace miniRAID
 {
+    [System.Serializable]
+    public struct MobListenerSOEntry
+    {
+        public MobListenerSO data;
+        public int level;
+    }
+    
     public abstract class MobListenerSO : CustomIconScriptableObject
     {
         public enum ListenerType
@@ -33,7 +41,9 @@ namespace miniRAID
 
         // Basic properties
 
-        public new string name;
+        public LocalizedString nameKey;
+        public new string name => Globals.localizer.L(nameKey);
+        
         public ListenerType type;
 
         public int priority;
@@ -51,7 +61,7 @@ namespace miniRAID
 
         public virtual MobListener LeveledWrap(MobData parent, int level)
         {
-            var ml = new MobListener(parent, this);
+            var ml = Wrap(parent);
             ml.level = level;
             
             return ml;

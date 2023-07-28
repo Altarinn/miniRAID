@@ -296,7 +296,7 @@ MonoBehaviour:
       Data: 0
     - Name: value
       Entry: 4
-      Data: 1
+      Data: 100
     - Name: expression
       Entry: 6
       Data: 
@@ -325,7 +325,15 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   maxLevel: 0
-  Description: 
+  DescriptionKey:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   flags: 0
   explosionRange: 100
   references:

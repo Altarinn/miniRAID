@@ -559,13 +559,13 @@ MonoBehaviour:
       Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 9
+      Data: 7
     - Name: 
       Entry: 3
       Data: 0
     - Name: 
       Entry: 3
-      Data: 5
+      Data: 8
     - Name: 
       Entry: 8
       Data: 
@@ -606,7 +606,15 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   maxLevel: 0
-  Description: 
+  DescriptionKey:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   flags: 0
   skillJumpOnPool:
     data: {fileID: 11400000, guid: 652e055f6803bbc4fbcf80ed8da6700e, type: 2}

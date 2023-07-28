@@ -12,10 +12,18 @@ namespace miniRAID
     {
         public enum Direction
         {
-            Up,
-            Left,
-            Down,
-            Right
+            Up = 0,
+            Left = 1,
+            Down = 2,
+            Right = 3
+        };
+
+        public static Vector3Int[] directionVectors = new Vector3Int[4]
+        {
+            Vector3Int.forward,
+            Vector3Int.left,
+            Vector3Int.back,
+            Vector3Int.right,
         };
 
         public HashSet<Vector3Int> shape;
@@ -78,6 +86,40 @@ namespace miniRAID
                         result.Add(new Vector3Int(p.z, 0, -p.x) + position);
                         break;
                 }
+            }
+
+            return result;
+        }
+
+        public static GridShape Combine(GridShape a, GridShape b) => Combine(a.shape, b.shape);
+        
+        public static GridShape Combine(HashSet<Vector3Int> a, HashSet<Vector3Int> b)
+        {
+            var result = new GridShape();
+
+            foreach (var p in a)
+            {
+                result.AddGrid(p);
+            }
+
+            foreach (var p in b)
+            {
+                result.AddGrid(p);
+            }
+
+            return result;
+        }
+
+        public static GridShape Negate(GridShape a)
+        {
+            var result = new GridShape();
+
+            foreach (var p in Globals.backend.GetAllMapGridPositions().ToIEnumerable())
+            {
+                if(a.shape.Contains(p))
+                    continue;
+                
+                result.AddGrid(p);
             }
 
             return result;

@@ -9,6 +9,8 @@ namespace miniRAID
     {
         #region Manipulating actions
         
+        public bool actedThisTurn { get; protected set; }
+        
         public RuntimeAction AddAction(ActionSOEntry actSO)
         {
             if (actSO.data == null)
@@ -105,10 +107,15 @@ namespace miniRAID
             // Tell backend that we finished the movement
 
             // TODO: change to use path
+            int distance = Consts.Distance(targetPos, Position);
             UseActionPoint(
-                (Mathf.Abs(targetPos.x - Position.x)
-                 + Mathf.Abs(targetPos.y - Position.y)
-                 + Mathf.Abs(targetPos.z - Position.z)) / 2.0f);
+                Mathf.Max(0, distance - (actedThisTurn ? 0 : (MoveRange - movedGrids))));
+
+            if (!actedThisTurn)
+            {
+                movedGrids = Mathf.Min(MoveRange, movedGrids + distance);
+            }
+
             Position = targetPos;
         }
         
@@ -136,6 +143,11 @@ namespace miniRAID
             
             yield return new JumpIn(OnActionPostcast?.Invoke(this, raction, target));
 
+            if (!raction.flags.HasFlag(Consts.ActionFlags.Movement))
+            {
+                actedThisTurn = true;
+            }
+            
             RecalculateStats();
         }
         

@@ -94,7 +94,7 @@ namespace miniRAID.Editor
                 BuffSO so = ScriptableObject.CreateInstance(type) as BuffSO;
                 if (so != null)
                 {
-                    so.name = str;
+                    // so.name = str;
 
                     string path = Path.Join(pathToCurrentFolder, $"{str}.asset");
                     if (!File.Exists(path))

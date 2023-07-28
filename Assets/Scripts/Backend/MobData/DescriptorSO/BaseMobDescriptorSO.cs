@@ -18,9 +18,9 @@ namespace miniRAID
         [PropertyOrder(-3)]
         public string nickname;
         [PropertyOrder(-3)]
-        public string race;
+        public RaceDescriptorSO race;
         [PropertyOrder(-3)]
-        public string job;
+        public ClassDescriptorSO job;
         
         [Header("Stats")]
         [PropertyOrder(-2)]
@@ -32,8 +32,8 @@ namespace miniRAID
 
         [Header("Movement")]
         public MovementType movementType;
-        public bool moveable = true;
-        public int moveStartCost = 0;
+        public bool movable = true;
+        public int moveRange = 3;
         
         [Header("Equipments")]
         public Weapon.WeaponSO mainWeaponSO;
@@ -91,6 +91,14 @@ namespace miniRAID
                 //MobListenerSO newL = l.Clone();
                 mob.AddListener(l);
             }
+            
+            // Register all listeners in race
+            race?.racePassives.ForEach(l => mob.AddListener(l.data.LeveledWrap(mob, l.level)));
+            race?.raceActions.ForEach(l => mob.AddAction(l));
+            
+            // Register all listeners in class
+            job?.classPassives.ForEach(l => mob.AddListener(l.data.LeveledWrap(mob, l.level)));
+            job?.classActions.ForEach(l => mob.AddAction(l));
         }
 
         public abstract void RecalculateMobBaseStats(MobData mob);

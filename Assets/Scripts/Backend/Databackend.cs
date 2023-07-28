@@ -31,6 +31,11 @@ namespace miniRAID
     public class GridPath
     {
         public List<Vector3Int> path = new List<Vector3Int>();
+
+        public void Step()
+        {
+            path.RemoveAt(0);
+        }
     }
 
     public static class StructExts
@@ -120,6 +125,9 @@ namespace miniRAID
             
             // 团队技能
             TeamAction = 1 << 4,
+            
+            // 移动（不算作一般行动）
+            Movement = 1 << 5,
         }
         
         [Flags]
@@ -145,9 +153,9 @@ namespace miniRAID
             public DamageHealFlags flags;
 
             public bool IsAction => sourceAction != null;
-            public int Id => IsAction ? sourceAction.data.Id : sourceBuff.data.Id;
+            // public int Id => IsAction ? sourceAction.data.Id : sourceBuff.data.Id;
             public string Name => IsAction ? sourceAction.data.ActionName : sourceBuff.data.name;
-            public string Description => IsAction ? sourceAction.data.Description : "No description";
+            // public string Description => IsAction ? sourceAction.data.Description : "No description";
 
             public bool popup;
         }
@@ -193,9 +201,9 @@ namespace miniRAID
 
             public bool IsAction => sourceAction != null;
             public bool NoInfo => sourceAction == null && sourceBuff == null;
-            public int Id => NoInfo ? -1 : (IsAction ? sourceAction.data.Id : sourceBuff.data.Id);
+            // public int Id => NoInfo ? -1 : (IsAction ? sourceAction.data.Id : sourceBuff.data.Id);
             public string Name => NoInfo ? "<NULL ACTION>" : (IsAction ? sourceAction.data.ActionName : sourceBuff.data.name);
-            public string Description => NoInfo ? "<NULL ACTION>" : (IsAction ? sourceAction.data.Description : "No description");
+            // public string Description => NoInfo ? "<NULL ACTION>" : (IsAction ? sourceAction.GetTooltip(source) : "No description");
 
             public bool popup;
         }
@@ -472,7 +480,7 @@ namespace miniRAID
 
         public static float GetHealth(int lvl, float VIT)
         {
-            return lvl * 2 + VIT * 4;
+            return lvl * 3 + VIT * 6;
         }
 
         public static float HealerSelfFocusThresholdHPPercentage = 0.4f;
@@ -554,6 +562,17 @@ namespace miniRAID
             return (collider.ClosestPoint(point) - point).sqrMagnitude < Mathf.Epsilon * Mathf.Epsilon;
         }
     }
+    
+    public static class IEnumeratorExtensions
+    {
+        public static IEnumerable<T> ToIEnumerable<T>(this IEnumerator<T> enumerator)
+        {
+            while (enumerator.MoveNext())
+            {
+                yield return enumerator.Current;
+            }
+        }
+    }
 
     [XLua.LuaCallCSharp]
     public class Databackend
@@ -607,6 +626,20 @@ namespace miniRAID
         }
 
         public GridData GetMap(Vector3Int pos) => GetMap(pos.x, pos.y, pos.z);
+        
+        public IEnumerator<Vector3Int> GetAllMapGridPositions()
+        {
+            for (int i = 0; i < mapSizeX; i++)
+            {
+                for (int j = 0; j < mapHeight; j++)
+                {
+                    for (int k = 0; k < mapSizeZ; k++)
+                    {
+                        yield return new Vector3Int(i, j, k);
+                    }
+                }
+            }
+        }
 
         private void AddMob(MobData mob)
         {
@@ -815,23 +848,26 @@ namespace miniRAID
         /// <param name="mob">Mob that you want to check with. This method uses mob.data.position and mob.data.actionPoints as starting point.</param>
         /// <returns></returns>
         [Obsolete("Perhaps you should consider FindPathTo ... ? Idk, try avoid using this now, refactoring WIP for 3D grids")]
-        public HashSet<Vector3Int> GetMoveableGrids(MobData mob)
+        public Dictionary<Vector3Int, float> GetMoveableGrids(MobData mob)
         {
             // TODO: detailed check
 
-            HashSet<Vector3Int> result = new HashSet<Vector3Int>();
+            Dictionary<Vector3Int, float> result = new();
             Queue<KeyValuePair<Vector3Int, int>> BFSQueue = new Queue<KeyValuePair<Vector3Int, int>>();
             System.Array.Clear(visited, 0, visited.Length);
 
             Vector3Int[] dirc = new Vector3Int[] { new Vector3Int(0, 0, 1), new Vector3Int(0, 0, -1), new Vector3Int(1, 0, 0), new Vector3Int(-1, 0, 0) };
 
-            BFSQueue.Enqueue(new KeyValuePair<Vector3Int, int>(mob.Position, Mathf.RoundToInt(mob.actionPoints * 100)));
+            BFSQueue.Enqueue(new KeyValuePair<Vector3Int, int>(
+                mob.Position,
+                Mathf.RoundToInt((mob.actionPoints + (mob.actedThisTurn ? 0 : mob.MoveRangeLeft)) * 100))
+            );
             visited[mob.Position.x, mob.Position.y, mob.Position.z] = true;
 
             while (BFSQueue.Count > 0)
             {
                 var current = BFSQueue.Dequeue();
-                result.Add(current.Key);
+                result.Add(current.Key, current.Value / 100.0f);
 
                 foreach (var dir in dirc)
                 {
@@ -840,7 +876,7 @@ namespace miniRAID
                     if (visited[next.x, next.y, next.z] == false && current.Value > 0)
                     {
                         visited[next.x, next.y, next.z] = true;
-                        BFSQueue.Enqueue(new KeyValuePair<Vector3Int, int>(next, current.Value - 50));
+                        BFSQueue.Enqueue(new KeyValuePair<Vector3Int, int>(next, current.Value - 100));
                     }
                 }
             }
@@ -852,7 +888,13 @@ namespace miniRAID
         public bool IsMoveable(GridData grid, MobData.MovementType type, out int cost)
         {
             cost = 1;
-            return true;
+
+            if (type == MobData.MovementType.Fly)
+            {
+                return true;
+            }
+            
+            return grid.mob == null;
         }
 
         public delegate bool IsGridValidFunc(Vector3Int pos, GridData data);
@@ -968,6 +1010,7 @@ namespace miniRAID
                     if(!prevGrid.ContainsKey(newPos))
                     {
                         // Get cost of grid
+                        // TODO: IsMoveable might get stuck with >1x1 gridBodies
                         if(InMap(newPos) && IsMoveable(GetMap(newPos.x, newPos.y, newPos.z), movementType, out int cost))
                         {
                             if(maxDistance < 0 || (curr.distance + cost) <= maxDistance)

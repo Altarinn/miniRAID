@@ -13,7 +13,11 @@ namespace miniRAID
         {
             AP,
             Mana,
-            CD
+            CD,
+            
+            // Paladin
+            OracleGrid, // Oracle grids
+            OracleBuff, // Oracle buffs
         }
 
         public dNumber value;

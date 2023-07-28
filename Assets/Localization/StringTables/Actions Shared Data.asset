@@ -115,6 +115,34 @@ MonoBehaviour:
     m_Key: chargedslash.name
     m_Metadata:
       m_Items: []
+  - m_Id: 1452847101714432
+    m_Key: starlightpulse.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1507765120475136
+    m_Key: growthaction.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1508470430441472
+    m_Key: healingbloom.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1508771736657920
+    m_Key: poisonshot.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1510736172490752
+    m_Key: move.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1511864809365504
+    m_Key: arrowshot.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1511985810841600
+    m_Key: basicheal.tooltip
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

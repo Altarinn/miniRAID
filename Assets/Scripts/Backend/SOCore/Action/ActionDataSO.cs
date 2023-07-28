@@ -134,7 +134,6 @@ namespace miniRAID
 
         // [TextArea(1, 25)]
         public LocalizedString DescriptionKey;
-        public string Description => Globals.localizer.L(DescriptionKey) ?? "BAD_STRING";
 
         [Title("Flags")] public Consts.ActionFlags flags;
 
@@ -234,6 +233,15 @@ namespace miniRAID
         {
             return new RuntimeAction(source, this, level);
         }
+        
+        /// <summary>
+        /// ract.RecalculateStats should be called before LazyPrepareTooltipVariables to get correct output.
+        /// </summary>
+        /// <returns>A dictionary(K: string, V: object) that represents all raw values can be used in tooltip.</returns>
+        public virtual Dictionary<string, object> LazyPrepareTooltipVariables(RuntimeAction ract)
+        {
+            return new Dictionary<string, object> { {"Power", Mathf.CeilToInt(ract.power)} };
+        }
 
         //public override bool Equals(object other)
         //{
@@ -291,6 +299,7 @@ namespace miniRAID
 
         public dNumber power, auxPower;
         public dNumber hit, crit;
+        
         public GridShape shape;
 
         GeneralCombatData envData = new();
@@ -365,6 +374,13 @@ namespace miniRAID
             }
         }
 
+        /// <summary>
+        /// RecalculateStats should be called before LazyPrepareTooltipVariables to get correct output.
+        /// </summary>
+        /// <returns>A dictionary(K: string, V: object) that represents all raw values can be used in tooltip.</returns>
+        public virtual Dictionary<string, object> LazyPrepareTooltipVariables() 
+            => data.LazyPrepareTooltipVariables(this);
+
         public string GetTooltip(MobData mob)
         {
             string costString = "";
@@ -385,11 +401,14 @@ namespace miniRAID
                 }
             }
 
-            return $"{costString}" +
-                //$"------------\n" +
-                $"{data.Description}\n" +
-                $"Power: {Mathf.CeilToInt(data.power.Eval(level, mob))}\n" +
-                $"TODO - rAct.GetTooltip().";
+            var args = LazyPrepareTooltipVariables();
+            string evalDesc = Globals.localizer.L(data.DescriptionKey, new object[]{args}) ?? "BAD_STRING";
+
+            return $"{costString}\n" +
+                   $"------------\n" +
+                   $"{evalDesc}\n";/* +
+                $"Power: {power}\n" +
+                $"TODO - rAct.GetTooltip().";*/
         }
 
         public IEnumerator RequestInUI(MobData mob)

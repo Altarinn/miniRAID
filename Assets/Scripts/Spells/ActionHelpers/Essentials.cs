@@ -153,6 +153,9 @@ namespace miniRAID.ActionHelpers
         {
             yield return new JumpIn(DoDamageHeal(null, buffContext, src, tgt));
         }
+
+        public int GetPower(RuntimeAction spell) => Mathf.CeilToInt(power.Apply(spell.power));
+        public int GetPower(Buff.Buff buff) => Mathf.CeilToInt(power.Apply(buff.power));
     }
     
     [ColoredBox("#bf7")]
@@ -162,7 +165,7 @@ namespace miniRAID.ActionHelpers
         public bool inheritLevel = true;
         public bool inheritPower = true;
         
-        [ShowIf("inheritPower")] 
+        [ShowIf("inheritPower")]
         public FloatModifier power = new(1.0f);
         
         [ShowIf("inheritPower")]
@@ -189,6 +192,8 @@ namespace miniRAID.ActionHelpers
 
             yield return -1;
         }
+        
+        public int GetPower(RuntimeAction spell) => Mathf.CeilToInt(power.Apply(spell.power));
     }
 
     // TODO: Make me to MobData-based.

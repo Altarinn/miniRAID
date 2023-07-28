@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec7bd0369532437e95c679dfe882de1c, type: 3}
-  m_Name: Healer
+  m_Name: H2
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -80,14 +80,14 @@ MonoBehaviour:
   Id: 88
   icon: {fileID: 0}
   nickname: 
-  race: 
-  job: Healer
+  race: {fileID: 11400000, guid: 0f678536d6b766947952645d9b23c971, type: 2}
+  job: {fileID: 11400000, guid: 73d6c29e11d38a146b2a2b02e7c15ae4, type: 2}
   level: 10
   rendererPrefab: {fileID: 0}
   movementType: 0
-  moveable: 1
-  moveStartCost: 0
-  mainWeaponSO: {fileID: 11400000, guid: 342e5cf4fc58d3b419132c483d918beb, type: 2}
+  movable: 1
+  moveRange: 3
+  mainWeaponSO: {fileID: 11400000, guid: fff8e7e84b06b27449dabda9fa4d8316, type: 2}
   subWeaponSO: {fileID: 0}
   listenerSOs:
   - {fileID: 11400000, guid: 3d81a9427e5722e44a2a27b96379ef06, type: 2}

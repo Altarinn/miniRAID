@@ -145,14 +145,14 @@ namespace miniRAID
         {
             // FIXME: Test animation
             GetComponentInChildren<SpriteRenderer>().color = Color.green;
-            yield return new WaitForSeconds(.1f);
+            yield return new WaitForSeconds(.2f);
             UpdateStatusColor();
         }
 
         public IEnumerator DamageAnimation()
         {
             GetComponentInChildren<SpriteRenderer>().color = Color.red;
-            yield return new WaitForSeconds(.1f);
+            yield return new WaitForSeconds(.2f);
             UpdateStatusColor();
         }
 

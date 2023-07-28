@@ -46,7 +46,7 @@ MonoBehaviour:
       Data: 5
     - Name: 
       Entry: 4
-      Data: 1.5
+      Data: 1.15
     - Name: 
       Entry: 4
       Data: 1
@@ -279,103 +279,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 6
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 12
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 6
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: $v
-      Entry: 3
       Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 11
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 9
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: $v
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 11
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 5
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: $v
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 12
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 8
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: $v
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: 
       Entry: 7
       Data: 
@@ -391,30 +295,6 @@ MonoBehaviour:
     - Name: 
       Entry: 3
       Data: 7
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: $v
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 6
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 8
     - Name: 
       Entry: 8
       Data: 
@@ -690,9 +570,9 @@ MonoBehaviour:
   maxLevel: 5
   DescriptionKey:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 1452847101714432
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0

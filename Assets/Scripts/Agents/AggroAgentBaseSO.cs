@@ -167,6 +167,7 @@ namespace miniRAID.Agents
         public IEnumerator Act(MobData mob)
         {
             actionCounter = 0;
+            GridPath path = null;
             
             foreach (var entry in aggroList.Keys.ToList())
             {
@@ -206,18 +207,22 @@ namespace miniRAID.Agents
                         // Do we really need to re-calculate the path everytime?
                         // Will the map change during our action? could be possible though ...
                         // TODO: Cache the path in some way in case of performance problems
-                        GridPath path = Globals.backend.FindPathTo(mob.Position, Globals.backend.FindNearestEmptyGrid(target.Position, mob.gridBody), mob.movementType, aggroAgentData.eyesight);
+                        path ??= Globals.backend.FindPathTo(mob.Position, Globals.backend.FindNearestEmptyGrid(target.Position, mob.gridBody), mob.movementType, aggroAgentData.eyesight);
+                        
+                        // TODO: FIXME: This is a dirty patch so the mob won't get stuck when it cannot find a valid path.
+                        // path ??= Globals.backend.FindPathTo(mob.Position, Globals.backend.FindNearestEmptyGrid(target.Position, mob.gridBody), MobData.MovementType.Fly, aggroAgentData.eyesight);
 
                         // The path needs to be at least 1 grids long
-                        if (path.path.Count >= 2)
+                        if (path != null && path.path.Count >= 2)
                         {
                             //throw new System.NotImplementedException();
                             // TODO: Make agent use coroutine actions.
                             pickedAction = mob.GetActionFromSO<Movement>();
                             yield return new JumpIn(mob.DoActionWithDefaultCosts(
                                 pickedAction,
-                                new Spells.SpellTarget(path.path[1])
+                                new Spells.SpellTarget(path.path[0])
                             ));
+                            path.Step();
 
                             // Move do not have AP costs
                             yield return new JumpIn(mob.TryAutoEndTurn());

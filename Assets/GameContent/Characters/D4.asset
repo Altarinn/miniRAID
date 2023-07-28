@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec7bd0369532437e95c679dfe882de1c, type: 3}
-  m_Name: Attacker
+  m_Name: D4
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -54,7 +54,7 @@ MonoBehaviour:
       Data: 
     - Name: canvasSize
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: position
       Entry: 7
       Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
@@ -76,33 +76,29 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  Guid: cb37ffc9640f43479a369467a188723c
-  Id: 88
+  Guid: 6429baf4f4f84a5099fe0004e8012408
+  Id: 119
   icon: {fileID: 0}
   nickname: 
-  race: 
-  job: Attacker
+  race: {fileID: 11400000, guid: 8fc1e2bf97c4f0644819a26810480e5d, type: 2}
+  job: {fileID: 11400000, guid: 80266fcaa4d27cb44a60d296f8e0c49e, type: 2}
   level: 10
   rendererPrefab: {fileID: 0}
   movementType: 0
-  moveable: 1
-  moveStartCost: 0
-  mainWeaponSO: {fileID: 11400000, guid: 81c0f63dc42685549b9c7ce21252402a, type: 2}
+  movable: 1
+  moveRange: 3
+  mainWeaponSO: {fileID: 11400000, guid: c7c133ceee8ac7748b774a775066369c, type: 2}
   subWeaponSO: {fileID: 0}
   listenerSOs:
-  - {fileID: 11400000, guid: 6d6eaf62470d4ce43a96ddd19bf103a7, type: 2}
   - {fileID: 11400000, guid: 3d81a9427e5722e44a2a27b96379ef06, type: 2}
-  - {fileID: 11400000, guid: 869ff8d9c45faae4fa38285d22cefa0b, type: 2}
   actionSOs:
   - data: {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
     level: 0
-  - data: {fileID: 11400000, guid: 50a2bb5f4e3dbd34d8e1cfc1f6aa91c4, type: 2}
-    level: 0
   baseStats:
-    VIT: 11
-    STR: 15
-    MAG: 8
-    INT: 10
-    DEX: 15
-    TEC: 21
+    VIT: 10
+    STR: 8
+    MAG: 17
+    INT: 20
+    DEX: 11
+    TEC: 17
   healPriority: 1

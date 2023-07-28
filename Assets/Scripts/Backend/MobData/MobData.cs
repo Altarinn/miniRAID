@@ -73,8 +73,8 @@ namespace miniRAID
 
         [Header("Identification")]
         public string nickname;
-        public string race => baseDescriptor.race;
-        public string job => baseDescriptor.job;
+        public string race => baseDescriptor.race?.raceName;
+        public string job => baseDescriptor.job?.className;
 
         [Header("Battle stats")]
         [SerializeField] private int _actionPointsMul100 = 400;
@@ -83,6 +83,8 @@ namespace miniRAID
         public float apRecovery = 3;
         public int apMax = 5;
 
+        public dNumber moveRange;
+        public int movedGrids = 0;
         public dNumber attackPower, spellPower, healPower, buffPower;
         public dNumber defense, spDefense;
 
@@ -104,6 +106,9 @@ namespace miniRAID
         public int INT => (int)baseStats.INT.Value;
         public int DEX => (int)baseStats.DEX.Value;
         public int TEC => (int)baseStats.TEC.Value;
+
+        public int MoveRange => (int)moveRange.Value;
+        public int MoveRangeLeft => MoveRange - movedGrids;
         
         public int AttackPower => (int)attackPower.Value;
         public int SpellPower => (int)spellPower.Value;
@@ -175,6 +180,9 @@ namespace miniRAID
             _actionPointsMul100 += Mathf.RoundToInt(apRecovery * 100);
             if(_actionPointsMul100 > apMax * 100) { _actionPointsMul100 = apMax * 100; }
             GCDstatus.Clear();
+            
+            actedThisTurn = false;
+            movedGrids = 0;
             
             mobRenderer?.OnWakeUp();
         }

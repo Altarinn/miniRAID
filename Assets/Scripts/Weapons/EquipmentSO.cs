@@ -155,6 +155,25 @@ namespace miniRAID.Weapon
             ui.requirements.text = req.TrimEnd('\n');
 
             string stats = "";
+
+            if (derivedModifiers.ContainsKey(StatModifierSO.StatModTarget.VIT))
+                stats += $"+{Mathf.CeilToInt(derivedModifiers[StatModifierSO.StatModTarget.VIT].value.staticOut)} 体格\n";
+            
+            if (derivedModifiers.ContainsKey(StatModifierSO.StatModTarget.STR))
+                stats += $"+{Mathf.CeilToInt(derivedModifiers[StatModifierSO.StatModTarget.STR].value.staticOut)} 力量\n";
+            
+            if (derivedModifiers.ContainsKey(StatModifierSO.StatModTarget.MAG))
+                stats += $"+{Mathf.CeilToInt(derivedModifiers[StatModifierSO.StatModTarget.MAG].value.staticOut)} 魔力\n";
+            
+            if (derivedModifiers.ContainsKey(StatModifierSO.StatModTarget.INT))
+                stats += $"+{Mathf.CeilToInt(derivedModifiers[StatModifierSO.StatModTarget.INT].value.staticOut)} 智力\n";
+            
+            if (derivedModifiers.ContainsKey(StatModifierSO.StatModTarget.TEC))
+                stats += $"+{Mathf.CeilToInt(derivedModifiers[StatModifierSO.StatModTarget.TEC].value.staticOut)} 技巧\n";
+            
+            if (derivedModifiers.ContainsKey(StatModifierSO.StatModTarget.DEX))
+                stats += $"+{Mathf.CeilToInt(derivedModifiers[StatModifierSO.StatModTarget.DEX].value.staticOut)} 敏捷\n";
+
             if (derivedModifiers.ContainsKey(StatModifierSO.StatModTarget.AttackPower))
                 stats += $"+{Mathf.CeilToInt(derivedModifiers[StatModifierSO.StatModTarget.AttackPower].value.staticOut)} 攻击强度\n";
 
@@ -174,10 +193,7 @@ namespace miniRAID.Weapon
                 stats += $"+{Mathf.CeilToInt(derivedModifiers[StatModifierSO.StatModTarget.SpDefense].value.staticOut)} 魔法抗性\n";
 
             if (derivedModifiers.ContainsKey(StatModifierSO.StatModTarget.Hit))
-            {
-                float hit = derivedModifiers[StatModifierSO.StatModTarget.Hit].value.staticOut;
-                stats += $"+{Mathf.CeilToInt(hit)} 命中\n";
-            }
+                stats += $"+{Mathf.CeilToInt(derivedModifiers[StatModifierSO.StatModTarget.Hit].value.staticOut)} 命中\n";
             
             ui.stats.text = stats.TrimEnd('\n');
         }

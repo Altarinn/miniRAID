@@ -53,7 +53,7 @@ namespace miniRAID.UIElements
         public void RefreshWithContents(MobData mob)
         {
             name.text = mob.nickname;
-            unitClass.text = $"{mob.baseDescriptor.race} / {mob.baseDescriptor.job}";
+            unitClass.text = $"{mob.baseDescriptor.race?.raceName} / {mob.baseDescriptor.job?.className}";
             level.text = mob.level.ToString();
             
             weaponName.text = $"{mob.mainWeapon?.name} [E]";

@@ -29,6 +29,7 @@ namespace miniRAID
             mob.battleStats = new Consts.BattleStats();
             
             mob.maxHealth = dNumber.CreateComposite(Consts.GetHealth(mob.level, mob.VIT), "mobbase");
+            mob.moveRange = dNumber.CreateComposite(moveRange, "mobbase");
 
             mob.defense = dNumber.CreateComposite(0, "mobbase");
             mob.spDefense = dNumber.CreateComposite(0, "mobbase");

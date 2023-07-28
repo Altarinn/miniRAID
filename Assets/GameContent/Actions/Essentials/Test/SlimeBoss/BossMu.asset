@@ -54,7 +54,7 @@ MonoBehaviour:
       Data: 
     - Name: canvasSize
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: position
       Entry: 7
       Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
@@ -81,7 +81,7 @@ MonoBehaviour:
       Data: miniRAID.EnemyMobDescriptorSO+EnemyStatBase, Assembly-CSharp
     - Name: MaxHP
       Entry: 3
-      Data: 2240
+      Data: 2840
     - Name: ExHitAcc
       Entry: 4
       Data: 2

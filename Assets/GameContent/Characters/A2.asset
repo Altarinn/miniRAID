@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec7bd0369532437e95c679dfe882de1c, type: 3}
-  m_Name: Paladin
+  m_Name: A2
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -80,29 +80,28 @@ MonoBehaviour:
   Id: 88
   icon: {fileID: 0}
   nickname: 
-  race: "\u9AD8\u5C71\u7CBE\u7075"
-  job: "\u5723\u9A91\u58EB"
+  race: {fileID: 11400000, guid: cb962a8ebfe9e3c4fa6439e3770a58ee, type: 2}
+  job: {fileID: 11400000, guid: a5c3bbfdbf8fcb34cb4829c0d3bf8582, type: 2}
   level: 10
   rendererPrefab: {fileID: 0}
   movementType: 0
-  moveable: 1
-  moveStartCost: 0
-  mainWeaponSO: {fileID: 11400000, guid: c6258ce52bf0bac40af0e528bf9326e4, type: 2}
+  movable: 1
+  moveRange: 3
+  mainWeaponSO: {fileID: 11400000, guid: 26e73e74e653a0948987f703ed7230eb, type: 2}
   subWeaponSO: {fileID: 0}
   listenerSOs:
-  - {fileID: 11400000, guid: 5a5914c0e685d354f98510cec0417348, type: 2}
   - {fileID: 11400000, guid: 3d81a9427e5722e44a2a27b96379ef06, type: 2}
   - {fileID: 11400000, guid: 869ff8d9c45faae4fa38285d22cefa0b, type: 2}
   actionSOs:
   - data: {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
     level: 0
-  - data: {fileID: 11400000, guid: 864aed35e40c4eb4298ef9498115c257, type: 2}
+  - data: {fileID: 11400000, guid: 9384695fc8767e341b1eb5a16c10b320, type: 2}
     level: 0
   baseStats:
-    VIT: 18
-    STR: 18
-    MAG: 13
-    INT: 7
-    DEX: 6
-    TEC: 13
-  healPriority: 1.4
+    VIT: 16
+    STR: 7
+    MAG: 12
+    INT: 11
+    DEX: 14
+    TEC: 20
+  healPriority: 1

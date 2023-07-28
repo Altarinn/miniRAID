@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
@@ -24,13 +25,13 @@ namespace miniRAID
             Debug.Log("Initialization Completed");
         }
         
-        public string L(LocalizedString key)
+        public string L(LocalizedString key, IList<object> arguments = null)
         {
             if (key == null) return null;
             if (key.TableReference == null) return null;
             if (key.IsEmpty) return null;
-            
-            return LocalizationSettings.StringDatabase.GetLocalizedString(key.TableReference, key.TableEntryReference);
+
+            return LocalizationSettings.StringDatabase.GetLocalizedString(key.TableReference, key.TableEntryReference, arguments);
         }
     }
 }

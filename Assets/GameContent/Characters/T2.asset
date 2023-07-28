@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec7bd0369532437e95c679dfe882de1c, type: 3}
-  m_Name: Defender
+  m_Name: T2
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -54,7 +54,7 @@ MonoBehaviour:
       Data: 
     - Name: canvasSize
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: position
       Entry: 7
       Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
@@ -80,14 +80,14 @@ MonoBehaviour:
   Id: 88
   icon: {fileID: 0}
   nickname: 
-  race: 
-  job: Defender
+  race: {fileID: 11400000, guid: 465e4bee7598c314988f3f7eff0fed75, type: 2}
+  job: {fileID: 11400000, guid: fcf3ec1329d8c584f87250f61ae58ba9, type: 2}
   level: 10
   rendererPrefab: {fileID: 0}
   movementType: 0
-  moveable: 1
-  moveStartCost: 0
-  mainWeaponSO: {fileID: 11400000, guid: d6eba2ea009ac4128ae563ca29279acd, type: 2}
+  movable: 1
+  moveRange: 3
+  mainWeaponSO: {fileID: 11400000, guid: c6258ce52bf0bac40af0e528bf9326e4, type: 2}
   subWeaponSO: {fileID: 0}
   listenerSOs:
   - {fileID: 11400000, guid: 5a5914c0e685d354f98510cec0417348, type: 2}

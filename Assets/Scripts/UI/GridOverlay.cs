@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using miniRAID;
 using UnityEngine;
 
 public class GridOverlay : MonoBehaviour
@@ -57,6 +58,8 @@ public class GridOverlay : MonoBehaviour
 
         foreach (var item in overlay)
         {
+            if(!Globals.backend.InMap(item.Key)) continue;
+            
             // Instantiate a cell and set its sprite
             Instantiate(overlayObj, new Vector3(item.Key.x, item.Key.z, transform.position.z - 1), Quaternion.identity, transform).GetComponent<SpriteRenderer>().sprite = overlaySpriteOverride[(int)item.Value];
         }

@@ -278,7 +278,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 3
     - Name: 
       Entry: 7
       Data: 
@@ -287,13 +287,61 @@ MonoBehaviour:
       Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 4
+      Data: 11
     - Name: 
       Entry: 3
       Data: 0
     - Name: 
       Entry: 3
-      Data: 9
+      Data: 11
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: $v
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 11
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: $v
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 11
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 7
     - Name: 
       Entry: 8
       Data: 
@@ -594,8 +642,17 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   maxLevel: 0
-  Description: "\u5F13\uFF1A\u7784\u51C6\n\u9020\u6210\u4F24\u5BB3\u548C\u51FA\u8840\uFF1A5\u56DE\u5408"
+  DescriptionKey:
+    m_TableReference:
+      m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
+    m_TableEntryReference:
+      m_KeyId: 1508771736657920
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   flags: 136
+  buffAppliedFirst: 0
   references:
     version: 2
     RefIds: []

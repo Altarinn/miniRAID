@@ -11,6 +11,7 @@ namespace miniRAID.Actions
         [SerializeField] private GridShape shape;
         [SerializeField] private UnitFilters filter;
         [SerializeField] private SpellDamageHeal damage;
+        [SerializeField] private SimpleExplosionFx fx;
 
         public override IEnumerator OnPerformChargedAttack(RuntimeAction ract, MobData mob, SpellTarget target)
         {
@@ -20,6 +21,8 @@ namespace miniRAID.Actions
             shape.direction = Globals.backend.GetDominantDirection(mob.Position, mainTargetPos);
             var capturedTargets = CaptureTargetsInGridShape.CaptureAllTargetsWithinRange(
                 mob, filter, shape.ApplyTransform());
+            
+            yield return new JumpIn(fx.Do(mob.Position + 2 * GridShape.directionVectors[(int)shape.direction]));
 
             foreach (var targetMob in capturedTargets)
             {

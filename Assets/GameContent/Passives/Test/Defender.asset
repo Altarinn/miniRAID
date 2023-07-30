@@ -206,7 +206,15 @@ MonoBehaviour:
   Guid: 0a929a9e2ee94488a6885af0c9c5bebc
   Id: 31
   icon: {fileID: 0}
-  name: "\u9632\u536B\u8005"
+  nameKey:
+    m_TableReference:
+      m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
+    m_TableEntryReference:
+      m_KeyId: 1990775527776256
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   type: 6
   priority: 0
   timed: 0
@@ -215,4 +223,8 @@ MonoBehaviour:
   stackRefreshesTime: 1
   maxStack: 1
   snapShot: 0
+  alwaysOnIndicator: {fileID: 0}
   flags: 0
+  references:
+    version: 2
+    RefIds: []

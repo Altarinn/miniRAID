@@ -87,5 +87,21 @@ MonoBehaviour:
       addedValue: 0
       addMultiplier: 0
       mulMultiplier: 0
-  classPassives: []
-  classActions: []
+  classPassives:
+  - data: {fileID: 11400000, guid: 869ff8d9c45faae4fa38285d22cefa0b, type: 2}
+    level: 0
+  - data: {fileID: 11400000, guid: fc5b09eb3bcdd3549b79f2f69902cc82, type: 2}
+    level: 2
+  - data: {fileID: 11400000, guid: 1d5c520dc12d2f6438f4f04a8cbccbf4, type: 2}
+    level: 0
+  classActions:
+  - data: {fileID: 11400000, guid: 1e9626ef48fa90940ac576624badc7ab, type: 2}
+    level: 0
+  - data: {fileID: 11400000, guid: 3598011832d5a8b4ea254ff323a1cb0f, type: 2}
+    level: 0
+  - data: {fileID: 11400000, guid: 01ab07f9778ec0e4aaeaaa67d99e5324, type: 2}
+    level: 0
+  - data: {fileID: 11400000, guid: e8ab0df68942292479c31165b973b039, type: 2}
+    level: 0
+  - data: {fileID: 11400000, guid: c2b2295521b3de44ca22ffe1298b6913, type: 2}
+    level: 0

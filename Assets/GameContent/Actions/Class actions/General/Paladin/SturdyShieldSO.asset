@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ff83334ede4ad84685650e2e25f3bde, type: 3}
-  m_Name: Defense
+  m_Script: {fileID: 11500000, guid: bc1efed8b4ba54b439a4b9eef6b1b72a, type: 3}
+  m_Name: SturdyShieldSO
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -137,50 +137,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 10
-    - Name: $v
-      Entry: 7
-      Data: miniRAID.StatModifierSO+dNumberModifier, Assembly-CSharp
-    - Name: type
-      Entry: 3
       Data: 0
-    - Name: aux
-      Entry: 5
-      Data: false
-    - Name: value
-      Entry: 7
-      Data: 6|miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Single,
-        mscorlib]], Assembly-CSharp
-    - Name: type
-      Entry: 3
-      Data: 0
-    - Name: staticOut
-      Entry: 4
-      Data: 16
-    - Name: LuaExpr
-      Entry: 6
-      Data: 
-    - Name: description
-      Entry: 6
-      Data: 
-    - Name: getterTemplate
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -192,7 +149,7 @@ MonoBehaviour:
       Data: 
     - Name: overtimeEffects
       Entry: 7
-      Data: 7|System.Collections.Generic.List`1[[miniRAID.Buff.BuffSO+BuffDHOTDef,
+      Data: 6|System.Collections.Generic.List`1[[miniRAID.Buff.BuffSO+BuffDHOTDef,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -203,16 +160,44 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  Guid: ae6d2a481ded42dab2a6396499973515
-  Id: 20
-  icon: {fileID: -1203473415, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
-  name: "\u9632\u5FA1"
+  Guid: d7573fe1da95409d995ed55275ecd511
+  Id: 181
+  icon: {fileID: 0}
+  nameKey:
+    m_TableReference:
+      m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
+    m_TableEntryReference:
+      m_KeyId: 2146844975636480
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   type: 0
   priority: 0
-  timed: 1
+  timed: 0
   timeMax: 1
-  stackable: 0
+  stackable: 1
   stackRefreshesTime: 1
-  maxStack: 1
+  maxStack: 3
   snapShot: 1
+  alwaysOnIndicator: {fileID: 0}
   flags: 0
+  shieldRatio:
+    isLeveled: 0
+    values:
+    - 0.1
+    - 1
+    - 1
+    - 1
+    - 1
+  thresholdRatio:
+    isLeveled: 0
+    values:
+    - 2.5
+    - 1
+    - 1
+    - 1
+    - 1
+  references:
+    version: 2
+    RefIds: []

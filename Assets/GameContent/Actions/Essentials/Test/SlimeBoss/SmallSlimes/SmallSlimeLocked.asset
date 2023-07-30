@@ -163,7 +163,15 @@ MonoBehaviour:
   Guid: ab01ca78314c4e048625b53f387bf7db
   Id: 70
   icon: {fileID: -2073439137, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
-  name: "\u9501\u5B9A"
+  nameKey:
+    m_TableReference:
+      m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
+    m_TableEntryReference:
+      m_KeyId: 1766677744787456
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   type: 0
   priority: 0
   timed: 0
@@ -174,3 +182,6 @@ MonoBehaviour:
   snapShot: 1
   alwaysOnIndicator: {fileID: 21300000, guid: 7ade536c9d33df748b85da683c407e26, type: 3}
   flags: 34
+  references:
+    version: 2
+    RefIds: []

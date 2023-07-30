@@ -163,7 +163,15 @@ MonoBehaviour:
   Guid: 74cde4c8663f4dcaad479a6853000dee
   Id: 123
   icon: {fileID: 0}
-  name: StarEnergy
+  nameKey:
+    m_TableReference:
+      m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
+    m_TableEntryReference:
+      m_KeyId: 1844898196692992
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   type: 6
   priority: 0
   timed: 0
@@ -175,3 +183,6 @@ MonoBehaviour:
   alwaysOnIndicator: {fileID: 0}
   flags: 0
   manaRegen: 10
+  references:
+    version: 2
+    RefIds: []

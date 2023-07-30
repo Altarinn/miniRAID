@@ -138,7 +138,7 @@ namespace miniRAID
             CannotBeDispelled = 1 << 1,
         }
 
-        public struct DamageHeal_FrontEndInput
+        public class DamageHeal_FrontEndInput
         {
             public MobData source;
             public float value;
@@ -160,26 +160,36 @@ namespace miniRAID
             public bool popup;
         }
 
-        public class DamageHeal_FrontEndInput_ByRef
-        {
-            public DamageHeal_FrontEndInput value;
-
-            public DamageHeal_FrontEndInput_ByRef(DamageHeal_FrontEndInput val)
-            {
-                value = val;
-            }
-        }
+        // public class DamageHeal_FrontEndInput_ByRef
+        // {
+        //     public DamageHeal_FrontEndInput value;
+        //
+        //     public DamageHeal_FrontEndInput_ByRef(DamageHeal_FrontEndInput val)
+        //     {
+        //         value = val;
+        //     }
+        // }
 
         public static bool IsHeal(DamageHeal_FrontEndInput input)
         {
             return input.type == Elements.Heal;
         }
 
-        public struct DamageHeal_ComputedRates
+        public class DamageHeal_ComputedRates
         {
             public int value;
             public float hit, crit;
         }
+        
+        // public class DamageHeal_ComputedRates_ByRef
+        // {
+        //     public DamageHeal_ComputedRates value;
+        //
+        //     public DamageHeal_ComputedRates_ByRef(DamageHeal_ComputedRates val)
+        //     {
+        //         value = val;
+        //     }
+        // }
 
         public class DamageHeal_Result
         {
@@ -851,7 +861,17 @@ namespace miniRAID
         public Dictionary<Vector3Int, float> GetMoveableGrids(MobData mob)
         {
             // TODO: detailed check
-
+            return GetMoveableGrids(
+                mob.Position,
+                mob.actedThisTurn ? 0 : mob.MoveRangeLeft,
+                Mathf.FloorToInt(mob.actionPoints),
+                mob.baseDescriptor.movementType);
+        }
+        
+        [Obsolete("Perhaps you should consider FindPathTo ... ? Idk, try avoid using this now, refactoring WIP for 3D grids")]
+        public Dictionary<Vector3Int, float> GetMoveableGrids(Vector3Int startPos, int freeRange = 3, int exMove = 5,
+            BaseMobDescriptorSO.MovementType moveType = BaseMobDescriptorSO.MovementType.Walk)
+        {
             Dictionary<Vector3Int, float> result = new();
             Queue<KeyValuePair<Vector3Int, int>> BFSQueue = new Queue<KeyValuePair<Vector3Int, int>>();
             System.Array.Clear(visited, 0, visited.Length);
@@ -859,15 +879,15 @@ namespace miniRAID
             Vector3Int[] dirc = new Vector3Int[] { new Vector3Int(0, 0, 1), new Vector3Int(0, 0, -1), new Vector3Int(1, 0, 0), new Vector3Int(-1, 0, 0) };
 
             BFSQueue.Enqueue(new KeyValuePair<Vector3Int, int>(
-                mob.Position,
-                Mathf.RoundToInt((mob.actionPoints + (mob.actedThisTurn ? 0 : mob.MoveRangeLeft)) * 100))
+                startPos,
+                freeRange + exMove)
             );
-            visited[mob.Position.x, mob.Position.y, mob.Position.z] = true;
+            visited[startPos.x, startPos.y, startPos.z] = true;
 
             while (BFSQueue.Count > 0)
             {
                 var current = BFSQueue.Dequeue();
-                result.Add(current.Key, current.Value / 100.0f);
+                result.Add(current.Key, current.Value);
 
                 foreach (var dir in dirc)
                 {
@@ -876,7 +896,7 @@ namespace miniRAID
                     if (visited[next.x, next.y, next.z] == false && current.Value > 0)
                     {
                         visited[next.x, next.y, next.z] = true;
-                        BFSQueue.Enqueue(new KeyValuePair<Vector3Int, int>(next, current.Value - 100));
+                        BFSQueue.Enqueue(new KeyValuePair<Vector3Int, int>(next, current.Value - 1));
                     }
                 }
             }

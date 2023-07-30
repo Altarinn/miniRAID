@@ -99,6 +99,13 @@ namespace miniRAID
             {
                 yield return new JumpIn(mob.SetActive(true));
             }
+            
+            // Finally trigger Agent events
+            // AwaitForActions may be modified during following processes
+            foreach (var mob in mobs.ToList())
+            {
+                yield return new JumpIn(mob.OnAgentTurn());
+            }
         }
     }
 }

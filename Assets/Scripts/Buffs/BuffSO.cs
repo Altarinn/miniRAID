@@ -302,8 +302,8 @@ namespace miniRAID.Buff
             {
                 AddIndicator(new SimpleSpriteIndicator(
                     buffData.alwaysOnIndicator,
-                    Globals.backend.GridToWorldPos(mob.Position)))
-                    .Move(new Vector3(0.5f, 0.5f, -3.0f))
+                    Globals.backend.GridToWorldPosCentered(mob.Position)))
+                    .Move(new Vector3(0, 0, -3.0f))
                     .Follow(mob.mobRenderer);
             }
 

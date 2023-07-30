@@ -24,7 +24,15 @@ MonoBehaviour:
   Guid: 7770bb3868114d18af68e9c7bc60b441
   Id: 109
   icon: {fileID: 0}
-  name: 
+  nameKey:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   type: 5
   priority: 0
   eyesight: 10
@@ -33,6 +41,17 @@ MonoBehaviour:
       HealthPercentageLessThan: 1
       HealthPercentageMoreThan: 0
       canReturnTo: 0
+    loop: 0
+    phaseSchedule:
+    - doRegularAttack: 0
+      actions:
+      - data: {fileID: 11400000, guid: 30650c72d4a0f0348a06df9aae85478f, type: 2}
+        level: 0
+  - condition:
+      HealthPercentageLessThan: 0
+      HealthPercentageMoreThan: 0
+      canReturnTo: 0
+    loop: 1
     phaseSchedule:
     - doRegularAttack: 1
       actions:
@@ -50,6 +69,7 @@ MonoBehaviour:
       HealthPercentageLessThan: 0.85
       HealthPercentageMoreThan: 0
       canReturnTo: 0
+    loop: 1
     phaseSchedule:
     - doRegularAttack: 0
       actions:
@@ -71,8 +91,20 @@ MonoBehaviour:
       HealthPercentageLessThan: 0.5
       HealthPercentageMoreThan: 0
       canReturnTo: 0
+    loop: 1
     phaseSchedule:
     - doRegularAttack: 1
       actions:
-      - data: {fileID: 11400000, guid: 5c19e84a47d306d45a1f3c2b143a831e, type: 2}
+      - data: {fileID: 11400000, guid: d36a1d95636ff4a718304d182e15483e, type: 2}
         level: 0
+    - doRegularAttack: 1
+      actions:
+      - data: {fileID: 11400000, guid: 8a808c2b1fd03ab49b3bedb6f2176570, type: 2}
+        level: 0
+    - doRegularAttack: 1
+      actions:
+      - data: {fileID: 11400000, guid: 651ce528935d4564580f2eb1e502fef1, type: 2}
+        level: 0
+  references:
+    version: 2
+    RefIds: []

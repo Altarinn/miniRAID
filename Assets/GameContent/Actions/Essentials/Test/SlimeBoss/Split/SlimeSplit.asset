@@ -9,13 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ff83334ede4ad84685650e2e25f3bde, type: 3}
-  m_Name: Growth
+  m_Script: {fileID: 11500000, guid: 581a695ff2407894d976adad15225062, type: 3}
+  m_Name: SlimeSplit
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 17043920121896397, guid: 4e9cebfc1f26cf743833e49cf8938d49, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -117,14 +118,14 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: modifiers
+    - Name: costs
       Entry: 7
-      Data: 4|System.Collections.Generic.Dictionary`2[[miniRAID.StatModifierSO+StatModTarget,
-        Assembly-CSharp],[miniRAID.StatModifierSO+dNumberModifier, Assembly-CSharp]],
-        mscorlib
+      Data: 4|System.Collections.Generic.Dictionary`2[[miniRAID.Cost+Type, Assembly-CSharp],[miniRAID.LuaBoundedGetter`3[[System.ValueTuple`2[[miniRAID.MobData,
+        Assembly-CSharp],[miniRAID.Spells.SpellTarget, Assembly-CSharp]], mscorlib],[miniRAID.MobData,
+        Assembly-CSharp],[System.Double, mscorlib]], Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 5|System.Collections.Generic.EnumEqualityComparer`1[[miniRAID.StatModifierSO+StatModTarget,
+      Data: 5|System.Collections.Generic.EnumEqualityComparer`1[[miniRAID.Cost+Type,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -144,85 +145,125 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: BuffEffects
+    - Name: isActivelyUsed
+      Entry: 7
+      Data: 6|miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Boolean,
+        mscorlib]], Assembly-CSharp
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: staticOut
+      Entry: 5
+      Data: true
+    - Name: LuaExpr
+      Entry: 1
+      Data: 
+    - Name: description
+      Entry: 1
+      Data: 
+    - Name: getterTemplate
       Entry: 6
       Data: 
-    - Name: overtimeEffects
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Requester
       Entry: 7
-      Data: 6|System.Collections.Generic.List`1[[miniRAID.Buff.BuffSO+BuffDHOTDef,
+      Data: 7|miniRAID.UI.TargetRequester.ConfirmRequester, Assembly-CSharp
+    - Name: stateStr
+      Entry: 6
+      Data: 
+    - Name: currentStageCompleted
+      Entry: 3
+      Data: -1
+    - Name: query_stack
+      Entry: 7
+      Data: 8|System.Collections.Generic.Stack`1[[miniRAID.UI.TargetRequester.RequestStage,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: miniRAID.Buff.BuffSO+BuffDHOTDef, Assembly-CSharp
-    - Name: type
-      Entry: 3
-      Data: 11
-    - Name: power
-      Entry: 7
-      Data: 7|miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Single,
-        mscorlib]], Assembly-CSharp
-    - Name: type
-      Entry: 3
       Data: 0
-    - Name: staticOut
-      Entry: 4
-      Data: 0.333
-    - Name: LuaExpr
-      Entry: 6
-      Data: 
-    - Name: description
-      Entry: 6
-      Data: 
-    - Name: getterTemplate
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: crit
-      Entry: 7
-      Data: 8|miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Single,
-        mscorlib]], Assembly-CSharp
-    - Name: type
-      Entry: 3
-      Data: 0
-    - Name: staticOut
-      Entry: 4
-      Data: 1
-    - Name: LuaExpr
-      Entry: 6
-      Data: 
-    - Name: description
-      Entry: 6
-      Data: 
-    - Name: getterTemplate
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: 
       Entry: 13
       Data: 
     - Name: 
       Entry: 8
       Data: 
-  Guid: f8a0faf2bc98471faa91d422a56d343f
-  Id: 29
-  icon: {fileID: -7748145357200448423, guid: 7fe9a382566f75a429badd968a5161fa, type: 3}
-  name: "\u683D\u57F9"
-  type: 0
-  priority: 0
-  timed: 1
-  timeMax: 3
-  stackable: 0
-  stackRefreshesTime: 1
-  maxStack: 1
-  snapShot: 1
+    - Name: choice
+      Entry: 7
+      Data: 9|System.Collections.Generic.Stack`1[[UnityEngine.Vector3Int, UnityEngine.CoreModule]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: targetPicker
+      Entry: 6
+      Data: 
+    - Name: _
+      Entry: 6
+      Data: 
+    - Name: onHitFx
+      Entry: 6
+      Data: 
+    - Name: slimeSpawnFx
+      Entry: 6
+      Data: 
+    - Name: summon
+      Entry: 7
+      Data: 10|miniRAID.ActionHelpers.Summon`1[[miniRAID.MobRenderer, Assembly-CSharp]],
+        Assembly-CSharp
+    - Name: mobPrefab
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: message
+      Entry: 7
+      Data: 11|miniRAID.ActionHelpers.ShowImportantMessage, Assembly-CSharp
+    - Name: message
+      Entry: 1
+      Data: "\u53F2\u83B1\u59C6\u738B\u5F00\u59CB\u5206\u88C2\u4E86\uFF01"
+    - Name: seconds
+      Entry: 4
+      Data: 1.5
+    - Name: 
+      Entry: 8
+      Data: 
+  Guid: ab3f525cc2724d86aa5509e01e260fb2
+  Id: 178
+  icon: {fileID: 0}
+  ActionNameKey:
+    m_TableReference:
+      m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
+    m_TableEntryReference:
+      m_KeyId: 1722873163620352
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  maxLevel: 0
+  DescriptionKey:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   flags: 0
+  summonOffset: {x: 0, y: 0, z: 2}
+  healthRatio: 0.4
+  references:
+    version: 2
+    RefIds: []

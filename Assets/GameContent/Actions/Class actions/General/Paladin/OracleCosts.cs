@@ -59,8 +59,8 @@ namespace GameContent.Buffs.Test
                 for (int j = 0; j < 100; j++)
                 {
                     Vector2Int gridPos = new Vector2Int(
-                        mob.Position.x + Globals.cc.rng.NextInt() % 9 - 4,
-                        mob.Position.z + Globals.cc.rng.NextInt() % 9 - 4);
+                        mob.Position.x + Globals.cc.rng.NextInt(-5, 5),
+                        mob.Position.z + Globals.cc.rng.NextInt(-5, 5));
 
                     if (!oracleGrids.Contains(gridPos) &&
                         Globals.backend.InMap(new Vector3Int(gridPos.x, 0, gridPos.y)))
@@ -70,14 +70,19 @@ namespace GameContent.Buffs.Test
                     }
                 }
             }
-            
+
+            RefreshIndicators();
+        }
+
+        void RefreshIndicators()
+        {
             RemoveAllIndicators();
             foreach (var grid in oracleGrids)
             {
                 AddIndicator(new SimpleSpriteIndicator(
                         oracleData.indicator,
-                        Globals.backend.GridToWorldPos(new Vector3Int(grid.x, 0, grid.y)))
-                    .Move(new Vector3(0.5f, 0.5f, -3.0f)));
+                        Globals.backend.GridToWorldPosCentered(new Vector3Int(grid.x, 0, grid.y))))
+                    .Move(new Vector3(0, 0, -3.0f));
             }
         }
 
@@ -89,7 +94,8 @@ namespace GameContent.Buffs.Test
                     return oracleGrids.Contains(new Vector2Int(mob.Position.x, mob.Position.z));
                 case Cost.Type.OracleBuff:
                 {
-                    if (mob.FindListener(oracleData.oracleBuffSO) is not Buff buff)
+                    Buff buff = mob.FindListener(oracleData.oracleBuffSO) as Buff;
+                    if (buff == null)
                     {
                         return false;
                     }
@@ -107,6 +113,7 @@ namespace GameContent.Buffs.Test
             {
                 case Cost.Type.OracleGrid:
                     oracleGrids.Remove(new Vector2Int(mob.Position.x, mob.Position.z));
+                    RefreshIndicators();
                     break;
                 case Cost.Type.OracleBuff:
                 {

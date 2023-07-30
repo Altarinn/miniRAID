@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using miniRAID.ActionHelpers;
 using miniRAID.Spells;
 using miniRAID.Weapon;
@@ -13,9 +14,17 @@ namespace miniRAID.Actions
         [SerializeField] private SpellDamageHeal damage;
         [SerializeField] private SimpleExplosionFx fx;
 
+        public override Dictionary<string, object> LazyPrepareTooltipVariables(RuntimeAction ract)
+        {
+            var vars = base.LazyPrepareTooltipVariables(ract);
+            vars.Add("HitPower", damage.GetPower(ract));
+
+            return vars;
+        }
+
         public override IEnumerator OnPerformChargedAttack(RuntimeAction ract, MobData mob, SpellTarget target)
         {
-            shape.position = mob.Position;
+            shape.position = target.targetPos[0];
             var mainTargetPos = target.targetPos[0];
 
             shape.direction = Globals.backend.GetDominantDirection(mob.Position, mainTargetPos);

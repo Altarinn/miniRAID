@@ -33,6 +33,16 @@ namespace miniRAID
             return random.NextInt();
         }
 
+        public int NextInt(int min, int max)
+        {
+            return random.NextInt(min, max);
+        }
+
+        public float NextFloat()
+        {
+            return random.NextFloat();
+        }
+
         public bool WithProbability(float p, bool passOnDefault = true)
         {
             float roll = random.NextFloat();

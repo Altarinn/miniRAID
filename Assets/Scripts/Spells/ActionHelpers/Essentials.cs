@@ -165,6 +165,9 @@ namespace miniRAID.ActionHelpers
         public bool inheritLevel = true;
         public bool inheritPower = true;
         
+        [Range(1, 10)]
+        public int stacks = 1;
+        
         [ShowIf("inheritPower")]
         public FloatModifier power = new(1.0f);
         
@@ -188,7 +191,9 @@ namespace miniRAID.ActionHelpers
                 rbuff.crit = dNumber.CreateComposite(crit.Apply(spellContext.crit));
             }
 
-            tgt.AddBuff(rbuff);
+            stacks = Mathf.Max(1, stacks);
+            for(int i = 0; i < stacks; ++i)
+                tgt.AddBuff(rbuff);
 
             yield return -1;
         }

@@ -27,7 +27,11 @@ namespace miniRAID
             // Get all valid targets
             var targets = Globals.backend.GetAllMobs()
                 .Where(m => Consts.ApplyMask(Consts.EnemyMask(mob.unitGroup), m.unitGroup)) // Choose from enemies
-                .Where(m => m.FindListener(indicatorBuff) != null) // Choose the targets we have marked before
+                .Where(m =>
+                {
+                    var buff = m.FindListener(indicatorBuff) as Buff.Buff;
+                    return buff != null && buff.source == mob;
+                }) // Choose the targets we have marked before
                 .ToList();
             
             if(targets.Count <= 0){ yield break; }

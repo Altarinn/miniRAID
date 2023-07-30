@@ -61,16 +61,16 @@ namespace miniRAID.UI.TargetRequester
             switch (dirc)
             {
                 case GridShape.Direction.Up:
-                    ui.cursor.position = mob.Position;// + new Vector3Int(0, 0, 1);
+                    ui.cursor.position = mob.Position + new Vector3Int(0, 0, 1);
                     break;
                 case GridShape.Direction.Left:
-                    ui.cursor.position = mob.Position;// + new Vector3Int(-1, 0, 0);
+                    ui.cursor.position = mob.Position + new Vector3Int(-1, 0, 0);
                     break;
                 case GridShape.Direction.Down:
-                    ui.cursor.position = mob.Position;// + new Vector3Int(0, 0, -1);
+                    ui.cursor.position = mob.Position + new Vector3Int(0, 0, -1);
                     break;
                 case GridShape.Direction.Right:
-                    ui.cursor.position = mob.Position;//+ new Vector3Int(1, 0, 0);
+                    ui.cursor.position = mob.Position + new Vector3Int(1, 0, 0);
                     break;
             }
         }

@@ -154,6 +154,8 @@ namespace miniRAID
             initialized = true;
 
             Databackend.GetSingleton().SetMob(Position, gridBody, this);
+            
+            OnInitialized?.Invoke(this);
         }
 
         private void _SetActionPoints(float v)
@@ -335,17 +337,30 @@ namespace miniRAID
                 OnWakeUp();
                 RecalculateStats(); // Do we need it here? <- Yes (e.g., ChargedAction will modify AP regen here)
                 yield return new JumpIn(OnWakeup?.Invoke(this));
-
-                RecalculateStats();
-                yield return new JumpIn(OnAgentWakeUp?.Invoke(this));
             }
             else
             {
-                isActive = false;
+                SetInactiveImmediately();
             }
             
             if (Globals.cc.animation && mobRenderer != null)
                 yield return new JumpIn(mobRenderer.SetActiveAnim(value));
+        }
+        
+        public IEnumerator OnAgentTurn()
+        {
+            if(!initialized || !isActive) { yield break; }
+            
+            RecalculateStats();
+            yield return new JumpIn(OnAgentWakeUp?.Invoke(this));
+        }
+        
+        public void SetInactiveImmediately()
+        {
+            if(isActive)
+            {
+                isActive = false;
+            }
         }
         
         public IEnumerator TryAutoEndTurn()

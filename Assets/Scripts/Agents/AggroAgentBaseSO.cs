@@ -61,6 +61,18 @@ namespace miniRAID.Agents
                 targetMob.OnHealReceived -= TargetMob_OnReceiveHealFinal;
             }
         }
+        
+        public void SetRandomAggro(float magnitude)
+        {
+            aggroList.Clear();
+            foreach (var mob in Globals.backend.GetAllMobs())
+            {
+                if (Consts.ApplyMask(Consts.EnemyMask(parentMob.unitGroup), mob.unitGroup))
+                {
+                    aggroList.Add(mob, Globals.cc.rng.NextFloat() * magnitude);
+                }
+            }
+        }
 
         private void Mob_OnReceiveDamageFinal(MobData mob, Consts.DamageHeal_Result info)
         {
@@ -251,6 +263,8 @@ namespace miniRAID.Agents
 
         protected override IEnumerator OnAgentWakeUp(MobData mob)
         {
+            if(!mob.isControllable) { yield break; }
+            
             yield return new JumpIn(Act(mob));
         }
 

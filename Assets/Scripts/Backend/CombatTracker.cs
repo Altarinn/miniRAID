@@ -158,7 +158,7 @@ namespace miniRAID
         public void Record(Consts.KillEvent killEvent)
         {
             // No renderer, maybe we are in a detached thread of computation (not what player is looking at)
-            if (killEvent.info.target.mobRenderer == null) { return; }
+            if (killEvent.info?.target?.mobRenderer == null) { return; }
             
             var info = killEvent.info;
             string message =

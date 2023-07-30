@@ -28,11 +28,13 @@ namespace miniRAID.Weapon
 
         private bool isCharging = false;
         int chargeTimer = 0;
+
+        public ChargedAction RchargedAttack;
         
         public override void OnAttach(MobData mob)
         {
             base.OnAttach(mob);
-            mob.AddAction(heavyData.chargedAttack.ToBase());
+            RchargedAttack = mob.AddAction(heavyData.chargedAttack.ToBase()) as ChargedAction;
         }
 
         public override string GetInformationString()

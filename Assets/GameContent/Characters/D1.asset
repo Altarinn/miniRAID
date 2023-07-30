@@ -54,7 +54,7 @@ MonoBehaviour:
       Data: 
     - Name: canvasSize
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: position
       Entry: 7
       Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
@@ -80,7 +80,7 @@ MonoBehaviour:
   Id: 88
   icon: {fileID: 0}
   nickname: 
-  race: {fileID: 11400000, guid: 465e4bee7598c314988f3f7eff0fed75, type: 2}
+  race: {fileID: 11400000, guid: 7453047daaca7bf4f94a19937a6de795, type: 2}
   job: {fileID: 11400000, guid: a1be27d6b5ae7f545af2a4dde7991dcb, type: 2}
   level: 10
   rendererPrefab: {fileID: 0}

@@ -37,7 +37,7 @@ namespace miniRAID.ActionHelpers
         public int turn, maxTurn;
         
         private SpellTarget target;
-        private SimpleMultiTurnAction.MultiTurnAction action;
+        public SimpleMultiTurnAction.MultiTurnAction action;
         private object customData;
         
         public SimpleMultiTurnActionProxy(

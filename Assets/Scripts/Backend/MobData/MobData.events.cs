@@ -46,7 +46,8 @@ namespace miniRAID
         public CoroutineEvent<MobData> OnNextTurn;
         
         //// Status calculation
-
+        
+        public event MobArgumentDelegate OnInitialized;
         public event MobArgumentDelegate OnBaseStatCalculation;
         public event MobArgumentDelegate OnStatCalculation;
         public event MobArgumentDelegate OnActionStatCalculation;
@@ -67,7 +68,7 @@ namespace miniRAID
         /// This event also happens before rolling the RNG for hit/dodge and critical strikes.
         /// As they are represented as corresponding probabilities (values) instead of rolled results.
         /// </summary>
-        public CoroutineEvent<MobData, Consts.DamageHeal_FrontEndInput_ByRef> OnDealDmg;
+        public CoroutineEvent<MobData, Consts.DamageHeal_FrontEndInput> OnDealDmg;
         // public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnDealDamageFinal;
         
         /// <summary>
@@ -75,15 +76,17 @@ namespace miniRAID
         /// </summary>
         public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnDamageDealt;
 
-        public CoroutineEvent<MobData, Consts.DamageHeal_FrontEndInput_ByRef> OnDealHeal;
+        public CoroutineEvent<MobData, Consts.DamageHeal_FrontEndInput> OnDealHeal;
         // public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnDealHealFinal;
         public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnHealDealt;
 
-        public CoroutineEvent<MobData, Consts.DamageHeal_FrontEndInput_ByRef> OnReceiveDamage;
+        public CoroutineEvent<MobData, Consts.DamageHeal_FrontEndInput> OnReceiveDamage;
+        public CoroutineEvent<MobData, Consts.DamageHeal_FrontEndInput, Consts.DamageHeal_ComputedRates> OnBeforeDamageApplied;
         // public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnReceiveDamageFinal;
         public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnDamageReceived;
 
-        public CoroutineEvent<MobData, Consts.DamageHeal_FrontEndInput_ByRef> OnReceiveHeal;
+        public CoroutineEvent<MobData, Consts.DamageHeal_FrontEndInput> OnReceiveHeal;
+        public CoroutineEvent<MobData, Consts.DamageHeal_FrontEndInput, Consts.DamageHeal_ComputedRates> OnBeforeHealApplied;
         // public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnReceiveHealFinal;
         public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnHealReceived;
 
@@ -181,6 +184,16 @@ namespace miniRAID
             {
                 rates.value = Mathf.CeilToInt(rates.value * multiplier);
             }
+            
+            // Trigger Before Applied events
+            if (Consts.IsHeal(info))
+            {
+                yield return new JumpIn(OnBeforeHealApplied?.Invoke(this, info, rates));
+            }
+            else
+            {
+                yield return new JumpIn(OnBeforeDamageApplied?.Invoke(this, info, rates));
+            }
 
             // Manipulate HP
             int val = 0;
@@ -260,6 +273,12 @@ namespace miniRAID
             }
 
             yield break;
+        }
+
+        public IEnumerator Kill()
+        {
+            Consts.DamageHeal_Result dummyInfo = null;
+            yield return new JumpIn(Killed(dummyInfo));
         }
         
         private IEnumerator Killed(Consts.DamageHeal_Result info)

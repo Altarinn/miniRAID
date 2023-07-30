@@ -12,6 +12,15 @@ namespace miniRAID.Weapon
         public Consts.ActionFlags chargedFlags;
         // TODO: Modify costs during charged attack
 
+        public override Dictionary<string, object> LazyPrepareTooltipVariables(RuntimeAction ract)
+        {
+            var vars = base.LazyPrepareTooltipVariables(ract);
+            vars.Add("ChargeTime", chargeTime);
+            vars.Add("APRegenDecrease", APregenDecrease);
+
+            return vars;
+        }
+
         public virtual IEnumerator OnPerformCharge(RuntimeAction ract, MobData mob, SpellTarget target)
         {
             yield return new JumpIn(mob.SetActive(false));

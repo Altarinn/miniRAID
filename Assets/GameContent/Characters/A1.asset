@@ -79,7 +79,7 @@ MonoBehaviour:
   Guid: cb37ffc9640f43479a369467a188723c
   Id: 88
   icon: {fileID: 0}
-  nickname: 
+  nickname: Alice
   race: {fileID: 11400000, guid: 9f285b4fe5a68df40bab0ca51c64a695, type: 2}
   job: {fileID: 11400000, guid: 1684edca7c18392498b1a7551b66271e, type: 2}
   level: 10

@@ -35,7 +35,7 @@ namespace miniRAID.UI
         // Update is called once per frame
         void Update()
         {
-            text.text = $"{(int)((_targetMobRenderer.data.health / (float)_targetMobRenderer.data.maxHealth) * 100)}% {_targetMobRenderer.data.actionPoints}";
+            text.text = $"{(int)((_targetMobRenderer.data.health / (float)_targetMobRenderer.data.maxHealth) * 100)}% {Mathf.FloorToInt(_targetMobRenderer.data.actionPoints)}";
         }
     }
 }

@@ -24,6 +24,17 @@ MonoBehaviour:
   Guid: 935c01410e464785ad77c3e3e133ada0
   Id: 114
   icon: {fileID: 0}
-  name: 
+  nameKey:
+    m_TableReference:
+      m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
+    m_TableEntryReference:
+      m_KeyId: 1990363156389888
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   type: 8
   priority: 0
+  references:
+    version: 2
+    RefIds: []

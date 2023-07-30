@@ -243,7 +243,15 @@ MonoBehaviour:
   Guid: 4f2b743450fb42428ebe6f65718b3ef5
   Id: 122
   icon: {fileID: 0}
-  name: FallenStar
+  nameKey:
+    m_TableReference:
+      m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
+    m_TableEntryReference:
+      m_KeyId: 1990624125984768
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   type: 6
   priority: 0
   timed: 0
@@ -255,3 +263,6 @@ MonoBehaviour:
   alwaysOnIndicator: {fileID: 0}
   flags: 0
   probability: 0.1
+  references:
+    version: 2
+    RefIds: []

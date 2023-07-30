@@ -33,6 +33,7 @@ namespace miniRAID.Agents
         public class PhaseDefinition
         {
             public PhaseTransitionCondition condition;
+            public bool loop;
             public PhaseScheduleEntry[] phaseSchedule;
 
             public int Turns => phaseSchedule.Length;
@@ -74,6 +75,30 @@ namespace miniRAID.Agents
             GoToPhase(0);
         }
 
+        public struct ProgressData
+        {
+            public int currentPhaseIdx;
+            public int turnInPhase;
+            public bool[] visitedPhase;
+        }
+        
+        public void CopyFrom(ProgressData other)
+        {
+            currentPhase = bpbaData.phases[other.currentPhaseIdx];
+            turnInPhase = other.turnInPhase;
+            visitedPhase = other.visitedPhase;
+        }
+
+        public ProgressData GetProgress()
+        {
+            return new ProgressData()
+            {
+                currentPhaseIdx = bpbaData.phases.ToList().FindIndex(p => p == currentPhase),
+                turnInPhase = turnInPhase,
+                visitedPhase = (bool[]) visitedPhase.Clone()
+            };
+        }
+
         protected override IEnumerator OnAgentWakeUp(MobData mob)
         {
             yield return new JumpIn(HandlePhaseTransition(mob));
@@ -88,6 +113,21 @@ namespace miniRAID.Agents
         protected IEnumerator HandlePhaseTransition(MobData mob)
         {
             int phaseIdxToGo = -1;
+            
+            // Check if current phase is finished and it is not a loop
+            if (turnInPhase >= currentPhase.Turns && !currentPhase.loop)
+            {
+                // Find the next phase
+                for (int i = bpbaData.phases.Length - 1; i >= 0; i--)
+                {
+                    if (bpbaData.phases[i] == currentPhase && i < bpbaData.phases.Length - 1)
+                    {
+                        phaseIdxToGo = i + 1;
+                        break;
+                    }
+                }
+            }
+            
             for (int i = bpbaData.phases.Length - 1; i >= 0; i--)
             {
                 if (!visitedPhase[i] && 
@@ -128,6 +168,11 @@ namespace miniRAID.Agents
 
             foreach (var asoe in todo.actions)
             {
+                if (mob == null || !mob.isControllable)
+                {
+                    break;
+                }
+                
                 RuntimeAction ract = null;
                 if (asoe.data != null)
                 {

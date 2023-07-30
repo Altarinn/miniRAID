@@ -306,6 +306,11 @@ namespace miniRAID.UI
             _statViewMobRenderer = mobRenderer;
             RefreshMainMobStats();
             // mainMobStatPanel.SetActive(true);
+
+            if (mobRenderer.isBoss)
+            {
+                Globals.ui.Instance.combatView.BindAsBoss(mobRenderer);
+            }
         }
 
         public void HideMainMobStats()

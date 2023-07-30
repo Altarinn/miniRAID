@@ -15,32 +15,92 @@ MonoBehaviour:
   m_TableCollectionName: Actions
   m_TableCollectionNameGuidString: 6ebb20b243c324310be673530903a313
   m_Entries:
-  - m_Id: 16990428192768
-    m_Key: move.name
-    m_Metadata:
-      m_Items: []
   - m_Id: 17320603803648
     m_Key: arrowshot.name
     m_Metadata:
       m_Items: []
-  - m_Id: 17434508517376
-    m_Key: emergencyheal.name
+  - m_Id: 1511864809365504
+    m_Key: arrowshot.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 476246885081088
+    m_Key: basicheal.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1511985810841600
+    m_Key: basicheal.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 472736906944512
+    m_Key: chainheal.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 854520786132992
+    m_Key: chargedslash.name
     m_Metadata:
       m_Items: []
   - m_Id: 17521674543104
     m_Key: defenseaction.name
     m_Metadata:
       m_Items: []
+  - m_Id: 17434508517376
+    m_Key: emergencyheal.name
+    m_Metadata:
+      m_Items: []
   - m_Id: 17601206935552
     m_Key: growthaction.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1507765120475136
+    m_Key: growthaction.tooltip
     m_Metadata:
       m_Items: []
   - m_Id: 17740373942272
     m_Key: healingbloom.name
     m_Metadata:
       m_Items: []
+  - m_Id: 1508470430441472
+    m_Key: healingbloom.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1545101661249536
+    m_Key: judgementhammer.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16990428192768
+    m_Key: move.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1510736172490752
+    m_Key: move.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1766790294740992
+    m_Key: slimeking.groundfx.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1543671495860224
+    m_Key: oraclebless.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1543040982917120
+    m_Key: oraclecost.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1543356373606400
+    m_Key: oraclecosts.name
+    m_Metadata:
+      m_Items: []
   - m_Id: 17818627072000
     m_Key: poisonshot.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1508771736657920
+    m_Key: poisonshot.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1544205942464512
+    m_Key: pray.name
     m_Metadata:
       m_Items: []
   - m_Id: 17977729605632
@@ -55,92 +115,128 @@ MonoBehaviour:
     m_Key: shieldbash.name
     m_Metadata:
       m_Items: []
-  - m_Id: 18280524800000
-    m_Key: soundboom.name
-    m_Metadata:
-      m_Items: []
-  - m_Id: 18380403761152
-    m_Key: windbuffaction.name
-    m_Metadata:
-      m_Items: []
-  - m_Id: 18704380190720
-    m_Key: slimewave.name
+  - m_Id: 18984651972608
+    m_Key: slimejump.name
     m_Metadata:
       m_Items: []
   - m_Id: 18786383028224
-    m_Key: kingslimeexplosion.name
+    m_Key: slimeking.explosion.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1766149954543616
+    m_Key: slimeking.explosionpassive.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1765719212105728
+    m_Key: slimeking.maindot.name
     m_Metadata:
       m_Items: []
   - m_Id: 18897041350656
-    m_Key: slimeattack.name
+    m_Key: slimeking.rattack.name
     m_Metadata:
       m_Items: []
-  - m_Id: 18984651972608
-    m_Key: slimejump.name
+  - m_Id: 19291981209600
+    m_Key: slimeking.smallslimecure.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19383484145664
+    m_Key: slimeking.smallslimeexplosion.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1766546345631744
+    m_Key: slimeking.smallslimeexplosionpassive.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19184619610112
+    m_Key: slimeking.smallslimelock.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1766677744787456
+    m_Key: slimeking.smallslimelocked.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19499897053184
+    m_Key: slimeking.smallslimes.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18704380190720
+    m_Key: slimeking.wave.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1722873163620352
+    m_Key: slimesplit.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18280524800000
+    m_Key: soundboom.name
     m_Metadata:
       m_Items: []
   - m_Id: 19046752837632
     m_Key: splashpoison.name
     m_Metadata:
       m_Items: []
-  - m_Id: 19184619610112
-    m_Key: smallslimechoosetarget.name
-    m_Metadata:
-      m_Items: []
-  - m_Id: 19291981209600
-    m_Key: smallslimecure.name
-    m_Metadata:
-      m_Items: []
-  - m_Id: 19383484145664
-    m_Key: smallslimeexplosion.name
-    m_Metadata:
-      m_Items: []
-  - m_Id: 19499897053184
-    m_Key: smallslimes.name
-    m_Metadata:
-      m_Items: []
   - m_Id: 238622337474560
     m_Key: starlightpulse.name
-    m_Metadata:
-      m_Items: []
-  - m_Id: 472736906944512
-    m_Key: chainheal.name
-    m_Metadata:
-      m_Items: []
-  - m_Id: 476246885081088
-    m_Key: basicheal.name
-    m_Metadata:
-      m_Items: []
-  - m_Id: 854520786132992
-    m_Key: chargedslash.name
     m_Metadata:
       m_Items: []
   - m_Id: 1452847101714432
     m_Key: starlightpulse.tooltip
     m_Metadata:
       m_Items: []
-  - m_Id: 1507765120475136
-    m_Key: growthaction.tooltip
+  - m_Id: 18380403761152
+    m_Key: windbuffaction.name
     m_Metadata:
       m_Items: []
-  - m_Id: 1508470430441472
-    m_Key: healingbloom.tooltip
+  - m_Id: 1844898196692992
+    m_Key: astro.starenergy.name
     m_Metadata:
       m_Items: []
-  - m_Id: 1508771736657920
-    m_Key: poisonshot.tooltip
+  - m_Id: 1844997060632576
+    m_Key: astro.starlightbuff.name
     m_Metadata:
       m_Items: []
-  - m_Id: 1510736172490752
-    m_Key: move.tooltip
+  - m_Id: 1845298920497152
+    m_Key: bleeding.name
     m_Metadata:
       m_Items: []
-  - m_Id: 1511864809365504
-    m_Key: arrowshot.tooltip
+  - m_Id: 1988413887160320
+    m_Key: chargedslash.tooltip
     m_Metadata:
       m_Items: []
-  - m_Id: 1511985810841600
-    m_Key: basicheal.tooltip
+  - m_Id: 1990363156389888
+    m_Key: mana.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1990624125984768
+    m_Key: fallenstar.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1990718720122880
+    m_Key: attacker.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1990775527776256
+    m_Key: defender.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1990844612157440
+    m_Key: testaura.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2146844975636480
+    m_Key: paladin.sturdyshield.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2147055982682112
+    m_Key: paladin.sturdyshieldaction.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2315195844730880
+    m_Key: paladin.horsedash.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2319153438990336
+    m_Key: paladin.battlefieldpray.name
     m_Metadata:
       m_Items: []
   m_Metadata:

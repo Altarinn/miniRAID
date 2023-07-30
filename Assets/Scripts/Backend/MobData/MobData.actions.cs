@@ -92,7 +92,7 @@ namespace miniRAID
         
         #region Performing actions
         
-        public IEnumerator MoveToCoroutine(Vector3Int targetPos, GridPath path)
+        public IEnumerator MoveToCoroutine(Vector3Int targetPos, GridPath path, bool doCost = true)
         {
             // Check if targetPos is valid; If not, terminate the movement
             if (!Globals.backend.CanGridPlaceMob(targetPos, gridBody))
@@ -107,13 +107,16 @@ namespace miniRAID
             // Tell backend that we finished the movement
 
             // TODO: change to use path
-            int distance = Consts.Distance(targetPos, Position);
-            UseActionPoint(
-                Mathf.Max(0, distance - (actedThisTurn ? 0 : (MoveRange - movedGrids))));
-
-            if (!actedThisTurn)
+            if (doCost)
             {
-                movedGrids = Mathf.Min(MoveRange, movedGrids + distance);
+                int distance = Consts.Distance(targetPos, Position);
+                UseActionPoint(
+                    Mathf.Max(0, distance - (actedThisTurn ? 0 : (MoveRange - movedGrids))));
+
+                if (!actedThisTurn)
+                {
+                    movedGrids = Mathf.Min(MoveRange, movedGrids + distance);
+                }
             }
 
             Position = targetPos;

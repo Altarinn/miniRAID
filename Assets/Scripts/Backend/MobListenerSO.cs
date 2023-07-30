@@ -42,7 +42,7 @@ namespace miniRAID
         // Basic properties
 
         public LocalizedString nameKey;
-        public new string name => Globals.localizer.L(nameKey);
+        public new string name => Globals.localizer.L(nameKey) ?? "BAD_STRING";
         
         public ListenerType type;
 

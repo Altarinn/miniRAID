@@ -1,11 +1,15 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace miniRAID.UI.TargetRequester
 {
     public class MovementRequester : TargetRequesterBase
     {
-        public int range = 3;
+        public bool overrideMobMovement = false;
+        public int moveRange = 3;
+        public int extraRange = 0;
+        public BaseMobDescriptorSO.MovementType moveType;
 
         protected virtual int GridPathCost(GridData data)
         {
@@ -22,8 +26,16 @@ namespace miniRAID.UI.TargetRequester
             }
 
             RequestStage stage = new RequestStage();
-
-            var moveRange = Databackend.GetSingleton().GetMoveableGrids(mob);
+            
+            Dictionary<Vector3Int, float> moveRange;
+            if (overrideMobMovement)
+            {
+                moveRange = Databackend.GetSingleton().GetMoveableGrids(mob.Position, this.moveRange, extraRange, moveType);
+            }
+            else
+            {
+                moveRange = Databackend.GetSingleton().GetMoveableGrids(mob);
+            }
 
             stage.type = RequestType.Ground;
 

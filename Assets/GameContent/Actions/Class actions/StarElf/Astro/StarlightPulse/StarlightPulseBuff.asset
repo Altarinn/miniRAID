@@ -255,7 +255,15 @@ MonoBehaviour:
   Guid: 4640b38385b0425a9ec249e018260c7c
   Id: 121
   icon: {fileID: 0}
-  name: "\u7E41\u661F\u9053\u6807"
+  nameKey:
+    m_TableReference:
+      m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
+    m_TableEntryReference:
+      m_KeyId: 1844997060632576
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   type: 0
   priority: 0
   timed: 1
@@ -267,3 +275,6 @@ MonoBehaviour:
   alwaysOnIndicator: {fileID: 0}
   flags: 2
   starlightPulseAction: {fileID: 11400000, guid: ea582a9fb4256984e9776c1a369a3c3e, type: 2}
+  references:
+    version: 2
+    RefIds: []

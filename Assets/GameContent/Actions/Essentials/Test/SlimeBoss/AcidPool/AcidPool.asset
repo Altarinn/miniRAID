@@ -41,7 +41,7 @@ MonoBehaviour:
       Data: 5
     - Name: 
       Entry: 4
-      Data: 0.6
+      Data: 0.25
     - Name: 
       Entry: 4
       Data: 1
@@ -216,7 +216,15 @@ MonoBehaviour:
   Guid: f1bf96561b024e05892e795b622c71b8
   Id: 40
   icon: {fileID: -560436078510605240, guid: 7fe9a382566f75a429badd968a5161fa, type: 3}
-  name: "\u8150\u5316\u9178\u6C60"
+  nameKey:
+    m_TableReference:
+      m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
+    m_TableEntryReference:
+      m_KeyId: 1766790294740992
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   type: 0
   priority: 0
   timed: 0
@@ -225,7 +233,11 @@ MonoBehaviour:
   stackRefreshesTime: 1
   maxStack: 1
   snapShot: 1
+  alwaysOnIndicator: {fileID: 0}
   flags: 6
   prefab: {fileID: 2952179133118524667, guid: 5b7dfa4a9876a914eaf6090b9aa43b54, type: 3}
   toAllies: 0
   toEnemies: 1
+  references:
+    version: 2
+    RefIds: []

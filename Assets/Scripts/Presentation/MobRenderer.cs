@@ -71,14 +71,14 @@ namespace miniRAID
             backend = Databackend.GetSingleton();
             UpdateGridPos();
 
-            // Find my bodies
-            data.gridBody = new GridShape();
-            
-            // TODO: FIXME: Move me to MobData.Init and use pre-defined grid bodies
-            foreach (MobGridProxy proxy in GetComponentsInChildren<MobGridProxy>())
-            {
-                data.gridBody.AddGrid(Databackend.GetSingleton().GetGridPos(proxy.transform.position) - data.Position);
-            }
+            // // Find my bodies
+            // data.gridBody = new GridShape();
+            //
+            // // TODO: FIXME: Move me to MobData.Init and use pre-defined grid bodies
+            // foreach (MobGridProxy proxy in GetComponentsInChildren<MobGridProxy>())
+            // {
+            //     data.gridBody.AddGrid(Databackend.GetSingleton().GetGridPos(proxy.transform.position) - data.Position);
+            // }
             
             data.mobRenderer = this;
             data.nickname = this.name;

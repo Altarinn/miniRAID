@@ -96,6 +96,17 @@ namespace miniRAID.UI
         private void PrepareGeneralMenu()
         {
             List<miniRAID.UIElements.UnitMenuController.UIMenuEntry> entries = new ();
+            
+            entries.Add(new miniRAID.UIElements.UnitMenuController.UIMenuEntry
+            {
+                text = "Cheat",
+                action = OnCheat(Consts.UnitGroup.Player),
+                onFinished = UIMenuPostAction(null),
+                toolTip = "复活所有阵亡单位，并恢复所有单位20%生命值。",
+                useDefaultToolTip = true,
+                keycode = "1"
+            });
+            
             entries.Add(new miniRAID.UIElements.UnitMenuController.UIMenuEntry
             {
                 text = "EndTurn",
@@ -105,7 +116,7 @@ namespace miniRAID.UI
                 useDefaultToolTip = true,
                 keycode = "R"
             });
-            
+
             ui.combatView.menu.PrepareMenu(entries);
         }
 
@@ -257,6 +268,21 @@ namespace miniRAID.UI
                 if (mob.isControllable)
                 {
                     yield return new JumpIn(mob.AutoAttackFinish());
+                }
+            }
+        }
+
+        public IEnumerator OnCheat()
+        {
+            var mobs = Globals.backend.allMobs
+                .Where(x => x.unitGroup == Consts.UnitGroup.Player);
+
+            foreach (MobData mob in mobs)
+            {
+                if (mob.isDead)
+                {
+                    yield return new JumpIn(mob);
+                    yield return new JumpIn(mob.SetHP(mob.maxHP * 0.2f));
                 }
             }
         }

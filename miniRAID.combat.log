@@ -1,101 +1,286 @@
 - Start of debug log -
-[2023/7/31 4:39:55] AWAKE
-[回合0] 00m 06s:  Archer 获得了来自 Archer 的 攻击者
-[回合0] 00m 06s:  Mequie 获得了来自 Mequie 的 攻击者
-[回合0] 00m 06s:  LiliumGuard 获得了来自 LiliumGuard 的 防卫者
-[回合0] 00m 06s:  Alice 获得了来自 Alice 的 力量光环
-[回合0] 00m 06s:  Archer 获得了来自 Alice 的 力量光环
-[回合0] 00m 06s:  LiliumGuard 获得了来自 Alice 的 力量光环
-[回合0] 00m 06s:  FloraFairy 获得了来自 Alice 的 力量光环
-[回合0] 00m 06s:  Gaceon 获得了来自 Alice 的 力量光环
-[回合0] 00m 06s:  Astrologer 获得了来自 Astrologer 的 流星
-[回合0] 00m 06s:  Astrologer 获得了来自 Astrologer 的 星能转化
-[回合0] 00m 06s:  Astrologer 获得了来自 Alice 的 力量光环
-[回合0] 00m 06s:  Umiko 获得了来自 Umiko 的 力量光环
-[回合0] 00m 06s:  Archer 重新获得了来自 Alice 的 力量光环
-[回合0] 00m 06s:  Mequie 获得了来自 Umiko 的 力量光环
-[回合0] 00m 06s:  LiliumGuard 重新获得了来自 Alice 的 力量光环
-[回合0] 00m 06s:  Alice 重新获得了来自 Alice 的 力量光环
-[回合0] 00m 06s:  FloraFairy 重新获得了来自 Alice 的 力量光环
-[回合0] 00m 06s:  Gaceon 重新获得了来自 Alice 的 力量光环
-[回合0] 00m 06s:  Astrologer 重新获得了来自 Alice 的 力量光环
-[回合0] 00m 06s:  Umiko 重新获得了来自 Umiko 的 力量光环
-[回合0] 00m 06s:  BossMu 获得了来自 BossMu 的 爆裂 [616]
-[回合0] 00m 06s:  Warrior 获得了来自 Warrior 的 攻击者
-[回合0] 00m 06s:  Warrior 获得了来自 Alice 的 力量光环
-[回合0] 00m 06s:  Warrior 重新获得了来自 Alice 的 力量光环
-[回合0] 00m 06s:  Felivol 获得了来自 Felivol 的 防卫者
-[回合0] 00m 06s:  Felivol 获得了来自 Felivol 的 聆听神谕
-[回合0] 00m 06s:  Felivol 获得了来自 Felivol 的 祝福之光
-[回合0] 00m 06s:  Felivol 获得了来自 Alice 的 力量光环
-[回合0] 00m 06s:  Felivol 重新获得了来自 Alice 的 力量光环
-[回合1] 00m 08s:  回合1
-[回合1] 00m 15s:  Felivol 施放了 移动, 目标：(9, 0) 
-[回合1] 00m 18s:  Felivol 施放了 奔袭, 目标：(11, 0) 
-[回合1] 00m 22s:  Felivol 施放了 战地祷告, 目标：(11, 0) 
-[回合1] 00m 24s:  Felivol 的 战地祷告 对 Felivol 造成了 0 点 Heal 。生命值：126
-[回合1] 00m 24s:  Felivol 重新获得了来自 Felivol 的 祝福之光
-[回合1] 00m 28s:  Alice 施放了 响音攻击, 目标：(8, 0) 
-[回合1] 00m 29s:  Umiko 施放了 响音攻击, 目标：(8, 0) 
-[回合1] 00m 29s:  FloraFairy 施放了 栽培, 目标：(9, 0) 
-[回合1] 00m 30s:  LiliumGuard 获得了来自 FloraFairy 的 栽培
-[回合2] 00m 32s:  回合2
-[回合2] 00m 34s:  FloraFairy 的 栽培 对 LiliumGuard 造成了 0 点 Heal 。生命值：138
-[回合2] 00m 34s:  Felivol 施放了 蓄力斩, 目标：(11, 0) 
-[回合2] 00m 38s:  Felivol 施放了 移动, 目标：(11, 0) 
-[回合2] 00m 40s:  Felivol 施放了 祈祷, 目标：(11, 0) 
-[回合2] 00m 41s:  Felivol 的 祈祷 对 Felivol 造成了 0 点 Heal 。生命值：126
-[回合2] 00m 41s:  Felivol 重新获得了来自 Felivol 的 祝福之光
-[回合2] 00m 45s:  FloraFairy 施放了 栽培, 目标：(5, 0) 
-[回合2] 00m 46s:  Archer 获得了来自 FloraFairy 的 栽培
-[回合3] 00m 48s:  回合3
-[回合3] 00m 49s:  FloraFairy 的 栽培 对 Archer 造成了 0 点 Heal 。生命值：96
-[回合3] 00m 50s:  FloraFairy 的 栽培 对 LiliumGuard 造成了 0 点 Heal 。生命值：138
-[回合3] 00m 56s:  Felivol 施放了 移动, 目标：(11, 0) 
-[回合3] 00m 57s:  Felivol 施放了 移动, 目标：(11, 0) 
-[回合3] 01m 00s:  Felivol 施放了 巨石坚盾, 目标：(11, 0) 
-[回合3] 01m 01s:  Felivol 获得了来自 Felivol 的 巨石坚盾
-[回合3] 01m 01s:  Felivol 重新获得了来自 Felivol 的 巨石坚盾
-[回合3] 01m 01s:  Felivol 重新获得了来自 Felivol 的 巨石坚盾
-[回合3] 01m 04s:  Felivol 失去了来自 Felivol 的 祝福之光
-[回合3] 01m 04s:  Felivol 施放了 裁决重锤, 目标：(11, 0) 
-[回合3] 01m 04s:  Felivol 的 裁决重锤 对 BossMu 造成了 70 点 Knock 伤害（暴击）。生命值：3010
-[回合3] 01m 06s:  Felivol 施放了 蓄力斩, 目标：(11, 0) 
-[回合3] 01m 08s:  Alice 施放了 响音攻击, 目标：(8, 0) 
-[回合3] 01m 09s:  Umiko 施放了 响音攻击, 目标：(8, 0) 
-[回合3] 01m 09s:  FloraFairy 施放了 栽培, 目标：(11, 0) 
-[回合3] 01m 10s:  Felivol 获得了来自 FloraFairy 的 栽培
-[回合3] 01m 12s:  BossMu 施放了 小史莱姆标记, 目标：(11, 0) 
-[回合3] 01m 13s:  Umiko 获得了来自 BossMu 的 锁定
-[回合3] 01m 13s:  BossMu 施放了 移动, 目标：(11, 0) 
-[回合3] 01m 13s:  BossMu 施放了 史莱姆攻击, 目标：(11, 0) 
-[回合3] 01m 14s:  BossMu 的 史莱姆攻击 对 Felivol 造成了 30 点 Knock 伤害。生命值：96
-[回合3] 01m 14s:  Felivol 获得了来自 BossMu 的 史莱姆毒素
-[回合4] 01m 14s:  回合4
-[回合4] 01m 15s:  FloraFairy 的 栽培 对 Archer 造成了 0 点 Heal 。生命值：96
-[回合4] 01m 15s:  FloraFairy 的 栽培 对 LiliumGuard 造成了 0 点 Heal 。生命值：138
-[回合4] 01m 15s:  LiliumGuard 失去了来自 FloraFairy 的 栽培
-[回合4] 01m 16s:  FloraFairy 的 栽培 对 Felivol 造成了 6 点 Heal 。生命值：102
-[回合4] 01m 16s:  BossMu 的 史莱姆毒素 对 Felivol 造成了 9 点 Nature 伤害。生命值：93
-[回合4] 01m 16s:  Felivol 施放了 蓄力斩, 目标：(11, 0) 
-[回合4] 01m 16s:  Felivol 的 蓄力斩 对 BossMu 造成了 47 点 Slash 伤害。生命值：2963
-[回合4] 01m 20s:  Felivol 施放了 蓄力斩, 目标：(11, 0) 
-[回合4] 01m 23s:  FloraFairy 施放了 栽培, 目标：(9, 0) 
-[回合4] 01m 23s:  LiliumGuard 获得了来自 FloraFairy 的 栽培
-[回合4] 01m 25s:  BossMu 施放了 小史莱姆投掷, 目标：(11, 0) 
-[回合4] 01m 27s:  BossMu 的 小史莱姆投掷 对 Umiko 造成了 15 点 Nature 伤害。生命值：111
-[回合4] 01m 27s:  Umiko 失去了来自 BossMu 的 锁定
-[回合4] 01m 27s:  Umiko 获得了来自 BossMu 的 剧毒酸池
-[回合4] 01m 27s:  BossMu 施放了 史莱姆攻击, 目标：(11, 0) 
-[回合4] 01m 27s:  SmallMu(Clone) 获得了来自 SmallMu(Clone) 的 死亡爆裂 [120]
-[回合4] 01m 27s:  BossMu 的 史莱姆攻击 对 Felivol 造成了 30 点 Knock 伤害。生命值：63
-[回合4] 01m 27s:  Felivol 重新获得了来自 BossMu 的 史莱姆毒素
-[回合5] 01m 28s:  回合5
-[回合5] 01m 29s:  FloraFairy 的 栽培 对 Archer 造成了 0 点 Heal 。生命值：96
-[回合5] 01m 29s:  Archer 失去了来自 FloraFairy 的 栽培
-[回合5] 01m 29s:  FloraFairy 的 栽培 对 LiliumGuard 造成了 0 点 Heal 。生命值：138
-[回合5] 01m 29s:  BossMu 的 剧毒酸池 对 Umiko 造成了 8 点 Nature 伤害。生命值：103
-[回合5] 01m 30s:  FloraFairy 的 栽培 对 Felivol 造成了 6 点 Heal 。生命值：69
-[回合5] 01m 30s:  BossMu 的 史莱姆毒素 对 Felivol 造成了 18 点 Nature 伤害。生命值：51
-[回合5] 01m 30s:  Felivol 施放了 蓄力斩, 目标：(11, 0) 
-[回合5] 01m 30s:  Felivol 的 蓄力斩 没有击中 BossMu。生命值：2963
+[8/1/2023 6:39:11 PM] AWAKE
+[回合0] 00m 04s:  Archer 获得了来自 Archer 的 攻击者
+[8/1/2023 6:39:15 PM] Archer 获得了来自 Archer 的 攻击者
+[回合0] 00m 04s:  Archer2 获得了来自 Archer2 的 攻击者
+[8/1/2023 6:39:15 PM] Archer2 获得了来自 Archer2 的 攻击者
+[回合0] 00m 04s:  LiliumGuard 获得了来自 LiliumGuard 的 防卫者
+[8/1/2023 6:39:15 PM] LiliumGuard 获得了来自 LiliumGuard 的 防卫者
+[回合0] 00m 04s:  Explorer 获得了来自 Explorer 的 力量光环
+[8/1/2023 6:39:15 PM] Explorer 获得了来自 Explorer 的 力量光环
+[回合0] 00m 04s:  Archer 获得了来自 Explorer 的 力量光环
+[8/1/2023 6:39:15 PM] Archer 获得了来自 Explorer 的 力量光环
+[回合0] 00m 04s:  LiliumGuard 获得了来自 Explorer 的 力量光环
+[8/1/2023 6:39:15 PM] LiliumGuard 获得了来自 Explorer 的 力量光环
+[回合0] 00m 04s:  FloraFairy 获得了来自 Explorer 的 力量光环
+[8/1/2023 6:39:15 PM] FloraFairy 获得了来自 Explorer 的 力量光环
+[回合0] 00m 04s:  Gaceon 获得了来自 Explorer 的 力量光环
+[8/1/2023 6:39:15 PM] Gaceon 获得了来自 Explorer 的 力量光环
+[回合0] 00m 04s:  Astrologer 获得了来自 Astrologer 的 流星
+[8/1/2023 6:39:15 PM] Astrologer 获得了来自 Astrologer 的 流星
+[回合0] 00m 04s:  Astrologer 获得了来自 Astrologer 的 星能转化
+[8/1/2023 6:39:15 PM] Astrologer 获得了来自 Astrologer 的 星能转化
+[回合0] 00m 04s:  Astrologer 获得了来自 Explorer 的 力量光环
+[8/1/2023 6:39:15 PM] Astrologer 获得了来自 Explorer 的 力量光环
+[回合0] 00m 04s:  Umiko 获得了来自 Umiko 的 生命之歌
+[8/1/2023 6:39:15 PM] Umiko 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 04s:  Archer 获得了来自 Umiko 的 生命之歌
+[8/1/2023 6:39:15 PM] Archer 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 04s:  Archer2 获得了来自 Umiko 的 生命之歌
+[8/1/2023 6:39:15 PM] Archer2 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 04s:  LiliumGuard 获得了来自 Umiko 的 生命之歌
+[8/1/2023 6:39:15 PM] LiliumGuard 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 04s:  FloraFairy 获得了来自 Umiko 的 生命之歌
+[8/1/2023 6:39:15 PM] FloraFairy 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 04s:  Gaceon 获得了来自 Umiko 的 生命之歌
+[8/1/2023 6:39:15 PM] Gaceon 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 04s:  Astrologer 获得了来自 Umiko 的 生命之歌
+[8/1/2023 6:39:15 PM] Astrologer 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 04s:  Umiko 获得了来自 Explorer 的 力量光环
+[8/1/2023 6:39:15 PM] Umiko 获得了来自 Explorer 的 力量光环
+[回合0] 00m 04s:  BossMu 获得了来自 BossMu 的 爆裂 [688]
+[8/1/2023 6:39:15 PM] BossMu 获得了来自 BossMu 的 爆裂 [688]
+[回合0] 00m 04s:  Archer3 获得了来自 Archer3 的 攻击者
+[8/1/2023 6:39:15 PM] Archer3 获得了来自 Archer3 的 攻击者
+[回合0] 00m 04s:  Archer3 获得了来自 Explorer 的 力量光环
+[8/1/2023 6:39:15 PM] Archer3 获得了来自 Explorer 的 力量光环
+[回合0] 00m 04s:  Felivol 获得了来自 Felivol 的 防卫者
+[8/1/2023 6:39:15 PM] Felivol 获得了来自 Felivol 的 防卫者
+[回合0] 00m 04s:  Felivol 获得了来自 Felivol 的 旅者
+[8/1/2023 6:39:15 PM] Felivol 获得了来自 Felivol 的 旅者
+[回合0] 00m 04s:  Felivol 获得了来自 Felivol 的 聆听神谕
+[8/1/2023 6:39:15 PM] Felivol 获得了来自 Felivol 的 聆听神谕
+[回合0] 00m 04s:  Felivol 获得了来自 Felivol 的 祝福之光
+[8/1/2023 6:39:15 PM] Felivol 获得了来自 Felivol 的 祝福之光
+[回合0] 00m 04s:  Felivol 获得了来自 Felivol 的 防御蓄能
+[8/1/2023 6:39:15 PM] Felivol 获得了来自 Felivol 的 防御蓄能
+[回合0] 00m 04s:  Felivol 获得了来自 Explorer 的 力量光环
+[8/1/2023 6:39:15 PM] Felivol 获得了来自 Explorer 的 力量光环
+[回合0] 00m 04s:  Felivol 获得了来自 Umiko 的 生命之歌
+[8/1/2023 6:39:15 PM] Felivol 获得了来自 Umiko 的 生命之歌
+[回合1] 00m 06s:  回合1
+[8/1/2023 6:39:16 PM] 回合1
+[回合1] 00m 09s:  LiliumGuard 施放了 移动, 目标：(11, 0) 
+[8/1/2023 6:39:20 PM] LiliumGuard 施放了 移动, 目标：(11, 0) 
+[回合1] 00m 10s:  LiliumGuard 施放了 拳, 目标：(11, 0) 
+[8/1/2023 6:39:20 PM] LiliumGuard 施放了 拳, 目标：(11, 0) 
+[回合1] 00m 11s:  LiliumGuard 的 拳 对 BossMu 造成了 10 点 Knock 伤害。生命值：3430
+[8/1/2023 6:39:21 PM] LiliumGuard 的 拳 对 BossMu 造成了 10 点 Knock 伤害。生命值：3430
+[回合1] 00m 12s:  Explorer 施放了 响音攻击, 目标：(8, 0) 
+[8/1/2023 6:39:22 PM] Explorer 施放了 响音攻击, 目标：(8, 0) 
+[回合1] 00m 13s:  FloraFairy 施放了 栽培, 目标：(11, 0) 
+[8/1/2023 6:39:23 PM] FloraFairy 施放了 栽培, 目标：(11, 0) 
+[回合1] 00m 13s:  LiliumGuard 获得了来自 FloraFairy 的 栽培
+[8/1/2023 6:39:24 PM] LiliumGuard 获得了来自 FloraFairy 的 栽培
+[回合1] 00m 16s:  BossMu 施放了 分裂, 目标：(11, 0) 
+[8/1/2023 6:39:26 PM] BossMu 施放了 分裂, 目标：(11, 0) 
+[回合1] 00m 17s:  BossMu 失去了来自 BossMu 的 爆裂 [678]
+[8/1/2023 6:39:27 PM] BossMu 失去了来自 BossMu 的 爆裂 [678]
+[回合1] 00m 17s:  BossMu(Clone) 获得了来自 BossMu(Clone) 的 爆裂 [688]
+[8/1/2023 6:39:27 PM] BossMu(Clone) 获得了来自 BossMu(Clone) 的 爆裂 [688]
+[回合1] 00m 17s:  BossMu(Clone) 获得了来自 BossMu(Clone) 的 爆裂 [688]
+[8/1/2023 6:39:27 PM] BossMu(Clone) 获得了来自 BossMu(Clone) 的 爆裂 [688]
+[回合2] 00m 17s:  回合2
+[8/1/2023 6:39:28 PM] 回合2
+[回合2] 00m 19s:  FloraFairy 的 栽培 对 LiliumGuard 造成了 0 点 Heal 。生命值：114
+[8/1/2023 6:39:29 PM] FloraFairy 的 栽培 对 LiliumGuard 造成了 0 点 Heal 。生命值：114
+[回合2] 00m 20s:  LiliumGuard 施放了 拳, 目标：(11, 0) 
+[8/1/2023 6:39:30 PM] LiliumGuard 施放了 拳, 目标：(11, 0) 
+[回合2] 00m 20s:  LiliumGuard 的 拳 对 BossMu 造成了 20 点 Knock 伤害（暴击）。生命值：1356
+[8/1/2023 6:39:31 PM] LiliumGuard 的 拳 对 BossMu 造成了 20 点 Knock 伤害（暴击）。生命值：1356
+[回合2] 00m 25s:  Explorer 施放了 响音攻击, 目标：(8, 0) 
+[8/1/2023 6:39:35 PM] Explorer 施放了 响音攻击, 目标：(8, 0) 
+[回合2] 00m 25s:  Explorer 施放了 响音攻击, 目标：(8, 0) 
+[8/1/2023 6:39:36 PM] Explorer 施放了 响音攻击, 目标：(8, 0) 
+[回合2] 00m 26s:  FloraFairy 施放了 栽培, 目标：(9, 0) 
+[8/1/2023 6:39:36 PM] FloraFairy 施放了 栽培, 目标：(9, 0) 
+[回合2] 00m 27s:  Felivol 获得了来自 FloraFairy 的 栽培
+[8/1/2023 6:39:37 PM] Felivol 获得了来自 FloraFairy 的 栽培
+[回合2] 00m 29s:  BossMu 施放了 粘液翻腾, 目标：(11, 0) 
+[8/1/2023 6:39:40 PM] BossMu 施放了 粘液翻腾, 目标：(11, 0) 
+[回合2] 00m 29s:  BossMu 施放了 史莱姆攻击, 目标：(11, 0) 
+[8/1/2023 6:39:40 PM] BossMu 施放了 史莱姆攻击, 目标：(11, 0) 
+[回合2] 00m 30s:  BossMu 的 史莱姆攻击 对 LiliumGuard 造成了 4 点 Knock 伤害。生命值：0
+[8/1/2023 6:39:41 PM] BossMu 的 史莱姆攻击 对 LiliumGuard 造成了 4 点 Knock 伤害。生命值：0
+[回合2] 00m 30s:  LiliumGuard 失去了来自 LiliumGuard 的 防卫者
+[8/1/2023 6:39:41 PM] LiliumGuard 失去了来自 LiliumGuard 的 防卫者
+[回合2] 00m 30s:  LiliumGuard 失去了来自 Explorer 的 力量光环
+[8/1/2023 6:39:41 PM] LiliumGuard 失去了来自 Explorer 的 力量光环
+[回合2] 00m 30s:  LiliumGuard 失去了来自 Umiko 的 生命之歌
+[8/1/2023 6:39:41 PM] LiliumGuard 失去了来自 Umiko 的 生命之歌
+[回合2] 00m 30s:  LiliumGuard 失去了来自 FloraFairy 的 栽培
+[8/1/2023 6:39:41 PM] LiliumGuard 失去了来自 FloraFairy 的 栽培
+[回合2] 00m 30s:  BossMu 的 史莱姆攻击 击杀了 LiliumGuard !
+[8/1/2023 6:39:41 PM] BossMu 的 史莱姆攻击 击杀了 LiliumGuard !
+[回合3] 00m 30s:  回合3
+[8/1/2023 6:39:41 PM] 回合3
+[回合3] 00m 32s:  FloraFairy 的 栽培 对 Felivol 造成了 0 点 Heal 。生命值：126
+[8/1/2023 6:39:42 PM] FloraFairy 的 栽培 对 Felivol 造成了 0 点 Heal 。生命值：126
+[回合3] 00m 39s:  Umiko 施放了 移动, 目标：(5, 0) 
+[8/1/2023 6:39:49 PM] Umiko 施放了 移动, 目标：(5, 0) 
+[回合3] 00m 40s:  Gaceon 失去了来自 Umiko 的 生命之歌
+[8/1/2023 6:39:50 PM] Gaceon 失去了来自 Umiko 的 生命之歌
+[回合3] 00m 40s:  Astrologer 失去了来自 Umiko 的 生命之歌
+[8/1/2023 6:39:50 PM] Astrologer 失去了来自 Umiko 的 生命之歌
+[回合3] 00m 40s:  Archer3 获得了来自 Umiko 的 生命之歌
+[8/1/2023 6:39:50 PM] Archer3 获得了来自 Umiko 的 生命之歌
+[回合3] 00m 40s:  Felivol 失去了来自 Umiko 的 生命之歌
+[8/1/2023 6:39:50 PM] Felivol 失去了来自 Umiko 的 生命之歌
+[回合3] 00m 40s:  Umiko 失去了来自 Explorer 的 力量光环
+[8/1/2023 6:39:50 PM] Umiko 失去了来自 Explorer 的 力量光环
+[回合3] 00m 42s:  Umiko 施放了 移动, 目标：(4, 0) 
+[8/1/2023 6:39:52 PM] Umiko 施放了 移动, 目标：(4, 0) 
+[回合3] 00m 43s:  FloraFairy 失去了来自 Umiko 的 生命之歌
+[8/1/2023 6:39:53 PM] FloraFairy 失去了来自 Umiko 的 生命之歌
+[回合3] 00m 43s:  Archer3 失去了来自 Umiko 的 生命之歌
+[8/1/2023 6:39:53 PM] Archer3 失去了来自 Umiko 的 生命之歌
+[回合3] 00m 47s:  Explorer 施放了 响音攻击, 目标：(8, 0) 
+[8/1/2023 6:39:57 PM] Explorer 施放了 响音攻击, 目标：(8, 0) 
+[回合3] 00m 47s:  FloraFairy 施放了 栽培, 目标：(5, 0) 
+[8/1/2023 6:39:58 PM] FloraFairy 施放了 栽培, 目标：(5, 0) 
+[回合3] 00m 48s:  Archer 获得了来自 FloraFairy 的 栽培
+[8/1/2023 6:39:59 PM] Archer 获得了来自 FloraFairy 的 栽培
+[回合3] 00m 50s:  BossMu 施放了 小史莱姆标记, 目标：(11, 0) 
+[8/1/2023 6:40:01 PM] BossMu 施放了 小史莱姆标记, 目标：(11, 0) 
+[回合3] 00m 51s:  Explorer 获得了来自 BossMu 的 锁定
+[8/1/2023 6:40:01 PM] Explorer 获得了来自 BossMu 的 锁定
+[回合3] 00m 51s:  BossMu 施放了 移动, 目标：(11, 0) 
+[8/1/2023 6:40:01 PM] BossMu 施放了 移动, 目标：(11, 0) 
+[回合3] 00m 51s:  BossMu 施放了 移动, 目标：(11, 0) 
+[8/1/2023 6:40:02 PM] BossMu 施放了 移动, 目标：(11, 0) 
+[回合3] 00m 51s:  BossMu 施放了 移动, 目标：(10, 0) 
+[8/1/2023 6:40:02 PM] BossMu 施放了 移动, 目标：(10, 0) 
+[回合3] 00m 52s:  BossMu 施放了 小史莱姆标记, 目标：(11, 0) 
+[8/1/2023 6:40:02 PM] BossMu 施放了 小史莱姆标记, 目标：(11, 0) 
+[回合3] 00m 53s:  Felivol 获得了来自 BossMu 的 锁定
+[8/1/2023 6:40:03 PM] Felivol 获得了来自 BossMu 的 锁定
+[回合4] 00m 53s:  回合4
+[8/1/2023 6:40:03 PM] 回合4
+[回合4] 00m 54s:  FloraFairy 的 栽培 对 Archer 造成了 0 点 Heal 。生命值：96
+[8/1/2023 6:40:04 PM] FloraFairy 的 栽培 对 Archer 造成了 0 点 Heal 。生命值：96
+[回合4] 00m 54s:  FloraFairy 的 栽培 对 Felivol 造成了 0 点 Heal 。生命值：126
+[8/1/2023 6:40:05 PM] FloraFairy 的 栽培 对 Felivol 造成了 0 点 Heal 。生命值：126
+[回合4] 00m 56s:  Umiko 施放了 移动, 目标：(7, 0) 
+[8/1/2023 6:40:06 PM] Umiko 施放了 移动, 目标：(7, 0) 
+[回合4] 00m 57s:  Archer 失去了来自 Umiko 的 生命之歌
+[8/1/2023 6:40:07 PM] Archer 失去了来自 Umiko 的 生命之歌
+[回合4] 00m 57s:  FloraFairy 获得了来自 Umiko 的 生命之歌
+[8/1/2023 6:40:07 PM] FloraFairy 获得了来自 Umiko 的 生命之歌
+[回合4] 00m 58s:  Umiko 施放了 移动, 目标：(9, 0) 
+[8/1/2023 6:40:08 PM] Umiko 施放了 移动, 目标：(9, 0) 
+[回合4] 00m 58s:  Astrologer 获得了来自 Umiko 的 生命之歌
+[8/1/2023 6:40:09 PM] Astrologer 获得了来自 Umiko 的 生命之歌
+[回合4] 00m 58s:  Felivol 获得了来自 Umiko 的 生命之歌
+[8/1/2023 6:40:09 PM] Felivol 获得了来自 Umiko 的 生命之歌
+[回合4] 00m 58s:  Umiko 获得了来自 Explorer 的 力量光环
+[8/1/2023 6:40:09 PM] Umiko 获得了来自 Explorer 的 力量光环
+[回合4] 01m 06s:  FloraFairy 施放了 移动, 目标：(8, 0) 
+[8/1/2023 6:40:16 PM] FloraFairy 施放了 移动, 目标：(8, 0) 
+[回合4] 01m 07s:  FloraFairy 施放了 复活, 目标：(11, 0) 
+[8/1/2023 6:40:17 PM] FloraFairy 施放了 复活, 目标：(11, 0) 
+[回合4] 01m 07s:  LiliumGuard 获得了来自 LiliumGuard 的 防卫者
+[8/1/2023 6:40:17 PM] LiliumGuard 获得了来自 LiliumGuard 的 防卫者
+[回合4] 01m 07s:  FloraFairy 的 复活 对 LiliumGuard 造成了 36 点 Heal 。生命值：37
+[8/1/2023 6:40:17 PM] FloraFairy 的 复活 对 LiliumGuard 造成了 36 点 Heal 。生命值：37
+[回合4] 01m 12s:  Umiko 施放了 移动, 目标：(9, 0) 
+[8/1/2023 6:40:23 PM] Umiko 施放了 移动, 目标：(9, 0) 
+[回合4] 01m 13s:  Umiko 失去了来自 Explorer 的 力量光环
+[8/1/2023 6:40:23 PM] Umiko 失去了来自 Explorer 的 力量光环
+[回合4] 01m 14s:  Explorer 施放了 响音攻击, 目标：(8, 0) 
+[8/1/2023 6:40:25 PM] Explorer 施放了 响音攻击, 目标：(8, 0) 
+[回合4] 01m 14s:  Explorer 施放了 响音攻击, 目标：(8, 0) 
+[8/1/2023 6:40:25 PM] Explorer 施放了 响音攻击, 目标：(8, 0) 
+[回合4] 01m 15s:  FloraFairy 施放了 栽培, 目标：(11, 0) 
+[8/1/2023 6:40:25 PM] FloraFairy 施放了 栽培, 目标：(11, 0) 
+[回合4] 01m 16s:  LiliumGuard 获得了来自 FloraFairy 的 栽培
+[8/1/2023 6:40:26 PM] LiliumGuard 获得了来自 FloraFairy 的 栽培
+[回合4] 01m 18s:  BossMu 的 粘液翻腾 对 Archer 造成了 60 点 Knock 伤害。生命值：36
+[8/1/2023 6:40:29 PM] BossMu 的 粘液翻腾 对 Archer 造成了 60 点 Knock 伤害。生命值：36
+[回合4] 01m 18s:  BossMu 的 粘液翻腾 对 Archer2 造成了 60 点 Knock 伤害。生命值：36
+[8/1/2023 6:40:29 PM] BossMu 的 粘液翻腾 对 Archer2 造成了 60 点 Knock 伤害。生命值：36
+[回合4] 01m 19s:  BossMu 的 粘液翻腾 对 Explorer 造成了 60 点 Knock 伤害。生命值：66
+[8/1/2023 6:40:29 PM] BossMu 的 粘液翻腾 对 Explorer 造成了 60 点 Knock 伤害。生命值：66
+[回合4] 01m 19s:  BossMu 的 粘液翻腾 对 Gaceon 造成了 60 点 Knock 伤害。生命值：42
+[8/1/2023 6:40:29 PM] BossMu 的 粘液翻腾 对 Gaceon 造成了 60 点 Knock 伤害。生命值：42
+[回合4] 01m 19s:  BossMu 的 粘液翻腾 对 Astrologer 造成了 60 点 Knock 伤害。生命值：30
+[8/1/2023 6:40:29 PM] BossMu 的 粘液翻腾 对 Astrologer 造成了 60 点 Knock 伤害。生命值：30
+[回合4] 01m 19s:  BossMu 的 粘液翻腾 对 Archer3 造成了 60 点 Knock 伤害。生命值：36
+[8/1/2023 6:40:30 PM] BossMu 的 粘液翻腾 对 Archer3 造成了 60 点 Knock 伤害。生命值：36
+[回合4] 01m 19s:  BossMu 的 粘液翻腾 对 Felivol 造成了 60 点 Knock 伤害。生命值：66
+[8/1/2023 6:40:30 PM] BossMu 的 粘液翻腾 对 Felivol 造成了 60 点 Knock 伤害。生命值：66
+[回合4] 01m 19s:  BossMu 施放了 小史莱姆投掷, 目标：(10, 0) 
+[8/1/2023 6:40:30 PM] BossMu 施放了 小史莱姆投掷, 目标：(10, 0) 
+[回合4] 01m 21s:  BossMu 的 小史莱姆投掷 对 Explorer 造成了 15 点 Nature 伤害。生命值：51
+[8/1/2023 6:40:31 PM] BossMu 的 小史莱姆投掷 对 Explorer 造成了 15 点 Nature 伤害。生命值：51
+[回合4] 01m 21s:  Explorer 失去了来自 BossMu 的 锁定
+[8/1/2023 6:40:31 PM] Explorer 失去了来自 BossMu 的 锁定
+[回合4] 01m 21s:  Explorer 获得了来自 BossMu 的 剧毒酸池
+[8/1/2023 6:40:31 PM] Explorer 获得了来自 BossMu 的 剧毒酸池
+[回合4] 01m 21s:  BossMu 施放了 移动, 目标：(10, 0) 
+[8/1/2023 6:40:31 PM] BossMu 施放了 移动, 目标：(10, 0) 
+[回合4] 01m 21s:  SmallMu(Clone) 获得了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[8/1/2023 6:40:31 PM] SmallMu(Clone) 获得了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[回合4] 01m 21s:  BossMu 施放了 移动, 目标：(10, 0) 
+[8/1/2023 6:40:31 PM] BossMu 施放了 移动, 目标：(10, 0) 
+[回合4] 01m 21s:  BossMu 施放了 移动, 目标：(9, 0) 
+[8/1/2023 6:40:31 PM] BossMu 施放了 移动, 目标：(9, 0) 
+[回合4] 01m 21s:  BossMu 施放了 小史莱姆投掷, 目标：(11, 0) 
+[8/1/2023 6:40:32 PM] BossMu 施放了 小史莱姆投掷, 目标：(11, 0) 
+[回合4] 01m 23s:  BossMu 的 小史莱姆投掷 对 Felivol 造成了 15 点 Nature 伤害。生命值：51
+[8/1/2023 6:40:33 PM] BossMu 的 小史莱姆投掷 对 Felivol 造成了 15 点 Nature 伤害。生命值：51
+[回合4] 01m 23s:  Felivol 失去了来自 BossMu 的 锁定
+[8/1/2023 6:40:33 PM] Felivol 失去了来自 BossMu 的 锁定
+[回合4] 01m 23s:  Felivol 获得了来自 BossMu 的 剧毒酸池
+[8/1/2023 6:40:33 PM] Felivol 获得了来自 BossMu 的 剧毒酸池
+[回合4] 01m 23s:  Astrologer 获得了来自 BossMu 的 剧毒酸池
+[8/1/2023 6:40:33 PM] Astrologer 获得了来自 BossMu 的 剧毒酸池
+[回合4] 01m 23s:  BossMu 施放了 移动, 目标：(10, 0) 
+[8/1/2023 6:40:33 PM] BossMu 施放了 移动, 目标：(10, 0) 
+[回合4] 01m 23s:  SmallMu(Clone) 获得了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[8/1/2023 6:40:33 PM] SmallMu(Clone) 获得了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[回合4] 01m 23s:  BossMu 施放了 移动, 目标：(10, 0) 
+[8/1/2023 6:40:33 PM] BossMu 施放了 移动, 目标：(10, 0) 
+[回合4] 01m 23s:  BossMu 施放了 移动, 目标：(10, 0) 
+[8/1/2023 6:40:33 PM] BossMu 施放了 移动, 目标：(10, 0) 
+[回合5] 01m 24s:  回合5
+[8/1/2023 6:40:34 PM] 回合5
+[回合5] 01m 25s:  FloraFairy 的 栽培 对 Archer 造成了 8 点 Heal 。生命值：44
+[8/1/2023 6:40:35 PM] FloraFairy 的 栽培 对 Archer 造成了 8 点 Heal 。生命值：44
+[回合5] 01m 25s:  FloraFairy 的 栽培 对 LiliumGuard 造成了 8 点 Heal 。生命值：45
+[8/1/2023 6:40:35 PM] FloraFairy 的 栽培 对 LiliumGuard 造成了 8 点 Heal 。生命值：45
+[回合5] 01m 25s:  BossMu 的 剧毒酸池 对 Explorer 造成了 8 点 Nature 伤害。生命值：43
+[8/1/2023 6:40:35 PM] BossMu 的 剧毒酸池 对 Explorer 造成了 8 点 Nature 伤害。生命值：43
+[回合5] 01m 25s:  BossMu 的 剧毒酸池 对 Astrologer 造成了 8 点 Nature 伤害。生命值：22
+[8/1/2023 6:40:36 PM] BossMu 的 剧毒酸池 对 Astrologer 造成了 8 点 Nature 伤害。生命值：22
+[回合5] 01m 26s:  BossMu 的 剧毒酸池 对 Felivol 造成了 8 点 Nature 伤害。生命值：43
+[8/1/2023 6:40:36 PM] BossMu 的 剧毒酸池 对 Felivol 造成了 8 点 Nature 伤害。生命值：43
+[回合5] 01m 26s:  FloraFairy 的 栽培 对 Felivol 造成了 8 点 Heal 。生命值：51
+[8/1/2023 6:40:36 PM] FloraFairy 的 栽培 对 Felivol 造成了 8 点 Heal 。生命值：51
+[回合5] 01m 26s:  Felivol 失去了来自 FloraFairy 的 栽培
+[8/1/2023 6:40:36 PM] Felivol 失去了来自 FloraFairy 的 栽培
+[回合5] 01m 28s:  Umiko 施放了 移动, 目标：(9, 0) 
+[8/1/2023 6:40:38 PM] Umiko 施放了 移动, 目标：(9, 0) 
+[回合5] 01m 28s:  Archer2 失去了来自 Umiko 的 生命之歌
+[8/1/2023 6:40:38 PM] Archer2 失去了来自 Umiko 的 生命之歌
+[回合5] 01m 28s:  FloraFairy 失去了来自 Umiko 的 生命之歌
+[8/1/2023 6:40:38 PM] FloraFairy 失去了来自 Umiko 的 生命之歌
+[回合5] 01m 28s:  Astrologer 失去了来自 Umiko 的 生命之歌
+[8/1/2023 6:40:38 PM] Astrologer 失去了来自 Umiko 的 生命之歌
+[回合5] 01m 28s:  Felivol 失去了来自 Umiko 的 生命之歌
+[8/1/2023 6:40:38 PM] Felivol 失去了来自 Umiko 的 生命之歌
+[回合5] 01m 29s:  Umiko 施放了 移动, 目标：(9, 0) 
+[8/1/2023 6:40:39 PM] Umiko 施放了 移动, 目标：(9, 0) 
+[回合5] 01m 30s:  Umiko 施放了 移动, 目标：(9, 0) 
+[8/1/2023 6:40:40 PM] Umiko 施放了 移动, 目标：(9, 0) 
+[回合5] 01m 30s:  Umiko 施放了 移动, 目标：(9, 0) 
+[8/1/2023 6:40:41 PM] Umiko 施放了 移动, 目标：(9, 0) 
+[回合5] 01m 31s:  Archer2 获得了来自 Umiko 的 生命之歌
+[8/1/2023 6:40:41 PM] Archer2 获得了来自 Umiko 的 生命之歌
+[回合5] 01m 31s:  LiliumGuard 获得了来自 Umiko 的 生命之歌
+[8/1/2023 6:40:41 PM] LiliumGuard 获得了来自 Umiko 的 生命之歌
+[回合5] 01m 31s:  FloraFairy 获得了来自 Umiko 的 生命之歌
+[8/1/2023 6:40:41 PM] FloraFairy 获得了来自 Umiko 的 生命之歌
+[回合5] 01m 31s:  Astrologer 获得了来自 Umiko 的 生命之歌
+[8/1/2023 6:40:41 PM] Astrologer 获得了来自 Umiko 的 生命之歌
+[回合5] 01m 31s:  Felivol 获得了来自 Umiko 的 生命之歌
+[8/1/2023 6:40:41 PM] Felivol 获得了来自 Umiko 的 生命之歌

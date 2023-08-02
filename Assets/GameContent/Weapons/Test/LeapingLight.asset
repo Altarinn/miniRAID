@@ -186,7 +186,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 2
+      Data: 3
     - Name: $v
       Entry: 7
       Data: miniRAID.StatModifierSO+dNumberModifier, Assembly-CSharp
@@ -278,9 +278,9 @@ MonoBehaviour:
   icon: {fileID: -29721864, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
   nameKey:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:734f24eb6407f4222bbf39e210223d35
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 27976463802368
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0

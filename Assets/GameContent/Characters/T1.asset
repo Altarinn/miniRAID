@@ -99,10 +99,10 @@ MonoBehaviour:
   - data: {fileID: 11400000, guid: 864aed35e40c4eb4298ef9498115c257, type: 2}
     level: 0
   baseStats:
-    VIT: 18
+    VIT: 14
     STR: 18
-    MAG: 13
+    MAG: 14
     INT: 7
-    DEX: 6
+    DEX: 10
     TEC: 13
   healPriority: 1.4

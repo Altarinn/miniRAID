@@ -167,7 +167,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1545101661249536
-    m_Localized: "\u88C1\u51B3\u91CD\u9524"
+    m_Localized: "\u5723\u795D\uFF1A\u88C1\u51B3\u91CD\u9524"
     m_Metadata:
       m_Items: []
   - m_Id: 1722873163620352
@@ -236,7 +236,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2147055982682112
-    m_Localized: "\u5DE8\u77F3\u575A\u76FE"
+    m_Localized: "\u5723\u795D\uFF1A\u5DE8\u77F3\u575A\u76FE"
     m_Metadata:
       m_Items: []
   - m_Id: 2315195844730880
@@ -244,7 +244,56 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2319153438990336
-    m_Localized: "\u6218\u5730\u7977\u544A"
+    m_Localized: "\u7948\u7977\uFF1A\u6218\u5730\u7977\u544A"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2339517288669184
+    m_Localized: "\u6CD5\u529B\u62A4\u76FE"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2348440951447552
+    m_Localized: "\u6C34\u6CE1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2350024829689856
+    m_Localized: "\u6C34\u6CE1\u62A4\u76FE"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2351751704338432
+    m_Localized: "\u751F\u547D\u4E4B\u6B4C"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2388361368035328
+    m_Localized: "\u5F57\u661F\u7BAD"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2389927340793856
+    m_Localized: "\u5BF9\u76EE\u6807\u9020\u6210{HitPower}\u70B9\u51B0\u971C\u4F24\u5BB3\u3002"
+    m_Metadata:
+      m_Items:
+      - rid: 4697850929816272899
+  - m_Id: 2390249345900544
+    m_Localized: "\u5927\u5F57\u661F\u7BAD"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2566351288786944
+    m_Localized: "\u95EA\u5149"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2673815069908992
+    m_Localized: "\u65C5\u8005"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2869994433011712
+    m_Localized: "\u6CD5\u529B\u4F20\u9012"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2883997322436608
+    m_Localized: "\u9632\u5FA1\u84C4\u80FD"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2892666319659008
+    m_Localized: "\u590D\u6D3B"
     m_Metadata:
       m_Items: []
   references:
@@ -253,4 +302,4 @@ MonoBehaviour:
     - rid: 4697850929816272899
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 002069535b290500002069ec4d5b050000202924f25b05000020694b385c05000020e974085f0500002029a1245f0500002069af73100700
+        m_Entries: 002069535b290500002069ec4d5b050000202924f25b05000020694b385c05000020e974085f0500002029a1245f0500002069af7310070000e02f52a07d0800

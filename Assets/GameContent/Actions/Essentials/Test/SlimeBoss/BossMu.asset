@@ -81,7 +81,7 @@ MonoBehaviour:
       Data: miniRAID.EnemyMobDescriptorSO+EnemyStatBase, Assembly-CSharp
     - Name: MaxHP
       Entry: 3
-      Data: 3080
+      Data: 3440
     - Name: ExHitAcc
       Entry: 4
       Data: 2
@@ -107,7 +107,7 @@ MonoBehaviour:
   rendererPrefab: {fileID: 0}
   movementType: 0
   movable: 1
-  moveRange: 3
+  moveRange: 4
   mainWeaponSO: {fileID: 11400000, guid: 4987ed499923f44c0a29d489d03fda52, type: 2}
   subWeaponSO: {fileID: 0}
   listenerSOs:

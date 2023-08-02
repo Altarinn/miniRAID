@@ -25,7 +25,7 @@ MonoBehaviour:
   Id: 134
   icon: {fileID: 0}
   raceName: "\u9AD8\u5C71\u7CBE\u7075"
-  baseGrowthMultiplier:
+  baseGrowthModifier:
     VIT:
       valueType: 0
       staticValue: 0
@@ -80,5 +80,7 @@ MonoBehaviour:
       addedValue: 0
       addMultiplier: 0
       mulMultiplier: 0
-  racePassives: []
+  racePassives:
+  - data: {fileID: 11400000, guid: f9424ddede1604ee9a62cf389b896f68, type: 2}
+    level: 0
   raceActions: []

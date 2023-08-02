@@ -69,7 +69,7 @@ namespace GameContent.Buffs.Test
             {
                 validTargets.Add(mob);
                 mob.OnMobMoved += TargetOnMobMoved;
-                TargetOnMobMoved(mob);
+                TargetOnMobMoved(mob, mob.Position);
             }
         }
         
@@ -83,15 +83,15 @@ namespace GameContent.Buffs.Test
             }
         }
 
-        protected void SourceOnMobMoved(MobData mob)
+        protected void SourceOnMobMoved(MobData mob, Vector3Int from)
         {
             foreach (var target in validTargets)
             {
-                TargetOnMobMoved(target);
+                TargetOnMobMoved(target, target.Position);
             }
         }
 
-        protected void TargetOnMobMoved(MobData mob)
+        protected void TargetOnMobMoved(MobData mob, Vector3Int from)
         {
             // Ignore non-target mobs. Should not be triggered tho?
             if (!((AuraEffectSO)buffData).filter.Check(source, mob))

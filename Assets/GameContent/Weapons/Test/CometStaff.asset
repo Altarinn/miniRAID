@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8e4a27bb63f4b3999d4413cf53d31e5, type: 3}
-  m_Name: TestStaff
+  m_Name: CometStaff
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -233,7 +233,15 @@ MonoBehaviour:
   Guid: 76a9c57ee01848339e412b260f53a1b2
   Id: 117
   icon: {fileID: 0}
-  name: "\u5F57\u661F\u6756"
+  nameKey:
+    m_TableReference:
+      m_TableCollectionName: GUID:734f24eb6407f4222bbf39e210223d35
+    m_TableEntryReference:
+      m_KeyId: 49524532830208
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   type: 1
   priority: 0
   itemLevel: 24
@@ -247,10 +255,13 @@ MonoBehaviour:
     TEC: 0
   wpType: 5
   regularAttack:
-    data: {fileID: 11400000, guid: 8b916b35a6fafab489e1fdc98610cdd5, type: 2}
+    data: {fileID: 11400000, guid: 2a4d462aae6574ce78f2c9ca31e33b8e, type: 2}
     level: 0
   mainElement: 4
   specialAttack:
-    data: {fileID: 11400000, guid: e024be0bdd80df747869dade38c631b9, type: 2}
+    data: {fileID: 11400000, guid: faa2c487e1f6c4824976cdbf736fc3d9, type: 2}
     level: 0
   regenTime: 2
+  references:
+    version: 2
+    RefIds: []

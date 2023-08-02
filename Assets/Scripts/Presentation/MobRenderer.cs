@@ -69,7 +69,7 @@ namespace miniRAID
             animator = GetComponent<Animator>();
 
             backend = Databackend.GetSingleton();
-            UpdateGridPos();
+            // UpdateGridPos();
 
             // // Find my bodies
             // data.gridBody = new GridShape();
@@ -97,9 +97,14 @@ namespace miniRAID
         }
 
         // TODO: Move move-related to MobData
-        void UpdateGridPos()
+        // void UpdateGridPos()
+        // {
+        //     data.Position = backend.GetGridPos(transform.position);
+        // }
+
+        public void SyncRendererPosition()
         {
-            data.Position = backend.GetGridPos(transform.position);
+            transform.position = backend.GridToWorldPosCentered(data.Position);
         }
 
         public IEnumerator MoveTowards(Vector3Int targetPos)
@@ -116,7 +121,7 @@ namespace miniRAID
                 yield return null;
             }
 
-            transform.position = targetPosReal;
+            SyncRendererPosition();
         }
 
         public void UpdateStatusColor()
@@ -156,7 +161,7 @@ namespace miniRAID
             UpdateStatusColor();
         }
 
-        public IEnumerator Killed(Consts.DamageHeal_Result info)
+        public IEnumerator Killed(Consts.DamageHeal_Result info, bool destroy = true)
         {
             Globals.combatTracker.Record(new Consts.KillEvent
             {
@@ -164,9 +169,12 @@ namespace miniRAID
             });
             
             // TODO: Proper logic to destroy
-            GetComponentInChildren<SpriteRenderer>().enabled = false;
-            Destroy(this.gameObject);
-            
+            if (destroy)
+            {
+                GetComponentInChildren<SpriteRenderer>().enabled = false;
+                Destroy(this.gameObject);
+            }
+
             yield break;
         }
         

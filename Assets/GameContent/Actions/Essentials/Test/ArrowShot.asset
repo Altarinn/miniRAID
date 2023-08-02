@@ -470,7 +470,7 @@ MonoBehaviour:
       Data: 1
     - Name: range
       Entry: 3
-      Data: 12
+      Data: 6
     - Name: enemyType
       Entry: 3
       Data: 1

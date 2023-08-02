@@ -44,7 +44,7 @@ namespace miniRAID
         public Vector3Int Position
         {
             get { return _position; }
-            set 
+            private set 
             {
                 if(value != _position)
                 {
@@ -52,11 +52,19 @@ namespace miniRAID
                         _position,
                         value,
                         this);
-                    _position = value; 
-                    OnMobMoved?.Invoke(this);
+                    _position = value;
+                    mobRenderer?.SyncRendererPosition();
                 }
             }
         }
+
+        public IEnumerator SetPosition(Vector3Int position)
+        {
+            var prevPos = Position;
+            Position = position;
+            yield return new JumpIn(OnMobMoved?.Invoke(this, prevPos));
+        }
+        
         public bool isActive { get; private set; }
         public bool isDead { get; private set; }
         public bool isControllable => isActive && (!isDead);
@@ -146,6 +154,8 @@ namespace miniRAID
 
         public void Init()
         {
+            Position = Globals.backend.GetGridPos(mobRenderer.transform.position);
+            
             baseDescriptor.InitializeMobData(this);
             
             // Initial stats calculation
@@ -176,16 +186,21 @@ namespace miniRAID
 
         public void OnWakeUp()
         {
+            GCDstatus.Clear();
+            actedThisTurn = false;
+            movedGrids = 0;
+            
+            if (isDead)
+            {
+                return;
+            }
+            
             //_actionPoints = baseActionPoints + extraActionPoints;
             //extraActionPoints = (dNumber)0;
 
             _actionPointsMul100 += Mathf.RoundToInt(apRecovery * 100);
             if(_actionPointsMul100 > apMax * 100) { _actionPointsMul100 = apMax * 100; }
-            GCDstatus.Clear();
-            
-            actedThisTurn = false;
-            movedGrids = 0;
-            
+
             mobRenderer?.OnWakeUp();
         }
 

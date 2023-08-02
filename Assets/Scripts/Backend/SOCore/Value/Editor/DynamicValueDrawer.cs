@@ -469,17 +469,20 @@ namespace miniRAID.Editor
             }
             else
             {
+                EditorGUILayout.BeginHorizontal();
+                
                 var p = Property.FindChild(x => x.Name == "values", false);
                 if (value.isLeveled)
                 {
                     for (int i = 0; i < value.values.Length; i++)
                     {
-                        p.Children[i].Draw(null);
+                        // p.Children[i].Draw(i == 0 ? label : null);
+                        p.Children[i].Draw(null); // TODO: FIXME: Draw correctly here
                     }
                 }
                 else
                 {
-                    p.Children[0].Draw(null);
+                    p.Children[0].Draw(label);
                 }
                 
                 value.isLeveled = SirenixEditorGUI.ToolbarToggle(value.isLeveled, "L");
@@ -488,6 +491,8 @@ namespace miniRAID.Editor
                     Property.RecordForUndo();
                     ValueEntry.SmartValue = value;
                 }
+                
+                EditorGUILayout.EndHorizontal();
             }
         }
     }

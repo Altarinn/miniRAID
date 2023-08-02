@@ -94,6 +94,8 @@ MonoBehaviour:
     level: 2
   - data: {fileID: 11400000, guid: 1d5c520dc12d2f6438f4f04a8cbccbf4, type: 2}
     level: 0
+  - data: {fileID: 11400000, guid: 59c7ab3bcc40f4e2f9dddddc98b46a84, type: 2}
+    level: 0
   classActions:
   - data: {fileID: 11400000, guid: 1e9626ef48fa90940ac576624badc7ab, type: 2}
     level: 0

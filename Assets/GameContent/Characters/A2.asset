@@ -87,7 +87,7 @@ MonoBehaviour:
   movementType: 0
   movable: 1
   moveRange: 3
-  mainWeaponSO: {fileID: 11400000, guid: 26e73e74e653a0948987f703ed7230eb, type: 2}
+  mainWeaponSO: {fileID: 11400000, guid: a4dd8ad4ef29749eda314a4f40e64512, type: 2}
   subWeaponSO: {fileID: 0}
   listenerSOs:
   - {fileID: 11400000, guid: 3d81a9427e5722e44a2a27b96379ef06, type: 2}

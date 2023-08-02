@@ -1,0 +1,689 @@
+- Start of debug log -
+[7/31/2023 6:50:03 AM] AWAKE
+[回合0] 00m 04s:  Archer 获得了来自 Archer 的 攻击者
+[回合0] 00m 04s:  Mequie 获得了来自 Mequie 的 攻击者
+[回合0] 00m 04s:  LiliumGuard 获得了来自 LiliumGuard 的 防卫者
+[回合0] 00m 04s:  Alice 获得了来自 Alice 的 力量光环
+[回合0] 00m 04s:  Archer 获得了来自 Alice 的 力量光环
+[回合0] 00m 04s:  LiliumGuard 获得了来自 Alice 的 力量光环
+[回合0] 00m 04s:  FloraFairy 获得了来自 Alice 的 力量光环
+[回合0] 00m 04s:  Gaceon 获得了来自 Alice 的 力量光环
+[回合0] 00m 04s:  Astrologer 获得了来自 Astrologer 的 流星
+[回合0] 00m 04s:  Astrologer 获得了来自 Astrologer 的 星能转化
+[回合0] 00m 04s:  Astrologer 获得了来自 Alice 的 力量光环
+[回合0] 00m 04s:  Umiko 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 04s:  Archer 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 04s:  Mequie 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 04s:  LiliumGuard 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 04s:  FloraFairy 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 04s:  Gaceon 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 04s:  Astrologer 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 04s:  Umiko 获得了来自 Alice 的 力量光环
+[回合0] 00m 04s:  BossMu 获得了来自 BossMu 的 爆裂 [616]
+[回合0] 00m 04s:  Warrior 获得了来自 Warrior 的 攻击者
+[回合0] 00m 04s:  Warrior 获得了来自 Alice 的 力量光环
+[回合0] 00m 04s:  Felivol 获得了来自 Felivol 的 防卫者
+[回合0] 00m 04s:  Felivol 获得了来自 Felivol 的 聆听神谕
+[回合0] 00m 04s:  Felivol 获得了来自 Felivol 的 祝福之光
+[回合0] 00m 04s:  Felivol 获得了来自 Alice 的 力量光环
+[回合0] 00m 04s:  Felivol 获得了来自 Umiko 的 生命之歌
+[回合1] 00m 05s:  回合1
+[回合1] 00m 27s:  LiliumGuard 施放了 移动, 目标：(10, 0)
+[回合1] 00m 33s:  LiliumGuard 施放了 拳, 目标：(11, 0)
+[回合1] 00m 34s:  LiliumGuard 的 拳 对 BossMu 造成了 10 点 Knock 伤害。生命值：3070
+[回合1] 00m 40s:  Felivol 施放了 移动, 目标：(9, 0)
+[回合1] 00m 43s:  Umiko 施放了 移动, 目标：(9, 0)
+[回合1] 00m 45s:  Umiko 施放了 水泡, 目标：(11, 0)
+[回合1] 00m 46s:  Umiko 的 水泡 对 BossMu 造成了 11 点 Water 伤害。生命值：3059
+[回合1] 00m 46s:  Felivol 获得了来自 Umiko 的 水泡护盾
+[回合1] 00m 46s:  LiliumGuard 获得了来自 Umiko 的 水泡护盾
+[回合1] 00m 50s:  Felivol 施放了 移动, 目标：(9, 0)
+[回合1] 00m 59s:  Felivol 施放了 战地祷告, 目标：(10, 0)
+[回合1] 01m 00s:  Felivol 的 战地祷告 对 Felivol 造成了 0 点 Heal 。生命值：126
+[回合1] 01m 00s:  Felivol 重新获得了来自 Felivol 的 祝福之光
+[回合1] 01m 05s:  LiliumGuard 施放了 移动, 目标：(10, 0)
+[回合1] 01m 08s:  Alice 施放了 响音攻击, 目标：(8, 0)
+[回合1] 01m 09s:  FloraFairy 施放了 栽培, 目标：(10, 0)
+[回合1] 01m 09s:  LiliumGuard 获得了来自 FloraFairy 的 栽培
+[回合1] 01m 11s:  BossMu 施放了 分裂, 目标：(11, 0)
+[回合1] 01m 13s:  BossMu 失去了来自 BossMu 的 爆裂 [595]
+[回合1] 01m 13s:  BossMu(Clone) 获得了来自 BossMu(Clone) 的 爆裂 [616]
+[回合1] 01m 13s:  BossMu(Clone) 获得了来自 BossMu(Clone) 的 爆裂 [616]
+[回合2] 01m 13s:  回合2
+[回合2] 01m 14s:  FloraFairy 的 栽培 对 LiliumGuard 造成了 0 点 Heal 。生命值：114
+[回合2] 01m 14s:  Felivol 施放了 蓄力斩, 目标：(10, 0)
+[回合2] 01m 15s:  Felivol 的 蓄力斩 对 BossMu 造成了 47 点 Slash 伤害。生命值：1185
+[回合2] 01m 20s:  Felivol 施放了 奔袭, 目标：(11, 0)
+[回合2] 01m 20s:  Felivol 失去了来自 Alice 的 力量光环
+[回合2] 01m 31s:  Felivol 失去了来自 Felivol 的 祝福之光
+[回合2] 01m 31s:  Felivol 施放了 巨石坚盾, 目标：(11, 0)
+[回合2] 01m 32s:  Felivol 获得了来自 Felivol 的 巨石坚盾
+[回合2] 01m 32s:  Felivol 重新获得了来自 Felivol 的 巨石坚盾
+[回合2] 01m 32s:  Felivol 重新获得了来自 Felivol 的 巨石坚盾
+[回合2] 01m 35s:  Felivol 施放了 战地祷告, 目标：(11, 0)
+[回合2] 01m 37s:  Felivol 的 战地祷告 对 Felivol 造成了 0 点 Heal 。生命值：126
+[回合2] 01m 37s:  Felivol 获得了来自 Felivol 的 祝福之光
+[回合2] 01m 49s:  Umiko 施放了 移动, 目标：(10, 0)
+[回合2] 01m 49s:  Mequie 失去了来自 Umiko 的 生命之歌
+[回合2] 01m 51s:  Umiko 施放了 水泡, 目标：(11, 0)
+[回合2] 01m 52s:  Umiko 的 水泡 对 BossMu 造成了 11 点 Water 伤害。生命值：1221
+[回合2] 01m 52s:  LiliumGuard 重新获得了来自 Umiko 的 水泡护盾
+[回合2] 02m 04s:  LiliumGuard 施放了 拳, 目标：(11, 0)
+[回合2] 02m 05s:  LiliumGuard 的 拳 没有击中 BossMu。生命值：1221
+[回合2] 02m 07s:  LiliumGuard 施放了 拳, 目标：(11, 0)
+[回合2] 02m 07s:  LiliumGuard 的 拳 没有击中 BossMu。生命值：1221
+[回合2] 02m 08s:  LiliumGuard 施放了 拳, 目标：(11, 0)
+[回合2] 02m 09s:  LiliumGuard 的 拳 对 BossMu 造成了 10 点 Knock 伤害。生命值：1211
+[回合2] 02m 15s:  Astrologer 施放了 星光超流, 目标：(11, 0)
+[回合2] 02m 15s:  Astrologer 的 星光超流 对 BossMu 造成了 37 点 Light 伤害。生命值：1174
+[回合2] 02m 15s:  BossMu 获得了来自 Astrologer 的 繁星道标
+[回合2] 02m 18s:  Astrologer 施放了 射击, 目标：(11, 0)
+[回合2] 02m 19s:  Astrologer 的 射击 对 BossMu 造成了 13 点 Pierce 伤害。生命值：1161
+[回合2] 02m 32s:  Alice 施放了 移动, 目标：(8, 0)
+[回合2] 02m 32s:  Mequie 获得了来自 Alice 的 力量光环
+[回合2] 02m 32s:  Alice 获得了来自 Umiko 的 生命之歌
+[回合2] 02m 37s:  Mequie 施放了 移动, 目标：(8, 0)
+[回合2] 02m 38s:  Mequie 获得了来自 Umiko 的 生命之歌
+[回合2] 02m 40s:  Mequie 施放了 射击, 目标：(11, 0)
+[回合2] 02m 41s:  Mequie 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：1150
+[回合2] 02m 43s:  Archer 施放了 疾飞之箭, 目标：(11, 0)
+[回合2] 02m 44s:  Archer 的 疾飞之箭 对 BossMu 造成了 18 点 Pierce 伤害。生命值：1132
+[回合2] 02m 44s:  BossMu 获得了来自 Archer 的 出血
+[回合2] 02m 46s:  Archer 施放了 移动, 目标：(7, 0)
+[回合2] 02m 50s:  Warrior 施放了 疾飞之箭, 目标：(11, 0)
+[回合2] 02m 51s:  Warrior 的 疾飞之箭 对 BossMu 造成了 18 点 Pierce 伤害。生命值：1143
+[回合2] 02m 51s:  BossMu 获得了来自 Warrior 的 出血
+[回合2] 02m 52s:  Warrior 施放了 移动, 目标：(7, 0)
+[回合2] 02m 54s:  Mequie 施放了 射击, 目标：(11, 0)
+[回合2] 02m 55s:  Mequie 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：1097
+[回合2] 02m 56s:  Umiko 施放了 水泡, 目标：(11, 0)
+[回合2] 02m 57s:  Umiko 的 水泡 对 BossMu 造成了 22 点 Water 伤害（暴击）。生命值：1121
+[回合2] 02m 57s:  LiliumGuard 重新获得了来自 Umiko 的 水泡护盾
+[回合2] 02m 57s:  FloraFairy 施放了 栽培, 目标：(11, 0)
+[回合2] 02m 58s:  Felivol 获得了来自 FloraFairy 的 栽培
+[回合2] 02m 58s:  Astrologer 施放了 射击, 目标：(11, 0)
+[回合2] 02m 59s:  Astrologer 的 射击 对 BossMu 造成了 13 点 Pierce 伤害。生命值：1108
+[回合2] 03m 00s:  Warrior 的 出血 对 BossMu 造成了 7 点 Pierce 伤害。生命值：1101
+[回合2] 03m 01s:  Archer 的 出血 对 BossMu 造成了 7 点 Pierce 伤害。生命值：1090
+[回合2] 03m 01s:  BossMu 施放了 粘液翻腾, 目标：(11, 0)
+[回合2] 03m 01s:  BossMu 施放了 史莱姆攻击, 目标：(10, 0)
+[回合2] 03m 01s:  BossMu 的 史莱姆攻击 对 LiliumGuard 造成了 25 点 Knock 伤害。生命值：89
+[回合2] 03m 01s:  LiliumGuard 获得了来自 BossMu 的 史莱姆毒素
+[回合2] 03m 02s:  BossMu 施放了 粘液翻腾, 目标：(11, 0)
+[回合2] 03m 02s:  BossMu 施放了 史莱姆攻击, 目标：(11, 0)
+[回合2] 03m 02s:  BossMu 的 史莱姆攻击 对 Felivol 造成了 29 点 Knock 伤害。生命值：97
+[回合2] 03m 02s:  Felivol 获得了来自 BossMu 的 史莱姆毒素
+[回合3] 03m 03s:  回合3
+[回合3] 03m 04s:  FloraFairy 的 栽培 对 LiliumGuard 造成了 7 点 Heal 。生命值：96
+[回合3] 03m 04s:  BossMu 的 史莱姆毒素 对 LiliumGuard 造成了 8 点 Nature 伤害。生命值：88
+[回合3] 03m 04s:  Felivol 失去了来自 Umiko 的 水泡护盾
+[回合3] 03m 04s:  FloraFairy 的 栽培 对 Felivol 造成了 7 点 Heal 。生命值：104
+[回合3] 03m 04s:  BossMu 的 史莱姆毒素 对 Felivol 造成了 8 点 Nature 伤害。生命值：96
+[回合3] 03m 04s:  Felivol 施放了 蓄力斩, 目标：(11, 0)
+[回合3] 03m 05s:  Felivol 的 蓄力斩 没有击中 BossMu。生命值：1090
+[回合3] 03m 54s:  Felivol 失去了来自 Felivol 的 祝福之光
+[回合3] 03m 54s:  Felivol 施放了 裁决重锤, 目标：(11, 0)
+[回合3] 03m 55s:  Felivol 的 裁决重锤 对 BossMu 造成了 30 点 Knock 伤害。生命值：1060
+[回合3] 04m 56s:  Felivol 施放了 盾击, 目标：(11, 0)
+[回合3] 04m 57s:  Felivol 的 盾击 对 BossMu 造成了 30 点 Knock 伤害。生命值：1030
+[回合3] 05m 11s:  LiliumGuard 施放了 移动, 目标：(10, 0)
+[回合3] 05m 14s:  LiliumGuard 施放了 拳, 目标：(11, 0)
+[回合3] 05m 14s:  LiliumGuard 的 拳 对 BossMu 造成了 10 点 Knock 伤害。生命值：1091
+[回合3] 05m 39s:  LiliumGuard 施放了 拳, 目标：(11, 0)
+[回合3] 05m 39s:  LiliumGuard 的 拳 对 BossMu 造成了 10 点 Knock 伤害。生命值：1081
+[回合3] 05m 40s:  LiliumGuard 施放了 拳, 目标：(11, 0)
+[回合3] 05m 40s:  LiliumGuard 的 拳 对 BossMu 造成了 10 点 Knock 伤害。生命值：1071
+[回合3] 05m 44s:  Alice 施放了 响音攻击, 目标：(8, 0)
+[回合3] 05m 45s:  Alice 的 响音攻击 对 BossMu 造成了 11 点 Knock 伤害。生命值：1060
+[回合3] 05m 46s:  Alice 施放了 移动, 目标：(7, 0)
+[回合3] 05m 46s:  Alice 失去了来自 Umiko 的 生命之歌
+[回合3] 05m 52s:  Gaceon 施放了 治疗术, 目标：(10, 0)
+[回合3] 05m 53s:  Gaceon 的 治疗术 对 LiliumGuard 造成了 26 点 Heal 。生命值：114
+[回合3] 05m 58s:  Astrologer 施放了 星光超流, 目标：(11, 0)
+[回合3] 05m 59s:  Astrologer 的 星光超流 对 BossMu 造成了 74 点 Light 伤害（暴击）。生命值：986
+[回合3] 05m 59s:  Astrologer 的 繁星道标 对 BossMu 造成了 44 点 Light 伤害（暴击）。生命值：942
+[回合3] 05m 59s:  BossMu 重新获得了来自 Astrologer 的 繁星道标
+[回合3] 06m 01s:  Astrologer 施放了 射击, 目标：(11, 0)
+[回合3] 06m 02s:  Astrologer 的 射击 对 BossMu 造成了 26 点 Pierce 伤害（暴击）。生命值：916
+[回合3] 07m 06s:  Umiko 施放了 移动, 目标：(7, 0)
+[回合3] 07m 07s:  Alice 获得了来自 Umiko 的 生命之歌
+[回合3] 07m 07s:  Warrior 获得了来自 Umiko 的 生命之歌
+[回合3] 07m 07s:  Felivol 失去了来自 Umiko 的 生命之歌
+[回合3] 07m 11s:  Umiko 施放了 海神之鞭, 目标：(7, 0)
+[回合3] 07m 12s:  Archer 获得了来自 Umiko 的 海神之鞭
+[回合3] 07m 12s:  Mequie 获得了来自 Umiko 的 海神之鞭
+[回合3] 07m 12s:  LiliumGuard 获得了来自 Umiko 的 海神之鞭
+[回合3] 07m 12s:  Alice 获得了来自 Umiko 的 海神之鞭
+[回合3] 07m 12s:  FloraFairy 获得了来自 Umiko 的 海神之鞭
+[回合3] 07m 12s:  Gaceon 获得了来自 Umiko 的 海神之鞭
+[回合3] 07m 12s:  Astrologer 获得了来自 Umiko 的 海神之鞭
+[回合3] 07m 12s:  Umiko 获得了来自 Umiko 的 海神之鞭
+[回合3] 07m 12s:  Warrior 获得了来自 Umiko 的 海神之鞭
+[回合3] 07m 12s:  Felivol 获得了来自 Umiko 的 海神之鞭
+[回合3] 08m 01s:  Mequie 施放了 移动, 目标：(7, 0)
+[回合3] 08m 13s:  FloraFairy 施放了 治疗术, 目标：(11, 0)
+[回合3] 08m 14s:  FloraFairy 的 治疗术 对 Felivol 造成了 30 点 Heal 。生命值：126
+[回合3] 08m 35s:  Archer 施放了 射击, 目标：(11, 0)
+[回合3] 08m 36s:  Archer 的 射击 对 BossMu 造成了 70 点 Pierce 伤害（暴击）。生命值：960
+[回合3] 08m 37s:  Umiko 的 海神之鞭 对 BossMu 造成了 8 点 Water 伤害（暴击）。生命值：952
+[回合3] 08m 37s:  Mequie 施放了 射击, 目标：(11, 0)
+[回合3] 08m 38s:  Mequie 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：917
+[回合3] 08m 38s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：913
+[回合3] 08m 38s:  Mequie 施放了 射击, 目标：(11, 0)
+[回合3] 08m 39s:  Mequie 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：878
+[回合3] 08m 39s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：874
+[回合3] 08m 39s:  Warrior 施放了 射击, 目标：(11, 0)
+[回合3] 08m 40s:  Warrior 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：881
+[回合3] 08m 41s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：877
+[回合3] 08m 41s:  FloraFairy 施放了 栽培, 目标：(7, 0)
+[回合3] 08m 42s:  Archer 获得了来自 FloraFairy 的 栽培
+[回合3] 08m 44s:  Warrior 的 出血 对 BossMu 造成了 7 点 Pierce 伤害。生命值：870
+[回合3] 08m 44s:  Archer 的 出血 对 BossMu 造成了 7 点 Pierce 伤害。生命值：867
+[回合3] 08m 44s:  BossMu 的 粘液翻腾 对 LiliumGuard 造成了 50 点 Knock 伤害。生命值：64
+[回合3] 08m 44s:  BossMu 的 粘液翻腾 对 Felivol 造成了 45 点 Knock 伤害。生命值：81
+[回合3] 08m 44s:  BossMu 施放了 小史莱姆标记, 目标：(11, 0)
+[回合3] 08m 45s:  Gaceon 获得了来自 BossMu 的 锁定
+[回合3] 08m 45s:  BossMu 施放了 史莱姆攻击, 目标：(10, 0)
+[回合3] 08m 46s:  BossMu 的 史莱姆攻击 对 LiliumGuard 造成了 25 点 Knock 伤害。生命值：39
+[回合3] 08m 46s:  LiliumGuard 重新获得了来自 BossMu 的 史莱姆毒素
+[回合3] 08m 46s:  BossMu 施放了 小史莱姆标记, 目标：(11, 0)
+[回合3] 08m 47s:  Warrior 获得了来自 BossMu 的 锁定
+[回合3] 08m 47s:  BossMu 施放了 史莱姆攻击, 目标：(11, 0)
+[回合3] 08m 48s:  BossMu 的 史莱姆攻击 对 Felivol 造成了 29 点 Knock 伤害。生命值：52
+[回合3] 08m 48s:  Felivol 重新获得了来自 BossMu 的 史莱姆毒素
+[回合4] 08m 48s:  回合4
+[回合4] 08m 49s:  FloraFairy 的 栽培 对 Archer 造成了 0 点 Heal 。生命值：96
+[回合4] 08m 49s:  LiliumGuard 失去了来自 Umiko 的 水泡护盾
+[回合4] 08m 49s:  FloraFairy 的 栽培 对 LiliumGuard 造成了 7 点 Heal 。生命值：46
+[回合4] 08m 49s:  LiliumGuard 失去了来自 FloraFairy 的 栽培
+[回合4] 08m 50s:  BossMu 的 史莱姆毒素 对 LiliumGuard 造成了 16 点 Nature 伤害。生命值：30
+[回合4] 08m 50s:  FloraFairy 的 栽培 对 Felivol 造成了 7 点 Heal 。生命值：59
+[回合4] 08m 50s:  BossMu 的 史莱姆毒素 对 Felivol 造成了 17 点 Nature 伤害。生命值：42
+[回合4] 09m 06s:  Felivol 施放了 移动, 目标：(13, 0)
+[回合4] 09m 19s:  Felivol 施放了 战地祷告, 目标：(12, 0)
+[回合4] 09m 20s:  Felivol 的 战地祷告 对 Felivol 造成了 20 点 Heal 。生命值：62
+[回合4] 09m 20s:  Felivol 获得了来自 Felivol 的 祝福之光
+[回合4] 09m 39s:  Warrior 施放了 移动, 目标：(2, 0)
+[回合4] 09m 40s:  Warrior 失去了来自 Umiko 的 生命之歌
+[回合4] 09m 50s:  FloraFairy 施放了 移动, 目标：(10, 0)
+[回合4] 09m 53s:  FloraFairy 施放了 栽培, 目标：(10, 0)
+[回合4] 09m 54s:  LiliumGuard 获得了来自 FloraFairy 的 栽培
+[回合4] 09m 56s:  FloraFairy 施放了 绽放, 目标：(10, 0)
+[回合4] 09m 57s:  FloraFairy 的 绽放 对 Archer 造成了 0 点 Heal 。生命值：96
+[回合4] 09m 57s:  FloraFairy 的 绽放 对 Mequie 造成了 0 点 Heal 。生命值：96
+[回合4] 09m 57s:  FloraFairy 的 绽放 对 LiliumGuard 造成了 24 点 Heal 。生命值：55
+[回合4] 09m 57s:  FloraFairy 的 绽放 对 Alice 造成了 0 点 Heal 。生命值：126
+[回合4] 09m 57s:  FloraFairy 的 绽放 对 FloraFairy 造成了 0 点 Heal 。生命值：102
+[回合4] 09m 58s:  FloraFairy 的 绽放 对 Gaceon 造成了 0 点 Heal 。生命值：102
+[回合4] 09m 58s:  FloraFairy 的 绽放 对 Astrologer 造成了 0 点 Heal 。生命值：90
+[回合4] 09m 58s:  FloraFairy 的 绽放 对 Umiko 造成了 0 点 Heal 。生命值：126
+[回合4] 09m 58s:  FloraFairy 的 绽放 对 Warrior 造成了 0 点 Heal 。生命值：96
+[回合4] 09m 58s:  FloraFairy 的 绽放 对 Felivol 造成了 24 点 Heal 。生命值：86
+[回合4] 10m 00s:  FloraFairy 施放了 治疗术, 目标：(13, 0)
+[回合4] 10m 01s:  FloraFairy 的 治疗术 对 Felivol 造成了 34 点 Heal 。生命值：120
+[回合4] 10m 21s:  Gaceon 施放了 移动, 目标：(10, 0)
+[回合4] 10m 23s:  Gaceon 施放了 应急治疗, 目标：(10, 0)
+[回合4] 10m 24s:  LiliumGuard 获得了来自 Gaceon 的 BAD_STRING
+[回合4] 10m 24s:  Gaceon 的 应急治疗 对 LiliumGuard 造成了 90 点 Heal 。生命值：174
+[回合4] 10m 28s:  LiliumGuard 施放了 移动, 目标：(11, 0)
+[回合4] 10m 28s:  LiliumGuard 失去了来自 Umiko 的 生命之歌
+[回合4] 10m 29s:  LiliumGuard 施放了 移动, 目标：(11, 0)
+[回合4] 10m 31s:  LiliumGuard 施放了 拳, 目标：(11, 0)
+[回合4] 10m 32s:  LiliumGuard 的 拳 对 BossMu 造成了 10 点 Knock 伤害。生命值：861
+[回合4] 10m 32s:  Umiko 的 海神之鞭 对 BossMu 造成了 8 点 Water 伤害（暴击）。生命值：853
+[回合4] 10m 34s:  LiliumGuard 施放了 防御, 目标：(11, 0)
+[回合4] 10m 34s:  LiliumGuard 获得了来自 LiliumGuard 的 法力护盾
+[回合4] 10m 43s:  Umiko 施放了 移动, 目标：(11, 0)
+[回合4] 10m 43s:  Archer 失去了来自 Umiko 的 生命之歌
+[回合4] 10m 43s:  Mequie 失去了来自 Umiko 的 生命之歌
+[回合4] 10m 43s:  LiliumGuard 获得了来自 Umiko 的 生命之歌
+[回合4] 10m 43s:  Alice 失去了来自 Umiko 的 生命之歌
+[回合4] 10m 43s:  Felivol 获得了来自 Umiko 的 生命之歌
+[回合4] 10m 57s:  Mequie 施放了 移动, 目标：(11, 0)
+[回合4] 10m 58s:  Mequie 失去了来自 Alice 的 力量光环
+[回合4] 10m 58s:  Mequie 获得了来自 Umiko 的 生命之歌
+[回合4] 11m 00s:  Archer 施放了 移动, 目标：(12, 0)
+[回合4] 11m 01s:  Archer 失去了来自 Alice 的 力量光环
+[回合4] 11m 01s:  Archer 获得了来自 Umiko 的 生命之歌
+[回合4] 11m 06s:  Alice 施放了 移动, 目标：(12, 0)
+[回合4] 11m 07s:  Archer 获得了来自 Alice 的 力量光环
+[回合4] 11m 07s:  Mequie 获得了来自 Alice 的 力量光环
+[回合4] 11m 07s:  Warrior 失去了来自 Alice 的 力量光环
+[回合4] 11m 07s:  Felivol 获得了来自 Alice 的 力量光环
+[回合4] 11m 07s:  Alice 获得了来自 Umiko 的 生命之歌
+[回合4] 11m 14s:  Astrologer 施放了 移动, 目标：(12, 0)
+[回合4] 11m 28s:  Astrologer 施放了 星光超流, 目标：(11, 0)
+[回合4] 11m 29s:  Astrologer 的 星光超流 对 BossMu 造成了 37 点 Light 伤害。生命值：816
+[回合4] 11m 29s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：812
+[回合4] 11m 30s:  Astrologer 的 繁星道标 对 BossMu 造成了 22 点 Light 伤害。生命值：790
+[回合4] 11m 30s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：786
+[回合4] 11m 30s:  Astrologer 的 繁星道标 对 BossMu 造成了 22 点 Light 伤害。生命值：764
+[回合4] 11m 31s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：760
+[回合4] 11m 31s:  BossMu 重新获得了来自 Astrologer 的 繁星道标
+[回合4] 11m 51s:  Umiko 施放了 水泡, 目标：(11, 0)
+[回合4] 11m 52s:  Umiko 的 水泡 对 BossMu 造成了 11 点 Water 伤害。生命值：749
+[回合4] 11m 53s:  Umiko 的 海神之鞭 对 BossMu 造成了 8 点 Water 伤害（暴击）。生命值：741
+[回合4] 11m 53s:  Umiko 获得了来自 Umiko 的 水泡护盾
+[回合4] 11m 53s:  Alice 获得了来自 Umiko 的 水泡护盾
+[回合4] 11m 53s:  LiliumGuard 获得了来自 Umiko 的 水泡护盾
+[回合4] 11m 53s:  Gaceon 获得了来自 Umiko 的 水泡护盾
+[回合4] 12m 28s:  Warrior 施放了 射击, 目标：(11, 0)
+[回合4] 12m 29s:  Warrior 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：706
+[回合4] 12m 30s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：702
+[回合4] 12m 32s:  Warrior 的 出血 对 BossMu 造成了 7 点 Pierce 伤害。生命值：695
+[回合4] 12m 32s:  Archer 的 出血 对 BossMu 造成了 7 点 Pierce 伤害。生命值：860
+[回合4] 12m 32s:  BossMu 的 粘液翻腾 对 Felivol 造成了 45 点 Knock 伤害。生命值：75
+[回合4] 12m 32s:  BossMu 的 粘液翻腾 对 LiliumGuard 造成了 0 点 Knock 伤害。生命值：174
+[回合4] 12m 32s:  BossMu 施放了 小史莱姆投掷, 目标：(11, 0)
+[回合4] 12m 34s:  BossMu 的 小史莱姆投掷 对 Gaceon 造成了 14 点 Nature 伤害。生命值：88
+[回合4] 12m 34s:  Gaceon 失去了来自 BossMu 的 锁定
+[回合4] 12m 34s:  Gaceon 获得了来自 BossMu 的 剧毒酸池
+[回合4] 12m 34s:  Umiko 获得了来自 BossMu 的 剧毒酸池
+[回合4] 12m 34s:  BossMu 施放了 史莱姆攻击, 目标：(11, 0)
+[回合4] 12m 34s:  SmallMu(Clone) 获得了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[回合4] 12m 34s:  BossMu 的 史莱姆攻击 对 LiliumGuard 造成了 4 点 Knock 伤害。生命值：170
+[回合4] 12m 34s:  LiliumGuard 重新获得了来自 BossMu 的 史莱姆毒素
+[回合4] 12m 35s:  BossMu 施放了 小史莱姆投掷, 目标：(11, 0)
+[回合4] 12m 36s:  BossMu 的 小史莱姆投掷 对 Warrior 造成了 15 点 Nature 伤害。生命值：81
+[回合4] 12m 36s:  Warrior 失去了来自 BossMu 的 锁定
+[回合4] 12m 36s:  Warrior 获得了来自 BossMu 的 剧毒酸池
+[回合4] 12m 36s:  BossMu 施放了 移动, 目标：(12, 0)
+[回合4] 12m 36s:  SmallMu(Clone) 获得了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[回合4] 12m 36s:  BossMu 施放了 史莱姆攻击, 目标：(13, 0)
+[回合4] 12m 37s:  BossMu 的 史莱姆攻击 对 Felivol 造成了 29 点 Knock 伤害。生命值：46
+[回合4] 12m 37s:  Felivol 重新获得了来自 BossMu 的 史莱姆毒素
+[回合5] 12m 37s:  回合5
+[回合5] 12m 38s:  FloraFairy 的 栽培 对 Archer 造成了 0 点 Heal 。生命值：96
+[回合5] 12m 38s:  LiliumGuard 失去了来自 LiliumGuard 的 法力护盾
+[回合5] 12m 39s:  FloraFairy 的 栽培 对 LiliumGuard 造成了 4 点 Heal 。生命值：174
+[回合5] 12m 39s:  BossMu 的 史莱姆毒素 对 LiliumGuard 造成了 23 点 Nature 伤害。生命值：151
+[回合5] 12m 39s:  BossMu 的 剧毒酸池 对 Gaceon 造成了 7 点 Nature 伤害。生命值：81
+[回合5] 12m 39s:  BossMu 的 剧毒酸池 对 Umiko 造成了 7 点 Nature 伤害。生命值：119
+[回合5] 12m 39s:  BossMu 的 剧毒酸池 对 Warrior 造成了 8 点 Nature 伤害。生命值：73
+[回合5] 12m 40s:  FloraFairy 的 栽培 对 Felivol 造成了 7 点 Heal 。生命值：53
+[回合5] 12m 40s:  Felivol 失去了来自 FloraFairy 的 栽培
+[回合5] 12m 40s:  BossMu 的 史莱姆毒素 对 Felivol 造成了 26 点 Nature 伤害。生命值：27
+[回合5] 12m 40s:  Felivol 施放了 蓄力斩, 目标：(12, 0)
+[回合5] 12m 40s:  Felivol 的 蓄力斩 对 BossMu 造成了 47 点 Slash 伤害。生命值：814
+[回合5] 12m 41s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：810
+[回合5] 12m 52s:  Warrior 施放了 移动, 目标：(4, 0)
+[回合5] 12m 52s:  Warrior 失去了来自 BossMu 的 剧毒酸池
+[回合5] 12m 53s:  Warrior 施放了 移动, 目标：(5, 0)
+[回合5] 12m 58s:  Warrior 施放了 射击, 目标：(9, 0)
+[回合5] 12m 59s:  Warrior 的 射击 对 SmallMu(Clone) 造成了 30 点 Pierce 伤害。生命值：90
+[回合5] 12m 59s:  Umiko 的 海神之鞭 对 SmallMu(Clone) 造成了 4 点 Water 伤害。生命值：86
+[回合5] 13m 11s:  FloraFairy 施放了 治疗术, 目标：(13, 0)
+[回合5] 13m 12s:  FloraFairy 的 治疗术 对 Felivol 造成了 34 点 Heal 。生命值：61
+[回合5] 13m 33s:  Felivol 施放了 盾击, 目标：(12, 0)
+[回合5] 13m 33s:  Felivol 的 盾击 对 BossMu 造成了 35 点 Knock 伤害。生命值：775
+[回合5] 13m 34s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：771
+[回合5] 13m 39s:  Felivol 失去了来自 Felivol 的 祝福之光
+[回合5] 13m 39s:  Felivol 施放了 裁决重锤, 目标：(12, 0)
+[回合5] 13m 40s:  Felivol 的 裁决重锤 对 BossMu 造成了 35 点 Knock 伤害。生命值：736
+[回合5] 13m 40s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：732
+[回合5] 13m 57s:  Gaceon 施放了 移动, 目标：(13, 0)
+[回合5] 13m 57s:  Gaceon 失去了来自 BossMu 的 剧毒酸池
+[回合5] 14m 00s:  Gaceon 施放了 治疗术, 目标：(13, 0)
+[回合5] 14m 01s:  Gaceon 的 治疗术 对 Felivol 造成了 34 点 Heal 。生命值：95
+[回合5] 14m 19s:  LiliumGuard 施放了 拳, 目标：(11, 0)
+[回合5] 14m 20s:  LiliumGuard 的 拳 没有击中 BossMu。生命值：695
+[回合5] 14m 21s:  LiliumGuard 施放了 拳, 目标：(11, 0)
+[回合5] 14m 21s:  LiliumGuard 的 拳 对 BossMu 造成了 10 点 Knock 伤害。生命值：685
+[回合5] 14m 22s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：681
+[回合5] 14m 23s:  LiliumGuard 施放了 拳, 目标：(11, 0)
+[回合5] 14m 23s:  LiliumGuard 的 拳 对 BossMu 造成了 10 点 Knock 伤害。生命值：671
+[回合5] 14m 24s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：667
+[回合5] 14m 28s:  Astrologer 施放了 射击, 目标：(11, 0)
+[回合5] 14m 28s:  Astrologer 的 射击 对 BossMu 造成了 13 点 Pierce 伤害。生命值：654
+[回合5] 14m 29s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：650
+[回合5] 14m 30s:  Astrologer 施放了 星光超流, 目标：(11, 0)
+[回合5] 14m 31s:  Astrologer 的 星光超流 对 BossMu 造成了 37 点 Light 伤害。生命值：613
+[回合5] 14m 32s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：609
+[回合5] 14m 32s:  BossMu 施放了 史莱姆爆炸, 目标：(11, 0)
+[回合5] 14m 32s:  BossMu 的 史莱姆爆炸 对 Archer 造成了 20 点 Nature 伤害。生命值：76
+[回合5] 14m 32s:  BossMu 的 史莱姆爆炸 对 Mequie 造成了 20 点 Nature 伤害。生命值：76
+[回合5] 14m 33s:  BossMu 的 史莱姆爆炸 对 LiliumGuard 造成了 13 点 Nature 伤害。生命值：138
+[回合5] 14m 33s:  BossMu 的 史莱姆爆炸 对 Alice 造成了 19 点 Nature 伤害。生命值：107
+[回合5] 14m 33s:  BossMu 的 史莱姆爆炸 对 FloraFairy 造成了 20 点 Nature 伤害。生命值：82
+[回合5] 14m 33s:  BossMu 的 史莱姆爆炸 对 Gaceon 造成了 19 点 Nature 伤害。生命值：62
+[回合5] 14m 33s:  BossMu 的 史莱姆爆炸 对 Astrologer 造成了 20 点 Nature 伤害。生命值：70
+[回合5] 14m 34s:  BossMu 的 史莱姆爆炸 对 Umiko 造成了 19 点 Nature 伤害。生命值：100
+[回合5] 14m 34s:  BossMu 的 史莱姆爆炸 对 Warrior 造成了 20 点 Nature 伤害。生命值：53
+[回合5] 14m 34s:  BossMu 的 史莱姆爆炸 对 Felivol 造成了 19 点 Nature 伤害。生命值：76
+[回合5] 14m 34s:  Astrologer 的 繁星道标 对 BossMu 造成了 22 点 Light 伤害。生命值：587
+[回合5] 14m 35s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：583
+[回合5] 14m 35s:  Astrologer 的 繁星道标 对 BossMu 造成了 22 点 Light 伤害。生命值：561
+[回合5] 14m 36s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：557
+[回合5] 14m 36s:  Astrologer 的 繁星道标 对 BossMu 造成了 22 点 Light 伤害。生命值：535
+[回合5] 14m 36s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：531
+[回合5] 14m 36s:  BossMu 重新获得了来自 Astrologer 的 繁星道标
+[回合5] 14m 52s:  Umiko 施放了 移动, 目标：(13, 0)
+[回合5] 14m 52s:  Umiko 失去了来自 BossMu 的 剧毒酸池
+[回合5] 14m 52s:  LiliumGuard 失去了来自 Umiko 的 生命之歌
+[回合5] 14m 53s:  Umiko 施放了 水泡, 目标：(12, 0)
+[回合5] 14m 54s:  Umiko 的 水泡 对 BossMu 造成了 11 点 Water 伤害。生命值：721
+[回合5] 14m 55s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：717
+[回合5] 14m 55s:  Felivol 获得了来自 Umiko 的 水泡护盾
+[回合5] 14m 55s:  Archer 获得了来自 Umiko 的 水泡护盾
+[回合5] 14m 55s:  Astrologer 获得了来自 Umiko 的 水泡护盾
+[回合5] 14m 55s:  Mequie 获得了来自 Umiko 的 水泡护盾
+[回合5] 15m 25s:  Archer 施放了 狂风加护, 目标：(12, 0)
+[回合5] 15m 26s:  Archer 获得了来自 Archer 的 狂风加护
+[回合5] 15m 27s:  Archer 施放了 射击, 目标：(9, 0)
+[回合5] 15m 28s:  Archer 的 射击 对 SmallMu(Clone) 造成了 35 点 Pierce 伤害。生命值：51
+[回合5] 15m 29s:  Umiko 的 海神之鞭 对 SmallMu(Clone) 造成了 4 点 Water 伤害。生命值：47
+[回合5] 15m 29s:  Archer 施放了 射击, 目标：(9, 0)
+[回合5] 15m 30s:  Archer 的 射击 对 SmallMu(Clone) 造成了 35 点 Pierce 伤害。生命值：12
+[回合5] 15m 31s:  Umiko 的 海神之鞭 对 SmallMu(Clone) 造成了 8 点 Water 伤害（暴击）。生命值：4
+[回合5] 15m 32s:  Archer 施放了 射击, 目标：(9, 0)
+[回合5] 15m 33s:  Archer 的 射击 对 SmallMu(Clone) 造成了 4 点 Pierce 伤害。生命值：0
+[回合5] 15m 33s:  Umiko 的 海神之鞭 对 SmallMu(Clone) 造成了 0 点 Water 伤害。生命值：0
+[回合5] 15m 33s:  SmallMu(Clone) 失去了来自 SmallMu(Clone) 的 死亡爆裂 [4]
+[回合5] 15m 33s:  Umiko 的  击杀了 SmallMu(Clone) !
+[回合5] 15m 43s:  Mequie 施放了 射击, 目标：(11, 0)
+[回合5] 15m 44s:  Mequie 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：496
+[回合5] 15m 44s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：492
+[回合5] 16m 05s:  Gaceon 施放了 治疗术, 目标：(13, 0)
+[回合5] 16m 06s:  Gaceon 的 治疗术 对 Gaceon 造成了 34 点 Heal 。生命值：97
+[回合5] 17m 43s:  Alice 施放了 响音攻击, 目标：(12, 0)
+[回合5] 17m 43s:  Alice 的 响音攻击 对 BossMu 造成了 11 点 Knock 伤害。生命值：481
+[回合5] 17m 44s:  Umiko 的 海神之鞭 对 BossMu 造成了 8 点 Water 伤害（暴击）。生命值：473
+[回合5] 17m 44s:  Alice 的 响音攻击 没有击中 BossMu。生命值：717
+[回合5] 17m 46s:  Warrior 的 出血 对 BossMu 造成了 7 点 Pierce 伤害。生命值：466
+[回合5] 17m 46s:  Archer 的 出血 对 BossMu 造成了 7 点 Pierce 伤害。生命值：710
+[回合5] 17m 46s:  BossMu 施放了 史莱姆攻击, 目标：(11, 0)
+[回合5] 17m 47s:  BossMu 的 史莱姆攻击 对 LiliumGuard 造成了 24 点 Knock 伤害。生命值：114
+[回合5] 17m 47s:  LiliumGuard 重新获得了来自 BossMu 的 史莱姆毒素
+[回合5] 17m 47s:  BossMu 施放了 史莱姆攻击, 目标：(13, 0)
+[回合5] 17m 48s:  BossMu 的 史莱姆攻击 对 Felivol 造成了 28 点 Knock 伤害。生命值：48
+[回合5] 17m 48s:  Felivol 重新获得了来自 BossMu 的 史莱姆毒素
+[回合5] 17m 48s:  SmallMu(Clone) 施放了 移动, 目标：(2, 0)
+[回合5] 17m 48s:  SmallMu(Clone) 施放了 移动, 目标：(3, 0)
+[回合5] 17m 48s:  SmallMu(Clone) 施放了 移动, 目标：(4, 0)
+[回合6] 17m 49s:  回合6
+[回合6] 17m 50s:  Archer 失去了来自 Umiko 的 海神之鞭
+[回合6] 17m 50s:  FloraFairy 的 栽培 对 Archer 造成了 7 点 Heal 。生命值：83
+[回合6] 17m 50s:  Archer 失去了来自 FloraFairy 的 栽培
+[回合6] 17m 50s:  Mequie 失去了来自 Umiko 的 海神之鞭
+[回合6] 17m 50s:  FloraFairy 的 栽培 对 LiliumGuard 造成了 7 点 Heal 。生命值：121
+[回合6] 17m 51s:  BossMu 的 史莱姆毒素 对 LiliumGuard 造成了 31 点 Nature 伤害。生命值：90
+[回合6] 17m 51s:  LiliumGuard 失去了来自 Umiko 的 海神之鞭
+[回合6] 17m 51s:  LiliumGuard 失去了来自 Umiko 的 水泡护盾
+[回合6] 17m 51s:  Alice 失去了来自 Umiko 的 海神之鞭
+[回合6] 17m 51s:  Alice 失去了来自 Umiko 的 水泡护盾
+[回合6] 17m 51s:  FloraFairy 失去了来自 Umiko 的 海神之鞭
+[回合6] 17m 51s:  Gaceon 失去了来自 Umiko 的 海神之鞭
+[回合6] 17m 51s:  Gaceon 失去了来自 Umiko 的 水泡护盾
+[回合6] 17m 51s:  Astrologer 失去了来自 Umiko 的 海神之鞭
+[回合6] 17m 51s:  Umiko 失去了来自 Umiko 的 海神之鞭
+[回合6] 17m 51s:  Umiko 失去了来自 Umiko 的 水泡护盾
+[回合6] 17m 51s:  Warrior 失去了来自 Umiko 的 海神之鞭
+[回合6] 17m 51s:  Felivol 失去了来自 Umiko 的 海神之鞭
+[回合6] 17m 51s:  Felivol 失去了来自 Felivol 的 巨石坚盾
+[回合6] 17m 51s:  BossMu 的 史莱姆毒素 对 Felivol 造成了 20 点 Nature 伤害。生命值：28
+[回合6] 18m 07s:  Astrologer 施放了 射击, 目标：(11, 0)
+[回合6] 18m 08s:  Astrologer 的 射击 对 BossMu 造成了 13 点 Pierce 伤害。生命值：453
+[回合6] 18m 09s:  Astrologer 施放了 射击, 目标：(11, 0)
+[回合6] 18m 10s:  Astrologer 的 射击 对 BossMu 造成了 13 点 Pierce 伤害。生命值：440
+[回合6] 18m 16s:  Warrior 施放了 移动, 目标：(8, 0)
+[回合6] 18m 17s:  Warrior 获得了来自 Alice 的 力量光环
+[回合6] 18m 18s:  Warrior 施放了 射击, 目标：(11, 0)
+[回合6] 18m 19s:  Warrior 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：405
+[回合6] 18m 20s:  Warrior 施放了 射击, 目标：(11, 0)
+[回合6] 18m 20s:  Warrior 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：370
+[回合6] 18m 52s:  FloraFairy 施放了 栽培, 目标：(13, 0)
+[回合6] 18m 53s:  Felivol 获得了来自 FloraFairy 的 栽培
+[回合6] 18m 57s:  Gaceon 施放了 治疗链, 目标：(13, 0)
+[回合6] 18m 57s:  Gaceon 的 治疗链 对 Felivol 造成了 21 点 Heal 。生命值：49
+[回合6] 18m 57s:  Gaceon 的 治疗链 对 Astrologer 造成了 15 点 Heal 。生命值：85
+[回合6] 18m 57s:  Gaceon 的 治疗链 对 Felivol 造成了 10 点 Heal 。生命值：59
+[回合6] 19m 01s:  Gaceon 施放了 治疗链, 目标：(11, 0)
+[回合6] 19m 01s:  Gaceon 的 治疗链 对 LiliumGuard 造成了 21 点 Heal 。生命值：111
+[回合6] 19m 02s:  Gaceon 的 治疗链 对 Alice 造成了 15 点 Heal 。生命值：122
+[回合6] 19m 02s:  Gaceon 的 治疗链 对 LiliumGuard 造成了 10 点 Heal 。生命值：121
+[回合6] 19m 26s:  LiliumGuard 施放了 拳, 目标：(11, 0)
+[回合6] 19m 26s:  LiliumGuard 的 拳 对 BossMu 造成了 20 点 Knock 伤害（暴击）。生命值：350
+[回合6] 19m 27s:  LiliumGuard 施放了 盾击, 目标：(11, 0)
+[回合6] 19m 28s:  LiliumGuard 的 盾击 没有击中 BossMu。生命值：350
+[回合6] 19m 42s:  Mequie 施放了 射击, 目标：(11, 0)
+[回合6] 19m 42s:  Mequie 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：315
+[回合6] 19m 48s:  Archer 施放了 射击, 目标：(11, 0)
+[回合6] 19m 48s:  Archer 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：280
+[回合6] 19m 54s:  FloraFairy 施放了 治疗术, 目标：(13, 0)
+[回合6] 19m 55s:  FloraFairy 的 治疗术 对 Felivol 造成了 34 点 Heal 。生命值：93
+[回合6] 19m 56s:  FloraFairy 施放了 治疗术, 目标：(13, 0)
+[回合6] 19m 57s:  FloraFairy 的 治疗术 对 Felivol 造成了 33 点 Heal 。生命值：126
+[回合6] 20m 08s:  Felivol 施放了 移动, 目标：(12, 0)
+[回合6] 20m 09s:  Felivol 施放了 盾击, 目标：(12, 0)
+[回合6] 20m 10s:  Felivol 的 盾击 对 BossMu 造成了 35 点 Knock 伤害。生命值：675
+[回合6] 20m 12s:  Felivol 施放了 蓄力斩, 目标：(12, 0)
+[回合6] 20m 22s:  Umiko 施放了 水泡, 目标：(12, 0)
+[回合6] 20m 23s:  Umiko 的 水泡 对 BossMu 造成了 11 点 Water 伤害。生命值：664
+[回合6] 20m 23s:  Felivol 重新获得了来自 Umiko 的 水泡护盾
+[回合6] 20m 23s:  Archer 重新获得了来自 Umiko 的 水泡护盾
+[回合6] 20m 23s:  Astrologer 重新获得了来自 Umiko 的 水泡护盾
+[回合6] 20m 23s:  Mequie 重新获得了来自 Umiko 的 水泡护盾
+[回合6] 20m 27s:  Umiko 施放了 水泡, 目标：(12, 0)
+[回合6] 20m 28s:  Umiko 的 水泡 对 BossMu 造成了 11 点 Water 伤害。生命值：653
+[回合6] 20m 28s:  Felivol 重新获得了来自 Umiko 的 水泡护盾
+[回合6] 20m 28s:  Archer 重新获得了来自 Umiko 的 水泡护盾
+[回合6] 20m 28s:  Astrologer 重新获得了来自 Umiko 的 水泡护盾
+[回合6] 20m 28s:  Mequie 重新获得了来自 Umiko 的 水泡护盾
+[回合6] 20m 40s:  Archer 施放了 射击, 目标：(11, 0)
+[回合6] 20m 41s:  Archer 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：245
+[回合6] 20m 46s:  BossMu 失去了来自 Astrologer 的 繁星道标
+[回合6] 20m 46s:  Warrior 的 出血 对 BossMu 造成了 7 点 Pierce 伤害。生命值：238
+[回合6] 20m 46s:  BossMu 失去了来自 Warrior 的 出血
+[回合6] 20m 46s:  Archer 的 出血 对 BossMu 造成了 7 点 Pierce 伤害。生命值：646
+[回合6] 20m 46s:  BossMu 失去了来自 Archer 的 出血
+[回合6] 20m 46s:  BossMu 施放了 小史莱姆标记, 目标：(11, 0)
+[回合6] 20m 47s:  Felivol 获得了来自 BossMu 的 锁定
+[回合6] 20m 47s:  BossMu 施放了 史莱姆攻击, 目标：(11, 0)
+[回合6] 20m 48s:  BossMu 的 史莱姆攻击 对 LiliumGuard 造成了 20 点 Knock 伤害。生命值：102
+[回合6] 20m 48s:  LiliumGuard 重新获得了来自 BossMu 的 史莱姆毒素
+[回合6] 20m 48s:  BossMu 施放了 小史莱姆标记, 目标：(12, 0)
+[回合6] 20m 49s:  FloraFairy 获得了来自 BossMu 的 锁定
+[回合6] 20m 49s:  BossMu 施放了 史莱姆攻击, 目标：(12, 0)
+[回合6] 20m 50s:  BossMu 的 史莱姆攻击 对 Felivol 造成了 26 点 Knock 伤害。生命值：100
+[回合6] 20m 50s:  Felivol 重新获得了来自 BossMu 的 史莱姆毒素
+[回合6] 20m 50s:  SmallMu(Clone) 施放了 移动, 目标：(5, 0)
+[回合6] 20m 50s:  SmallMu(Clone) 施放了 移动, 目标：(6, 0)
+[回合6] 20m 50s:  SmallMu(Clone) 施放了 移动, 目标：(7, 0)
+[回合7] 20m 51s:  回合7
+[回合7] 20m 52s:  Archer 失去了来自 Archer 的 狂风加护
+[回合7] 20m 52s:  LiliumGuard 失去了来自 Gaceon 的 BAD_STRING
+[回合7] 20m 52s:  FloraFairy 的 栽培 对 LiliumGuard 造成了 7 点 Heal 。生命值：109
+[回合7] 20m 52s:  LiliumGuard 失去了来自 FloraFairy 的 栽培
+[回合7] 20m 52s:  BossMu 的 史莱姆毒素 对 LiliumGuard 造成了 38 点 Nature 伤害。生命值：71
+[回合7] 20m 52s:  FloraFairy 的 栽培 对 Felivol 造成了 7 点 Heal 。生命值：107
+[回合7] 20m 53s:  BossMu 的 史莱姆毒素 对 Felivol 造成了 27 点 Nature 伤害。生命值：80
+[回合7] 20m 53s:  Felivol 施放了 蓄力斩, 目标：(12, 0)
+[回合7] 20m 53s:  Felivol 的 蓄力斩 对 BossMu 造成了 47 点 Slash 伤害。生命值：599
+[回合7] 20m 53s:  BossMu 施放了 史莱姆爆炸, 目标：(12, 0)
+[回合7] 20m 54s:  BossMu 的 史莱姆爆炸 对 Archer 造成了 18 点 Nature 伤害。生命值：65
+[回合7] 20m 54s:  BossMu 的 史莱姆爆炸 对 Mequie 造成了 18 点 Nature 伤害。生命值：58
+[回合7] 20m 54s:  BossMu 的 史莱姆爆炸 对 LiliumGuard 造成了 13 点 Nature 伤害。生命值：34
+[回合7] 20m 54s:  BossMu 的 史莱姆爆炸 对 Alice 造成了 19 点 Nature 伤害。生命值：103
+[回合7] 20m 55s:  BossMu 的 史莱姆爆炸 对 FloraFairy 造成了 20 点 Nature 伤害。生命值：62
+[回合7] 20m 55s:  BossMu 的 史莱姆爆炸 对 Gaceon 造成了 19 点 Nature 伤害。生命值：78
+[回合7] 20m 55s:  BossMu 的 史莱姆爆炸 对 Astrologer 造成了 18 点 Nature 伤害。生命值：67
+[回合7] 20m 55s:  BossMu 的 史莱姆爆炸 对 Umiko 造成了 19 点 Nature 伤害。生命值：81
+[回合7] 20m 55s:  BossMu 的 史莱姆爆炸 对 Warrior 造成了 20 点 Nature 伤害。生命值：33
+[回合7] 20m 56s:  BossMu 的 史莱姆爆炸 对 Felivol 造成了 17 点 Nature 伤害。生命值：63
+[回合7] 21m 21s:  Felivol 施放了 奔袭, 目标：(9, 0)
+[回合7] 21m 22s:  Felivol 失去了来自 Alice 的 力量光环
+[回合7] 21m 22s:  Felivol 失去了来自 Umiko 的 生命之歌
+[回合7] 21m 27s:  Felivol 施放了 祈祷, 目标：(9, 0)
+[回合7] 21m 29s:  Felivol 的 祈祷 对 Felivol 造成了 20 点 Heal 。生命值：83
+[回合7] 21m 29s:  Felivol 获得了来自 Felivol 的 祝福之光
+[回合7] 21m 51s:  FloraFairy 施放了 栽培, 目标：(11, 0)
+[回合7] 21m 52s:  LiliumGuard 获得了来自 FloraFairy 的 栽培
+[回合7] 21m 54s:  FloraFairy 施放了 治疗术, 目标：(8, 0)
+[回合7] 21m 55s:  FloraFairy 的 治疗术 对 Warrior 造成了 34 点 Heal 。生命值：67
+[回合7] 22m 04s:  Mequie 施放了 移动, 目标：(13, 0)
+[回合7] 22m 06s:  Mequie 施放了 狂风加护, 目标：(13, 0)
+[回合7] 22m 06s:  Mequie 获得了来自 Mequie 的 狂风加护
+[回合7] 22m 12s:  Mequie 施放了 射击, 目标：(12, 0)
+[回合7] 22m 13s:  Mequie 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：564
+[回合7] 22m 14s:  Mequie 施放了 射击, 目标：(12, 0)
+[回合7] 22m 14s:  Mequie 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：529
+[回合7] 22m 15s:  Mequie 施放了 射击, 目标：(12, 0)
+[回合7] 22m 16s:  Mequie 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：494
+[回合7] 22m 17s:  Mequie 施放了 射击, 目标：(12, 0)
+[回合7] 22m 18s:  Mequie 的 射击 对 BossMu 造成了 70 点 Pierce 伤害（暴击）。生命值：424
+[回合7] 22m 25s:  Archer 施放了 疾飞之箭, 目标：(12, 0)
+[回合7] 22m 25s:  Archer 的 疾飞之箭 对 BossMu 造成了 18 点 Pierce 伤害。生命值：406
+[回合7] 22m 25s:  BossMu 获得了来自 Archer 的 出血
+[回合7] 22m 27s:  Archer 施放了 射击, 目标：(12, 0)
+[回合7] 22m 28s:  Archer 的 射击 对 BossMu 造成了 70 点 Pierce 伤害（暴击）。生命值：336
+[回合7] 22m 42s:  Astrologer 施放了 射击, 目标：(12, 0)
+[回合7] 22m 43s:  Astrologer 的 射击 对 BossMu 造成了 13 点 Pierce 伤害。生命值：323
+[回合7] 22m 47s:  Umiko 施放了 水泡, 目标：(11, 0)
+[回合7] 22m 49s:  Umiko 的 水泡 对 BossMu 造成了 11 点 Water 伤害。生命值：227
+[回合7] 22m 49s:  Alice 获得了来自 Umiko 的 水泡护盾
+[回合7] 22m 49s:  LiliumGuard 获得了来自 Umiko 的 水泡护盾
+[回合7] 22m 52s:  Alice 施放了 响音攻击, 目标：(12, 0)
+[回合7] 22m 53s:  Alice 的 响音攻击 对 BossMu 造成了 22 点 Knock 伤害（暴击）。生命值：205
+[回合7] 22m 53s:  Alice 的 响音攻击 对 BossMu 造成了 11 点 Knock 伤害。生命值：312
+[回合7] 23m 04s:  Gaceon 施放了 移动, 目标：(13, 0)
+[回合7] 23m 29s:  Gaceon 施放了 应急治疗, 目标：(11, 0)
+[回合7] 23m 30s:  LiliumGuard 获得了来自 Gaceon 的 BAD_STRING
+[回合7] 23m 30s:  Gaceon 的 应急治疗 对 LiliumGuard 造成了 101 点 Heal 。生命值：153
+[回合7] 23m 41s:  LiliumGuard 施放了 拳, 目标：(11, 0)
+[回合7] 23m 41s:  LiliumGuard 的 拳 没有击中 BossMu。生命值：205
+[回合7] 23m 43s:  LiliumGuard 施放了 盾击, 目标：(11, 0)
+[回合7] 23m 43s:  LiliumGuard 的 盾击 对 BossMu 造成了 23 点 Knock 伤害。生命值：182
+[回合7] 23m 54s:  Warrior 施放了 疾飞之箭, 目标：(11, 0)
+[回合7] 23m 55s:  Warrior 的 疾飞之箭 对 BossMu 造成了 36 点 Pierce 伤害（暴击）。生命值：146
+[回合7] 23m 55s:  BossMu 获得了来自 Warrior 的 出血
+[回合7] 24m 02s:  Warrior 的 出血 对 BossMu 造成了 7 点 Pierce 伤害。生命值：139
+[回合7] 24m 02s:  Archer 的 出血 对 BossMu 造成了 7 点 Pierce 伤害。生命值：305
+[回合7] 24m 02s:  BossMu 施放了 小史莱姆投掷, 目标：(11, 0)
+[回合7] 24m 04s:  BossMu 的 小史莱姆投掷 对 Felivol 造成了 12 点 Nature 伤害。生命值：71
+[回合7] 24m 04s:  Felivol 失去了来自 BossMu 的 锁定
+[回合7] 24m 04s:  Felivol 获得了来自 BossMu 的 剧毒酸池
+[回合7] 24m 04s:  BossMu 施放了 小史莱姆标记, 目标：(11, 0)
+[回合7] 24m 04s:  SmallMu(Clone) 获得了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[回合7] 24m 04s:  Felivol 获得了来自 BossMu 的 锁定
+[回合7] 24m 04s:  BossMu 施放了 史莱姆攻击, 目标：(11, 0)
+[回合7] 24m 05s:  BossMu 的 史莱姆攻击 对 LiliumGuard 造成了 23 点 Knock 伤害。生命值：130
+[回合7] 24m 05s:  LiliumGuard 重新获得了来自 BossMu 的 史莱姆毒素
+[回合7] 24m 05s:  BossMu 施放了 小史莱姆投掷, 目标：(12, 0)
+[回合7] 24m 07s:  BossMu 的 小史莱姆投掷 对 FloraFairy 造成了 15 点 Nature 伤害。生命值：48
+[回合7] 24m 07s:  FloraFairy 失去了来自 BossMu 的 锁定
+[回合7] 24m 07s:  FloraFairy 获得了来自 BossMu 的 剧毒酸池
+[回合7] 24m 07s:  BossMu 施放了 小史莱姆标记, 目标：(12, 0)
+[回合7] 24m 07s:  SmallMu(Clone) 获得了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[回合7] 24m 07s:  LiliumGuard 获得了来自 BossMu 的 锁定
+[回合7] 24m 07s:  BossMu 施放了 移动, 目标：(11, 0)
+[回合7] 24m 08s:  BossMu 施放了 移动, 目标：(10, 0)
+[回合7] 24m 08s:  BossMu 施放了 移动, 目标：(10, 0)
+[回合7] 24m 08s:  SmallMu(Clone) 施放了 移动, 目标：(7, 0)
+[回合7] 24m 08s:  SmallMu(Clone) 施放了 移动, 目标：(7, 0)
+[回合7] 24m 09s:  SmallMu(Clone) 施放了 移动, 目标：(7, 0)
+[回合8] 24m 09s:  回合8
+[回合8] 24m 10s:  Archer 失去了来自 Umiko 的 水泡护盾
+[回合8] 24m 10s:  Mequie 失去了来自 Umiko 的 水泡护盾
+[回合8] 24m 10s:  FloraFairy 的 栽培 对 LiliumGuard 造成了 7 点 Heal 。生命值：137
+[回合8] 24m 11s:  BossMu 的 史莱姆毒素 对 LiliumGuard 造成了 45 点 Nature 伤害。生命值：92
+[回合8] 24m 11s:  BossMu 的 剧毒酸池 对 FloraFairy 造成了 8 点 Nature 伤害。生命值：40
+[回合8] 24m 11s:  Astrologer 失去了来自 Umiko 的 水泡护盾
+[回合8] 24m 11s:  FloraFairy 的 栽培 对 Felivol 造成了 7 点 Heal 。生命值：78
+[回合8] 24m 11s:  Felivol 失去了来自 Umiko 的 水泡护盾
+[回合8] 24m 11s:  BossMu 的 剧毒酸池 对 Felivol 造成了 6 点 Nature 伤害。生命值：72
+[回合8] 24m 11s:  BossMu 的 史莱姆毒素 对 Felivol 造成了 27 点 Nature 伤害。生命值：45
+[回合8] 24m 20s:  Felivol 施放了 移动, 目标：(7, 0)
+[回合8] 24m 21s:  Felivol 失去了来自 BossMu 的 剧毒酸池
+[回合8] 24m 25s:  Felivol 施放了 战地祷告, 目标：(8, 0)
+[回合8] 24m 26s:  Felivol 的 战地祷告 对 Felivol 造成了 20 点 Heal 。生命值：65
+[回合8] 24m 26s:  Felivol 重新获得了来自 Felivol 的 祝福之光
+[回合8] 24m 40s:  Mequie 施放了 射击, 目标：(10, 0)
+[回合8] 24m 41s:  Mequie 的 射击 对 BossMu 造成了 70 点 Pierce 伤害（暴击）。生命值：235
+[回合8] 24m 42s:  Mequie 施放了 射击, 目标：(10, 0)
+[回合8] 24m 43s:  Mequie 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：200
+[回合8] 24m 44s:  Mequie 施放了 射击, 目标：(10, 0)
+[回合8] 24m 44s:  Mequie 的 射击 对 BossMu 造成了 70 点 Pierce 伤害（暴击）。生命值：130
+[回合8] 24m 48s:  Warrior 施放了 狂风加护, 目标：(8, 0)
+[回合8] 24m 48s:  Warrior 获得了来自 Warrior 的 狂风加护
+[回合8] 24m 49s:  Warrior 施放了 射击, 目标：(10, 0)
+[回合8] 24m 50s:  Warrior 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：95
+[回合8] 24m 51s:  Warrior 施放了 射击, 目标：(10, 0)
+[回合8] 24m 51s:  Warrior 的 射击 对 BossMu 造成了 70 点 Pierce 伤害（暴击）。生命值：25
+[回合8] 24m 57s:  Archer 施放了 射击, 目标：(11, 0)
+[回合8] 24m 58s:  Archer 的 射击 对 BossMu 造成了 70 点 Pierce 伤害（暴击）。生命值：69
+[回合8] 25m 03s:  Astrologer 施放了 射击, 目标：(11, 0)
+[回合8] 25m 04s:  Astrologer 的 射击 对 BossMu 造成了 13 点 Pierce 伤害。生命值：56
+[回合8] 25m 05s:  Astrologer 施放了 星光超流, 目标：(11, 0)
+[回合8] 25m 05s:  Astrologer 的 星光超流 对 BossMu 造成了 37 点 Light 伤害。生命值：19
+[回合8] 25m 05s:  BossMu 获得了来自 Astrologer 的 繁星道标
+[回合8] 25m 14s:  Warrior 施放了 射击, 目标：(10, 0)
+[回合8] 25m 15s:  Warrior 的 射击 对 BossMu 造成了 25 点 Pierce 伤害。生命值：0
+[回合8] 25m 15s:  BossMu 施放了 史莱姆爆炸, 目标：(10, 0)
+[回合8] 25m 15s:  BossMu 的 史莱姆爆炸 对 Archer 造成了 18 点 Nature 伤害。生命值：47
+[回合8] 25m 15s:  BossMu 的 史莱姆爆炸 对 Mequie 造成了 18 点 Nature 伤害。生命值：40
+[回合8] 25m 16s:  BossMu 的 史莱姆爆炸 对 LiliumGuard 造成了 12 点 Nature 伤害。生命值：80
+[回合8] 25m 16s:  BossMu 的 史莱姆爆炸 对 Alice 造成了 18 点 Nature 伤害。生命值：85
+[回合8] 25m 16s:  BossMu 的 史莱姆爆炸 对 FloraFairy 造成了 20 点 Nature 伤害。生命值：20
+[回合8] 25m 16s:  BossMu 的 史莱姆爆炸 对 Gaceon 造成了 19 点 Nature 伤害。生命值：59
+[回合8] 25m 16s:  BossMu 的 史莱姆爆炸 对 Astrologer 造成了 18 点 Nature 伤害。生命值：49
+[回合8] 25m 17s:  BossMu 的 史莱姆爆炸 对 Umiko 造成了 19 点 Nature 伤害。生命值：62
+[回合8] 25m 17s:  BossMu 的 史莱姆爆炸 对 Warrior 造成了 20 点 Nature 伤害。生命值：47
+[回合8] 25m 17s:  BossMu 的 史莱姆爆炸 对 Felivol 造成了 17 点 Nature 伤害。生命值：48
+[回合8] 25m 17s:  BossMu 失去了来自 BossMu 的 爆裂 [615]
+[回合8] 25m 17s:  BossMu 失去了来自 Archer 的 出血
+[回合8] 25m 17s:  Warrior 的 射击 击杀了 BossMu !
+[回合8] 25m 19s:  LiliumGuard 施放了 盾击, 目标：(11, 0)
+[回合8] 25m 20s:  LiliumGuard 的 盾击 对 BossMu 造成了 19 点 Knock 伤害（暴击）。生命值：0
+[回合8] 25m 20s:  BossMu 施放了 史莱姆爆炸, 目标：(11, 0)
+[回合8] 25m 20s:  BossMu 的 史莱姆爆炸 对 Archer 造成了 18 点 Nature 伤害。生命值：29
+[回合8] 25m 21s:  BossMu 的 史莱姆爆炸 对 Mequie 造成了 18 点 Nature 伤害。生命值：22
+[回合8] 25m 21s:  BossMu 的 史莱姆爆炸 对 LiliumGuard 造成了 16 点 Nature 伤害。生命值：64
+[回合8] 25m 21s:  BossMu 的 史莱姆爆炸 对 Alice 造成了 18 点 Nature 伤害。生命值：67
+[回合8] 25m 21s:  BossMu 的 史莱姆爆炸 对 FloraFairy 造成了 20 点 Nature 伤害。生命值：0
+[回合8] 25m 21s:  FloraFairy 失去了来自 Alice 的 力量光环
+[回合8] 25m 21s:  FloraFairy 失去了来自 Umiko 的 生命之歌
+[回合8] 25m 21s:  FloraFairy 失去了来自 BossMu 的 剧毒酸池
+[回合8] 25m 21s:  BossMu 的 史莱姆爆炸 击杀了 FloraFairy !
+[回合8] 25m 22s:  BossMu 的 史莱姆爆炸 对 Gaceon 造成了 19 点 Nature 伤害。生命值：40
+[回合8] 25m 22s:  BossMu 的 史莱姆爆炸 对 Astrologer 造成了 18 点 Nature 伤害。生命值：31
+[回合8] 25m 22s:  BossMu 的 史莱姆爆炸 对 Umiko 造成了 19 点 Nature 伤害。生命值：43
+[回合8] 25m 22s:  BossMu 的 史莱姆爆炸 对 Warrior 造成了 20 点 Nature 伤害。生命值：27
+[回合8] 25m 22s:  BossMu 的 史莱姆爆炸 对 Felivol 造成了 17 点 Nature 伤害。生命值：31
+[回合8] 25m 22s:  BossMu 失去了来自 BossMu 的 爆裂 [615]
+[回合8] 25m 22s:  BossMu 失去了来自 Warrior 的 出血
+[回合8] 25m 22s:  BossMu 失去了来自 Astrologer 的 繁星道标
+[回合8] 25m 22s:  LiliumGuard 的 盾击 击杀了 BossMu !
+
+JSON: None
+
+== Comments ==
+竖琴光环没啥用？
+占星伤害好低）
+给治疗个平A罢
+
+== Turn Summary ==
+Turn    Dmg->   Dmg<-   Heal<-
+1       21      0       0
+2       273     54      0
+3       454     165     70
+4       183     140     206
+5       500     312     113
+6       292     97      173
+7       440     296     169
+8       444     448     34
+
+== Stats ==
+Damage Dealt
+1. Mequie (Bow)         560 (70)
+2. Astrologer           493 (61.6)
+3. Archer (Bow)         432 (54)
+4. Warrior (Bow)        396 (49.5)
+5. Felivol              306 (38.3)
+6. Umiko (Harp)         223 (27.9)
+7. LiliumGuard (NVeil)  142 (17.8)
+8. Alice (Horn)          55 (6.9)
+
+Healing Done
+1. Gaceon (Chain)       377 (47.1)
+2. FloraFairy (Bloom)   328 (41)
+3. Felivol               60 (7.5)

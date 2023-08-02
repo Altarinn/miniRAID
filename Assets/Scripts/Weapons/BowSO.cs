@@ -46,7 +46,7 @@ namespace miniRAID.Weapon
             mob.OnMobMoved -= MobOnOnMobMoved;
         }
 
-        private void MobOnOnMobMoved(MobData mob)
+        private void MobOnOnMobMoved(MobData mob, Vector3Int from)
         {
             moved = true;
         }

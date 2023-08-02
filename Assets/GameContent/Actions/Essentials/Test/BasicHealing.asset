@@ -500,7 +500,7 @@ MonoBehaviour:
       Data: 1
     - Name: range
       Entry: 3
-      Data: 6
+      Data: 5
     - Name: enemyType
       Entry: 3
       Data: 1
@@ -608,7 +608,7 @@ MonoBehaviour:
       Data: 
   Guid: 20581ce0f4954d44970dbf270ed0a1cc
   Id: 66
-  icon: {fileID: -4228980654789970603, guid: 7fe9a382566f75a429badd968a5161fa, type: 3}
+  icon: {fileID: 4053217339916443112, guid: 7fe9a382566f75a429badd968a5161fa, type: 3}
   ActionNameKey:
     m_TableReference:
       m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313

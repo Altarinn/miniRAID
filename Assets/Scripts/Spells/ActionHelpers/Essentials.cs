@@ -105,13 +105,16 @@ namespace miniRAID.ActionHelpers
             advancedSettings = damageHeal.advancedSettings == null ? null : new AdvancedSettings(damageHeal.advancedSettings);
         }
 
-        public IEnumerator DoDamageHeal(RuntimeAction spellContext, Buff.Buff buffContext, MobData src, MobData tgt)
+        /// <summary>
+        /// Directly get the damage/heal info.
+        /// Note that advanced settings will not be applied.
+        /// </summary>
+        /// <param name="spellContext">Source spell</param>
+        /// <param name="buffContext">Source buff (either spellContext or buffContext should be non-null)</param>
+        /// <param name="src">The mob to cast this action</param>
+        /// <returns></returns>
+        public Consts.DamageHeal_FrontEndInput GetInfo(RuntimeAction spellContext, Buff.Buff buffContext, MobData src)
         {
-            if (advancedSettings != null)
-            {
-                src.aggroMul.MulMul(dNumber.CreateStatic(advancedSettings.aggroMul, "Damage Aggro Multiplier"));
-            }
-
             var input = new Consts.DamageHeal_FrontEndInput
             {
                 source = src,
@@ -135,6 +138,18 @@ namespace miniRAID.ActionHelpers
                 input.crit = crit.Apply(buffContext.crit);
                 input.hit = hit.Apply(buffContext.hit);
             }
+
+            return input;
+        }
+
+        public IEnumerator DoDamageHeal(RuntimeAction spellContext, Buff.Buff buffContext, MobData src, MobData tgt)
+        {
+            if (advancedSettings != null)
+            {
+                src.aggroMul.MulMul(dNumber.CreateStatic(advancedSettings.aggroMul, "Damage Aggro Multiplier"));
+            }
+
+            var input = GetInfo(spellContext, buffContext, src);
             
             yield return new JumpIn(Globals.backend.DealDmgHeal(tgt, input));
 

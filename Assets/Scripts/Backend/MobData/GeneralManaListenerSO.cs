@@ -78,5 +78,20 @@ namespace miniRAID
             current += value;
             if (current > max) current = max;
         }
+        
+        /// <summary>
+        /// Use mana directly. Note that in most cases, it is better to use <see cref="MobData.ApplyCost"/> instead.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns>The actual mana used (may different from the provided value)</returns>
+        public int UseMana(int value)
+        {
+            int used = Mathf.Min(current, value);
+            
+            current -= used;
+            if (current < 0) current = 0;
+
+            return used;
+        }
     }
 }

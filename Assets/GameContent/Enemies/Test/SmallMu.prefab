@@ -59,6 +59,16 @@ MonoBehaviour:
     _actionPointsMul100: 0
     apRecovery: 2
     apMax: 2
+    moveRange:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    movedGrids: 0
     attackPower:
       valueType: 0
       staticValue: 0
@@ -283,6 +293,16 @@ MonoBehaviour:
     _actionPointsMul100: 400
     apRecovery: 3
     apMax: 5
+    moveRange:
+      valueType: 0
+      staticValue: 0
+      source:
+        source: 
+      baseValue: 0
+      addedValue: 0
+      addMultiplier: 0
+      mulMultiplier: 0
+    movedGrids: 0
     attackPower:
       valueType: 0
       staticValue: 0
@@ -719,7 +739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 612710761447979575, guid: b3f1552ad04ae9642852e91b16b3891a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.75000286
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 612710761447979575, guid: b3f1552ad04ae9642852e91b16b3891a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -103,13 +103,14 @@ namespace miniRAID
             // TODO: implement path for field effects (move w.r.t. the path & tell backend that we reached a intermediate point)
             if (Globals.cc.animation && mobRenderer != null)
                 yield return new JumpIn(mobRenderer.MoveTowards(targetPos));
+            
+            int distance = Consts.Distance(targetPos, Position);
 
             // Tell backend that we finished the movement
 
             // TODO: change to use path
             if (doCost)
             {
-                int distance = Consts.Distance(targetPos, Position);
                 UseActionPoint(
                     Mathf.Max(0, distance - (actedThisTurn ? 0 : (MoveRange - movedGrids))));
 
@@ -119,7 +120,11 @@ namespace miniRAID
                 }
             }
 
-            Position = targetPos;
+            // TODO: Use actual path
+            for (int i = 0; i < distance; i++)
+            {
+                yield return new JumpIn(SetPosition(targetPos));
+            }
         }
         
         public IEnumerator ActionPrecheck(RuntimeAction raction, Spells.SpellTarget target)

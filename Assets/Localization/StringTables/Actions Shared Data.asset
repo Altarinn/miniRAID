@@ -239,6 +239,54 @@ MonoBehaviour:
     m_Key: paladin.battlefieldpray.name
     m_Metadata:
       m_Items: []
+  - m_Id: 2339517288669184
+    m_Key: manashield.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2348440951447552
+    m_Key: bubbleshot.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2350024829689856
+    m_Key: bubbleshield.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2351751704338432
+    m_Key: shellharpaura.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2388361368035328
+    m_Key: cometshot.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2389927340793856
+    m_Key: cometshot.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2390249345900544
+    m_Key: giantcomet.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2566351288786944
+    m_Key: astrologer.blink.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2673815069908992
+    m_Key: traveler.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2869994433011712
+    m_Key: astrologer.manatransfer.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2883997322436608
+    m_Key: paladin.defensivecharge.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2892666319659008
+    m_Key: revive.name
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

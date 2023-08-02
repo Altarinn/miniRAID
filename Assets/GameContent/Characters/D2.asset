@@ -81,7 +81,7 @@ MonoBehaviour:
   icon: {fileID: 0}
   nickname: 
   race: {fileID: 11400000, guid: b4f54ea610e4f3248b1f52f403105d23, type: 2}
-  job: {fileID: 11400000, guid: d3e2910f0b767ae4e83683128b7c18aa, type: 2}
+  job: {fileID: 11400000, guid: 2d28f9f33d706a84cb213de02e335585, type: 2}
   level: 10
   rendererPrefab: {fileID: 0}
   movementType: 0

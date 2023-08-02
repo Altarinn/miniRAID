@@ -17,7 +17,13 @@ namespace miniRAID
         {
             if (isInstant)
             {
-                mob.Position = target.targetPos[0];
+                var targetPos = target.targetPos[0];
+                if (!Globals.backend.CanGridPlaceMob(targetPos, mob.gridBody))
+                {
+                    yield break;
+                }
+
+                yield return new JumpIn(mob.SetPosition(target.targetPos[0]));
             }
             else
             {

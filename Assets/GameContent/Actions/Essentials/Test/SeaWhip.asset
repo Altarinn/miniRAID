@@ -458,6 +458,9 @@ MonoBehaviour:
     - Name: inheritPower
       Entry: 5
       Data: true
+    - Name: stacks
+      Entry: 3
+      Data: 1
     - Name: power
       Entry: 7
       Data: miniRAID.ActionHelpers.FloatModifier, Assembly-CSharp

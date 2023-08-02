@@ -52,7 +52,9 @@ namespace miniRAID
         public event MobArgumentDelegate OnStatCalculation;
         public event MobArgumentDelegate OnActionStatCalculation;
         public event MobArgumentDelegate OnStatCalculationFinish;
-        public event MobArgumentDelegate OnMobMoved;
+        
+        // Parameters: MobData, previous position
+        public CoroutineEvent<MobData, Vector3Int> OnMobMoved;
 
         public event MobActionQueryDelegate OnQueryActions;
 
@@ -284,22 +286,78 @@ namespace miniRAID
         private IEnumerator Killed(Consts.DamageHeal_Result info)
         {
             isDead = true;
+            initialized = false;
             yield return new JumpIn(this.OnRealDeath?.Invoke(this, info));
 
             foreach (var listener in listeners.ToArray())
             {
                 RemoveListener(listener);
             }
+
+            bool shouldDestroy = unitGroup != Consts.UnitGroup.Player;
             
             yield return new JumpIn(SetActive(false));
 
             if(mobRenderer != null)
-                yield return new JumpIn(mobRenderer.Killed(info));
+                yield return new JumpIn(mobRenderer.Killed(info, shouldDestroy));
 
-            mobRenderer = null;
+            if (shouldDestroy)
+            {
+                mobRenderer = null;
             
-            // Remove me from world
-            Databackend.GetSingleton().ClearMob(Position, gridBody, this, true);
+                // Remove me from world
+                Databackend.GetSingleton().ClearMob(Position, gridBody, this, true);
+            }
+        }
+
+        /// <summary>
+        /// Revives the mob. If the mob is not dead, nothing happens.
+        /// </summary>
+        /// <param name="info">The healing info used to revive the mob</param>
+        /// <returns>Coroutine</returns>
+        public IEnumerator Revive(Consts.DamageHeal_FrontEndInput info)
+        {
+            if (!isDead)
+            {
+                yield break;
+            }
+            
+            isDead = false;
+            Init();
+            
+            // Give basic health info
+            health = 1;
+            RecalculateStats();
+
+            // Apply healing
+            Consts.DamageHeal_Result result = new Consts.DamageHeal_Result();
+            yield return new JumpIn(ReceiveDamage(info, result));
+        }
+
+        // TODO: Remove this
+        public IEnumerator Cheat(RuntimeAction ract)
+        {
+            Consts.DamageHeal_FrontEndInput info = new Consts.DamageHeal_FrontEndInput()
+            {
+                crit = 0,
+                flags = Consts.DamageHealFlags.Indirect,
+                hit = 1000000,
+                popup = true,
+                source = this,
+                type = Consts.Elements.Heal,
+                value = maxHealth * 0.2f,
+                sourceAction = ract
+            };
+
+            if (isDead)
+            {
+                yield return new JumpIn(Revive(info));
+            }
+            else
+            {
+                Consts.DamageHeal_Result result = new Consts.DamageHeal_Result();
+                yield return new JumpIn(ReceiveDamage(info, result));
+            }
         }
 
         public IEnumerator AutoAttackFinish()

@@ -97,6 +97,10 @@ MonoBehaviour:
     level: 0
   - data: {fileID: 11400000, guid: c934568e496c1d2438b51d0b0be45afa, type: 2}
     level: 0
+  - data: {fileID: 11400000, guid: 2a4d462aae6574ce78f2c9ca31e33b8e, type: 2}
+    level: 0
+  - data: {fileID: 11400000, guid: 09fa8ba063bea41e89d2091d94960034, type: 2}
+    level: 0
   baseStats:
     VIT: 12
     STR: 7

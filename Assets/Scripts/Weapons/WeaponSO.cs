@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using miniRAID.Spells;
 using miniRAID.UI.TargetRequester;
+using miniRAID.UIElements;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.UIElements;
 
 namespace miniRAID.Weapon
 {
@@ -24,6 +27,23 @@ namespace miniRAID.Weapon
             MagicItem,
             MystItem
         }
+
+        public static string[] weaponTypeNames = new string[]
+        {
+            "sword",
+            "spear",
+            "heavyweapon",
+            "bow",
+            "shield",
+            
+            "staff",
+            "instrument",
+            "grimoire",
+            "magicitem",
+            "mystitem"
+        };
+
+        public static string GetWeaponName(WeaponType t) => weaponTypeNames[(int)t];
 
         [Title("Weapon", "", TitleAlignments.Centered)]
         public WeaponType wpType;
@@ -128,6 +148,34 @@ namespace miniRAID.Weapon
             }
             
             return picker.Pick(source, action);
+        }
+
+        public virtual string GetWeaponSpecialAttackTooltip()
+        {
+            return Globals.localizer.L(new LocalizedString("Actions", $"weapon.{WeaponSO.GetWeaponName(weaponData.wpType)}.tooltip"));
+        }
+        
+        public virtual string GetWeaponSpecialAttackTitle()
+        {
+            return Globals.localizer.L(new LocalizedString("Actions", $"weapon.{WeaponSO.GetWeaponName(weaponData.wpType)}.specialname"));
+        }
+
+        public override void ShowInUI(EquipmentController ui)
+        {
+            base.ShowInUI(ui);
+
+            if (RregularAttack != null)
+            {
+                var skillInfo = ui.regularAttackTemplate.CloneTree();
+                RregularAttack.ShowInUI(skillInfo.Q("skillContainer"));
+                ui.container.Add(skillInfo);
+            }
+
+            if (Tooltip != null)
+            {
+                ui.descriptionContainer.style.display = DisplayStyle.Flex;
+                ui.description.text = Tooltip;
+            }
         }
     }
 }

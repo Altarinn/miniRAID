@@ -242,6 +242,15 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  ToolTipKey:
+    m_TableReference:
+      m_TableCollectionName: GUID:734f24eb6407f4222bbf39e210223d35
+    m_TableEntryReference:
+      m_KeyId: 1384193051926528
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   type: 1
   priority: 0
   itemLevel: 24

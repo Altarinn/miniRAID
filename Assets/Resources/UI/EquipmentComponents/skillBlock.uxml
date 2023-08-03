@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement name="skillContainer" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+        <ui:VisualElement name="content" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row;">
+            <ui:VisualElement name="title" class="row-middle" style="background-color: rgba(0, 0, 0, 0); flex-direction: column;">
+                <ui:Label tabindex="-1" text="大彗星箭" display-tooltip-when-elided="true" name="name" class="skill-title" style="padding-bottom: 5px; -unity-text-align: upper-left;" />
+                <ui:Label tabindex="-1" text="造成伤害&#10;造成很多伤害&#10;但是其实造不成伤害" display-tooltip-when-elided="true" name="tooltip" />
+            </ui:VisualElement>
+            <ui:VisualElement name="costs" class="row-last" style="background-color: rgba(0, 0, 0, 0);">
+                <ui:Label tabindex="-1" text="AP 2&#10;CD1&#10;" display-tooltip-when-elided="true" name="costs" class="row-last skill-title" style="-unity-text-align: upper-right;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

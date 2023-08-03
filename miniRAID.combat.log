@@ -1,42 +1,32 @@
 - Start of debug log -
-[2023/8/3 11:20:31] AWAKE
-[回合0] 00m 07s:  Archer 获得了来自 Archer 的 攻击者
-[回合0] 00m 08s:  Archer2 获得了来自 Archer2 的 攻击者
-[回合0] 00m 08s:  Lilium 获得了来自 Lilium 的 防卫者
-[回合0] 00m 08s:  Explorer 获得了来自 Explorer 的 力量光环
-[回合0] 00m 08s:  Archer 获得了来自 Explorer 的 力量光环
-[回合0] 00m 08s:  Lilium 获得了来自 Explorer 的 力量光环
-[回合0] 00m 08s:  Flora 获得了来自 Explorer 的 力量光环
-[回合0] 00m 08s:  Gaceon 获得了来自 Explorer 的 力量光环
-[回合0] 00m 08s:  Astrologer 获得了来自 Astrologer 的 流星
-[回合0] 00m 08s:  Astrologer 获得了来自 Astrologer 的 星能转化
-[回合0] 00m 08s:  Astrologer 获得了来自 Explorer 的 力量光环
-[回合0] 00m 08s:  Umiko 获得了来自 Umiko 的 生命之歌
-[回合0] 00m 08s:  Archer 获得了来自 Umiko 的 生命之歌
-[回合0] 00m 08s:  Archer2 获得了来自 Umiko 的 生命之歌
-[回合0] 00m 08s:  Lilium 获得了来自 Umiko 的 生命之歌
-[回合0] 00m 08s:  Flora 获得了来自 Umiko 的 生命之歌
-[回合0] 00m 08s:  Gaceon 获得了来自 Umiko 的 生命之歌
-[回合0] 00m 08s:  Astrologer 获得了来自 Umiko 的 生命之歌
-[回合0] 00m 08s:  Umiko 获得了来自 Explorer 的 力量光环
-[回合0] 00m 08s:  BossMu 获得了来自 BossMu 的 爆裂 [688]
-[回合0] 00m 08s:  Archer3 获得了来自 Archer3 的 攻击者
-[回合0] 00m 08s:  Archer3 获得了来自 Explorer 的 力量光环
-[回合0] 00m 08s:  Felivol 获得了来自 Felivol 的 防卫者
-[回合0] 00m 08s:  Felivol 获得了来自 Felivol 的 旅者
-[回合0] 00m 08s:  Felivol 获得了来自 Felivol 的 聆听神谕
-[回合0] 00m 08s:  Felivol 获得了来自 Felivol 的 祝福之光
-[回合0] 00m 08s:  Felivol 获得了来自 Felivol 的 防御蓄能
-[回合0] 00m 08s:  Felivol 获得了来自 Explorer 的 力量光环
-[回合0] 00m 08s:  Felivol 获得了来自 Umiko 的 生命之歌
-[回合1] 00m 10s:  回合1
-[回合1] 08m 22s:  Archer 的 移动 对 Archer 造成了 0 点 Heal 。生命值：96
-[回合1] 08m 22s:  Archer2 的 移动 对 Archer2 造成了 0 点 Heal 。生命值：96
-[回合1] 08m 22s:  Lilium 的 移动 对 Lilium 造成了 0 点 Heal 。生命值：114
-[回合1] 08m 22s:  Explorer 的 移动 对 Explorer 造成了 0 点 Heal 。生命值：126
-[回合1] 08m 22s:  Flora 的 移动 对 Flora 造成了 0 点 Heal 。生命值：102
-[回合1] 08m 23s:  Gaceon 的 移动 对 Gaceon 造成了 0 点 Heal 。生命值：102
-[回合1] 08m 23s:  Astrologer 的 移动 对 Astrologer 造成了 0 点 Heal 。生命值：90
-[回合1] 08m 23s:  Umiko 的 移动 对 Umiko 造成了 0 点 Heal 。生命值：126
-[回合1] 08m 23s:  Archer3 的 移动 对 Archer3 造成了 0 点 Heal 。生命值：96
-[回合1] 08m 23s:  Felivol 的 移动 对 Felivol 造成了 0 点 Heal 。生命值：126
+[2023/8/4 1:41:05] AWAKE
+[回合0] 00m 10s:  Archer 获得了来自 Archer 的 攻击者
+[回合0] 00m 10s:  Archer2 获得了来自 Archer2 的 攻击者
+[回合0] 00m 10s:  Lilium 获得了来自 Lilium 的 防卫者
+[回合0] 00m 10s:  Explorer 获得了来自 Explorer 的 力量光环
+[回合0] 00m 10s:  Archer 获得了来自 Explorer 的 力量光环
+[回合0] 00m 10s:  Lilium 获得了来自 Explorer 的 力量光环
+[回合0] 00m 10s:  Flora 获得了来自 Explorer 的 力量光环
+[回合0] 00m 10s:  Gaceon 获得了来自 Explorer 的 力量光环
+[回合0] 00m 10s:  Astrologer 获得了来自 Astrologer 的 流星
+[回合0] 00m 10s:  Astrologer 获得了来自 Astrologer 的 星能转化
+[回合0] 00m 10s:  Astrologer 获得了来自 Explorer 的 力量光环
+[回合0] 00m 10s:  Umiko 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 10s:  Archer 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 11s:  Archer2 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 11s:  Lilium 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 11s:  Flora 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 11s:  Gaceon 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 11s:  Astrologer 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 11s:  Umiko 获得了来自 Explorer 的 力量光环
+[回合0] 00m 11s:  BossMu 获得了来自 BossMu 的 爆裂 [688]
+[回合0] 00m 11s:  Archer3 获得了来自 Archer3 的 攻击者
+[回合0] 00m 11s:  Archer3 获得了来自 Explorer 的 力量光环
+[回合0] 00m 11s:  Felivol 获得了来自 Felivol 的 防卫者
+[回合0] 00m 11s:  Felivol 获得了来自 Felivol 的 旅者
+[回合0] 00m 11s:  Felivol 获得了来自 Felivol 的 聆听神谕
+[回合0] 00m 11s:  Felivol 获得了来自 Felivol 的 祝福之光
+[回合0] 00m 11s:  Felivol 获得了来自 Felivol 的 防御蓄能
+[回合0] 00m 11s:  Felivol 获得了来自 Explorer 的 力量光环
+[回合0] 00m 11s:  Felivol 获得了来自 Umiko 的 生命之歌
+[回合1] 00m 15s:  回合1

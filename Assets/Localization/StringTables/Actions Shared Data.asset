@@ -287,6 +287,62 @@ MonoBehaviour:
     m_Key: revive.name
     m_Metadata:
       m_Items: []
+  - m_Id: 3701056310157312
+    m_Key: weapon.bow.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3701115437260800
+    m_Key: weapon.heavyweapon.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3701140032659456
+    m_Key: weapon.instrument.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3701164888104960
+    m_Key: weapon.mystitem.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3701227492286464
+    m_Key: weapon.shield.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3701253471805440
+    m_Key: weapon.staff.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3701276121047040
+    m_Key: weapon.bow.specialname
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3706765722591232
+    m_Key: weapon.heavyweapon.specialname
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3706771665920000
+    m_Key: weapon.instrument.specialname
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3706824799363072
+    m_Key: weapon.mystitem.specialname
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3706860467724288
+    m_Key: weapon.shield.specialname
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3706886329802752
+    m_Key: weapon.staff.specialname
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3724387210043392
+    m_Key: manashield.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3724628650958848
+    m_Key: shieldbash.tooltip
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

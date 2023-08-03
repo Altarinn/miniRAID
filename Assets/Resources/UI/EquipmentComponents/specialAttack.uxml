@@ -1,0 +1,14 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:Template name="skillBlock" src="project://database/Assets/Resources/UI/EquipmentComponents/skillBlock.uxml?fileID=9197481963319205126&amp;guid=e38d616b750a17b4cb78a2007157609d&amp;type=3#skillBlock" />
+    <ui:VisualElement name="specialAttack" class="panel-row" style="background-color: rgba(0, 0, 0, 0);">
+        <ui:VisualElement class="row-first">
+            <ui:Label tabindex="-1" text="共鸣 (2)" display-tooltip-when-elided="true" name="specialTitle" class="h3" />
+        </ui:VisualElement>
+        <ui:VisualElement name="rightPanel" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+            <ui:Instance template="skillBlock" name="skillBlock" />
+            <ui:VisualElement name="specialDescription" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); margin-top: 5px;">
+                <ui:Label tabindex="-1" text="施放共鸣后，2回合内无法使用该法杖" display-tooltip-when-elided="true" class="h3" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -48,3 +48,15 @@
 .panel-compact-row > .row-first {
     color: rgb(189, 236, 255);
 }
+
+.h3 {
+    color: rgb(189, 236, 255);
+}
+
+.skill-title {
+    color: rgb(181, 255, 167);
+}
+
+.quote {
+    color: rgb(166, 124, 80);
+}

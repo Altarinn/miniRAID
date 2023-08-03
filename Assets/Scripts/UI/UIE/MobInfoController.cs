@@ -77,7 +77,7 @@ namespace miniRAID.UIElements
             {
                 var skillInfo = skillInfoTemplate.CloneTree();
                 skillInfo.Q<Label>("name").text = $"Lv{(skill).level + 1} {(skill).data.ActionName}";
-                skillInfo.Q<Label>("info").text = skill.ShortTooltip.Replace("\n", "");
+                skillInfo.Q<Label>("info").text = skill.Tooltip?.Replace("\n", "");
                 activeSkillContainer.Add(skillInfo);
             }
             
@@ -95,7 +95,7 @@ namespace miniRAID.UIElements
                 {
                     skillInfo.Q<Label>("name").text = $"{listener.data?.name}";
                 }
-                skillInfo.Q<Label>("info").text = listener.ShortTooltip.Replace("\n", "");
+                skillInfo.Q<Label>("info").text = listener.Tooltip?.Replace("\n", "");
                 
                 if (listener.type is MobListenerSO.ListenerType.Passive 
                     && (listener as Buff.Buff) != null

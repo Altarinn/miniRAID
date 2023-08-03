@@ -5,20 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c36ca183-e7eb-40c1-9aca-56cfe58c3f4d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIE/MobInfoController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIE/MobInfoController.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.miniRAID-HD2D/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.miniRAID-HD2D/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/CombatView.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/CombatView.uxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Weapons/Test/CometStaff.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Weapons/Test/CometStaff.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Localization/StringTables/Actions Shared Data.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Localization/StringTables/Actions Shared Data.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Localization/StringTables/Actions_zh-CN.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Localization/StringTables/Actions_zh-CN.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Localization/StringTables/Nouns Shared Data.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Localization/StringTables/Nouns Shared Data.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Localization/StringTables/Nouns_zh-CN.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Localization/StringTables/Nouns_zh-CN.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/EquipmentInfo.uss" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/EquipmentInfo.uss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/MobDetails.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/MobDetails.uxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/NewScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/NewScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/MobData/DescriptorSO/EnemyMobDescriptorSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/MobData/DescriptorSO/EnemyMobDescriptorSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/EquipmentInfo.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/EquipmentInfo.uxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/MobData/DescriptorSO/MobDescriptorSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/MobData/DescriptorSO/MobDescriptorSO.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/MobListenerSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/MobListenerSO.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/SOCore/Action/ActionDataSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/SOCore/Action/ActionDataSO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/States/UnitMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/States/UnitMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIE/CombatView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIE/CombatView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIE/MobDetailsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIE/MobDetailsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIE/MobInfoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIE/MobInfoController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIE/UnitBarController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIE/UnitBarController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIE/UnitMenuController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIE/UnitMenuController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIMenu_UIContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIMenu_UIContainer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/BowSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/BowSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/HeavyWeaponSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/HeavyWeaponSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/InstrumentSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/InstrumentSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/MystItemSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/MystItemSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/ShieldSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/ShieldSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/StaffSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/StaffSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponSO.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/miniRAID.combat.log" beforeDir="false" afterPath="$PROJECT_DIR$/miniRAID.combat.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/miniRAID.log" beforeDir="false" afterPath="$PROJECT_DIR$/miniRAID.log" afterDir="false" />
     </list>
@@ -161,7 +170,7 @@
       <workItem from="1690054201946" duration="20133000" />
       <workItem from="1690209350805" duration="91467000" />
       <workItem from="1690703086320" duration="2753000" />
-      <workItem from="1690740734669" duration="12642000" />
+      <workItem from="1690740734669" duration="21400000" />
     </task>
     <servers />
   </component>

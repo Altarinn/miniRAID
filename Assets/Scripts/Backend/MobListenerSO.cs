@@ -42,6 +42,7 @@ namespace miniRAID
         // Basic properties
 
         public LocalizedString nameKey;
+        public LocalizedString ToolTipKey;
         public new string name => Globals.localizer.L(nameKey) ?? "BAD_STRING";
         
         public ListenerType type;
@@ -86,7 +87,13 @@ namespace miniRAID
 
         public virtual MobListenerSO.ListenerType type => data.type;
         public virtual string name => data?.name;
-        public virtual string ShortTooltip => "NO_SHORT_TOOLTIP";
+
+        public virtual Dictionary<string, object> LazyPrepareTooltipVariables()
+        {
+            return new Dictionary<string, object> { { "listener", this } };
+        }
+        
+        public virtual string Tooltip => Globals.localizer.L(data.ToolTipKey, new object[]{LazyPrepareTooltipVariables()});
 
         public HashSet<IMobListenerIndicator> indicators;
 

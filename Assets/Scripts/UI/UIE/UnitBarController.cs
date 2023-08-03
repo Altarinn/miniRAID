@@ -68,7 +68,7 @@ namespace miniRAID.UIElements
             HPBar.style.width = Length.Percent(100.0f * mob.health / (float)(mob.maxHealth == 0 ? 1 : mob.maxHealth));
             
             currentAPInt.text = $"{Mathf.FloorToInt(mob.actionPoints)}";
-            currentAPFract.text = $".{(int)(100 * (mob.actionPoints - Mathf.FloorToInt(mob.actionPoints)))}";
+            currentAPFract.text = $".{(int)(100 * (mob.actionPoints - Mathf.FloorToInt(mob.actionPoints))):#00}";
             maxAP.text = $"{mob.apMax}";
 
             VIT.text = $"{mob.VIT}";

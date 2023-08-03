@@ -9,6 +9,7 @@ using System.Linq;
 using miniRAID.Weapon;
 using UnityEngine.Localization;
 using UnityEngine.Serialization;
+using UnityEngine.UIElements;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -378,12 +379,12 @@ namespace miniRAID
         /// RecalculateStats should be called before LazyPrepareTooltipVariables to get correct output.
         /// </summary>
         /// <returns>A dictionary(K: string, V: object) that represents all raw values can be used in tooltip.</returns>
-        public virtual Dictionary<string, object> LazyPrepareTooltipVariables() 
+        public override Dictionary<string, object> LazyPrepareTooltipVariables() 
             => data.LazyPrepareTooltipVariables(this);
 
-        public override string ShortTooltip => Globals.localizer.L(data.DescriptionKey, new object[]{LazyPrepareTooltipVariables()}) ?? "BAD_STRING";
+        public override string Tooltip => Globals.localizer.L(data.DescriptionKey, new object[]{LazyPrepareTooltipVariables()});
         
-        public string GetTooltip(MobData mob)
+        public string GetFullTooltip(MobData mob)
         {
             string costString = "";
             foreach (var costBound in costBounds)
@@ -405,9 +406,34 @@ namespace miniRAID
 
             return $"{costString}\n" +
                    $"------------\n" +
-                   $"{ShortTooltip}\n";/* +
+                   $"{Tooltip}\n";/* +
                 $"Power: {power}\n" +
                 $"TODO - rAct.GetTooltip().";*/
+        }
+
+        public virtual void ShowInUI(VisualElement masterElem)
+        {
+            string costString = "";
+            foreach (var costBound in costBounds)
+            {
+                var lb = costBound.Item1;
+                var ub = costBound.Item2;
+
+                if(lb.type != ub.type) { Debug.LogError("Cost bound pair type mismatch, ignored."); continue; }
+
+                if(lb.value == ub.value)
+                {
+                    costString += $"{lb.type.ToString()} {(int)lb.value.Value}\n";
+                }
+                else
+                {
+                    costString += $"{lb.type.ToString()} {(int)lb.value.Value} - {(int)ub.value.Value}\n";
+                }
+            }
+            
+            masterElem.Q<Label>("name").text = data.ActionName;
+            masterElem.Q<Label>("costs").text = costString.TrimEnd('\n');
+            masterElem.Q<Label>("tooltip").text = Tooltip;
         }
 
         public IEnumerator RequestInUI(MobData mob)

@@ -149,7 +149,7 @@ namespace miniRAID.UI
                 action.data.ActionName,
                 action.RequestInUI(source.data),
                 onFinished,
-                action.GetTooltip(source.data),
+                action.GetFullTooltip(source.data),
                 selected
             );
             btn.gameObject.AddComponent<ActionButtonModifier>().SetData(action, source, nameOverride);

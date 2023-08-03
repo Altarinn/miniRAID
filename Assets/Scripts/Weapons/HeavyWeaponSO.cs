@@ -1,6 +1,9 @@
 using System.Collections;
 using miniRAID.Spells;
+using miniRAID.UIElements;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.UIElements;
 
 namespace miniRAID.Weapon
 {
@@ -40,6 +43,28 @@ namespace miniRAID.Weapon
         public override string GetInformationString()
         {
             return $"{heavyData.chargedAttack.data.ActionName}";
+        }
+        
+        public override void ShowInUI(EquipmentController ui)
+        {
+            base.ShowInUI(ui);
+
+            if (RchargedAttack != null)
+            {
+                var skillInfo = ui.specialAttackTemplate.CloneTree();
+                RchargedAttack.ShowInUI(skillInfo.Q("skillContainer"));
+                
+                skillInfo.Q<Label>("specialTitle").text = GetWeaponSpecialAttackTitle();
+                
+                string specialAttackTooltip = GetWeaponSpecialAttackTooltip();
+                if (specialAttackTooltip != null)
+                {
+                    var specialLabel = skillInfo.Query("specialDescription").Children<Label>().First();
+                    specialLabel.text = specialAttackTooltip;
+                }
+                
+                ui.container.Add(skillInfo);
+            }
         }
     }
 }

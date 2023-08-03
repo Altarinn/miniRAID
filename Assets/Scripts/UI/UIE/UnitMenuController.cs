@@ -263,7 +263,7 @@ namespace miniRAID.UIElements
                 action = action.RequestInUI(source.data),
                 onFinished = onFinished,
                 useDefaultToolTip = true,
-                toolTip = action.GetTooltip(source.data),
+                toolTip = action.GetFullTooltip(source.data),
                 source = source,
                 runtimeAction = action,
                 keycode = keycode,

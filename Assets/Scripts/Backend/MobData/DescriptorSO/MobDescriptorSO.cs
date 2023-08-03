@@ -51,7 +51,7 @@ namespace miniRAID
 
             mob.healPriority = healPriority;
 
-            mob.apRecovery = 3;
+            mob.apRecovery = 3 + mob.DEX * 0.01f;
         }
     }
 }

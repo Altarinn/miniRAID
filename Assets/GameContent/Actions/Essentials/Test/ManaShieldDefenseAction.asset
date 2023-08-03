@@ -19,7 +19,6 @@ MonoBehaviour:
     - {fileID: 6549173031084157918, guid: 8514406af415f3f45be82aa2f544fa24, type: 3}
     - {fileID: -1203473415, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
     - {fileID: 1226421646, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
-    - {fileID: 11400000, guid: 37b051ad5cbfe4ec8b4c3b3055cb8344, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -402,8 +401,8 @@ MonoBehaviour:
       Entry: 7
       Data: 17|miniRAID.ActionHelpers.SpellBuff, Assembly-CSharp
     - Name: buff
-      Entry: 10
-      Data: 3
+      Entry: 6
+      Data: 
     - Name: inheritLevel
       Entry: 5
       Data: false
@@ -479,9 +478,9 @@ MonoBehaviour:
   maxLevel: 0
   DescriptionKey:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 3724387210043392
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0

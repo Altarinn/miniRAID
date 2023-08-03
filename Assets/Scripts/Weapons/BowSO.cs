@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using miniRAID.UIElements;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Tables;
+using UnityEngine.UIElements;
 
 namespace miniRAID.Weapon
 {
@@ -72,6 +76,28 @@ namespace miniRAID.Weapon
                 return $"瞄准：否";
             }
             return $"瞄准：是";
+        }
+
+        public override void ShowInUI(EquipmentController ui)
+        {
+            base.ShowInUI(ui);
+
+            if (RaimedAttack != null)
+            {
+                var skillInfo = ui.specialAttackTemplate.CloneTree();
+                RaimedAttack.ShowInUI(skillInfo.Q("skillContainer"));
+                
+                skillInfo.Q<Label>("specialTitle").text = GetWeaponSpecialAttackTitle();
+                
+                string specialAttackTooltip = GetWeaponSpecialAttackTooltip();
+                if (specialAttackTooltip != null)
+                {
+                    var specialLabel = skillInfo.Query("specialDescription").Children<Label>().First();
+                    specialLabel.text = specialAttackTooltip;
+                }
+                
+                ui.container.Add(skillInfo);
+            }
         }
     }
 }

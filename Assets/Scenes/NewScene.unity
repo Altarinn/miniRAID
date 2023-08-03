@@ -2609,7 +2609,7 @@ GameObject:
   - component: {fileID: 376235184}
   - component: {fileID: 376235185}
   m_Layer: 0
-  m_Name: LiliumGuard
+  m_Name: Lilium
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5882,7 +5882,7 @@ GameObject:
   - component: {fileID: 1085092539}
   - component: {fileID: 1085092540}
   m_Layer: 0
-  m_Name: FloraFairy
+  m_Name: Flora
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -7949,11 +7949,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b542e9c0c5044d54a979197ede0751a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messagePrefab: {fileID: 0}
-  toggleButton: {fileID: 0}
-  activateColor: {r: 0, g: 0, b: 0, a: 0}
-  deactivateColor: {r: 0, g: 0, b: 0, a: 0}
-  parentGroup: {fileID: 0}
 --- !u!1 &1447923988
 GameObject:
   m_ObjectHideFlags: 0

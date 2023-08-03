@@ -1,5 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:Template name="MobDetails" src="project://database/Assets/Resources/UI/MobDetails.uxml?fileID=9197481963319205126&amp;guid=b4a31912e7545a84ba6184ccf5468f84&amp;type=3#MobDetails" />
+    <ui:Template name="MobInfo" src="project://database/Assets/Resources/UI/MobInfo.uxml?fileID=9197481963319205126&amp;guid=879a62edee3f51e44b47073fdb1a7221&amp;type=3#MobInfo" />
     <ui:Template name="BossStats" src="project://database/Assets/Resources/UI/BossStats.uxml?fileID=9197481963319205126&amp;guid=620568335ab06cc4db021ab811100d7d&amp;type=3#BossStats" />
     <ui:Template name="MessagePanel" src="project://database/Assets/Resources/UI/MessagePanel.uxml?fileID=9197481963319205126&amp;guid=63b07b8acfeea244283c2377f50b197b&amp;type=3#MessagePanel" />
     <ui:Template name="UnitBar" src="project://database/Assets/Resources/UI/UnitBar.uxml?fileID=9197481963319205126&amp;guid=1642f1cd78d1b441d957bfe649045878&amp;type=3#UnitBar" />
@@ -10,7 +11,8 @@
     <ui:VisualElement name="CombatPanel" picking-mode="Ignore" style="flex-direction: row; height: 100%; width: 100%;">
         <ui:Label tabindex="-1" text="v0.1.4" display-tooltip-when-elided="true" name="VersionNum" style="position: absolute; margin-left: 2px; margin-top: 2px; color: rgb(96, 108, 79);" />
         <ui:VisualElement name="MainPanel" picking-mode="Ignore" style="flex-grow: 1;">
-            <ui:Instance template="MobDetails" name="MobDetails" picking-mode="Ignore" style="position: absolute; left: 164px; top: 69px; width: 500px; visibility: hidden;" />
+            <ui:Instance template="MobDetails" name="MobDetails" picking-mode="Ignore" style="position: absolute; left: 164px; top: 69px; width: 550px; visibility: hidden;" />
+            <ui:Instance template="MobInfo" name="MobInfo" style="left: 164px; top: 69px; width: 550px; visibility: hidden; position: absolute;" />
             <ui:VisualElement name="UnitMenuContainer" picking-mode="Ignore" style="position: absolute; left: 24px; top: 69px; flex-direction: row; align-items: flex-start;">
                 <ui:ListView focusable="true" name="UnitMenu" fixed-item-height="16" picking-mode="Ignore" selection-type="None" style="width: 140px;" />
                 <ui:VisualElement name="ToolTip" style="padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;">

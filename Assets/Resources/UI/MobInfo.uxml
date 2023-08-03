@@ -1,0 +1,100 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="SkillRow" src="project://database/Assets/Resources/UI/SkillRow.uxml?fileID=9197481963319205126&amp;guid=f2146611115f58344b65bd75ee0171a6&amp;type=3#SkillRow" />
+    <Style src="project://database/Assets/Resources/UI/miniRAID_default.uss?fileID=7433441132597879392&amp;guid=54e6eee580e008a468415140067b7312&amp;type=3#miniRAID_default" />
+    <Style src="project://database/Assets/Resources/UI/EquipmentInfo.uss?fileID=7433441132597879392&amp;guid=95fd02b552952b04f9f3bcee0d984094&amp;type=3#EquipmentInfo" />
+    <ui:VisualElement style="background-color: rgba(0, 0, 0, 0); flex-direction: row;">
+        <ui:VisualElement name="Column1" class="infocolumn" style="margin-right: 5px; width: 150px;">
+            <ui:VisualElement name="title" class="panel-row" style="background-color: rgba(0, 0, 0, 0); padding-bottom: 8px;">
+                <ui:Label tabindex="-1" text="Felivol" display-tooltip-when-elided="true" name="name" class="row-first h2" />
+                <ui:VisualElement class="row-middle" style="background-color: rgba(0, 0, 0, 0);">
+                    <ui:Label tabindex="-1" text="高山精灵 / 圣骑士" display-tooltip-when-elided="true" name="racejob" class="h2" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="Power" class="panel-row" style="background-color: rgba(0, 0, 0, 0); flex-direction: column;">
+                <ui:VisualElement name="AttackPower-row" class="panel-compact-row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                    <ui:Label tabindex="-1" text="攻击强度" display-tooltip-when-elided="true" name="row-title" class="row-first" />
+                    <ui:Label tabindex="-1" text="122" display-tooltip-when-elided="true" name="row-value" class="row-middle" />
+                </ui:VisualElement>
+                <ui:VisualElement name="SpellPower-row" class="panel-compact-row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                    <ui:Label tabindex="-1" text="法术强度" display-tooltip-when-elided="true" name="row-title" class="row-first" />
+                    <ui:Label tabindex="-1" text="122" display-tooltip-when-elided="true" name="row-value" class="row-middle" />
+                </ui:VisualElement>
+                <ui:VisualElement name="HealPower-row" class="panel-compact-row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                    <ui:Label tabindex="-1" text="治疗强度" display-tooltip-when-elided="true" name="row-title" class="row-first" />
+                    <ui:Label tabindex="-1" text="122" display-tooltip-when-elided="true" name="row-value" class="row-middle" />
+                </ui:VisualElement>
+                <ui:VisualElement name="BuffPower-row" class="panel-compact-row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                    <ui:Label tabindex="-1" text="增益强度" display-tooltip-when-elided="true" name="row-title" class="row-first" />
+                    <ui:Label tabindex="-1" text="122" display-tooltip-when-elided="true" name="row-value" class="row-middle" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="Defensive" class="panel-row" style="background-color: rgba(0, 0, 0, 0); flex-direction: column;">
+                <ui:VisualElement name="Defense-row" class="panel-compact-row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                    <ui:Label tabindex="-1" text="护甲" display-tooltip-when-elided="true" name="row-title" class="row-first" />
+                    <ui:Label tabindex="-1" text="122" display-tooltip-when-elided="true" name="row-value" class="row-middle" />
+                </ui:VisualElement>
+                <ui:VisualElement name="Resist-row" class="panel-compact-row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                    <ui:Label tabindex="-1" text="魔法抗性" display-tooltip-when-elided="true" name="row-title" class="row-first" />
+                    <ui:Label tabindex="-1" text="122" display-tooltip-when-elided="true" name="row-value" class="row-middle" />
+                </ui:VisualElement>
+                <ui:VisualElement name="PhyBlock-row" class="panel-compact-row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                    <ui:Label tabindex="-1" text="格挡" display-tooltip-when-elided="true" name="row-title" class="row-first" />
+                    <ui:Label tabindex="-1" text="0" display-tooltip-when-elided="true" name="row-value" class="row-middle" />
+                </ui:VisualElement>
+                <ui:VisualElement name="MagBlock-row" class="panel-compact-row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                    <ui:Label tabindex="-1" text="褪魔" display-tooltip-when-elided="true" name="row-title" class="row-first" />
+                    <ui:Label tabindex="-1" text="0" display-tooltip-when-elided="true" name="row-value" class="row-middle" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="Tech" class="panel-row" style="background-color: rgba(0, 0, 0, 0); flex-direction: column;">
+                <ui:VisualElement name="HitAcc-row" class="panel-compact-row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                    <ui:Label tabindex="-1" text="命中" display-tooltip-when-elided="true" name="row-title" class="row-first" />
+                    <ui:Label tabindex="-1" text="13" display-tooltip-when-elided="true" name="row-value" class="row-middle" />
+                </ui:VisualElement>
+                <ui:VisualElement name="Dodge-row" class="panel-compact-row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                    <ui:Label tabindex="-1" text="回避" display-tooltip-when-elided="true" name="row-title" class="row-first" />
+                    <ui:Label tabindex="-1" text="122" display-tooltip-when-elided="true" name="row-value" class="row-middle" />
+                </ui:VisualElement>
+                <ui:VisualElement name="APRecover-row" class="panel-compact-row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                    <ui:Label tabindex="-1" text="AP回复" display-tooltip-when-elided="true" name="row-title" class="row-first" />
+                    <ui:Label tabindex="-1" text="3.48" display-tooltip-when-elided="true" name="row-value" class="row-middle" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="Gimmick" class="panel-row" style="background-color: rgba(0, 0, 0, 0); flex-direction: column;">
+                <ui:VisualElement name="Critical-row" class="panel-compact-row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                    <ui:Label tabindex="-1" text="暴击" display-tooltip-when-elided="true" name="row-title" class="row-first" />
+                    <ui:Label tabindex="-1" text="17.73% (34)" display-tooltip-when-elided="true" name="row-value" class="row-middle" />
+                </ui:VisualElement>
+                <ui:VisualElement name="Overload-row" class="panel-compact-row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                    <ui:Label tabindex="-1" text="过载" display-tooltip-when-elided="true" name="row-title" class="row-first" />
+                    <ui:Label tabindex="-1" text="0" display-tooltip-when-elided="true" name="row-value" class="row-middle" />
+                </ui:VisualElement>
+                <ui:VisualElement name="ExRange-row" class="panel-compact-row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                    <ui:Label tabindex="-1" text="额外射程" display-tooltip-when-elided="true" name="row-title" class="row-first" style="flex-direction: row-reverse;" />
+                    <ui:Label tabindex="-1" text="0" display-tooltip-when-elided="true" name="row-value" class="row-middle" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="Column2" class="infocolumn" style="flex-grow: 1;">
+            <ui:VisualElement name="Subtitle" class="panel-row" style="background-color: rgba(0, 0, 0, 0); flex-direction: column;">
+                <ui:Label tabindex="-1" text="主动技能" display-tooltip-when-elided="true" class="h2" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Active-Contents" class="panel-row" style="background-color: rgba(0, 0, 0, 0); flex-direction: column;">
+                <ui:Instance template="SkillRow" name="SkillRow" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Subtitle" class="panel-row" style="background-color: rgba(0, 0, 0, 0); flex-direction: column;">
+                <ui:Label tabindex="-1" text="被动技能" display-tooltip-when-elided="true" class="h2" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Passive-Contents" class="panel-row" style="background-color: rgba(0, 0, 0, 0); flex-direction: column;" />
+            <ui:VisualElement name="Subtitle" class="panel-row" style="background-color: rgba(0, 0, 0, 0); flex-direction: column;">
+                <ui:Label tabindex="-1" text="效果" display-tooltip-when-elided="true" class="h2" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Effect-Contents" class="panel-row" style="background-color: rgba(0, 0, 0, 0); flex-direction: column;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement class="panel-row" style="background-color: rgba(0, 0, 0, 0);">
+        <ui:VisualElement class="row-first" />
+        <ui:VisualElement class="row-middle" />
+        <ui:VisualElement class="row-last" />
+    </ui:VisualElement>
+</ui:UXML>

@@ -2,9 +2,6 @@
     <ui:Template name="EquipmentInfo" src="project://database/Assets/Resources/UI/EquipmentInfo.uxml?fileID=9197481963319205126&amp;guid=3e3a54b472700984fb87659cd2251ce2&amp;type=3#EquipmentInfo" />
     <Style src="project://database/Assets/Resources/UI/miniRAID_default.uss?fileID=7433441132597879392&amp;guid=54e6eee580e008a468415140067b7312&amp;type=3#miniRAID_default" />
     <ui:VisualElement name="container" style="background-color: rgba(0, 0, 0, 0); flex-direction: row;">
-        <ui:VisualElement style="background-color: rgba(0, 0, 0, 0); width: 90px;">
-            <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="Skills" style="background-color: rgb(0, 0, 0); margin-right: 10px; padding-left: 8px; padding-right: 8px; padding-top: 8px; padding-bottom: 8px;" />
-        </ui:VisualElement>
         <ui:Instance template="EquipmentInfo" name="mainWeaponInfo" style="flex-grow: 1; margin-right: 10px;" />
         <ui:Instance template="EquipmentInfo" name="subWeaponInfo" style="flex-grow: 1;" />
     </ui:VisualElement>

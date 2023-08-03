@@ -5,55 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c36ca183-e7eb-40c1-9aca-56cfe58c3f4d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIE/MobInfoController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIE/MobInfoController.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.miniRAID-HD2D/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.miniRAID-HD2D/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Localization-Assets-Shared.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Localization-Assets-Shared.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Localization-String-Tables-Chinese (Simplified) (zh-CN).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Localization-String-Tables-Chinese (Simplified) (zh-CN).asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Localization-String-Tables-English (United States) (en-US).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Localization-String-Tables-English (United States) (en-US).asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Actions/Class actions/StarElf/Astro/StarlightPulse/StarlightPulse.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Class actions/StarElf/Astro/StarlightPulse/StarlightPulse.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Scripts/SimpleMovingSpell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Scripts/SimpleMovingSpell.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/ArrowShot.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/ArrowShot.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/BasicHealing.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/BasicHealing.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/DefenseAction.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/DefenseAction.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/EmergencyHeal.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/EmergencyHeal.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/GrowthAction.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/GrowthAction.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/PoisonShot.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/PoisonShot.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/Punch.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/Punch.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/SeaWhip.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/SeaWhip.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/ShieldBash.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/ShieldBash.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/SlimeBoss/BossMu.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/SlimeBoss/BossMu.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/SlimeBoss/Explode/KingSlimeExplosionAction.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/SlimeBoss/Explode/KingSlimeExplosionAction.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/SlimeBoss/SmallSlimes/SmallSlime.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/SlimeBoss/SmallSlimes/SmallSlime.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/SoundBoom.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/SoundBoom.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Characters/A1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Characters/A1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Characters/A2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Characters/A2.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Characters/Classes/Astrologer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Characters/Classes/Astrologer.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Characters/Classes/Paladin.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Characters/Classes/Paladin.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Characters/D1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Characters/D1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Characters/D2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Characters/D2.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Characters/H1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Characters/H1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Characters/H2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Characters/H2.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Characters/Race/HighlandElf.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Characters/Race/HighlandElf.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Characters/T1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Characters/T1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Enemies/Test/SmallMu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Enemies/Test/SmallMu.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Passives/GeneralSkills/AuraEffectSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Passives/GeneralSkills/AuraEffectSO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Weapons/Test/ChainHealStaff.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Weapons/Test/ChainHealStaff.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Weapons/Test/LeapingLight.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Weapons/Test/LeapingLight.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Weapons/Test/TestShield.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Weapons/Test/TestShield.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Weapons/Test/TestStaff.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Weapons/Test/TestStaff.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Localization/StringTables/Actions Shared Data.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Localization/StringTables/Actions Shared Data.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Localization/StringTables/Actions_zh-CN.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Localization/StringTables/Actions_zh-CN.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/CombatView.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/CombatView.uxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/EquipmentInfo.uss" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/EquipmentInfo.uss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/MobDetails.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/MobDetails.uxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/NewScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/NewScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/MobData/GeneralManaListenerSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/MobData/GeneralManaListenerSO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/MobData/MobData.actions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/MobData/MobData.actions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/MobData/MobData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/MobData/MobData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/MobData/MobData.events.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/MobData/MobData.events.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/SOCore/Value/Editor/DynamicValueDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/SOCore/Value/Editor/DynamicValueDrawer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Presentation/MobRenderer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Presentation/MobRenderer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spells/ActionHelpers/Essentials.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spells/ActionHelpers/Essentials.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/BowSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/BowSO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EffectIDRecord.txt" beforeDir="false" afterPath="$PROJECT_DIR$/EffectIDRecord.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/MobData/DescriptorSO/EnemyMobDescriptorSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/MobData/DescriptorSO/EnemyMobDescriptorSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/MobListenerSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/MobListenerSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/SOCore/Action/ActionDataSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/SOCore/Action/ActionDataSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/States/UnitMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/States/UnitMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIE/CombatView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIE/CombatView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIE/MobDetailsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIE/MobDetailsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIE/UnitMenuController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIE/UnitMenuController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/miniRAID.combat.log" beforeDir="false" afterPath="$PROJECT_DIR$/miniRAID.combat.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/miniRAID.log" beforeDir="false" afterPath="$PROJECT_DIR$/miniRAID.log" afterDir="false" />
     </list>
@@ -63,21 +28,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/523786c2c1ec41f8a5abbaf0465f623616e200/1d/21ffcbaf/SetupCoroutine.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0ae5d4e782f74095b2c8d38f4225786f16e200/19/c4592ede/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/83161767e3f34f4a9c1453ea3e22d1f146aa00/3f/f19cb11b/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f8507cae17da4a048c26c1ad6a304248574b88/ac/9de7d22b/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameContent/Actions/Class actions/General/Paladin/BattlefieldPray.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/GameContent/Actions/Class actions/General/Paladin/DefensiveCharge.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameContent/Actions/Class actions/General/Paladin/OracleCosts.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/GameContent/Actions/Class actions/StarElf/Astro/ManaTransfer/ManaTransfer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Scripts/ComplexExplodingProjectile.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Scripts/DamageReduction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Scripts/ExplodingProjectile.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Scripts/ManaShield.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Scripts/Revive.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/SlimeBoss/CircleWave/CircleWave.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameContent/Actions/Essentials/Test/SlimeBoss/Split/SlimeSplit.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameContent/Passives/GeneralSkills/AuraEffectSO.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameContent/Passives/RaceSkills/FallenStar.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/GameContent/Passives/RaceSkills/Traveler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Presentation/Fx/SimpleRay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@14.0.6/Runtime/Textures/RTHandle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@14.0.6/Runtime/RenderTargetHandle.cs" root0="FORCE_HIGHLIGHTING" />
@@ -131,7 +90,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.2.8f1/Unity.app/Contents/MacOS/Unity" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.2.8f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -164,10 +123,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="5900">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="5900" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -202,7 +161,7 @@
       <workItem from="1690054201946" duration="20133000" />
       <workItem from="1690209350805" duration="91467000" />
       <workItem from="1690703086320" duration="2753000" />
-      <workItem from="1690740734669" duration="3385000" />
+      <workItem from="1690740734669" duration="12642000" />
     </task>
     <servers />
   </component>
@@ -227,11 +186,6 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <pin-to-top-manager>
-      <pinned-members>
-        <PinnedItemInfo parentTag="Type#miniRAID.Spells.SpellTarget" memberName="targetPos" />
-      </pinned-members>
-    </pin-to-top-manager>
     <watches-manager>
       <configuration name="UNITY_DEBUG_RUN_CONFIGURATION">
         <watch expression="Globals.combatCoroutine" language="C#" />

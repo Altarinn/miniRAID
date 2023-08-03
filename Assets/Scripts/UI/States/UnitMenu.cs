@@ -155,6 +155,7 @@ namespace miniRAID.UI
                 }
             }
             
+            entries.Add(ui.combatView.menu.GetEquipmentDetailsEntry(currentUnit, "E"));
             entries.Add(ui.combatView.menu.GetMobDetailsEntry(currentUnit, "I"));
 
             if (currentUnit.data.isControllable)
@@ -272,18 +273,30 @@ namespace miniRAID.UI
             }
         }
 
-        public IEnumerator OnCheat()
+        public IEnumerator OnCheat(Consts.UnitGroup group)
         {
             var mobs = Globals.backend.allMobs
-                .Where(x => x.unitGroup == Consts.UnitGroup.Player);
+                .Where(x => x.unitGroup == group);
 
             foreach (MobData mob in mobs)
             {
-                if (mob.isDead)
+                Consts.DamageHeal_FrontEndInput info = new Consts.DamageHeal_FrontEndInput()
                 {
-                    yield return new JumpIn(mob);
-                    yield return new JumpIn(mob.SetHP(mob.maxHP * 0.2f));
-                }
+                    type = Consts.Elements.Heal,
+                    popup = true,
+                    value = 0,
+                    source = mob,
+                    sourceAction = mob.FindListener<RuntimeAction>(),
+                    crit = 0,
+                    hit = 100000000,
+                    flags = Consts.DamageHealFlags.Indirect
+                };
+
+                yield return new JumpIn(mob.Revive(info));
+
+                info.value = mob.maxHealth * 0.2f;
+
+                yield return new JumpIn(Globals.backend.DealDmgHeal(mob, info));
             }
         }
 

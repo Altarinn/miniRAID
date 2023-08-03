@@ -25,10 +25,10 @@ namespace miniRAID
             return Consts.GetHealth(level, Consts.BaseStatsFromLevel(level, Consts.baseStatAverageGrowth));
         }
 
-        protected static float BaseHitAccPerLevel = Consts.HitRangePerLevel * 0.6f;
-        protected static float BaseDodgePerLevel = 0.0f;
-        protected static float BaseCritPerLevel = 0.0f;
-        protected static float BaseAntiCritPerLevel = 0.0f;
+        public static float BaseHitAccPerLevel = Consts.HitRangePerLevel * 0.6f;
+        public static float BaseDodgePerLevel = 0.0f;
+        public static float BaseCritPerLevel = 0.0f;
+        public static float BaseAntiCritPerLevel = 0.0f;
 
         protected static float BaseAttackPowerToTargetHPRatio = 1.0f / 4.0f;
         

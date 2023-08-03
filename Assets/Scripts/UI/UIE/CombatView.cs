@@ -13,6 +13,7 @@ namespace miniRAID.UIElements
         public CombatStatsController combatStats;
         public MessagePoolController messagePool;
         public MobDetailsController mobDetails;
+        public MobInfoController mobInfo;
         public UnitBarController unitBar;
 
         public Label battlePreview, centerTitleText, importantText;
@@ -30,9 +31,13 @@ namespace miniRAID.UIElements
             mobDetails = new MobDetailsController(
                 uiDocument.rootVisualElement.Q("MobDetails")
             );
+            
+            mobInfo = new MobInfoController(
+                uiDocument.rootVisualElement.Q("MobInfo")
+            );
 
             VisualElement unitMenu = uiDocument.rootVisualElement.Q("UnitMenuContainer");
-            menu = new UnitMenuController(unitMenu, mobDetails);
+            menu = new UnitMenuController(unitMenu, mobDetails, mobInfo);
             
             // TODO: Multiple boss stats panels
             bossStats = new BossStatsController(

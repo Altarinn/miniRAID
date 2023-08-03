@@ -85,7 +85,8 @@ namespace miniRAID
         public MobListenerSO data;
 
         public virtual MobListenerSO.ListenerType type => data.type;
-        public virtual string name => data.name;
+        public virtual string name => data?.name;
+        public virtual string ShortTooltip => "NO_SHORT_TOOLTIP";
 
         public HashSet<IMobListenerIndicator> indicators;
 

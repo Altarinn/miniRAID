@@ -56,35 +56,6 @@ namespace miniRAID.UIElements
             mainWeapon.RefreshWithContents(mob.mainWeapon);
             subWeapon.Hide();
 
-            skills.text = "";
-            foreach (var listener in mob.listeners)
-            {
-                if (listener.GetType().IsAssignableFrom(typeof(RuntimeAction)))
-                {
-                    skills.text += $"Lv{((RuntimeAction)listener).level + 1} {((RuntimeAction)listener).data.ActionName}\n";
-                }
-            }
-            
-            skills.text += "\n";
-
-            foreach (var listener in mob.listeners)
-            {
-                if (listener.type is MobListenerSO.ListenerType.Passive)
-                {
-                    skills.text += $"Lv{listener.level + 1} {listener.data.name}\n";
-                }
-            }
-
-            skills.text += "\n";
-            
-            foreach (var listener in mob.listeners)
-            {
-                if (listener.type is MobListenerSO.ListenerType.Buff)
-                {
-                    skills.text += $"{listener.name}\n";
-                }
-            }
-            
             masterElem.visible = true;
         }
 

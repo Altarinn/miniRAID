@@ -19,6 +19,7 @@ namespace miniRAID.UIElements
         Label toolTip;
 
         private MobDetailsController mobDetailsController;
+        private MobInfoController mobInfoController;
 
         miniRAID.UI.GridUI ui;
 
@@ -48,7 +49,7 @@ namespace miniRAID.UIElements
             public EventCallback<PointerLeaveEvent> pointerLeave;
         }
 
-        public UnitMenuController(VisualElement elem, MobDetailsController mobDetailsController)
+        public UnitMenuController(VisualElement elem, MobDetailsController mobDetailsController, MobInfoController mobInfoController)
         {
             masterElem = elem;
 
@@ -64,6 +65,7 @@ namespace miniRAID.UIElements
             ui = Globals.ui.Instance;
 
             this.mobDetailsController = mobDetailsController;
+            this.mobInfoController = mobInfoController;
         }
 
         public void BindEntryItem(VisualElement e, UIMenuEntry entry)
@@ -268,6 +270,24 @@ namespace miniRAID.UIElements
             };
         }
         
+        public UIMenuEntry GetEquipmentDetailsEntry(
+            MobRenderer source, string keycode = null,
+            string nameOverride = null, IEnumerator onFinished = null)
+        {
+            return new UIMenuEntry
+            {
+                text = "Equipments",
+                action = null,
+                onFinished = onFinished,
+                useDefaultToolTip = false,
+                toolTip = "",
+                onPointerEnter = () => { mobDetailsController.Show(source.data); },
+                onPointerLeave = () => { mobDetailsController.Hide(); },
+                source = source,
+                keycode = keycode,
+            };
+        }
+        
         public UIMenuEntry GetMobDetailsEntry(
             MobRenderer source, string keycode = null,
             string nameOverride = null, IEnumerator onFinished = null)
@@ -279,8 +299,8 @@ namespace miniRAID.UIElements
                 onFinished = onFinished,
                 useDefaultToolTip = false,
                 toolTip = "",
-                onPointerEnter = () => { mobDetailsController.Show(source.data); },
-                onPointerLeave = () => { mobDetailsController.Hide(); },
+                onPointerEnter = () => { mobInfoController.Show(source.data); },
+                onPointerLeave = () => { mobInfoController.Hide(); },
                 source = source,
                 keycode = keycode,
             };

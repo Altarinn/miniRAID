@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement name="Skill" class="panel-compact-row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); padding-left: 5px; flex-direction: row;">
+        <ui:Label tabindex="-1" text="Lv5 天使的恩惠" display-tooltip-when-elided="true" name="name" class="row-first" style="min-width: 80px;" />
+        <ui:Label tabindex="-1" text="移动力 3移动力 3移动力 3移动力 3移动力 3移动力 3移动力 3移动力 3移动力 3移动力 3移动力 3移动力 3移动力 3移动力 3移动力 3移动力 3移动力 3移动力 3移动力 3移动力 3移动力 3移动力 3" display-tooltip-when-elided="true" name="info" class="row-middle" style="text-overflow: ellipsis; overflow: hidden; flex-basis: 75%;" />
+    </ui:VisualElement>
+</ui:UXML>

@@ -381,6 +381,8 @@ namespace miniRAID
         public virtual Dictionary<string, object> LazyPrepareTooltipVariables() 
             => data.LazyPrepareTooltipVariables(this);
 
+        public override string ShortTooltip => Globals.localizer.L(data.DescriptionKey, new object[]{LazyPrepareTooltipVariables()}) ?? "BAD_STRING";
+        
         public string GetTooltip(MobData mob)
         {
             string costString = "";
@@ -401,12 +403,9 @@ namespace miniRAID
                 }
             }
 
-            var args = LazyPrepareTooltipVariables();
-            string evalDesc = Globals.localizer.L(data.DescriptionKey, new object[]{args}) ?? "BAD_STRING";
-
             return $"{costString}\n" +
                    $"------------\n" +
-                   $"{evalDesc}\n";/* +
+                   $"{ShortTooltip}\n";/* +
                 $"Power: {power}\n" +
                 $"TODO - rAct.GetTooltip().";*/
         }

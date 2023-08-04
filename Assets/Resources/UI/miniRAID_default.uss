@@ -25,7 +25,7 @@ Button:active {
 
 Label {
     color: rgb(255, 255, 255);
-    -unity-font: url('project://database/Assets/Fonts/renew-DinkieBitmap-9px.ttf?fileID=12800000&guid=aced252a4ce05574389ab53bc0ff33b4&type=3#renew-DinkieBitmap-9px');
+    -unity-font: url('project://database/Assets/Fonts/Non-pixelated/verdana.ttf?fileID=12800000&guid=a4c88f0012b121b47bb2c654c5a7c7f0&type=3#verdana');
     -unity-text-align: middle-left;
     margin-left: 0;
     margin-right: 0;
@@ -35,8 +35,8 @@ Label {
     padding-right: 0;
     padding-top: 0;
     padding-bottom: 0;
-    font-size: 10px;
-    -unity-font-definition: url('project://database/Assets/Fonts/renew-DinkieBitmap-9px%20SDF%201.asset?fileID=11400000&guid=04ec83cd734eaa84a87cd60d0302c55b&type=2#renew-DinkieBitmap-9px SDF 1');
+    font-size: 8.7px;
+    -unity-font-definition: url('project://database/Assets/Fonts/Non-pixelated/verdana%20SDF.asset?fileID=11400000&guid=fd83a5499ea6d2544bc2b3838d034878&type=2#verdana SDF');
 }
 
 Button.disabled {
@@ -59,13 +59,13 @@ Button.disabled {
 }
 
 Label.small-font {
-    -unity-font: url('project://database/Assets/Fonts/Legacy/DinkieBitmap-7px.ttf?fileID=12800000&guid=e4ea13e1fbd50934488a6fba0fc662a0&type=3#DinkieBitmap-7px');
-    font-size: 8px;
-    -unity-font-definition: initial;
+    -unity-font: url('project://database/Assets/Fonts/Non-pixelated/verdana.ttf?fileID=12800000&guid=a4c88f0012b121b47bb2c654c5a7c7f0&type=3#verdana');
+    font-size: 6.5px;
+    -unity-font-definition: url('project://database/Assets/Fonts/Non-pixelated/verdana%20SDF.asset?fileID=11400000&guid=fd83a5499ea6d2544bc2b3838d034878&type=2#verdana SDF');
 }
 
 Label .big-font {
-    -unity-font: url('project://database/Assets/Fonts/Legacy/DinkieBitmap-9px.ttf?fileID=12800000&guid=d55e970942cccd34f8a24ed2645322f2&type=3#DinkieBitmap-9px');
+    -unity-font: url('project://database/Assets/Fonts/Non-pixelated/verdana.ttf?fileID=12800000&guid=a4c88f0012b121b47bb2c654c5a7c7f0&type=3#verdana');
     font-size: 13px;
-    -unity-font-definition: url('project://database/Assets/Fonts/renew-DinkieBitmap-9px%20SDF%201.asset?fileID=11400000&guid=04ec83cd734eaa84a87cd60d0302c55b&type=2#renew-DinkieBitmap-9px SDF 1');
+    -unity-font-definition: url('project://database/Assets/Fonts/Non-pixelated/verdana%20SDF.asset?fileID=11400000&guid=fd83a5499ea6d2544bc2b3838d034878&type=2#verdana SDF');
 }

@@ -809,12 +809,12 @@ namespace miniRAID
         {
             Vector3Int diff = to - from;
 
-            if(Mathf.Abs(diff.y) >= Mathf.Abs(diff.x) && diff.z >= 0)
+            if(Mathf.Abs(diff.z) >= Mathf.Abs(diff.x) && diff.z >= 0)
             {
                 return GridShape.Direction.Up;
             }
 
-            if (Mathf.Abs(diff.y) >= Mathf.Abs(diff.x) && diff.z < 0)
+            if (Mathf.Abs(diff.z) >= Mathf.Abs(diff.x) && diff.z < 0)
             {
                 return GridShape.Direction.Down;
             }

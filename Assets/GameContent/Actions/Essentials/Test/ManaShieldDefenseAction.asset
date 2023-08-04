@@ -19,6 +19,7 @@ MonoBehaviour:
     - {fileID: 6549173031084157918, guid: 8514406af415f3f45be82aa2f544fa24, type: 3}
     - {fileID: -1203473415, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
     - {fileID: 1226421646, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
+    - {fileID: 11400000, guid: 37b051ad5cbfe4ec8b4c3b3055cb8344, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -253,14 +254,14 @@ MonoBehaviour:
       Data: 
     - Name: currentStageCompleted
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: query_stack
       Entry: 7
       Data: 10|System.Collections.Generic.Stack`1[[miniRAID.UI.TargetRequester.RequestStage,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 1
     - Name: 
       Entry: 7
       Data: 11|miniRAID.UI.TargetRequester.RequestStage, Assembly-CSharp
@@ -331,9 +332,6 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
       Entry: 13
       Data: 
     - Name: 
@@ -345,22 +343,7 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 11
-    - Name: 
-      Entry: 3
       Data: 0
-    - Name: 
-      Entry: 3
-      Data: 8
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -401,8 +384,8 @@ MonoBehaviour:
       Entry: 7
       Data: 17|miniRAID.ActionHelpers.SpellBuff, Assembly-CSharp
     - Name: buff
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 3
     - Name: inheritLevel
       Entry: 5
       Data: false

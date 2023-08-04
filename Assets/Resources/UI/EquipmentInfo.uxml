@@ -44,8 +44,8 @@
             <ui:Instance template="specialAttack" name="specialAttack" />
         </ui:VisualElement>
         <ui:VisualElement name="descriptionContainer" style="display: none;">
-            <ui:VisualElement name="description" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); padding-top: 5px; flex-direction: row; padding-left: 5px;">
-                <ui:Label tabindex="-1" display-tooltip-when-elided="true" name="descriptionText" class="row-middle quote" style="-unity-text-align: middle-left;" />
+            <ui:VisualElement name="description" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); padding-top: 5px; flex-direction: row; padding-left: 3px;">
+                <ui:Label tabindex="-1" display-tooltip-when-elided="true" name="descriptionText" text="寄宿着彗星之力的权杖。" class="row-middle quote" style="-unity-text-align: middle-left;" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

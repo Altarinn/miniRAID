@@ -263,7 +263,7 @@ MonoBehaviour:
     m_LocalVariables: []
   flags: 0
   summonOffset: {x: 0, y: 0, z: 2}
-  healthRatio: 0.4
+  healthRatio: 0.3
   references:
     version: 2
     RefIds: []

@@ -8,8 +8,8 @@
             <ui:VisualElement name="HPBarBG" class="HPBar">
                 <ui:VisualElement name="HPContent" class="HPBar" />
                 <ui:VisualElement name="HPText" style="position: absolute; flex-direction: row; margin-top: 0; align-items: flex-start;">
-                    <ui:Label tabindex="-1" text="100.0%" display-tooltip-when-elided="true" name="HPPercentage" style="padding-left: 6px; padding-right: 6px; font-size: 15px; background-color: rgba(43, 43, 43, 0.85); text-shadow: 1px 1px 0 rgb(188, 20, 30); margin-top: -3px; padding-bottom: 2px; padding-top: 4px;" />
-                    <ui:Label tabindex="-1" text="60 / 120" display-tooltip-when-elided="true" name="HPNum" style="width: 100%; -unity-text-align: middle-left; padding-left: 6px; margin-top: 2px;" />
+                    <ui:Label tabindex="-1" text="100.0%" display-tooltip-when-elided="true" name="HPPercentage" style="padding-left: 6px; padding-right: 6px; font-size: 15px; background-color: rgba(43, 43, 43, 0.85); text-shadow: 1px 1px 0 rgb(188, 20, 30); margin-top: -6px; padding-bottom: 2px; padding-top: 4px;" />
+                    <ui:Label tabindex="-1" text="60 / 120" display-tooltip-when-elided="true" name="HPNum" style="width: 100%; -unity-text-align: middle-left; padding-left: 5px; margin-top: 0.5px;" />
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="UnderHPBar" style="flex-direction: row; justify-content: space-between; padding-left: 60px; padding-right: 15px; align-items: flex-start;">

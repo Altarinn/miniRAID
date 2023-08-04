@@ -15,12 +15,12 @@
                     <ui:VisualElement name="HPMPBars" style="flex-direction: column-reverse; align-items: center; margin-bottom: 6px; justify-content: flex-start;">
                         <ui:VisualElement name="HPContainer" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-direction: row; align-self: center;">
                             <ui:VisualElement name="HPLabel" style="flex-grow: 0; width: 60px; align-items: stretch; flex-direction: row-reverse;">
-                                <ui:Label tabindex="-1" text="HP" display-tooltip-when-elided="true" class="ap-bar-label" style="-unity-text-align: middle-right; padding-right: 3px;" />
+                                <ui:Label tabindex="-1" text="HP" display-tooltip-when-elided="true" class="ap-bar-label" style="-unity-text-align: middle-center; padding-right: 0; width: 18px; padding-left: 0; padding-top: 0; padding-bottom: 0;" />
                             </ui:VisualElement>
                             <ui:VisualElement name="HPBar" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-direction: row; align-items: center; width: 102px; padding-left: 1px; padding-right: 1px;">
-                                <ui:VisualElement name="HPBarContent" class="ap-star" style="flex-grow: 0; background-color: rgb(219, 255, 162); width: 80%; height: 8px;" />
+                                <ui:VisualElement name="HPBarContent" class="ap-star" style="flex-grow: 0; background-color: rgb(219, 255, 162); width: 80%; height: 8px; transition-duration: 0.5s;" />
                             </ui:VisualElement>
-                            <ui:VisualElement name="CurrentHP" style="flex-grow: 0; width: 60px; flex-direction: row; align-items: stretch;">
+                            <ui:VisualElement name="CurrentHP" style="flex-grow: 0; flex-direction: row; align-items: stretch; width: 75px;">
                                 <ui:VisualElement name="CurrentHPDisplay" class="ap-bar-label" style="flex-grow: 0; flex-direction: row; align-items: flex-end;">
                                     <ui:Label tabindex="-1" text="822" display-tooltip-when-elided="true" name="currHP" style="font-size: 10px;" />
                                     <ui:Label tabindex="-1" text=" / " display-tooltip-when-elided="true" name="slash" style="font-size: 10px; margin-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0;" />
@@ -30,12 +30,12 @@
                         </ui:VisualElement>
                         <ui:VisualElement name="MPContainer" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-direction: row; align-self: center; margin-bottom: 2px;">
                             <ui:VisualElement name="MPLabel" style="flex-grow: 0; width: 60px; align-items: stretch; flex-direction: row-reverse;">
-                                <ui:Label tabindex="-1" text="MP" display-tooltip-when-elided="true" class="ap-bar-label small-font" style="-unity-text-align: middle-right; padding-right: 3px;" />
+                                <ui:Label tabindex="-1" text="MP" display-tooltip-when-elided="true" class="ap-bar-label small-font" style="-unity-text-align: middle-center; padding-right: 0; width: 18px; padding-left: 0; padding-top: 0; padding-bottom: 0;" />
                             </ui:VisualElement>
                             <ui:VisualElement name="MPBar" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-direction: row; align-items: center; width: 102px; padding-left: 1px; padding-right: 1px;">
-                                <ui:VisualElement name="MPBarContent" class="ap-star" style="flex-grow: 0; background-color: rgb(162, 219, 255); width: 40%; height: 4px;" />
+                                <ui:VisualElement name="MPBarContent" class="ap-star" style="flex-grow: 0; background-color: rgb(162, 219, 255); width: 40%; height: 4px; transition-duration: 0.5s;" />
                             </ui:VisualElement>
-                            <ui:VisualElement name="CurrentMP" style="flex-grow: 0; width: 60px; flex-direction: row; align-items: stretch;">
+                            <ui:VisualElement name="CurrentMP" style="flex-grow: 0; width: 75px; flex-direction: row; align-items: stretch;">
                                 <ui:VisualElement name="CurrentMPDisplay" class="ap-bar-label" style="flex-grow: 0; flex-direction: row; align-items: flex-end;">
                                     <ui:Label tabindex="-1" text="377" display-tooltip-when-elided="true" name="currMP" class="small-font" />
                                     <ui:Label tabindex="-1" text=" / " display-tooltip-when-elided="true" name="slash" class="small-font" />
@@ -59,7 +59,7 @@
                             <ui:VisualElement name="CurrentAP" style="flex-grow: 0; width: 60px; flex-direction: row; align-items: stretch;">
                                 <ui:VisualElement name="CurrentAPDisplay" class="ap-bar-label" style="flex-grow: 0; flex-direction: row; align-items: flex-end;">
                                     <ui:Label tabindex="-1" text="3" display-tooltip-when-elided="true" name="currAPInt" style="font-size: 10px;" />
-                                    <ui:Label tabindex="-1" text=".75" display-tooltip-when-elided="true" name="currAPFract" class="small-font" />
+                                    <ui:Label tabindex="-1" text=".75" display-tooltip-when-elided="true" name="currAPFract" class="small-font" style="margin-bottom: 1.2px;" />
                                     <ui:Label tabindex="-1" text=" / " display-tooltip-when-elided="true" name="slash" style="font-size: 10px;" />
                                     <ui:Label tabindex="-1" text="5" display-tooltip-when-elided="true" name="maxAPInt" style="font-size: 10px;" />
                                 </ui:VisualElement>
@@ -81,54 +81,54 @@
                 </ui:VisualElement>
                 <ui:VisualElement name="WeaponInfo" style="flex-grow: 1; background-color: rgb(0, 0, 0); flex-direction: row; justify-content: flex-start; padding-top: 1px; width: 175px; border-left-color: rgb(116, 101, 78); border-right-color: rgb(116, 101, 78); border-top-color: rgb(116, 101, 78); border-bottom-color: rgb(116, 101, 78); border-right-width: 1px; margin-top: 5px; margin-bottom: 2px;">
                     <ui:VisualElement name="WeaponIcon" style="background-color: rgb(255, 255, 255); width: 16px; height: 16px; margin-top: -4px; margin-bottom: 1px; margin-left: 3px; margin-right: 3px;" />
-                    <ui:VisualElement name="WeaponList" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); width: 90px; margin-bottom: 0; margin-top: -4px;">
-                        <ui:Label tabindex="-1" text="Hellflame [E]" display-tooltip-when-elided="true" name="CurrentWeapon" />
+                    <ui:VisualElement name="WeaponList" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); width: 90px; margin-bottom: 0; margin-top: -5px;">
+                        <ui:Label tabindex="-1" text="Hellflame [E]" display-tooltip-when-elided="true" name="CurrentWeapon" class="compact-label" />
                         <ui:Label tabindex="-1" text="Ice Blade" display-tooltip-when-elided="true" name="SubWeapon" class="small-font" style="color: rgb(180, 180, 180);" />
                     </ui:VisualElement>
-                    <ui:Label tabindex="-1" text="III. Hellfire" display-tooltip-when-elided="true" name="WeaponStats" />
+                    <ui:Label tabindex="-1" text="III. Hellfire" display-tooltip-when-elided="true" name="WeaponStats" style="margin-top: -2.5px;" />
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="Right" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row;">
                 <ui:VisualElement name="CombatStats" style="background-color: rgb(0, 0, 0); flex-grow: 1; flex-direction: row; justify-content: space-around; padding-bottom: -1px; align-items: stretch; border-left-color: rgb(115, 101, 78); border-right-color: rgb(115, 101, 78); border-top-color: rgb(115, 101, 78); border-bottom-color: rgb(115, 101, 78); border-right-width: 1px; margin-top: 5px; margin-bottom: 2px;">
                     <ui:VisualElement name="VisualElement" class="entry" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-                        <ui:Label tabindex="-1" text="DEF" display-tooltip-when-elided="true" name="DefenseLabel" class="entryLabel" />
-                        <ui:Label tabindex="-1" text="72% -18" display-tooltip-when-elided="true" name="Defense" />
+                        <ui:Label tabindex="-1" text="护甲" display-tooltip-when-elided="true" name="DefenseLabel" class="entryLabel compact-label" />
+                        <ui:Label tabindex="-1" text="72% -18" display-tooltip-when-elided="true" name="Defense" class="compact-label" />
                     </ui:VisualElement>
                     <ui:VisualElement name="VisualElement" class="entry" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-                        <ui:Label tabindex="-1" text="RES" display-tooltip-when-elided="true" name="MDefenseLabel" class="entryLabel" style="font-size: 10px;" />
-                        <ui:Label tabindex="-1" text="98% -3" display-tooltip-when-elided="true" name="MDefense" />
+                        <ui:Label tabindex="-1" text="抗性" display-tooltip-when-elided="true" name="MDefenseLabel" class="entryLabel compact-label" />
+                        <ui:Label tabindex="-1" text="98% -3" display-tooltip-when-elided="true" name="MDefense" class="compact-label" />
                     </ui:VisualElement>
                     <ui:VisualElement name="VisualElement" class="entry" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-                        <ui:Label tabindex="-1" text="AVO" display-tooltip-when-elided="true" name="AvoidLabel" class="entryLabel" />
-                        <ui:Label tabindex="-1" text="19" display-tooltip-when-elided="true" name="Avoid" />
+                        <ui:Label tabindex="-1" text="回避" display-tooltip-when-elided="true" name="AvoidLabel" class="entryLabel compact-label" />
+                        <ui:Label tabindex="-1" text="19" display-tooltip-when-elided="true" name="Avoid" class="compact-label" />
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:VisualElement name="BaseStats" style="background-color: rgb(0, 0, 0); flex-grow: 1; max-width: 130px; padding-top: 2px; width: 90px;">
+                <ui:VisualElement name="BaseStats" style="background-color: rgb(0, 0, 0); flex-grow: 1; max-width: 130px; padding-top: 1px; width: 90px;">
                     <ui:VisualElement name="upper" style="flex-direction: row; justify-content: space-between; margin-bottom: 1px;">
                         <ui:VisualElement class="entry" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-                            <ui:Label tabindex="-1" text="VIT" display-tooltip-when-elided="true" name="VITLabel" class="entryLabel small-font" />
+                            <ui:Label tabindex="-1" text="体格" display-tooltip-when-elided="true" name="VITLabel" class="entryLabel small-font" />
                             <ui:Label tabindex="-1" text="25" display-tooltip-when-elided="true" name="VIT" class="small-font" />
                         </ui:VisualElement>
                         <ui:VisualElement class="entry" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-                            <ui:Label tabindex="-1" text="STR" display-tooltip-when-elided="true" name="STRLabel" class="entryLabel small-font" />
+                            <ui:Label tabindex="-1" text="力量" display-tooltip-when-elided="true" name="STRLabel" class="entryLabel small-font" />
                             <ui:Label tabindex="-1" text="18" display-tooltip-when-elided="true" name="STR" class="small-font" />
                         </ui:VisualElement>
                         <ui:VisualElement class="entry" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-                            <ui:Label tabindex="-1" text="TEC" display-tooltip-when-elided="true" name="TECLabel" class="entryLabel small-font" />
+                            <ui:Label tabindex="-1" text="技巧" display-tooltip-when-elided="true" name="TECLabel" class="entryLabel small-font" />
                             <ui:Label tabindex="-1" text="33" display-tooltip-when-elided="true" name="TEC" class="small-font" />
                         </ui:VisualElement>
                     </ui:VisualElement>
                     <ui:VisualElement name="lower" style="flex-direction: row; justify-content: space-between;">
                         <ui:VisualElement class="entry" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-                            <ui:Label tabindex="-1" text="MAG" display-tooltip-when-elided="true" name="MAGLabel" class="entryLabel small-font" />
+                            <ui:Label tabindex="-1" text="魔力" display-tooltip-when-elided="true" name="MAGLabel" class="entryLabel small-font" />
                             <ui:Label tabindex="-1" text="7" display-tooltip-when-elided="true" name="MAG" class="small-font" />
                         </ui:VisualElement>
                         <ui:VisualElement class="entry" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-                            <ui:Label tabindex="-1" text="INT" display-tooltip-when-elided="true" name="INTLabel" class="entryLabel small-font" />
+                            <ui:Label tabindex="-1" text="智力" display-tooltip-when-elided="true" name="INTLabel" class="entryLabel small-font" />
                             <ui:Label tabindex="-1" text="12" display-tooltip-when-elided="true" name="INT" class="small-font" />
                         </ui:VisualElement>
                         <ui:VisualElement class="entry" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-                            <ui:Label tabindex="-1" text="AGI" display-tooltip-when-elided="true" name="AGILabel" class="entryLabel small-font" />
+                            <ui:Label tabindex="-1" text="敏捷" display-tooltip-when-elided="true" name="AGILabel" class="entryLabel small-font" />
                             <ui:Label tabindex="-1" text="22" display-tooltip-when-elided="true" name="AGI" class="small-font" />
                         </ui:VisualElement>
                     </ui:VisualElement>

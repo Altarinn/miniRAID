@@ -162,7 +162,7 @@ MonoBehaviour:
       Data: 0
     - Name: staticOut
       Entry: 4
-      Data: 1.5
+      Data: 2
     - Name: LuaExpr
       Entry: 6
       Data: 
@@ -211,6 +211,15 @@ MonoBehaviour:
       m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
     m_TableEntryReference:
       m_KeyId: 1990775527776256
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  ToolTipKey:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0

@@ -100,7 +100,7 @@ MonoBehaviour:
     level: 0
   baseStats:
     VIT: 11
-    STR: 10
+    STR: 15
     MAG: 8
     INT: 10
     DEX: 15

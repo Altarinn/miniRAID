@@ -63,7 +63,7 @@ MonoBehaviour:
       - data: {fileID: 11400000, guid: 651ce528935d4564580f2eb1e502fef1, type: 2}
         level: 0
   - condition:
-      HealthPercentageLessThan: 0.85
+      HealthPercentageLessThan: 0.8
       HealthPercentageMoreThan: 0
       canReturnTo: 0
     loop: 1

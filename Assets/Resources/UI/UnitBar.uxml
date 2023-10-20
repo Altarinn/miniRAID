@@ -91,44 +91,44 @@
             <ui:VisualElement name="Right" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row;">
                 <ui:VisualElement name="CombatStats" style="background-color: rgb(0, 0, 0); flex-grow: 1; flex-direction: row; justify-content: space-around; padding-bottom: -1px; align-items: stretch; border-left-color: rgb(115, 101, 78); border-right-color: rgb(115, 101, 78); border-top-color: rgb(115, 101, 78); border-bottom-color: rgb(115, 101, 78); border-right-width: 1px; margin-top: 5px; margin-bottom: 2px;">
                     <ui:VisualElement name="VisualElement" class="entry" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-                        <ui:Label tabindex="-1" text="护甲" display-tooltip-when-elided="true" name="DefenseLabel" class="entryLabel compact-label" />
+                        <ui:Label tabindex="-1" text="DEF" display-tooltip-when-elided="true" name="DefenseLabel" class="entryLabel compact-label" />
                         <ui:Label tabindex="-1" text="72% -18" display-tooltip-when-elided="true" name="Defense" class="compact-label" />
                     </ui:VisualElement>
                     <ui:VisualElement name="VisualElement" class="entry" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-                        <ui:Label tabindex="-1" text="抗性" display-tooltip-when-elided="true" name="MDefenseLabel" class="entryLabel compact-label" />
+                        <ui:Label tabindex="-1" text="RES" display-tooltip-when-elided="true" name="MDefenseLabel" class="entryLabel compact-label" />
                         <ui:Label tabindex="-1" text="98% -3" display-tooltip-when-elided="true" name="MDefense" class="compact-label" />
                     </ui:VisualElement>
                     <ui:VisualElement name="VisualElement" class="entry" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-                        <ui:Label tabindex="-1" text="回避" display-tooltip-when-elided="true" name="AvoidLabel" class="entryLabel compact-label" />
+                        <ui:Label tabindex="-1" text="EVS" display-tooltip-when-elided="true" name="AvoidLabel" class="entryLabel compact-label" />
                         <ui:Label tabindex="-1" text="19" display-tooltip-when-elided="true" name="Avoid" class="compact-label" />
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:VisualElement name="BaseStats" style="background-color: rgb(0, 0, 0); flex-grow: 1; max-width: 130px; padding-top: 1px; width: 90px;">
+                <ui:VisualElement name="BaseStats" style="background-color: rgb(0, 0, 0); flex-grow: 1; max-width: 130px; padding-top: 2px; width: 90px;">
                     <ui:VisualElement name="upper" style="flex-direction: row; justify-content: space-between; margin-bottom: 1px;">
                         <ui:VisualElement class="entry" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-                            <ui:Label tabindex="-1" text="体格" display-tooltip-when-elided="true" name="VITLabel" class="entryLabel small-font" />
+                            <ui:Label tabindex="-1" text="VIT" display-tooltip-when-elided="true" name="VITLabel" class="entryLabel small-font" />
                             <ui:Label tabindex="-1" text="25" display-tooltip-when-elided="true" name="VIT" class="small-font" />
                         </ui:VisualElement>
                         <ui:VisualElement class="entry" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-                            <ui:Label tabindex="-1" text="力量" display-tooltip-when-elided="true" name="STRLabel" class="entryLabel small-font" />
+                            <ui:Label tabindex="-1" text="STR" display-tooltip-when-elided="true" name="STRLabel" class="entryLabel small-font" />
                             <ui:Label tabindex="-1" text="18" display-tooltip-when-elided="true" name="STR" class="small-font" />
                         </ui:VisualElement>
                         <ui:VisualElement class="entry" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-                            <ui:Label tabindex="-1" text="技巧" display-tooltip-when-elided="true" name="TECLabel" class="entryLabel small-font" />
+                            <ui:Label tabindex="-1" text="TEC" display-tooltip-when-elided="true" name="TECLabel" class="entryLabel small-font" />
                             <ui:Label tabindex="-1" text="33" display-tooltip-when-elided="true" name="TEC" class="small-font" />
                         </ui:VisualElement>
                     </ui:VisualElement>
                     <ui:VisualElement name="lower" style="flex-direction: row; justify-content: space-between;">
                         <ui:VisualElement class="entry" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-                            <ui:Label tabindex="-1" text="魔力" display-tooltip-when-elided="true" name="MAGLabel" class="entryLabel small-font" />
+                            <ui:Label tabindex="-1" text="MAG" display-tooltip-when-elided="true" name="MAGLabel" class="entryLabel small-font" />
                             <ui:Label tabindex="-1" text="7" display-tooltip-when-elided="true" name="MAG" class="small-font" />
                         </ui:VisualElement>
                         <ui:VisualElement class="entry" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-                            <ui:Label tabindex="-1" text="智力" display-tooltip-when-elided="true" name="INTLabel" class="entryLabel small-font" />
+                            <ui:Label tabindex="-1" text="INT" display-tooltip-when-elided="true" name="INTLabel" class="entryLabel small-font" />
                             <ui:Label tabindex="-1" text="12" display-tooltip-when-elided="true" name="INT" class="small-font" />
                         </ui:VisualElement>
                         <ui:VisualElement class="entry" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-                            <ui:Label tabindex="-1" text="敏捷" display-tooltip-when-elided="true" name="AGILabel" class="entryLabel small-font" />
+                            <ui:Label tabindex="-1" text="AGI" display-tooltip-when-elided="true" name="AGILabel" class="entryLabel small-font" />
                             <ui:Label tabindex="-1" text="22" display-tooltip-when-elided="true" name="AGI" class="small-font" />
                         </ui:VisualElement>
                     </ui:VisualElement>

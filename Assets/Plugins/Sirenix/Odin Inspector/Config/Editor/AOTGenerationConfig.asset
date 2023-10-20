@@ -16,9 +16,12 @@ MonoBehaviour:
   deleteDllAfterBuilds: 1
   AutomateForAllAOTPlatforms: 1
   automateForPlatforms: 0900000014000000
-  lastScan: 638258734633112958
+  lastScan: 638334545833138889
   supportSerializedTypes:
   - TypeName: miniRAID.Weapon.ActionTargetPickerBase, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: miniRAID.BaseMobDescriptorSO+MovementType, Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.UI.TargetRequester.BasicUnitsRequester, Assembly-CSharp
@@ -89,6 +92,9 @@ MonoBehaviour:
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.Weapon.FollowLastTurnPicker, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: miniRAID.UI.TargetRequester.FourDirectionalRequester, Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: System.Func`2[[miniRAID.MobData, Assembly-CSharp],[System.Single, mscorlib]],
@@ -215,6 +221,9 @@ MonoBehaviour:
   - TypeName: miniRAID.MobListenerSO, Assembly-CSharp
     IsCustom: 0
     Emit: 1
+  - TypeName: miniRAID.MobRenderer, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
   - TypeName: miniRAID.UI.TargetRequester.MovementRequester, Assembly-CSharp
     IsCustom: 0
     Emit: 1
@@ -243,6 +252,9 @@ MonoBehaviour:
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.ActionHelpers.SimpleExplosionFx, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: miniRAID.ActionHelpers.SimpleRayFx, Assembly-CSharp
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.ActionHelpers.SpellBuff, Assembly-CSharp
@@ -284,7 +296,14 @@ MonoBehaviour:
       Assembly-CSharp
     IsCustom: 0
     Emit: 1
+  - TypeName: miniRAID.ActionHelpers.Summon`1[[miniRAID.MobRenderer, Assembly-CSharp]],
+      Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
   - TypeName: miniRAID.UI.TargetRequester.TargetRequesterBase, Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: UnityEngine.Texture2D, UnityEngine.CoreModule
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.ActionHelpers.UnitFilters, Assembly-CSharp

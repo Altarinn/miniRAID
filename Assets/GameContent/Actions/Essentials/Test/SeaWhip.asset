@@ -524,9 +524,9 @@ MonoBehaviour:
   maxLevel: 0
   DescriptionKey:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 32004932385710080
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0

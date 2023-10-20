@@ -64,7 +64,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1545101661249536
-    m_Key: judgementhammer.name
+    m_Key: paladin.judgementhammer.name
     m_Metadata:
       m_Items: []
   - m_Id: 16990428192768
@@ -100,7 +100,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1544205942464512
-    m_Key: pray.name
+    m_Key: paladin.pray.name
     m_Metadata:
       m_Items: []
   - m_Id: 17977729605632
@@ -341,6 +341,130 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 3724628650958848
     m_Key: shieldbash.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4969904137117696
+    m_Key: paladin.battlefieldpray.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4970248111988736
+    m_Key: paladin.defensivecharge.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4970409211011072
+    m_Key: paladin.horsedash.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4970555986485248
+    m_Key: paladin.judgementhammer.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4970898682093568
+    m_Key: paladin.oraclebless.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4971261321617408
+    m_Key: paladin.oraclecosts.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4971369039732736
+    m_Key: paladin.pray.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4972006393585664
+    m_Key: paladin.sturdyshieldaction.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4972183967834112
+    m_Key: paladin.sturdyshield.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31959654022586368
+    m_Key: taunt.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31959792682082304
+    m_Key: taunt.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32001152231481344
+    m_Key: astrologer.blink.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32001234314010624
+    m_Key: astrologer.manatransfer.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32001572077117440
+    m_Key: astro.starenergy.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32001782773784576
+    m_Key: bubbleshield.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32002359117291520
+    m_Key: bubleshot.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32002718481063936
+    m_Key: chainheal.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32003737873096704
+    m_Key: emergencyheal.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32004148151525376
+    m_Key: emergencyheal.buff.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32004177973026816
+    m_Key: emergencyheal.buff.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32004332742844416
+    m_Key: growth.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32004739426754560
+    m_Key: punch.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32004932385710080
+    m_Key: seawhip.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32005358346641408
+    m_Key: seawhip.buff.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32005459701997568
+    m_Key: soundboom.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32005628472401920
+    m_Key: windbuffaction.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32005882231988224
+    m_Key: windbuff.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32006055003758592
+    m_Key: fallenstar.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32006324596842496
+    m_Key: traveler.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32006559108767744
+    m_Key: shellharpaura.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32007304805687296
+    m_Key: testaura.tooltip
     m_Metadata:
       m_Items: []
   m_Metadata:

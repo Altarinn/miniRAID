@@ -253,14 +253,223 @@ MonoBehaviour:
       Data: 
     - Name: currentStageCompleted
       Entry: 3
-      Data: -1
+      Data: 4
     - Name: query_stack
       Entry: 7
       Data: 10|System.Collections.Generic.Stack`1[[miniRAID.UI.TargetRequester.RequestStage,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
+      Data: 5
+    - Name: 
+      Entry: 7
+      Data: 11|miniRAID.UI.TargetRequester.RequestStage, Assembly-CSharp
+    - Name: map
+      Entry: 7
+      Data: 12|System.Collections.Generic.Dictionary`2[[UnityEngine.Vector3Int, UnityEngine.CoreModule],[GridOverlay+Types,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 13|System.Collections.Generic.GenericEqualityComparer`1[[UnityEngine.Vector3Int,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
       Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: cursor
+      Entry: 7
+      Data: 14|System.Collections.Generic.Dictionary`2[[UnityEngine.Vector3Int, UnityEngine.CoreModule],[GridOverlay+Types,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 13
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 15|miniRAID.UI.TargetRequester.RequestStage, Assembly-CSharp
+    - Name: map
+      Entry: 7
+      Data: 16|System.Collections.Generic.Dictionary`2[[UnityEngine.Vector3Int, UnityEngine.CoreModule],[GridOverlay+Types,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 13
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: cursor
+      Entry: 7
+      Data: 17|System.Collections.Generic.Dictionary`2[[UnityEngine.Vector3Int, UnityEngine.CoreModule],[GridOverlay+Types,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 13
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 18|miniRAID.UI.TargetRequester.RequestStage, Assembly-CSharp
+    - Name: map
+      Entry: 7
+      Data: 19|System.Collections.Generic.Dictionary`2[[UnityEngine.Vector3Int, UnityEngine.CoreModule],[GridOverlay+Types,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 13
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: cursor
+      Entry: 7
+      Data: 20|System.Collections.Generic.Dictionary`2[[UnityEngine.Vector3Int, UnityEngine.CoreModule],[GridOverlay+Types,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 13
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 21|miniRAID.UI.TargetRequester.RequestStage, Assembly-CSharp
+    - Name: map
+      Entry: 7
+      Data: 22|System.Collections.Generic.Dictionary`2[[UnityEngine.Vector3Int, UnityEngine.CoreModule],[GridOverlay+Types,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 13
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: cursor
+      Entry: 7
+      Data: 23|System.Collections.Generic.Dictionary`2[[UnityEngine.Vector3Int, UnityEngine.CoreModule],[GridOverlay+Types,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 13
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 24|miniRAID.UI.TargetRequester.RequestStage, Assembly-CSharp
+    - Name: map
+      Entry: 7
+      Data: 25|System.Collections.Generic.Dictionary`2[[UnityEngine.Vector3Int, UnityEngine.CoreModule],[GridOverlay+Types,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 13
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: cursor
+      Entry: 7
+      Data: 26|System.Collections.Generic.Dictionary`2[[UnityEngine.Vector3Int, UnityEngine.CoreModule],[GridOverlay+Types,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 13
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -269,11 +478,26 @@ MonoBehaviour:
       Data: 
     - Name: choice
       Entry: 7
-      Data: 11|System.Collections.Generic.Stack`1[[UnityEngine.Vector3Int, UnityEngine.CoreModule]],
+      Data: 27|System.Collections.Generic.Stack`1[[UnityEngine.Vector3Int, UnityEngine.CoreModule]],
         mscorlib
     - Name: 
       Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 14
+    - Name: 
+      Entry: 3
       Data: 0
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -282,10 +506,10 @@ MonoBehaviour:
       Data: 
     - Name: shape
       Entry: 7
-      Data: 12|miniRAID.GridShape, Assembly-CSharp
+      Data: 28|miniRAID.GridShape, Assembly-CSharp
     - Name: shape
       Entry: 7
-      Data: 13|System.Collections.Generic.HashSet`1[[UnityEngine.Vector3Int, UnityEngine.CoreModule]],
+      Data: 29|System.Collections.Generic.HashSet`1[[UnityEngine.Vector3Int, UnityEngine.CoreModule]],
         System.Core
     - Name: 
       Entry: 12
@@ -421,7 +645,7 @@ MonoBehaviour:
       Data: 
     - Name: direction
       Entry: 3
-      Data: 0
+      Data: 3
     - Name: 
       Entry: 8
       Data: 
@@ -439,7 +663,7 @@ MonoBehaviour:
       Data: 
     - Name: projectile
       Entry: 7
-      Data: 14|miniRAID.ActionHelpers.Projectile, Assembly-CSharp
+      Data: 30|miniRAID.ActionHelpers.Projectile, Assembly-CSharp
     - Name: projectilePrefab
       Entry: 10
       Data: 0
@@ -457,7 +681,7 @@ MonoBehaviour:
       Data: 
     - Name: fxOnHit
       Entry: 7
-      Data: 15|miniRAID.ActionHelpers.SimpleExplosionFx, Assembly-CSharp
+      Data: 31|miniRAID.ActionHelpers.SimpleExplosionFx, Assembly-CSharp
     - Name: image
       Entry: 10
       Data: 1
@@ -475,7 +699,7 @@ MonoBehaviour:
       Data: 
     - Name: buff
       Entry: 7
-      Data: 16|miniRAID.ActionHelpers.SpellBuff, Assembly-CSharp
+      Data: 32|miniRAID.ActionHelpers.SpellBuff, Assembly-CSharp
     - Name: buff
       Entry: 10
       Data: 2
@@ -538,7 +762,7 @@ MonoBehaviour:
       Data: 
     - Name: damageOrHeal
       Entry: 7
-      Data: 17|miniRAID.ActionHelpers.SpellDamageHeal, Assembly-CSharp
+      Data: 33|miniRAID.ActionHelpers.SpellDamageHeal, Assembly-CSharp
     - Name: flags
       Entry: 3
       Data: 0
@@ -611,9 +835,9 @@ MonoBehaviour:
   maxLevel: 0
   DescriptionKey:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 4969904137117696
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0

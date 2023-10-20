@@ -42,7 +42,8 @@
     padding-right: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
-    background-color: rgb(18, 18, 18);
+    background-color: rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
 }
 
 .panel-compact-row > .row-first {

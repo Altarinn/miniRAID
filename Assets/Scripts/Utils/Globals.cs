@@ -39,6 +39,9 @@ namespace miniRAID
     {
         // Automatically passes unit when AP = 0 after action
         public static bool autoPass = true;
+        
+        // Aggro threshold for "High Aggro!"
+        public static float highAggroThreshold = 0.8f;
 
         // Time delay to delete fx (particle systems etc.) after they have stopped.
         public static float fxTimeout = 10.0f;

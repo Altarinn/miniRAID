@@ -81,7 +81,7 @@ MonoBehaviour:
       Data: miniRAID.EnemyMobDescriptorSO+EnemyStatBase, Assembly-CSharp
     - Name: MaxHP
       Entry: 3
-      Data: 4660
+      Data: 2640
     - Name: ExHitAcc
       Entry: 4
       Data: 2

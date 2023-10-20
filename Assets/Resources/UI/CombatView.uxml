@@ -11,8 +11,8 @@
     <ui:VisualElement name="CombatPanel" picking-mode="Ignore" style="flex-direction: row; height: 100%; width: 100%;">
         <ui:Label tabindex="-1" text="v0.1.4" display-tooltip-when-elided="true" name="VersionNum" style="position: absolute; margin-left: 2px; margin-top: 2px; color: rgb(96, 108, 79);" />
         <ui:VisualElement name="MainPanel" picking-mode="Ignore" style="flex-grow: 1;">
-            <ui:Instance template="MobDetails" name="MobDetails" picking-mode="Ignore" style="position: absolute; left: 164px; top: 69px; width: 500px; visibility: hidden;" />
-            <ui:Instance template="MobInfo" name="MobInfo" style="left: 164px; top: 69px; width: 500px; visibility: hidden; position: absolute;" />
+            <ui:Instance template="MobDetails" name="MobDetails" picking-mode="Ignore" style="position: absolute; left: 164px; top: 69px; width: 550px; visibility: hidden;" />
+            <ui:Instance template="MobInfo" name="MobInfo" style="left: 164px; top: 69px; width: 550px; visibility: hidden; position: absolute;" />
             <ui:VisualElement name="UnitMenuContainer" picking-mode="Ignore" style="position: absolute; left: 24px; top: 69px; flex-direction: row; align-items: flex-start;">
                 <ui:ListView focusable="true" name="UnitMenu" fixed-item-height="16" picking-mode="Ignore" selection-type="None" style="width: 140px;" />
                 <ui:VisualElement name="ToolTip" style="padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;">
@@ -39,11 +39,9 @@
                     <ui:Instance template="UnitGrid" name="UnitGrid" />
                     <ui:Instance template="UnitGrid" name="UnitGrid" />
                     <ui:Instance template="UnitGrid" name="UnitGrid" />
-                    <ui:Instance template="UnitGrid" name="UnitGrid" />
-                    <ui:Instance template="UnitGrid" name="UnitGrid" />
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="Side-bottom" style="height: 150px; background-color: rgb(229, 139, 139);">
+            <ui:VisualElement name="Side-bottom" style="height: 200px; background-color: rgb(229, 139, 139);">
                 <ui:Instance template="CombatStats" name="CombatStats-global" />
             </ui:VisualElement>
         </ui:VisualElement>

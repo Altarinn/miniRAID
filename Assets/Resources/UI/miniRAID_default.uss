@@ -35,7 +35,7 @@ Label {
     padding-right: 0;
     padding-top: 0;
     padding-bottom: 0;
-    font-size: 8.7px;
+    font-size: 9px;
     -unity-font-definition: url('project://database/Assets/Fonts/Non-pixelated/verdana%20SDF.asset?fileID=11400000&guid=fd83a5499ea6d2544bc2b3838d034878&type=2#verdana SDF');
 }
 

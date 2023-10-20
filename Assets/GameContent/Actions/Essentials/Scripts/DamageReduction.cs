@@ -44,8 +44,8 @@ namespace GameContent.Buffs.Test
         
         private void MobOnBeforeDamageApplied(MobData mob, Consts.DamageHeal_FrontEndInput info, Consts.DamageHeal_ComputedRates rates)
         {
-            var mana = mob.FindListener<GeneralManaListener>();
-            if (mana == null) return;
+            // var mana = mob.FindListener<GeneralManaListener>();
+            // if (mana == null) return;
 
             rates.value -= Mathf.CeilToInt(rates.value * ((data as DamageReduction).percentage.Eval(level) * stacks));
         }

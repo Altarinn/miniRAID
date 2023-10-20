@@ -118,6 +118,14 @@ MonoBehaviour:
     m_Localized: Charged Slash
     m_Metadata:
       m_Items: []
+  - m_Id: 4972183967834112
+    m_Localized: 
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31959654022586368
+    m_Localized: Taunt
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

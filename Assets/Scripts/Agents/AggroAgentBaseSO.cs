@@ -31,6 +31,7 @@ namespace miniRAID.Agents
     public class AggroAgentBase : MobAgentBase
     {
         protected Dictionary<MobData, float> aggroList;
+        public float maxAggro => aggroList.Max(kv => kv.Value);
         public AggroAgentBaseSO aggroAgentData => (AggroAgentBaseSO)data;
 
         public MobData currentTarget;
@@ -100,6 +101,22 @@ namespace miniRAID.Agents
             }
 
             aggroList[mob] += aggro;
+            
+            // Check if aggro exceeded the threshold
+            if (mob != currentTarget)
+            {
+                if (aggroList[mob] >= maxAggro)
+                {
+                    Globals.popupMgr.Instance.Popup(">TARGET<", Globals.backend.GridToWorldPosCentered(mob.Position));
+                    Globals.popupMgr.Instance.Popup("ATTACKING YOU", Globals.backend.GridToWorldPosCentered(parentMob.Position));
+                }
+                else if (aggroList[mob] >= maxAggro * Settings.highAggroThreshold)
+                {
+                    Globals.popupMgr.Instance.Popup("!", Globals.backend.GridToWorldPosCentered(mob.Position));
+                    Globals.popupMgr.Instance.Popup("HIGH AGGRO", Globals.backend.GridToWorldPosCentered(parentMob.Position));
+                }
+            }
+            
             UpdateAggro();
         }
 
@@ -283,6 +300,12 @@ namespace miniRAID.Agents
                 .OrderByDescending(kv => kv.Value)
                 .Select(kv => new AggroInfo() { nickname = kv.Key, aggro = kv.Value })
                 .ToList();
+        }
+
+        public void SetAsMaxAggro(MobData target, float margin)
+        {
+            aggroList[target] = 0;
+            AddToAggro(target, maxAggro + margin);
         }
     }
 }

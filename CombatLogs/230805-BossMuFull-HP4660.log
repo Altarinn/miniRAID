@@ -1,0 +1,2210 @@
+- Start of debug log -
+[2023/8/5 9:32:01] AWAKE
+[回合0] 00m 06s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [120]
+[回合0] 00m 06s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [120]
+[回合0] 00m 06s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [120]
+[回合0] 00m 06s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [120]
+[回合0] 00m 06s:  Archer 获得了来自 Archer 的 攻击者
+[回合0] 00m 06s:  Archer2 获得了来自 Archer2 的 攻击者
+[回合0] 00m 06s:  Lilium 获得了来自 Lilium 的 防卫者
+[回合0] 00m 06s:  Explorer 获得了来自 Explorer 的 力量光环
+[回合0] 00m 06s:  Archer 获得了来自 Explorer 的 力量光环
+[回合0] 00m 06s:  Lilium 获得了来自 Explorer 的 力量光环
+[回合0] 00m 06s:  Flora 获得了来自 Explorer 的 力量光环
+[回合0] 00m 06s:  Gaceon 获得了来自 Explorer 的 力量光环
+[回合0] 00m 06s:  Astrologer 获得了来自 Astrologer 的 流星
+[回合0] 00m 06s:  Astrologer 获得了来自 Astrologer 的 星能转化
+[回合0] 00m 06s:  Astrologer 获得了来自 Explorer 的 力量光环
+[回合0] 00m 06s:  Umiko 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 06s:  Archer 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 06s:  Archer2 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 06s:  Lilium 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 06s:  Flora 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 06s:  Gaceon 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 06s:  Astrologer 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 06s:  Umiko 获得了来自 Explorer 的 力量光环
+[回合0] 00m 06s:  BossMu 获得了来自 BossMu 的 爆裂 [932]
+[回合0] 00m 06s:  Archer3 获得了来自 Archer3 的 攻击者
+[回合0] 00m 06s:  Archer3 获得了来自 Explorer 的 力量光环
+[回合0] 00m 06s:  Felivol 获得了来自 Felivol 的 防卫者
+[回合0] 00m 06s:  Felivol 获得了来自 Felivol 的 旅者
+[回合0] 00m 06s:  Felivol 获得了来自 Felivol 的 聆听神谕
+[回合0] 00m 06s:  Felivol 获得了来自 Felivol 的 祝福之光
+[回合0] 00m 06s:  Felivol 获得了来自 Felivol 的 防御蓄能
+[回合0] 00m 06s:  Felivol 获得了来自 Explorer 的 力量光环
+[回合0] 00m 06s:  Felivol 获得了来自 Umiko 的 生命之歌
+[回合1] 00m 07s:  回合1
+[回合1] 00m 09s:  Lilium 施放了 移动, 目标：(11, 0) 
+[回合1] 00m 11s:  Lilium 施放了 拳, 目标：(11, 0) 
+[回合1] 00m 11s:  Lilium 的 拳 对 BossMu 造成了 10 点 Knock 伤害。生命值：4650
+[回合1] 00m 12s:  Lilium 施放了 盾击, 目标：(11, 0) 
+[回合1] 00m 13s:  Lilium 的 盾击 对 BossMu 造成了 23 点 Knock 伤害。生命值：4627
+[回合1] 00m 17s:  Explorer 施放了 移动, 目标：(10, 0) 
+[回合1] 00m 17s:  Archer 失去了来自 Explorer 的 力量光环
+[回合1] 00m 17s:  Umiko 失去了来自 Explorer 的 力量光环
+[回合1] 00m 18s:  Explorer 施放了 响音攻击, 目标：(10, 0) 
+[回合1] 00m 19s:  Explorer 的 响音攻击 对 SmallMu 造成了 16 点 Knock 伤害（暴击）。生命值：104
+[回合1] 00m 21s:  Felivol 施放了 移动, 目标：(8, 0) 
+[回合1] 00m 22s:  Felivol 的 旅者 对 Felivol 造成了 0 点 Heal 。生命值：126
+[回合1] 00m 22s:  Felivol 失去了来自 Umiko 的 生命之歌
+[回合1] 00m 22s:  Felivol 的 旅者 对 Felivol 造成了 0 点 Heal 。生命值：126
+[回合1] 00m 23s:  Felivol 的 旅者 对 Felivol 造成了 0 点 Heal 。生命值：126
+[回合1] 00m 26s:  Felivol 施放了 祈祷, 目标：(8, 0) 
+[回合1] 00m 27s:  Felivol 的 祈祷 对 Felivol 造成了 0 点 Heal 。生命值：126
+[回合1] 00m 27s:  Felivol 重新获得了来自 Felivol 的 祝福之光
+[回合1] 00m 30s:  Astrologer 施放了 星光超流, 目标：(11, 0) 
+[回合1] 00m 31s:  Astrologer 的 星光超流 对 BossMu 造成了 74 点 Light 伤害（暴击）。生命值：4553
+[回合1] 00m 31s:  BossMu 获得了来自 Astrologer 的 繁星道标
+[回合1] 00m 33s:  Astrologer 施放了 彗星箭, 目标：(11, 0) 
+[回合1] 00m 34s:  Astrologer 的 彗星箭 对 BossMu 造成了 32 点 Ice 伤害。生命值：4521
+[回合1] 00m 35s:  Astrologer 的 流星 对 BossMu 造成了 8 点 Knock 伤害。生命值：4513
+[回合1] 00m 49s:  Archer3 施放了 移动, 目标：(8, 0) 
+[回合1] 00m 49s:  Archer3 获得了来自 Umiko 的 生命之歌
+[回合1] 00m 52s:  Archer3 施放了 射击, 目标：(11, 0) 
+[回合1] 00m 52s:  Archer3 的 射击 对 SmallMu 造成了 35 点 Pierce 伤害。生命值：69
+[回合1] 00m 54s:  Archer 施放了 移动, 目标：(8, 0) 
+[回合1] 00m 55s:  Archer 获得了来自 Explorer 的 力量光环
+[回合1] 00m 56s:  Archer 施放了 射击, 目标：(11, 0) 
+[回合1] 00m 57s:  Archer 的 射击 对 SmallMu 造成了 35 点 Pierce 伤害。生命值：85
+[回合1] 00m 58s:  Archer2 施放了 移动, 目标：(9, 0) 
+[回合1] 00m 59s:  Archer2 获得了来自 Explorer 的 力量光环
+[回合1] 01m 00s:  Archer2 施放了 射击, 目标：(11, 0) 
+[回合1] 01m 01s:  Archer2 的 射击 对 SmallMu 造成了 70 点 Pierce 伤害（暴击）。生命值：15
+[回合1] 01m 05s:  Umiko 施放了 移动, 目标：(9, 0) 
+[回合1] 01m 06s:  Umiko 获得了来自 Explorer 的 力量光环
+[回合1] 01m 06s:  Umiko 施放了 水泡, 目标：(11, 0) 
+[回合1] 01m 07s:  Umiko 的 水泡 对 BossMu 造成了 22 点 Water 伤害（暴击）。生命值：4491
+[回合1] 01m 07s:  Lilium 获得了来自 Umiko 的 水泡护盾
+[回合1] 01m 12s:  Flora 施放了 栽培, 目标：(11, 0) 
+[回合1] 01m 13s:  Lilium 获得了来自 Flora 的 栽培
+[回合1] 01m 15s:  SmallMu 施放了 移动, 目标：(11, 0) 
+[回合1] 01m 15s:  SmallMu 施放了 移动, 目标：(11, 0) 
+[回合1] 01m 15s:  SmallMu 施放了 小史莱姆治愈, 目标：(11, 0) 
+[回合1] 01m 16s:  SmallMu 的 小史莱姆治愈 对 BossMu 造成了 120 点 Heal 。生命值：4611
+[回合1] 01m 16s:  SmallMu 施放了 移动, 目标：(14, 0) 
+[回合1] 01m 16s:  SmallMu 施放了 移动, 目标：(14, 0) 
+[回合1] 01m 16s:  SmallMu 施放了 移动, 目标：(13, 0) 
+[回合1] 01m 17s:  SmallMu 施放了 移动, 目标：(14, 0) 
+[回合1] 01m 17s:  SmallMu 施放了 移动, 目标：(14, 0) 
+[回合1] 01m 17s:  SmallMu 施放了 移动, 目标：(14, 0) 
+[回合1] 01m 18s:  SmallMu 施放了 移动, 目标：(11, 0) 
+[回合1] 01m 18s:  SmallMu 施放了 移动, 目标：(11, 0) 
+[回合1] 01m 18s:  SmallMu 施放了 小史莱姆治愈, 目标：(11, 0) 
+[回合1] 01m 18s:  SmallMu 的 小史莱姆治愈 对 BossMu 造成了 49 点 Heal 。生命值：4660
+[回合1] 01m 18s:  BossMu 施放了 史莱姆攻击, 目标：(11, 0) 
+[回合1] 01m 19s:  BossMu 的 史莱姆攻击 对 Lilium 造成了 27 点 Knock 伤害。生命值：87
+[回合1] 01m 19s:  Lilium 获得了来自 BossMu 的 史莱姆毒素
+[回合2] 01m 19s:  回合2
+[回合2] 01m 21s:  Flora 的 栽培 对 Lilium 造成了 8 点 Heal 。生命值：95
+[回合2] 01m 21s:  BossMu 的 史莱姆毒素 对 Lilium 造成了 8 点 Nature 伤害。生命值：87
+[回合2] 01m 26s:  Felivol 施放了 奔袭, 目标：(10, 0) 
+[回合2] 01m 27s:  Felivol 的 旅者 对 Felivol 造成了 0 点 Heal 。生命值：126
+[回合2] 01m 27s:  Felivol 获得了来自 Umiko 的 生命之歌
+[回合2] 01m 27s:  Felivol 的 旅者 对 Felivol 造成了 0 点 Heal 。生命值：126
+[回合2] 01m 27s:  Felivol 的 旅者 对 Felivol 造成了 0 点 Heal 。生命值：126
+[回合2] 01m 27s:  Felivol 的 旅者 对 Felivol 造成了 0 点 Heal 。生命值：126
+[回合2] 01m 27s:  Felivol 的 旅者 对 Felivol 造成了 0 点 Heal 。生命值：126
+[回合2] 01m 28s:  Felivol 的 旅者 对 Felivol 造成了 0 点 Heal 。生命值：126
+[回合2] 01m 34s:  Felivol 施放了 祈祷：战地祷告, 目标：(10, 0) 
+[回合2] 01m 35s:  Felivol 的 祈祷：战地祷告 对 Felivol 造成了 0 点 Heal 。生命值：126
+[回合2] 01m 35s:  Felivol 重新获得了来自 Felivol 的 祝福之光
+[回合2] 01m 39s:  Umiko 施放了 水泡, 目标：(11, 0) 
+[回合2] 01m 40s:  Umiko 的 水泡 对 BossMu 造成了 11 点 Water 伤害。生命值：4649
+[回合2] 01m 40s:  Lilium 重新获得了来自 Umiko 的 水泡护盾
+[回合2] 01m 40s:  Felivol 获得了来自 Umiko 的 水泡护盾
+[回合2] 01m 42s:  Lilium 施放了 移动, 目标：(12, 0) 
+[回合2] 01m 45s:  Lilium 施放了 拳, 目标：(11, 0) 
+[回合2] 01m 45s:  Lilium 的 拳 对 BossMu 造成了 20 点 Knock 伤害（暴击）。生命值：4629
+[回合2] 01m 47s:  Lilium 施放了 拳, 目标：(11, 0) 
+[回合2] 01m 48s:  Lilium 的 拳 对 BossMu 造成了 10 点 Knock 伤害。生命值：4619
+[回合2] 01m 49s:  Lilium 施放了 拳, 目标：(11, 0) 
+[回合2] 01m 49s:  Lilium 的 拳 没有击中 BossMu。生命值：4619
+[回合2] 01m 55s:  Astrologer 施放了 星光超流, 目标：(11, 0) 
+[回合2] 01m 56s:  Astrologer 的 星光超流 对 BossMu 造成了 37 点 Light 伤害。生命值：4582
+[回合2] 01m 56s:  Astrologer 的 流星 没有击中 BossMu。生命值：4582
+[回合2] 01m 56s:  Astrologer 的 繁星道标 对 BossMu 造成了 44 点 Light 伤害（暴击）。生命值：4538
+[回合2] 01m 56s:  BossMu 重新获得了来自 Astrologer 的 繁星道标
+[回合2] 02m 00s:  Astrologer 施放了 彗星箭, 目标：(11, 0) 
+[回合2] 02m 01s:  Astrologer 的 彗星箭 对 BossMu 造成了 32 点 Ice 伤害。生命值：4506
+[回合2] 02m 01s:  Astrologer 的 流星 对 BossMu 造成了 8 点 Knock 伤害。生命值：4498
+[回合2] 02m 15s:  Archer2 施放了 疾飞之箭, 目标：(11, 0) 
+[回合2] 02m 16s:  Archer2 的 疾飞之箭 对 BossMu 造成了 36 点 Pierce 伤害（暴击）。生命值：4462
+[回合2] 02m 16s:  BossMu 获得了来自 Archer2 的 出血
+[回合2] 02m 17s:  Archer2 施放了 射击, 目标：(11, 0) 
+[回合2] 02m 18s:  Archer2 的 射击 对 SmallMu 造成了 15 点 Pierce 伤害（暴击）。生命值：0
+[回合2] 02m 18s:  SmallMu 施放了 小史莱姆爆炸, 目标：(11, 0) 
+[回合2] 02m 19s:  SmallMu 的 小史莱姆爆炸 对 Archer 造成了 18 点 Nature 伤害。生命值：78
+[回合2] 02m 19s:  SmallMu 的 小史莱姆爆炸 对 Archer2 造成了 18 点 Nature 伤害。生命值：78
+[回合2] 02m 19s:  SmallMu 的 小史莱姆爆炸 对 Lilium 造成了 16 点 Nature 伤害。生命值：71
+[回合2] 02m 19s:  SmallMu 的 小史莱姆爆炸 对 Explorer 造成了 18 点 Nature 伤害。生命值：108
+[回合2] 02m 19s:  SmallMu 的 小史莱姆爆炸 对 Flora 造成了 18 点 Nature 伤害。生命值：84
+[回合2] 02m 20s:  SmallMu 的 小史莱姆爆炸 对 Gaceon 造成了 18 点 Nature 伤害。生命值：84
+[回合2] 02m 20s:  SmallMu 的 小史莱姆爆炸 对 Astrologer 造成了 18 点 Nature 伤害。生命值：72
+[回合2] 02m 20s:  SmallMu 的 小史莱姆爆炸 对 Umiko 造成了 18 点 Nature 伤害。生命值：108
+[回合2] 02m 20s:  SmallMu 的 小史莱姆爆炸 对 Archer3 造成了 18 点 Nature 伤害。生命值：78
+[回合2] 02m 20s:  SmallMu 的 小史莱姆爆炸 对 Felivol 造成了 14 点 Nature 伤害。生命值：112
+[回合2] 02m 20s:  SmallMu 失去了来自 SmallMu 的 死亡爆裂 [120]
+[回合2] 02m 20s:  Archer2 的 射击 击杀了 SmallMu !
+[回合2] 02m 24s:  Flora 施放了 移动, 目标：(9, 0) 
+[回合2] 02m 27s:  Flora 施放了 治疗术, 目标：(12, 0) 
+[回合2] 02m 28s:  Flora 的 治疗术 对 Lilium 造成了 36 点 Heal 。生命值：107
+[回合2] 02m 35s:  Gaceon 施放了 治疗链, 目标：(10, 0) 
+[回合2] 02m 35s:  Gaceon 的 治疗链 对 Felivol 造成了 14 点 Heal 。生命值：126
+[回合2] 02m 35s:  Gaceon 的 治疗链 对 Lilium 造成了 7 点 Heal 。生命值：114
+[回合2] 02m 35s:  Gaceon 的 治疗链 对 Felivol 造成了 0 点 Heal 。生命值：126
+[回合2] 02m 38s:  Gaceon 施放了 治疗链, 目标：(8, 0) 
+[回合2] 02m 38s:  Gaceon 的 治疗链 对 Archer 造成了 18 点 Heal 。生命值：96
+[回合2] 02m 38s:  Gaceon 的 治疗链 对 Felivol 造成了 0 点 Heal 。生命值：126
+[回合2] 02m 38s:  Gaceon 的 治疗链 对 Lilium 造成了 0 点 Heal 。生命值：114
+[回合2] 02m 43s:  Archer3 施放了 移动, 目标：(8, 0) 
+[回合2] 02m 44s:  Archer3 施放了 射击, 目标：(11, 0) 
+[回合2] 02m 45s:  Archer3 的 射击 对 SmallMu 造成了 69 点 Pierce 伤害（暴击）。生命值：0
+[回合2] 02m 45s:  SmallMu 施放了 小史莱姆爆炸, 目标：(11, 0) 
+[回合2] 02m 46s:  SmallMu 的 小史莱姆爆炸 对 Archer 造成了 18 点 Nature 伤害。生命值：78
+[回合2] 02m 46s:  SmallMu 的 小史莱姆爆炸 对 Archer2 造成了 18 点 Nature 伤害。生命值：60
+[回合2] 02m 46s:  SmallMu 的 小史莱姆爆炸 对 Lilium 造成了 16 点 Nature 伤害。生命值：98
+[回合2] 02m 46s:  SmallMu 的 小史莱姆爆炸 对 Explorer 造成了 18 点 Nature 伤害。生命值：90
+[回合2] 02m 46s:  SmallMu 的 小史莱姆爆炸 对 Flora 造成了 18 点 Nature 伤害。生命值：66
+[回合2] 02m 47s:  SmallMu 的 小史莱姆爆炸 对 Gaceon 造成了 18 点 Nature 伤害。生命值：66
+[回合2] 02m 47s:  SmallMu 的 小史莱姆爆炸 对 Astrologer 造成了 18 点 Nature 伤害。生命值：54
+[回合2] 02m 47s:  SmallMu 的 小史莱姆爆炸 对 Umiko 造成了 18 点 Nature 伤害。生命值：90
+[回合2] 02m 47s:  SmallMu 的 小史莱姆爆炸 对 Archer3 造成了 18 点 Nature 伤害。生命值：60
+[回合2] 02m 47s:  SmallMu 的 小史莱姆爆炸 对 Felivol 造成了 14 点 Nature 伤害。生命值：112
+[回合2] 02m 47s:  SmallMu 失去了来自 SmallMu 的 死亡爆裂 [120]
+[回合2] 02m 47s:  Archer3 的 射击 击杀了 SmallMu !
+[回合2] 02m 49s:  Explorer 施放了 移动, 目标：(11, 0) 
+[回合2] 02m 51s:  Explorer 施放了 响音攻击, 目标：(11, 0) 
+[回合2] 02m 51s:  Explorer 的 响音攻击 对 SmallMu 造成了 8 点 Knock 伤害。生命值：112
+[回合2] 02m 51s:  Explorer 的 响音攻击 对 BossMu 造成了 8 点 Knock 伤害。生命值：4454
+[回合2] 02m 52s:  Explorer 施放了 响音攻击, 目标：(11, 0) 
+[回合2] 02m 52s:  Explorer 的 响音攻击 对 SmallMu 造成了 8 点 Knock 伤害。生命值：104
+[回合2] 02m 52s:  Explorer 的 响音攻击 没有击中 BossMu。生命值：4454
+[回合2] 03m 00s:  Flora 施放了 治疗术, 目标：(11, 0) 
+[回合2] 03m 01s:  Flora 的 治疗术 对 Explorer 造成了 36 点 Heal 。生命值：126
+[回合2] 03m 04s:  Umiko 施放了 水泡, 目标：(11, 0) 
+[回合2] 03m 05s:  Umiko 的 水泡 没有击中 BossMu。生命值：4454
+[回合2] 03m 05s:  Lilium 重新获得了来自 Umiko 的 水泡护盾
+[回合2] 03m 05s:  Explorer 获得了来自 Umiko 的 水泡护盾
+[回合2] 03m 05s:  Flora 获得了来自 Umiko 的 水泡护盾
+[回合2] 03m 05s:  Felivol 重新获得了来自 Umiko 的 水泡护盾
+[回合2] 03m 48s:  Archer 施放了 移动, 目标：(10, 0) 
+[回合2] 03m 50s:  Archer 施放了 射击, 目标：(14, 0) 
+[回合2] 03m 50s:  Archer 的 射击 对 SmallMu 造成了 35 点 Pierce 伤害。生命值：85
+[回合2] 03m 51s:  Archer 施放了 射击, 目标：(14, 0) 
+[回合2] 03m 52s:  Archer 的 射击 对 SmallMu 造成了 35 点 Pierce 伤害。生命值：50
+[回合2] 03m 55s:  Archer3 施放了 射击, 目标：(13, 0) 
+[回合2] 03m 56s:  Archer3 的 射击 对 SmallMu 造成了 70 点 Pierce 伤害（暴击）。生命值：34
+[回合2] 03m 59s:  Flora 施放了 栽培, 目标：(8, 0) 
+[回合2] 03m 59s:  Astrologer 获得了来自 Flora 的 栽培
+[回合2] 04m 02s:  Archer2 的 出血 对 BossMu 造成了 7 点 Pierce 伤害。生命值：4447
+[回合2] 04m 02s:  SmallMu 施放了 移动, 目标：(13, 0) 
+[回合2] 04m 02s:  SmallMu 施放了 移动, 目标：(13, 0) 
+[回合2] 04m 02s:  SmallMu 施放了 移动, 目标：(12, 0) 
+[回合2] 04m 02s:  SmallMu 施放了 移动, 目标：(14, 0) 
+[回合2] 04m 03s:  SmallMu 施放了 移动, 目标：(14, 0) 
+[回合2] 04m 03s:  SmallMu 施放了 移动, 目标：(14, 0) 
+[回合2] 04m 03s:  BossMu 施放了 小史莱姆标记, 目标：(11, 0) 
+[回合2] 04m 04s:  Gaceon 获得了来自 BossMu 的 锁定
+[回合2] 04m 04s:  BossMu 施放了 史莱姆攻击, 目标：(12, 0) 
+[回合2] 04m 05s:  BossMu 的 史莱姆攻击 对 Lilium 造成了 25 点 Knock 伤害。生命值：73
+[回合2] 04m 05s:  Lilium 重新获得了来自 BossMu 的 史莱姆毒素
+[回合3] 04m 05s:  回合3
+[回合3] 04m 06s:  Flora 的 栽培 对 Lilium 造成了 8 点 Heal 。生命值：81
+[回合3] 04m 06s:  BossMu 的 史莱姆毒素 对 Lilium 造成了 16 点 Nature 伤害。生命值：65
+[回合3] 04m 07s:  Flora 的 栽培 对 Astrologer 造成了 8 点 Heal 。生命值：63
+[回合3] 04m 07s:  Felivol 施放了 蓄力斩, 目标：(10, 0) 
+[回合3] 04m 07s:  Felivol 的 蓄力斩 对 BossMu 造成了 47 点 Slash 伤害。生命值：4400
+[回合3] 04m 23s:  Felivol 施放了 移动, 目标：(11, 0) 
+[回合3] 04m 23s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：114
+[回合3] 04m 23s:  Felivol 施放了 盾击, 目标：(11, 0) 
+[回合3] 04m 24s:  Felivol 的 盾击 对 BossMu 造成了 35 点 Knock 伤害。生命值：4365
+[回合3] 04m 25s:  Felivol 施放了 蓄力斩, 目标：(11, 0) 
+[回合3] 04m 35s:  Astrologer 施放了 星光超流, 目标：(11, 0) 
+[回合3] 04m 36s:  Astrologer 的 星光超流 对 BossMu 造成了 37 点 Light 伤害。生命值：4328
+[回合3] 04m 36s:  Astrologer 的 繁星道标 没有击中 BossMu。生命值：4328
+[回合3] 04m 37s:  Astrologer 的 繁星道标 对 BossMu 造成了 22 点 Light 伤害。生命值：4306
+[回合3] 04m 37s:  BossMu 重新获得了来自 Astrologer 的 繁星道标
+[回合3] 04m 39s:  Astrologer 施放了 彗星箭, 目标：(11, 0) 
+[回合3] 04m 40s:  Astrologer 的 彗星箭 对 BossMu 造成了 32 点 Ice 伤害。生命值：4274
+[回合3] 04m 45s:  Lilium 施放了 拳, 目标：(11, 0) 
+[回合3] 04m 45s:  Lilium 的 拳 没有击中 BossMu。生命值：4274
+[回合3] 04m 46s:  Lilium 施放了 拳, 目标：(11, 0) 
+[回合3] 04m 47s:  Lilium 的 拳 对 BossMu 造成了 10 点 Knock 伤害。生命值：4264
+[回合3] 04m 48s:  Lilium 施放了 拳, 目标：(11, 0) 
+[回合3] 04m 48s:  Lilium 的 拳 对 BossMu 造成了 10 点 Knock 伤害。生命值：4254
+[回合3] 05m 05s:  Explorer 施放了 移动, 目标：(12, 0) 
+[回合3] 05m 05s:  Archer2 失去了来自 Explorer 的 力量光环
+[回合3] 05m 05s:  Explorer 施放了 响音攻击, 目标：(12, 0) 
+[回合3] 05m 06s:  Explorer 的 响音攻击 对 SmallMu 造成了 8 点 Knock 伤害。生命值：26
+[回合3] 05m 06s:  Explorer 的 响音攻击 对 SmallMu 造成了 8 点 Knock 伤害。生命值：42
+[回合3] 05m 06s:  Explorer 的 响音攻击 对 BossMu 造成了 8 点 Knock 伤害。生命值：4246
+[回合3] 05m 09s:  Archer3 施放了 射击, 目标：(12, 0) 
+[回合3] 05m 10s:  Archer3 的 射击 对 SmallMu 造成了 26 点 Pierce 伤害。生命值：0
+[回合3] 05m 10s:  SmallMu 施放了 小史莱姆爆炸, 目标：(12, 0) 
+[回合3] 05m 11s:  SmallMu 的 小史莱姆爆炸 对 Archer 造成了 18 点 Nature 伤害。生命值：60
+[回合3] 05m 11s:  SmallMu 的 小史莱姆爆炸 对 Archer2 造成了 18 点 Nature 伤害。生命值：42
+[回合3] 05m 11s:  SmallMu 的 小史莱姆爆炸 对 Lilium 造成了 16 点 Nature 伤害。生命值：49
+[回合3] 05m 11s:  SmallMu 的 小史莱姆爆炸 对 Explorer 造成了 17 点 Nature 伤害。生命值：109
+[回合3] 05m 12s:  SmallMu 的 小史莱姆爆炸 对 Flora 造成了 17 点 Nature 伤害。生命值：49
+[回合3] 05m 12s:  SmallMu 的 小史莱姆爆炸 对 Gaceon 造成了 18 点 Nature 伤害。生命值：48
+[回合3] 05m 12s:  SmallMu 的 小史莱姆爆炸 对 Astrologer 造成了 18 点 Nature 伤害。生命值：45
+[回合3] 05m 12s:  SmallMu 的 小史莱姆爆炸 对 Umiko 造成了 18 点 Nature 伤害。生命值：72
+[回合3] 05m 12s:  SmallMu 的 小史莱姆爆炸 对 Archer3 造成了 18 点 Nature 伤害。生命值：42
+[回合3] 05m 13s:  SmallMu 的 小史莱姆爆炸 对 Felivol 造成了 14 点 Nature 伤害。生命值：100
+[回合3] 05m 13s:  SmallMu 失去了来自 SmallMu 的 死亡爆裂 [120]
+[回合3] 05m 13s:  Archer3 的 射击 击杀了 SmallMu !
+[回合3] 05m 19s:  Flora 施放了 栽培, 目标：(9, 0) 
+[回合3] 05m 20s:  Archer2 获得了来自 Flora 的 栽培
+[回合3] 05m 22s:  Flora 施放了 治疗术, 目标：(12, 0) 
+[回合3] 05m 23s:  Flora 的 治疗术 对 Lilium 造成了 36 点 Heal 。生命值：85
+[回合3] 05m 27s:  Gaceon 施放了 治疗链, 目标：(9, 0) 
+[回合3] 05m 27s:  Gaceon 的 治疗链 对 Flora 造成了 22 点 Heal 。生命值：71
+[回合3] 05m 27s:  Gaceon 的 治疗链 对 Archer2 造成了 15 点 Heal 。生命值：57
+[回合3] 05m 27s:  Gaceon 的 治疗链 对 Astrologer 造成了 11 点 Heal 。生命值：56
+[回合3] 05m 30s:  Gaceon 施放了 移动, 目标：(5, 0) 
+[回合3] 05m 30s:  Gaceon 失去了来自 Explorer 的 力量光环
+[回合3] 05m 30s:  Gaceon 失去了来自 Umiko 的 生命之歌
+[回合3] 05m 38s:  Archer 施放了 移动, 目标：(12, 0) 
+[回合3] 05m 39s:  Archer 施放了 射击, 目标：(14, 0) 
+[回合3] 05m 40s:  Archer 的 射击 对 SmallMu 造成了 42 点 Pierce 伤害（暴击）。生命值：0
+[回合3] 05m 40s:  SmallMu 施放了 小史莱姆爆炸, 目标：(14, 0) 
+[回合3] 05m 40s:  SmallMu 的 小史莱姆爆炸 对 Archer 造成了 18 点 Nature 伤害。生命值：42
+[回合3] 05m 41s:  SmallMu 的 小史莱姆爆炸 对 Archer2 造成了 18 点 Nature 伤害。生命值：39
+[回合3] 05m 41s:  SmallMu 的 小史莱姆爆炸 对 Lilium 造成了 16 点 Nature 伤害。生命值：69
+[回合3] 05m 41s:  SmallMu 的 小史莱姆爆炸 对 Explorer 造成了 17 点 Nature 伤害。生命值：92
+[回合3] 05m 41s:  SmallMu 的 小史莱姆爆炸 对 Flora 造成了 17 点 Nature 伤害。生命值：54
+[回合3] 05m 41s:  SmallMu 的 小史莱姆爆炸 对 Gaceon 造成了 18 点 Nature 伤害。生命值：30
+[回合3] 05m 42s:  SmallMu 的 小史莱姆爆炸 对 Astrologer 造成了 18 点 Nature 伤害。生命值：38
+[回合3] 05m 42s:  SmallMu 的 小史莱姆爆炸 对 Umiko 造成了 18 点 Nature 伤害。生命值：54
+[回合3] 05m 42s:  SmallMu 的 小史莱姆爆炸 对 Archer3 造成了 18 点 Nature 伤害。生命值：24
+[回合3] 05m 42s:  SmallMu 的 小史莱姆爆炸 对 Felivol 造成了 14 点 Nature 伤害。生命值：86
+[回合3] 05m 42s:  SmallMu 失去了来自 SmallMu 的 死亡爆裂 [120]
+[回合3] 05m 42s:  Archer 的 射击 击杀了 SmallMu !
+[回合3] 05m 46s:  Archer2 施放了 射击, 目标：(11, 0) 
+[回合3] 05m 47s:  Archer2 的 射击 对 BossMu 造成了 30 点 Pierce 伤害。生命值：4216
+[回合3] 05m 51s:  Umiko 施放了 水泡, 目标：(11, 0) 
+[回合3] 05m 52s:  Umiko 的 水泡 对 BossMu 造成了 11 点 Water 伤害。生命值：4205
+[回合3] 05m 52s:  Felivol 重新获得了来自 Umiko 的 水泡护盾
+[回合3] 05m 52s:  Lilium 重新获得了来自 Umiko 的 水泡护盾
+[回合3] 05m 52s:  Flora 重新获得了来自 Umiko 的 水泡护盾
+[回合3] 06m 08s:  Archer2 的 出血 对 BossMu 造成了 7 点 Pierce 伤害。生命值：4198
+[回合3] 06m 08s:  BossMu 施放了 小史莱姆投掷, 目标：(11, 0) 
+[回合3] 06m 09s:  BossMu 的 小史莱姆投掷 对 Gaceon 造成了 15 点 Nature 伤害。生命值：16
+[回合3] 06m 09s:  Gaceon 失去了来自 BossMu 的 锁定
+[回合3] 06m 09s:  Gaceon 获得了来自 BossMu 的 剧毒酸池
+[回合3] 06m 09s:  BossMu 施放了 史莱姆攻击, 目标：(12, 0) 
+[回合3] 06m 09s:  SmallMu(Clone) 获得了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[回合3] 06m 10s:  BossMu 的 史莱姆攻击 对 Lilium 造成了 25 点 Knock 伤害。生命值：44
+[回合3] 06m 10s:  Lilium 重新获得了来自 BossMu 的 史莱姆毒素
+[回合3] 06m 10s:  BossMu 的 史莱姆攻击 对 Felivol 造成了 22 点 Knock 伤害。生命值：64
+[回合3] 06m 10s:  Felivol 获得了来自 BossMu 的 史莱姆毒素
+[回合4] 06m 10s:  回合4
+[回合4] 06m 11s:  Flora 的 栽培 对 Archer2 造成了 8 点 Heal 。生命值：47
+[回合4] 06m 12s:  Flora 的 栽培 对 Lilium 造成了 8 点 Heal 。生命值：52
+[回合4] 06m 12s:  Lilium 失去了来自 Flora 的 栽培
+[回合4] 06m 12s:  BossMu 的 史莱姆毒素 对 Lilium 造成了 24 点 Nature 伤害。生命值：28
+[回合4] 06m 12s:  Explorer 失去了来自 Umiko 的 水泡护盾
+[回合4] 06m 12s:  BossMu 的 剧毒酸池 对 Gaceon 造成了 8 点 Nature 伤害。生命值：8
+[回合4] 06m 12s:  Flora 的 栽培 对 Astrologer 造成了 8 点 Heal 。生命值：46
+[回合4] 06m 13s:  BossMu 的 史莱姆毒素 对 Felivol 造成了 6 点 Nature 伤害。生命值：58
+[回合4] 06m 13s:  Felivol 施放了 蓄力斩, 目标：(11, 0) 
+[回合4] 06m 13s:  Felivol 的 蓄力斩 对 BossMu 造成了 47 点 Slash 伤害。生命值：4151
+[回合4] 06m 24s:  Felivol 施放了 圣祝：裁决重锤, 目标：(11, 0) 
+[回合4] 06m 25s:  Felivol 的 圣祝：裁决重锤 对 BossMu 造成了 35 点 Knock 伤害。生命值：4116
+[回合4] 06m 27s:  Felivol 失去了来自 Felivol 的 祝福之光
+[回合4] 06m 27s:  Felivol 施放了 圣祝：巨石坚盾, 目标：(11, 0) 
+[回合4] 06m 28s:  Felivol 获得了来自 Felivol 的 巨石坚盾
+[回合4] 06m 28s:  Felivol 重新获得了来自 Felivol 的 巨石坚盾
+[回合4] 06m 28s:  Felivol 重新获得了来自 Felivol 的 巨石坚盾
+[回合4] 06m 33s:  Felivol 施放了 盾击, 目标：(11, 0) 
+[回合4] 06m 34s:  Felivol 的 盾击 对 BossMu 造成了 35 点 Knock 伤害。生命值：4081
+[回合4] 06m 52s:  Lilium 施放了 移动, 目标：(14, 0) 
+[回合4] 06m 52s:  Lilium 失去了来自 Umiko 的 生命之歌
+[回合4] 06m 53s:  Lilium 施放了 法力护盾, 目标：(14, 0) 
+[回合4] 06m 54s:  Lilium 获得了来自 Lilium 的 法力护盾
+[回合4] 06m 56s:  Archer 施放了 移动, 目标：(13, 0) 
+[回合4] 06m 58s:  Archer 施放了 射击, 目标：(11, 0) 
+[回合4] 06m 59s:  Archer 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：4046
+[回合4] 07m 00s:  Archer 施放了 射击, 目标：(11, 0) 
+[回合4] 07m 00s:  Archer 的 射击 对 BossMu 造成了 70 点 Pierce 伤害（暴击）。生命值：3976
+[回合4] 07m 03s:  Flora 施放了 治疗术, 目标：(14, 0) 
+[回合4] 07m 04s:  Flora 的 治疗术 对 Lilium 造成了 36 点 Heal 。生命值：64
+[回合4] 07m 07s:  Gaceon 施放了 移动, 目标：(7, 0) 
+[回合4] 07m 08s:  Gaceon 失去了来自 BossMu 的 剧毒酸池
+[回合4] 07m 08s:  Gaceon 获得了来自 Explorer 的 力量光环
+[回合4] 07m 08s:  Gaceon 获得了来自 Umiko 的 生命之歌
+[回合4] 07m 13s:  Gaceon 施放了 应急治疗, 目标：(7, 0) 
+[回合4] 07m 14s:  Gaceon 获得了来自 Gaceon 的 BAD_STRING
+[回合4] 07m 14s:  Gaceon 的 应急治疗 对 Gaceon 造成了 106 点 Heal 。生命值：119
+[回合4] 07m 34s:  Archer2 施放了 射击, 目标：(11, 0) 
+[回合4] 07m 35s:  Archer2 的 射击 对 BossMu 造成了 30 点 Pierce 伤害。生命值：3946
+[回合4] 07m 36s:  Archer2 施放了 射击, 目标：(11, 0) 
+[回合4] 07m 36s:  Archer2 的 射击 对 BossMu 造成了 30 点 Pierce 伤害。生命值：3916
+[回合4] 07m 40s:  Explorer 施放了 响音攻击, 目标：(12, 0) 
+[回合4] 07m 40s:  Explorer 的 响音攻击 对 BossMu 造成了 8 点 Knock 伤害。生命值：3908
+[回合4] 07m 41s:  Explorer 施放了 响音攻击, 目标：(12, 0) 
+[回合4] 07m 41s:  Explorer 的 响音攻击 对 BossMu 造成了 8 点 Knock 伤害。生命值：3900
+[回合4] 07m 43s:  Archer3 施放了 射击, 目标：(11, 0) 
+[回合4] 07m 44s:  Archer3 的 射击 对 BossMu 造成了 70 点 Pierce 伤害（暴击）。生命值：3830
+[回合4] 07m 44s:  Archer3 施放了 射击, 目标：(11, 0) 
+[回合4] 07m 45s:  Archer3 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：3795
+[回合4] 07m 47s:  Umiko 施放了 水泡, 目标：(11, 0) 
+[回合4] 07m 48s:  Umiko 的 水泡 对 BossMu 造成了 11 点 Water 伤害。生命值：3784
+[回合4] 07m 48s:  Felivol 重新获得了来自 Umiko 的 水泡护盾
+[回合4] 07m 48s:  Flora 重新获得了来自 Umiko 的 水泡护盾
+[回合4] 07m 49s:  Umiko 施放了 水泡, 目标：(11, 0) 
+[回合4] 07m 50s:  Umiko 的 水泡 对 BossMu 造成了 11 点 Water 伤害。生命值：3773
+[回合4] 07m 50s:  Felivol 重新获得了来自 Umiko 的 水泡护盾
+[回合4] 07m 50s:  Flora 重新获得了来自 Umiko 的 水泡护盾
+[回合4] 08m 03s:  Astrologer 施放了 彗星箭, 目标：(11, 0) 
+[回合4] 08m 04s:  Astrologer 的 彗星箭 对 BossMu 造成了 32 点 Ice 伤害。生命值：3741
+[回合4] 08m 06s:  Astrologer 施放了 星光超流, 目标：(11, 0) 
+[回合4] 08m 07s:  Astrologer 的 星光超流 对 BossMu 造成了 37 点 Light 伤害。生命值：3704
+[回合4] 08m 07s:  BossMu 施放了 史莱姆爆炸, 目标：(11, 0) 
+[回合4] 08m 07s:  BossMu 的 史莱姆爆炸 对 Archer 造成了 24 点 Nature 伤害。生命值：18
+[回合4] 08m 08s:  BossMu 的 史莱姆爆炸 对 Archer2 造成了 24 点 Nature 伤害。生命值：23
+[回合4] 08m 08s:  BossMu 的 史莱姆爆炸 对 Lilium 造成了 0 点 Nature 伤害。生命值：64
+[回合4] 08m 08s:  BossMu 的 史莱姆爆炸 对 Explorer 造成了 23 点 Nature 伤害。生命值：69
+[回合4] 08m 08s:  BossMu 的 史莱姆爆炸 对 Flora 造成了 21 点 Nature 伤害。生命值：34
+[回合4] 08m 08s:  BossMu 的 史莱姆爆炸 对 Gaceon 造成了 24 点 Nature 伤害。生命值：95
+[回合4] 08m 09s:  BossMu 的 史莱姆爆炸 对 Astrologer 造成了 24 点 Nature 伤害。生命值：23
+[回合4] 08m 09s:  BossMu 的 史莱姆爆炸 对 Umiko 造成了 24 点 Nature 伤害。生命值：30
+[回合4] 08m 09s:  BossMu 的 史莱姆爆炸 对 Archer3 造成了 24 点 Nature 伤害。生命值：0
+[回合4] 08m 09s:  Archer3 失去了来自 Archer3 的 攻击者
+[回合4] 08m 09s:  Archer3 失去了来自 Explorer 的 力量光环
+[回合4] 08m 09s:  Archer3 失去了来自 Umiko 的 生命之歌
+[回合4] 08m 09s:  BossMu 的 史莱姆爆炸 击杀了 Archer3 !
+[回合4] 08m 10s:  BossMu 的 史莱姆爆炸 对 Felivol 造成了 21 点 Nature 伤害。生命值：37
+[回合4] 08m 10s:  Astrologer 的 繁星道标 对 BossMu 造成了 22 点 Light 伤害。生命值：3683
+[回合4] 08m 10s:  Astrologer 的 繁星道标 对 BossMu 造成了 44 点 Light 伤害（暴击）。生命值：3639
+[回合4] 08m 11s:  Astrologer 的 繁星道标 对 BossMu 造成了 22 点 Light 伤害。生命值：3617
+[回合4] 08m 11s:  BossMu 重新获得了来自 Astrologer 的 繁星道标
+[回合4] 08m 17s:  Flora 施放了 栽培, 目标：(11, 0) 
+[回合4] 08m 18s:  Felivol 获得了来自 Flora 的 栽培
+[回合4] 08m 20s:  Archer2 的 出血 对 BossMu 造成了 7 点 Pierce 伤害。生命值：3610
+[回合4] 08m 20s:  SmallMu(Clone) 施放了 移动, 目标：(6, 0) 
+[回合4] 08m 20s:  SmallMu(Clone) 施放了 移动, 目标：(6, 0) 
+[回合4] 08m 20s:  SmallMu(Clone) 施放了 移动, 目标：(7, 0) 
+[回合4] 08m 21s:  BossMu 施放了 史莱姆攻击, 目标：(11, 0) 
+[回合4] 08m 21s:  BossMu 的 史莱姆攻击 对 Felivol 造成了 27 点 Knock 伤害。生命值：10
+[回合4] 08m 21s:  Felivol 重新获得了来自 BossMu 的 史莱姆毒素
+[回合5] 08m 22s:  回合5
+[回合5] 08m 23s:  Flora 的 栽培 对 Archer2 造成了 8 点 Heal 。生命值：31
+[回合5] 08m 23s:  Lilium 失去了来自 Lilium 的 法力护盾
+[回合5] 08m 23s:  Lilium 失去了来自 Umiko 的 水泡护盾
+[回合5] 08m 23s:  BossMu 的 史莱姆毒素 对 Lilium 造成了 0 点 Nature 伤害。生命值：64
+[回合5] 08m 23s:  Flora 的 栽培 对 Astrologer 造成了 8 点 Heal 。生命值：35
+[回合5] 08m 23s:  Astrologer 失去了来自 Flora 的 栽培
+[回合5] 08m 24s:  BossMu 的 史莱姆毒素 对 Felivol 造成了 10 点 Nature 伤害。生命值：0
+[回合5] 08m 24s:  Felivol 失去了来自 Felivol 的 防卫者
+[回合5] 08m 24s:  Felivol 失去了来自 Felivol 的 旅者
+[回合5] 08m 24s:  Felivol 失去了来自 Felivol 的 聆听神谕
+[回合5] 08m 24s:  Felivol 失去了来自 Felivol 的 防御蓄能
+[回合5] 08m 24s:  Felivol 失去了来自 Explorer 的 力量光环
+[回合5] 08m 24s:  Felivol 失去了来自 Umiko 的 生命之歌
+[回合5] 08m 24s:  Felivol 失去了来自 Umiko 的 水泡护盾
+[回合5] 08m 24s:  Felivol 失去了来自 BossMu 的 史莱姆毒素
+[回合5] 08m 24s:  Felivol 失去了来自 Felivol 的 巨石坚盾
+[回合5] 08m 24s:  Felivol 失去了来自 Flora 的 栽培
+[回合5] 08m 24s:  BossMu 的  击杀了 Felivol !
+[回合5] 08m 31s:  Flora 施放了 复活, 目标：(11, 0) 
+[回合5] 08m 31s:  Felivol 获得了来自 Felivol 的 防卫者
+[回合5] 08m 31s:  Felivol 获得了来自 Felivol 的 旅者
+[回合5] 08m 31s:  Felivol 获得了来自 Felivol 的 聆听神谕
+[回合5] 08m 31s:  Felivol 获得了来自 Felivol 的 祝福之光
+[回合5] 08m 31s:  Felivol 获得了来自 Felivol 的 防御蓄能
+[回合5] 08m 31s:  Flora 的 复活 对 Felivol 造成了 36 点 Heal 。生命值：37
+[回合5] 08m 42s:  Felivol 施放了 移动, 目标：(13, 0) 
+[回合5] 08m 42s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：39
+[回合5] 08m 43s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：41
+[回合5] 08m 43s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：43
+[回合5] 08m 45s:  Felivol 失去了来自 Felivol 的 祝福之光
+[回合5] 08m 45s:  Felivol 施放了 圣祝：裁决重锤, 目标：(11, 0) 
+[回合5] 08m 46s:  Felivol 的 圣祝：裁决重锤 对 BossMu 造成了 30 点 Knock 伤害。生命值：3580
+[回合5] 08m 51s:  Lilium 施放了 移动, 目标：(14, 0) 
+[回合5] 08m 53s:  Explorer 施放了 移动, 目标：(10, 0) 
+[回合5] 08m 53s:  Archer 失去了来自 Explorer 的 力量光环
+[回合5] 08m 53s:  Archer2 获得了来自 Explorer 的 力量光环
+[回合5] 08m 53s:  Explorer 获得了来自 Umiko 的 生命之歌
+[回合5] 08m 55s:  Explorer 施放了 移动, 目标：(10, 0) 
+[回合5] 08m 55s:  Explorer 失去了来自 Umiko 的 生命之歌
+[回合5] 08m 56s:  Explorer 施放了 响音攻击, 目标：(10, 0) 
+[回合5] 08m 57s:  Explorer 的 响音攻击 对 SmallMu(Clone) 造成了 16 点 Knock 伤害（暴击）。生命值：104
+[回合5] 09m 00s:  Gaceon 施放了 移动, 目标：(9, 0) 
+[回合5] 09m 04s:  Gaceon 施放了 复活, 目标：(8, 0) 
+[回合5] 09m 04s:  Archer3 获得了来自 Archer3 的 攻击者
+[回合5] 09m 04s:  Gaceon 的 复活 对 Archer3 造成了 36 点 Heal 。生命值：37
+[回合5] 09m 10s:  Astrologer 施放了 彗星箭, 目标：(7, 0) 
+[回合5] 09m 11s:  Astrologer 的 彗星箭 对 SmallMu(Clone) 造成了 32 点 Ice 伤害。生命值：72
+[回合5] 09m 12s:  Astrologer 的 流星 对 SmallMu(Clone) 造成了 8 点 Knock 伤害。生命值：64
+[回合5] 09m 26s:  Umiko 施放了 水泡, 目标：(11, 0) 
+[回合5] 09m 27s:  Umiko 的 水泡 没有击中 BossMu。生命值：3580
+[回合5] 09m 27s:  Felivol 获得了来自 Umiko 的 水泡护盾
+[回合5] 09m 27s:  Flora 重新获得了来自 Umiko 的 水泡护盾
+[回合5] 09m 30s:  Archer2 施放了 射击, 目标：(11, 0) 
+[回合5] 09m 31s:  Archer2 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：3545
+[回合5] 09m 32s:  Archer 施放了 射击, 目标：(11, 0) 
+[回合5] 09m 33s:  Archer 的 射击 对 BossMu 造成了 30 点 Pierce 伤害。生命值：3515
+[回合5] 09m 43s:  BossMu 失去了来自 Astrologer 的 繁星道标
+[回合5] 09m 43s:  Archer2 的 出血 对 BossMu 造成了 7 点 Pierce 伤害。生命值：3508
+[回合5] 09m 43s:  SmallMu(Clone) 施放了 移动, 目标：(8, 0) 
+[回合5] 09m 43s:  SmallMu(Clone) 施放了 移动, 目标：(9, 0) 
+[回合5] 09m 43s:  SmallMu(Clone) 施放了 移动, 目标：(9, 0) 
+[回合5] 09m 44s:  BossMu 施放了 小史莱姆标记, 目标：(11, 0) 
+[回合5] 09m 44s:  Umiko 获得了来自 BossMu 的 锁定
+[回合5] 09m 44s:  BossMu 施放了 史莱姆跳跃, 目标：(13, 0) 
+[回合5] 09m 45s:  Lilium 获得了来自 BossMu 的 剧毒酸池
+[回合5] 09m 45s:  Felivol 获得了来自 BossMu 的 剧毒酸池
+[回合6] 09m 45s:  回合6
+[回合6] 09m 47s:  Flora 的 栽培 对 Archer2 造成了 8 点 Heal 。生命值：39
+[回合6] 09m 47s:  Archer2 失去了来自 Flora 的 栽培
+[回合6] 09m 47s:  BossMu 的 剧毒酸池 对 Lilium 造成了 0 点 Nature 伤害。生命值：64
+[回合6] 09m 47s:  BossMu 的 史莱姆毒素 对 Lilium 造成了 2 点 Nature 伤害。生命值：62
+[回合6] 09m 47s:  Lilium 失去了来自 BossMu 的 史莱姆毒素
+[回合6] 09m 47s:  BossMu 的 剧毒酸池 对 Felivol 造成了 6 点 Nature 伤害。生命值：37
+[回合6] 09m 49s:  Felivol 施放了 移动, 目标：(11, 0) 
+[回合6] 09m 49s:  Felivol 失去了来自 BossMu 的 剧毒酸池
+[回合6] 09m 50s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：39
+[回合6] 09m 50s:  Felivol 获得了来自 Umiko 的 生命之歌
+[回合6] 09m 50s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：41
+[回合6] 09m 52s:  Felivol 施放了 祈祷：战地祷告, 目标：(12, 0) 
+[回合6] 09m 53s:  Felivol 的 祈祷：战地祷告 对 Felivol 造成了 33 点 Heal 。生命值：74
+[回合6] 09m 53s:  Felivol 获得了来自 Felivol 的 祝福之光
+[回合6] 10m 00s:  Lilium 施放了 移动, 目标：(12, 0) 
+[回合6] 10m 00s:  Lilium 失去了来自 BossMu 的 剧毒酸池
+[回合6] 10m 05s:  Lilium 施放了 移动, 目标：(11, 0) 
+[回合6] 10m 09s:  Lilium 施放了 移动, 目标：(10, 0) 
+[回合6] 10m 09s:  Lilium 获得了来自 Umiko 的 生命之歌
+[回合6] 10m 09s:  Lilium 施放了 盾击, 目标：(9, 0) 
+[回合6] 10m 10s:  Lilium 的 盾击 对 SmallMu(Clone) 造成了 23 点 Knock 伤害。生命值：41
+[回合6] 10m 11s:  Lilium 施放了 盾击, 目标：(9, 0) 
+[回合6] 10m 12s:  Lilium 的 盾击 对 SmallMu(Clone) 造成了 23 点 Knock 伤害。生命值：18
+[回合6] 10m 16s:  Explorer 施放了 移动, 目标：(11, 0) 
+[回合6] 10m 16s:  Archer 获得了来自 Explorer 的 力量光环
+[回合6] 10m 16s:  Explorer 施放了 响音攻击, 目标：(11, 0) 
+[回合6] 10m 17s:  Explorer 的 响音攻击 没有击中 SmallMu(Clone)。生命值：18
+[回合6] 10m 18s:  Explorer 施放了 响音攻击, 目标：(11, 0) 
+[回合6] 10m 18s:  Explorer 的 响音攻击 对 SmallMu(Clone) 造成了 8 点 Knock 伤害。生命值：10
+[回合6] 10m 21s:  Astrologer 施放了 彗星箭, 目标：(9, 0) 
+[回合6] 10m 22s:  Astrologer 的 彗星箭 对 SmallMu(Clone) 造成了 10 点 Ice 伤害。生命值：0
+[回合6] 10m 22s:  SmallMu(Clone) 施放了 小史莱姆爆炸, 目标：(9, 0) 
+[回合6] 10m 22s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Archer 造成了 18 点 Nature 伤害。生命值：0
+[回合6] 10m 22s:  Archer 失去了来自 Archer 的 攻击者
+[回合6] 10m 22s:  Archer 失去了来自 Umiko 的 生命之歌
+[回合6] 10m 22s:  Archer 失去了来自 Explorer 的 力量光环
+[回合6] 10m 23s:  SmallMu(Clone) 的 小史莱姆爆炸 击杀了 Archer !
+[回合6] 10m 23s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Archer2 造成了 18 点 Nature 伤害。生命值：21
+[回合6] 10m 23s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Lilium 造成了 12 点 Nature 伤害。生命值：50
+[回合6] 10m 23s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Explorer 造成了 17 点 Nature 伤害。生命值：52
+[回合6] 10m 23s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Flora 造成了 16 点 Nature 伤害。生命值：18
+[回合6] 10m 24s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Gaceon 造成了 18 点 Nature 伤害。生命值：77
+[回合6] 10m 24s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Astrologer 造成了 18 点 Nature 伤害。生命值：17
+[回合6] 10m 24s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Umiko 造成了 18 点 Nature 伤害。生命值：12
+[回合6] 10m 24s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Archer3 造成了 18 点 Nature 伤害。生命值：19
+[回合6] 10m 24s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Felivol 造成了 10 点 Nature 伤害。生命值：64
+[回合6] 10m 24s:  SmallMu(Clone) 失去了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[回合6] 10m 24s:  Astrologer 的 彗星箭 击杀了 SmallMu(Clone) !
+[回合6] 10m 31s:  Archer 获得了来自 Archer 的 攻击者
+[回合6] 10m 31s:  Archer 的 <NULL ACTION> 对 Archer 造成了 0 点 Heal 。生命值：1
+[回合6] 10m 31s:  Archer 的 <NULL ACTION> 对 Archer 造成了 20 点 Heal 。生命值：21
+[回合6] 10m 31s:  Archer2 的 移动 对 Archer2 造成了 20 点 Heal 。生命值：41
+[回合6] 10m 32s:  Lilium 的 移动 对 Lilium 造成了 23 点 Heal 。生命值：73
+[回合6] 10m 32s:  Explorer 的 移动 对 Explorer 造成了 26 点 Heal 。生命值：78
+[回合6] 10m 32s:  Flora 的 移动 对 Flora 造成了 21 点 Heal 。生命值：39
+[回合6] 10m 32s:  Gaceon 的 移动 对 Gaceon 造成了 33 点 Heal 。生命值：110
+[回合6] 10m 32s:  Astrologer 的 移动 对 Astrologer 造成了 18 点 Heal 。生命值：35
+[回合6] 10m 33s:  Umiko 的 移动 对 Umiko 造成了 26 点 Heal 。生命值：38
+[回合6] 10m 33s:  Archer3 的 移动 对 Archer3 造成了 20 点 Heal 。生命值：39
+[回合6] 10m 33s:  Felivol 的 移动 对 Felivol 造成了 26 点 Heal 。生命值：90
+[回合6] 10m 57s:  Umiko 施放了 移动, 目标：(8, 0) 
+[回合6] 10m 57s:  Lilium 失去了来自 Umiko 的 生命之歌
+[回合6] 10m 58s:  Archer2 施放了 移动, 目标：(10, 0) 
+[回合6] 10m 59s:  Archer2 施放了 移动, 目标：(11, 0) 
+[回合6] 11m 00s:  Archer2 施放了 移动, 目标：(11, 0) 
+[回合6] 11m 01s:  Archer2 施放了 射击, 目标：(14, 0) 
+[回合6] 11m 02s:  Archer2 的 射击 对 BossMu 造成了 70 点 Pierce 伤害（暴击）。生命值：3438
+[回合6] 11m 07s:  Flora 施放了 绽放, 目标：(9, 0) 
+[回合6] 11m 08s:  Flora 的 绽放 对 Archer 造成了 25 点 Heal 。生命值：46
+[回合6] 11m 08s:  Flora 的 绽放 对 Archer2 造成了 25 点 Heal 。生命值：66
+[回合6] 11m 09s:  Flora 的 绽放 对 Lilium 造成了 25 点 Heal 。生命值：98
+[回合6] 11m 09s:  Flora 的 绽放 对 Explorer 造成了 25 点 Heal 。生命值：103
+[回合6] 11m 09s:  Flora 的 绽放 对 Flora 造成了 25 点 Heal 。生命值：64
+[回合6] 11m 09s:  Flora 的 绽放 对 Gaceon 造成了 25 点 Heal 。生命值：135
+[回合6] 11m 09s:  Flora 的 绽放 对 Astrologer 造成了 25 点 Heal 。生命值：60
+[回合6] 11m 10s:  Flora 的 绽放 对 Umiko 造成了 25 点 Heal 。生命值：63
+[回合6] 11m 10s:  Flora 的 绽放 对 Archer3 造成了 25 点 Heal 。生命值：64
+[回合6] 11m 10s:  Flora 的 绽放 对 Felivol 造成了 25 点 Heal 。生命值：115
+[回合6] 11m 16s:  Gaceon 施放了 治疗术, 目标：(8, 0) 
+[回合6] 11m 17s:  Gaceon 的 治疗术 对 Umiko 造成了 36 点 Heal 。生命值：99
+[回合6] 11m 27s:  Archer2 施放了 射击, 目标：(14, 0) 
+[回合6] 11m 28s:  Archer2 的 射击 对 BossMu 造成了 70 点 Pierce 伤害（暴击）。生命值：3368
+[回合6] 11m 28s:  Archer3 施放了 射击, 目标：(14, 0) 
+[回合6] 11m 29s:  Umiko 施放了 水泡, 目标：(14, 0) 
+[回合6] 11m 29s:  Umiko 施放了 水泡, 目标：(14, 0) 
+[回合6] 11m 29s:  Flora 施放了 栽培, 目标：(10, 0) 
+[回合6] 11m 30s:  Lilium 获得了来自 Flora 的 栽培
+[回合6] 11m 30s:  Astrologer 施放了 彗星箭, 目标：(9, 0) 
+[回合6] 11m 32s:  Archer2 的 出血 对 BossMu 造成了 7 点 Pierce 伤害。生命值：3361
+[回合6] 11m 32s:  BossMu 失去了来自 Archer2 的 出血
+[回合6] 11m 32s:  BossMu 施放了 小史莱姆投掷, 目标：(14, 0) 
+[回合6] 11m 33s:  BossMu 的 小史莱姆投掷 对 Umiko 造成了 15 点 Nature 伤害。生命值：84
+[回合6] 11m 33s:  Umiko 失去了来自 BossMu 的 锁定
+[回合6] 11m 33s:  Umiko 获得了来自 BossMu 的 剧毒酸池
+[回合6] 11m 33s:  BossMu 施放了 小史莱姆标记, 目标：(14, 0) 
+[回合6] 11m 33s:  SmallMu(Clone) 获得了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[回合6] 11m 34s:  Archer 获得了来自 BossMu 的 锁定
+[回合6] 11m 34s:  BossMu 施放了 移动, 目标：(13, 0) 
+[回合6] 11m 34s:  BossMu 施放了 史莱姆攻击, 目标：(11, 0) 
+[回合6] 11m 35s:  BossMu 的 史莱姆攻击 对 Felivol 造成了 17 点 Knock 伤害。生命值：98
+[回合6] 11m 35s:  Felivol 获得了来自 BossMu 的 史莱姆毒素
+[回合7] 11m 35s:  回合7
+[回合7] 11m 36s:  Flora 的 栽培 对 Lilium 造成了 8 点 Heal 。生命值：106
+[回合7] 11m 36s:  Flora 失去了来自 Umiko 的 水泡护盾
+[回合7] 11m 36s:  Gaceon 失去了来自 Gaceon 的 BAD_STRING
+[回合7] 11m 36s:  BossMu 的 剧毒酸池 对 Umiko 造成了 8 点 Nature 伤害。生命值：76
+[回合7] 11m 36s:  Felivol 失去了来自 Umiko 的 水泡护盾
+[回合7] 11m 36s:  BossMu 的 史莱姆毒素 对 Felivol 造成了 4 点 Nature 伤害。生命值：94
+[回合7] 11m 36s:  Felivol 施放了 蓄力斩, 目标：(12, 0) 
+[回合7] 11m 37s:  Felivol 的 蓄力斩 没有击中 BossMu。生命值：3361
+[回合7] 11m 39s:  Umiko 施放了 移动, 目标：(10, 0) 
+[回合7] 11m 40s:  Umiko 失去了来自 BossMu 的 剧毒酸池
+[回合7] 11m 40s:  Archer 获得了来自 Umiko 的 生命之歌
+[回合7] 11m 40s:  Lilium 获得了来自 Umiko 的 生命之歌
+[回合7] 11m 40s:  Explorer 获得了来自 Umiko 的 生命之歌
+[回合7] 11m 42s:  Umiko 施放了 水泡, 目标：(7, 0) 
+[回合7] 11m 43s:  Umiko 的 水泡 对 SmallMu(Clone) 造成了 11 点 Water 伤害。生命值：109
+[回合7] 11m 45s:  Archer2 施放了 移动, 目标：(12, 0) 
+[回合7] 11m 48s:  Archer 施放了 疾飞之箭, 目标：(13, 0) 
+[回合7] 11m 49s:  Archer 的 疾飞之箭 对 BossMu 造成了 22 点 Pierce 伤害。生命值：3339
+[回合7] 11m 49s:  BossMu 获得了来自 Archer 的 出血
+[回合7] 11m 56s:  Archer3 施放了 移动, 目标：(10, 0) 
+[回合7] 11m 57s:  Archer3 获得了来自 Umiko 的 生命之歌
+[回合7] 11m 58s:  Archer3 施放了 射击, 目标：(7, 0) 
+[回合7] 11m 59s:  Archer3 的 射击 对 SmallMu(Clone) 造成了 44 点 Pierce 伤害。生命值：65
+[回合7] 12m 00s:  Archer3 施放了 射击, 目标：(13, 0) 
+[回合7] 12m 01s:  Archer3 的 射击 对 BossMu 造成了 44 点 Pierce 伤害。生命值：3295
+[回合7] 12m 05s:  Astrologer 施放了 彗星箭, 目标：(7, 0) 
+[回合7] 12m 06s:  Astrologer 的 彗星箭 对 SmallMu(Clone) 造成了 32 点 Ice 伤害。生命值：33
+[回合7] 12m 30s:  Felivol 施放了 奔袭, 目标：(13, 0) 
+[回合7] 12m 31s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：96
+[回合7] 12m 31s:  Felivol 失去了来自 Umiko 的 生命之歌
+[回合7] 12m 31s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：98
+[回合7] 12m 31s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：100
+[回合7] 12m 31s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：102
+[回合7] 12m 31s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：104
+[回合7] 12m 32s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：106
+[回合7] 12m 36s:  Felivol 施放了 移动, 目标：(13, 0) 
+[回合7] 12m 37s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：108
+[回合7] 12m 38s:  Felivol 失去了来自 Felivol 的 祝福之光
+[回合7] 12m 38s:  Felivol 施放了 圣祝：裁决重锤, 目标：(13, 0) 
+[回合7] 12m 39s:  Felivol 的 圣祝：裁决重锤 对 BossMu 造成了 30 点 Knock 伤害。生命值：3265
+[回合7] 12m 49s:  Lilium 施放了 移动, 目标：(8, 0) 
+[回合7] 12m 49s:  Lilium 失去了来自 Umiko 的 生命之歌
+[回合7] 12m 51s:  Astrologer 施放了 法力传递, 目标：(8, 0) 
+[回合7] 13m 02s:  Archer 施放了 射击, 目标：(13, 0) 
+[回合7] 13m 03s:  Archer 的 射击 对 BossMu 造成了 44 点 Pierce 伤害。生命值：3221
+[回合7] 13m 03s:  Archer2 施放了 射击, 目标：(13, 0) 
+[回合7] 13m 04s:  Archer2 的 射击 对 BossMu 造成了 70 点 Pierce 伤害（暴击）。生命值：3151
+[回合7] 13m 04s:  Archer2 施放了 射击, 目标：(13, 0) 
+[回合7] 13m 05s:  Archer2 的 射击 对 BossMu 造成了 70 点 Pierce 伤害（暴击）。生命值：3081
+[回合7] 13m 05s:  Explorer 施放了 响音攻击, 目标：(11, 0) 
+[回合7] 13m 06s:  Flora 施放了 栽培, 目标：(10, 0) 
+[回合7] 13m 07s:  Umiko 获得了来自 Flora 的 栽培
+[回合7] 13m 07s:  Gaceon 施放了 治疗链, 目标：(10, 0) 
+[回合7] 13m 07s:  Gaceon 的 治疗链 对 Umiko 造成了 22 点 Heal 。生命值：98
+[回合7] 13m 07s:  Gaceon 的 治疗链 对 Archer 造成了 15 点 Heal 。生命值：61
+[回合7] 13m 08s:  Gaceon 的 治疗链 对 Archer2 造成了 11 点 Heal 。生命值：77
+[回合7] 13m 08s:  Gaceon 施放了 治疗链, 目标：(9, 0) 
+[回合7] 13m 09s:  Gaceon 的 治疗链 对 Flora 造成了 22 点 Heal 。生命值：86
+[回合7] 13m 09s:  Gaceon 的 治疗链 对 Lilium 造成了 8 点 Heal 。生命值：114
+[回合7] 13m 09s:  Gaceon 的 治疗链 对 Astrologer 造成了 11 点 Heal 。生命值：71
+[回合7] 13m 10s:  Lilium 施放了 盾击, 目标：(9, 0) 
+[回合7] 13m 12s:  Archer 的 出血 对 BossMu 造成了 9 点 Pierce 伤害。生命值：3072
+[回合7] 13m 12s:  SmallMu(Clone) 施放了 移动, 目标：(8, 0) 
+[回合7] 13m 12s:  SmallMu(Clone) 施放了 移动, 目标：(8, 0) 
+[回合7] 13m 12s:  SmallMu(Clone) 施放了 移动, 目标：(9, 0) 
+[回合7] 13m 13s:  BossMu 施放了 小史莱姆投掷, 目标：(13, 0) 
+[回合7] 13m 14s:  BossMu 的 小史莱姆投掷 对 Archer 造成了 15 点 Nature 伤害。生命值：46
+[回合7] 13m 14s:  Archer 失去了来自 BossMu 的 锁定
+[回合7] 13m 14s:  Archer 获得了来自 BossMu 的 剧毒酸池
+[回合7] 13m 14s:  Archer2 获得了来自 BossMu 的 剧毒酸池
+[回合7] 13m 14s:  BossMu 施放了 移动, 目标：(14, 0) 
+[回合7] 13m 14s:  SmallMu(Clone) 获得了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[回合7] 13m 14s:  BossMu 施放了 移动, 目标：(14, 0) 
+[回合7] 13m 15s:  BossMu 施放了 移动, 目标：(14, 0) 
+[回合8] 13m 15s:  回合8
+[回合8] 13m 16s:  BossMu 的 剧毒酸池 对 Archer 造成了 8 点 Nature 伤害。生命值：38
+[回合8] 13m 16s:  BossMu 的 剧毒酸池 对 Archer2 造成了 8 点 Nature 伤害。生命值：69
+[回合8] 13m 17s:  Flora 的 栽培 对 Lilium 造成了 0 点 Heal 。生命值：114
+[回合8] 13m 17s:  Flora 的 栽培 对 Umiko 造成了 8 点 Heal 。生命值：106
+[回合8] 13m 17s:  BossMu 的 史莱姆毒素 对 Felivol 造成了 7 点 Nature 伤害。生命值：101
+[回合8] 13m 19s:  Archer2 施放了 移动, 目标：(11, 0) 
+[回合8] 13m 20s:  Archer2 失去了来自 BossMu 的 剧毒酸池
+[回合8] 13m 22s:  Archer2 施放了 射击, 目标：(14, 0) 
+[回合8] 13m 22s:  Archer2 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：3037
+[回合8] 13m 24s:  Archer 施放了 移动, 目标：(11, 0) 
+[回合8] 13m 24s:  Archer 失去了来自 BossMu 的 剧毒酸池
+[回合8] 13m 25s:  Archer 施放了 射击, 目标：(14, 0) 
+[回合8] 13m 25s:  Archer 的 射击 对 SmallMu(Clone) 造成了 44 点 Pierce 伤害。生命值：76
+[回合8] 13m 29s:  Umiko 施放了 水泡, 目标：(9, 0) 
+[回合8] 13m 30s:  Umiko 的 水泡 没有击中 SmallMu(Clone)。生命值：33
+[回合8] 13m 30s:  Umiko 获得了来自 Umiko 的 水泡护盾
+[回合8] 13m 30s:  Archer2 获得了来自 Umiko 的 水泡护盾
+[回合8] 13m 30s:  Flora 获得了来自 Umiko 的 水泡护盾
+[回合8] 13m 30s:  Gaceon 获得了来自 Umiko 的 水泡护盾
+[回合8] 13m 30s:  Astrologer 获得了来自 Umiko 的 水泡护盾
+[回合8] 13m 40s:  Felivol 施放了 移动, 目标：(13, 0) 
+[回合8] 13m 41s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：103
+[回合8] 13m 41s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：105
+[回合8] 13m 48s:  Felivol 施放了 移动, 目标：(12, 0) 
+[回合8] 13m 48s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：107
+[回合8] 13m 49s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：109
+[回合8] 13m 53s:  Felivol 施放了 祈祷：战地祷告, 目标：(12, 0) 
+[回合8] 13m 54s:  Felivol 的 祈祷：战地祷告 对 Felivol 造成了 17 点 Heal 。生命值：126
+[回合8] 13m 54s:  Felivol 获得了来自 Felivol 的 祝福之光
+[回合8] 14m 07s:  Explorer 施放了 移动, 目标：(11, 0) 
+[回合8] 14m 07s:  Explorer 施放了 响音攻击, 目标：(11, 0) 
+[回合8] 14m 08s:  Explorer 施放了 移动, 目标：(11, 0) 
+[回合8] 14m 08s:  Explorer 施放了 响音攻击, 目标：(11, 0) 
+[回合8] 14m 09s:  Explorer 的 响音攻击 对 SmallMu(Clone) 造成了 8 点 Knock 伤害。生命值：25
+[回合8] 14m 16s:  Archer 施放了 射击, 目标：(14, 0) 
+[回合8] 14m 16s:  Archer 的 射击 对 SmallMu(Clone) 造成了 44 点 Pierce 伤害。生命值：32
+[回合8] 14m 19s:  Umiko 施放了 移动, 目标：(10, 0) 
+[回合8] 14m 20s:  Lilium 获得了来自 Umiko 的 生命之歌
+[回合8] 14m 24s:  Gaceon 施放了 移动, 目标：(9, 0) 
+[回合8] 14m 26s:  Flora 施放了 移动, 目标：(11, 0) 
+[回合8] 14m 31s:  Astrologer 施放了 彗星箭, 目标：(9, 0) 
+[回合8] 14m 32s:  Astrologer 的 彗星箭 对 SmallMu(Clone) 造成了 25 点 Ice 伤害。生命值：0
+[回合8] 14m 32s:  SmallMu(Clone) 施放了 小史莱姆爆炸, 目标：(9, 0) 
+[回合8] 14m 33s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Archer 造成了 18 点 Nature 伤害。生命值：20
+[回合8] 14m 33s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Archer2 造成了 17 点 Nature 伤害。生命值：52
+[回合8] 14m 33s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Lilium 造成了 0 点 Nature 伤害。生命值：114
+[回合8] 14m 33s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Explorer 造成了 17 点 Nature 伤害。生命值：86
+[回合8] 14m 34s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Flora 造成了 15 点 Nature 伤害。生命值：71
+[回合8] 14m 34s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Gaceon 造成了 17 点 Nature 伤害。生命值：68
+[回合8] 14m 34s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Astrologer 造成了 17 点 Nature 伤害。生命值：54
+[回合8] 14m 34s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Umiko 造成了 17 点 Nature 伤害。生命值：89
+[回合8] 14m 34s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Archer3 造成了 18 点 Nature 伤害。生命值：46
+[回合8] 14m 35s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Felivol 造成了 10 点 Nature 伤害。生命值：116
+[回合8] 14m 35s:  SmallMu(Clone) 失去了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[回合8] 14m 35s:  Astrologer 的 彗星箭 击杀了 SmallMu(Clone) !
+[回合8] 14m 40s:  Astrologer 施放了 闪光, 目标：(10, 0) 
+[回合8] 14m 45s:  Astrologer 施放了 法力传递, 目标：(8, 0) 
+[回合8] 14m 50s:  Lilium 施放了 移动, 目标：(11, 0) 
+[回合8] 15m 04s:  Flora 施放了 治疗术, 目标：(11, 0) 
+[回合8] 15m 05s:  Flora 的 治疗术 对 Archer 造成了 36 点 Heal 。生命值：56
+[回合8] 15m 07s:  Flora 施放了 治疗术, 目标：(11, 0) 
+[回合8] 15m 08s:  Flora 的 治疗术 对 Archer 造成了 36 点 Heal 。生命值：92
+[回合8] 15m 10s:  Archer3 施放了 射击, 目标：(14, 0) 
+[回合8] 15m 11s:  Archer3 的 射击 对 BossMu 造成了 44 点 Pierce 伤害。生命值：2993
+[回合8] 15m 11s:  Archer3 施放了 射击, 目标：(14, 0) 
+[回合8] 15m 11s:  Archer3 的 射击 对 BossMu 造成了 44 点 Pierce 伤害。生命值：2949
+[回合8] 15m 12s:  Flora 施放了 栽培, 目标：(10, 0) 
+[回合8] 15m 13s:  Archer3 获得了来自 Flora 的 栽培
+[回合8] 15m 13s:  Gaceon 施放了 治疗链, 目标：(10, 0) 
+[回合8] 15m 13s:  Gaceon 的 治疗链 对 Archer3 造成了 22 点 Heal 。生命值：68
+[回合8] 15m 13s:  Gaceon 的 治疗链 对 Archer2 造成了 15 点 Heal 。生命值：67
+[回合8] 15m 13s:  Gaceon 的 治疗链 对 Astrologer 造成了 11 点 Heal 。生命值：66
+[回合8] 15m 14s:  Gaceon 施放了 治疗链, 目标：(9, 0) 
+[回合8] 15m 14s:  Gaceon 的 治疗链 对 Gaceon 造成了 22 点 Heal 。生命值：90
+[回合8] 15m 15s:  Gaceon 的 治疗链 对 Flora 造成了 15 点 Heal 。生命值：86
+[回合8] 15m 15s:  Gaceon 的 治疗链 对 Explorer 造成了 11 点 Heal 。生命值：97
+[回合8] 15m 16s:  Lilium 施放了 盾击, 目标：(9, 0) 
+[回合8] 15m 18s:  Archer 的 出血 对 BossMu 造成了 9 点 Pierce 伤害。生命值：2940
+[回合8] 15m 18s:  SmallMu(Clone) 施放了 移动, 目标：(14, 0) 
+[回合8] 15m 18s:  SmallMu(Clone) 施放了 移动, 目标：(14, 0) 
+[回合8] 15m 18s:  SmallMu(Clone) 施放了 移动, 目标：(14, 0) 
+[回合8] 15m 19s:  BossMu 施放了 粘液翻腾, 目标：(14, 0) 
+[回合8] 15m 19s:  BossMu 施放了 移动, 目标：(14, 0) 
+[回合8] 15m 19s:  BossMu 施放了 移动, 目标：(14, 0) 
+[回合8] 15m 19s:  BossMu 施放了 移动, 目标：(13, 0) 
+[回合9] 15m 19s:  回合9
+[回合9] 15m 21s:  Flora 的 栽培 对 Lilium 造成了 0 点 Heal 。生命值：114
+[回合9] 15m 21s:  Lilium 失去了来自 Flora 的 栽培
+[回合9] 15m 21s:  Flora 的 栽培 对 Umiko 造成了 8 点 Heal 。生命值：97
+[回合9] 15m 21s:  Flora 的 栽培 对 Archer3 造成了 8 点 Heal 。生命值：76
+[回合9] 15m 21s:  BossMu 的 史莱姆毒素 对 Felivol 造成了 4 点 Nature 伤害。生命值：112
+[回合9] 15m 21s:  Felivol 失去了来自 BossMu 的 史莱姆毒素
+[回合9] 15m 21s:  Felivol 施放了 蓄力斩, 目标：(12, 0) 
+[回合9] 15m 22s:  Felivol 的 蓄力斩 对 BossMu 造成了 40 点 Slash 伤害。生命值：2900
+[回合9] 15m 32s:  Astrologer 施放了 移动, 目标：(11, 0) 
+[回合9] 15m 34s:  Astrologer 施放了 彗星箭, 目标：(13, 0) 
+[回合9] 15m 35s:  Astrologer 的 彗星箭 对 BossMu 造成了 32 点 Ice 伤害。生命值：2868
+[回合9] 15m 36s:  Astrologer 施放了 彗星箭, 目标：(13, 0) 
+[回合9] 15m 37s:  Astrologer 的 彗星箭 对 BossMu 造成了 32 点 Ice 伤害。生命值：2836
+[回合9] 15m 43s:  Felivol 失去了来自 Felivol 的 祝福之光
+[回合9] 15m 43s:  Felivol 施放了 圣祝：裁决重锤, 目标：(13, 0) 
+[回合9] 15m 44s:  Felivol 的 圣祝：裁决重锤 对 BossMu 造成了 30 点 Knock 伤害。生命值：2806
+[回合9] 15m 50s:  Felivol 施放了 祈祷：战地祷告, 目标：(12, 0) 
+[回合9] 15m 51s:  Felivol 的 祈祷：战地祷告 对 Felivol 造成了 14 点 Heal 。生命值：126
+[回合9] 15m 51s:  Felivol 获得了来自 Felivol 的 祝福之光
+[回合9] 15m 55s:  Lilium 施放了 移动, 目标：(12, 0) 
+[回合9] 15m 56s:  Lilium 失去了来自 Umiko 的 生命之歌
+[回合9] 15m 58s:  Lilium 施放了 盾击, 目标：(13, 0) 
+[回合9] 15m 58s:  Lilium 的 盾击 对 BossMu 造成了 23 点 Knock 伤害。生命值：2783
+[回合9] 15m 58s:  BossMu 施放了 史莱姆爆炸, 目标：(13, 0) 
+[回合9] 15m 59s:  BossMu 的 史莱姆爆炸 对 Archer 造成了 24 点 Nature 伤害。生命值：68
+[回合9] 15m 59s:  BossMu 的 史莱姆爆炸 对 Archer2 造成了 23 点 Nature 伤害。生命值：44
+[回合9] 15m 59s:  BossMu 的 史莱姆爆炸 对 Lilium 造成了 0 点 Nature 伤害。生命值：114
+[回合9] 16m 00s:  BossMu 的 史莱姆爆炸 对 Explorer 造成了 23 点 Nature 伤害。生命值：74
+[回合9] 16m 00s:  BossMu 的 史莱姆爆炸 对 Flora 造成了 20 点 Nature 伤害。生命值：66
+[回合9] 16m 00s:  BossMu 的 史莱姆爆炸 对 Gaceon 造成了 23 点 Nature 伤害。生命值：67
+[回合9] 16m 00s:  BossMu 的 史莱姆爆炸 对 Astrologer 造成了 23 点 Nature 伤害。生命值：43
+[回合9] 16m 00s:  BossMu 的 史莱姆爆炸 对 Umiko 造成了 23 点 Nature 伤害。生命值：74
+[回合9] 16m 01s:  BossMu 的 史莱姆爆炸 对 Archer3 造成了 24 点 Nature 伤害。生命值：52
+[回合9] 16m 01s:  BossMu 的 史莱姆爆炸 对 Felivol 造成了 14 点 Nature 伤害。生命值：112
+[回合9] 16m 04s:  Lilium 施放了 移动, 目标：(11, 0) 
+[回合9] 16m 27s:  Archer3 施放了 移动, 目标：(10, 0) 
+[回合9] 16m 28s:  Archer3 施放了 射击, 目标：(13, 0) 
+[回合9] 16m 29s:  Archer3 的 射击 对 BossMu 造成了 44 点 Pierce 伤害。生命值：2739
+[回合9] 16m 35s:  Archer2 施放了 射击, 目标：(14, 0) 
+[回合9] 16m 35s:  Archer2 的 射击 对 SmallMu(Clone) 造成了 32 点 Pierce 伤害。生命值：0
+[回合9] 16m 35s:  SmallMu(Clone) 施放了 小史莱姆爆炸, 目标：(14, 0) 
+[回合9] 16m 36s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Archer 造成了 18 点 Nature 伤害。生命值：50
+[回合9] 16m 36s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Archer2 造成了 17 点 Nature 伤害。生命值：27
+[回合9] 16m 36s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Lilium 造成了 11 点 Nature 伤害。生命值：103
+[回合9] 16m 36s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Explorer 造成了 17 点 Nature 伤害。生命值：57
+[回合9] 16m 37s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Flora 造成了 15 点 Nature 伤害。生命值：51
+[回合9] 16m 37s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Gaceon 造成了 17 点 Nature 伤害。生命值：50
+[回合9] 16m 37s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Astrologer 造成了 17 点 Nature 伤害。生命值：26
+[回合9] 16m 37s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Umiko 造成了 17 点 Nature 伤害。生命值：57
+[回合9] 16m 37s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Archer3 造成了 18 点 Nature 伤害。生命值：34
+[回合9] 16m 38s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Felivol 造成了 10 点 Nature 伤害。生命值：102
+[回合9] 16m 38s:  SmallMu(Clone) 失去了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[回合9] 16m 38s:  Archer2 的 射击 击杀了 SmallMu(Clone) !
+[回合9] 16m 42s:  Umiko 施放了 移动, 目标：(10, 0) 
+[回合9] 16m 43s:  Archer 失去了来自 Umiko 的 生命之歌
+[回合9] 16m 43s:  Lilium 获得了来自 Umiko 的 生命之歌
+[回合9] 16m 43s:  Felivol 获得了来自 Umiko 的 生命之歌
+[回合9] 16m 44s:  Umiko 施放了 水泡, 目标：(13, 0) 
+[回合9] 16m 45s:  Umiko 的 水泡 对 BossMu 造成了 11 点 Water 伤害。生命值：2728
+[回合9] 16m 45s:  Astrologer 重新获得了来自 Umiko 的 水泡护盾
+[回合9] 16m 51s:  Gaceon 施放了 治疗链, 目标：(11, 0) 
+[回合9] 16m 51s:  Gaceon 的 治疗链 对 Astrologer 造成了 22 点 Heal 。生命值：49
+[回合9] 16m 52s:  Gaceon 的 治疗链 对 Archer3 造成了 15 点 Heal 。生命值：49
+[回合9] 16m 52s:  Gaceon 的 治疗链 对 Umiko 造成了 11 点 Heal 。生命值：68
+[回合9] 16m 56s:  Flora 施放了 移动, 目标：(10, 0) 
+[回合9] 16m 58s:  Flora 施放了 栽培, 目标：(11, 0) 
+[回合9] 16m 58s:  Archer2 获得了来自 Flora 的 栽培
+[回合9] 17m 01s:  Flora 施放了 绽放, 目标：(10, 0) 
+[回合9] 17m 02s:  Flora 的 绽放 对 Archer 造成了 25 点 Heal 。生命值：75
+[回合9] 17m 02s:  Flora 的 绽放 对 Archer2 造成了 25 点 Heal 。生命值：52
+[回合9] 17m 02s:  Flora 的 绽放 对 Lilium 造成了 11 点 Heal 。生命值：114
+[回合9] 17m 02s:  Flora 的 绽放 对 Explorer 造成了 25 点 Heal 。生命值：82
+[回合9] 17m 02s:  Flora 的 绽放 对 Flora 造成了 25 点 Heal 。生命值：76
+[回合9] 17m 03s:  Flora 的 绽放 对 Gaceon 造成了 25 点 Heal 。生命值：75
+[回合9] 17m 03s:  Flora 的 绽放 对 Astrologer 造成了 25 点 Heal 。生命值：74
+[回合9] 17m 03s:  Flora 的 绽放 对 Umiko 造成了 25 点 Heal 。生命值：93
+[回合9] 17m 03s:  Flora 的 绽放 对 Archer3 造成了 25 点 Heal 。生命值：74
+[回合9] 17m 03s:  Flora 的 绽放 对 Felivol 造成了 24 点 Heal 。生命值：126
+[回合9] 17m 08s:  Archer 施放了 移动, 目标：(10, 0) 
+[回合9] 17m 08s:  Archer 获得了来自 Umiko 的 生命之歌
+[回合9] 17m 14s:  Archer2 施放了 射击, 目标：(13, 0) 
+[回合9] 17m 14s:  Explorer 施放了 响音攻击, 目标：(11, 0) 
+[回合9] 17m 15s:  Umiko 施放了 水泡, 目标：(13, 0) 
+[回合9] 17m 16s:  Umiko 的 水泡 对 BossMu 造成了 22 点 Water 伤害（暴击）。生命值：2706
+[回合9] 17m 16s:  Astrologer 重新获得了来自 Umiko 的 水泡护盾
+[回合9] 17m 18s:  Archer 的 出血 对 BossMu 造成了 9 点 Pierce 伤害。生命值：2697
+[回合9] 17m 18s:  BossMu 施放了 移动, 目标：(13, 0) 
+[回合9] 17m 19s:  BossMu 施放了 史莱姆攻击, 目标：(12, 0) 
+[回合9] 17m 19s:  BossMu 的 史莱姆攻击 对 Felivol 造成了 17 点 Knock 伤害。生命值：109
+[回合9] 17m 19s:  Felivol 获得了来自 BossMu 的 史莱姆毒素
+[回合9] 17m 20s:  BossMu 的 史莱姆攻击 对 Lilium 造成了 25 点 Knock 伤害。生命值：89
+[回合9] 17m 20s:  Lilium 获得了来自 BossMu 的 史莱姆毒素
+[回合10] 17m 20s:  回合10
+[回合10] 17m 21s:  Archer2 失去了来自 Umiko 的 水泡护盾
+[回合10] 17m 21s:  Flora 的 栽培 对 Archer2 造成了 8 点 Heal 。生命值：60
+[回合10] 17m 21s:  BossMu 的 史莱姆毒素 对 Lilium 造成了 8 点 Nature 伤害。生命值：81
+[回合10] 17m 21s:  Flora 失去了来自 Umiko 的 水泡护盾
+[回合10] 17m 21s:  Gaceon 失去了来自 Umiko 的 水泡护盾
+[回合10] 17m 21s:  Flora 的 栽培 对 Umiko 造成了 8 点 Heal 。生命值：101
+[回合10] 17m 21s:  Umiko 失去了来自 Flora 的 栽培
+[回合10] 17m 21s:  Umiko 失去了来自 Umiko 的 水泡护盾
+[回合10] 17m 22s:  Flora 的 栽培 对 Archer3 造成了 8 点 Heal 。生命值：82
+[回合10] 17m 22s:  BossMu 的 史莱姆毒素 对 Felivol 造成了 4 点 Nature 伤害。生命值：105
+[回合10] 17m 22s:  Felivol 施放了 蓄力斩, 目标：(12, 0) 
+[回合10] 17m 22s:  Felivol 的 蓄力斩 没有击中 BossMu。生命值：2697
+[回合10] 17m 26s:  Felivol 施放了 移动, 目标：(12, 0) 
+[回合10] 17m 26s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：107
+[回合10] 17m 27s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：109
+[回合10] 17m 29s:  Felivol 失去了来自 Felivol 的 祝福之光
+[回合10] 17m 29s:  Felivol 施放了 圣祝：裁决重锤, 目标：(13, 0) 
+[回合10] 17m 30s:  Felivol 的 圣祝：裁决重锤 对 BossMu 造成了 30 点 Knock 伤害。生命值：2667
+[回合10] 17m 31s:  Lilium 施放了 移动, 目标：(11, 0) 
+[回合10] 17m 48s:  Lilium 施放了 移动, 目标：(11, 0) 
+[回合10] 17m 51s:  Astrologer 施放了 移动, 目标：(14, 0) 
+[回合10] 17m 54s:  Astrologer 施放了 彗星箭, 目标：(13, 0) 
+[回合10] 17m 55s:  Astrologer 的 彗星箭 对 BossMu 造成了 32 点 Ice 伤害。生命值：2635
+[回合10] 17m 57s:  Archer3 施放了 移动, 目标：(11, 0) 
+[回合10] 18m 03s:  Umiko 施放了 移动, 目标：(12, 0) 
+[回合10] 18m 04s:  Umiko 施放了 水泡, 目标：(13, 0) 
+[回合10] 18m 05s:  Umiko 的 水泡 对 BossMu 造成了 11 点 Water 伤害。生命值：2624
+[回合10] 18m 05s:  Astrologer 重新获得了来自 Umiko 的 水泡护盾
+[回合10] 18m 05s:  Felivol 获得了来自 Umiko 的 水泡护盾
+[回合10] 18m 14s:  Archer2 施放了 移动, 目标：(13, 0) 
+[回合10] 18m 14s:  Archer2 获得了来自 BossMu 的 剧毒酸池
+[回合10] 18m 16s:  Explorer 施放了 移动, 目标：(12, 0) 
+[回合10] 18m 16s:  Explorer 获得了来自 BossMu 的 剧毒酸池
+[回合10] 18m 45s:  Archer 施放了 移动, 目标：(12, 0) 
+[回合10] 18m 46s:  Archer 获得了来自 BossMu 的 剧毒酸池
+[回合10] 18m 49s:  Archer 施放了 移动, 目标：(13, 0) 
+[回合10] 18m 51s:  Flora 施放了 移动, 目标：(12, 0) 
+[回合10] 18m 52s:  Flora 获得了来自 BossMu 的 剧毒酸池
+[回合10] 18m 53s:  Gaceon 施放了 移动, 目标：(11, 0) 
+[回合10] 19m 01s:  Gaceon 施放了 治疗链, 目标：(12, 0) 
+[回合10] 19m 01s:  Gaceon 的 治疗链 对 Explorer 造成了 22 点 Heal 。生命值：104
+[回合10] 19m 02s:  Gaceon 的 治疗链 对 Lilium 造成了 15 点 Heal 。生命值：96
+[回合10] 19m 02s:  Gaceon 的 治疗链 对 Felivol 造成了 11 点 Heal 。生命值：120
+[回合10] 19m 09s:  Flora 施放了 治疗术, 目标：(13, 0) 
+[回合10] 19m 10s:  Flora 的 治疗术 对 Archer2 造成了 36 点 Heal 。生命值：96
+[回合10] 19m 12s:  Archer 施放了 射击, 目标：(14, 0) 
+[回合10] 19m 12s:  Archer 施放了 射击, 目标：(14, 0) 
+[回合10] 19m 13s:  Archer2 施放了 射击, 目标：(13, 0) 
+[回合10] 19m 13s:  Archer2 的 射击 对 BossMu 造成了 70 点 Pierce 伤害（暴击）。生命值：2554
+[回合10] 19m 13s:  Archer3 施放了 射击, 目标：(13, 0) 
+[回合10] 19m 14s:  Archer3 的 射击 对 BossMu 造成了 44 点 Pierce 伤害。生命值：2510
+[回合10] 19m 14s:  Archer3 施放了 射击, 目标：(13, 0) 
+[回合10] 19m 15s:  Archer3 的 射击 对 BossMu 造成了 88 点 Pierce 伤害（暴击）。生命值：2422
+[回合10] 19m 15s:  Flora 施放了 栽培, 目标：(11, 0) 
+[回合10] 19m 16s:  Lilium 获得了来自 Flora 的 栽培
+[回合10] 19m 17s:  Astrologer 施放了 彗星箭, 目标：(13, 0) 
+[回合10] 19m 17s:  Astrologer 的 彗星箭 对 BossMu 造成了 32 点 Ice 伤害。生命值：2390
+[回合10] 19m 18s:  Lilium 施放了 盾击, 目标：(13, 0) 
+[回合10] 19m 19s:  Archer 的 出血 对 BossMu 造成了 9 点 Pierce 伤害。生命值：2381
+[回合10] 19m 19s:  BossMu 施放了 小史莱姆标记, 目标：(13, 0) 
+[回合10] 19m 20s:  Lilium 获得了来自 BossMu 的 锁定
+[回合10] 19m 20s:  BossMu 施放了 史莱姆跳跃, 目标：(12, 0) 
+[回合10] 19m 20s:  Umiko 获得了来自 BossMu 的 剧毒酸池
+[回合10] 19m 20s:  Archer3 获得了来自 BossMu 的 剧毒酸池
+[回合10] 19m 20s:  Felivol 获得了来自 BossMu 的 剧毒酸池
+[回合10] 19m 20s:  Astrologer 获得了来自 BossMu 的 剧毒酸池
+[回合11] 19m 21s:  回合11
+[回合11] 19m 22s:  BossMu 的 剧毒酸池 对 Archer 造成了 8 点 Nature 伤害。生命值：67
+[回合11] 19m 22s:  BossMu 的 剧毒酸池 对 Archer2 造成了 7 点 Nature 伤害。生命值：89
+[回合11] 19m 22s:  Flora 的 栽培 对 Archer2 造成了 7 点 Heal 。生命值：96
+[回合11] 19m 22s:  Flora 的 栽培 对 Lilium 造成了 8 点 Heal 。生命值：104
+[回合11] 19m 23s:  BossMu 的 史莱姆毒素 对 Lilium 造成了 4 点 Nature 伤害。生命值：100
+[回合11] 19m 23s:  BossMu 的 剧毒酸池 对 Explorer 造成了 7 点 Nature 伤害。生命值：97
+[回合11] 19m 23s:  BossMu 的 剧毒酸池 对 Flora 造成了 6 点 Nature 伤害。生命值：70
+[回合11] 19m 23s:  BossMu 的 剧毒酸池 对 Astrologer 造成了 7 点 Nature 伤害。生命值：67
+[回合11] 19m 23s:  BossMu 的 剧毒酸池 对 Umiko 造成了 7 点 Nature 伤害。生命值：94
+[回合11] 19m 24s:  Flora 的 栽培 对 Archer3 造成了 8 点 Heal 。生命值：90
+[回合11] 19m 24s:  Archer3 失去了来自 Flora 的 栽培
+[回合11] 19m 24s:  BossMu 的 剧毒酸池 对 Archer3 造成了 8 点 Nature 伤害。生命值：82
+[回合11] 19m 24s:  BossMu 的 剧毒酸池 对 Felivol 造成了 5 点 Nature 伤害。生命值：115
+[回合11] 19m 24s:  BossMu 的 史莱姆毒素 对 Felivol 造成了 6 点 Nature 伤害。生命值：109
+[回合11] 19m 32s:  Astrologer 施放了 彗星箭, 目标：(13, 0) 
+[回合11] 19m 33s:  Astrologer 的 彗星箭 对 BossMu 造成了 32 点 Ice 伤害。生命值：2349
+[回合11] 19m 35s:  Astrologer 施放了 闪光, 目标：(10, 0) 
+[回合11] 19m 35s:  Astrologer 失去了来自 BossMu 的 剧毒酸池
+[回合11] 20m 25s:  Felivol 施放了 移动, 目标：(14, 0) 
+[回合11] 20m 26s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：111
+[回合11] 20m 26s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：113
+[回合11] 20m 26s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：115
+[回合11] 20m 29s:  Felivol 施放了 移动, 目标：(14, 0) 
+[回合11] 20m 29s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：117
+[回合11] 20m 29s:  Felivol 失去了来自 Umiko 的 生命之歌
+[回合11] 20m 34s:  Felivol 施放了 祈祷：战地祷告, 目标：(14, 0) 
+[回合11] 20m 35s:  Felivol 的 祈祷：战地祷告 对 Felivol 造成了 9 点 Heal 。生命值：126
+[回合11] 20m 35s:  Felivol 获得了来自 Felivol 的 祝福之光
+[回合11] 20m 39s:  Archer3 施放了 移动, 目标：(10, 0) 
+[回合11] 20m 39s:  Archer3 失去了来自 BossMu 的 剧毒酸池
+[回合11] 20m 40s:  Archer3 施放了 射击, 目标：(13, 0) 
+[回合11] 20m 41s:  Archer3 的 射击 对 BossMu 造成了 44 点 Pierce 伤害。生命值：2305
+[回合11] 20m 43s:  Lilium 施放了 移动, 目标：(10, 0) 
+[回合11] 20m 45s:  Umiko 施放了 移动, 目标：(9, 0) 
+[回合11] 20m 45s:  Umiko 失去了来自 BossMu 的 剧毒酸池
+[回合11] 20m 45s:  Archer2 失去了来自 Umiko 的 生命之歌
+[回合11] 20m 47s:  Archer 施放了 移动, 目标：(11, 0) 
+[回合11] 20m 47s:  Archer 失去了来自 BossMu 的 剧毒酸池
+[回合11] 20m 49s:  Archer2 施放了 移动, 目标：(11, 0) 
+[回合11] 20m 49s:  Archer2 失去了来自 BossMu 的 剧毒酸池
+[回合11] 20m 49s:  Archer2 获得了来自 Umiko 的 生命之歌
+[回合11] 20m 51s:  Explorer 施放了 移动, 目标：(10, 0) 
+[回合11] 20m 51s:  Explorer 失去了来自 BossMu 的 剧毒酸池
+[回合11] 20m 54s:  Flora 施放了 移动, 目标：(9, 0) 
+[回合11] 20m 54s:  Flora 失去了来自 BossMu 的 剧毒酸池
+[回合11] 20m 57s:  Flora 施放了 治疗术, 目标：(11, 0) 
+[回合11] 20m 58s:  Flora 的 治疗术 对 Archer 造成了 29 点 Heal 。生命值：96
+[回合11] 20m 59s:  Archer 施放了 射击, 目标：(14, 0) 
+[回合11] 20m 59s:  Archer2 施放了 射击, 目标：(13, 0) 
+[回合11] 21m 00s:  Archer2 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：2270
+[回合11] 21m 00s:  Archer2 施放了 射击, 目标：(13, 0) 
+[回合11] 21m 01s:  Archer2 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：2235
+[回合11] 21m 01s:  Explorer 施放了 响音攻击, 目标：(10, 0) 
+[回合11] 21m 01s:  Explorer 施放了 响音攻击, 目标：(10, 0) 
+[回合11] 21m 02s:  Umiko 施放了 水泡, 目标：(13, 0) 
+[回合11] 21m 02s:  Umiko 施放了 水泡, 目标：(13, 0) 
+[回合11] 21m 02s:  Flora 施放了 栽培, 目标：(9, 0) 
+[回合11] 21m 03s:  Flora 获得了来自 Flora 的 栽培
+[回合11] 21m 03s:  Gaceon 施放了 治疗链, 目标：(10, 0) 
+[回合11] 21m 03s:  Gaceon 的 治疗链 对 Lilium 造成了 14 点 Heal 。生命值：114
+[回合11] 21m 04s:  Gaceon 的 治疗链 对 Flora 造成了 15 点 Heal 。生命值：85
+[回合11] 21m 04s:  Gaceon 的 治疗链 对 Lilium 造成了 0 点 Heal 。生命值：114
+[回合11] 21m 05s:  Gaceon 施放了 治疗链, 目标：(11, 0) 
+[回合11] 21m 05s:  Gaceon 的 治疗链 对 Gaceon 造成了 22 点 Heal 。生命值：97
+[回合11] 21m 05s:  Gaceon 的 治疗链 对 Lilium 造成了 0 点 Heal 。生命值：114
+[回合11] 21m 05s:  Gaceon 的 治疗链 对 Astrologer 造成了 11 点 Heal 。生命值：78
+[回合11] 21m 07s:  Lilium 施放了 盾击, 目标：(13, 0) 
+[回合11] 21m 07s:  Lilium 施放了 盾击, 目标：(13, 0) 
+[回合11] 21m 08s:  Archer 的 出血 对 BossMu 造成了 9 点 Pierce 伤害。生命值：2226
+[回合11] 21m 08s:  BossMu 失去了来自 Archer 的 出血
+[回合11] 21m 08s:  BossMu 施放了 小史莱姆投掷, 目标：(13, 0) 
+[回合11] 21m 09s:  BossMu 的 小史莱姆投掷 对 Lilium 造成了 9 点 Nature 伤害。生命值：105
+[回合11] 21m 09s:  Lilium 失去了来自 BossMu 的 锁定
+[回合11] 21m 09s:  Lilium 获得了来自 BossMu 的 剧毒酸池
+[回合11] 21m 09s:  Explorer 获得了来自 BossMu 的 剧毒酸池
+[回合11] 21m 09s:  Umiko 获得了来自 BossMu 的 剧毒酸池
+[回合11] 21m 09s:  Archer3 获得了来自 BossMu 的 剧毒酸池
+[回合11] 21m 09s:  Archer 获得了来自 BossMu 的 剧毒酸池
+[回合11] 21m 09s:  Flora 获得了来自 BossMu 的 剧毒酸池
+[回合11] 21m 09s:  Gaceon 获得了来自 BossMu 的 剧毒酸池
+[回合11] 21m 09s:  BossMu 施放了 小史莱姆标记, 目标：(13, 0) 
+[回合11] 21m 09s:  SmallMu(Clone) 获得了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[回合11] 21m 10s:  Felivol 获得了来自 BossMu 的 锁定
+[回合11] 21m 10s:  BossMu 施放了 移动, 目标：(14, 0) 
+[回合11] 21m 10s:  BossMu 施放了 史莱姆攻击, 目标：(14, 0) 
+[回合11] 21m 11s:  BossMu 的 史莱姆攻击 对 Felivol 造成了 16 点 Knock 伤害。生命值：110
+[回合11] 21m 11s:  Felivol 重新获得了来自 BossMu 的 史莱姆毒素
+[回合12] 21m 11s:  回合12
+[回合12] 21m 13s:  BossMu 的 剧毒酸池 对 Archer 造成了 8 点 Nature 伤害。生命值：88
+[回合12] 21m 13s:  Flora 的 栽培 对 Archer2 造成了 0 点 Heal 。生命值：96
+[回合12] 21m 13s:  Archer2 失去了来自 Flora 的 栽培
+[回合12] 21m 13s:  Flora 的 栽培 对 Lilium 造成了 8 点 Heal 。生命值：113
+[回合12] 21m 13s:  BossMu 的 史莱姆毒素 对 Lilium 造成了 8 点 Nature 伤害。生命值：105
+[回合12] 21m 13s:  Lilium 失去了来自 BossMu 的 史莱姆毒素
+[回合12] 21m 13s:  BossMu 的 剧毒酸池 对 Lilium 造成了 7 点 Nature 伤害。生命值：98
+[回合12] 21m 14s:  BossMu 的 剧毒酸池 对 Explorer 造成了 7 点 Nature 伤害。生命值：90
+[回合12] 21m 14s:  Flora 的 栽培 对 Flora 造成了 8 点 Heal 。生命值：93
+[回合12] 21m 14s:  BossMu 的 剧毒酸池 对 Flora 造成了 6 点 Nature 伤害。生命值：87
+[回合12] 21m 14s:  BossMu 的 剧毒酸池 对 Gaceon 造成了 7 点 Nature 伤害。生命值：90
+[回合12] 21m 14s:  Astrologer 失去了来自 Umiko 的 水泡护盾
+[回合12] 21m 14s:  BossMu 的 剧毒酸池 对 Umiko 造成了 7 点 Nature 伤害。生命值：87
+[回合12] 21m 15s:  BossMu 的 剧毒酸池 对 Archer3 造成了 8 点 Nature 伤害。生命值：74
+[回合12] 21m 15s:  BossMu 的 剧毒酸池 对 Felivol 造成了 2 点 Nature 伤害。生命值：108
+[回合12] 21m 15s:  BossMu 的 史莱姆毒素 对 Felivol 造成了 9 点 Nature 伤害。生命值：99
+[回合12] 21m 15s:  Felivol 失去了来自 Umiko 的 水泡护盾
+[回合12] 21m 15s:  Felivol 施放了 蓄力斩, 目标：(14, 0) 
+[回合12] 21m 15s:  Felivol 的 蓄力斩 对 BossMu 造成了 40 点 Slash 伤害。生命值：2186
+[回合12] 21m 37s:  Astrologer 施放了 星光超流, 目标：(14, 0) 
+[回合12] 21m 38s:  Astrologer 的 星光超流 对 BossMu 造成了 37 点 Light 伤害。生命值：2149
+[回合12] 21m 38s:  BossMu 获得了来自 Astrologer 的 繁星道标
+[回合12] 21m 39s:  Astrologer 施放了 彗星箭, 目标：(14, 0) 
+[回合12] 21m 40s:  Astrologer 的 彗星箭 对 BossMu 造成了 32 点 Ice 伤害。生命值：2117
+[回合12] 21m 48s:  Flora 施放了 移动, 目标：(8, 0) 
+[回合12] 21m 48s:  Flora 失去了来自 BossMu 的 剧毒酸池
+[回合12] 21m 50s:  Explorer 施放了 移动, 目标：(9, 0) 
+[回合12] 21m 51s:  Explorer 失去了来自 BossMu 的 剧毒酸池
+[回合12] 21m 53s:  Umiko 施放了 移动, 目标：(9, 0) 
+[回合12] 21m 54s:  Umiko 失去了来自 BossMu 的 剧毒酸池
+[回合12] 21m 54s:  Archer2 失去了来自 Umiko 的 生命之歌
+[回合12] 21m 55s:  Archer3 施放了 移动, 目标：(8, 0) 
+[回合12] 21m 55s:  Archer3 失去了来自 BossMu 的 剧毒酸池
+[回合12] 21m 56s:  Archer3 施放了 射击, 目标：(8, 0) 
+[回合12] 21m 57s:  Archer3 的 射击 对 SmallMu(Clone) 造成了 44 点 Pierce 伤害。生命值：76
+[回合12] 21m 59s:  Archer 施放了 移动, 目标：(10, 0) 
+[回合12] 22m 00s:  Archer 失去了来自 BossMu 的 剧毒酸池
+[回合12] 22m 01s:  Archer 施放了 射击, 目标：(14, 0) 
+[回合12] 22m 02s:  Archer 的 射击 对 BossMu 造成了 44 点 Pierce 伤害。生命值：2073
+[回合12] 22m 15s:  Felivol 施放了 移动, 目标：(14, 0) 
+[回合12] 22m 15s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：101
+[回合12] 22m 19s:  Felivol 失去了来自 Felivol 的 祝福之光
+[回合12] 22m 19s:  Felivol 施放了 圣祝：裁决重锤, 目标：(14, 0) 
+[回合12] 22m 20s:  Felivol 的 圣祝：裁决重锤 对 BossMu 造成了 30 点 Knock 伤害。生命值：2043
+[回合12] 22m 21s:  Felivol 施放了 奔袭, 目标：(9, 0) 
+[回合12] 22m 22s:  Felivol 失去了来自 BossMu 的 剧毒酸池
+[回合12] 22m 23s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：103
+[回合12] 22m 23s:  Felivol 获得了来自 Explorer 的 力量光环
+[回合12] 22m 23s:  Felivol 获得了来自 Umiko 的 生命之歌
+[回合12] 22m 23s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：105
+[回合12] 22m 23s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：107
+[回合12] 22m 23s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：109
+[回合12] 22m 23s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：111
+[回合12] 22m 24s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：113
+[回合12] 22m 26s:  Felivol 施放了 蓄力斩, 目标：(10, 0) 
+[回合12] 22m 30s:  Archer 施放了 移动, 目标：(11, 0) 
+[回合12] 22m 30s:  Archer 获得了来自 BossMu 的 剧毒酸池
+[回合12] 22m 35s:  Lilium 施放了 移动, 目标：(8, 0) 
+[回合12] 22m 35s:  Lilium 失去了来自 BossMu 的 剧毒酸池
+[回合12] 22m 37s:  Gaceon 施放了 移动, 目标：(11, 0) 
+[回合12] 22m 39s:  Gaceon 施放了 移动, 目标：(10, 0) 
+[回合12] 22m 39s:  Gaceon 失去了来自 BossMu 的 剧毒酸池
+[回合12] 22m 40s:  Archer2 施放了 射击, 目标：(14, 0) 
+[回合12] 22m 40s:  Archer3 施放了 射击, 目标：(8, 0) 
+[回合12] 22m 41s:  Archer3 的 射击 对 SmallMu(Clone) 造成了 44 点 Pierce 伤害。生命值：32
+[回合12] 22m 41s:  Explorer 施放了 响音攻击, 目标：(9, 0) 
+[回合12] 22m 42s:  Explorer 的 响音攻击 对 SmallMu(Clone) 造成了 8 点 Knock 伤害。生命值：24
+[回合12] 22m 42s:  Explorer 施放了 响音攻击, 目标：(9, 0) 
+[回合12] 22m 42s:  Explorer 的 响音攻击 对 SmallMu(Clone) 造成了 8 点 Knock 伤害。生命值：16
+[回合12] 22m 42s:  Umiko 施放了 水泡, 目标：(14, 0) 
+[回合12] 22m 43s:  Flora 施放了 栽培, 目标：(9, 0) 
+[回合12] 22m 43s:  Umiko 获得了来自 Flora 的 栽培
+[回合12] 22m 44s:  Gaceon 施放了 治疗链, 目标：(8, 0) 
+[回合12] 22m 44s:  Gaceon 的 治疗链 对 Lilium 造成了 16 点 Heal 。生命值：114
+[回合12] 22m 44s:  Gaceon 的 治疗链 对 Felivol 造成了 13 点 Heal 。生命值：126
+[回合12] 22m 44s:  Gaceon 的 治疗链 对 Umiko 造成了 11 点 Heal 。生命值：98
+[回合12] 22m 46s:  Lilium 施放了 盾击, 目标：(14, 0) 
+[回合12] 22m 47s:  SmallMu(Clone) 施放了 移动, 目标：(9, 0) 
+[回合12] 22m 47s:  SmallMu(Clone) 施放了 移动, 目标：(10, 0) 
+[回合12] 22m 47s:  SmallMu(Clone) 施放了 移动, 目标：(11, 0) 
+[回合12] 22m 48s:  BossMu 施放了 小史莱姆投掷, 目标：(14, 0) 
+[回合12] 22m 49s:  BossMu 的 小史莱姆投掷 对 Felivol 造成了 6 点 Nature 伤害。生命值：120
+[回合12] 22m 49s:  Felivol 失去了来自 BossMu 的 锁定
+[回合12] 22m 49s:  Felivol 获得了来自 BossMu 的 剧毒酸池
+[回合12] 22m 49s:  BossMu 施放了 移动, 目标：(14, 0) 
+[回合12] 22m 49s:  SmallMu(Clone) 获得了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[回合12] 22m 49s:  BossMu 施放了 移动, 目标：(14, 0) 
+[回合12] 22m 49s:  BossMu 施放了 移动, 目标：(13, 0) 
+[回合13] 22m 50s:  回合13
+[回合13] 22m 51s:  BossMu 的 剧毒酸池 对 Archer 造成了 8 点 Nature 伤害。生命值：80
+[回合13] 22m 51s:  Flora 的 栽培 对 Lilium 造成了 0 点 Heal 。生命值：114
+[回合13] 22m 51s:  Lilium 失去了来自 Flora 的 栽培
+[回合13] 22m 51s:  Flora 的 栽培 对 Flora 造成了 8 点 Heal 。生命值：95
+[回合13] 22m 52s:  Flora 的 栽培 对 Umiko 造成了 8 点 Heal 。生命值：106
+[回合13] 22m 52s:  BossMu 的 史莱姆毒素 对 Felivol 造成了 9 点 Nature 伤害。生命值：111
+[回合13] 22m 52s:  BossMu 的 剧毒酸池 对 Felivol 造成了 2 点 Nature 伤害。生命值：109
+[回合13] 22m 52s:  Felivol 施放了 蓄力斩, 目标：(10, 0) 
+[回合13] 22m 57s:  Felivol 施放了 移动, 目标：(7, 0) 
+[回合13] 22m 57s:  Felivol 失去了来自 BossMu 的 剧毒酸池
+[回合13] 22m 58s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：111
+[回合13] 22m 58s:  Felivol 失去了来自 Explorer 的 力量光环
+[回合13] 22m 58s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：113
+[回合13] 23m 01s:  Archer 施放了 移动, 目标：(11, 0) 
+[回合13] 23m 01s:  Archer 失去了来自 BossMu 的 剧毒酸池
+[回合13] 23m 02s:  Archer 施放了 射击, 目标：(8, 0) 
+[回合13] 23m 03s:  Archer 的 射击 对 SmallMu(Clone) 造成了 44 点 Pierce 伤害。生命值：76
+[回合13] 23m 05s:  Archer3 施放了 射击, 目标：(8, 0) 
+[回合13] 23m 05s:  Archer3 的 射击 对 SmallMu(Clone) 造成了 44 点 Pierce 伤害。生命值：32
+[回合13] 23m 08s:  Archer2 施放了 射击, 目标：(11, 0) 
+[回合13] 23m 09s:  Archer2 的 射击 对 SmallMu(Clone) 造成了 16 点 Pierce 伤害。生命值：0
+[回合13] 23m 09s:  SmallMu(Clone) 施放了 小史莱姆爆炸, 目标：(11, 0) 
+[回合13] 23m 09s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Archer 造成了 18 点 Nature 伤害。生命值：62
+[回合13] 23m 10s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Archer2 造成了 17 点 Nature 伤害。生命值：79
+[回合13] 23m 10s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Lilium 造成了 8 点 Nature 伤害。生命值：106
+[回合13] 23m 10s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Explorer 造成了 17 点 Nature 伤害。生命值：73
+[回合13] 23m 10s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Flora 造成了 15 点 Nature 伤害。生命值：80
+[回合13] 23m 10s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Gaceon 造成了 17 点 Nature 伤害。生命值：73
+[回合13] 23m 11s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Astrologer 造成了 16 点 Nature 伤害。生命值：62
+[回合13] 23m 11s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Umiko 造成了 17 点 Nature 伤害。生命值：89
+[回合13] 23m 11s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Archer3 造成了 18 点 Nature 伤害。生命值：56
+[回合13] 23m 11s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Felivol 造成了 14 点 Nature 伤害。生命值：99
+[回合13] 23m 11s:  SmallMu(Clone) 失去了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[回合13] 23m 11s:  Archer2 的 射击 击杀了 SmallMu(Clone) !
+[回合13] 23m 19s:  Astrologer 施放了 星光超流, 目标：(13, 0) 
+[回合13] 23m 20s:  Astrologer 的 星光超流 对 BossMu 造成了 74 点 Light 伤害（暴击）。生命值：1969
+[回合13] 23m 20s:  Astrologer 的 繁星道标 对 BossMu 造成了 22 点 Light 伤害。生命值：1947
+[回合13] 23m 20s:  BossMu 重新获得了来自 Astrologer 的 繁星道标
+[回合13] 23m 24s:  Astrologer 施放了 彗星箭, 目标：(13, 0) 
+[回合13] 23m 24s:  Astrologer 的 彗星箭 对 BossMu 造成了 32 点 Ice 伤害。生命值：1915
+[回合13] 23m 29s:  Umiko 施放了 水泡, 目标：(8, 0) 
+[回合13] 23m 30s:  Umiko 的 水泡 对 SmallMu(Clone) 造成了 22 点 Water 伤害（暴击）。生命值：10
+[回合13] 23m 30s:  Archer3 获得了来自 Umiko 的 水泡护盾
+[回合13] 23m 30s:  Felivol 获得了来自 Umiko 的 水泡护盾
+[回合13] 23m 31s:  Umiko 施放了 水泡, 目标：(8, 0) 
+[回合13] 23m 32s:  Umiko 的 水泡 对 SmallMu(Clone) 造成了 10 点 Water 伤害。生命值：0
+[回合13] 23m 32s:  SmallMu(Clone) 施放了 小史莱姆爆炸, 目标：(8, 0) 
+[回合13] 23m 33s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Archer 造成了 18 点 Nature 伤害。生命值：44
+[回合13] 23m 33s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Archer2 造成了 17 点 Nature 伤害。生命值：62
+[回合13] 23m 33s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Lilium 造成了 16 点 Nature 伤害。生命值：90
+[回合13] 23m 34s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Explorer 造成了 17 点 Nature 伤害。生命值：56
+[回合13] 23m 34s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Flora 造成了 15 点 Nature 伤害。生命值：65
+[回合13] 23m 34s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Gaceon 造成了 17 点 Nature 伤害。生命值：56
+[回合13] 23m 34s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Astrologer 造成了 16 点 Nature 伤害。生命值：46
+[回合13] 23m 34s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Umiko 造成了 17 点 Nature 伤害。生命值：72
+[回合13] 23m 35s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Archer3 造成了 17 点 Nature 伤害。生命值：39
+[回合13] 23m 35s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Felivol 造成了 13 点 Nature 伤害。生命值：86
+[回合13] 23m 35s:  SmallMu(Clone) 失去了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[回合13] 23m 35s:  Umiko 的 水泡 击杀了 SmallMu(Clone) !
+[回合13] 23m 35s:  Archer3 重新获得了来自 Umiko 的 水泡护盾
+[回合13] 23m 35s:  Felivol 重新获得了来自 Umiko 的 水泡护盾
+[回合13] 24m 07s:  Lilium 施放了 移动, 目标：(7, 0) 
+[回合13] 24m 19s:  Gaceon 施放了 移动, 目标：(8, 0) 
+[回合13] 24m 23s:  Explorer 施放了 移动, 目标：(8, 0) 
+[回合13] 24m 24s:  Archer 获得了来自 Explorer 的 力量光环
+[回合13] 24m 24s:  Felivol 获得了来自 Explorer 的 力量光环
+[回合13] 24m 25s:  Archer2 施放了 移动, 目标：(9, 0) 
+[回合13] 24m 25s:  Archer2 获得了来自 Umiko 的 生命之歌
+[回合13] 24m 26s:  Flora 施放了 移动, 目标：(8, 0) 
+[回合13] 24m 27s:  Flora 施放了 移动, 目标：(7, 0) 
+[回合13] 24m 29s:  Explorer 施放了 响音攻击, 目标：(8, 0) 
+[回合13] 24m 30s:  Flora 施放了 栽培, 目标：(8, 0) 
+[回合13] 24m 30s:  Archer3 获得了来自 Flora 的 栽培
+[回合13] 24m 30s:  Gaceon 施放了 治疗链, 目标：(8, 0) 
+[回合13] 24m 31s:  Gaceon 的 治疗链 对 Archer3 造成了 22 点 Heal 。生命值：61
+[回合13] 24m 31s:  Gaceon 的 治疗链 对 Explorer 造成了 15 点 Heal 。生命值：71
+[回合13] 24m 31s:  Gaceon 的 治疗链 对 Astrologer 造成了 11 点 Heal 。生命值：57
+[回合13] 24m 32s:  Lilium 施放了 盾击, 目标：(13, 0) 
+[回合13] 24m 32s:  Lilium 施放了 盾击, 目标：(13, 0) 
+[回合13] 24m 34s:  BossMu 施放了 粘液翻腾, 目标：(13, 0) 
+[回合13] 24m 34s:  BossMu 施放了 移动, 目标：(13, 0) 
+[回合13] 24m 34s:  BossMu 施放了 移动, 目标：(12, 0) 
+[回合13] 24m 34s:  BossMu 施放了 移动, 目标：(11, 0) 
+[回合14] 24m 34s:  回合14
+[回合14] 24m 36s:  Flora 的 栽培 对 Flora 造成了 8 点 Heal 。生命值：73
+[回合14] 24m 36s:  Flora 失去了来自 Flora 的 栽培
+[回合14] 24m 36s:  Flora 的 栽培 对 Umiko 造成了 8 点 Heal 。生命值：80
+[回合14] 24m 36s:  Flora 的 栽培 对 Archer3 造成了 8 点 Heal 。生命值：69
+[回合14] 24m 36s:  BossMu 的 史莱姆毒素 对 Felivol 造成了 13 点 Nature 伤害。生命值：73
+[回合14] 24m 36s:  Felivol 失去了来自 BossMu 的 史莱姆毒素
+[回合14] 24m 42s:  Flora 施放了 绽放, 目标：(7, 0) 
+[回合14] 24m 43s:  Flora 的 绽放 对 Archer 造成了 25 点 Heal 。生命值：69
+[回合14] 24m 43s:  Flora 的 绽放 对 Archer2 造成了 25 点 Heal 。生命值：87
+[回合14] 24m 43s:  Flora 的 绽放 对 Lilium 造成了 24 点 Heal 。生命值：114
+[回合14] 24m 43s:  Flora 的 绽放 对 Explorer 造成了 25 点 Heal 。生命值：96
+[回合14] 24m 43s:  Flora 的 绽放 对 Flora 造成了 25 点 Heal 。生命值：98
+[回合14] 24m 44s:  Flora 的 绽放 对 Gaceon 造成了 25 点 Heal 。生命值：82
+[回合14] 24m 44s:  Flora 的 绽放 对 Astrologer 造成了 25 点 Heal 。生命值：82
+[回合14] 24m 44s:  Flora 的 绽放 对 Umiko 造成了 25 点 Heal 。生命值：105
+[回合14] 24m 44s:  Flora 的 绽放 对 Archer3 造成了 25 点 Heal 。生命值：94
+[回合14] 24m 45s:  Flora 的 绽放 对 Felivol 造成了 25 点 Heal 。生命值：98
+[回合14] 24m 48s:  Flora 施放了 治疗术, 目标：(7, 0) 
+[回合14] 24m 49s:  Flora 的 治疗术 对 Felivol 造成了 28 点 Heal 。生命值：126
+[回合14] 24m 51s:  Astrologer 施放了 星光超流, 目标：(11, 0) 
+[回合14] 24m 52s:  Astrologer 的 星光超流 对 BossMu 造成了 74 点 Light 伤害（暴击）。生命值：1841
+[回合14] 24m 52s:  BossMu 施放了 史莱姆爆炸, 目标：(11, 0) 
+[回合14] 24m 53s:  BossMu 的 史莱姆爆炸 对 Archer 造成了 24 点 Nature 伤害。生命值：45
+[回合14] 24m 53s:  BossMu 的 史莱姆爆炸 对 Archer2 造成了 23 点 Nature 伤害。生命值：64
+[回合14] 24m 53s:  BossMu 的 史莱姆爆炸 对 Lilium 造成了 17 点 Nature 伤害。生命值：97
+[回合14] 24m 54s:  BossMu 的 史莱姆爆炸 对 Explorer 造成了 23 点 Nature 伤害。生命值：73
+[回合14] 24m 54s:  BossMu 的 史莱姆爆炸 对 Flora 造成了 20 点 Nature 伤害。生命值：78
+[回合14] 24m 54s:  BossMu 的 史莱姆爆炸 对 Gaceon 造成了 23 点 Nature 伤害。生命值：59
+[回合14] 24m 54s:  BossMu 的 史莱姆爆炸 对 Astrologer 造成了 21 点 Nature 伤害。生命值：61
+[回合14] 24m 54s:  BossMu 的 史莱姆爆炸 对 Umiko 造成了 23 点 Nature 伤害。生命值：82
+[回合14] 24m 55s:  BossMu 的 史莱姆爆炸 对 Archer3 造成了 22 点 Nature 伤害。生命值：72
+[回合14] 24m 55s:  BossMu 的 史莱姆爆炸 对 Felivol 造成了 17 点 Nature 伤害。生命值：109
+[回合14] 24m 55s:  Astrologer 的 繁星道标 对 BossMu 造成了 22 点 Light 伤害。生命值：1819
+[回合14] 24m 55s:  Astrologer 的 繁星道标 对 BossMu 造成了 22 点 Light 伤害。生命值：1797
+[回合14] 24m 55s:  BossMu 重新获得了来自 Astrologer 的 繁星道标
+[回合14] 24m 58s:  Astrologer 施放了 大彗星箭, 目标：(11, 0) 
+[回合14] 24m 58s:  Astrologer 的 大彗星箭 对 BossMu 造成了 64 点 Pierce 伤害。生命值：1733
+[回合14] 25m 03s:  Archer 施放了 移动, 目标：(9, 0) 
+[回合14] 25m 04s:  Archer 获得了来自 BossMu 的 剧毒酸池
+[回合14] 25m 08s:  Archer 施放了 移动, 目标：(7, 0) 
+[回合14] 25m 09s:  Archer 失去了来自 BossMu 的 剧毒酸池
+[回合14] 25m 13s:  Felivol 施放了 移动, 目标：(6, 0) 
+[回合14] 25m 14s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：111
+[回合14] 25m 14s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：113
+[回合14] 25m 15s:  Felivol 施放了 祈祷, 目标：(6, 0) 
+[回合14] 25m 17s:  Felivol 的 祈祷 对 Felivol 造成了 13 点 Heal 。生命值：126
+[回合14] 25m 17s:  Felivol 获得了来自 Felivol 的 祝福之光
+[回合14] 25m 20s:  Flora 施放了 治疗术, 目标：(8, 0) 
+[回合14] 25m 21s:  Flora 的 治疗术 对 Gaceon 造成了 36 点 Heal 。生命值：95
+[回合14] 25m 25s:  Gaceon 施放了 治疗链, 目标：(10, 0) 
+[回合14] 25m 25s:  Gaceon 的 治疗链 对 Astrologer 造成了 22 点 Heal 。生命值：83
+[回合14] 25m 25s:  Gaceon 的 治疗链 对 Archer 造成了 15 点 Heal 。生命值：60
+[回合14] 25m 26s:  Gaceon 的 治疗链 对 Explorer 造成了 11 点 Heal 。生命值：84
+[回合14] 25m 35s:  Archer2 施放了 移动, 目标：(7, 0) 
+[回合14] 25m 37s:  BossMu 施放了 史莱姆跳跃, 目标：(7, 0) 
+[回合14] 25m 38s:  Archer2 获得了来自 BossMu 的 剧毒酸池
+[回合14] 25m 38s:  Explorer 获得了来自 BossMu 的 剧毒酸池
+[回合14] 25m 38s:  Gaceon 获得了来自 BossMu 的 剧毒酸池
+[回合14] 25m 38s:  Archer3 获得了来自 BossMu 的 剧毒酸池
+[回合14] 25m 38s:  Archer 获得了来自 BossMu 的 剧毒酸池
+[回合14] 25m 38s:  Felivol 获得了来自 BossMu 的 剧毒酸池
+[回合14] 25m 38s:  Lilium 获得了来自 BossMu 的 剧毒酸池
+[回合14] 25m 38s:  Flora 获得了来自 BossMu 的 剧毒酸池
+[回合14] 25m 38s:  BossMu 施放了 史莱姆攻击, 目标：(7, 0) 
+[回合14] 25m 39s:  BossMu 的 史莱姆攻击 对 Flora 造成了 26 点 Knock 伤害。生命值：52
+[回合14] 25m 39s:  Flora 获得了来自 BossMu 的 史莱姆毒素
+[回合14] 25m 39s:  BossMu 的 史莱姆攻击 对 Archer2 造成了 29 点 Knock 伤害。生命值：35
+[回合14] 25m 39s:  Archer2 获得了来自 BossMu 的 史莱姆毒素
+[回合14] 25m 39s:  BossMu 的 史莱姆攻击 对 Explorer 造成了 29 点 Knock 伤害。生命值：55
+[回合14] 25m 39s:  Explorer 获得了来自 BossMu 的 史莱姆毒素
+[回合14] 25m 39s:  BossMu 的 史莱姆攻击 对 Gaceon 造成了 29 点 Knock 伤害。生命值：66
+[回合14] 25m 39s:  Gaceon 获得了来自 BossMu 的 史莱姆毒素
+[回合14] 25m 40s:  BossMu 的 史莱姆攻击 对 Archer3 造成了 28 点 Knock 伤害。生命值：44
+[回合14] 25m 40s:  Archer3 获得了来自 BossMu 的 史莱姆毒素
+[回合14] 25m 40s:  BossMu 的 史莱姆攻击 对 Lilium 造成了 25 点 Knock 伤害。生命值：72
+[回合14] 25m 40s:  Lilium 获得了来自 BossMu 的 史莱姆毒素
+[回合15] 25m 40s:  回合15
+[回合15] 25m 41s:  BossMu 的 剧毒酸池 对 Archer 造成了 8 点 Nature 伤害。生命值：52
+[回合15] 25m 41s:  BossMu 的 史莱姆毒素 对 Archer2 造成了 8 点 Nature 伤害。生命值：27
+[回合15] 25m 42s:  BossMu 的 剧毒酸池 对 Archer2 造成了 7 点 Nature 伤害。生命值：20
+[回合15] 25m 42s:  BossMu 的 剧毒酸池 对 Lilium 造成了 7 点 Nature 伤害。生命值：65
+[回合15] 25m 42s:  BossMu 的 史莱姆毒素 对 Lilium 造成了 8 点 Nature 伤害。生命值：57
+[回合15] 25m 42s:  BossMu 的 剧毒酸池 对 Explorer 造成了 7 点 Nature 伤害。生命值：48
+[回合15] 25m 42s:  BossMu 的 史莱姆毒素 对 Explorer 造成了 8 点 Nature 伤害。生命值：40
+[回合15] 25m 43s:  BossMu 的 剧毒酸池 对 Flora 造成了 6 点 Nature 伤害。生命值：47
+[回合15] 25m 43s:  BossMu 的 史莱姆毒素 对 Flora 造成了 7 点 Nature 伤害。生命值：40
+[回合15] 25m 43s:  BossMu 的 剧毒酸池 对 Gaceon 造成了 7 点 Nature 伤害。生命值：59
+[回合15] 25m 43s:  BossMu 的 史莱姆毒素 对 Gaceon 造成了 8 点 Nature 伤害。生命值：51
+[回合15] 25m 43s:  Flora 的 栽培 对 Umiko 造成了 8 点 Heal 。生命值：90
+[回合15] 25m 43s:  Umiko 失去了来自 Flora 的 栽培
+[回合15] 25m 44s:  Flora 的 栽培 对 Archer3 造成了 8 点 Heal 。生命值：52
+[回合15] 25m 44s:  Archer3 失去了来自 Umiko 的 水泡护盾
+[回合15] 25m 44s:  BossMu 的 剧毒酸池 对 Archer3 造成了 7 点 Nature 伤害。生命值：45
+[回合15] 25m 44s:  BossMu 的 史莱姆毒素 对 Archer3 造成了 8 点 Nature 伤害。生命值：37
+[回合15] 25m 44s:  Felivol 失去了来自 Umiko 的 水泡护盾
+[回合15] 25m 44s:  BossMu 的 剧毒酸池 对 Felivol 造成了 4 点 Nature 伤害。生命值：122
+[回合15] 25m 48s:  Felivol 失去了来自 Felivol 的 祝福之光
+[回合15] 25m 48s:  Felivol 施放了 圣祝：裁决重锤, 目标：(6, 0) 
+[回合15] 25m 49s:  Felivol 的 圣祝：裁决重锤 没有击中 BossMu。生命值：1733
+[回合15] 25m 54s:  Lilium 施放了 移动, 目标：(5, 0) 
+[回合15] 25m 55s:  Lilium 施放了 拳, 目标：(6, 0) 
+[回合15] 25m 56s:  Lilium 的 拳 对 BossMu 造成了 10 点 Knock 伤害。生命值：1723
+[回合15] 25m 57s:  Lilium 施放了 拳, 目标：(6, 0) 
+[回合15] 25m 57s:  Lilium 的 拳 对 BossMu 造成了 10 点 Knock 伤害。生命值：1713
+[回合15] 25m 58s:  Lilium 施放了 移动, 目标：(2, 0) 
+[回合15] 25m 59s:  Lilium 失去了来自 BossMu 的 剧毒酸池
+[回合15] 25m 59s:  Lilium 失去了来自 Umiko 的 生命之歌
+[回合15] 26m 00s:  Felivol 施放了 移动, 目标：(2, 0) 
+[回合15] 26m 01s:  Felivol 失去了来自 BossMu 的 剧毒酸池
+[回合15] 26m 01s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：124
+[回合15] 26m 01s:  Felivol 失去了来自 Explorer 的 力量光环
+[回合15] 26m 01s:  Felivol 失去了来自 Umiko 的 生命之歌
+[回合15] 26m 01s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：126
+[回合15] 26m 02s:  Felivol 的 旅者 对 Felivol 造成了 0 点 Heal 。生命值：126
+[回合15] 26m 02s:  Felivol 的 旅者 对 Felivol 造成了 0 点 Heal 。生命值：126
+[回合15] 26m 04s:  Archer 施放了 移动, 目标：(4, 0) 
+[回合15] 26m 04s:  Archer 失去了来自 BossMu 的 剧毒酸池
+[回合15] 26m 04s:  Archer 失去了来自 Umiko 的 生命之歌
+[回合15] 26m 06s:  Archer2 施放了 移动, 目标：(6, 0) 
+[回合15] 26m 07s:  Archer2 失去了来自 BossMu 的 剧毒酸池
+[回合15] 26m 07s:  Archer2 失去了来自 Umiko 的 生命之歌
+[回合15] 26m 08s:  Explorer 施放了 移动, 目标：(3, 0) 
+[回合15] 26m 09s:  Explorer 失去了来自 BossMu 的 剧毒酸池
+[回合15] 26m 09s:  Astrologer 失去了来自 Explorer 的 力量光环
+[回合15] 26m 09s:  Umiko 失去了来自 Explorer 的 力量光环
+[回合15] 26m 09s:  Felivol 获得了来自 Explorer 的 力量光环
+[回合15] 26m 09s:  Explorer 失去了来自 Umiko 的 生命之歌
+[回合15] 26m 12s:  Flora 施放了 移动, 目标：(5, 0) 
+[回合15] 26m 15s:  Flora 施放了 治疗术, 目标：(2, 0) 
+[回合15] 26m 16s:  Flora 的 治疗术 对 Lilium 造成了 36 点 Heal 。生命值：93
+[回合15] 26m 18s:  Flora 施放了 栽培, 目标：(3, 0) 
+[回合15] 26m 19s:  Explorer 获得了来自 Flora 的 栽培
+[回合15] 26m 20s:  Gaceon 施放了 移动, 目标：(5, 0) 
+[回合15] 26m 21s:  Gaceon 重新获得了来自 BossMu 的 剧毒酸池
+[回合15] 26m 21s:  Gaceon 失去了来自 Umiko 的 生命之歌
+[回合15] 26m 26s:  Astrologer 施放了 移动, 目标：(8, 0) 
+[回合15] 26m 27s:  Astrologer 获得了来自 BossMu 的 剧毒酸池
+[回合15] 26m 27s:  Astrologer 获得了来自 Explorer 的 力量光环
+[回合15] 26m 34s:  Astrologer 施放了 移动, 目标：(7, 0) 
+[回合15] 26m 38s:  Astrologer 施放了 闪光, 目标：(4, 0) 
+[回合15] 26m 38s:  Astrologer 失去了来自 BossMu 的 剧毒酸池
+[回合15] 26m 38s:  Astrologer 获得了来自 BossMu 的 剧毒酸池
+[回合15] 26m 38s:  Astrologer 失去了来自 Umiko 的 生命之歌
+[回合15] 26m 40s:  Archer3 施放了 移动, 目标：(4, 0) 
+[回合15] 26m 41s:  Archer3 失去了来自 BossMu 的 剧毒酸池
+[回合15] 26m 41s:  Archer3 失去了来自 Umiko 的 生命之歌
+[回合15] 26m 44s:  Umiko 施放了 移动, 目标：(3, 0) 
+[回合15] 26m 45s:  Archer 获得了来自 Umiko 的 生命之歌
+[回合15] 26m 45s:  Lilium 获得了来自 Umiko 的 生命之歌
+[回合15] 26m 45s:  Explorer 获得了来自 Umiko 的 生命之歌
+[回合15] 26m 45s:  Archer3 获得了来自 Umiko 的 生命之歌
+[回合15] 26m 45s:  Felivol 获得了来自 Umiko 的 生命之歌
+[回合15] 26m 45s:  Umiko 获得了来自 Explorer 的 力量光环
+[回合15] 26m 47s:  Archer 施放了 射击, 目标：(8, 0) 
+[回合15] 26m 47s:  Archer 施放了 射击, 目标：(8, 0) 
+[回合15] 26m 48s:  Archer2 施放了 射击, 目标：(6, 0) 
+[回合15] 26m 48s:  Archer2 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：1678
+[回合15] 26m 48s:  Archer2 施放了 射击, 目标：(6, 0) 
+[回合15] 26m 49s:  Archer2 的 射击 对 BossMu 造成了 35 点 Pierce 伤害。生命值：1643
+[回合15] 26m 49s:  Archer3 施放了 射击, 目标：(8, 0) 
+[回合15] 26m 49s:  Explorer 施放了 响音攻击, 目标：(3, 0) 
+[回合15] 26m 52s:  BossMu 失去了来自 Astrologer 的 繁星道标
+[回合15] 26m 52s:  BossMu 施放了 史莱姆跳跃, 目标：(5, 0) 
+[回合15] 26m 55s:  BossMu 施放了 飞溅毒液, 目标：(4, 0) 
+[回合15] 26m 55s:  BossMu 的 飞溅毒液 对 Archer 造成了 15 点 Nature 伤害。生命值：37
+[回合15] 26m 55s:  Archer 获得了来自 BossMu 的 史莱姆毒素
+[回合15] 26m 56s:  BossMu 的 飞溅毒液 对 Archer2 造成了 14 点 Nature 伤害。生命值：6
+[回合15] 26m 56s:  Archer2 重新获得了来自 BossMu 的 史莱姆毒素
+[回合15] 26m 56s:  BossMu 的 飞溅毒液 对 Lilium 造成了 9 点 Nature 伤害。生命值：84
+[回合15] 26m 56s:  Lilium 重新获得了来自 BossMu 的 史莱姆毒素
+[回合15] 26m 56s:  BossMu 的 飞溅毒液 对 Explorer 造成了 14 点 Nature 伤害。生命值：26
+[回合15] 26m 56s:  Explorer 重新获得了来自 BossMu 的 史莱姆毒素
+[回合15] 26m 56s:  BossMu 的 飞溅毒液 对 Flora 造成了 12 点 Nature 伤害。生命值：28
+[回合15] 26m 56s:  Flora 重新获得了来自 BossMu 的 史莱姆毒素
+[回合15] 26m 56s:  BossMu 的 飞溅毒液 对 Gaceon 造成了 14 点 Nature 伤害。生命值：37
+[回合15] 26m 56s:  Gaceon 重新获得了来自 BossMu 的 史莱姆毒素
+[回合15] 26m 57s:  BossMu 的 飞溅毒液 对 Astrologer 造成了 13 点 Nature 伤害。生命值：70
+[回合15] 26m 57s:  Astrologer 获得了来自 BossMu 的 史莱姆毒素
+[回合15] 26m 57s:  BossMu 的 飞溅毒液 对 Umiko 造成了 14 点 Nature 伤害。生命值：76
+[回合15] 26m 57s:  Umiko 获得了来自 BossMu 的 史莱姆毒素
+[回合15] 26m 57s:  BossMu 的 飞溅毒液 对 Archer3 造成了 14 点 Nature 伤害。生命值：23
+[回合15] 26m 57s:  Archer3 重新获得了来自 BossMu 的 史莱姆毒素
+[回合15] 26m 57s:  BossMu 的 飞溅毒液 对 Felivol 造成了 10 点 Nature 伤害。生命值：116
+[回合15] 26m 57s:  Felivol 获得了来自 BossMu 的 史莱姆毒素
+[回合15] 26m 57s:  Astrologer 重新获得了来自 BossMu 的 剧毒酸池
+[回合15] 26m 57s:  Explorer 获得了来自 BossMu 的 剧毒酸池
+[回合15] 26m 57s:  Lilium 获得了来自 BossMu 的 剧毒酸池
+[回合15] 26m 57s:  Gaceon 重新获得了来自 BossMu 的 剧毒酸池
+[回合15] 26m 57s:  Archer 获得了来自 BossMu 的 剧毒酸池
+[回合15] 26m 57s:  Flora 重新获得了来自 BossMu 的 剧毒酸池
+[回合16] 26m 57s:  回合16
+[回合16] 26m 59s:  BossMu 的 史莱姆毒素 对 Archer 造成了 9 点 Nature 伤害。生命值：28
+[回合16] 26m 59s:  BossMu 的 剧毒酸池 对 Archer 造成了 8 点 Nature 伤害。生命值：20
+[回合16] 26m 59s:  BossMu 的 史莱姆毒素 对 Archer2 造成了 6 点 Nature 伤害。生命值：0
+[回合16] 26m 59s:  Archer2 失去了来自 Archer2 的 攻击者
+[回合16] 26m 59s:  Archer2 失去了来自 Explorer 的 力量光环
+[回合16] 26m 59s:  Archer2 失去了来自 BossMu 的 史莱姆毒素
+[回合16] 26m 59s:  BossMu 的  击杀了 Archer2 !
+[回合16] 26m 59s:  BossMu 的 剧毒酸池 对 Lilium 造成了 7 点 Nature 伤害。生命值：77
+[回合16] 27m 00s:  BossMu 的 史莱姆毒素 对 Lilium 造成了 16 点 Nature 伤害。生命值：61
+[回合16] 27m 00s:  Flora 的 栽培 对 Explorer 造成了 8 点 Heal 。生命值：34
+[回合16] 27m 00s:  BossMu 的 史莱姆毒素 对 Explorer 造成了 17 点 Nature 伤害。生命值：17
+[回合16] 27m 00s:  BossMu 的 剧毒酸池 对 Explorer 造成了 7 点 Nature 伤害。生命值：10
+[回合16] 27m 00s:  BossMu 的 剧毒酸池 对 Flora 造成了 6 点 Nature 伤害。生命值：24
+[回合16] 27m 01s:  BossMu 的 史莱姆毒素 对 Flora 造成了 15 点 Nature 伤害。生命值：9
+[回合16] 27m 01s:  BossMu 的 剧毒酸池 对 Gaceon 造成了 7 点 Nature 伤害。生命值：30
+[回合16] 27m 01s:  BossMu 的 史莱姆毒素 对 Gaceon 造成了 17 点 Nature 伤害。生命值：13
+[回合16] 27m 01s:  BossMu 的 剧毒酸池 对 Astrologer 造成了 7 点 Nature 伤害。生命值：63
+[回合16] 27m 01s:  BossMu 的 史莱姆毒素 对 Astrologer 造成了 8 点 Nature 伤害。生命值：55
+[回合16] 27m 02s:  BossMu 的 史莱姆毒素 对 Umiko 造成了 8 点 Nature 伤害。生命值：68
+[回合16] 27m 02s:  Flora 的 栽培 对 Archer3 造成了 8 点 Heal 。生命值：31
+[回合16] 27m 02s:  Archer3 失去了来自 Flora 的 栽培
+[回合16] 27m 02s:  BossMu 的 史莱姆毒素 对 Archer3 造成了 16 点 Nature 伤害。生命值：15
+[回合16] 27m 02s:  BossMu 的 史莱姆毒素 对 Felivol 造成了 5 点 Nature 伤害。生命值：111
+[回合16] 27m 14s:  Gaceon 施放了 移动, 目标：(5, 0) 
+[回合16] 27m 14s:  Gaceon 失去了来自 BossMu 的 剧毒酸池
+[回合16] 27m 16s:  Gaceon 施放了 复活, 目标：(6, 0) 
+[回合16] 27m 16s:  Archer2 获得了来自 Archer2 的 攻击者
+[回合16] 27m 16s:  Gaceon 的 复活 对 Archer2 造成了 29 点 Heal 。生命值：30
+[回合16] 27m 18s:  Astrologer 施放了 移动, 目标：(3, 0) 
+[回合16] 27m 18s:  Astrologer 失去了来自 BossMu 的 剧毒酸池
+[回合16] 27m 19s:  Explorer 施放了 移动, 目标：(2, 0) 
+[回合16] 27m 20s:  Explorer 失去了来自 BossMu 的 剧毒酸池
+[回合16] 27m 20s:  Explorer 失去了来自 Umiko 的 生命之歌
+[回合16] 27m 21s:  Lilium 施放了 移动, 目标：(1, 0) 
+[回合16] 27m 21s:  Lilium 失去了来自 BossMu 的 剧毒酸池
+[回合16] 27m 29s:  Flora 施放了 移动, 目标：(5, 0) 
+[回合16] 27m 29s:  Flora 失去了来自 BossMu 的 剧毒酸池
+[回合16] 27m 29s:  Flora 失去了来自 Explorer 的 力量光环
+[回合16] 27m 33s:  Flora 施放了 栽培, 目标：(4, 0) 
+[回合16] 27m 33s:  Archer3 获得了来自 Flora 的 栽培
+[回合16] 27m 57s:  Archer 施放了 射击, 目标：(4, 0) 
+[回合16] 27m 58s:  Archer 的 射击 对 BossMu 造成了 49 点 Pierce 伤害。生命值：1594
+[回合16] 28m 01s:  Umiko 施放了 移动, 目标：(1, 0) 
+[回合16] 28m 02s:  Felivol 施放了 移动, 目标：(2, 0) 
+[回合16] 28m 03s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：113
+[回合16] 28m 04s:  Felivol 施放了 祈祷, 目标：(2, 0) 
+[回合16] 28m 05s:  Felivol 的 祈祷 对 Felivol 造成了 13 点 Heal 。生命值：126
+[回合16] 28m 05s:  Felivol 获得了来自 Felivol 的 祝福之光
+[回合16] 28m 06s:  Archer 施放了 移动, 目标：(3, 0) 
+[回合16] 28m 06s:  Archer 失去了来自 BossMu 的 剧毒酸池
+[回合16] 28m 08s:  Archer3 施放了 射击, 目标：(8, 0) 
+[回合16] 28m 08s:  Explorer 施放了 响音攻击, 目标：(2, 0) 
+[回合16] 28m 08s:  Explorer 施放了 响音攻击, 目标：(2, 0) 
+[回合16] 28m 09s:  Umiko 施放了 水泡, 目标：(8, 0) 
+[回合16] 28m 09s:  Gaceon 施放了 治疗链, 目标：(2, 0) 
+[回合16] 28m 10s:  Gaceon 的 治疗链 对 Explorer 造成了 18 点 Heal 。生命值：28
+[回合16] 28m 10s:  Gaceon 的 治疗链 对 Lilium 造成了 12 点 Heal 。生命值：73
+[回合16] 28m 10s:  Gaceon 的 治疗链 对 Explorer 造成了 9 点 Heal 。生命值：37
+[回合16] 28m 11s:  Astrologer 施放了 彗星箭, 目标：(4, 0) 
+[回合16] 28m 12s:  Astrologer 的 彗星箭 对 BossMu 造成了 32 点 Ice 伤害。生命值：1562
+[回合16] 28m 12s:  Lilium 施放了 盾击, 目标：(4, 0) 
+[回合16] 28m 13s:  BossMu 施放了 分裂, 目标：(4, 0) 
+[回合16] 28m 15s:  BossMu 失去了来自 BossMu 的 爆裂 [629]
+[回合16] 28m 15s:  BossMu(Clone) 获得了来自 BossMu(Clone) 的 爆裂 [932]
+[回合16] 28m 15s:  BossMu(Clone) 获得了来自 BossMu(Clone) 的 爆裂 [932]
+[回合17] 28m 15s:  回合17
+[回合17] 28m 16s:  BossMu 的 史莱姆毒素 对 Archer 造成了 9 点 Nature 伤害。生命值：11
+[回合17] 28m 17s:  BossMu 的 史莱姆毒素 对 Lilium 造成了 12 点 Nature 伤害。生命值：61
+[回合17] 28m 17s:  Flora 的 栽培 对 Explorer 造成了 8 点 Heal 。生命值：45
+[回合17] 28m 17s:  BossMu 的 史莱姆毒素 对 Explorer 造成了 17 点 Nature 伤害。生命值：28
+[回合17] 28m 17s:  BossMu 的 史莱姆毒素 对 Flora 造成了 9 点 Nature 伤害。生命值：0
+[回合17] 28m 17s:  Flora 失去了来自 Umiko 的 生命之歌
+[回合17] 28m 17s:  Flora 失去了来自 BossMu 的 史莱姆毒素
+[回合17] 28m 17s:  BossMu 的  击杀了 Flora !
+[回合17] 28m 17s:  BossMu 的 史莱姆毒素 对 Gaceon 造成了 16 点 Nature 伤害。生命值：0
+[回合17] 28m 17s:  Gaceon 失去了来自 Explorer 的 力量光环
+[回合17] 28m 17s:  Gaceon 失去了来自 BossMu 的 史莱姆毒素
+[回合17] 28m 17s:  BossMu 的  击杀了 Gaceon !
+[回合17] 28m 18s:  BossMu 的 史莱姆毒素 对 Astrologer 造成了 8 点 Nature 伤害。生命值：47
+[回合17] 28m 18s:  BossMu 的 史莱姆毒素 对 Umiko 造成了 8 点 Nature 伤害。生命值：60
+[回合17] 28m 18s:  Flora 的 栽培 对 Archer3 造成了 8 点 Heal 。生命值：23
+[回合17] 28m 18s:  BossMu 的 史莱姆毒素 对 Archer3 造成了 16 点 Nature 伤害。生命值：7
+[回合17] 28m 18s:  BossMu 的 史莱姆毒素 对 Felivol 造成了 5 点 Nature 伤害。生命值：121
+[回合17] 28m 21s:  Archer 的 移动 对 Archer 造成了 20 点 Heal 。生命值：31
+[回合17] 28m 21s:  Archer2 的 移动 对 Archer2 造成了 20 点 Heal 。生命值：50
+[回合17] 28m 22s:  Lilium 的 移动 对 Lilium 造成了 23 点 Heal 。生命值：84
+[回合17] 28m 22s:  Explorer 的 移动 对 Explorer 造成了 26 点 Heal 。生命值：54
+[回合17] 28m 22s:  Flora 的 <NULL ACTION> 对 Flora 造成了 0 点 Heal 。生命值：1
+[回合17] 28m 22s:  Flora 的 <NULL ACTION> 对 Flora 造成了 21 点 Heal 。生命值：22
+[回合17] 28m 22s:  Gaceon 的 <NULL ACTION> 对 Gaceon 造成了 0 点 Heal 。生命值：1
+[回合17] 28m 23s:  Gaceon 的 <NULL ACTION> 对 Gaceon 造成了 21 点 Heal 。生命值：22
+[回合17] 28m 23s:  Astrologer 的 移动 对 Astrologer 造成了 18 点 Heal 。生命值：65
+[回合17] 28m 23s:  Umiko 的 移动 对 Umiko 造成了 26 点 Heal 。生命值：86
+[回合17] 28m 23s:  Archer3 的 移动 对 Archer3 造成了 20 点 Heal 。生命值：27
+[回合17] 28m 23s:  Felivol 的 移动 对 Felivol 造成了 5 点 Heal 。生命值：126
+[回合17] 28m 30s:  Umiko 施放了 海神之鞭, 目标：(1, 0) 
+[回合17] 28m 31s:  Archer 获得了来自 Umiko 的 海神之鞭
+[回合17] 28m 31s:  Archer2 获得了来自 Umiko 的 海神之鞭
+[回合17] 28m 31s:  Lilium 获得了来自 Umiko 的 海神之鞭
+[回合17] 28m 31s:  Explorer 获得了来自 Umiko 的 海神之鞭
+[回合17] 28m 31s:  Flora 获得了来自 Umiko 的 海神之鞭
+[回合17] 28m 31s:  Gaceon 获得了来自 Umiko 的 海神之鞭
+[回合17] 28m 31s:  Astrologer 获得了来自 Umiko 的 海神之鞭
+[回合17] 28m 31s:  Umiko 获得了来自 Umiko 的 海神之鞭
+[回合17] 28m 31s:  Archer3 获得了来自 Umiko 的 海神之鞭
+[回合17] 28m 31s:  Felivol 获得了来自 Umiko 的 海神之鞭
+[回合17] 28m 35s:  Archer2 施放了 疾飞之箭, 目标：(4, 0) 
+[回合17] 28m 35s:  Archer2 的 疾飞之箭 对 BossMu 造成了 22 点 Pierce 伤害。生命值：1376
+[回合17] 28m 36s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：1372
+[回合17] 28m 36s:  BossMu 获得了来自 Archer2 的 出血
+[回合17] 28m 38s:  Archer3 施放了 狂风加护, 目标：(4, 0) 
+[回合17] 28m 39s:  Archer3 获得了来自 Archer3 的 狂风加护
+[回合17] 28m 40s:  Archer3 施放了 疾飞之箭, 目标：(4, 0) 
+[回合17] 28m 40s:  Archer3 的 疾飞之箭 对 BossMu 造成了 22 点 Pierce 伤害。生命值：1376
+[回合17] 28m 41s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：1372
+[回合17] 28m 41s:  BossMu 获得了来自 Archer3 的 出血
+[回合17] 28m 42s:  Archer3 施放了 射击, 目标：(4, 0) 
+[回合17] 28m 42s:  Archer3 的 射击 对 BossMu 造成了 44 点 Pierce 伤害。生命值：1328
+[回合17] 28m 43s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：1324
+[回合17] 28m 44s:  Archer3 施放了 射击, 目标：(4, 0) 
+[回合17] 28m 45s:  Archer3 的 射击 对 BossMu 造成了 44 点 Pierce 伤害。生命值：1280
+[回合17] 28m 45s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：1276
+[回合17] 28m 48s:  Astrologer 施放了 彗星箭, 目标：(4, 0) 
+[回合17] 28m 49s:  Astrologer 的 彗星箭 对 BossMu 造成了 32 点 Ice 伤害。生命值：1340
+[回合17] 28m 50s:  Umiko 的 海神之鞭 对 BossMu 造成了 8 点 Water 伤害（暴击）。生命值：1332
+[回合17] 28m 50s:  Astrologer 施放了 彗星箭, 目标：(4, 0) 
+[回合17] 28m 51s:  Astrologer 的 彗星箭 对 BossMu 造成了 64 点 Ice 伤害（暴击）。生命值：1268
+[回合17] 28m 52s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：1264
+[回合17] 28m 57s:  Lilium 施放了 移动, 目标：(3, 0) 
+[回合17] 28m 58s:  Lilium 获得了来自 BossMu 的 剧毒酸池
+[回合17] 28m 58s:  Lilium 失去了来自 Umiko 的 生命之歌
+[回合17] 28m 59s:  Lilium 施放了 拳, 目标：(4, 0) 
+[回合17] 28m 59s:  Lilium 的 拳 没有击中 BossMu。生命值：1264
+[回合17] 29m 01s:  Lilium 施放了 拳, 目标：(4, 0) 
+[回合17] 29m 01s:  Lilium 的 拳 对 BossMu 造成了 10 点 Knock 伤害。生命值：1254
+[回合17] 29m 02s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：1250
+[回合17] 29m 03s:  Lilium 施放了 拳, 目标：(4, 0) 
+[回合17] 29m 03s:  Lilium 的 拳 对 BossMu 造成了 10 点 Knock 伤害。生命值：1240
+[回合17] 29m 04s:  Umiko 的 海神之鞭 对 BossMu 造成了 8 点 Water 伤害（暴击）。生命值：1232
+[回合17] 29m 08s:  Archer 施放了 移动, 目标：(2, 0) 
+[回合17] 29m 09s:  Archer 施放了 射击, 目标：(4, 0) 
+[回合17] 29m 10s:  Archer 的 射击 对 BossMu 造成了 49 点 Pierce 伤害。生命值：1227
+[回合17] 29m 10s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：1223
+[回合17] 29m 12s:  Felivol 施放了 移动, 目标：(3, 0) 
+[回合17] 29m 12s:  Felivol 获得了来自 BossMu 的 剧毒酸池
+[回合17] 29m 12s:  Felivol 的 旅者 对 Felivol 造成了 0 点 Heal 。生命值：126
+[回合17] 29m 12s:  Felivol 的 旅者 对 Felivol 造成了 0 点 Heal 。生命值：126
+[回合17] 29m 14s:  Felivol 失去了来自 Felivol 的 祝福之光
+[回合17] 29m 14s:  Felivol 施放了 圣祝：裁决重锤, 目标：(4, 0) 
+[回合17] 29m 15s:  Felivol 的 圣祝：裁决重锤 对 BossMu 造成了 35 点 Knock 伤害。生命值：1188
+[回合17] 29m 16s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：1184
+[回合17] 29m 17s:  Felivol 施放了 盾击, 目标：(4, 0) 
+[回合17] 29m 17s:  Felivol 的 盾击 没有击中 BossMu。生命值：1184
+[回合17] 29m 18s:  Felivol 施放了 盾击, 目标：(4, 0) 
+[回合17] 29m 19s:  Felivol 的 盾击 对 BossMu 造成了 35 点 Knock 伤害。生命值：1149
+[回合17] 29m 19s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：1145
+[回合17] 29m 22s:  Flora 施放了 治疗术, 目标：(5, 0) 
+[回合17] 29m 23s:  Flora 的 治疗术 对 Flora 造成了 29 点 Heal 。生命值：51
+[回合17] 29m 26s:  Archer 施放了 移动, 目标：(1, 0) 
+[回合17] 29m 33s:  Explorer 施放了 响音攻击, 目标：(2, 0) 
+[回合17] 29m 34s:  Explorer 的 响音攻击 对 BossMu 造成了 8 点 Knock 伤害。生命值：1224
+[回合17] 29m 34s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：1220
+[回合17] 29m 35s:  Explorer 施放了 移动, 目标：(1, 0) 
+[回合17] 29m 35s:  Explorer 获得了来自 Umiko 的 生命之歌
+[回合17] 29m 40s:  Umiko 施放了 水泡, 目标：(8, 0) 
+[回合17] 29m 42s:  Archer2 的 出血 对 BossMu 造成了 9 点 Pierce 伤害。生命值：1211
+[回合17] 29m 42s:  Archer3 的 出血 对 BossMu 造成了 9 点 Pierce 伤害。生命值：1136
+[回合17] 29m 42s:  BossMu 施放了 粘液翻腾, 目标：(4, 0) 
+[回合17] 29m 42s:  BossMu 施放了 史莱姆攻击, 目标：(3, 0) 
+[回合17] 29m 43s:  BossMu 的 史莱姆攻击 对 Lilium 造成了 21 点 Knock 伤害。生命值：63
+[回合17] 29m 43s:  Lilium 重新获得了来自 BossMu 的 史莱姆毒素
+[回合17] 29m 43s:  BossMu 的 史莱姆攻击 对 Astrologer 造成了 27 点 Knock 伤害。生命值：38
+[回合17] 29m 43s:  Astrologer 重新获得了来自 BossMu 的 史莱姆毒素
+[回合17] 29m 44s:  BossMu 施放了 粘液翻腾, 目标：(4, 0) 
+[回合17] 29m 44s:  BossMu 施放了 史莱姆攻击, 目标：(3, 0) 
+[回合17] 29m 44s:  BossMu 的 史莱姆攻击 对 Felivol 造成了 23 点 Knock 伤害。生命值：103
+[回合17] 29m 44s:  Felivol 重新获得了来自 BossMu 的 史莱姆毒素
+[回合17] 29m 45s:  BossMu 的 史莱姆攻击 对 Archer3 造成了 27 点 Knock 伤害。生命值：0
+[回合17] 29m 45s:  Archer3 失去了来自 Archer3 的 攻击者
+[回合17] 29m 45s:  Archer3 失去了来自 BossMu 的 史莱姆毒素
+[回合17] 29m 45s:  Archer3 失去了来自 Umiko 的 生命之歌
+[回合17] 29m 45s:  Archer3 失去了来自 Flora 的 栽培
+[回合17] 29m 45s:  Archer3 失去了来自 Umiko 的 海神之鞭
+[回合17] 29m 45s:  Archer3 失去了来自 Archer3 的 狂风加护
+[回合17] 29m 45s:  BossMu 的 史莱姆攻击 击杀了 Archer3 !
+[回合18] 29m 45s:  回合18
+[回合18] 29m 46s:  BossMu 的 史莱姆毒素 对 Archer 造成了 9 点 Nature 伤害。生命值：22
+[回合18] 29m 46s:  Archer 失去了来自 BossMu 的 史莱姆毒素
+[回合18] 29m 46s:  BossMu 的 剧毒酸池 对 Lilium 造成了 7 点 Nature 伤害。生命值：56
+[回合18] 29m 47s:  BossMu 的 史莱姆毒素 对 Lilium 造成了 24 点 Nature 伤害。生命值：32
+[回合18] 29m 47s:  Flora 的 栽培 对 Explorer 造成了 8 点 Heal 。生命值：62
+[回合18] 29m 47s:  Explorer 失去了来自 Flora 的 栽培
+[回合18] 29m 47s:  BossMu 的 史莱姆毒素 对 Explorer 造成了 17 点 Nature 伤害。生命值：45
+[回合18] 29m 47s:  Explorer 失去了来自 BossMu 的 史莱姆毒素
+[回合18] 29m 47s:  BossMu 的 史莱姆毒素 对 Astrologer 造成了 16 点 Nature 伤害。生命值：22
+[回合18] 29m 47s:  BossMu 的 史莱姆毒素 对 Umiko 造成了 8 点 Nature 伤害。生命值：78
+[回合18] 29m 47s:  Umiko 失去了来自 BossMu 的 史莱姆毒素
+[回合18] 29m 48s:  BossMu 的 史莱姆毒素 对 Felivol 造成了 13 点 Nature 伤害。生命值：90
+[回合18] 29m 48s:  BossMu 的 剧毒酸池 对 Felivol 造成了 4 点 Nature 伤害。生命值：86
+[回合18] 31m 01s:  Flora 施放了 移动, 目标：(7, 0) 
+[回合18] 31m 11s:  Archer 施放了 射击, 目标：(4, 0) 
+[回合18] 31m 12s:  Archer 的 射击 对 BossMu 造成了 49 点 Pierce 伤害。生命值：1087
+[回合18] 31m 12s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：1083
+[回合18] 31m 12s:  Archer2 施放了 射击, 目标：(4, 0) 
+[回合18] 31m 13s:  Archer2 的 射击 对 BossMu 造成了 44 点 Pierce 伤害。生命值：1167
+[回合18] 31m 14s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：1163
+[回合18] 31m 14s:  Archer2 施放了 射击, 目标：(4, 0) 
+[回合18] 31m 14s:  Archer2 的 射击 对 BossMu 造成了 44 点 Pierce 伤害。生命值：1119
+[回合18] 31m 15s:  Umiko 的 海神之鞭 对 BossMu 造成了 8 点 Water 伤害（暴击）。生命值：1111
+[回合18] 31m 15s:  Explorer 施放了 响音攻击, 目标：(1, 0) 
+[回合18] 31m 16s:  Explorer 的 响音攻击 对 BossMu 造成了 8 点 Knock 伤害。生命值：1103
+[回合18] 31m 16s:  Umiko 的 海神之鞭 对 BossMu 造成了 8 点 Water 伤害（暴击）。生命值：1095
+[回合18] 31m 16s:  Umiko 施放了 水泡, 目标：(8, 0) 
+[回合18] 31m 17s:  Flora 施放了 栽培, 目标：(7, 0) 
+[回合18] 31m 17s:  Flora 获得了来自 Flora 的 栽培
+[回合18] 31m 18s:  Gaceon 施放了 治疗链, 目标：(5, 0) 
+[回合18] 31m 18s:  Gaceon 的 治疗链 对 Gaceon 造成了 18 点 Heal 。生命值：40
+[回合18] 31m 18s:  Gaceon 的 治疗链 对 Lilium 造成了 12 点 Heal 。生命值：44
+[回合18] 31m 18s:  Gaceon 的 治疗链 对 Astrologer 造成了 9 点 Heal 。生命值：31
+[回合18] 31m 19s:  Astrologer 施放了 彗星箭, 目标：(4, 0) 
+[回合18] 31m 20s:  Astrologer 的 彗星箭 对 BossMu 造成了 32 点 Ice 伤害。生命值：1063
+[回合18] 31m 21s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：1059
+[回合18] 31m 21s:  Lilium 施放了 盾击, 目标：(4, 0) 
+[回合18] 31m 21s:  Felivol 施放了 盾击, 目标：(4, 0) 
+[回合18] 31m 22s:  Felivol 的 盾击 对 BossMu 造成了 35 点 Knock 伤害。生命值：1048
+[回合18] 31m 22s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：1044
+[回合18] 31m 22s:  Felivol 施放了 盾击, 目标：(4, 0) 
+[回合18] 31m 23s:  Felivol 的 盾击 对 BossMu 造成了 35 点 Knock 伤害。生命值：1009
+[回合18] 31m 23s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：1005
+[回合18] 31m 25s:  Archer2 的 出血 对 BossMu 造成了 9 点 Pierce 伤害。生命值：1050
+[回合18] 31m 25s:  Archer3 的 出血 对 BossMu 造成了 9 点 Pierce 伤害。生命值：996
+[回合18] 31m 25s:  BossMu 的 粘液翻腾 对 Archer2 造成了 50 点 Knock 伤害。生命值：0
+[回合18] 31m 25s:  Archer2 失去了来自 Archer2 的 攻击者
+[回合18] 31m 25s:  Archer2 失去了来自 Umiko 的 海神之鞭
+[回合18] 31m 25s:  BossMu 的 粘液翻腾 击杀了 Archer2 !
+[回合18] 31m 25s:  BossMu 的 粘液翻腾 对 Lilium 造成了 44 点 Knock 伤害。生命值：0
+[回合18] 31m 25s:  Lilium 失去了来自 Lilium 的 防卫者
+[回合18] 31m 25s:  Lilium 失去了来自 Explorer 的 力量光环
+[回合18] 31m 25s:  Lilium 失去了来自 BossMu 的 史莱姆毒素
+[回合18] 31m 25s:  Lilium 失去了来自 Umiko 的 海神之鞭
+[回合18] 31m 25s:  Lilium 失去了来自 BossMu 的 剧毒酸池
+[回合18] 31m 25s:  BossMu 的 粘液翻腾 击杀了 Lilium !
+[回合18] 31m 25s:  BossMu 的 粘液翻腾 对 Explorer 造成了 45 点 Knock 伤害。生命值：0
+[回合18] 31m 25s:  Explorer 失去了来自 Explorer 的 力量光环
+[回合18] 31m 25s:  Archer 失去了来自 Explorer 的 力量光环
+[回合18] 31m 25s:  Astrologer 失去了来自 Explorer 的 力量光环
+[回合18] 31m 25s:  Umiko 失去了来自 Explorer 的 力量光环
+[回合18] 31m 25s:  Felivol 失去了来自 Explorer 的 力量光环
+[回合18] 31m 25s:  Explorer 失去了来自 Umiko 的 海神之鞭
+[回合18] 31m 25s:  Explorer 失去了来自 Umiko 的 生命之歌
+[回合18] 31m 25s:  BossMu 的 粘液翻腾 击杀了 Explorer !
+[回合18] 31m 26s:  BossMu 的 粘液翻腾 对 Gaceon 造成了 40 点 Knock 伤害。生命值：0
+[回合18] 31m 26s:  Gaceon 失去了来自 Umiko 的 海神之鞭
+[回合18] 31m 26s:  BossMu 的 粘液翻腾 击杀了 Gaceon !
+[回合18] 31m 26s:  BossMu 的 粘液翻腾 对 Astrologer 造成了 31 点 Knock 伤害。生命值：0
+[回合18] 31m 26s:  Astrologer 失去了来自 Astrologer 的 流星
+[回合18] 31m 26s:  Astrologer 失去了来自 Astrologer 的 星能转化
+[回合18] 31m 26s:  Astrologer 失去了来自 BossMu 的 史莱姆毒素
+[回合18] 31m 26s:  Astrologer 失去了来自 Umiko 的 海神之鞭
+[回合18] 31m 26s:  BossMu 的 粘液翻腾 击杀了 Astrologer !
+[回合18] 31m 26s:  BossMu 的 粘液翻腾 对 Archer 造成了 22 点 Knock 伤害。生命值：0
+[回合18] 31m 26s:  Archer 失去了来自 Archer 的 攻击者
+[回合18] 31m 26s:  Archer 失去了来自 Umiko 的 生命之歌
+[回合18] 31m 26s:  Archer 失去了来自 Umiko 的 海神之鞭
+[回合18] 31m 26s:  BossMu 的 粘液翻腾 击杀了 Archer !
+[回合18] 31m 26s:  BossMu 的 粘液翻腾 对 Umiko 造成了 58 点 Knock 伤害。生命值：20
+[回合18] 31m 26s:  BossMu 的 粘液翻腾 对 Felivol 造成了 34 点 Knock 伤害。生命值：52
+[回合18] 31m 26s:  BossMu 施放了 小史莱姆标记, 目标：(4, 0) 
+[回合18] 31m 27s:  Flora 获得了来自 BossMu 的 锁定
+[回合18] 31m 27s:  BossMu 施放了 移动, 目标：(4, 0) 
+[回合18] 31m 27s:  BossMu 施放了 移动, 目标：(4, 0) 
+[回合18] 31m 28s:  BossMu 施放了 移动, 目标：(4, 0) 
+[回合18] 31m 28s:  BossMu 施放了 小史莱姆标记, 目标：(4, 0) 
+[回合18] 31m 29s:  BossMu 施放了 史莱姆攻击, 目标：(3, 0) 
+[回合18] 31m 30s:  BossMu 的 史莱姆攻击 对 Felivol 造成了 23 点 Knock 伤害。生命值：29
+[回合18] 31m 30s:  Felivol 重新获得了来自 BossMu 的 史莱姆毒素
+[回合19] 31m 30s:  回合19
+[回合19] 31m 31s:  Flora 的 栽培 对 Flora 造成了 6 点 Heal 。生命值：57
+[回合19] 31m 31s:  BossMu 的 史莱姆毒素 对 Felivol 造成了 20 点 Nature 伤害。生命值：9
+[回合19] 31m 32s:  BossMu 的 剧毒酸池 对 Felivol 造成了 4 点 Nature 伤害。生命值：5
+[回合19] 31m 33s:  Archer 获得了来自 Archer 的 攻击者
+[回合19] 31m 33s:  Archer 的 <NULL ACTION> 对 Archer 造成了 0 点 Heal 。生命值：1
+[回合19] 31m 34s:  Archer 的 <NULL ACTION> 对 Archer 造成了 20 点 Heal 。生命值：21
+[回合19] 31m 34s:  Archer2 获得了来自 Archer2 的 攻击者
+[回合19] 31m 34s:  Archer2 的 <NULL ACTION> 对 Archer2 造成了 0 点 Heal 。生命值：1
+[回合19] 31m 34s:  Archer2 的 <NULL ACTION> 对 Archer2 造成了 20 点 Heal 。生命值：21
+[回合19] 31m 34s:  Lilium 获得了来自 Lilium 的 防卫者
+[回合19] 31m 34s:  Lilium 的 <NULL ACTION> 对 Lilium 造成了 0 点 Heal 。生命值：1
+[回合19] 31m 34s:  Lilium 的 <NULL ACTION> 对 Lilium 造成了 23 点 Heal 。生命值：24
+[回合19] 31m 34s:  Explorer 获得了来自 Explorer 的 力量光环
+[回合19] 31m 34s:  Archer 获得了来自 Explorer 的 力量光环
+[回合19] 31m 34s:  Archer2 获得了来自 Explorer 的 力量光环
+[回合19] 31m 34s:  Lilium 获得了来自 Explorer 的 力量光环
+[回合19] 31m 34s:  Umiko 获得了来自 Explorer 的 力量光环
+[回合19] 31m 34s:  Felivol 获得了来自 Explorer 的 力量光环
+[回合19] 31m 35s:  Explorer 的 <NULL ACTION> 对 Explorer 造成了 0 点 Heal 。生命值：1
+[回合19] 31m 35s:  Explorer 的 <NULL ACTION> 对 Explorer 造成了 26 点 Heal 。生命值：27
+[回合19] 31m 35s:  Flora 的 移动 对 Flora 造成了 21 点 Heal 。生命值：78
+[回合19] 31m 35s:  Gaceon 的 <NULL ACTION> 对 Gaceon 造成了 0 点 Heal 。生命值：1
+[回合19] 31m 35s:  Gaceon 的 <NULL ACTION> 对 Gaceon 造成了 21 点 Heal 。生命值：22
+[回合19] 31m 36s:  Astrologer 获得了来自 Astrologer 的 流星
+[回合19] 31m 36s:  Astrologer 获得了来自 Astrologer 的 星能转化
+[回合19] 31m 36s:  Astrologer 的 <NULL ACTION> 对 Astrologer 造成了 0 点 Heal 。生命值：1
+[回合19] 31m 36s:  Astrologer 的 <NULL ACTION> 对 Astrologer 造成了 18 点 Heal 。生命值：19
+[回合19] 31m 36s:  Umiko 的 移动 对 Umiko 造成了 26 点 Heal 。生命值：46
+[回合19] 31m 36s:  Archer3 获得了来自 Archer3 的 攻击者
+[回合19] 31m 36s:  Archer3 的 <NULL ACTION> 对 Archer3 造成了 0 点 Heal 。生命值：1
+[回合19] 31m 37s:  Archer3 的 <NULL ACTION> 对 Archer3 造成了 20 点 Heal 。生命值：21
+[回合19] 31m 37s:  Felivol 的 移动 对 Felivol 造成了 26 点 Heal 。生命值：31
+[回合19] 31m 38s:  Archer 的 移动 对 Archer 造成了 20 点 Heal 。生命值：41
+[回合19] 31m 39s:  Archer2 的 移动 对 Archer2 造成了 20 点 Heal 。生命值：41
+[回合19] 31m 39s:  Lilium 的 移动 对 Lilium 造成了 23 点 Heal 。生命值：47
+[回合19] 31m 39s:  Explorer 的 移动 对 Explorer 造成了 26 点 Heal 。生命值：53
+[回合19] 31m 39s:  Flora 的 移动 对 Flora 造成了 21 点 Heal 。生命值：99
+[回合19] 31m 39s:  Gaceon 的 移动 对 Gaceon 造成了 21 点 Heal 。生命值：43
+[回合19] 31m 40s:  Astrologer 的 移动 对 Astrologer 造成了 18 点 Heal 。生命值：37
+[回合19] 31m 40s:  Umiko 的 移动 对 Umiko 造成了 26 点 Heal 。生命值：72
+[回合19] 31m 40s:  Archer3 的 移动 对 Archer3 造成了 20 点 Heal 。生命值：41
+[回合19] 31m 40s:  Felivol 的 移动 对 Felivol 造成了 26 点 Heal 。生命值：57
+[回合19] 31m 45s:  Astrologer 施放了 移动, 目标：(3, 0) 
+[回合19] 31m 46s:  Astrologer 获得了来自 BossMu 的 剧毒酸池
+[回合19] 31m 46s:  Astrologer 获得了来自 Explorer 的 力量光环
+[回合19] 31m 47s:  Astrologer 施放了 星光超流, 目标：(4, 0) 
+[回合19] 31m 48s:  Astrologer 的 星光超流 对 BossMu 造成了 37 点 Light 伤害。生命值：1013
+[回合19] 31m 48s:  BossMu 获得了来自 Astrologer 的 繁星道标
+[回合19] 31m 51s:  Lilium 施放了 移动, 目标：(4, 0) 
+[回合19] 31m 52s:  Lilium 获得了来自 BossMu 的 剧毒酸池
+[回合19] 31m 52s:  Lilium 重新获得了来自 Explorer 的 力量光环
+[回合19] 31m 53s:  Lilium 施放了 拳, 目标：(4, 0) 
+[回合19] 31m 53s:  Lilium 的 拳 没有击中 BossMu。生命值：1013
+[回合19] 31m 55s:  Umiko 施放了 水泡, 目标：(8, 0) 
+[回合19] 31m 55s:  Umiko 施放了 水泡, 目标：(8, 0) 
+[回合19] 31m 56s:  Flora 施放了 栽培, 目标：(4, 0) 
+[回合19] 31m 56s:  Archer3 获得了来自 Flora 的 栽培
+[回合19] 31m 57s:  Felivol 施放了 盾击, 目标：(4, 0) 
+[回合19] 31m 58s:  Felivol 的 盾击 对 BossMu 造成了 33 点 Knock 伤害。生命值：963
+[回合19] 31m 58s:  Umiko 的 海神之鞭 对 BossMu 造成了 4 点 Water 伤害。生命值：959
+[回合19] 32m 00s:  Archer2 的 出血 对 BossMu 造成了 9 点 Pierce 伤害。生命值：1004
+[回合19] 32m 00s:  Archer3 的 出血 对 BossMu 造成了 9 点 Pierce 伤害。生命值：950
+[回合19] 32m 00s:  BossMu 的 粘液翻腾 对 Archer 造成了 41 点 Knock 伤害。生命值：0
+[回合19] 32m 00s:  Archer 失去了来自 Archer 的 攻击者
+[回合19] 32m 00s:  Archer 失去了来自 Explorer 的 力量光环
+[回合19] 32m 00s:  BossMu 的 粘液翻腾 击杀了 Archer !
+[回合19] 32m 00s:  BossMu 的 粘液翻腾 对 Flora 造成了 52 点 Knock 伤害。生命值：47
+[回合19] 32m 01s:  BossMu 的 粘液翻腾 对 Umiko 造成了 58 点 Knock 伤害。生命值：14
+[回合19] 32m 01s:  BossMu 的 粘液翻腾 对 Archer3 造成了 41 点 Knock 伤害。生命值：0
+[回合19] 32m 01s:  Archer3 失去了来自 Archer3 的 攻击者
+[回合19] 32m 01s:  Archer3 失去了来自 Flora 的 栽培
+[回合19] 32m 01s:  BossMu 的 粘液翻腾 击杀了 Archer3 !
+[回合19] 32m 01s:  BossMu 的 粘液翻腾 对 Felivol 造成了 34 点 Knock 伤害。生命值：23
+[回合19] 32m 01s:  BossMu 的 粘液翻腾 对 Archer2 造成了 41 点 Knock 伤害。生命值：0
+[回合19] 32m 01s:  Archer2 失去了来自 Archer2 的 攻击者
+[回合19] 32m 01s:  Archer2 失去了来自 Explorer 的 力量光环
+[回合19] 32m 01s:  BossMu 的 粘液翻腾 击杀了 Archer2 !
+[回合19] 32m 01s:  BossMu 的 粘液翻腾 对 Explorer 造成了 53 点 Knock 伤害。生命值：0
+[回合19] 32m 01s:  Explorer 失去了来自 Explorer 的 力量光环
+[回合19] 32m 01s:  Lilium 失去了来自 Explorer 的 力量光环
+[回合19] 32m 01s:  Umiko 失去了来自 Explorer 的 力量光环
+[回合19] 32m 01s:  Felivol 失去了来自 Explorer 的 力量光环
+[回合19] 32m 01s:  BossMu 的 粘液翻腾 击杀了 Explorer !
+[回合19] 32m 02s:  BossMu 的 粘液翻腾 对 Flora 造成了 47 点 Knock 伤害。生命值：0
+[回合19] 32m 02s:  Flora 失去了来自 Umiko 的 海神之鞭
+[回合19] 32m 02s:  Flora 失去了来自 Flora 的 栽培
+[回合19] 32m 02s:  Flora 失去了来自 BossMu 的 锁定
+[回合19] 32m 02s:  BossMu 的 粘液翻腾 击杀了 Flora !
+[回合19] 32m 02s:  BossMu 的 粘液翻腾 对 Gaceon 造成了 43 点 Knock 伤害。生命值：0
+[回合19] 32m 02s:  BossMu 的 粘液翻腾 击杀了 Gaceon !
+[回合19] 32m 02s:  BossMu 施放了 小史莱姆投掷, 目标：(4, 0) 
+[回合19] 32m 02s:  BossMu 施放了 移动, 目标：(3, 0) 
+[回合19] 32m 02s:  BossMu 施放了 移动, 目标：(2, 0) 
+[回合19] 32m 02s:  BossMu 施放了 移动, 目标：(2, 0) 
+[回合19] 32m 03s:  BossMu 施放了 小史莱姆投掷, 目标：(4, 0) 
+[回合19] 32m 03s:  BossMu 施放了 史莱姆攻击, 目标：(3, 0) 
+[回合19] 32m 04s:  BossMu 的 史莱姆攻击 对 Felivol 造成了 23 点 Knock 伤害。生命值：0
+[回合19] 32m 04s:  Felivol 失去了来自 Felivol 的 防卫者
+[回合19] 32m 04s:  Felivol 失去了来自 Felivol 的 旅者
+[回合19] 32m 04s:  Felivol 失去了来自 Felivol 的 聆听神谕
+[回合19] 32m 04s:  Felivol 失去了来自 Felivol 的 防御蓄能
+[回合19] 32m 04s:  Felivol 失去了来自 Umiko 的 生命之歌
+[回合19] 32m 04s:  Felivol 失去了来自 BossMu 的 史莱姆毒素
+[回合19] 32m 04s:  Felivol 失去了来自 Umiko 的 海神之鞭
+[回合19] 32m 04s:  Felivol 失去了来自 BossMu 的 剧毒酸池
+[回合19] 32m 04s:  BossMu 的 史莱姆攻击 击杀了 Felivol !
+[回合20] 32m 04s:  回合20
+[回合20] 32m 05s:  BossMu 的 剧毒酸池 对 Lilium 造成了 0 点 Nature 伤害。生命值：47
+[回合20] 32m 05s:  BossMu 的 剧毒酸池 对 Astrologer 造成了 7 点 Nature 伤害。生命值：30
+[回合20] 32m 05s:  Umiko 失去了来自 Umiko 的 海神之鞭
+[回合20] 32m 08s:  Archer 获得了来自 Archer 的 攻击者
+[回合20] 32m 09s:  Archer 的 <NULL ACTION> 对 Archer 造成了 0 点 Heal 。生命值：1
+[回合20] 32m 09s:  Archer 的 <NULL ACTION> 对 Archer 造成了 20 点 Heal 。生命值：21
+[回合20] 32m 09s:  Archer2 获得了来自 Archer2 的 攻击者
+[回合20] 32m 09s:  Archer2 的 <NULL ACTION> 对 Archer2 造成了 0 点 Heal 。生命值：1
+[回合20] 32m 09s:  Archer2 的 <NULL ACTION> 对 Archer2 造成了 20 点 Heal 。生命值：21
+[回合20] 32m 09s:  Lilium 的 移动 对 Lilium 造成了 23 点 Heal 。生命值：70
+[回合20] 32m 09s:  Explorer 获得了来自 Explorer 的 力量光环
+[回合20] 32m 09s:  Archer 获得了来自 Explorer 的 力量光环
+[回合20] 32m 09s:  Archer2 获得了来自 Explorer 的 力量光环
+[回合20] 32m 09s:  Lilium 获得了来自 Explorer 的 力量光环
+[回合20] 32m 09s:  Astrologer 重新获得了来自 Explorer 的 力量光环
+[回合20] 32m 09s:  Umiko 获得了来自 Explorer 的 力量光环
+[回合20] 32m 10s:  Explorer 的 <NULL ACTION> 对 Explorer 造成了 0 点 Heal 。生命值：1
+[回合20] 32m 10s:  Explorer 的 <NULL ACTION> 对 Explorer 造成了 26 点 Heal 。生命值：27
+[回合20] 32m 10s:  Flora 的 <NULL ACTION> 对 Flora 造成了 0 点 Heal 。生命值：1
+[回合20] 32m 10s:  Flora 的 <NULL ACTION> 对 Flora 造成了 21 点 Heal 。生命值：22
+[回合20] 32m 10s:  Gaceon 的 <NULL ACTION> 对 Gaceon 造成了 0 点 Heal 。生命值：1
+[回合20] 32m 11s:  Gaceon 的 <NULL ACTION> 对 Gaceon 造成了 21 点 Heal 。生命值：22
+[回合20] 32m 11s:  Astrologer 的 移动 对 Astrologer 造成了 18 点 Heal 。生命值：48
+[回合20] 32m 11s:  Umiko 的 移动 对 Umiko 造成了 26 点 Heal 。生命值：40
+[回合20] 32m 11s:  Archer3 获得了来自 Archer3 的 攻击者
+[回合20] 32m 11s:  Archer3 的 <NULL ACTION> 对 Archer3 造成了 0 点 Heal 。生命值：1
+[回合20] 32m 11s:  Archer3 的 <NULL ACTION> 对 Archer3 造成了 20 点 Heal 。生命值：21
+[回合20] 32m 11s:  Felivol 获得了来自 Felivol 的 防卫者
+[回合20] 32m 11s:  Felivol 获得了来自 Felivol 的 旅者
+[回合20] 32m 11s:  Felivol 获得了来自 Felivol 的 聆听神谕
+[回合20] 32m 11s:  Felivol 获得了来自 Felivol 的 祝福之光
+[回合20] 32m 11s:  Felivol 获得了来自 Felivol 的 防御蓄能
+[回合20] 32m 12s:  Felivol 的 <NULL ACTION> 对 Felivol 造成了 0 点 Heal 。生命值：1
+[回合20] 32m 12s:  Felivol 的 <NULL ACTION> 对 Felivol 造成了 26 点 Heal 。生命值：27
+[回合20] 32m 14s:  Archer 的 移动 对 Archer 造成了 20 点 Heal 。生命值：41
+[回合20] 32m 14s:  Archer2 的 移动 对 Archer2 造成了 20 点 Heal 。生命值：41
+[回合20] 32m 14s:  Lilium 的 移动 对 Lilium 造成了 23 点 Heal 。生命值：93
+[回合20] 32m 14s:  Explorer 的 移动 对 Explorer 造成了 26 点 Heal 。生命值：53
+[回合20] 32m 15s:  Flora 的 移动 对 Flora 造成了 21 点 Heal 。生命值：43
+[回合20] 32m 15s:  Gaceon 的 移动 对 Gaceon 造成了 21 点 Heal 。生命值：43
+[回合20] 32m 15s:  Astrologer 的 移动 对 Astrologer 造成了 18 点 Heal 。生命值：66
+[回合20] 32m 15s:  Umiko 的 移动 对 Umiko 造成了 26 点 Heal 。生命值：66
+[回合20] 32m 15s:  Archer3 的 移动 对 Archer3 造成了 20 点 Heal 。生命值：41
+[回合20] 32m 16s:  Felivol 的 移动 对 Felivol 造成了 26 点 Heal 。生命值：53
+[回合20] 32m 20s:  Felivol 施放了 移动, 目标：(3, 0) 
+[回合20] 32m 20s:  Felivol 获得了来自 Explorer 的 力量光环
+[回合20] 32m 20s:  Felivol 重新获得了来自 Explorer 的 力量光环
+[回合20] 32m 20s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：55
+[回合20] 32m 21s:  Felivol 施放了 移动, 目标：(3, 0) 
+[回合20] 32m 21s:  Felivol 失去了来自 Explorer 的 力量光环
+[回合20] 32m 21s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：57
+[回合20] 32m 24s:  Felivol 失去了来自 Felivol 的 祝福之光
+[回合20] 32m 24s:  Felivol 施放了 圣祝：裁决重锤, 目标：(4, 0) 
+[回合20] 32m 25s:  Felivol 的 圣祝：裁决重锤 没有击中 BossMu。生命值：950
+[回合20] 32m 26s:  Felivol 施放了 蓄力斩, 目标：(3, 0) 
+[回合20] 32m 28s:  Archer3 施放了 移动, 目标：(5, 0) 
+[回合20] 32m 30s:  Lilium 施放了 移动, 目标：(3, 0) 
+[回合20] 32m 30s:  Lilium 失去了来自 BossMu 的 剧毒酸池
+[回合20] 32m 30s:  Lilium 获得了来自 Umiko 的 生命之歌
+[回合20] 32m 30s:  Lilium 重新获得了来自 Explorer 的 力量光环
+[回合20] 32m 30s:  Lilium 施放了 移动, 目标：(2, 0) 
+[回合20] 32m 32s:  Lilium 施放了 盾击, 目标：(2, 0) 
+[回合20] 32m 33s:  Lilium 的 盾击 对 BossMu 造成了 23 点 Knock 伤害。生命值：981
+[回合20] 32m 36s:  Astrologer 施放了 彗星箭, 目标：(4, 0) 
+[回合20] 32m 37s:  Astrologer 的 彗星箭 对 BossMu 造成了 32 点 Ice 伤害。生命值：918
+[回合20] 32m 41s:  Astrologer 施放了 星光超流, 目标：(2, 0) 
+[回合20] 32m 42s:  Astrologer 的 星光超流 对 BossMu 造成了 74 点 Light 伤害（暴击）。生命值：907
+[回合20] 32m 42s:  Astrologer 的 繁星道标 没有击中 BossMu。生命值：907
+[回合20] 32m 42s:  BossMu 重新获得了来自 Astrologer 的 繁星道标
+[回合20] 32m 46s:  Explorer 施放了 移动, 目标：(1, 0) 
+[回合20] 32m 46s:  Archer2 失去了来自 Explorer 的 力量光环
+[回合20] 32m 46s:  Archer3 获得了来自 Explorer 的 力量光环
+[回合20] 32m 46s:  Felivol 获得了来自 Explorer 的 力量光环
+[回合20] 32m 48s:  Gaceon 施放了 移动, 目标：(3, 0) 
+[回合20] 32m 49s:  Gaceon 获得了来自 Explorer 的 力量光环
+[回合20] 32m 49s:  Gaceon 重新获得了来自 Explorer 的 力量光环
+[回合20] 32m 49s:  Gaceon 重新获得了来自 Explorer 的 力量光环
+[回合20] 32m 50s:  Archer2 施放了 移动, 目标：(3, 0) 
+[回合20] 32m 50s:  Archer2 获得了来自 Explorer 的 力量光环
+[回合20] 32m 50s:  Archer2 重新获得了来自 Explorer 的 力量光环
+[回合20] 32m 50s:  Archer2 重新获得了来自 Explorer 的 力量光环
+[回合20] 32m 52s:  Umiko 施放了 水泡, 目标：(8, 0) 
+[回合20] 32m 53s:  Flora 施放了 栽培, 目标：(3, 0) 
+[回合20] 32m 53s:  Felivol 获得了来自 Flora 的 栽培
+[回合20] 32m 56s:  Archer2 的 出血 对 BossMu 造成了 9 点 Pierce 伤害。生命值：898
+[回合20] 32m 56s:  Archer3 的 出血 对 BossMu 造成了 9 点 Pierce 伤害。生命值：909
+[回合20] 32m 56s:  BossMu 施放了 移动, 目标：(3, 0) 
+[回合20] 32m 56s:  BossMu 施放了 移动, 目标：(3, 0) 
+[回合20] 32m 56s:  BossMu 施放了 史莱姆攻击, 目标：(3, 0) 
+[回合20] 32m 57s:  BossMu 的 史莱姆攻击 对 Astrologer 造成了 27 点 Knock 伤害。生命值：39
+[回合20] 32m 57s:  Astrologer 获得了来自 BossMu 的 史莱姆毒素
+[回合20] 32m 57s:  BossMu 施放了 史莱姆攻击, 目标：(5, 0) 
+[回合20] 32m 58s:  BossMu 的 史莱姆攻击 对 Archer3 造成了 28 点 Knock 伤害。生命值：13
+[回合20] 32m 58s:  Archer3 获得了来自 BossMu 的 史莱姆毒素
+[回合21] 32m 58s:  回合21
+[回合21] 33m 00s:  BossMu 的 剧毒酸池 对 Astrologer 造成了 7 点 Nature 伤害。生命值：32
+[回合21] 33m 00s:  BossMu 的 史莱姆毒素 对 Astrologer 造成了 8 点 Nature 伤害。生命值：24
+[回合21] 33m 00s:  BossMu 的 史莱姆毒素 对 Archer3 造成了 8 点 Nature 伤害。生命值：5
+[回合21] 33m 00s:  Flora 的 栽培 对 Felivol 造成了 6 点 Heal 。生命值：63
+[回合21] 33m 00s:  Felivol 施放了 蓄力斩, 目标：(3, 0) 
+[回合21] 33m 01s:  Felivol 的 蓄力斩 对 BossMu 造成了 47 点 Slash 伤害。生命值：851
+[回合21] 33m 01s:  Felivol 的 蓄力斩 没有击中 BossMu。生命值：909
+[回合21] 33m 03s:  Astrologer 施放了 彗星箭, 目标：(3, 0) 
+[回合21] 33m 04s:  Astrologer 的 彗星箭 对 BossMu 造成了 32 点 Ice 伤害。生命值：819
+[回合21] 33m 05s:  Astrologer 的 流星 对 BossMu 造成了 16 点 Knock 伤害（暴击）。生命值：803
+[回合21] 33m 07s:  Astrologer 施放了 星光超流, 目标：(3, 0) 
+[回合21] 33m 08s:  Astrologer 的 星光超流 对 BossMu 造成了 37 点 Light 伤害。生命值：766
+[回合21] 33m 08s:  Astrologer 的 繁星道标 对 BossMu 造成了 22 点 Light 伤害。生命值：744
+[回合21] 33m 08s:  Astrologer 的 繁星道标 对 BossMu 造成了 22 点 Light 伤害。生命值：722
+[回合21] 33m 08s:  BossMu 重新获得了来自 Astrologer 的 繁星道标
+[回合21] 33m 16s:  Astrologer 施放了 闪光, 目标：(3, 0) 
+[回合21] 33m 16s:  Astrologer 失去了来自 BossMu 的 剧毒酸池
+[回合21] 33m 16s:  Astrologer 重新获得了来自 Explorer 的 力量光环
+[回合21] 33m 19s:  Archer2 施放了 疾飞之箭, 目标：(3, 0) 
+[回合21] 33m 20s:  Archer2 的 疾飞之箭 对 BossMu 造成了 39 点 Pierce 伤害。生命值：683
+[回合21] 33m 20s:  BossMu 重新获得了来自 Archer2 的 出血
+[回合21] 33m 24s:  Gaceon 施放了 治疗术, 目标：(3, 0) 
+[回合21] 33m 25s:  Gaceon 的 治疗术 对 Astrologer 造成了 29 点 Heal 。生命值：58
+[回合21] 33m 26s:  Gaceon 施放了 治疗链, 目标：(3, 0) 
+[回合21] 33m 26s:  Gaceon 的 治疗链 对 Astrologer 造成了 18 点 Heal 。生命值：76
+[回合21] 33m 26s:  Gaceon 的 治疗链 对 Gaceon 造成了 12 点 Heal 。生命值：55
+[回合21] 33m 26s:  Gaceon 的 治疗链 对 Archer2 造成了 9 点 Heal 。生命值：50
+[回合21] 33m 30s:  Lilium 施放了 拳, 目标：(3, 0) 
+[回合21] 33m 31s:  Lilium 的 拳 对 BossMu 造成了 10 点 Knock 伤害。生命值：673
+[回合21] 33m 32s:  Lilium 施放了 拳, 目标：(3, 0) 
+[回合21] 33m 32s:  Lilium 的 拳 对 BossMu 造成了 10 点 Knock 伤害。生命值：663
+[回合21] 33m 34s:  Lilium 施放了 拳, 目标：(3, 0) 
+[回合21] 33m 34s:  Lilium 的 拳 对 BossMu 造成了 10 点 Knock 伤害。生命值：653
+[回合21] 33m 36s:  Lilium 施放了 拳, 目标：(3, 0) 
+[回合21] 33m 36s:  Lilium 的 拳 对 BossMu 造成了 10 点 Knock 伤害。生命值：643
+[回合21] 33m 38s:  Explorer 施放了 响音攻击, 目标：(1, 0) 
+[回合21] 33m 38s:  Explorer 的 响音攻击 对 BossMu 造成了 8 点 Knock 伤害。生命值：635
+[回合21] 33m 39s:  Explorer 施放了 移动, 目标：(0, 0) 
+[回合21] 33m 39s:  Archer3 失去了来自 Explorer 的 力量光环
+[回合21] 33m 41s:  Archer 施放了 疾飞之箭, 目标：(4, 0) 
+[回合21] 33m 41s:  Archer 的 疾飞之箭 对 BossMu 造成了 39 点 Pierce 伤害。生命值：870
+[回合21] 33m 41s:  BossMu 重新获得了来自 Archer3 的 出血
+[回合21] 33m 45s:  Archer3 施放了 射击, 目标：(4, 0) 
+[回合21] 33m 46s:  Archer3 的 射击 对 BossMu 造成了 73 点 Pierce 伤害。生命值：797
+[回合21] 33m 47s:  Flora 施放了 移动, 目标：(5, 0) 
+[回合21] 33m 48s:  Flora 获得了来自 Umiko 的 生命之歌
+[回合21] 33m 49s:  Flora 施放了 治疗术, 目标：(5, 0) 
+[回合21] 33m 50s:  Flora 的 治疗术 对 Archer3 造成了 36 点 Heal 。生命值：41
+[回合21] 33m 53s:  Felivol 施放了 移动, 目标：(4, 0) 
+[回合21] 33m 54s:  Felivol 重新获得了来自 Explorer 的 力量光环
+[回合21] 33m 54s:  Felivol 重新获得了来自 Explorer 的 力量光环
+[回合21] 33m 54s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：65
+[回合21] 33m 54s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：67
+[回合21] 34m 00s:  Flora 施放了 治疗术, 目标：(5, 0) 
+[回合21] 34m 01s:  Flora 的 治疗术 对 Archer3 造成了 36 点 Heal 。生命值：77
+[回合21] 34m 02s:  Archer 施放了 射击, 目标：(4, 0) 
+[回合21] 34m 03s:  Archer 的 射击 对 BossMu 造成了 78 点 Pierce 伤害。生命值：719
+[回合21] 34m 04s:  Umiko 施放了 水泡, 目标：(8, 0) 
+[回合21] 34m 04s:  Umiko 施放了 水泡, 目标：(8, 0) 
+[回合21] 34m 04s:  Flora 施放了 栽培, 目标：(5, 0) 
+[回合21] 34m 05s:  Flora 获得了来自 Flora 的 栽培
+[回合21] 34m 07s:  Archer2 的 出血 对 BossMu 造成了 9 点 Pierce 伤害。生命值：626
+[回合21] 34m 07s:  Archer3 的 出血 对 BossMu 造成了 9 点 Pierce 伤害。生命值：710
+[回合21] 34m 07s:  BossMu 施放了 小史莱姆标记, 目标：(3, 0) 
+[回合21] 34m 08s:  Flora 获得了来自 BossMu 的 锁定
+[回合21] 34m 08s:  BossMu 施放了 史莱姆攻击, 目标：(2, 0) 
+[回合21] 34m 09s:  BossMu 的 史莱姆攻击 对 Lilium 造成了 0 点 Knock 伤害。生命值：93
+[回合21] 34m 09s:  Lilium 获得了来自 BossMu 的 史莱姆毒素
+[回合21] 34m 09s:  BossMu 的 史莱姆攻击 对 Archer 造成了 30 点 Knock 伤害。生命值：11
+[回合21] 34m 09s:  Archer 获得了来自 BossMu 的 史莱姆毒素
+[回合21] 34m 09s:  BossMu 施放了 小史莱姆标记, 目标：(4, 0) 
+[回合21] 34m 10s:  Umiko 获得了来自 BossMu 的 锁定
+[回合21] 34m 10s:  BossMu 施放了 移动, 目标：(3, 0) 
+[回合21] 34m 10s:  BossMu 施放了 移动, 目标：(3, 0) 
+[回合21] 34m 10s:  BossMu 施放了 移动, 目标：(3, 0) 
+[回合22] 34m 11s:  回合22
+[回合22] 34m 12s:  BossMu 的 史莱姆毒素 对 Archer 造成了 9 点 Nature 伤害。生命值：2
+[回合22] 34m 12s:  BossMu 的 史莱姆毒素 对 Lilium 造成了 0 点 Nature 伤害。生命值：93
+[回合22] 34m 13s:  Flora 的 栽培 对 Flora 造成了 8 点 Heal 。生命值：51
+[回合22] 34m 13s:  BossMu 的 史莱姆毒素 对 Astrologer 造成了 8 点 Nature 伤害。生命值：68
+[回合22] 34m 13s:  BossMu 的 史莱姆毒素 对 Archer3 造成了 8 点 Nature 伤害。生命值：69
+[回合22] 34m 13s:  Flora 的 栽培 对 Felivol 造成了 6 点 Heal 。生命值：73
+[回合22] 34m 16s:  Umiko 施放了 移动, 目标：(1, 0) 
+[回合22] 34m 16s:  Umiko 重新获得了来自 Explorer 的 力量光环
+[回合22] 34m 16s:  Umiko 重新获得了来自 Explorer 的 力量光环
+[回合22] 34m 17s:  Umiko 施放了 水泡, 目标：(3, 0) 
+[回合22] 34m 18s:  Umiko 的 水泡 对 BossMu 造成了 11 点 Water 伤害。生命值：699
+[回合22] 34m 18s:  Felivol 获得了来自 Umiko 的 水泡护盾
+[回合22] 34m 18s:  Flora 获得了来自 Umiko 的 水泡护盾
+[回合22] 34m 18s:  Umiko 获得了来自 Umiko 的 水泡护盾
+[回合22] 34m 21s:  Umiko 施放了 移动, 目标：(0, 0) 
+[回合22] 34m 24s:  Felivol 施放了 移动, 目标：(2, 0) 
+[回合22] 34m 25s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：75
+[回合22] 34m 25s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：77
+[回合22] 34m 25s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：79
+[回合22] 34m 27s:  Felivol 施放了 盾击, 目标：(3, 0) 
+[回合22] 34m 28s:  Felivol 的 盾击 对 BossMu 造成了 70 点 Knock 伤害（暴击）。生命值：629
+[回合22] 34m 30s:  Archer3 施放了 移动, 目标：(5, 0) 
+[回合22] 34m 30s:  Archer3 获得了来自 BossMu 的 剧毒酸池
+[回合22] 34m 30s:  Archer3 重新获得了来自 BossMu 的 剧毒酸池
+[回合22] 34m 30s:  Archer3 获得了来自 Explorer 的 力量光环
+[回合22] 34m 30s:  Archer3 重新获得了来自 Explorer 的 力量光环
+[回合22] 34m 30s:  Archer3 重新获得了来自 Explorer 的 力量光环
+[回合22] 34m 32s:  Archer3 施放了 射击, 目标：(3, 0) 
+[回合22] 34m 33s:  Archer3 的 射击 对 BossMu 造成了 78 点 Pierce 伤害。生命值：551
+[回合22] 34m 34s:  Archer3 施放了 射击, 目标：(3, 0) 
+[回合22] 34m 35s:  Archer3 的 射击 对 BossMu 造成了 78 点 Pierce 伤害。生命值：473
+[回合22] 34m 40s:  Archer 施放了 移动, 目标：(1, 0) 
+[回合22] 34m 40s:  Archer 重新获得了来自 Explorer 的 力量光环
+[回合22] 34m 40s:  Archer 重新获得了来自 Explorer 的 力量光环
+[回合22] 34m 42s:  Archer 施放了 射击, 目标：(3, 0) 
+[回合22] 34m 42s:  Archer 的 射击 对 BossMu 造成了 156 点 Pierce 伤害（暴击）。生命值：470
+[回合22] 34m 46s:  Gaceon 施放了 移动, 目标：(2, 0) 
+[回合22] 34m 48s:  Gaceon 施放了 治疗术, 目标：(1, 0) 
+[回合22] 34m 49s:  Gaceon 的 治疗术 对 Archer 造成了 29 点 Heal 。生命值：31
+[回合22] 34m 53s:  Astrologer 施放了 移动, 目标：(3, 0) 
+[回合22] 34m 53s:  Astrologer 重新获得了来自 Explorer 的 力量光环
+[回合22] 34m 53s:  Astrologer 施放了 大彗星箭, 目标：(3, 0) 
+[回合22] 34m 54s:  Astrologer 的 大彗星箭 对 BossMu 造成了 64 点 Pierce 伤害。生命值：406
+[回合22] 34m 54s:  BossMu 施放了 史莱姆爆炸, 目标：(3, 0) 
+[回合22] 34m 55s:  BossMu 的 史莱姆爆炸 对 Archer 造成了 24 点 Nature 伤害。生命值：7
+[回合22] 34m 55s:  BossMu 的 史莱姆爆炸 对 Archer2 造成了 23 点 Nature 伤害。生命值：27
+[回合22] 34m 55s:  BossMu 的 史莱姆爆炸 对 Lilium 造成了 0 点 Nature 伤害。生命值：93
+[回合22] 34m 56s:  BossMu 的 史莱姆爆炸 对 Explorer 造成了 23 点 Nature 伤害。生命值：30
+[回合22] 34m 56s:  BossMu 的 史莱姆爆炸 对 Flora 造成了 19 点 Nature 伤害。生命值：32
+[回合22] 34m 56s:  BossMu 的 史莱姆爆炸 对 Gaceon 造成了 23 点 Nature 伤害。生命值：32
+[回合22] 34m 56s:  BossMu 的 史莱姆爆炸 对 Astrologer 造成了 21 点 Nature 伤害。生命值：47
+[回合22] 34m 56s:  BossMu 的 史莱姆爆炸 对 Umiko 造成了 22 点 Nature 伤害。生命值：44
+[回合22] 34m 57s:  BossMu 的 史莱姆爆炸 对 Archer3 造成了 22 点 Nature 伤害。生命值：47
+[回合22] 34m 57s:  BossMu 的 史莱姆爆炸 对 Felivol 造成了 16 点 Nature 伤害。生命值：63
+[回合22] 35m 01s:  Archer2 施放了 射击, 目标：(3, 0) 
+[回合22] 35m 02s:  Archer2 的 射击 对 BossMu 造成了 78 点 Pierce 伤害。生命值：329
+[回合22] 35m 03s:  Archer2 施放了 射击, 目标：(3, 0) 
+[回合22] 35m 04s:  Archer2 的 射击 对 BossMu 造成了 78 点 Pierce 伤害。生命值：251
+[回合22] 35m 07s:  Lilium 施放了 拳, 目标：(3, 0) 
+[回合22] 35m 07s:  Lilium 的 拳 没有击中 BossMu。生命值：251
+[回合22] 35m 09s:  Lilium 施放了 拳, 目标：(3, 0) 
+[回合22] 35m 09s:  Lilium 的 拳 对 BossMu 造成了 20 点 Knock 伤害（暴击）。生命值：231
+[回合22] 35m 10s:  Lilium 施放了 拳, 目标：(3, 0) 
+[回合22] 35m 11s:  Lilium 的 拳 对 BossMu 造成了 10 点 Knock 伤害。生命值：221
+[回合22] 35m 15s:  Felivol 施放了 蓄力斩, 目标：(3, 0) 
+[回合22] 35m 18s:  Flora 施放了 彗星箭, 目标：(3, 0) 
+[回合22] 35m 19s:  Flora 的 彗星箭 对 BossMu 造成了 28 点 Ice 伤害（暴击）。生命值：445
+[回合22] 35m 19s:  BossMu 施放了 史莱姆爆炸, 目标：(3, 0) 
+[回合22] 35m 20s:  BossMu 的 史莱姆爆炸 对 Archer 造成了 7 点 Nature 伤害。生命值：0
+[回合22] 35m 20s:  Archer 失去了来自 Archer 的 攻击者
+[回合22] 35m 20s:  Archer 失去了来自 Explorer 的 力量光环
+[回合22] 35m 20s:  Archer 失去了来自 BossMu 的 史莱姆毒素
+[回合22] 35m 20s:  BossMu 的 史莱姆爆炸 击杀了 Archer !
+[回合22] 35m 20s:  BossMu 的 史莱姆爆炸 对 Archer2 造成了 23 点 Nature 伤害。生命值：4
+[回合22] 35m 20s:  BossMu 的 史莱姆爆炸 对 Lilium 造成了 1 点 Nature 伤害。生命值：92
+[回合22] 35m 20s:  BossMu 的 史莱姆爆炸 对 Explorer 造成了 23 点 Nature 伤害。生命值：7
+[回合22] 35m 21s:  BossMu 的 史莱姆爆炸 对 Flora 造成了 19 点 Nature 伤害。生命值：13
+[回合22] 35m 21s:  BossMu 的 史莱姆爆炸 对 Gaceon 造成了 23 点 Nature 伤害。生命值：9
+[回合22] 35m 21s:  BossMu 的 史莱姆爆炸 对 Astrologer 造成了 21 点 Nature 伤害。生命值：26
+[回合22] 35m 21s:  BossMu 的 史莱姆爆炸 对 Umiko 造成了 22 点 Nature 伤害。生命值：22
+[回合22] 35m 21s:  BossMu 的 史莱姆爆炸 对 Archer3 造成了 22 点 Nature 伤害。生命值：25
+[回合22] 35m 22s:  BossMu 的 史莱姆爆炸 对 Felivol 造成了 9 点 Nature 伤害。生命值：54
+[回合22] 35m 24s:  Flora 施放了 栽培, 目标：(2, 0) 
+[回合22] 35m 25s:  Felivol 重新获得了来自 Flora 的 栽培
+[回合22] 35m 26s:  Explorer 施放了 响音攻击, 目标：(0, 0) 
+[回合22] 35m 27s:  Explorer 施放了 响音攻击, 目标：(0, 0) 
+[回合22] 35m 30s:  Archer2 的 出血 对 BossMu 造成了 9 点 Pierce 伤害。生命值：212
+[回合22] 35m 30s:  BossMu 失去了来自 Astrologer 的 繁星道标
+[回合22] 35m 30s:  Archer3 的 出血 对 BossMu 造成了 9 点 Pierce 伤害。生命值：436
+[回合22] 35m 30s:  BossMu 施放了 小史莱姆投掷, 目标：(3, 0) 
+[回合22] 35m 31s:  BossMu 的 小史莱姆投掷 对 Flora 造成了 11 点 Nature 伤害。生命值：5
+[回合22] 35m 31s:  Flora 失去了来自 BossMu 的 锁定
+[回合22] 35m 31s:  Flora 获得了来自 BossMu 的 剧毒酸池
+[回合22] 35m 31s:  BossMu 施放了 小史莱姆标记, 目标：(3, 0) 
+[回合22] 35m 31s:  SmallMu(Clone) 获得了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[回合22] 35m 32s:  Archer3 获得了来自 BossMu 的 锁定
+[回合22] 35m 32s:  BossMu 施放了 史莱姆攻击, 目标：(2, 0) 
+[回合22] 35m 33s:  BossMu 的 史莱姆攻击 对 Lilium 造成了 25 点 Knock 伤害。生命值：67
+[回合22] 35m 33s:  Lilium 重新获得了来自 BossMu 的 史莱姆毒素
+[回合22] 35m 33s:  BossMu 施放了 小史莱姆投掷, 目标：(3, 0) 
+[回合22] 35m 34s:  BossMu 的 小史莱姆投掷 对 Umiko 造成了 13 点 Nature 伤害。生命值：9
+[回合22] 35m 34s:  Umiko 失去了来自 BossMu 的 锁定
+[回合22] 35m 34s:  Umiko 获得了来自 BossMu 的 剧毒酸池
+[回合22] 35m 34s:  BossMu 施放了 小史莱姆标记, 目标：(3, 0) 
+[回合22] 35m 34s:  SmallMu(Clone) 获得了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[回合22] 35m 35s:  Lilium 获得了来自 BossMu 的 锁定
+[回合22] 35m 35s:  BossMu 施放了 史莱姆攻击, 目标：(5, 0) 
+[回合22] 35m 36s:  BossMu 的 史莱姆攻击 对 Flora 造成了 5 点 Knock 伤害。生命值：0
+[回合22] 35m 36s:  Flora 失去了来自 Umiko 的 生命之歌
+[回合22] 35m 36s:  Flora 失去了来自 Flora 的 栽培
+[回合22] 35m 36s:  Flora 失去了来自 Umiko 的 水泡护盾
+[回合22] 35m 36s:  Flora 失去了来自 BossMu 的 剧毒酸池
+[回合22] 35m 36s:  BossMu 的 史莱姆攻击 击杀了 Flora !
+[回合23] 35m 36s:  回合23
+[回合23] 35m 37s:  BossMu 的 史莱姆毒素 对 Lilium 造成了 16 点 Nature 伤害。生命值：51
+[回合23] 35m 37s:  BossMu 的 史莱姆毒素 对 Astrologer 造成了 8 点 Nature 伤害。生命值：19
+[回合23] 35m 37s:  Astrologer 失去了来自 BossMu 的 史莱姆毒素
+[回合23] 35m 38s:  BossMu 的 剧毒酸池 对 Umiko 造成了 6 点 Nature 伤害。生命值：3
+[回合23] 35m 38s:  BossMu 的 剧毒酸池 对 Archer3 造成了 7 点 Nature 伤害。生命值：18
+[回合23] 35m 38s:  BossMu 的 史莱姆毒素 对 Archer3 造成了 8 点 Nature 伤害。生命值：10
+[回合23] 35m 38s:  Archer3 失去了来自 BossMu 的 史莱姆毒素
+[回合23] 35m 38s:  Flora 的 栽培 对 Felivol 造成了 6 点 Heal 。生命值：60
+[回合23] 35m 38s:  Felivol 施放了 蓄力斩, 目标：(3, 0) 
+[回合23] 35m 38s:  Felivol 的 蓄力斩 没有击中 BossMu。生命值：436
+[回合23] 35m 39s:  Felivol 的 蓄力斩 对 SmallMu(Clone) 造成了 47 点 Slash 伤害。生命值：73
+[回合23] 35m 46s:  Archer2 施放了 狂风加护, 目标：(3, 0) 
+[回合23] 35m 47s:  Archer2 获得了来自 Archer2 的 狂风加护
+[回合23] 35m 48s:  Archer2 施放了 射击, 目标：(3, 0) 
+[回合23] 35m 49s:  Archer2 的 射击 对 BossMu 造成了 78 点 Pierce 伤害。生命值：134
+[回合23] 35m 50s:  Archer2 施放了 射击, 目标：(3, 0) 
+[回合23] 35m 50s:  Archer2 的 射击 对 BossMu 造成了 78 点 Pierce 伤害。生命值：56
+[回合23] 35m 53s:  Lilium 施放了 盾击, 目标：(3, 0) 
+[回合23] 35m 53s:  Lilium 的 盾击 没有击中 BossMu。生命值：56
+[回合23] 35m 54s:  Lilium 施放了 拳, 目标：(3, 0) 
+[回合23] 35m 55s:  Lilium 的 拳 对 BossMu 造成了 10 点 Knock 伤害。生命值：46
+[回合23] 35m 58s:  Gaceon 施放了 彗星箭, 目标：(3, 0) 
+[回合23] 35m 59s:  Gaceon 的 彗星箭 对 BossMu 造成了 14 点 Ice 伤害。生命值：32
+[回合23] 36m 00s:  Gaceon 施放了 彗星箭, 目标：(3, 0) 
+[回合23] 36m 01s:  Gaceon 的 彗星箭 没有击中 BossMu。生命值：32
+[回合23] 36m 02s:  Explorer 施放了 移动, 目标：(1, 0) 
+[回合23] 36m 03s:  Explorer 施放了 移动, 目标：(2, 0) 
+[回合23] 36m 04s:  Explorer 施放了 响音攻击, 目标：(2, 0) 
+[回合23] 36m 05s:  Explorer 的 响音攻击 对 SmallMu(Clone) 造成了 8 点 Knock 伤害。生命值：112
+[回合23] 36m 05s:  Explorer 的 响音攻击 对 BossMu 造成了 16 点 Knock 伤害（暴击）。生命值：16
+[回合23] 36m 05s:  Explorer 的 响音攻击 没有击中 BossMu。生命值：436
+[回合23] 36m 12s:  Umiko 施放了 移动, 目标：(2, 0) 
+[回合23] 36m 12s:  Umiko 失去了来自 BossMu 的 剧毒酸池
+[回合23] 36m 12s:  Gaceon 获得了来自 Umiko 的 生命之歌
+[回合23] 36m 12s:  Archer3 获得了来自 Umiko 的 生命之歌
+[回合23] 36m 13s:  Umiko 施放了 水泡, 目标：(3, 0) 
+[回合23] 36m 15s:  Umiko 的 水泡 对 BossMu 造成了 11 点 Water 伤害。生命值：5
+[回合23] 36m 15s:  Explorer 获得了来自 Umiko 的 水泡护盾
+[回合23] 36m 15s:  Lilium 获得了来自 Umiko 的 水泡护盾
+[回合23] 36m 16s:  Umiko 施放了 水泡, 目标：(3, 0) 
+[回合23] 36m 17s:  Umiko 的 水泡 没有击中 BossMu。生命值：5
+[回合23] 36m 17s:  Explorer 重新获得了来自 Umiko 的 水泡护盾
+[回合23] 36m 17s:  Lilium 重新获得了来自 Umiko 的 水泡护盾
+[回合23] 36m 20s:  Archer3 施放了 狂风加护, 目标：(5, 0) 
+[回合23] 36m 21s:  Archer3 获得了来自 Archer3 的 狂风加护
+[回合23] 36m 21s:  Archer3 施放了 射击, 目标：(3, 0) 
+[回合23] 36m 22s:  Archer3 的 射击 对 BossMu 造成了 5 点 Pierce 伤害。生命值：0
+[回合23] 36m 22s:  BossMu 失去了来自 BossMu 的 爆裂 [465]
+[回合23] 36m 22s:  BossMu 失去了来自 Archer2 的 出血
+[回合23] 36m 22s:  Archer3 的 射击 击杀了 BossMu !
+[回合23] 36m 23s:  Archer3 施放了 射击, 目标：(3, 0) 
+[回合23] 36m 24s:  Archer3 的 射击 对 BossMu 造成了 78 点 Pierce 伤害。生命值：358
+[回合23] 36m 28s:  Felivol 施放了 蓄力斩, 目标：(3, 0) 
+[回合23] 36m 31s:  Astrologer 施放了 移动, 目标：(1, 0) 
+[回合23] 36m 32s:  Astrologer 获得了来自 Umiko 的 生命之歌
+[回合23] 36m 37s:  Archer3 的 出血 对 BossMu 造成了 9 点 Pierce 伤害。生命值：349
+[回合23] 36m 37s:  SmallMu(Clone) 施放了 小史莱姆治愈, 目标：(3, 0) 
+[回合23] 36m 38s:  SmallMu(Clone) 的 小史莱姆治愈 对 BossMu 造成了 120 点 Heal 。生命值：470
+[回合23] 36m 38s:  BossMu 施放了 小史莱姆投掷, 目标：(3, 0) 
+[回合23] 36m 39s:  BossMu 的 小史莱姆投掷 对 Lilium 造成了 8 点 Nature 伤害。生命值：43
+[回合23] 36m 39s:  Lilium 失去了来自 BossMu 的 锁定
+[回合23] 36m 39s:  Lilium 获得了来自 BossMu 的 剧毒酸池
+[回合23] 36m 39s:  Explorer 获得了来自 BossMu 的 剧毒酸池
+[回合23] 36m 39s:  Astrologer 获得了来自 BossMu 的 剧毒酸池
+[回合23] 36m 39s:  BossMu 施放了 移动, 目标：(3, 0) 
+[回合23] 36m 39s:  SmallMu(Clone) 获得了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[回合23] 36m 39s:  BossMu 施放了 移动, 目标：(4, 0) 
+[回合23] 36m 39s:  BossMu 施放了 史莱姆攻击, 目标：(5, 0) 
+[回合23] 36m 40s:  BossMu 的 史莱姆攻击 对 Archer3 造成了 10 点 Knock 伤害。生命值：0
+[回合23] 36m 40s:  Archer3 失去了来自 Archer3 的 攻击者
+[回合23] 36m 40s:  Archer3 失去了来自 BossMu 的 剧毒酸池
+[回合23] 36m 40s:  Archer3 失去了来自 Explorer 的 力量光环
+[回合23] 36m 40s:  Archer3 失去了来自 BossMu 的 锁定
+[回合23] 36m 40s:  Archer3 失去了来自 Umiko 的 生命之歌
+[回合23] 36m 40s:  Archer3 失去了来自 Archer3 的 狂风加护
+[回合23] 36m 40s:  BossMu 的 史莱姆攻击 击杀了 Archer3 !
+[回合23] 36m 41s:  SmallMu(Clone) 施放了 移动, 目标：(3, 0) 
+[回合23] 36m 41s:  SmallMu(Clone) 施放了 移动, 目标：(3, 0) 
+[回合23] 36m 41s:  SmallMu(Clone) 施放了 移动, 目标：(3, 0) 
+[回合24] 36m 41s:  回合24
+[回合24] 36m 43s:  BossMu 的 史莱姆毒素 对 Lilium 造成了 15 点 Nature 伤害。生命值：28
+[回合24] 36m 43s:  BossMu 的 剧毒酸池 对 Lilium 造成了 6 点 Nature 伤害。生命值：22
+[回合24] 36m 43s:  BossMu 的 剧毒酸池 对 Explorer 造成了 6 点 Nature 伤害。生命值：1
+[回合24] 36m 43s:  BossMu 的 剧毒酸池 对 Astrologer 造成了 7 点 Nature 伤害。生命值：12
+[回合24] 36m 43s:  Umiko 失去了来自 Umiko 的 水泡护盾
+[回合24] 36m 43s:  Flora 的 栽培 对 Felivol 造成了 6 点 Heal 。生命值：66
+[回合24] 36m 43s:  Felivol 失去了来自 Umiko 的 水泡护盾
+[回合24] 36m 43s:  Felivol 施放了 蓄力斩, 目标：(3, 0) 
+[回合24] 36m 44s:  Felivol 的 蓄力斩 对 BossMu 造成了 94 点 Slash 伤害（暴击）。生命值：376
+[回合24] 36m 49s:  Archer2 施放了 移动, 目标：(3, 0) 
+[回合24] 36m 49s:  Archer2 获得了来自 BossMu 的 剧毒酸池
+[回合24] 36m 52s:  Archer2 施放了 射击, 目标：(4, 0) 
+[回合24] 36m 53s:  Archer2 的 射击 对 BossMu 造成了 78 点 Pierce 伤害。生命值：298
+[回合24] 36m 55s:  Felivol 施放了 移动, 目标：(3, 0) 
+[回合24] 36m 55s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：68
+[回合24] 36m 56s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：70
+[回合24] 37m 01s:  Felivol 施放了 蓄力斩, 目标：(4, 0) 
+[回合24] 37m 03s:  Umiko 施放了 水泡, 目标：(4, 0) 
+[回合24] 37m 05s:  Umiko 的 水泡 对 BossMu 造成了 11 点 Water 伤害。生命值：287
+[回合24] 37m 05s:  Felivol 获得了来自 Umiko 的 水泡护盾
+[回合24] 37m 05s:  Umiko 获得了来自 Umiko 的 水泡护盾
+[回合24] 37m 07s:  Lilium 施放了 移动, 目标：(4, 0) 
+[回合24] 37m 07s:  Lilium 失去了来自 BossMu 的 剧毒酸池
+[回合24] 37m 09s:  Lilium 施放了 盾击, 目标：(3, 0) 
+[回合24] 37m 10s:  Lilium 的 盾击 对 SmallMu(Clone) 造成了 23 点 Knock 伤害。生命值：50
+[回合24] 37m 11s:  Lilium 施放了 拳, 目标：(3, 0) 
+[回合24] 37m 12s:  Lilium 的 拳 对 SmallMu(Clone) 造成了 10 点 Knock 伤害。生命值：40
+[回合24] 37m 14s:  Umiko 施放了 移动, 目标：(2, 0) 
+[回合24] 37m 14s:  Gaceon 失去了来自 Umiko 的 生命之歌
+[回合24] 37m 19s:  Astrologer 施放了 闪光, 目标：(4, 0) 
+[回合24] 37m 19s:  Astrologer 失去了来自 BossMu 的 剧毒酸池
+[回合24] 37m 19s:  Astrologer 获得了来自 BossMu 的 剧毒酸池
+[回合24] 37m 19s:  Astrologer 重新获得了来自 BossMu 的 剧毒酸池
+[回合24] 37m 20s:  Astrologer 施放了 彗星箭, 目标：(4, 0) 
+[回合24] 37m 21s:  Astrologer 的 彗星箭 对 BossMu 造成了 32 点 Ice 伤害。生命值：255
+[回合24] 37m 34s:  Astrologer 施放了 大彗星箭, 目标：(4, 0) 
+[回合24] 37m 35s:  Astrologer 的 大彗星箭 对 BossMu 造成了 64 点 Pierce 伤害。生命值：191
+[回合24] 37m 42s:  Explorer 施放了 响音攻击, 目标：(2, 0) 
+[回合24] 37m 42s:  Explorer 的 响音攻击 没有击中 SmallMu(Clone)。生命值：112
+[回合24] 37m 42s:  Explorer 的 响音攻击 对 SmallMu(Clone) 造成了 8 点 Knock 伤害。生命值：112
+[回合24] 37m 42s:  Explorer 的 响音攻击 对 BossMu 造成了 8 点 Knock 伤害。生命值：183
+[回合24] 37m 43s:  Explorer 的 响音攻击 对 SmallMu(Clone) 造成了 8 点 Knock 伤害。生命值：32
+[回合24] 37m 48s:  Archer2 施放了 射击, 目标：(4, 0) 
+[回合24] 37m 49s:  Archer2 的 射击 对 BossMu 造成了 156 点 Pierce 伤害（暴击）。生命值：27
+[回合24] 38m 05s:  Archer2 施放了 射击, 目标：(4, 0) 
+[回合24] 38m 05s:  Archer2 的 射击 对 BossMu 造成了 27 点 Pierce 伤害。生命值：0
+[回合24] 38m 05s:  BossMu 失去了来自 BossMu 的 爆裂 [465]
+[回合24] 38m 05s:  BossMu 失去了来自 Archer3 的 出血
+[回合24] 38m 05s:  Archer2 的 射击 击杀了 BossMu !
+[回合24] 38m 06s:  Gaceon 施放了 治疗链, 目标：(2, 0) 
+[回合24] 38m 06s:  Gaceon 的 治疗链 对 Explorer 造成了 22 点 Heal 。生命值：23
+[回合24] 38m 07s:  Gaceon 的 治疗链 对 Archer2 造成了 11 点 Heal 。生命值：15
+[回合24] 38m 09s:  SmallMu(Clone) 施放了 移动, 目标：(0, 0) 
+[回合24] 38m 09s:  SmallMu(Clone) 施放了 移动, 目标：(0, 0) 
+[回合24] 38m 09s:  SmallMu(Clone) 施放了 移动, 目标：(0, 0) 
+[回合24] 38m 10s:  SmallMu(Clone) 施放了 移动, 目标：(2, 0) 
+[回合24] 38m 10s:  SmallMu(Clone) 施放了 移动, 目标：(2, 0) 
+[回合24] 38m 10s:  SmallMu(Clone) 施放了 移动, 目标：(3, 0) 
+[回合25] 38m 11s:  回合25
+[回合25] 38m 12s:  Archer2 失去了来自 Archer2 的 狂风加护
+[回合25] 38m 12s:  BossMu 的 剧毒酸池 对 Archer2 造成了 7 点 Nature 伤害。生命值：8
+[回合25] 38m 12s:  BossMu 的 史莱姆毒素 对 Lilium 造成了 11 点 Nature 伤害。生命值：11
+[回合25] 38m 12s:  Lilium 失去了来自 BossMu 的 史莱姆毒素
+[回合25] 38m 12s:  Lilium 失去了来自 Umiko 的 水泡护盾
+[回合25] 38m 12s:  Explorer 失去了来自 Umiko 的 水泡护盾
+[回合25] 38m 12s:  BossMu 的 剧毒酸池 对 Explorer 造成了 6 点 Nature 伤害。生命值：17
+[回合25] 38m 13s:  BossMu 的 剧毒酸池 对 Astrologer 造成了 7 点 Nature 伤害。生命值：8
+[回合25] 38m 13s:  Flora 的 栽培 对 Felivol 造成了 6 点 Heal 。生命值：76
+[回合25] 38m 13s:  Felivol 失去了来自 Flora 的 栽培
+[回合25] 38m 13s:  Felivol 施放了 蓄力斩, 目标：(4, 0) 
+[回合25] 42m 37s:  Archer2 施放了 射击, 目标：(3, 0) 
+[回合25] 42m 38s:  Archer2 的 射击 对 SmallMu(Clone) 造成了 32 点 Pierce 伤害。生命值：0
+[回合25] 42m 38s:  SmallMu(Clone) 施放了 小史莱姆爆炸, 目标：(3, 0) 
+[回合25] 42m 39s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Archer2 造成了 8 点 Nature 伤害。生命值：0
+[回合25] 42m 39s:  Archer2 失去了来自 Archer2 的 攻击者
+[回合25] 42m 39s:  Archer2 失去了来自 Explorer 的 力量光环
+[回合25] 42m 39s:  Archer2 失去了来自 BossMu 的 剧毒酸池
+[回合25] 42m 39s:  SmallMu(Clone) 的 小史莱姆爆炸 击杀了 Archer2 !
+[回合25] 42m 39s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Lilium 造成了 11 点 Nature 伤害。生命值：0
+[回合25] 42m 39s:  Lilium 失去了来自 Lilium 的 防卫者
+[回合25] 42m 39s:  Lilium 失去了来自 Explorer 的 力量光环
+[回合25] 42m 39s:  Lilium 失去了来自 Umiko 的 生命之歌
+[回合25] 42m 39s:  SmallMu(Clone) 的 小史莱姆爆炸 击杀了 Lilium !
+[回合25] 42m 40s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Explorer 造成了 15 点 Nature 伤害。生命值：2
+[回合25] 42m 40s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Gaceon 造成了 9 点 Nature 伤害。生命值：0
+[回合25] 42m 40s:  Gaceon 失去了来自 Explorer 的 力量光环
+[回合25] 42m 40s:  SmallMu(Clone) 的 小史莱姆爆炸 击杀了 Gaceon !
+[回合25] 42m 40s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Astrologer 造成了 8 点 Nature 伤害。生命值：0
+[回合25] 42m 40s:  Astrologer 失去了来自 Astrologer 的 流星
+[回合25] 42m 40s:  Astrologer 失去了来自 Astrologer 的 星能转化
+[回合25] 42m 40s:  Astrologer 失去了来自 Explorer 的 力量光环
+[回合25] 42m 40s:  Astrologer 失去了来自 Umiko 的 生命之歌
+[回合25] 42m 40s:  Astrologer 失去了来自 BossMu 的 剧毒酸池
+[回合25] 42m 41s:  SmallMu(Clone) 的 小史莱姆爆炸 击杀了 Astrologer !
+[回合25] 42m 41s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Umiko 造成了 3 点 Nature 伤害。生命值：0
+[回合25] 42m 41s:  Umiko 失去了来自 Umiko 的 生命之歌
+[回合25] 42m 41s:  Umiko 失去了来自 Explorer 的 力量光环
+[回合25] 42m 41s:  Umiko 失去了来自 Umiko 的 水泡护盾
+[回合25] 42m 41s:  SmallMu(Clone) 的 小史莱姆爆炸 击杀了 Umiko !
+[回合25] 42m 41s:  SmallMu(Clone) 的 小史莱姆爆炸 对 Felivol 造成了 11 点 Nature 伤害。生命值：65
+[回合25] 42m 41s:  SmallMu(Clone) 失去了来自 SmallMu(Clone) 的 死亡爆裂 [120]
+[回合25] 42m 41s:  Archer2 的 射击 击杀了 SmallMu(Clone) !
+
+JSON: 23-08-05--10-10-46-miniRAIDCombat.json
+
+6x Cheat
+
+一把打一万年而且前面好无聊…（P2太长了——
+法力护盾不会正常消失
+复活后装备效果似乎叠加？弓箭手攻强都75了
+双跳接双翻腾也太离谱
+boss可以被圣骑一直风筝
+仇恨不稳也没有OT提示
+血似乎有点多（自己人和boss都是
+P3基本上在酸池里打完的
+P2 -> P3开始之后得给boss挂个无敌）
+一直在转火，自动攻击好难用…
+
+Dmg
+Astrologer 1721 (68.8)
+Archer 989~1662 (39.6~66.5) (AttackPower bug?
+Felivol 860 (34.4)
+Lilium 328 (13.1)
+
+Heal
+Flora 1685 (67.4)
+Gaceon 1119 (44.8)
+Avg. OOM @ P2 -> P3

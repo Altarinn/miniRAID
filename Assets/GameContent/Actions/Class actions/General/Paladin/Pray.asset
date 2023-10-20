@@ -253,14 +253,14 @@ MonoBehaviour:
       Data: 
     - Name: currentStageCompleted
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: query_stack
       Entry: 7
       Data: 10|System.Collections.Generic.Stack`1[[miniRAID.UI.TargetRequester.RequestStage,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 1
     - Name: 
       Entry: 7
       Data: 11|miniRAID.UI.TargetRequester.RequestStage, Assembly-CSharp
@@ -286,13 +286,13 @@ MonoBehaviour:
       Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 7
+      Data: 2
     - Name: 
       Entry: 3
       Data: 0
     - Name: 
       Entry: 3
-      Data: 6
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -331,9 +331,6 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
       Entry: 13
       Data: 
     - Name: 
@@ -345,22 +342,7 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 7
-    - Name: 
-      Entry: 3
       Data: 0
-    - Name: 
-      Entry: 3
-      Data: 6
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -550,9 +532,9 @@ MonoBehaviour:
   maxLevel: 0
   DescriptionKey:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 4971369039732736
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0

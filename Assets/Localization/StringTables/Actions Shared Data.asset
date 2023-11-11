@@ -467,6 +467,10 @@ MonoBehaviour:
     m_Key: testaura.tooltip
     m_Metadata:
       m_Items: []
+  - m_Id: 39784348935467008
+    m_Key: slimeking.maindot.tooltip
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

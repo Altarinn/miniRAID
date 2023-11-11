@@ -86,7 +86,7 @@ MonoBehaviour:
   rendererPrefab: {fileID: 0}
   movementType: 0
   movable: 1
-  moveRange: 3
+  moveRange: 4
   mainWeaponSO: {fileID: 11400000, guid: a4dd8ad4ef29749eda314a4f40e64512, type: 2}
   subWeaponSO: {fileID: 0}
   listenerSOs:

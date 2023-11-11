@@ -105,15 +105,18 @@ namespace miniRAID.Agents
             // Check if aggro exceeded the threshold
             if (mob != currentTarget)
             {
-                if (aggroList[mob] >= maxAggro)
+                if (!(mob == null || parentMob == null))
                 {
-                    Globals.popupMgr.Instance.Popup(">TARGET<", Globals.backend.GridToWorldPosCentered(mob.Position));
-                    Globals.popupMgr.Instance.Popup("ATTACKING YOU", Globals.backend.GridToWorldPosCentered(parentMob.Position));
-                }
-                else if (aggroList[mob] >= maxAggro * Settings.highAggroThreshold)
-                {
-                    Globals.popupMgr.Instance.Popup("!", Globals.backend.GridToWorldPosCentered(mob.Position));
-                    Globals.popupMgr.Instance.Popup("HIGH AGGRO", Globals.backend.GridToWorldPosCentered(parentMob.Position));
+                    if (aggroList[mob] >= maxAggro)
+                    {
+                        Globals.popupMgr.Instance.Popup(">TARGET<", Globals.backend.GridToWorldPosCentered(mob.Position), Consts.BuffColor);
+                        Globals.popupMgr.Instance.Popup("ATTACKING YOU", Globals.backend.GridToWorldPosCentered(parentMob.Position), Consts.BuffColor);
+                    }
+                    else if (aggroList[mob] >= maxAggro * Settings.highAggroThreshold)
+                    {
+                        Globals.popupMgr.Instance.Popup("!", Globals.backend.GridToWorldPosCentered(mob.Position), Consts.BuffColor);
+                        Globals.popupMgr.Instance.Popup("HIGH AGGRO", Globals.backend.GridToWorldPosCentered(parentMob.Position), Consts.BuffColor);
+                    }
                 }
             }
             

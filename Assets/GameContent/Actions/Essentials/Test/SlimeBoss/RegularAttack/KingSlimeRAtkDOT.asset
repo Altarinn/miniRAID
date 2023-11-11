@@ -41,7 +41,7 @@ MonoBehaviour:
       Data: 5
     - Name: 
       Entry: 4
-      Data: 0.3
+      Data: 0.12
     - Name: 
       Entry: 4
       Data: 1
@@ -225,10 +225,19 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  ToolTipKey:
+    m_TableReference:
+      m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
+    m_TableEntryReference:
+      m_KeyId: 39784348935467008
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   type: 0
   priority: 0
   timed: 1
-  timeMax: 3
+  timeMax: 12
   stackable: 1
   stackRefreshesTime: 1
   maxStack: 99

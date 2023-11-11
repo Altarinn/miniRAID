@@ -7,6 +7,7 @@ using miniRAID.Buff;
 using System;
 using System.Linq;
 using miniRAID.Backend;
+using UnityEngine.Serialization;
 
 namespace miniRAID
 {
@@ -85,6 +86,12 @@ namespace miniRAID
 
             Heal = 11
         }
+
+        public static Color MissColor = new Color(1.0f, 0.6f, 0.5f);
+        public static Color HitColor = new Color(1.0f, 0.7f, 0.6f);
+        public static Color CritColor = new Color(1.0f, 0.88f, 1.0f);
+        public static Color HealColor = new Color(0.6f, 1.0f, 0.4f);
+        public static Color BuffColor = new Color(0.7f, 0.9f, 1.0f);
 
         public enum RefType
         {
@@ -362,7 +369,9 @@ namespace miniRAID
         [Serializable]
         public struct BaseStats
         {
-            public dNumber VIT, STR, MAG, INT, DEX, TEC;
+            public dNumber VIT, STR, MAG, INT;
+            [FormerlySerializedAs("DEX")] public dNumber AGI;
+            public dNumber TEC;
         }
 
         // TODO: Determine our values
@@ -387,6 +396,10 @@ namespace miniRAID
         // Same but for critical strikes.
         public static float CritRangePerLevel = 7;
         public static float BaseCrit = -0.1f;
+
+        public static float APRegenPerDEX = 0.03f;
+        public static float baseAPRegenTurn = 1.0f;
+        public static float baseAPRegenRecoveryStage = 0.0f;
 
         public static float GetHitRate(float spellHit, float defenderDodge, int defenderLevel)
         {

@@ -184,7 +184,7 @@ MonoBehaviour:
   type: 0
   priority: 0
   timed: 1
-  timeMax: 1
+  timeMax: 4
   stackable: 0
   stackRefreshesTime: 1
   maxStack: 1

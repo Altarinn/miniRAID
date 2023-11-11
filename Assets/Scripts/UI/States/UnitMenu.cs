@@ -107,15 +107,15 @@ namespace miniRAID.UI
                 keycode = "1"
             });
             
-            entries.Add(new miniRAID.UIElements.UnitMenuController.UIMenuEntry
-            {
-                text = "EndTurn",
-                action = OnAutoAttackFinishingSelected(Consts.UnitGroup.Player),
-                onFinished = UIMenuPostAction(null),
-                toolTip = "各可行动单位用武器攻击其目标，然后结束回合。",
-                useDefaultToolTip = true,
-                keycode = "R"
-            });
+            // entries.Add(new miniRAID.UIElements.UnitMenuController.UIMenuEntry
+            // {
+            //     text = "EndTurn",
+            //     action = OnAutoAttackFinishingSelected(Consts.UnitGroup.Player),
+            //     onFinished = UIMenuPostAction(null),
+            //     toolTip = "各可行动单位用武器攻击其目标，然后结束回合。",
+            //     useDefaultToolTip = true,
+            //     keycode = "R"
+            // });
 
             ui.combatView.menu.PrepareMenu(entries);
         }
@@ -246,6 +246,8 @@ namespace miniRAID.UI
             {
                 yield return new JumpIn(currentUnit.data.SetActive(false));
             }
+            
+            Globals.combatMgr.Instance.MarkPlayerTurnEnd();
         }
 
         public IEnumerator AutoPass(MobRenderer mobRenderer)
@@ -258,20 +260,20 @@ namespace miniRAID.UI
             }
         }
 
-        public IEnumerator OnAutoAttackFinishingSelected(Consts.UnitGroup group)
-        {
-            var mobs = Globals.backend.allMobs
-                .Where(x => x.unitGroup == group)
-                .OrderByDescending(x => x.DEX)
-                .ToList();
-            foreach (MobData mob in mobs)
-            {
-                if (mob.isControllable)
-                {
-                    yield return new JumpIn(mob.AutoAttackFinish());
-                }
-            }
-        }
+        // public IEnumerator OnAutoAttackFinishingSelected(Consts.UnitGroup group)
+        // {
+        //     var mobs = Globals.backend.allMobs
+        //         .Where(x => x.unitGroup == group)
+        //         .OrderByDescending(x => x.DEX)
+        //         .ToList();
+        //     foreach (MobData mob in mobs)
+        //     {
+        //         if (mob.isControllable)
+        //         {
+        //             yield return new JumpIn(mob.AutoAttackFinish());
+        //         }
+        //     }
+        // }
 
         public IEnumerator OnCheat(Consts.UnitGroup group)
         {

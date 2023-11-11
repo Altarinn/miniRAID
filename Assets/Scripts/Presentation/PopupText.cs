@@ -28,7 +28,7 @@ public class PopupText : MonoBehaviour
         var seq = DOTween.Sequence();
 
         seq.Append(tmpui.transform.DOScale(Vector3.one, 0.15f));
-        seq.Join(tmpui.DOColor(new Color(0.984f, 0.694f, 0.380f), 0.15f));
+        // seq.Join(tmpui.DOColor(new Color(0.984f, 0.694f, 0.380f), 0.15f));
         //seq.Append()
         seq.Play();
 

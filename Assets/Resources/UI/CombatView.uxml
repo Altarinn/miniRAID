@@ -9,7 +9,7 @@
     <Style src="project://database/Assets/Resources/UI/UnitMenu.uss?fileID=7433441132597879392&amp;guid=a0add0ae97395f2429640186459de10a&amp;type=3#UnitMenu" />
     <Style src="project://database/Assets/Resources/UI/miniRAID_default.uss?fileID=7433441132597879392&amp;guid=54e6eee580e008a468415140067b7312&amp;type=3#miniRAID_default" />
     <ui:VisualElement name="CombatPanel" picking-mode="Ignore" style="flex-direction: row; height: 100%; width: 100%;">
-        <ui:Label tabindex="-1" text="v0.1.4" display-tooltip-when-elided="true" name="VersionNum" style="position: absolute; margin-left: 2px; margin-top: 2px; color: rgb(96, 108, 79);" />
+        <ui:Label tabindex="-1" text="v0.1.5a" display-tooltip-when-elided="true" name="VersionNum" style="position: absolute; margin-left: 2px; margin-top: 2px; color: rgb(96, 108, 79);" />
         <ui:VisualElement name="MainPanel" picking-mode="Ignore" style="flex-grow: 1;">
             <ui:Instance template="MobDetails" name="MobDetails" picking-mode="Ignore" style="position: absolute; left: 164px; top: 69px; width: 550px; visibility: hidden;" />
             <ui:Instance template="MobInfo" name="MobInfo" style="left: 164px; top: 69px; width: 550px; visibility: hidden; position: absolute;" />
@@ -19,6 +19,7 @@
                     <ui:Label tabindex="-1" text="ToolTip" display-tooltip-when-elided="true" name="ToolTipLabel" style="white-space: normal;" />
                 </ui:VisualElement>
             </ui:VisualElement>
+            <ui:Label tabindex="-1" text="1/4" display-tooltip-when-elided="true" name="ActionBar" style="margin-top: 50px; position: absolute; margin-left: 10px; background-color: rgba(0, 0, 0, 0.75); padding-left: 2px; padding-right: 2px; padding-top: 2px; padding-bottom: 2px;" />
             <ui:Label tabindex="-1" text="&lt;mspace=0.8em&gt;DMG 55&#10;HIT 63&#10;CRT 2.77&lt;/mspace&gt;" display-tooltip-when-elided="true" name="BattlePreview" style="position: absolute; right: 200px; top: 100px; background-color: rgb(0, 0, 0); visibility: hidden;" />
             <ui:VisualElement name="BossStatusContainer" picking-mode="Ignore" style="padding-left: 7%; padding-right: 7%; padding-top: 2%; padding-bottom: 2%;">
                 <ui:Instance template="BossStats" name="BossStats" />

@@ -45,6 +45,9 @@ namespace miniRAID
         // Emitted when the mob has entered a new turn ("PHASE" for this mob has started)
         public CoroutineEvent<MobData> OnNextTurn;
         
+        // Emitted when the mob has entered a new turn ("PHASE" for this mob has started)
+        public CoroutineEvent<MobData> OnRecoveryStage;
+        
         //// Status calculation
         
         public event MobArgumentDelegate OnInitialized;
@@ -360,9 +363,19 @@ namespace miniRAID
             }
         }
 
-        public IEnumerator AutoAttackFinish()
+        public void SetSkipNextAutoAttack()
         {
-            if(!isControllable)
+            skipAutoAttack = true;
+        }
+        
+        public void ResetSkipNextAutoAttack()
+        {
+            skipAutoAttack = false;
+        }
+
+        public IEnumerator AutoAttack()
+        {
+            if(!canAutoAttack)
                 yield break;
             
             yield return new JumpIn(this.OnAutoAttackAgentWakeUp?.Invoke(this));

@@ -100,7 +100,7 @@ namespace miniRAID
                     case StatModTarget.INT:
                         ModifydNumber(ref mob.baseStats.INT, mob, kv.Value, stacks, powerToUse); break;
                     case StatModTarget.DEX:
-                        ModifydNumber(ref mob.baseStats.DEX, mob, kv.Value, stacks, powerToUse); break;
+                        ModifydNumber(ref mob.baseStats.AGI, mob, kv.Value, stacks, powerToUse); break;
                     case StatModTarget.TEC:
                         ModifydNumber(ref mob.baseStats.TEC, mob, kv.Value, stacks, powerToUse); break;
                 }

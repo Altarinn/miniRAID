@@ -351,7 +351,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 97777221}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.5, y: 8.5, z: 0}
+  m_LocalPosition: {x: 7.5, y: 7.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -381,8 +381,8 @@ MonoBehaviour:
     movementType: 0
     unitGroup: 0
     nickname: 
-    _actionPointsMul100: 0
-    apRecovery: 3
+    _actionPointsMul100: 200
+    apRecovery: 1
     apMax: 5
     moveRange:
       valueType: 0
@@ -540,7 +540,7 @@ MonoBehaviour:
         addedValue: 0
         addMultiplier: 0
         mulMultiplier: 0
-      DEX:
+      AGI:
         valueType: 0
         staticValue: 0
         source:
@@ -779,7 +779,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -1109,7 +1109,7 @@ MonoBehaviour:
         addedValue: 0
         addMultiplier: 0
         mulMultiplier: 0
-      DEX:
+      AGI:
         valueType: 0
         staticValue: 0
         source:
@@ -1593,8 +1593,8 @@ MonoBehaviour:
     movementType: 0
     unitGroup: 0
     nickname: 
-    _actionPointsMul100: 0
-    apRecovery: 3
+    _actionPointsMul100: 200
+    apRecovery: 1
     apMax: 5
     moveRange:
       valueType: 0
@@ -1752,7 +1752,7 @@ MonoBehaviour:
         addedValue: 0
         addMultiplier: 0
         mulMultiplier: 0
-      DEX:
+      AGI:
         valueType: 0
         staticValue: 0
         source:
@@ -2653,8 +2653,8 @@ MonoBehaviour:
     movementType: 0
     unitGroup: 0
     nickname: 
-    _actionPointsMul100: 0
-    apRecovery: 3
+    _actionPointsMul100: 200
+    apRecovery: 1
     apMax: 5
     moveRange:
       valueType: 0
@@ -2812,7 +2812,7 @@ MonoBehaviour:
         addedValue: 0
         addMultiplier: 0
         mulMultiplier: 0
-      DEX:
+      AGI:
         valueType: 0
         staticValue: 0
         source:
@@ -3926,7 +3926,7 @@ GameObject:
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &547442346
 Transform:
   m_ObjectHideFlags: 0
@@ -3965,8 +3965,8 @@ MonoBehaviour:
     movementType: 0
     unitGroup: 0
     nickname: 
-    _actionPointsMul100: 0
-    apRecovery: 3
+    _actionPointsMul100: 200
+    apRecovery: 1
     apMax: 5
     moveRange:
       valueType: 0
@@ -4124,7 +4124,7 @@ MonoBehaviour:
         addedValue: 0
         addMultiplier: 0
         mulMultiplier: 0
-      DEX:
+      AGI:
         valueType: 0
         staticValue: 0
         source:
@@ -5233,7 +5233,7 @@ MonoBehaviour:
         addedValue: 0
         addMultiplier: 0
         mulMultiplier: 0
-      DEX:
+      AGI:
         valueType: 0
         staticValue: 0
         source:
@@ -5351,6 +5351,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   referenceResolution: {x: 800, y: 450}
   minimumScale: 1
+  mainCanvas: {fileID: 133498577}
 --- !u!1001 &883232249
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5839,8 +5840,8 @@ MonoBehaviour:
     movementType: 0
     unitGroup: 0
     nickname: 
-    _actionPointsMul100: 0
-    apRecovery: 3
+    _actionPointsMul100: 200
+    apRecovery: 1
     apMax: 5
     moveRange:
       valueType: 0
@@ -5998,7 +5999,7 @@ MonoBehaviour:
         addedValue: 0
         addMultiplier: 0
         mulMultiplier: 0
-      DEX:
+      AGI:
         valueType: 0
         staticValue: 0
         source:
@@ -6614,7 +6615,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1331518135}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.5, y: 6.5, z: 0}
+  m_LocalPosition: {x: 8.5, y: 5.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6644,8 +6645,8 @@ MonoBehaviour:
     movementType: 0
     unitGroup: 0
     nickname: 
-    _actionPointsMul100: 0
-    apRecovery: 3
+    _actionPointsMul100: 200
+    apRecovery: 1
     apMax: 5
     moveRange:
       valueType: 0
@@ -6803,7 +6804,7 @@ MonoBehaviour:
         addedValue: 0
         addMultiplier: 0
         mulMultiplier: 0
-      DEX:
+      AGI:
         valueType: 0
         staticValue: 0
         source:
@@ -6993,7 +6994,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1346971153}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.5, y: 7.5, z: 0}
+  m_LocalPosition: {x: 10.5, y: 4.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7023,8 +7024,8 @@ MonoBehaviour:
     movementType: 0
     unitGroup: 0
     nickname: 
-    _actionPointsMul100: 0
-    apRecovery: 3
+    _actionPointsMul100: 200
+    apRecovery: 1
     apMax: 5
     moveRange:
       valueType: 0
@@ -7182,7 +7183,7 @@ MonoBehaviour:
         addedValue: 0
         addMultiplier: 0
         mulMultiplier: 0
-      DEX:
+      AGI:
         valueType: 0
         staticValue: 0
         source:
@@ -7472,7 +7473,7 @@ MonoBehaviour:
         addedValue: 0
         addMultiplier: 0
         mulMultiplier: 0
-      DEX:
+      AGI:
         valueType: 0
         staticValue: 0
         source:
@@ -8793,7 +8794,7 @@ MonoBehaviour:
         addedValue: 0
         addMultiplier: 0
         mulMultiplier: 0
-      DEX:
+      AGI:
         valueType: 0
         staticValue: 0
         source:
@@ -9826,8 +9827,8 @@ MonoBehaviour:
     movementType: 0
     unitGroup: 0
     nickname: 
-    _actionPointsMul100: 0
-    apRecovery: 3
+    _actionPointsMul100: 200
+    apRecovery: 1
     apMax: 5
     moveRange:
       valueType: 0
@@ -9985,7 +9986,7 @@ MonoBehaviour:
         addedValue: 0
         addMultiplier: 0
         mulMultiplier: 0
-      DEX:
+      AGI:
         valueType: 0
         staticValue: 0
         source:
@@ -10761,8 +10762,8 @@ MonoBehaviour:
     movementType: 0
     unitGroup: 0
     nickname: 
-    _actionPointsMul100: 0
-    apRecovery: 3
+    _actionPointsMul100: 200
+    apRecovery: 1
     apMax: 5
     moveRange:
       valueType: 0
@@ -10920,7 +10921,7 @@ MonoBehaviour:
         addedValue: 0
         addMultiplier: 0
         mulMultiplier: 0
-      DEX:
+      AGI:
         valueType: 0
         staticValue: 0
         source:
@@ -11838,8 +11839,8 @@ MonoBehaviour:
     movementType: 0
     unitGroup: 0
     nickname: 
-    _actionPointsMul100: 0
-    apRecovery: 3
+    _actionPointsMul100: 200
+    apRecovery: 1
     apMax: 5
     moveRange:
       valueType: 0
@@ -11997,7 +11998,7 @@ MonoBehaviour:
         addedValue: 0
         addMultiplier: 0
         mulMultiplier: 0
-      DEX:
+      AGI:
         valueType: 0
         staticValue: 0
         source:

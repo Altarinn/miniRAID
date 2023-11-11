@@ -190,7 +190,24 @@ MonoBehaviour:
   Guid: 0712dba7a8304c24970e25e5d51ed41e
   Id: 26
   icon: {fileID: -312616133, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
-  name: "\u836F\u8349"
+  nameKey:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  ToolTipKey:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   type: 1
   priority: 0
   itemLevel: 24
@@ -210,5 +227,8 @@ MonoBehaviour:
   specialAttack:
     data: {fileID: 11400000, guid: 63f80b34efe864b4286538e25ecbd4bf, type: 2}
     level: 0
-  energyCount: 4
-  energyMax: 4
+  energyCount: 6
+  energyMax: 6
+  references:
+    version: 2
+    RefIds: []

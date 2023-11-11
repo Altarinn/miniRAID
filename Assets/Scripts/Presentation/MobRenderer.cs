@@ -46,7 +46,7 @@ namespace miniRAID
         public int STR => (int)data.baseStats.STR.Value;
         public int MAG => (int)data.baseStats.MAG.Value;
         public int INT => (int)data.baseStats.INT.Value;
-        public int DEX => (int)data.baseStats.DEX.Value;
+        public int DEX => (int)data.baseStats.AGI.Value;
         public int TEC => (int)data.baseStats.TEC.Value;
 
         public int AttackPower => (int)data.attackPower.Value;

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using UnityEngine;
 using XLua;
@@ -73,7 +74,16 @@ namespace miniRAID
 
                 // Player phase
                 yield return UIPlayerPhase();
+
                 yield return new JumpIn(Phase(Consts.UnitGroup.Player));
+                
+                yield return new JumpIn(Turn(Consts.UnitGroup.Player, "1/4"));
+                yield return new JumpIn(Turn(Consts.UnitGroup.Player, "2/4"));
+                yield return new JumpIn(Turn(Consts.UnitGroup.Player, "3/4"));
+                yield return new JumpIn(Turn(Consts.UnitGroup.Player, "4/4"));
+                
+                // Refresh & auto-attack
+                yield return new JumpIn(AutoAttackStage(Consts.UnitGroup.Player));
 
                 // Ally phase
                 if (HasAlly())
@@ -84,7 +94,11 @@ namespace miniRAID
                 // Enemy phase
                 yield return UIEnemyPhase();
                 yield return new JumpIn(Phase(Consts.UnitGroup.Enemy));
+                yield return new JumpIn(Turn(Consts.UnitGroup.Enemy));
                 //yield return new JumpIn(EnemyActions());
+                
+                // TODO: Extra turns / Heavy weapon
+                yield return new JumpIn(RecoveryStage(Consts.UnitGroup.Player));
 
                 yield return new JumpIn(EndTurn());
             }

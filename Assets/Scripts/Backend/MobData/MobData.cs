@@ -67,7 +67,9 @@ namespace miniRAID
         
         public bool isActive { get; private set; }
         public bool isDead { get; private set; }
+        public bool skipAutoAttack { get; private set; }
         public bool isControllable => isActive && (!isDead);
+        public bool canAutoAttack => (!skipAutoAttack) && (!isDead);
 
         public bool initialized = false;
 
@@ -112,7 +114,7 @@ namespace miniRAID
         public int STR => (int)baseStats.STR.Value;
         public int MAG => (int)baseStats.MAG.Value;
         public int INT => (int)baseStats.INT.Value;
-        public int DEX => (int)baseStats.DEX.Value;
+        public int AGI => (int)baseStats.AGI.Value;
         public int TEC => (int)baseStats.TEC.Value;
 
         public int MoveRange => (int)moveRange.Value;
@@ -198,10 +200,13 @@ namespace miniRAID
             //_actionPoints = baseActionPoints + extraActionPoints;
             //extraActionPoints = (dNumber)0;
 
+            mobRenderer?.OnWakeUp();
+        }
+
+        public void Recover()
+        {
             _actionPointsMul100 += Mathf.RoundToInt(apRecovery * 100);
             if(_actionPointsMul100 > apMax * 100) { _actionPointsMul100 = apMax * 100; }
-
-            mobRenderer?.OnWakeUp();
         }
 
         public void OnNewPhase()
@@ -329,7 +334,9 @@ namespace miniRAID
             switch (cost.type)
             {
                 case Cost.Type.AP:
-                    Debug.LogWarning("Please implement GetResource for AP.");
+                    // Debug.LogWarning("Please implement GetResource for AP.");
+                    _actionPointsMul100 += Mathf.RoundToInt(cost.value * 100);
+                    if(_actionPointsMul100 > apMax * 100) { _actionPointsMul100 = apMax * 100; }
                     break;
                 case Cost.Type.Mana:
                     Debug.LogWarning("Please implement GetResource for Mana.");
@@ -389,6 +396,13 @@ namespace miniRAID
         public IEnumerator _OnNextTurn()
         {
             yield return new JumpIn(OnNextTurn?.Invoke(this));
+        }
+        
+        public IEnumerator _OnRecoveryStage()
+        {
+            Recover();
+            yield return new JumpIn(OnRecoveryStage?.Invoke(this));
+            RecalculateStats();
         }
     }
 }

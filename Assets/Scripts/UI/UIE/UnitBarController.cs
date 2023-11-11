@@ -76,7 +76,7 @@ namespace miniRAID.UIElements
             MAG.text = $"{mob.MAG}";
             INT.text = $"{mob.INT}";
             TEC.text = $"{mob.TEC}";
-            AGI.text = $"{mob.DEX}";
+            AGI.text = $"{mob.AGI}";
             
             unitIcon.style.backgroundImage = new StyleBackground(mob.mobRenderer?.GetComponentInChildren<SpriteRenderer>().sprite);
             

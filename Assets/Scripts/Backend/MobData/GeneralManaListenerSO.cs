@@ -29,7 +29,7 @@ namespace miniRAID
             mob.OnCheckCost += MobOnCheckCost;
             mob.OnApplyCost += MobOnApplyCost;
             mob.OnStatCalculation += MobOnStatCalculation;
-            mob.OnWakeup += MobOnWakeUp;
+            mob.OnRecoveryStage += MobOnRecoveryStage;
         }
 
         public override void OnRemove(MobData mob)
@@ -37,7 +37,7 @@ namespace miniRAID
             mob.OnCheckCost -= MobOnCheckCost;
             mob.OnApplyCost -= MobOnApplyCost;
             mob.OnStatCalculation -= MobOnStatCalculation;
-            mob.OnWakeup -= MobOnWakeUp;
+            mob.OnRecoveryStage -= MobOnRecoveryStage;
             
             base.OnRemove(mob);
         }
@@ -68,7 +68,7 @@ namespace miniRAID
             }
         }
         
-        private void MobOnWakeUp(MobData mob)
+        private void MobOnRecoveryStage(MobData mob)
         {
             AddMana(Mathf.FloorToInt(mob.MAG * 0.2f));
         }

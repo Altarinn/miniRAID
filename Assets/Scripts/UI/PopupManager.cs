@@ -25,7 +25,7 @@ public class PopupManager : MonoBehaviour
         
     }
 
-    public void Popup(string text, Vector3 position)
+    public void Popup(string text, Vector3 position, Color color)
     {
         position += Random.insideUnitSphere * randomRadius;
 
@@ -36,6 +36,8 @@ public class PopupManager : MonoBehaviour
         pop.rectTransform.anchoredPosition = new Vector2(
             ((screenPos.x * CanvasRect.sizeDelta.x)),
             ((screenPos.y * CanvasRect.sizeDelta.y)));
+
+        pop.color = color;
 
         pop.text = text;
     }

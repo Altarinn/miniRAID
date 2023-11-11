@@ -61,7 +61,7 @@ namespace miniRAID.Agents
         {
             // Try to cast a regular attack, do it 10 times so we ensure all possible APs have been consumed
             // TODO: Do a proper termination check lmao
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 1; i++)
             {
                 yield return new JumpIn(TryCastRegularAttack(mob));
             }
@@ -94,7 +94,10 @@ namespace miniRAID.Agents
                 yield break;
 
             // Cast the action
-            yield return new JumpIn(mob.DoActionWithDefaultCosts(ract, target));
+            // yield return new JumpIn(mob.DoActionWithDefaultCosts(ract, target));
+            
+            // Cast the action freely
+            yield return new JumpIn(mob.DoAction(ract, target));
         }
         
         public SpellTarget GetTarget(MobData mob)

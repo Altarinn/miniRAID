@@ -173,7 +173,7 @@ namespace miniRAID.UIElements
                     }
                 }
                 e.Q<Label>("APCost").style.display = DisplayStyle.Flex;
-                e.Q<Label>("APCost").text = new StringBuilder().Insert(0, "✧", apcostMin).ToString();
+                e.Q<Label>("APCost").text = new StringBuilder().Insert(0, "o", apcostMin).ToString();
                 e.Q<Label>("Cooldown").style.display = DisplayStyle.None;
             }
             else

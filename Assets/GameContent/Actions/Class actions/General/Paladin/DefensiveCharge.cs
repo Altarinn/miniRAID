@@ -38,12 +38,12 @@ namespace GameContent.Buffs.Test
             };
         }
         
-        private void MobOnBeforeDamageApplied(MobData mob, Consts.DamageHeal_FrontEndInput info, Consts.DamageHeal_ComputedRates rates)
+        private IEnumerator MobOnBeforeDamageApplied(MobData mob, Consts.DamageHeal_FrontEndInput info, Consts.DamageHeal_ComputedRates rates)
         {
             HeavyWeapon weapon = mob.mainWeapon as HeavyWeapon;
             if (weapon == null)
             {
-                return;
+                yield break;
             }
 
             if (weapon.RchargedAttack.isCharging)

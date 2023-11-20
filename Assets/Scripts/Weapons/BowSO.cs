@@ -50,14 +50,16 @@ namespace miniRAID.Weapon
             mob.OnMobMoved -= MobOnOnMobMoved;
         }
 
-        private void MobOnOnMobMoved(MobData mob, Vector3Int from)
+        private IEnumerator MobOnOnMobMoved(MobData mob, Vector3Int from)
         {
             moved = true;
+            yield break;
         }
 
-        private void OnNextTurn(MobData mob)
+        private IEnumerator OnNextTurn(MobData mob)
         {
             moved = false;
+            yield break;
         }
 
         protected override void OnQueryActions(MobData mob, HashSet<RuntimeAction> actions)

@@ -75,18 +75,18 @@ namespace miniRAID.Agents
             }
         }
 
-        private void Mob_OnReceiveDamageFinal(MobData mob, Consts.DamageHeal_Result info)
+        private IEnumerator Mob_OnReceiveDamageFinal(MobData mob, Consts.DamageHeal_Result info)
         {
-            if (info.source.unitGroup == mob.unitGroup) { return; }
+            if (info.source.unitGroup == mob.unitGroup) { yield break; }
             AddToAggro(info.source, info.value * info.source.aggroMul);
         }
 
-        private void TargetMob_OnReceiveHealFinal(MobData mob, Consts.DamageHeal_Result info)
+        private IEnumerator TargetMob_OnReceiveHealFinal(MobData mob, Consts.DamageHeal_Result info)
         {
             // TODO: Why?
-            if (parentMob == null || info.source == null) { return; }
+            if (parentMob == null || info.source == null) { yield break; }
             
-            if (info.source.unitGroup == parentMob.unitGroup) { return; }
+            if (info.source.unitGroup == parentMob.unitGroup) { yield break; }
             AddToAggro(info.source, info.value * info.source.aggroMul * Consts.HealAggroMul);
         }
 

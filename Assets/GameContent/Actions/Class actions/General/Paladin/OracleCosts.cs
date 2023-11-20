@@ -50,7 +50,7 @@ namespace GameContent.Buffs.Test
             };
         }
         
-        private void MobOnWakeup(MobData mob)
+        private IEnumerator MobOnWakeup(MobData mob)
         {
             // Generate oracle grids
             oracleGrids.Clear();
@@ -72,6 +72,8 @@ namespace GameContent.Buffs.Test
             }
 
             RefreshIndicators();
+            
+            yield break;
         }
 
         void RefreshIndicators()
@@ -107,7 +109,7 @@ namespace GameContent.Buffs.Test
             }
         }
 
-        private void MobOnApplyCost(Cost cost, RuntimeAction ract, MobData mob)
+        private IEnumerator MobOnApplyCost(Cost cost, RuntimeAction ract, MobData mob)
         {
             switch (cost.type)
             {
@@ -125,6 +127,7 @@ namespace GameContent.Buffs.Test
                     break;
                 }
             }
+            yield break;
         }
     }
 }

@@ -225,7 +225,10 @@ namespace miniRAID
             public bool popup;
         }
 
-        public static float HealAggroMul = 1.35f;
+        public static float HealAggroMul = 1.5f;
+        
+        // This is a multiplier that will be applied to aggro per turn (update).
+        public static float AggroDecay = 0.75f;
 
         public enum BuffEventType
         {

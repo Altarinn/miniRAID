@@ -14,6 +14,7 @@ namespace GameContent.Buffs.Test
     public class SkillOnHealthPercentageDamage : BuffSO
     {
         public float healthRatio = 0.1f;
+        public bool triggerOnDeath = false;
         public ActionSOEntry skill;
 
         public override MobListener Wrap(MobData parent)
@@ -26,6 +27,7 @@ namespace GameContent.Buffs.Test
     {
         private float damageTotal = 0;
         private float healthRatio;
+        private bool triggerOnDeath;
         
         private ActionSOEntry skillData;
         private RuntimeAction runtimeSkill;
@@ -43,6 +45,7 @@ namespace GameContent.Buffs.Test
         {
             healthRatio = data.healthRatio;
             skillData = data.skill;
+            triggerOnDeath = data.triggerOnDeath;
         }
 
         public override void OnAttach(MobData mob)
@@ -51,14 +54,24 @@ namespace GameContent.Buffs.Test
 
             damageTotal = 0.0f;
             runtimeSkill = mob.AddAction(skillData);
+
+            if (healthRatio > 0)
+            {
+                mob.OnDamageReceived += OnReceiveDamageFinal;
+                mob.OnHealReceived += OnReceiveHealFinal;
+            }
             
-            mob.OnDamageReceived += OnReceiveDamageFinal;
-            mob.OnHealReceived += OnReceiveHealFinal;
+            mob.OnRealDeath += OnRealDeath;
             
             onRemoveFromMob += m =>
             {
-                m.OnDamageReceived -= OnReceiveDamageFinal;
-                m.OnHealReceived -= OnReceiveHealFinal;
+                if (healthRatio > 0)
+                {
+                    m.OnDamageReceived -= OnReceiveDamageFinal;
+                    m.OnHealReceived -= OnReceiveHealFinal;
+                }
+                
+                m.OnRealDeath -= OnRealDeath;
             };
         }
 
@@ -72,6 +85,14 @@ namespace GameContent.Buffs.Test
                     damageTotal -= (float)mob.maxHealth * healthRatio;
                     yield return new JumpIn(mob.DoAction(runtimeSkill, new SpellTarget(mob.Position)));
                 }
+            }
+        }
+
+        public IEnumerator OnRealDeath(MobData mob, Consts.DamageHeal_Result info)
+        {
+            if (triggerOnDeath)
+            {
+                yield return new JumpIn(mob.DoAction(runtimeSkill, new SpellTarget(mob.Position)));
             }
         }
 

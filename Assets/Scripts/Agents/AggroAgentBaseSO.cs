@@ -204,7 +204,7 @@ namespace miniRAID.Agents
             foreach (var entry in aggroList.Keys.ToList())
             {
                 // Decrease aggro by some constant per turn
-                aggroList[entry] *= 0.9f;
+                aggroList[entry] *= Consts.AggroDecay;
             }
             UpdateAggro();
 

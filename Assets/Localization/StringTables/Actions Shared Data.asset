@@ -471,6 +471,10 @@ MonoBehaviour:
     m_Key: slimeking.maindot.tooltip
     m_Metadata:
       m_Items: []
+  - m_Id: 41442703185752064
+    m_Key: healer.name
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

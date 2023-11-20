@@ -42,7 +42,7 @@ MonoBehaviour:
       Data: 5
     - Name: 
       Entry: 4
-      Data: 0.6
+      Data: 0.685
     - Name: 
       Entry: 4
       Data: 1
@@ -193,7 +193,7 @@ MonoBehaviour:
       Data: 0
     - Name: staticOut
       Entry: 4
-      Data: 6
+      Data: 8
     - Name: LuaExpr
       Entry: 6
       Data: 

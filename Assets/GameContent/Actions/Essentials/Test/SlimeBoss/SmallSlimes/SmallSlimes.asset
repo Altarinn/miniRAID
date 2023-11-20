@@ -46,7 +46,7 @@ MonoBehaviour:
       Data: 5
     - Name: 
       Entry: 4
-      Data: 0.5
+      Data: 0.65
     - Name: 
       Entry: 4
       Data: 1
@@ -494,7 +494,7 @@ MonoBehaviour:
       Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 5
+      Data: 11
     - Name: 
       Entry: 3
       Data: 0

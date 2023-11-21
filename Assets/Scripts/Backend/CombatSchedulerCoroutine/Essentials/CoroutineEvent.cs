@@ -69,17 +69,6 @@ namespace miniRAID
             yield break;
         }
 
-        static Func<T0, IEnumerator> Wrapper(Action<T0> infunc)
-        {
-            IEnumerator foo(T0 a) // TArgs
-            {
-                infunc.Invoke(a); // TParams
-                yield break;
-            }
-
-            return foo;
-        }
-
         public static CoroutineEvent<T0> operator +(CoroutineEvent<T0> evt, Func<T0, IEnumerator> listener)
         {
             if(evt == null) { evt = new(); }
@@ -92,26 +81,16 @@ namespace miniRAID
             return evt;
         }
 
-        public static CoroutineEvent<T0> operator +(CoroutineEvent<T0> evt, Action<T0> listener)
-        {
-            return evt + Wrapper(listener);
-        }
-
         public static CoroutineEvent<T0> operator -(CoroutineEvent<T0> evt, Func<T0, IEnumerator> listener)
         {
             if(evt == null) { return null; }
 
-            if (evt.listeners.Contains(listener))
+            if (!evt.listeners.Contains(listener))
             {
                 evt.listeners.Remove(listener);
             }
 
             return evt;
-        }
-
-        public static CoroutineEvent<T0> operator -(CoroutineEvent<T0> evt, Action<T0> listener)
-        {
-            return evt - Wrapper(listener);
         }
     }
 
@@ -128,17 +107,6 @@ namespace miniRAID
             yield break;
         }
 
-        static Func<T0, T1, IEnumerator> Wrapper(Action<T0, T1> infunc)
-        {
-            IEnumerator foo(T0 a, T1 b) // TArgs
-            {
-                infunc.Invoke(a, b); // TParams
-                yield break;
-            }
-
-            return foo;
-        }
-
         public static CoroutineEvent<T0, T1> operator +(CoroutineEvent<T0, T1> evt, Func<T0, T1, IEnumerator> listener)
         {
             if(evt == null) { evt = new(); }
@@ -151,26 +119,16 @@ namespace miniRAID
             return evt;
         }
 
-        public static CoroutineEvent<T0, T1> operator +(CoroutineEvent<T0, T1> evt, Action<T0, T1> listener)
-        {
-            return evt + Wrapper(listener);
-        }
-
         public static CoroutineEvent<T0, T1> operator -(CoroutineEvent<T0, T1> evt, Func<T0, T1, IEnumerator> listener)
         {
             if(evt == null) { return null; }
 
-            if (evt.listeners.Contains(listener))
+            if (!evt.listeners.Contains(listener))
             {
                 evt.listeners.Remove(listener);
             }
 
             return evt;
-        }
-
-        public static CoroutineEvent<T0, T1> operator -(CoroutineEvent<T0, T1> evt, Action<T0, T1> listener)
-        {
-            return evt - Wrapper(listener);
         }
     }
 
@@ -187,17 +145,6 @@ namespace miniRAID
             yield break;
         }
 
-        static Func<T0, T1, T2, IEnumerator> Wrapper(Action<T0, T1, T2> infunc)
-        {
-            IEnumerator foo(T0 a, T1 b, T2 c) // TArgs
-            {
-                infunc.Invoke(a, b, c); // TParams
-                yield break;
-            }
-
-            return foo;
-        }
-
         public static CoroutineEvent<T0, T1, T2> operator +(CoroutineEvent<T0, T1, T2> evt, Func<T0, T1, T2, IEnumerator> listener)
         {
             if(evt == null) { evt = new(); }
@@ -210,11 +157,6 @@ namespace miniRAID
             return evt;
         }
 
-        public static CoroutineEvent<T0, T1, T2> operator +(CoroutineEvent<T0, T1, T2> evt, Action<T0, T1, T2> listener)
-        {
-            return evt + Wrapper(listener);
-        }
-
         public static CoroutineEvent<T0, T1, T2> operator -(CoroutineEvent<T0, T1, T2> evt, Func<T0, T1, T2, IEnumerator> listener)
         {
             if(evt == null) { return null; }
@@ -225,11 +167,6 @@ namespace miniRAID
             }
 
             return evt;
-        }
-
-        public static CoroutineEvent<T0, T1, T2> operator -(CoroutineEvent<T0, T1, T2> evt, Action<T0, T1, T2> listener)
-        {
-            return evt - Wrapper(listener);
         }
     }
 
@@ -246,17 +183,6 @@ namespace miniRAID
             yield break;
         }
 
-        static Func<T0, T1, T2, T3, IEnumerator> Wrapper(Action<T0, T1, T2, T3> infunc)
-        {
-            IEnumerator foo(T0 a, T1 b, T2 c, T3 d) // TArgs
-            {
-                infunc.Invoke(a, b, c, d); // TParams
-                yield break;
-            }
-
-            return foo;
-        }
-
         public static CoroutineEvent<T0, T1, T2, T3> operator +(CoroutineEvent<T0, T1, T2, T3> evt, Func<T0, T1, T2, T3, IEnumerator> listener)
         {
             if(evt == null) { evt = new(); }
@@ -269,11 +195,6 @@ namespace miniRAID
             return evt;
         }
 
-        public static CoroutineEvent<T0, T1, T2, T3> operator +(CoroutineEvent<T0, T1, T2, T3> evt, Action<T0, T1, T2, T3> listener)
-        {
-            return evt + Wrapper(listener);
-        }
-
         public static CoroutineEvent<T0, T1, T2, T3> operator -(CoroutineEvent<T0, T1, T2, T3> evt, Func<T0, T1, T2, T3, IEnumerator> listener)
         {
             if(evt == null) { return null; }
@@ -284,11 +205,6 @@ namespace miniRAID
             }
 
             return evt;
-        }
-
-        public static CoroutineEvent<T0, T1, T2, T3> operator -(CoroutineEvent<T0, T1, T2, T3> evt, Action<T0, T1, T2, T3> listener)
-        {
-            return evt - Wrapper(listener);
         }
     }
 
@@ -305,17 +221,6 @@ namespace miniRAID
             yield break;
         }
 
-        static Func<T0, T1, T2, T3, T4, IEnumerator> Wrapper(Action<T0, T1, T2, T3, T4> infunc)
-        {
-            IEnumerator foo(T0 a, T1 b, T2 c, T3 d, T4 e) // TArgs
-            {
-                infunc.Invoke(a, b, c, d, e); // TParams
-                yield break;
-            }
-
-            return foo;
-        }
-
         public static CoroutineEvent<T0, T1, T2, T3, T4> operator +(CoroutineEvent<T0, T1, T2, T3, T4> evt, Func<T0, T1, T2, T3, T4, IEnumerator> listener)
         {
             if(evt == null) { evt = new(); }
@@ -328,11 +233,6 @@ namespace miniRAID
             return evt;
         }
 
-        public static CoroutineEvent<T0, T1, T2, T3, T4> operator +(CoroutineEvent<T0, T1, T2, T3, T4> evt, Action<T0, T1, T2, T3, T4> listener)
-        {
-            return evt + Wrapper(listener);
-        }
-
         public static CoroutineEvent<T0, T1, T2, T3, T4> operator -(CoroutineEvent<T0, T1, T2, T3, T4> evt, Func<T0, T1, T2, T3, T4, IEnumerator> listener)
         {
             if(evt == null) { return null; }
@@ -343,11 +243,6 @@ namespace miniRAID
             }
 
             return evt;
-        }
-
-        public static CoroutineEvent<T0, T1, T2, T3, T4> operator -(CoroutineEvent<T0, T1, T2, T3, T4> evt, Action<T0, T1, T2, T3, T4> listener)
-        {
-            return evt - Wrapper(listener);
         }
     }
 
@@ -364,17 +259,6 @@ namespace miniRAID
             yield break;
         }
 
-        static Func<T0, T1, T2, T3, T4, T5, IEnumerator> Wrapper(Action<T0, T1, T2, T3, T4, T5> infunc)
-        {
-            IEnumerator foo(T0 a, T1 b, T2 c, T3 d, T4 e, T5 f) // TArgs
-            {
-                infunc.Invoke(a, b, c, d, e, f); // TParams
-                yield break;
-            }
-
-            return foo;
-        }
-
         public static CoroutineEvent<T0, T1, T2, T3, T4, T5> operator +(CoroutineEvent<T0, T1, T2, T3, T4, T5> evt, Func<T0, T1, T2, T3, T4, T5, IEnumerator> listener)
         {
             if(evt == null) { evt = new(); }
@@ -387,11 +271,6 @@ namespace miniRAID
             return evt;
         }
 
-        public static CoroutineEvent<T0, T1, T2, T3, T4, T5> operator +(CoroutineEvent<T0, T1, T2, T3, T4, T5> evt, Action<T0, T1, T2, T3, T4, T5> listener)
-        {
-            return evt + Wrapper(listener);
-        }
-
         public static CoroutineEvent<T0, T1, T2, T3, T4, T5> operator -(CoroutineEvent<T0, T1, T2, T3, T4, T5> evt, Func<T0, T1, T2, T3, T4, T5, IEnumerator> listener)
         {
             if(evt == null) { return null; }
@@ -402,11 +281,6 @@ namespace miniRAID
             }
 
             return evt;
-        }
-
-        public static CoroutineEvent<T0, T1, T2, T3, T4, T5> operator -(CoroutineEvent<T0, T1, T2, T3, T4, T5> evt, Action<T0, T1, T2, T3, T4, T5> listener)
-        {
-            return evt - Wrapper(listener);
         }
     }
 
@@ -423,17 +297,6 @@ namespace miniRAID
             yield break;
         }
 
-        static Func<T0, T1, T2, T3, T4, T5, T6, IEnumerator> Wrapper(Action<T0, T1, T2, T3, T4, T5, T6> infunc)
-        {
-            IEnumerator foo(T0 a, T1 b, T2 c, T3 d, T4 e, T5 f, T6 g) // TArgs
-            {
-                infunc.Invoke(a, b, c, d, e, f, g); // TParams
-                yield break;
-            }
-
-            return foo;
-        }
-
         public static CoroutineEvent<T0, T1, T2, T3, T4, T5, T6> operator +(CoroutineEvent<T0, T1, T2, T3, T4, T5, T6> evt, Func<T0, T1, T2, T3, T4, T5, T6, IEnumerator> listener)
         {
             if(evt == null) { evt = new(); }
@@ -446,11 +309,6 @@ namespace miniRAID
             return evt;
         }
 
-        public static CoroutineEvent<T0, T1, T2, T3, T4, T5, T6> operator +(CoroutineEvent<T0, T1, T2, T3, T4, T5, T6> evt, Action<T0, T1, T2, T3, T4, T5, T6> listener)
-        {
-            return evt + Wrapper(listener);
-        }
-
         public static CoroutineEvent<T0, T1, T2, T3, T4, T5, T6> operator -(CoroutineEvent<T0, T1, T2, T3, T4, T5, T6> evt, Func<T0, T1, T2, T3, T4, T5, T6, IEnumerator> listener)
         {
             if(evt == null) { return null; }
@@ -461,11 +319,6 @@ namespace miniRAID
             }
 
             return evt;
-        }
-
-        public static CoroutineEvent<T0, T1, T2, T3, T4, T5, T6> operator -(CoroutineEvent<T0, T1, T2, T3, T4, T5, T6> evt, Action<T0, T1, T2, T3, T4, T5, T6> listener)
-        {
-            return evt - Wrapper(listener);
         }
     }
 
@@ -482,17 +335,6 @@ namespace miniRAID
             yield break;
         }
 
-        static Func<T0, T1, T2, T3, T4, T5, T6, T7, IEnumerator> Wrapper(Action<T0, T1, T2, T3, T4, T5, T6, T7> infunc)
-        {
-            IEnumerator foo(T0 a, T1 b, T2 c, T3 d, T4 e, T5 f, T6 g, T7 h) // TArgs
-            {
-                infunc.Invoke(a, b, c, d, e, f, g, h); // TParams
-                yield break;
-            }
-
-            return foo;
-        }
-
         public static CoroutineEvent<T0, T1, T2, T3, T4, T5, T6, T7> operator +(CoroutineEvent<T0, T1, T2, T3, T4, T5, T6, T7> evt, Func<T0, T1, T2, T3, T4, T5, T6, T7, IEnumerator> listener)
         {
             if(evt == null) { evt = new(); }
@@ -505,11 +347,6 @@ namespace miniRAID
             return evt;
         }
 
-        public static CoroutineEvent<T0, T1, T2, T3, T4, T5, T6, T7> operator +(CoroutineEvent<T0, T1, T2, T3, T4, T5, T6, T7> evt, Action<T0, T1, T2, T3, T4, T5, T6, T7> listener)
-        {
-            return evt + Wrapper(listener);
-        }
-
         public static CoroutineEvent<T0, T1, T2, T3, T4, T5, T6, T7> operator -(CoroutineEvent<T0, T1, T2, T3, T4, T5, T6, T7> evt, Func<T0, T1, T2, T3, T4, T5, T6, T7, IEnumerator> listener)
         {
             if(evt == null) { return null; }
@@ -520,11 +357,6 @@ namespace miniRAID
             }
 
             return evt;
-        }
-
-        public static CoroutineEvent<T0, T1, T2, T3, T4, T5, T6, T7> operator -(CoroutineEvent<T0, T1, T2, T3, T4, T5, T6, T7> evt, Action<T0, T1, T2, T3, T4, T5, T6, T7> listener)
-        {
-            return evt - Wrapper(listener);
         }
     }
 
@@ -541,17 +373,6 @@ namespace miniRAID
             yield break;
         }
 
-        static Func<T0, T1, T2, T3, T4, T5, T6, T7, T8, IEnumerator> Wrapper(Action<T0, T1, T2, T3, T4, T5, T6, T7, T8> infunc)
-        {
-            IEnumerator foo(T0 a, T1 b, T2 c, T3 d, T4 e, T5 f, T6 g, T7 h, T8 i) // TArgs
-            {
-                infunc.Invoke(a, b, c, d, e, f, g, h, i); // TParams
-                yield break;
-            }
-
-            return foo;
-        }
-
         public static CoroutineEvent<T0, T1, T2, T3, T4, T5, T6, T7, T8> operator +(CoroutineEvent<T0, T1, T2, T3, T4, T5, T6, T7, T8> evt, Func<T0, T1, T2, T3, T4, T5, T6, T7, T8, IEnumerator> listener)
         {
             if(evt == null) { evt = new(); }
@@ -564,11 +385,6 @@ namespace miniRAID
             return evt;
         }
 
-        public static CoroutineEvent<T0, T1, T2, T3, T4, T5, T6, T7, T8> operator +(CoroutineEvent<T0, T1, T2, T3, T4, T5, T6, T7, T8> evt, Action<T0, T1, T2, T3, T4, T5, T6, T7, T8> listener)
-        {
-            return evt + Wrapper(listener);
-        }
-
         public static CoroutineEvent<T0, T1, T2, T3, T4, T5, T6, T7, T8> operator -(CoroutineEvent<T0, T1, T2, T3, T4, T5, T6, T7, T8> evt, Func<T0, T1, T2, T3, T4, T5, T6, T7, T8, IEnumerator> listener)
         {
             if(evt == null) { return null; }
@@ -579,11 +395,6 @@ namespace miniRAID
             }
 
             return evt;
-        }
-
-        public static CoroutineEvent<T0, T1, T2, T3, T4, T5, T6, T7, T8> operator -(CoroutineEvent<T0, T1, T2, T3, T4, T5, T6, T7, T8> evt, Action<T0, T1, T2, T3, T4, T5, T6, T7, T8> listener)
-        {
-            return evt - Wrapper(listener);
         }
     }
 

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace miniRAID
@@ -60,17 +61,19 @@ namespace miniRAID
             return false;
         }
 
-        private void MobOnApplyCost(Cost cost, RuntimeAction ract, MobData mob)
+        private IEnumerator MobOnApplyCost(Cost cost, RuntimeAction ract, MobData mob)
         {
             if (cost.type == Cost.Type.Mana)
             {
                 current -= cost.value;
             }
+            yield break;
         }
         
-        private void MobOnRecoveryStage(MobData mob)
+        private IEnumerator MobOnRecoveryStage(MobData mob)
         {
             AddMana(Mathf.FloorToInt(mob.MAG * 0.2f));
+            yield break;
         }
 
         public void AddMana(int value)

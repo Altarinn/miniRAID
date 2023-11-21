@@ -83,20 +83,20 @@ namespace GameContent.Buffs.Test
             }
         }
 
-        protected void SourceOnMobMoved(MobData mob, Vector3Int from)
+        protected IEnumerator SourceOnMobMoved(MobData mob, Vector3Int from)
         {
             foreach (var target in validTargets)
             {
-                TargetOnMobMoved(target, target.Position);
+                yield return new JumpIn(TargetOnMobMoved(target, target.Position));
             }
         }
 
-        protected void TargetOnMobMoved(MobData mob, Vector3Int from)
+        protected IEnumerator TargetOnMobMoved(MobData mob, Vector3Int from)
         {
             // Ignore non-target mobs. Should not be triggered tho?
             if (!((AuraEffectSO)buffData).filter.Check(source, mob))
             {
-                return;
+                yield break;
             }
             
             // We want to remove the aura

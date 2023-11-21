@@ -276,7 +276,8 @@ MonoBehaviour:
   type: 0
   priority: 0
   timed: 1
-  timeMax: 6
+  phaseTimed: 1
+  timeMax: 2
   stackable: 1
   stackRefreshesTime: 1
   maxStack: 10

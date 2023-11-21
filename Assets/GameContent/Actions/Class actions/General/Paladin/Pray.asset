@@ -157,7 +157,7 @@ MonoBehaviour:
       Data: 0
     - Name: staticOut
       Entry: 4
-      Data: 1
+      Data: 0
     - Name: LuaExpr
       Entry: 6
       Data: 

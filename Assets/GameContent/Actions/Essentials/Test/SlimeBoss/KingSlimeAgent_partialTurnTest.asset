@@ -64,7 +64,7 @@ MonoBehaviour:
       actions:
       - data: {fileID: 11400000, guid: 651ce528935d4564580f2eb1e502fef1, type: 2}
         level: 0
-    - doRegularAttack: 0
+    - doRegularAttack: 1
       actions:
       - data: {fileID: 11400000, guid: 8a808c2b1fd03ab49b3bedb6f2176570, type: 2}
         level: 0
@@ -79,12 +79,6 @@ MonoBehaviour:
     - doRegularAttack: 0
       actions:
       - data: {fileID: 11400000, guid: 651ce528935d4564580f2eb1e502fef1, type: 2}
-        level: 0
-    - doRegularAttack: 1
-      actions: []
-    - doRegularAttack: 0
-      actions:
-      - data: {fileID: 11400000, guid: d36a1d95636ff4a718304d182e15483e, type: 2}
         level: 0
     - doRegularAttack: 1
       actions: []

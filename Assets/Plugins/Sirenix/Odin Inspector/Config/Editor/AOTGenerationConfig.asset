@@ -16,7 +16,7 @@ MonoBehaviour:
   deleteDllAfterBuilds: 1
   AutomateForAllAOTPlatforms: 1
   automateForPlatforms: 0900000014000000
-  lastScan: 638353115828223091
+  lastScan: 638362307293692229
   supportSerializedTypes:
   - TypeName: miniRAID.Weapon.ActionTargetPickerBase, Assembly-CSharp
     IsCustom: 0

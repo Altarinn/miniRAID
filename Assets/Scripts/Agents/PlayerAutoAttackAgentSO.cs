@@ -59,13 +59,18 @@ namespace miniRAID.Agents
 
         protected IEnumerator OnAgentWakeUp(MobData mob)
         {
-            // Try to cast a regular attack, do it 10 times so we ensure all possible APs have been consumed
-            // TODO: Do a proper termination check lmao
-            for (int i = 0; i < 1; i++)
+            if (!skipNextTurn)
             {
-                yield return new JumpIn(TryCastRegularAttack(mob));
+                // Try to cast a regular attack
+                // TODO: Do a proper termination check lmao
+                for (int i = 0; i < 1; i++)
+                {
+                    yield return new JumpIn(TryCastRegularAttack(mob));
+                }
             }
-            
+
+            skipNextTurn = false;
+
             // End mob's turn
             yield return new JumpIn(mob.SetActive(false));
         }
@@ -103,6 +108,18 @@ namespace miniRAID.Agents
         public SpellTarget GetTarget(MobData mob)
         {
             return mob.mainWeapon.QueryTarget(mob);
+        }
+        
+        private bool skipNextTurn = false;
+
+        public void SkipNextTurn()
+        {
+            skipNextTurn = true;
+        }
+        
+        public void DontSkipNextTurn()
+        {
+            skipNextTurn = false;
         }
     }
 }

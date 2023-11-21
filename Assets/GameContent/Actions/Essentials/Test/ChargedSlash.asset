@@ -155,7 +155,7 @@ MonoBehaviour:
       Data: 0
     - Name: staticOut
       Entry: 4
-      Data: 1
+      Data: 0
     - Name: LuaExpr
       Entry: 6
       Data: 
@@ -701,7 +701,7 @@ MonoBehaviour:
     m_LocalVariables: []
   flags: 0
   chargeTime: 1
-  APregenDecrease: 1
+  APregenDecrease: 0
   chargedFlags: 8
   references:
     version: 2

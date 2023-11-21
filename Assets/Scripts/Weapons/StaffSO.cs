@@ -43,18 +43,18 @@ namespace miniRAID.Weapon
             RspecialAttack = mob.AddAction(staffData.specialAttack);
 
             mob.OnActionPostcast += OnActionPostCast;
-            mob.OnWakeup += OnWakeup;
+            mob.OnRecoveryStage += OnRecoveryStage;
         }
         
         public override void OnRemove(MobData mob)
         {
             mob.OnActionPostcast -= OnActionPostCast;
-            mob.OnWakeup -= OnWakeup;
+            mob.OnRecoveryStage -= OnRecoveryStage;
             
             base.OnRemove(mob);
         }
 
-        private IEnumerator OnWakeup(MobData mob)
+        private IEnumerator OnRecoveryStage(MobData mob)
         {
             if (regenTimer > 0)
             {

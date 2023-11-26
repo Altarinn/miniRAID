@@ -7,6 +7,7 @@ using miniRAID.Buff;
 using System;
 using System.Linq;
 using miniRAID.Backend;
+using miniRAID.Backend.Numericals.Impl;
 using UnityEngine.Serialization;
 
 namespace miniRAID
@@ -379,6 +380,8 @@ namespace miniRAID
 
         // TODO: Determine our values
 
+        public static int maxPlayers = 9, basePlayerPerTurn = 4;
+
         // Extra level added to attacker level during damage calc.
         // For a smoother early-game experience.
         // However, this may not be a good solution and should be 0 for now.
@@ -496,7 +499,7 @@ namespace miniRAID
             return 0f;
         }
 
-        private static float baseStatBaseLv1 = 5;
+        public static float baseStatBaseLv1 = 5;
         public static float baseStatAverageGrowth = 1.0f;
 
         public static float BaseStatsFromLevel(int lvl, float growthRate)
@@ -643,6 +646,9 @@ namespace miniRAID
             mapSizeX = MAX_MAP_SIZE;
             mapHeight = MAX_MAP_HEIGHT;
             mapSizeZ = MAX_MAP_SIZE;
+
+            // Compute global basic numericals
+            BasicNumericals.Fill(Globals.numericals);
         }
 
         public GridData GetMap(int x, int y, int z)

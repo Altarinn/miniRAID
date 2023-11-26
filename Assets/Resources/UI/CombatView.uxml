@@ -9,7 +9,7 @@
     <Style src="project://database/Assets/Resources/UI/UnitMenu.uss?fileID=7433441132597879392&amp;guid=a0add0ae97395f2429640186459de10a&amp;type=3#UnitMenu" />
     <Style src="project://database/Assets/Resources/UI/miniRAID_default.uss?fileID=7433441132597879392&amp;guid=54e6eee580e008a468415140067b7312&amp;type=3#miniRAID_default" />
     <ui:VisualElement name="CombatPanel" picking-mode="Ignore" style="flex-direction: row; height: 100%; width: 100%;">
-        <ui:Label tabindex="-1" text="v0.1.5b" display-tooltip-when-elided="true" name="VersionNum" style="position: absolute; margin-left: 2px; margin-top: 2px; color: rgb(96, 108, 79);" />
+        <ui:Label tabindex="-1" text="v0.2.0-pre" display-tooltip-when-elided="true" name="VersionNum" style="position: absolute; margin-left: 2px; margin-top: 2px; color: rgb(96, 108, 79);" />
         <ui:VisualElement name="MainPanel" picking-mode="Ignore" style="flex-grow: 1;">
             <ui:Instance template="MobDetails" name="MobDetails" picking-mode="Ignore" style="position: absolute; left: 164px; top: 69px; width: 550px; visibility: hidden;" />
             <ui:Instance template="MobInfo" name="MobInfo" style="left: 164px; top: 69px; width: 550px; visibility: hidden; position: absolute;" />

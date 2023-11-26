@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using miniRAID.Backend;
 using miniRAID.UI;
 using miniRAID.UIElements;
 
@@ -7,6 +8,8 @@ namespace miniRAID
 {
     public static class Globals
     {
+        public static NumericalDatabase<string> numericals = NumericalDatabase<string>.GetSingleton();
+
         public static MonoSingleton<UI.GridUI> ui = new MonoSingleton<UI.GridUI>(false);
         public static MonoSingleton<Scheduler> scheduler = new MonoSingleton<Scheduler>(false);
         public static MonoSingleton<CombatSchedulerCoroutine> combatMgr = new MonoSingleton<CombatSchedulerCoroutine>(false);

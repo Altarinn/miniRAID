@@ -1,4 +1,5 @@
 ﻿using System;
+using miniRAID.Backend.Numericals;
 using XLua;
 using Sirenix.OdinInspector;
 
@@ -20,7 +21,9 @@ namespace miniRAID
             OracleBuff, // Oracle buffs
         }
 
+        [DerivedAttribute]
         public dNumber value;
+
         public Type type;
 
         public Cost(dNumber v, Type t)

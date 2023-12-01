@@ -139,7 +139,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 7
       Data: 
@@ -217,6 +217,44 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 7
+      Data: 9|miniRAID.LuaBoundedGetter`3[[System.ValueTuple`2[[miniRAID.MobData,
+        Assembly-CSharp],[miniRAID.Spells.SpellTarget, Assembly-CSharp]], mscorlib],[miniRAID.MobData,
+        Assembly-CSharp],[System.Double, mscorlib]], Assembly-CSharp
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: staticOut
+      Entry: 4
+      Data: 0
+    - Name: LuaExpr
+      Entry: 6
+      Data: 
+    - Name: description
+      Entry: 6
+      Data: 
+    - Name: getterTemplate
+      Entry: 6
+      Data: 
+    - Name: lowerBound
+      Entry: 6
+      Data: 
+    - Name: upperBound
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
       Entry: 13
       Data: 
     - Name: 
@@ -224,7 +262,7 @@ MonoBehaviour:
       Data: 
     - Name: isActivelyUsed
       Entry: 7
-      Data: 9|miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Boolean,
+      Data: 10|miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Boolean,
         mscorlib]], Assembly-CSharp
     - Name: type
       Entry: 3
@@ -246,7 +284,7 @@ MonoBehaviour:
       Data: 
     - Name: Requester
       Entry: 7
-      Data: 10|miniRAID.UI.TargetRequester.BasicUnitsRequester, Assembly-CSharp
+      Data: 11|miniRAID.UI.TargetRequester.BasicUnitsRequester, Assembly-CSharp
     - Name: stateStr
       Entry: 6
       Data: 
@@ -255,21 +293,21 @@ MonoBehaviour:
       Data: 1
     - Name: query_stack
       Entry: 7
-      Data: 11|System.Collections.Generic.Stack`1[[miniRAID.UI.TargetRequester.RequestStage,
+      Data: 12|System.Collections.Generic.Stack`1[[miniRAID.UI.TargetRequester.RequestStage,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
     - Name: 
       Entry: 7
-      Data: 12|miniRAID.UI.TargetRequester.RequestStage, Assembly-CSharp
+      Data: 13|miniRAID.UI.TargetRequester.RequestStage, Assembly-CSharp
     - Name: map
       Entry: 7
-      Data: 13|System.Collections.Generic.Dictionary`2[[UnityEngine.Vector3Int, UnityEngine.CoreModule],[GridOverlay+Types,
+      Data: 14|System.Collections.Generic.Dictionary`2[[UnityEngine.Vector3Int, UnityEngine.CoreModule],[GridOverlay+Types,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 14|System.Collections.Generic.GenericEqualityComparer`1[[UnityEngine.Vector3Int,
+      Data: 15|System.Collections.Generic.GenericEqualityComparer`1[[UnityEngine.Vector3Int,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 8
@@ -405,11 +443,11 @@ MonoBehaviour:
       Data: 
     - Name: cursor
       Entry: 7
-      Data: 15|System.Collections.Generic.Dictionary`2[[UnityEngine.Vector3Int, UnityEngine.CoreModule],[GridOverlay+Types,
+      Data: 16|System.Collections.Generic.Dictionary`2[[UnityEngine.Vector3Int, UnityEngine.CoreModule],[GridOverlay+Types,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 9
-      Data: 14
+      Data: 15
     - Name: 
       Entry: 12
       Data: 0
@@ -436,7 +474,7 @@ MonoBehaviour:
       Data: 
     - Name: choice
       Entry: 7
-      Data: 16|System.Collections.Generic.Stack`1[[UnityEngine.Vector3Int, UnityEngine.CoreModule]],
+      Data: 17|System.Collections.Generic.Stack`1[[UnityEngine.Vector3Int, UnityEngine.CoreModule]],
         mscorlib
     - Name: 
       Entry: 12
@@ -488,7 +526,7 @@ MonoBehaviour:
       Data: 
     - Name: targetPicker
       Entry: 7
-      Data: 17|miniRAID.Weapon.FollowLastTurnPicker, Assembly-CSharp
+      Data: 18|miniRAID.Weapon.FollowLastTurnPicker, Assembly-CSharp
     - Name: 
       Entry: 8
       Data: 
@@ -497,7 +535,7 @@ MonoBehaviour:
       Data: 
     - Name: projectile
       Entry: 7
-      Data: 18|miniRAID.ActionHelpers.Projectile, Assembly-CSharp
+      Data: 19|miniRAID.ActionHelpers.Projectile, Assembly-CSharp
     - Name: projectilePrefab
       Entry: 10
       Data: 0
@@ -515,7 +553,7 @@ MonoBehaviour:
       Data: 
     - Name: fxOnHit
       Entry: 7
-      Data: 19|miniRAID.ActionHelpers.SimpleExplosionFx, Assembly-CSharp
+      Data: 20|miniRAID.ActionHelpers.SimpleExplosionFx, Assembly-CSharp
     - Name: image
       Entry: 10
       Data: 1
@@ -536,7 +574,7 @@ MonoBehaviour:
       Data: 
     - Name: damageOrHeal
       Entry: 7
-      Data: 20|miniRAID.ActionHelpers.SpellDamageHeal, Assembly-CSharp
+      Data: 21|miniRAID.ActionHelpers.SpellDamageHeal, Assembly-CSharp
     - Name: flags
       Entry: 3
       Data: 0
@@ -544,40 +582,6 @@ MonoBehaviour:
       Entry: 3
       Data: 4
     - Name: power
-      Entry: 7
-      Data: miniRAID.ActionHelpers.FloatModifier, Assembly-CSharp
-    - Name: type
-      Entry: 3
-      Data: 0
-    - Name: value
-      Entry: 4
-      Data: 1
-    - Name: expression
-      Entry: 7
-      Data: 21|miniRAID.LuaGetter`2[[System.Single, mscorlib],[System.Single, mscorlib]],
-        Assembly-CSharp
-    - Name: type
-      Entry: 3
-      Data: 0
-    - Name: staticOut
-      Entry: 4
-      Data: 0
-    - Name: LuaExpr
-      Entry: 6
-      Data: 
-    - Name: description
-      Entry: 6
-      Data: 
-    - Name: getterTemplate
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: crit
       Entry: 7
       Data: miniRAID.ActionHelpers.FloatModifier, Assembly-CSharp
     - Name: type
@@ -611,7 +615,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: hit
+    - Name: crit
       Entry: 7
       Data: miniRAID.ActionHelpers.FloatModifier, Assembly-CSharp
     - Name: type
@@ -623,6 +627,40 @@ MonoBehaviour:
     - Name: expression
       Entry: 7
       Data: 23|miniRAID.LuaGetter`2[[System.Single, mscorlib],[System.Single, mscorlib]],
+        Assembly-CSharp
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: staticOut
+      Entry: 4
+      Data: 0
+    - Name: LuaExpr
+      Entry: 6
+      Data: 
+    - Name: description
+      Entry: 6
+      Data: 
+    - Name: getterTemplate
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: hit
+      Entry: 7
+      Data: miniRAID.ActionHelpers.FloatModifier, Assembly-CSharp
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: value
+      Entry: 4
+      Data: 1
+    - Name: expression
+      Entry: 7
+      Data: 24|miniRAID.LuaGetter`2[[System.Single, mscorlib],[System.Single, mscorlib]],
         Assembly-CSharp
     - Name: type
       Entry: 3

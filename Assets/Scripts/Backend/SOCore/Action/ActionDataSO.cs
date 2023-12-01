@@ -6,6 +6,7 @@ using XLua;
 
 using Sirenix.OdinInspector;
 using System.Linq;
+using miniRAID.Backend.Numericals;
 using miniRAID.Weapon;
 using UnityEngine.Localization;
 using UnityEngine.Serialization;
@@ -141,6 +142,7 @@ namespace miniRAID
         // TODO: Boolean arrays
         // public List<string> Tags;
         [Title("Power stats")]
+        [DerivedAttribute]
         public PowerGetter power;
         public PowerGetter auxPower;
         // public LeveledStats<float> test;

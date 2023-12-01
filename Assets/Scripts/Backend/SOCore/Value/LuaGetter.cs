@@ -8,6 +8,7 @@ using System.Linq;
 using System;
 
 using System.Text.RegularExpressions;
+using miniRAID.Backend.Numericals;
 
 namespace miniRAID
 {
@@ -38,6 +39,7 @@ namespace miniRAID
         public LuaGetterType type = LuaGetterType.STATIC;
 
         // TODO: change everything to private; Requires to get SerializedProperty in Editor.
+        [DerivedAttribute]
         public TOut staticOut = default;
 
         [TextArea(0, 100)]

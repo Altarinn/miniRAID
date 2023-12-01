@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using miniRAID.Backend.Numericals;
 using miniRAID.Buff;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;

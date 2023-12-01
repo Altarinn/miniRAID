@@ -10,8 +10,8 @@ namespace miniRAID.Backend
 
     public class NumericalDatabase<TKey>
     {
-        public Dictionary<TKey, NumericEntry> cache = new Dictionary<TKey, NumericEntry>();
-        private List<NumericalDatabasePopulatorBase<TKey>> onDemandPopulators = new List<NumericalDatabasePopulatorBase<TKey>>();
+        // public Dictionary<TKey, NumericEntry> cache = new Dictionary<TKey, NumericEntry>();
+        private List<NumericalDatabaseMatcherBase<TKey>> _matchers = new List<NumericalDatabaseMatcherBase<TKey>>();
         
         static private NumericalDatabase<TKey> instance;
         static public NumericalDatabase<TKey> GetSingleton()
@@ -23,44 +23,46 @@ namespace miniRAID.Backend
             return instance;
         }
 
-        public bool StoreStat<T>(TKey key, T stat)
-        {
-            // All entries are treated as constants so we can't change them once they are set.
-            if (cache.ContainsKey(key))
-            {
-                return false;
-            }
-            
-            cache.Add(key, new NumericEntry()
-            {
-                type = typeof(T),
-                value = stat
-            });
-            
-            return true;
-        }
+        // public bool StoreStat<T>(TKey key, T stat)
+        // {
+        //     // All entries are treated as constants so we can't change them once they are set.
+        //     if (cache.ContainsKey(key))
+        //     {
+        //         return false;
+        //     }
+        //     
+        //     cache.Add(key, new NumericEntry()
+        //     {
+        //         type = typeof(T),
+        //         value = stat
+        //     });
+        //     
+        //     return true;
+        // }
         
-        public T GetStat<T>(TKey statName)
+        public bool GetStat(object parent, TKey statName, out object result)
         {
-            if (cache.ContainsKey(statName))
+            // if (cache.ContainsKey(statName))
+            // {
+            //     return (T)cache[statName].value;
+            // }
+            // else
+            // {
+            // Try to populate the stat
+            foreach (var populator in _matchers)
             {
-                return (T)cache[statName].value;
-            }
-            else
-            {
-                // Try to populate the stat
-                foreach (var populator in onDemandPopulators)
+                if (populator.PopulateStat(statName, out object o))
                 {
-                    if (populator.PopulateStat(statName))
-                    {
-                        return (T)cache[statName].value;
-                    }
+                    result = o;
+                    return true;
                 }
-                
-                // If no populator can populate the stat, return default value
-                throw new System.Exception("Stat " + statName.ToString() + " not found in the numerical database.");
-                return default(T);
             }
+            
+            // If no populator can populate the stat, return default value
+            // throw new System.Exception("Stat " + statName.ToString() + " not found in the numerical database.");
+            result = null;
+            return false;
+            // }
         }
     }
 }

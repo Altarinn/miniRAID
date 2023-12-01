@@ -5,6 +5,7 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using Cinemachine;
+using miniRAID.Backend.Numericals;
 
 namespace miniRAID.Buff
 {
@@ -21,6 +22,9 @@ namespace miniRAID.Buff
         [Title("Buff", "MobListener", TitleAlignments.Centered)]
 
         public bool timed = false;
+
+        [DerivedAttribute]
+        public float testValue;
 
         [ShowIf("timed")]
         public bool phaseTimed = false;

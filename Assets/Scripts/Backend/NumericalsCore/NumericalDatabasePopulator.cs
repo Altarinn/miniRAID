@@ -1,20 +1,20 @@
 namespace miniRAID.Backend
 {
-    public abstract class NumericalDatabasePopulatorBase<TKey>
+    public abstract class NumericalDatabaseMatcherBase<TKey>
     {
         private NumericalDatabase<TKey> database;
         
-        public NumericalDatabasePopulatorBase(NumericalDatabase<TKey> database)
+        public NumericalDatabaseMatcherBase(NumericalDatabase<TKey> database)
         {
             this.database = database;
         }
         
-        public abstract bool PopulateStat(TKey key);
+        public abstract bool PopulateStat(TKey key, out object value);
     }
 
-    public abstract class WildcardPopulator<TKey> : NumericalDatabasePopulatorBase<TKey>
+    public abstract class WildcardMatcher<TKey> : NumericalDatabaseMatcherBase<TKey>
     {
-        protected WildcardPopulator(NumericalDatabase<TKey> database) : base(database)
+        protected WildcardMatcher(NumericalDatabase<TKey> database) : base(database)
         { }
         
         // TODO

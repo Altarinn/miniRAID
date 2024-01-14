@@ -534,9 +534,10 @@ namespace miniRAID
 
         public enum UnitGroup
         {
-            Player = 0,
-            Enemy = 1,
-            Ally = 2,
+            Player = 0, // Originally players, nothing else allowed
+            Enemy = 1, // Enemies
+            Ally = 2, // Player's summoned creatures, NPCs etc.
+                      // May have agents, in that case they will move as their will instead (NPC)
             Others = 3,
         }
 
@@ -646,9 +647,6 @@ namespace miniRAID
             mapSizeX = MAX_MAP_SIZE;
             mapHeight = MAX_MAP_HEIGHT;
             mapSizeZ = MAX_MAP_SIZE;
-
-            // Compute global basic numericals
-            BasicNumericals.Fill(Globals.numericals);
         }
 
         public GridData GetMap(int x, int y, int z)
@@ -812,18 +810,25 @@ namespace miniRAID
         // TODO: Modify me when implementing new renderer !!
         public Vector3Int GetGridPos(Vector3 pos)
         {
-            return new Vector3Int(Mathf.FloorToInt(pos.x), 0, Mathf.FloorToInt(pos.y));
+            // return new Vector3Int(Mathf.FloorToInt(pos.x), 0, Mathf.FloorToInt(pos.y));
+            return new Vector3Int(Mathf.FloorToInt(pos.x), 0, Mathf.FloorToInt(pos.z));
         }
 
         // TODO: Modify me when implementing new renderer !!
         public Vector3 GridToWorldPos(Vector3Int gridPos)
         {
-            return new Vector3(gridPos.x, gridPos.z, 0) * 1.0f;
+            // return new Vector3(gridPos.x, gridPos.z, 0) * 1.0f;
+            return new Vector3(gridPos.x, 0, gridPos.z) * 1.0f;
         }
 
         public Vector3 GridToWorldPosCentered(Vector3Int gridPos)
         {
-            return GridToWorldPos(gridPos) + new Vector3(0.5f, 0.5f, 0.0f);
+            return GridToWorldPos(gridPos) + new Vector3(0.5f, 0.5f, 0.5f);
+        }
+        
+        public Vector3 GridToWorldPosCenteredGrounded(Vector3Int gridPos)
+        {
+            return GridToWorldPos(gridPos) + new Vector3(0.5f, 0.0f, 0.5f);
         }
 
         // TODO: Map border

@@ -23,7 +23,7 @@ namespace miniRAID.Buff
 
         public bool timed = false;
 
-        [DerivedAttribute]
+        [PathBell]
         public float testValue;
 
         [ShowIf("timed")]
@@ -310,8 +310,8 @@ namespace miniRAID.Buff
             {
                 AddIndicator(new SimpleSpriteIndicator(
                     buffData.alwaysOnIndicator,
-                    Globals.backend.GridToWorldPosCentered(mob.Position)))
-                    .Move(new Vector3(0, 0, -3.0f))
+                    Globals.backend.GridToWorldPosCentered(mob.Position), 3))
+                    .Move(new Vector3(0, 0, 0.0f))
                     .Follow(mob.mobRenderer);
             }
 

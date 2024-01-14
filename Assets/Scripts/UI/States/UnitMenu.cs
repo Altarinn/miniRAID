@@ -116,8 +116,24 @@ namespace miniRAID.UI
             //     useDefaultToolTip = true,
             //     keycode = "R"
             // });
+            
+            entries.Add(new miniRAID.UIElements.UnitMenuController.UIMenuEntry
+            {
+                text = "EndTurn",
+                action = EndTurnAction(),
+                onFinished = UIMenuPostAction(null),
+                toolTip = "结束回合。",
+                useDefaultToolTip = true,
+                keycode = "R"
+            });
 
             ui.combatView.menu.PrepareMenu(entries);
+        }
+
+        private IEnumerator EndTurnAction()
+        {
+            Globals.combatMgr.Instance.MarkPlayerTurnEnd();
+            yield break;
         }
 
         private void PrepareTopMenu()
@@ -178,7 +194,7 @@ namespace miniRAID.UI
                 {
                     text = "Aim",
                     action = AimOnTarget(currentUnit.data),
-                    onFinished = null,
+                    onFinished = UIMenuPostAction(null),
                     toolTip = "令所有可以瞄准目标的单位瞄准目标。",
                     useDefaultToolTip = true,
                     keycode = "K"

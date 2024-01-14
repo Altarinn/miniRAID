@@ -41,6 +41,7 @@ namespace miniRAID.ActionHelpers
         [HorizontalGroup]
         [HideIf("type", FloatModifierType.Expression)]
         [HideLabel]
+        [PathBell]
         public float value;
         
         [HorizontalGroup]
@@ -77,7 +78,7 @@ namespace miniRAID.ActionHelpers
         public Consts.DamageHealFlags flags;
         
         public Consts.Elements type;
-
+        
         public FloatModifier power = new(1.0f);
         public FloatModifier crit = new(1.0f);
         public FloatModifier hit = new(1.0f);

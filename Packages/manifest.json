@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.nuclearband.sodatabase": "https://github.com/NuclearBand/UnityScriptableObjectDatabase.git#upm",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.ai.navigation": "1.1.1",
     "com.unity.cinemachine": "2.9.5",

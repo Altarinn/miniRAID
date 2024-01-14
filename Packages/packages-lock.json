@@ -1,15 +1,5 @@
 {
   "dependencies": {
-    "com.nuclearband.sodatabase": {
-      "version": "https://github.com/NuclearBand/UnityScriptableObjectDatabase.git#upm",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.addressables": "1.7.5",
-        "com.unity.nuget.newtonsoft-json": "2.0.0"
-      },
-      "hash": "a2354eb232c1b44d2414deb83824df91da046e82"
-    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,

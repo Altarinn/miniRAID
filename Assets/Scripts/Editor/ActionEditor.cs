@@ -8,7 +8,6 @@ using System.Linq;
 using System.Reflection;
 using miniRAID;
 using miniRAID.Buff;
-using NuclearBand;
 
 namespace miniRAID.Editor
 {

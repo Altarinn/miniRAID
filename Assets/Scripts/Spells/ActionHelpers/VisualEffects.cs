@@ -32,6 +32,10 @@ namespace miniRAID.ActionHelpers
             {
                 GameObject obj = new GameObject("explosion");
                 obj.transform.position = new Vector3(position.x + 0.5f, position.y + 0.5f, position.z + 0.5f);
+
+                var bb = obj.AddComponent<CharacterBillboard>();
+                bb.AllDirections = true;
+                
                 var sr = obj.AddComponent<SpriteRenderer>();
                 sr.sprite = image;
 

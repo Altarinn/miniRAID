@@ -21,7 +21,7 @@ namespace miniRAID
             OracleBuff, // Oracle buffs
         }
 
-        [DerivedAttribute]
+        [PathBell]
         public dNumber value;
 
         public Type type;

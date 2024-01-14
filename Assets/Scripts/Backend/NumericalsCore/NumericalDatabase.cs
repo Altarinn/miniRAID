@@ -13,16 +13,16 @@ namespace miniRAID.Backend
         // public Dictionary<TKey, NumericEntry> cache = new Dictionary<TKey, NumericEntry>();
         private List<NumericalDatabaseMatcherBase<TKey>> _matchers = new List<NumericalDatabaseMatcherBase<TKey>>();
         
-        static private NumericalDatabase<TKey> instance;
+        static private NumericalDatabase<TKey> _instance;
         static public NumericalDatabase<TKey> GetSingleton()
         {
-            if (instance == null)
+            if (_instance == null)
             {
-                instance = new NumericalDatabase<TKey>();
+                _instance = new NumericalDatabase<TKey>();
             }
-            return instance;
+            return _instance;
         }
-
+        
         // public bool StoreStat<T>(TKey key, T stat)
         // {
         //     // All entries are treated as constants so we can't change them once they are set.
@@ -39,6 +39,11 @@ namespace miniRAID.Backend
         //     
         //     return true;
         // }
+
+        public void AddMatcher(NumericalDatabaseMatcherBase<TKey> matcher)
+        {
+            _matchers.Add(matcher);
+        }
         
         public bool GetStat(object parent, TKey statName, out object result)
         {
@@ -48,17 +53,16 @@ namespace miniRAID.Backend
             // }
             // else
             // {
-            // Try to populate the stat
-            foreach (var populator in _matchers)
+            // Try to find the stat
+            foreach (var matcher in _matchers)
             {
-                if (populator.PopulateStat(statName, out object o))
+                if (matcher.MatchStat(parent, statName, out object o))
                 {
                     result = o;
                     return true;
                 }
             }
             
-            // If no populator can populate the stat, return default value
             // throw new System.Exception("Stat " + statName.ToString() + " not found in the numerical database.");
             result = null;
             return false;

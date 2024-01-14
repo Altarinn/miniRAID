@@ -21,6 +21,8 @@ namespace miniRAID
         public RaceDescriptorSO race;
         [PropertyOrder(-3)]
         public ClassDescriptorSO job;
+
+        [PropertyOrder(-3)] public Color color;
         
         [Header("Stats")]
         [PropertyOrder(-2)]

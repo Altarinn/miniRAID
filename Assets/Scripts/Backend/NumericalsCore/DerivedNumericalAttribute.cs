@@ -3,8 +3,10 @@ using System.Reflection;
 
 namespace miniRAID.Backend.Numericals
 {
-    public class DerivedAttributeAttribute : Attribute
+    public class PathBellAttribute : Attribute
     {
-        
+        // TODO: Cache
+        public string tooltip;
+        public object cachedValue;
     }
 }

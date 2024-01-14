@@ -148,7 +148,12 @@ namespace miniRAID
         [Tooltip("Runtime action objects; the available actions to the mob now.")]
         public HashSet<RuntimeAction> availableActions = new HashSet<RuntimeAction>();
 
-        public MobData lastTurnTarget = null;
+        public MobData lastTurnTarget
+        {
+            get => _lastTurnTarget;
+            set { _lastTurnTarget = value; Globals.ui.Instance.circles.UpdateAllCircles(); }
+        }
+        private MobData _lastTurnTarget = null;
 
         //[HideInInspector]
         [NonSerialized]
@@ -344,6 +349,11 @@ namespace miniRAID
             }
             
             return;
+        }
+
+        public IEnumerator EnterStrategyPhase()
+        {
+            yield return new JumpIn(SetActive(false));
         }
         
         public IEnumerator SetActive(bool value)

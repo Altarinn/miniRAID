@@ -2,12 +2,13 @@ using System;
 using miniRAID;
 using miniRAID.Backend.Numericals;
 using Sirenix.OdinInspector.Editor;
+using Sirenix.Utilities.Editor;
 using UnityEditor;
 using UnityEngine;
 
 namespace Backend.NumericalsCore.Editor
 {
-    public class DerivedAttributeDrawer : OdinAttributeDrawer<DerivedAttributeAttribute>
+    public class DerivedAttributeDrawer : OdinAttributeDrawer<PathBellAttribute>
     {
         protected object GetRootParent(InspectorProperty p)
         {
@@ -30,25 +31,44 @@ namespace Backend.NumericalsCore.Editor
             //
             // EditorStyles.label.fontStyle = tmp;
             
-            object parent = GetRootParent(Property);
-            if (parent is UnityEngine.Object)
+            EditorGUILayout.BeginHorizontal();
+            
+            // object parent = GetRootParent(Property);
+            // if (parent is UnityEngine.Object)
+            // {
+            //     tooltip += $"{(parent as UnityEngine.Object).name}: ";
+            // }
+            // else
+            // {
+            //     tooltip += $"{(parent.ToString())}: ";
+            // }
+            
+            // if (Globals.numericals.GetStat(parent, Property.Path, out object o))
+            // {
+            //     tooltip += $"{o.ToString()}";
+            // }
+            // else
+            // {
+            //     tooltip += "NOT FOUND";
+            // }
+            
+            // GUILayout.Label(new GUIContent("#", tooltip));
+            if (Event.current.shift && Event.current.control)
             {
-                EditorGUILayout.LabelField((parent as UnityEngine.Object).name);
+                if (SirenixEditorGUI.IconButton(EditorIcons.Bell))
+                {
+                    string tooltip = $"{(Property.UnityPropertyPath)}";
+                    GUIUtility.systemCopyBuffer = Property.UnityPropertyPath;
+                    Debug.Log(tooltip);
+                }
             }
-            else
-            {
-                EditorGUILayout.LabelField(parent.ToString());
-            }
-            EditorGUILayout.LabelField(Property.Path);
 
-            if (Globals.numericals.GetStat(parent, Property.Path, out object o))
-            {
-                EditorGUILayout.LabelField(o.ToString());
-            }
-            else
-            {
-                CallNextDrawer(null);
-            }
+            CallNextDrawer(label);
+            
+            // https://discussions.unity.com/t/remove-space-between-fields-in-beginhorizontal/217300
+            GUILayout.FlexibleSpace();
+            
+            EditorGUILayout.EndHorizontal();
         }
     }
 }

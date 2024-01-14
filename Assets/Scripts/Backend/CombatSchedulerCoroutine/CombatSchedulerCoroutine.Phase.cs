@@ -51,13 +51,21 @@ namespace miniRAID
 
         public IEnumerator AutoAttackStage(Consts.UnitGroup group = Consts.UnitGroup.Player)
         {
-            Globals.ui.Instance.combatView.ShowCenterTitle("Auto Attack");
+            Globals.ui.Instance.combatView.ShowCenterTitle("Auto Attack - Strategy Stage");
             yield return new WaitForSeconds(0.5f);
             Globals.ui.Instance.combatView.HideCenterTitle();
-            
+
             // Enter phase
             awaitForActions = Globals.backend.allMobs.Where(x => x.unitGroup == group).ToHashSet();
+            foreach (var mob in awaitForActions)
+            {
+                yield return new JumpIn(mob.EnterStrategyPhase());
+            }
+            
+            // Wait for UI confirmation
+            yield return new JumpIn(UIWaitPlayerInput());
 
+            // Perform auto-attack
             yield return new JumpIn(DoAutoAttack(awaitForActions));
         }
         

@@ -5,7 +5,6 @@ using System.Collections.Generic;
 
 using System.Linq;
 
-using NuclearBand;
 using Sirenix.Serialization;
 
 namespace miniRAID
@@ -104,12 +103,13 @@ namespace miniRAID
 
         public void SyncRendererPosition()
         {
-            transform.position = backend.GridToWorldPosCentered(data.Position);
+            transform.position = backend.GridToWorldPosCenteredGrounded(data.Position);
         }
 
         public IEnumerator MoveTowards(Vector3Int targetPos)
         {
-            Vector3 targetPosReal = new Vector3(targetPos.x + 0.5f, targetPos.z + 0.5f, transform.position.z);
+            // Vector3 targetPosReal = new Vector3(targetPos.x + 0.5f, targetPos.z + 0.5f, transform.position.z);
+            Vector3 targetPosReal = Globals.backend.GridToWorldPosCenteredGrounded(targetPos);
 
             // Move until reached target
             while ((transform.position - targetPosReal).magnitude >= 1e-3)
@@ -213,7 +213,7 @@ namespace miniRAID
             {
                 // FIXME: Test animation
                 GetComponentInChildren<SpriteRenderer>().color = Color.cyan;
-                yield return new WaitForSeconds(.25f);
+                yield return new WaitForSeconds(.05f);
                 UpdateStatusColor();
             }
 

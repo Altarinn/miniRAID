@@ -39,7 +39,7 @@ namespace miniRAID
         public LuaGetterType type = LuaGetterType.STATIC;
 
         // TODO: change everything to private; Requires to get SerializedProperty in Editor.
-        [DerivedAttribute]
+        [PathBell]
         public TOut staticOut = default;
 
         [TextArea(0, 100)]

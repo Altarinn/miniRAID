@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using miniRAID.Spells;
 using UnityEngine;
@@ -37,19 +38,20 @@ namespace miniRAID.Agents
             base.OnRemove(mob);
 
             mob.OnAutoAttackAgentWakeUp -= OnAgentWakeUp;
-            mob.OnMobSelectedInUI -= MobOnOnMobSelectedInUI;
-            mob.OnMobDeselectedInUI -= MobOnOnMobDeselectedInUI;
+            // mob.OnMobSelectedInUI -= MobOnOnMobSelectedInUI;
+            // mob.OnMobDeselectedInUI -= MobOnOnMobDeselectedInUI;
         }
 
+        [Obsolete]
         private void MobOnOnMobSelectedInUI(MobData mob)
         {
-            var sTarget = GetTarget(mob);
-            if (sTarget != null)
-            {
-                AddIndicator(new SimpleSpriteIndicator(
-                    null, 
-                    Globals.backend.GridToWorldPos(GetTarget(mob).targetPos[0]) + Vector3.back * 5.0f));
-            }
+            // var sTarget = GetTarget(mob);
+            // if (sTarget != null)
+            // {
+            //     AddIndicator(new SimpleSpriteIndicator(
+            //         null, 
+            //         Globals.backend.GridToWorldPos(GetTarget(mob).targetPos[0]) + Vector3.back * 5.0f));
+            // }
         }
         
         private void MobOnOnMobDeselectedInUI(MobData mob)

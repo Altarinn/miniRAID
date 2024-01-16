@@ -52,6 +52,7 @@ namespace miniRAID
             mob.healPriority = healPriority;
 
             mob.apRecovery = Consts.baseAPRegenTurn + mob.AGI * Consts.APRegenPerDEX;
+            mob.apNonFreeMax = Consts.maximumNonFreeAP;
         }
     }
 }

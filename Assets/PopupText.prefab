@@ -149,5 +149,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 0, y: 2, z: 0}
-  lifespan: 1
+  lifespan: 1.5
   fadeStart: 0

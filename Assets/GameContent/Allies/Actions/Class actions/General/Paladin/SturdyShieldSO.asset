@@ -204,7 +204,7 @@ MonoBehaviour:
   thresholdRatio:
     isLeveled: 0
     values:
-    - 2.5
+    - 1.5
     - 1
     - 1
     - 1

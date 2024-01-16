@@ -470,6 +470,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MobStats
       objectReference: {fileID: 0}
+    - target: {fileID: 612710761447979574, guid: b3f1552ad04ae9642852e91b16b3891a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 612710761447979575, guid: b3f1552ad04ae9642852e91b16b3891a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

@@ -82,7 +82,7 @@ namespace miniRAID.UI
                 // Set camera position to current place if keep position (used action)
                 if (keepCameraPosition)
                 {
-                    ui.mainVCam.transform.position = ui.characterFocusVCam.transform.position;
+                    ui.mainVCam.Follow.position = ui.characterFocusVCam.Follow.position;
                     keepCameraPosition = false;
                 }
                 

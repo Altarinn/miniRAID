@@ -8,6 +8,7 @@ using miniRAID.Spells;
 using System.Collections.Generic;
 using System.Linq;
 using miniRAID.Backend;
+using UnityEngine.Serialization;
 using XLua;
 
 namespace miniRAID
@@ -88,10 +89,12 @@ namespace miniRAID
 
         [Header("Battle stats")]
         [SerializeField] private int _actionPointsMul100 = 400;
-        public float actionPoints { get { return _actionPointsMul100 / 100.0f; } }
+
+        [SerializeField] private int _freeActionPointsMul100 = 100;
+        public float actionPoints { get { return (_actionPointsMul100 + _freeActionPointsMul100) / 100.0f; } }
         //public dNumber baseActionPoints = (dNumber)4, extraActionPoints = (dNumber)0;
         public float apRecovery = 3;
-        public int apMax = 5;
+        [FormerlySerializedAs("apMax")] public int apNonFreeMax = 5;
 
         public dNumber moveRange;
         public int movedGrids = 0;
@@ -175,16 +178,23 @@ namespace miniRAID
             OnInitialized?.Invoke(this);
         }
 
-        private void _SetActionPoints(float v)
-        {
-            _actionPointsMul100 = Mathf.RoundToInt(v * 100);
-        }
-
         public bool UseActionPoint(float v)
         {
-            if (actionPoints >= v)
+            // TODO: Emit events here
+            
+            int vMul100 = Mathf.FloorToInt(v * 100);
+            int freeUsage = Mathf.Min(vMul100, _freeActionPointsMul100);
+            vMul100 -= freeUsage;
+            _freeActionPointsMul100 -= freeUsage;
+
+            if (vMul100 <= 0)
             {
-                _SetActionPoints(actionPoints - v);
+                return true;
+            }
+            
+            if (_actionPointsMul100 >= vMul100)
+            {
+                _actionPointsMul100 -= vMul100;
                 return true;
             }
 
@@ -210,8 +220,10 @@ namespace miniRAID
 
         public void Recover()
         {
+            _freeActionPointsMul100 = Consts.freeAP * 100;
+            
             _actionPointsMul100 += Mathf.RoundToInt(apRecovery * 100);
-            if(_actionPointsMul100 > apMax * 100) { _actionPointsMul100 = apMax * 100; }
+            if(_actionPointsMul100 > apNonFreeMax * 100) { _actionPointsMul100 = apNonFreeMax * 100; }
         }
 
         public void OnNewPhase()
@@ -341,7 +353,7 @@ namespace miniRAID
                 case Cost.Type.AP:
                     // Debug.LogWarning("Please implement GetResource for AP.");
                     _actionPointsMul100 += Mathf.RoundToInt(cost.value * 100);
-                    if(_actionPointsMul100 > apMax * 100) { _actionPointsMul100 = apMax * 100; }
+                    if(_actionPointsMul100 > apNonFreeMax * 100) { _actionPointsMul100 = apNonFreeMax * 100; }
                     break;
                 case Cost.Type.Mana:
                     Debug.LogWarning("Please implement GetResource for Mana.");

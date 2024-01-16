@@ -42,7 +42,7 @@
                     <ui:Instance template="UnitGrid" name="UnitGrid" />
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="Side-bottom" style="height: 200px; background-color: rgb(229, 139, 139);">
+            <ui:VisualElement name="Side-bottom" style="height: 150px; background-color: rgb(229, 139, 139);">
                 <ui:Instance template="CombatStats" name="CombatStats-global" />
             </ui:VisualElement>
         </ui:VisualElement>

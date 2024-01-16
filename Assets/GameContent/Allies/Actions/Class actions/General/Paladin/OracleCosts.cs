@@ -83,8 +83,7 @@ namespace GameContent.Buffs.Test
             {
                 AddIndicator(new SimpleSpriteIndicator(
                         oracleData.indicator,
-                        Globals.backend.GridToWorldPosCentered(new Vector3Int(grid.x, 0, grid.y))))
-                    .Move(new Vector3(0, 0, -3.0f));
+                        Globals.backend.GridToWorldPosCentered(new Vector3Int(grid.x, 0, grid.y))));
             }
         }
 

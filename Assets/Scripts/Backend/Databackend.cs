@@ -405,6 +405,7 @@ namespace miniRAID
 
         public static float APRegenPerDEX = 0.03f;
         public static float baseAPRegenTurn = 1.0f;
+        public static int freeAP = 1, maximumNonFreeAP = 5;
         public static float baseAPRegenRecoveryStage = 0.0f;
 
         public static float GetHitRate(float spellHit, float defenderDodge, int defenderLevel)

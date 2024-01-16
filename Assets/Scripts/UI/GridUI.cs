@@ -98,7 +98,7 @@ namespace miniRAID.UI
             
             var inp = inputs.UI.PanCamera.ReadValue<Vector2>();
             mainVCam.Follow.Translate(Quaternion.Euler(newRotation) * new Vector3(
-                inp.x * panSpeed * Time.deltaTime, 
+                inp.x * panSpeed * Time.deltaTime,
                 0, 
                 inp.y * panSpeed * Time.deltaTime));
 

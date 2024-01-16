@@ -90,7 +90,7 @@ MonoBehaviour:
       Data: 0
     - Name: ExDodge
       Entry: 4
-      Data: 0
+      Data: -100
     - Name: ExAntiCrit
       Entry: 4
       Data: 0
@@ -101,13 +101,14 @@ MonoBehaviour:
   Id: 111
   icon: {fileID: 0}
   nickname: Dummy
-  race: 
-  job: 
+  race: {fileID: 0}
+  job: {fileID: 0}
+  color: {r: 0, g: 0, b: 0, a: 0}
   level: 10
   rendererPrefab: {fileID: 0}
   movementType: 0
-  moveable: 1
-  moveStartCost: 0
+  movable: 1
+  moveRange: 3
   mainWeaponSO: {fileID: 11400000, guid: 4987ed499923f44c0a29d489d03fda52, type: 2}
   subWeaponSO: {fileID: 0}
   listenerSOs:

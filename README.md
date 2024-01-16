@@ -12,7 +12,11 @@
 这是个git(github)的依赖，应该需要配置一下git才可以正常用（但这个包是历史遗留问题，已经没用了）
 总之打不开项目的话查一下git看看？
 
+**Nuget for Unity**
 
+使用了NuGet包，初次打开项目时可能会编译不过进入Safe Mode，直接退出Safe Mode等NuGet自动安装依赖就行，应该……
+
+------
 
 Manual - [破文档手册](./Manual/index.md)
 

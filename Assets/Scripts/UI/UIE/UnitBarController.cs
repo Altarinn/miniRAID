@@ -69,7 +69,7 @@ namespace miniRAID.UIElements
             
             currentAPInt.text = $"{Mathf.FloorToInt(mob.actionPoints)}";
             currentAPFract.text = $".{(int)(100 * (mob.actionPoints - Mathf.FloorToInt(mob.actionPoints))):#00}";
-            maxAP.text = $"{mob.apMax}";
+            maxAP.text = $"{mob.apNonFreeMax + Consts.freeAP}";
 
             VIT.text = $"{mob.VIT}";
             STR.text = $"{mob.STR}";

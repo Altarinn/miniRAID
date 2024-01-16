@@ -14,6 +14,9 @@ public class CharacterBillboard : MonoBehaviour
     }
     void LateUpdate()
     {
+        if(mainCamera == null)
+        { transform.rotation = Quaternion.identity; return; }
+
         Vector3 newRotation = mainCamera.transform.eulerAngles;
         
         if (!AllDirections)

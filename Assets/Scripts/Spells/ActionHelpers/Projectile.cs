@@ -32,7 +32,7 @@ namespace miniRAID.ActionHelpers
             if (Globals.cc.animation && mob.mobRenderer != null)
             {
                 // TODO: Projectile firing position pivot
-                GameObject obj = GameObject.Instantiate(projectilePrefab, mob.mobRenderer.transform.position + Vector3.up * 0.7f, Quaternion.identity);
+                GameObject obj = GameObject.Instantiate(projectilePrefab, mob.mobRenderer.transform.position + Vector3.up * 0.5f, Quaternion.identity);
             
                 obj.GetComponent<TestProjectile>().Init(projectileSprite, projectileTrail, Color.white, Color.white);
 

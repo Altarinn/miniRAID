@@ -76,12 +76,16 @@ namespace miniRAID
                 yield return UIPlayerPhase();
 
                 yield return new JumpIn(Phase(Consts.UnitGroup.Player));
-                
-                yield return new JumpIn(Turn(Consts.UnitGroup.Player, "1/4"));
-                yield return new JumpIn(Turn(Consts.UnitGroup.Player, "2/4"));
-                yield return new JumpIn(Turn(Consts.UnitGroup.Player, "3/4"));
-                yield return new JumpIn(Turn(Consts.UnitGroup.Player, "4/4"));
-                
+
+                for (int i = 1; i <= 4; i++)
+                {
+                    yield return new JumpIn(Turn(Consts.UnitGroup.Player, $"{i}/4"));
+                    if (ShouldSkipPlayerPhase())
+                    {
+                        break;
+                    }
+                }
+
                 // Refresh & auto-attack
                 yield return new JumpIn(AutoAttackStage(Consts.UnitGroup.Player));
 
@@ -119,6 +123,13 @@ namespace miniRAID
         private bool HasAlly()
         {
             return false;
+        }
+
+        public bool ShouldSkipPlayerPhase()
+        {
+            // TODO: Controllable allies?
+            var mobs = Globals.backend.allMobs.Where(x => x.unitGroup == Consts.UnitGroup.Player);
+            return !mobs.Any(m => m.isControllable);
         }
 
         private bool IsCombatFinished()

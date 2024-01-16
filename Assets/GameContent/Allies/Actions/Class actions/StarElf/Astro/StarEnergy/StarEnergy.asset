@@ -193,7 +193,7 @@ MonoBehaviour:
   snapShot: 1
   alwaysOnIndicator: {fileID: 0}
   flags: 0
-  manaRegen: 10
+  manaRegen: 6
   references:
     version: 2
     RefIds: []

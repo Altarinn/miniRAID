@@ -156,8 +156,13 @@ namespace miniRAID
 
         public IEnumerator DamageAnimation()
         {
-            GetComponentInChildren<SpriteRenderer>().color = Color.red;
-            yield return new WaitForSeconds(.2f);
+            for (int i = 0; i < 2; i++)
+            {
+                GetComponentInChildren<SpriteRenderer>().color = Color.red;
+                yield return new WaitForSeconds(.07f);
+                GetComponentInChildren<SpriteRenderer>().color = Color.clear;
+                yield return new WaitForSeconds(.07f);
+            }
             UpdateStatusColor();
         }
 
@@ -213,7 +218,7 @@ namespace miniRAID
             {
                 // FIXME: Test animation
                 GetComponentInChildren<SpriteRenderer>().color = Color.cyan;
-                yield return new WaitForSeconds(.05f);
+                yield return new WaitForSeconds(.35f);
                 UpdateStatusColor();
             }
 

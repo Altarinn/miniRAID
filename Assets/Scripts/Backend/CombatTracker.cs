@@ -86,7 +86,7 @@ namespace miniRAID
             {
                 if (result.isAvoid)
                 {
-                    Globals.popupMgr.Instance.Popup("MISS", result.target.mobRenderer.transform.position, Consts.MissColor);
+                    Globals.popupMgr.Instance.Popup("MISS", result.target.mobRenderer.transform.position, Consts.MissColor, PopupManager.PopupType.Number);
                 }
                 else
                 {
@@ -94,7 +94,8 @@ namespace miniRAID
                         $"{result.value.ToString()}{(result.isCrit ? "!" : "")}", 
                         result.target.mobRenderer.transform.position,
                         result.type == Consts.Elements.Heal ? Consts.HealColor : 
-                            (result.isCrit ? Consts.CritColor : Consts.HitColor));
+                            (result.isCrit ? Consts.CritColor : Consts.HitColor),
+                        PopupManager.PopupType.Number);
                 }
             }
             

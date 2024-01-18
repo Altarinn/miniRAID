@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0a3dfb8014cd1c245800aa15bba426cd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -142,8 +142,9 @@ MonoBehaviour:
     unitGroup: 1
     nickname: 
     _actionPointsMul100: 0
+    _freeActionPointsMul100: 100
     apRecovery: 3
-    apMax: 5
+    apNonFreeMax: 5
     moveRange:
       valueType: 0
       staticValue: 0

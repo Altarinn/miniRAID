@@ -37,7 +37,8 @@ namespace miniRAID.UIElements
             toggleSound.clicked += ToggleSound;
             downloadLog.clicked += DownloadLogOnclicked;
 
-            SetSound(true);
+            SetSound(false);
+            toggleSound.style.color = Color.gray;
 
             message = "";
         }
@@ -65,7 +66,7 @@ namespace miniRAID.UIElements
         void SetSound(bool val)
         {
             sound = val;
-            GameObject.FindObjectOfType<AudioListener>().enabled = sound;
+            // GameObject.FindObjectOfType<AudioListener>().enabled = sound;
             GameObject.FindObjectsOfType<AudioSource>().ForEach(source => source.mute = !sound);
         }
 

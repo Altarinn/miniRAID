@@ -6,8 +6,6 @@ using XLua;
 
 using Sirenix.OdinInspector;
 using System.Linq;
-using Backend.NumericalsCore;
-using miniRAID.Backend.Numericals;
 using miniRAID.Weapon;
 using UnityEngine.Localization;
 using UnityEngine.Serialization;

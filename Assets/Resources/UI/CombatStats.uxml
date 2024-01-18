@@ -1,11 +1,11 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Resources/UI/miniRAID_default.uss?fileID=7433441132597879392&amp;guid=54e6eee580e008a468415140067b7312&amp;type=3#miniRAID_default" />
     <Style src="project://database/Assets/Resources/UI/RelaxText.uss?fileID=7433441132597879392&amp;guid=84bb69dec44300449bfb7ec6d2ad660e&amp;type=3#RelaxText" />
-    <ui:VisualElement name="Damage" class="StatsPanel Panel">
+    <ui:VisualElement name="Damage" class="StatsPanel Panel" style="background-color: rgba(0, 0, 0, 0.65);">
         <ui:Label tabindex="-1" text="造成伤害" display-tooltip-when-elided="true" class="StatsHeader PanelHeader small-font" />
         <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="Content" class="small-font" />
     </ui:VisualElement>
-    <ui:VisualElement name="Healing" class="StatsPanel Panel" style="margin-top: 5px;">
+    <ui:VisualElement name="Healing" class="StatsPanel Panel" style="margin-top: 5px; background-color: rgba(0, 0, 0, 0.65);">
         <ui:Label tabindex="-1" text="造成治疗" display-tooltip-when-elided="true" class="StatsHeader PanelHeader small-font" />
         <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="Content" class="small-font" />
     </ui:VisualElement>

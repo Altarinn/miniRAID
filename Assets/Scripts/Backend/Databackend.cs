@@ -7,7 +7,6 @@ using miniRAID.Buff;
 using System;
 using System.Linq;
 using miniRAID.Backend;
-using miniRAID.Backend.Numericals.Impl;
 using UnityEngine.Serialization;
 
 namespace miniRAID
@@ -396,7 +395,7 @@ namespace miniRAID
         // Incremental in the range of +50% hit rate per level.
         // Hit rate = BaseHit + (attacker.Hit - defender.Dodge) / (HitRangePerLevel * defender.Level)
         public static float HitRangePerLevel = 6;
-        public static float BaseHit = 0.55f;
+        public static float BaseHit = 0.70f;
         public static float MaxHitAcc = 1000000.0f;
         
         // Same but for critical strikes.

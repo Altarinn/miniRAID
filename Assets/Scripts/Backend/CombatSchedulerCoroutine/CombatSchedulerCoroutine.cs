@@ -80,6 +80,7 @@ namespace miniRAID
                 for (int i = 1; i <= 4; i++)
                 {
                     yield return new JumpIn(Turn(Consts.UnitGroup.Player, $"{i}/4"));
+                    yield return new JumpIn(Chill());
                     if (ShouldSkipPlayerPhase())
                     {
                         break;
@@ -88,24 +89,34 @@ namespace miniRAID
 
                 // Refresh & auto-attack
                 yield return new JumpIn(AutoAttackStage(Consts.UnitGroup.Player));
+                yield return new JumpIn(Chill());
 
                 // Ally phase
                 if (HasAlly())
                 {
                     yield return UIAllyPhase();
+                    yield return new JumpIn(Chill());
                 }
 
                 // Enemy phase
                 yield return UIEnemyPhase();
                 yield return new JumpIn(Phase(Consts.UnitGroup.Enemy));
                 yield return new JumpIn(Turn(Consts.UnitGroup.Enemy));
+                yield return new JumpIn(Chill());
                 //yield return new JumpIn(EnemyActions());
                 
                 // TODO: Extra turns / Heavy weapon
                 yield return new JumpIn(RecoveryStage(Consts.UnitGroup.Player));
+                yield return new JumpIn(Chill());
 
                 yield return new JumpIn(EndTurn());
+                yield return new JumpIn(Chill());
             }
+        }
+
+        private IEnumerator Chill()
+        {
+            yield return new WaitForSeconds(0.65f);
         }
 
         private IEnumerator StartTurn()

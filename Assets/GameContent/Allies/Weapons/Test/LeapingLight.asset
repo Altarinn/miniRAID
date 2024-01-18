@@ -307,7 +307,7 @@ MonoBehaviour:
     TEC: 1.3
   wpType: 2
   regularAttack:
-    data: {fileID: 11400000, guid: 4166a53a4453f430ca196f49625fb519, type: 2}
+    data: {fileID: 11400000, guid: fd728692f2ca8a34c9c7e237a25b577f, type: 2}
     level: 0
   mainElement: 0
   chargedAttack:

@@ -69,7 +69,7 @@ MonoBehaviour:
       addedValue: 0
       addMultiplier: 0
       mulMultiplier: 0
-    DEX:
+    AGI:
       valueType: 0
       staticValue: 0
       source:
@@ -88,4 +88,6 @@ MonoBehaviour:
       addMultiplier: 0
       mulMultiplier: 0
   classPassives: []
-  classActions: []
+  classActions:
+  - data: {fileID: 11400000, guid: 999414e336476914a8db0763e6b82f3d, type: 2}
+    level: 0

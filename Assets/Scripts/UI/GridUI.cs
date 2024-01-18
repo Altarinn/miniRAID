@@ -51,6 +51,8 @@ namespace miniRAID.UI
         // Aim Circles
         public AimCircles circles;
 
+        public BossTargetIndicator bossTargetIndicator;
+
         // Animation related
         public bool isInAnimation
         {
@@ -359,6 +361,11 @@ namespace miniRAID.UI
         public void HideMainMobStats()
         {
             // mainMobStatPanel.SetActive(false);
+        }
+
+        public void BindAsBoss(MobRenderer renderer)
+        {
+            combatView.BindAsBoss(renderer);
         }
 
         #region Shortcuts

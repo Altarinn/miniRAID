@@ -51,7 +51,7 @@ namespace miniRAID
 
         public IEnumerator AutoAttackStage(Consts.UnitGroup group = Consts.UnitGroup.Player)
         {
-            Globals.ui.Instance.combatView.ShowCenterTitle("Auto Attack - Strategy Stage");
+            Globals.ui.Instance.combatView.ShowCenterTitle("Auto Attack - Strategy Phase");
             yield return new WaitForSeconds(0.5f);
             Globals.ui.Instance.combatView.HideCenterTitle();
 

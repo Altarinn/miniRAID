@@ -10,7 +10,7 @@ namespace miniRAID.Backend.Numericals.Impl
         // 第一階層をProjectにします
         private const string SettingPath = "Project/Numericals Settings";
         
-        private Editor _editor;
+        private UnityEditor.Editor _editor;
 
         [SettingsProvider]
         public static SettingsProvider CreateProvider()
@@ -29,7 +29,7 @@ namespace miniRAID.Backend.Numericals.Impl
             fundamentalNumericalsSO.hideFlags = HideFlags.HideAndDontSave & ~HideFlags.NotEditable; // ScriptableSingletonを編集可能にする（本文で補足）
             
             // 設定ファイルの標準のインスペクターのエディタを生成
-            Editor.CreateCachedEditor(fundamentalNumericalsSO, null, ref _editor);
+            UnityEditor.Editor.CreateCachedEditor(fundamentalNumericalsSO, null, ref _editor);
         }
 
         public override void OnGUI(string searchContext)

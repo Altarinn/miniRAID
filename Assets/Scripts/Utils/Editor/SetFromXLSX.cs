@@ -89,7 +89,7 @@ namespace miniRAID.Editor
             }
         }
 
-        [Button(ButtonSizes.Large)]
+        // [Button(ButtonSizes.Large)]
         public async void TestAddressables()
         {
             var allLocations = Addressables.LoadResourceLocationsAsync("AllyNumericals", typeof(ActionDataSO)).WaitForCompletion();
@@ -170,7 +170,7 @@ namespace miniRAID.Editor
         [SerializeField] private string addressablePath;
         [SerializeField] private string path;
 
-        [Button(ButtonSizes.Large)]
+        // [Button(ButtonSizes.Large)]
         public void TestRun()
         {
             var targetObj = (Addressables.LoadAssetAsync<ScriptableObject>(addressablePath)).WaitForCompletion();

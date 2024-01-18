@@ -43,6 +43,10 @@ MonoBehaviour:
     m_Key: shield.nightveil.tooltip
     m_Metadata:
       m_Items: []
+  - m_Id: 61921590130716672
+    m_Key: onehanded.ironsword.name
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

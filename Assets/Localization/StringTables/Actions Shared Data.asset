@@ -475,6 +475,22 @@ MonoBehaviour:
     m_Key: healer.name
     m_Metadata:
       m_Items: []
+  - m_Id: 64257140087009280
+    m_Key: fighter.offhandattack.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64257211847356416
+    m_Key: fighter.offhandattack.tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64262195641004032
+    m_Key: slash.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64262258052247552
+    m_Key: slash.tooltip
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -33,9 +33,19 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  ToolTipKey:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   type: 5
   priority: 0
   eyesight: 10
+  decalIndicatorMaterial: {fileID: 2100000, guid: f5777ec9b4854a845aa96754d9416fed, type: 2}
   phases:
   - condition:
       HealthPercentageLessThan: 1

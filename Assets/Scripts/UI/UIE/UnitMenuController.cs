@@ -227,7 +227,7 @@ namespace miniRAID.UIElements
             view.RefreshItems();
             ShowMenu();
 
-            Debug.Log(entries.Count);
+            // Debug.Log(entries.Count);
         }
 
         public void ShowMenu()

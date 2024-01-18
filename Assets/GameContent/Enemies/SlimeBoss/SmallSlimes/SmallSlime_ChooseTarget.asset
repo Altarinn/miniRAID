@@ -216,6 +216,9 @@ MonoBehaviour:
     - Name: inheritPower
       Entry: 5
       Data: false
+    - Name: stacks
+      Entry: 3
+      Data: 1
     - Name: power
       Entry: 7
       Data: miniRAID.ActionHelpers.FloatModifier, Assembly-CSharp
@@ -295,7 +298,15 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   maxLevel: 0
-  Description: "\u968F\u673A\u6807\u8BB0\u4E00\u540D\u654C\u4EBA\u3002"
+  DescriptionKey:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   flags: 0
   references:
     version: 2

@@ -1,15 +1,2 @@
 - Start of debug log -
-[2024/1/17 3:35:18] AWAKE
-[回合0] 00m 14s:  Necrozma 获得了来自 Necrozma 的 流星
-[回合0] 00m 15s:  Necrozma 获得了来自 Necrozma 的 星能转化
-[回合1] 00m 21s:  回合1
-[回合1] 00m 38s:  Necrozma 施放了 大彗星箭, 目标：(9, 0) 
-[回合1] 00m 39s:  Necrozma 的 大彗星箭 对 Abomasnow 造成了 158 点 Pierce 伤害（暴击）。生命值：9999842
-[回合1] 00m 43s:  Necrozma 施放了 星光超流, 目标：(9, 0) 
-[回合1] 00m 44s:  Necrozma 的 星光超流 对 Abomasnow 造成了 27 点 Light 伤害。生命值：9999815
-[回合1] 00m 44s:  Abomasnow 获得了来自 Necrozma 的 繁星道标
-[回合1] 00m 46s:  Necrozma 施放了 星光超流, 目标：(9, 0) 
-[回合1] 00m 47s:  Necrozma 的 星光超流 对 Abomasnow 造成了 27 点 Light 伤害。生命值：9999788
-[回合1] 00m 47s:  Necrozma 的 繁星道标 对 Abomasnow 造成了 17 点 Light 伤害。生命值：9999771
-[回合1] 00m 47s:  Abomasnow 重新获得了来自 Necrozma 的 繁星道标
-[回合2] 00m 54s:  回合2
+[2024/1/19 3:30:35] AWAKE

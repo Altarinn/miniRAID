@@ -1,8 +1,6 @@
 using System;
 using miniRAID.Backend.Numericals;
 using Sirenix.OdinInspector;
-using Sirenix.OdinInspector.Editor;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 namespace Backend.NumericalsCore

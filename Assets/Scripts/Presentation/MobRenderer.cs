@@ -85,7 +85,7 @@ namespace miniRAID
 
             if(isBoss)
             {
-                Globals.ui.Instance.combatView.BindAsBoss(this);
+                Globals.ui.Instance.BindAsBoss(this);
             }
         }
 

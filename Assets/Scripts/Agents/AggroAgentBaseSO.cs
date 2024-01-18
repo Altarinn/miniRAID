@@ -16,6 +16,8 @@ namespace miniRAID.Agents
     {
         [Tooltip("视野范围，不会向超出范围的敌对目标移动。目前视距受移动种类影响，如飞行单位视野穿山但步行单位看不到山对面。")]
         public int eyesight = 10;
+        
+        [Header("User Interface")] public Material decalIndicatorMaterial;
 
         public override MobListener Wrap(MobData parent)
         {
@@ -37,6 +39,8 @@ namespace miniRAID.Agents
         public MobData currentTarget;
         public bool useAggro = true;
 
+        private DecalIndicator targetIndicator;
+
         public AggroAgentBase(MobData parent, AggroAgentBaseSO data) : base(parent, data)
         {
         }
@@ -44,10 +48,17 @@ namespace miniRAID.Agents
         public override void OnAttach(MobData mob)
         {
             base.OnAttach(mob);
-
+            
             mob.OnDamageReceived += Mob_OnReceiveDamageFinal;
             mob.OnActionPostcast += Mob_OnActionPostcast;
             aggroList = new Dictionary<MobData, float>();
+
+            if (aggroAgentData.decalIndicatorMaterial)
+            {
+                targetIndicator = AddIndicator(new DecalIndicator(
+                    aggroAgentData.decalIndicatorMaterial,
+                    Globals.backend.GridToWorldPosCenteredGrounded(mob.Position)));
+            }
         }
 
         public override void OnRemove(MobData mob)
@@ -77,14 +88,14 @@ namespace miniRAID.Agents
 
         private IEnumerator Mob_OnReceiveDamageFinal(MobData mob, Consts.DamageHeal_Result info)
         {
-            if (info.source.unitGroup == mob.unitGroup) { yield break; }
+            if (!useAggro || info.source.unitGroup == mob.unitGroup) { yield break; }
             AddToAggro(info.source, info.value * info.source.aggroMul);
         }
 
         private IEnumerator TargetMob_OnReceiveHealFinal(MobData mob, Consts.DamageHeal_Result info)
         {
             // TODO: Why?
-            if (parentMob == null || info.source == null) { yield break; }
+            if (!useAggro || parentMob == null || info.source == null) { yield break; }
             
             if (info.source.unitGroup == parentMob.unitGroup) { yield break; }
             AddToAggro(info.source, info.value * info.source.aggroMul * Consts.HealAggroMul);
@@ -92,6 +103,8 @@ namespace miniRAID.Agents
 
         protected void AddToAggro(MobData mob, float aggro)
         {
+            if (!useAggro) { return; }
+            
             // Add to aggrolist if not exist
             if (!aggroList.ContainsKey(mob))
             {
@@ -173,9 +186,12 @@ namespace miniRAID.Agents
                 {
                     RemoveFromAggro(item);
                 }
-
-
+                
                 currentTarget = target;
+                if (targetIndicator != null && currentTarget.mobRenderer != null)
+                {
+                    targetIndicator.Follow(currentTarget.mobRenderer.transform);
+                }
             }
         }
 

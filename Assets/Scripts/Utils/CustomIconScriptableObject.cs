@@ -2,7 +2,6 @@
 using UnityEngine;
 
 using Sirenix.OdinInspector;
-using NuclearBand;
 
 //#if UNITY_EDITOR
 //using UnityEditor;

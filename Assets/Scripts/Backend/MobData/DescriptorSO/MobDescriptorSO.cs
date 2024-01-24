@@ -19,7 +19,7 @@ namespace miniRAID
             mob.baseStats.STR = dNumber.CreateComposite(baseStats.STR, "mobbase");
             mob.baseStats.MAG = dNumber.CreateComposite(baseStats.MAG, "mobbase");
             mob.baseStats.INT = dNumber.CreateComposite(baseStats.INT, "mobbase");
-            mob.baseStats.DEX = dNumber.CreateComposite(baseStats.DEX, "mobbase");
+            mob.baseStats.AGI = dNumber.CreateComposite(baseStats.DEX, "mobbase");
             mob.baseStats.TEC = dNumber.CreateComposite(baseStats.TEC, "mobbase");
         }
 
@@ -44,14 +44,15 @@ namespace miniRAID
 
             mob.hitAcc = dNumber.CreateComposite(mob.TEC, "mobbase");
             mob.crit = dNumber.CreateComposite(mob.TEC, "mobbase");
-            mob.dodge = dNumber.CreateComposite(mob.DEX, "mobbase");
-            mob.antiCrit = dNumber.CreateComposite(mob.DEX, "mobbase");
+            mob.dodge = dNumber.CreateComposite(mob.AGI, "mobbase");
+            mob.antiCrit = dNumber.CreateComposite(mob.AGI, "mobbase");
 
             mob.aggroMul = dNumber.CreateComposite(1.0, "mobbase");
 
             mob.healPriority = healPriority;
 
-            mob.apRecovery = 3 + mob.DEX * 0.01f;
+            mob.apRecovery = Consts.baseAPRegenTurn + mob.AGI * Consts.APRegenPerDEX;
+            mob.apNonFreeMax = Consts.maximumNonFreeAP;
         }
     }
 }

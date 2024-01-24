@@ -61,7 +61,7 @@ public class GridOverlay : MonoBehaviour
             if(!Globals.backend.InMap(item.Key)) continue;
             
             // Instantiate a cell and set its sprite
-            Instantiate(overlayObj, new Vector3(item.Key.x, item.Key.z, transform.position.z - 1), Quaternion.identity, transform).GetComponent<SpriteRenderer>().sprite = overlaySpriteOverride[(int)item.Value];
+            Instantiate(overlayObj, Globals.backend.GridToWorldPos(item.Key), Quaternion.identity, transform).GetComponentInChildren<SpriteRenderer>().sprite = overlaySpriteOverride[(int)item.Value];
         }
     }
 

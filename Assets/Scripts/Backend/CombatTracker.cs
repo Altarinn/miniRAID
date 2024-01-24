@@ -86,13 +86,16 @@ namespace miniRAID
             {
                 if (result.isAvoid)
                 {
-                    Globals.popupMgr.Instance.Popup("MISS", result.target.mobRenderer.transform.position);
+                    Globals.popupMgr.Instance.Popup("MISS", result.target.mobRenderer.transform.position, Consts.MissColor, PopupManager.PopupType.Number);
                 }
                 else
                 {
                     Globals.popupMgr.Instance.Popup(
                         $"{result.value.ToString()}{(result.isCrit ? "!" : "")}", 
-                        result.target.mobRenderer.transform.position);
+                        result.target.mobRenderer.transform.position,
+                        result.type == Consts.Elements.Heal ? Consts.HealColor : 
+                            (result.isCrit ? Consts.CritColor : Consts.HitColor),
+                        PopupManager.PopupType.Number);
                 }
             }
             
@@ -137,20 +140,20 @@ namespace miniRAID
                     combatLog.Log($"{buffEvent.buff.parentMob.nickname}" +
                                   $" 获得了来自 {buffEvent.buff.source?.nickname} 的 " +
                                   $"{buffEvent.buff.name}");
-                    Globals.popupMgr.Instance.Popup($"+{buffEvent.buff.name}", popupPosition);
+                    Globals.popupMgr.Instance.Popup($"+{buffEvent.buff.name}", popupPosition, Consts.BuffColor);
                     break;
                 case Consts.BuffEventType.Stacked:
                 case Consts.BuffEventType.Refreshed:
                     combatLog.Log($"{buffEvent.buff.parentMob.nickname}" +
                                   $" 重新获得了来自 {buffEvent.buff.source?.nickname} 的 " +
                                   $"{buffEvent.buff.name}");
-                    Globals.popupMgr.Instance.Popup($"o{buffEvent.buff.name}", popupPosition);
+                    Globals.popupMgr.Instance.Popup($"o{buffEvent.buff.name}", popupPosition, Consts.BuffColor);
                     break;
                 case Consts.BuffEventType.Removed:
                     combatLog.Log($"{buffEvent.buff.parentMob.nickname}" +
                                   $" 失去了来自 {buffEvent.buff.source?.nickname} 的 " +
                                   $"{buffEvent.buff.name}");
-                    Globals.popupMgr.Instance.Popup($"-{buffEvent.buff.name}", popupPosition);
+                    Globals.popupMgr.Instance.Popup($"-{buffEvent.buff.name}", popupPosition, Consts.BuffColor);
                     break;
             }
         }

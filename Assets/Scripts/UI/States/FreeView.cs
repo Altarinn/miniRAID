@@ -25,12 +25,13 @@ namespace miniRAID.UI
                 {
                     Debug.Log($"Unit selected: {mobRenderer.gameObject.name}");
                     ui.characterFocusVCam.Follow = mobRenderer.transform;
-                    ui.characterFocusVCam.enabled = false;
-                    ui.characterFocusVCam.transform.position = 
-                        new Vector3(
-                            mobRenderer.transform.position.x,
-                            mobRenderer.transform.position.y,
-                            ui.characterFocusVCam.transform.position.z);
+                    ui.characterFocusVCam.LookAt = mobRenderer.transform;
+                    // ui.characterFocusVCam.enabled = false;
+                    // ui.characterFocusVCam.transform.position = 
+                    //     new Vector3(
+                    //         mobRenderer.transform.position.x,
+                    //         mobRenderer.transform.position.y,
+                    //         ui.characterFocusVCam.transform.position.z);
                     ui.characterFocusVCam.enabled = true;
                     ui.characterFocusVCam.Priority = 100; // Activate character camera
                     ui.EnterState(new UnitMenu(mobRenderer), true);

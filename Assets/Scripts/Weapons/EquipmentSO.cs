@@ -72,7 +72,7 @@ namespace miniRAID.Weapon
                 eqData.baseStatsRequirements.INT > 0 ? Consts.BaseStatsFromLevel(mob.level, eqData.baseStatsRequirements.INT) : 0);
             derivedBaseStatsRequirements.TEC = dNumber.CreateStatic(
                 eqData.baseStatsRequirements.TEC > 0 ? Consts.BaseStatsFromLevel(mob.level, eqData.baseStatsRequirements.TEC) : 0);
-            derivedBaseStatsRequirements.DEX = dNumber.CreateStatic(
+            derivedBaseStatsRequirements.AGI = dNumber.CreateStatic(
                 eqData.baseStatsRequirements.DEX > 0 ? Consts.BaseStatsFromLevel(mob.level, eqData.baseStatsRequirements.DEX) : 0);
 
             // TODO: Handle the case when itemLevel changes during combat
@@ -149,8 +149,8 @@ namespace miniRAID.Weapon
                 req += $"智力 {derivedBaseStatsRequirements.INT}\n";
             if (derivedBaseStatsRequirements.TEC > 0)
                 req += $"技巧 {derivedBaseStatsRequirements.TEC}\n";
-            if (derivedBaseStatsRequirements.DEX > 0)
-                req += $"敏捷 {derivedBaseStatsRequirements.DEX}\n";
+            if (derivedBaseStatsRequirements.AGI > 0)
+                req += $"敏捷 {derivedBaseStatsRequirements.AGI}\n";
 
             ui.requirements.text = req.TrimEnd('\n');
 

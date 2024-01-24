@@ -32,6 +32,49 @@ namespace miniRAID.ActionHelpers
             {
                 GameObject obj = new GameObject("explosion");
                 obj.transform.position = new Vector3(position.x + 0.5f, position.y + 0.5f, position.z + 0.5f);
+
+                var bb = obj.AddComponent<CharacterBillboard>();
+                bb.AllDirections = true;
+                
+                var sr = obj.AddComponent<SpriteRenderer>();
+                sr.sprite = image;
+
+                sr.DOColor(Color.clear, time);
+                DOTween.Sequence()
+                    .Append(obj.transform.DOScale(Vector3.one * size, time)
+                        .OnComplete(() => {GameObject.Destroy(obj);}))
+                    .SetLink(obj);
+                
+                yield return new WaitForSeconds(triggerTime);
+            }
+            
+            yield return -1;
+        }
+
+        public IEnumerator Do(Vector3Int gridPosition) => Do(Globals.backend.GridToWorldPos(gridPosition));
+    }
+    
+    // TODO
+    [ColoredBox("#ff7")]
+    public class SyncedExplosionFx
+    {
+        public Sprite image;
+        public float size = 200.0f;
+        public float triggerTime = 0.3f;
+        public float time = 0.5f;
+
+        public IEnumerator update;
+
+        public IEnumerator Do(Vector3 position)
+        {
+            if (Globals.cc.animation)
+            {
+                GameObject obj = new GameObject("explosion");
+                obj.transform.position = new Vector3(position.x + 0.5f, position.y + 0.5f, position.z + 0.5f);
+
+                var bb = obj.AddComponent<CharacterBillboard>();
+                bb.AllDirections = true;
+                
                 var sr = obj.AddComponent<SpriteRenderer>();
                 sr.sprite = image;
 

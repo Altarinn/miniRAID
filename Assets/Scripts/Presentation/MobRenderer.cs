@@ -5,7 +5,6 @@ using System.Collections.Generic;
 
 using System.Linq;
 
-using NuclearBand;
 using Sirenix.Serialization;
 
 namespace miniRAID
@@ -46,7 +45,7 @@ namespace miniRAID
         public int STR => (int)data.baseStats.STR.Value;
         public int MAG => (int)data.baseStats.MAG.Value;
         public int INT => (int)data.baseStats.INT.Value;
-        public int DEX => (int)data.baseStats.DEX.Value;
+        public int DEX => (int)data.baseStats.AGI.Value;
         public int TEC => (int)data.baseStats.TEC.Value;
 
         public int AttackPower => (int)data.attackPower.Value;
@@ -86,7 +85,7 @@ namespace miniRAID
 
             if(isBoss)
             {
-                Globals.ui.Instance.combatView.BindAsBoss(this);
+                Globals.ui.Instance.BindAsBoss(this);
             }
         }
 
@@ -104,12 +103,13 @@ namespace miniRAID
 
         public void SyncRendererPosition()
         {
-            transform.position = backend.GridToWorldPosCentered(data.Position);
+            transform.position = backend.GridToWorldPosCenteredGrounded(data.Position);
         }
 
         public IEnumerator MoveTowards(Vector3Int targetPos)
         {
-            Vector3 targetPosReal = new Vector3(targetPos.x + 0.5f, targetPos.z + 0.5f, transform.position.z);
+            // Vector3 targetPosReal = new Vector3(targetPos.x + 0.5f, targetPos.z + 0.5f, transform.position.z);
+            Vector3 targetPosReal = Globals.backend.GridToWorldPosCenteredGrounded(targetPos);
 
             // Move until reached target
             while ((transform.position - targetPosReal).magnitude >= 1e-3)
@@ -156,8 +156,13 @@ namespace miniRAID
 
         public IEnumerator DamageAnimation()
         {
-            GetComponentInChildren<SpriteRenderer>().color = Color.red;
-            yield return new WaitForSeconds(.2f);
+            for (int i = 0; i < 2; i++)
+            {
+                GetComponentInChildren<SpriteRenderer>().color = Color.red;
+                yield return new WaitForSeconds(.07f);
+                GetComponentInChildren<SpriteRenderer>().color = Color.clear;
+                yield return new WaitForSeconds(.07f);
+            }
             UpdateStatusColor();
         }
 
@@ -213,7 +218,7 @@ namespace miniRAID
             {
                 // FIXME: Test animation
                 GetComponentInChildren<SpriteRenderer>().color = Color.cyan;
-                yield return new WaitForSeconds(.25f);
+                yield return new WaitForSeconds(.35f);
                 UpdateStatusColor();
             }
 

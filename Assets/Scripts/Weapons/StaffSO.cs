@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using miniRAID.UIElements;
 using UnityEngine;
@@ -42,31 +43,33 @@ namespace miniRAID.Weapon
             RspecialAttack = mob.AddAction(staffData.specialAttack);
 
             mob.OnActionPostcast += OnActionPostCast;
-            mob.OnWakeup += OnWakeup;
+            mob.OnRecoveryStage += OnRecoveryStage;
         }
         
         public override void OnRemove(MobData mob)
         {
             mob.OnActionPostcast -= OnActionPostCast;
-            mob.OnWakeup -= OnWakeup;
+            mob.OnRecoveryStage -= OnRecoveryStage;
             
             base.OnRemove(mob);
         }
 
-        private void OnWakeup(MobData mob)
+        private IEnumerator OnRecoveryStage(MobData mob)
         {
             if (regenTimer > 0)
             {
                 regenTimer -= 1;
             }
+            yield break;
         }
         
-        private void OnActionPostCast(MobData mob, RuntimeAction ract, Spells.SpellTarget target)
+        private IEnumerator OnActionPostCast(MobData mob, RuntimeAction ract, Spells.SpellTarget target)
         {
             if(ract.data == RspecialAttack.data)
             {
                 regenTimer = staffData.regenTime;
             }
+            yield break;
         }
 
         protected override void OnQueryActions(MobData mob, HashSet<RuntimeAction> actions)

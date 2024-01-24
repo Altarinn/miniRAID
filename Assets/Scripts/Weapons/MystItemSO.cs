@@ -52,7 +52,7 @@ namespace miniRAID.Weapon
             base.OnRemove(mob);
         }
 
-        private void OnActionPostCast(MobData mob, RuntimeAction ract, Spells.SpellTarget target)
+        private IEnumerator OnActionPostCast(MobData mob, RuntimeAction ract, Spells.SpellTarget target)
         {
             if (ract.data == RregularAttack.data) // Movement
             {
@@ -64,6 +64,7 @@ namespace miniRAID.Weapon
                 currentEnergy -= mystData.energyCount;
                 currentEnergy = Mathf.Max(0, currentEnergy);
             }
+            yield break;
         }
 
         protected override void OnQueryActions(MobData mob, HashSet<RuntimeAction> actions)

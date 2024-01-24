@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -45,6 +47,11 @@ namespace miniRAID.UI
 
         bool waitingAnimation;
         MobRenderer _statViewMobRenderer;
+        
+        // Aim Circles
+        public AimCircles circles;
+
+        public BossTargetIndicator bossTargetIndicator;
 
         // Animation related
         public bool isInAnimation
@@ -60,6 +67,7 @@ namespace miniRAID.UI
 
         private void Awake()
         {
+            groundPlane = new Plane(Vector3.up, Vector3.zero);
             inputs = new DefaultInputs();
             combatView = FindObjectOfType<miniRAID.UIElements.CombatView>();
         }
@@ -83,10 +91,33 @@ namespace miniRAID.UI
         }
 
         // Update is called once per frame
+        // TODO: Separate camera controller
         void Update()
         {
+            Vector3 newRotation = mainVCam.transform.eulerAngles;
+            newRotation.x = 0;
+            newRotation.z = 0;
+            
             var inp = inputs.UI.PanCamera.ReadValue<Vector2>();
-            mainVCam.transform.Translate(inp * panSpeed * Time.deltaTime);
+            mainVCam.Follow.Translate(Quaternion.Euler(newRotation) * new Vector3(
+                inp.x * panSpeed * Time.deltaTime,
+                0, 
+                inp.y * panSpeed * Time.deltaTime));
+
+            if (inputs.UI.ToggleRotateCamera.ReadValue<float>() > 0.5f)
+            {
+                Vector2 val = inputs.UI.RotateCamera.ReadValue<Vector2>();
+                var mainVCamOrbital = mainVCam.GetCinemachineComponent<CinemachineOrbitalTransposer>();
+                mainVCamOrbital.m_XAxis.Value += val.x * 50.0f * Time.deltaTime;
+                mainVCamOrbital.m_FollowOffset.y -= val.y * 10.0f * Time.deltaTime;
+                mainVCamOrbital.m_FollowOffset.y =
+                    Mathf.Clamp(mainVCamOrbital.m_FollowOffset.y, 8, 45);
+                
+                var charCamOrbital = characterFocusVCam.GetCinemachineComponent<CinemachineOrbitalTransposer>();
+                charCamOrbital.m_XAxis.Value =
+                    mainVCamOrbital.m_XAxis.Value;
+                charCamOrbital.m_FollowOffset.y = mainVCamOrbital.m_FollowOffset.y;
+            }
         }
 
         /// <summary>
@@ -187,14 +218,28 @@ namespace miniRAID.UI
             WaitFor(action, Wrapper());
         }
 
+        private Plane groundPlane;
+        
         // TODO: Modify for 3D worlds
         public void OnPoint(InputValue input)
         {
-            Vector2 cursorPos = cinemachineBrain.ScreenToWorldPoint(input.Get<Vector2>());
-            Vector2 _gridPos = (cursorPos / gridWorldUnitSize);
+            // Vector2 cursorPos = cinemachineBrain.ScreenToWorldPoint(input.Get<Vector2>());
 
-            Vector3Int tmp = new Vector3Int(cursor.position.x, 0, cursor.position.y);
-            cursor.position = new Vector3Int(Mathf.FloorToInt(_gridPos.x), 0, Mathf.FloorToInt(_gridPos.y));
+            Vector3 cursorPos = Vector3.zero;
+            
+            Ray pointer = cinemachineBrain.ScreenPointToRay(input.Get<Vector2>());
+            float enter = 0.0f;
+            if (groundPlane.Raycast(pointer, out enter))
+            {
+                cursorPos = pointer.GetPoint(enter);
+            }
+            
+            // Vector2 _gridPos = (cursorPos / gridWorldUnitSize);
+            Vector3Int tmp = new Vector3Int(cursor.position.x, cursor.position.y, cursor.position.z);
+            cursor.position = Globals.backend.GetGridPos(cursorPos);
+
+            // cursor.position = new Vector3Int(Mathf.FloorToInt(_gridPos.x), 0, Mathf.FloorToInt(_gridPos.y));
+
             if (cursor.position != tmp && currentState != null)
             {
                 currentState.PointAtGrid(cursor.position);
@@ -266,7 +311,7 @@ namespace miniRAID.UI
             }
 
 #if UNITY_EDITOR
-            Selection.activeGameObject = mob.gameObject;
+            // Selection.activeGameObject = mob.gameObject;
 #endif
 
             // string effects = "";
@@ -316,6 +361,11 @@ namespace miniRAID.UI
         public void HideMainMobStats()
         {
             // mainMobStatPanel.SetActive(false);
+        }
+
+        public void BindAsBoss(MobRenderer renderer)
+        {
+            combatView.BindAsBoss(renderer);
         }
 
         #region Shortcuts

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using miniRAID.Backend.Numericals;
 using miniRAID.Buff;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
@@ -40,6 +41,7 @@ namespace miniRAID.ActionHelpers
         [HorizontalGroup]
         [HideIf("type", FloatModifierType.Expression)]
         [HideLabel]
+        [PathBell]
         public float value;
         
         [HorizontalGroup]
@@ -76,7 +78,7 @@ namespace miniRAID.ActionHelpers
         public Consts.DamageHealFlags flags;
         
         public Consts.Elements type;
-
+        
         public FloatModifier power = new(1.0f);
         public FloatModifier crit = new(1.0f);
         public FloatModifier hit = new(1.0f);

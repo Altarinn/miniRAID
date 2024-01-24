@@ -42,17 +42,19 @@ namespace miniRAID
             // Refresh UI state
             Globals.ui.Instance.EnterState();
 
-            bool shouldEnd = false;
+            // bool shouldEnd = false;
 
-            while(!shouldEnd)
+            while(!playerPhaseEnd)
             {
                 if(actionToDo == null) { yield return null; }
                 else
                 {
                     yield return new JumpIn(actionToDo.Invoke());
-                    shouldEnd = CheckPhaseEnd(awaitForActions);
+                    // shouldEnd = CheckPhaseEnd(awaitForActions);
                 }
             }
+
+            playerPhaseEnd = false;
         }
 
         // Uses lazy evaluation of IEnumerator.

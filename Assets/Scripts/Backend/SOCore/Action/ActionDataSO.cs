@@ -523,10 +523,17 @@ namespace miniRAID
             cooldownRemain = cd;
         }
 
-        public virtual void OnNextTurn(MobData mob)
+        public virtual IEnumerator OnNextTurn(MobData mob)
+        {
+            // CD moved to recover stage
+            yield break;
+        }
+
+        public virtual IEnumerator OnRecoveryStage(MobData mob)
         {
             cooldownRemain -= 1;
             if (cooldownRemain < 0) { cooldownRemain = 0; }
+            yield break;
         }
 
         public override void OnAttach(MobData mob)
@@ -534,7 +541,17 @@ namespace miniRAID
             base.OnAttach(mob);
 
             mob.OnNextTurn += OnNextTurn;
+            mob.OnRecoveryStage += OnRecoveryStage;
             mob.OnStatCalculationFinish += OnRecalculateStatsFinish;
+        }
+
+        public override void OnRemove(MobData mob)
+        {
+            mob.OnNextTurn -= OnNextTurn;
+            mob.OnRecoveryStage -= OnRecoveryStage;
+            mob.OnStatCalculationFinish -= OnRecalculateStatsFinish;
+            
+            base.OnRemove(mob);
         }
     }
 }

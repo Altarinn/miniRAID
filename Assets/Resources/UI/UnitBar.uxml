@@ -4,7 +4,7 @@
     <ui:VisualElement name="BarContainer" picking-mode="Ignore" style="height: 60px;">
         <ui:VisualElement name="TopBar" picking-mode="Ignore" style="height: 40px; flex-direction: row; padding-right: 80px;">
             <ui:VisualElement name="UnitBanner" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); width: 80px; flex-direction: row; align-items: flex-end; padding-left: 1px; padding-right: 1px; margin-bottom: 5px; border-bottom-color: rgb(255, 255, 255); border-bottom-width: 1px;">
-                <ui:VisualElement name="UnitIcon" style="flex-grow: 0; background-color: rgba(167, 238, 255, 0); width: 32px; height: 32px; margin-bottom: 1px; margin-right: 3px; background-image: url(&apos;project://database/Assets/SpriteSheets/Mythic.png?fileID=5383714370497100240&amp;guid=cb60126b6c43fc546b28002f68a349c3&amp;type=3#Mythic_0&apos;); -unity-background-scale-mode: stretch-to-fill;" />
+                <ui:VisualElement name="UnitIcon" style="flex-grow: 0; background-color: rgba(167, 238, 255, 0); width: 32px; height: 32px; margin-bottom: 1px; margin-right: 3px; background-image: url(&apos;project://database/Assets/SpriteSheets/Mythic.png?fileID=5383714370497100240&amp;guid=cb60126b6c43fc546b28002f68a349c3&amp;type=3#Mythic_0&apos;); -unity-background-scale-mode: scale-and-crop;" />
                 <ui:VisualElement name="UnitNameContainer" style="background-color: rgba(0, 0, 0, 0); max-width: 40px;">
                     <ui:Label tabindex="-1" display-tooltip-when-elided="true" name="UnitName" text="棕毛狐狸j" />
                 </ui:VisualElement>
@@ -69,7 +69,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:Label tabindex="-1" display-tooltip-when-elided="true" name="TempBuffInfo" style="position: absolute; right: 30px; bottom: 25px; -unity-text-align: middle-right;" />
+        <ui:Label tabindex="-1" display-tooltip-when-elided="true" name="TempBuffInfo" style="position: absolute; right: 110px; bottom: 25px; -unity-text-align: middle-right;" />
         <ui:VisualElement name="MainBar" style="flex-grow: 1; background-color: rgb(0, 0, 0); flex-direction: row; padding-top: 0; padding-left: 0; padding-right: 0; padding-bottom: 0;">
             <ui:VisualElement name="Left" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-direction: row; width: 50%;">
                 <ui:VisualElement name="UnitInfo" style="background-color: rgb(0, 0, 0); flex-grow: 0; flex-direction: row; justify-content: space-between; width: 38.889%; padding-left: 4px; padding-right: 2px; padding-bottom: 1px; border-left-color: rgb(116, 101, 78); border-right-color: rgb(116, 101, 78); border-top-color: rgb(116, 101, 78); border-bottom-color: rgb(116, 101, 78); border-right-width: 1px; align-self: auto; margin-top: 5px; margin-bottom: 2px;">

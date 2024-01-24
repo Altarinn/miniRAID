@@ -16,12 +16,13 @@ namespace miniRAID.UIElements
         public MobInfoController mobInfo;
         public UnitBarController unitBar;
 
-        public Label battlePreview, centerTitleText, importantText;
+        public Label battlePreview, centerTitleText, importantText, schedulerPlaceholder;
         public VisualElement centerTitlePanel, importantPanel, importantPanelProgressBar;
 
         private UIDocument uiDocument;
         [SerializeField] private Vector2Int referenceResolution;
         [SerializeField] private int minimumScale;
+        [SerializeField] private Canvas mainCanvas;
 
         private void OnEnable()
         {
@@ -49,6 +50,7 @@ namespace miniRAID.UIElements
             );
 
             battlePreview = uiDocument.rootVisualElement.Q<Label>("BattlePreview");
+            schedulerPlaceholder = uiDocument.rootVisualElement.Q<Label>("ActionBar");
             centerTitlePanel = uiDocument.rootVisualElement.Q("MiddleTitle");
             centerTitleText = centerTitlePanel.Q<Label>("TitleText");
             
@@ -124,12 +126,21 @@ namespace miniRAID.UIElements
             UpdateSize();
         }
 
+        [ContextMenu("UpdateSize")]
         private void UpdateSize()
         {
+            if (uiDocument == null)
+            {
+                uiDocument = GetComponent<UIDocument>();
+            }
+
             int widthRatio = Mathf.FloorToInt(Screen.width / referenceResolution.x);
             int heightRatio = Mathf.FloorToInt(Screen.height / referenceResolution.y);
 
-            uiDocument.panelSettings.scale = Mathf.Max(minimumScale, Mathf.Min(widthRatio, heightRatio));
+            int scale = Mathf.Max(minimumScale, Mathf.Min(widthRatio, heightRatio));
+
+            uiDocument.panelSettings.scale = scale;
+            mainCanvas.scaleFactor = scale;
         }
     }
 }

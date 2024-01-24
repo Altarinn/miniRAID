@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using miniRAID.Backend.Numericals;
 using miniRAID.Spells;
 
 namespace miniRAID.UI.TargetRequester
@@ -8,6 +9,8 @@ namespace miniRAID.UI.TargetRequester
     {
         public int MaxUnits = 1;
         public int MinUnits = 1;
+
+        [PathBell]
         public int range = 3;
 
         public GridOverlay.Types enemyType = GridOverlay.Types.ATTACK;

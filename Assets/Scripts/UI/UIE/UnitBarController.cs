@@ -69,14 +69,14 @@ namespace miniRAID.UIElements
             
             currentAPInt.text = $"{Mathf.FloorToInt(mob.actionPoints)}";
             currentAPFract.text = $".{(int)(100 * (mob.actionPoints - Mathf.FloorToInt(mob.actionPoints))):#00}";
-            maxAP.text = $"{mob.apMax}";
+            maxAP.text = $"{mob.apNonFreeMax + Consts.freeAP}";
 
             VIT.text = $"{mob.VIT}";
             STR.text = $"{mob.STR}";
             MAG.text = $"{mob.MAG}";
             INT.text = $"{mob.INT}";
             TEC.text = $"{mob.TEC}";
-            AGI.text = $"{mob.DEX}";
+            AGI.text = $"{mob.AGI}";
             
             unitIcon.style.backgroundImage = new StyleBackground(mob.mobRenderer?.GetComponentInChildren<SpriteRenderer>().sprite);
             

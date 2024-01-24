@@ -31,12 +31,13 @@ namespace miniRAID.ActionHelpers
         {
             if (Globals.cc.animation && mob.mobRenderer != null)
             {
-                GameObject obj = GameObject.Instantiate(projectilePrefab, mob.mobRenderer.transform.position + Vector3.back, Quaternion.identity);
+                // TODO: Projectile firing position pivot
+                GameObject obj = GameObject.Instantiate(projectilePrefab, mob.mobRenderer.transform.position + Vector3.up * 0.5f, Quaternion.identity);
             
                 obj.GetComponent<TestProjectile>().Init(projectileSprite, projectileTrail, Color.white, Color.white);
 
-                Vector3 dest = Globals.backend.GridToWorldPos(target) + new Vector3(.5f, .5f, .5f);
-                dest.z = obj.transform.position.z;
+                Vector3 dest = Globals.backend.GridToWorldPosCentered(target);
+                // dest.z = obj.transform.position.z;
 
                 yield return obj.transform
                     .DOMove(dest, flyTime)

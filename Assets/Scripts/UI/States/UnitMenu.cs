@@ -82,7 +82,7 @@ namespace miniRAID.UI
                 // Set camera position to current place if keep position (used action)
                 if (keepCameraPosition)
                 {
-                    ui.mainVCam.transform.position = ui.characterFocusVCam.transform.position;
+                    ui.mainVCam.Follow.position = ui.characterFocusVCam.Follow.position;
                     keepCameraPosition = false;
                 }
                 
@@ -107,17 +107,33 @@ namespace miniRAID.UI
                 keycode = "1"
             });
             
+            // entries.Add(new miniRAID.UIElements.UnitMenuController.UIMenuEntry
+            // {
+            //     text = "EndTurn",
+            //     action = OnAutoAttackFinishingSelected(Consts.UnitGroup.Player),
+            //     onFinished = UIMenuPostAction(null),
+            //     toolTip = "各可行动单位用武器攻击其目标，然后结束回合。",
+            //     useDefaultToolTip = true,
+            //     keycode = "R"
+            // });
+            
             entries.Add(new miniRAID.UIElements.UnitMenuController.UIMenuEntry
             {
                 text = "EndTurn",
-                action = OnAutoAttackFinishingSelected(Consts.UnitGroup.Player),
+                action = EndTurnAction(),
                 onFinished = UIMenuPostAction(null),
-                toolTip = "各可行动单位用武器攻击其目标，然后结束回合。",
+                toolTip = "结束回合。",
                 useDefaultToolTip = true,
                 keycode = "R"
             });
 
             ui.combatView.menu.PrepareMenu(entries);
+        }
+
+        private IEnumerator EndTurnAction()
+        {
+            Globals.combatMgr.Instance.MarkPlayerTurnEnd();
+            yield break;
         }
 
         private void PrepareTopMenu()
@@ -178,7 +194,7 @@ namespace miniRAID.UI
                 {
                     text = "Aim",
                     action = AimOnTarget(currentUnit.data),
-                    onFinished = null,
+                    onFinished = UIMenuPostAction(null),
                     toolTip = "令所有可以瞄准目标的单位瞄准目标。",
                     useDefaultToolTip = true,
                     keycode = "K"
@@ -246,6 +262,8 @@ namespace miniRAID.UI
             {
                 yield return new JumpIn(currentUnit.data.SetActive(false));
             }
+            
+            Globals.combatMgr.Instance.MarkPlayerTurnEnd();
         }
 
         public IEnumerator AutoPass(MobRenderer mobRenderer)
@@ -258,20 +276,20 @@ namespace miniRAID.UI
             }
         }
 
-        public IEnumerator OnAutoAttackFinishingSelected(Consts.UnitGroup group)
-        {
-            var mobs = Globals.backend.allMobs
-                .Where(x => x.unitGroup == group)
-                .OrderByDescending(x => x.DEX)
-                .ToList();
-            foreach (MobData mob in mobs)
-            {
-                if (mob.isControllable)
-                {
-                    yield return new JumpIn(mob.AutoAttackFinish());
-                }
-            }
-        }
+        // public IEnumerator OnAutoAttackFinishingSelected(Consts.UnitGroup group)
+        // {
+        //     var mobs = Globals.backend.allMobs
+        //         .Where(x => x.unitGroup == group)
+        //         .OrderByDescending(x => x.DEX)
+        //         .ToList();
+        //     foreach (MobData mob in mobs)
+        //     {
+        //         if (mob.isControllable)
+        //         {
+        //             yield return new JumpIn(mob.AutoAttackFinish());
+        //         }
+        //     }
+        // }
 
         public IEnumerator OnCheat(Consts.UnitGroup group)
         {

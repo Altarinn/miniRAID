@@ -16,7 +16,26 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: dc985debf0c551046b2cc912670124f1
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 13a2a395a77fdd44688c55e4dac3a37e
+    m_Address: Enemies
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Numericals
+    - EnemyNumericals
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3f9f684cb18e714d8aaa003a854f15c
+    m_Address: Allies
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Numericals
+    - AllyNumericals
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ddbbe7540d9554c308254a5caf045295
+    m_Address: GameContent
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 55c8fc1c9005491419d54370f8e0a5fe, type: 2}
   m_SchemaSet:

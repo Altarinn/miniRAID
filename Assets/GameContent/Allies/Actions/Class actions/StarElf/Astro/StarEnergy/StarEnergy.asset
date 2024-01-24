@@ -1,0 +1,199 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d52d60488d0740a4da24c566912267a2, type: 3}
+  m_Name: StarEnergy
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: power
+      Entry: 7
+      Data: 0|miniRAID.PowerGetter, Assembly-CSharp
+    - Name: powerType
+      Entry: 3
+      Data: 1
+    - Name: powerFactor
+      Entry: 7
+      Data: miniRAID.LeveledStats`1[[System.Single, mscorlib]], Assembly-CSharp
+    - Name: isLeveled
+      Entry: 5
+      Data: false
+    - Name: values
+      Entry: 7
+      Data: 1|System.Single[], mscorlib
+    - Name: 
+      Entry: 14
+      Data: 5
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: dynamicGetter
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: auxPower
+      Entry: 7
+      Data: 2|miniRAID.PowerGetter, Assembly-CSharp
+    - Name: powerType
+      Entry: 3
+      Data: 1
+    - Name: powerFactor
+      Entry: 7
+      Data: miniRAID.LeveledStats`1[[System.Single, mscorlib]], Assembly-CSharp
+    - Name: isLeveled
+      Entry: 5
+      Data: false
+    - Name: values
+      Entry: 7
+      Data: 3|System.Single[], mscorlib
+    - Name: 
+      Entry: 14
+      Data: 5
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: dynamicGetter
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: modifiers
+      Entry: 7
+      Data: 4|System.Collections.Generic.Dictionary`2[[miniRAID.StatModifierSO+StatModTarget,
+        Assembly-CSharp],[miniRAID.StatModifierSO+dNumberModifier, Assembly-CSharp]],
+        mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 5|System.Collections.Generic.EnumEqualityComparer`1[[miniRAID.StatModifierSO+StatModTarget,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: BuffEffects
+      Entry: 6
+      Data: 
+    - Name: overtimeEffects
+      Entry: 7
+      Data: 6|System.Collections.Generic.List`1[[miniRAID.Buff.BuffSO+BuffDHOTDef,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  Guid: 74cde4c8663f4dcaad479a6853000dee
+  Id: 123
+  icon: {fileID: 0}
+  nameKey:
+    m_TableReference:
+      m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
+    m_TableEntryReference:
+      m_KeyId: 1844898196692992
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  ToolTipKey:
+    m_TableReference:
+      m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
+    m_TableEntryReference:
+      m_KeyId: 32001572077117440
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  type: 6
+  priority: 0
+  timed: 0
+  testValue: 0
+  phaseTimed: 0
+  timeMax: 1
+  stackable: 0
+  stackRefreshesTime: 1
+  maxStack: 1
+  snapShot: 1
+  alwaysOnIndicator: {fileID: 0}
+  flags: 0
+  manaRegen: 6
+  references:
+    version: 2
+    RefIds: []

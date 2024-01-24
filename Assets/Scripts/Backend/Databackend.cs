@@ -7,6 +7,7 @@ using miniRAID.Buff;
 using System;
 using System.Linq;
 using miniRAID.Backend;
+using UnityEngine.Serialization;
 
 namespace miniRAID
 {
@@ -85,6 +86,12 @@ namespace miniRAID
 
             Heal = 11
         }
+
+        public static Color MissColor = new Color(1.0f, 0.6f, 0.5f);
+        public static Color HitColor = new Color(1.0f, 0.7f, 0.6f);
+        public static Color CritColor = new Color(1.0f, 0.88f, 1.0f);
+        public static Color HealColor = new Color(0.6f, 1.0f, 0.4f);
+        public static Color BuffColor = new Color(0.7f, 0.9f, 1.0f);
 
         public enum RefType
         {
@@ -218,7 +225,10 @@ namespace miniRAID
             public bool popup;
         }
 
-        public static float HealAggroMul = 1.35f;
+        public static float HealAggroMul = 1.3f;
+        
+        // This is a multiplier that will be applied to aggro per turn (update).
+        public static float AggroDecay = 0.75f;
 
         public enum BuffEventType
         {
@@ -362,10 +372,14 @@ namespace miniRAID
         [Serializable]
         public struct BaseStats
         {
-            public dNumber VIT, STR, MAG, INT, DEX, TEC;
+            public dNumber VIT, STR, MAG, INT;
+            [FormerlySerializedAs("DEX")] public dNumber AGI;
+            public dNumber TEC;
         }
 
         // TODO: Determine our values
+
+        public static int maxPlayers = 9, basePlayerPerTurn = 4;
 
         // Extra level added to attacker level during damage calc.
         // For a smoother early-game experience.
@@ -381,12 +395,17 @@ namespace miniRAID
         // Incremental in the range of +50% hit rate per level.
         // Hit rate = BaseHit + (attacker.Hit - defender.Dodge) / (HitRangePerLevel * defender.Level)
         public static float HitRangePerLevel = 6;
-        public static float BaseHit = 0.55f;
+        public static float BaseHit = 0.70f;
         public static float MaxHitAcc = 1000000.0f;
         
         // Same but for critical strikes.
         public static float CritRangePerLevel = 7;
         public static float BaseCrit = -0.1f;
+
+        public static float APRegenPerDEX = 0.03f;
+        public static float baseAPRegenTurn = 1.0f;
+        public static int freeAP = 1, maximumNonFreeAP = 5;
+        public static float baseAPRegenRecoveryStage = 0.0f;
 
         public static float GetHitRate(float spellHit, float defenderDodge, int defenderLevel)
         {
@@ -480,7 +499,7 @@ namespace miniRAID
             return 0f;
         }
 
-        private static float baseStatBaseLv1 = 5;
+        public static float baseStatBaseLv1 = 5;
         public static float baseStatAverageGrowth = 1.0f;
 
         public static float BaseStatsFromLevel(int lvl, float growthRate)
@@ -515,9 +534,10 @@ namespace miniRAID
 
         public enum UnitGroup
         {
-            Player = 0,
-            Enemy = 1,
-            Ally = 2,
+            Player = 0, // Originally players, nothing else allowed
+            Enemy = 1, // Enemies
+            Ally = 2, // Player's summoned creatures, NPCs etc.
+                      // May have agents, in that case they will move as their will instead (NPC)
             Others = 3,
         }
 
@@ -790,18 +810,25 @@ namespace miniRAID
         // TODO: Modify me when implementing new renderer !!
         public Vector3Int GetGridPos(Vector3 pos)
         {
-            return new Vector3Int(Mathf.FloorToInt(pos.x), 0, Mathf.FloorToInt(pos.y));
+            // return new Vector3Int(Mathf.FloorToInt(pos.x), 0, Mathf.FloorToInt(pos.y));
+            return new Vector3Int(Mathf.FloorToInt(pos.x), 0, Mathf.FloorToInt(pos.z));
         }
 
         // TODO: Modify me when implementing new renderer !!
         public Vector3 GridToWorldPos(Vector3Int gridPos)
         {
-            return new Vector3(gridPos.x, gridPos.z, 0) * 1.0f;
+            // return new Vector3(gridPos.x, gridPos.z, 0) * 1.0f;
+            return new Vector3(gridPos.x, 0, gridPos.z) * 1.0f;
         }
 
         public Vector3 GridToWorldPosCentered(Vector3Int gridPos)
         {
-            return GridToWorldPos(gridPos) + new Vector3(0.5f, 0.5f, 0.0f);
+            return GridToWorldPos(gridPos) + new Vector3(0.5f, 0.5f, 0.5f);
+        }
+        
+        public Vector3 GridToWorldPosCenteredGrounded(Vector3Int gridPos)
+        {
+            return GridToWorldPos(gridPos) + new Vector3(0.5f, 0.0f, 0.5f);
         }
 
         // TODO: Map border

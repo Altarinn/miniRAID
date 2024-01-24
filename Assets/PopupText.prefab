@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 180676412543922952}
   - component: {fileID: 180676412543922955}
-  - component: {fileID: 180676412543922954}
+  - component: {fileID: 5469510738808986681}
   - component: {fileID: 4701919478932269685}
   m_Layer: 5
   m_Name: PopupText
@@ -47,7 +47,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 180676412543922967}
   m_CullTransparentMesh: 1
---- !u!114 &180676412543922954
+--- !u!114 &5469510738808986681
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -69,8 +69,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 600x8 = 4,800!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c745f34bf3531b747ae153317bca764e, type: 2}
-  m_sharedMaterial: {fileID: -3080587583752103626, guid: c745f34bf3531b747ae153317bca764e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2733ebaad6b1a544095c9a0b77c57f41, type: 2}
+  m_sharedMaterial: {fileID: -2316660746694532373, guid: 2733ebaad6b1a544095c9a0b77c57f41, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -94,8 +94,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 11
+  m_fontSizeBase: 11
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -149,5 +149,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 0, y: 2, z: 0}
-  lifespan: 1
+  lifespan: 1.5
   fadeStart: 0

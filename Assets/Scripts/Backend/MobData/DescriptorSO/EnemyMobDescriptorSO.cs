@@ -41,7 +41,7 @@ namespace miniRAID
             mob.baseStats.STR = dNumber.CreateComposite(0, "mobbase");
             mob.baseStats.MAG = dNumber.CreateComposite(0, "mobbase");
             mob.baseStats.INT = dNumber.CreateComposite(0, "mobbase");
-            mob.baseStats.DEX = dNumber.CreateComposite(0, "mobbase");
+            mob.baseStats.AGI = dNumber.CreateComposite(0, "mobbase");
             mob.baseStats.TEC = dNumber.CreateComposite(0, "mobbase");
         }
 

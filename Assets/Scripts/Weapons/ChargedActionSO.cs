@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using miniRAID.Agents;
 using miniRAID.Spells;
 
 namespace miniRAID.Weapon
@@ -23,6 +24,7 @@ namespace miniRAID.Weapon
 
         public virtual IEnumerator OnPerformCharge(RuntimeAction ract, MobData mob, SpellTarget target)
         {
+            mob.FindListener<PlayerAutoAttackAgentBase>()?.SkipNextTurn();
             yield return new JumpIn(mob.SetActive(false));
         }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using Cinemachine;
+using miniRAID.Backend.Numericals;
 
 namespace miniRAID.Buff
 {
@@ -21,6 +22,12 @@ namespace miniRAID.Buff
         [Title("Buff", "MobListener", TitleAlignments.Centered)]
 
         public bool timed = false;
+
+        [PathBell]
+        public float testValue;
+
+        [ShowIf("timed")]
+        public bool phaseTimed = false;
         public int timeMax = 1;
 
         public bool stackable = false;
@@ -296,14 +303,15 @@ namespace miniRAID.Buff
             base.OnAttach(mob);
 
             mob.OnNextTurn += BuffBase_OnNextTurn;
+            mob.OnRecoveryStage += BuffBase_OnRecoveryStage;
 
             // TODO: Separate me into something else
             if (Globals.cc.animation && buffData.alwaysOnIndicator)
             {
                 AddIndicator(new SimpleSpriteIndicator(
                     buffData.alwaysOnIndicator,
-                    Globals.backend.GridToWorldPosCentered(mob.Position)))
-                    .Move(new Vector3(0, 0, -3.0f))
+                    Globals.backend.GridToWorldPosCentered(mob.Position), 3))
+                    .Move(new Vector3(0, 0, 0.0f))
                     .Follow(mob.mobRenderer);
             }
 
@@ -427,12 +435,15 @@ namespace miniRAID.Buff
             });
             
             mob.OnNextTurn -= BuffBase_OnNextTurn;
+            mob.OnRecoveryStage -= BuffBase_OnRecoveryStage;
             onRemoveFromMob?.Invoke(mob);
 
             base.OnRemove(mob);
         }
 
         public virtual void OnNextTurn(MobData mob) { }
+        
+        public virtual void OnRecoveryStage(MobData mob) { }
 
         private IEnumerator BuffBase_OnNextTurn(MobData mob)
         {
@@ -468,17 +479,39 @@ namespace miniRAID.Buff
             // yield return new JumpIn(buffData.onNextTurn?.Eval((this, mob)));
 
             // Handle timer
-            if(this.buffData.timed)
+            if(this.buffData.timed && (!this.buffData.phaseTimed))
             {
-                timeRemain -= 1;
-
-                if(timeRemain <= 0)
-                {
-                    Destroy();
-                }
+                StepTimer();
             }
 
             yield break;
+        }
+        
+        private IEnumerator BuffBase_OnRecoveryStage(MobData mob)
+        {
+            // Call buff's "update" here
+            OnRecoveryStage(mob);
+
+            // Custom events
+            // yield return new JumpIn(buffData.onRecoveryStage?.Eval((this, mob)));
+
+            // Handle timer
+            if(this.buffData.timed && this.buffData.phaseTimed)
+            {
+                StepTimer();
+            }
+
+            yield break;
+        }
+
+        protected void StepTimer()
+        {
+            timeRemain -= 1;
+
+            if(timeRemain <= 0)
+            {
+                Destroy();
+            }
         }
     }
 }

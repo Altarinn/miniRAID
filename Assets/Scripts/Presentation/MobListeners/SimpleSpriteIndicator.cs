@@ -5,14 +5,16 @@ namespace miniRAID
     public class SimpleSpriteIndicator : IMobListenerIndicator
     {
         public Sprite sprite;
+        public int sortingOrder;
         public Vector3 position;
 
         GameObject obj;
         
-        public SimpleSpriteIndicator(Sprite sprite, Vector3 pos)
+        public SimpleSpriteIndicator(Sprite sprite, Vector3 pos, int sortOrder = 0)
         {
             this.sprite = sprite;
             this.position = pos;
+            this.sortingOrder = sortOrder;
         }
         
         public void Instantiate()
@@ -20,7 +22,8 @@ namespace miniRAID
             obj = GameObject.Instantiate(Globals.prefabs.Instance.spriteIndicator, position, Quaternion.identity);
             if (this.sprite != null)
             {
-                obj.GetComponent<SpriteRenderer>().sprite = this.sprite;
+                obj.GetComponentInChildren<SpriteRenderer>().sprite = this.sprite;
+                obj.GetComponentInChildren<SpriteRenderer>().sortingOrder = this.sortingOrder;
             }
         }
 

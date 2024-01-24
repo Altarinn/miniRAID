@@ -16,6 +16,8 @@ namespace miniRAID.Agents
     {
         [Tooltip("视野范围，不会向超出范围的敌对目标移动。目前视距受移动种类影响，如飞行单位视野穿山但步行单位看不到山对面。")]
         public int eyesight = 10;
+        
+        [Header("User Interface")] public Material decalIndicatorMaterial;
 
         public override MobListener Wrap(MobData parent)
         {
@@ -37,6 +39,8 @@ namespace miniRAID.Agents
         public MobData currentTarget;
         public bool useAggro = true;
 
+        private DecalIndicator targetIndicator;
+
         public AggroAgentBase(MobData parent, AggroAgentBaseSO data) : base(parent, data)
         {
         }
@@ -44,10 +48,17 @@ namespace miniRAID.Agents
         public override void OnAttach(MobData mob)
         {
             base.OnAttach(mob);
-
+            
             mob.OnDamageReceived += Mob_OnReceiveDamageFinal;
             mob.OnActionPostcast += Mob_OnActionPostcast;
             aggroList = new Dictionary<MobData, float>();
+
+            if (aggroAgentData.decalIndicatorMaterial)
+            {
+                targetIndicator = AddIndicator(new DecalIndicator(
+                    aggroAgentData.decalIndicatorMaterial,
+                    Globals.backend.GridToWorldPosCenteredGrounded(mob.Position)));
+            }
         }
 
         public override void OnRemove(MobData mob)
@@ -75,23 +86,25 @@ namespace miniRAID.Agents
             }
         }
 
-        private void Mob_OnReceiveDamageFinal(MobData mob, Consts.DamageHeal_Result info)
+        private IEnumerator Mob_OnReceiveDamageFinal(MobData mob, Consts.DamageHeal_Result info)
         {
-            if (info.source.unitGroup == mob.unitGroup) { return; }
+            if (!useAggro || info.source.unitGroup == mob.unitGroup) { yield break; }
             AddToAggro(info.source, info.value * info.source.aggroMul);
         }
 
-        private void TargetMob_OnReceiveHealFinal(MobData mob, Consts.DamageHeal_Result info)
+        private IEnumerator TargetMob_OnReceiveHealFinal(MobData mob, Consts.DamageHeal_Result info)
         {
             // TODO: Why?
-            if (parentMob == null || info.source == null) { return; }
+            if (!useAggro || parentMob == null || info.source == null) { yield break; }
             
-            if (info.source.unitGroup == parentMob.unitGroup) { return; }
+            if (info.source.unitGroup == parentMob.unitGroup) { yield break; }
             AddToAggro(info.source, info.value * info.source.aggroMul * Consts.HealAggroMul);
         }
 
         protected void AddToAggro(MobData mob, float aggro)
         {
+            if (!useAggro) { return; }
+            
             // Add to aggrolist if not exist
             if (!aggroList.ContainsKey(mob))
             {
@@ -105,15 +118,18 @@ namespace miniRAID.Agents
             // Check if aggro exceeded the threshold
             if (mob != currentTarget)
             {
-                if (aggroList[mob] >= maxAggro)
+                if (!(mob == null || parentMob == null))
                 {
-                    Globals.popupMgr.Instance.Popup(">TARGET<", Globals.backend.GridToWorldPosCentered(mob.Position));
-                    Globals.popupMgr.Instance.Popup("ATTACKING YOU", Globals.backend.GridToWorldPosCentered(parentMob.Position));
-                }
-                else if (aggroList[mob] >= maxAggro * Settings.highAggroThreshold)
-                {
-                    Globals.popupMgr.Instance.Popup("!", Globals.backend.GridToWorldPosCentered(mob.Position));
-                    Globals.popupMgr.Instance.Popup("HIGH AGGRO", Globals.backend.GridToWorldPosCentered(parentMob.Position));
+                    if (aggroList[mob] >= maxAggro)
+                    {
+                        Globals.popupMgr.Instance.Popup(">TARGET<", Globals.backend.GridToWorldPosCentered(mob.Position), Consts.BuffColor);
+                        Globals.popupMgr.Instance.Popup("ATTACKING YOU", Globals.backend.GridToWorldPosCentered(parentMob.Position), Consts.BuffColor);
+                    }
+                    else if (aggroList[mob] >= maxAggro * Settings.highAggroThreshold)
+                    {
+                        Globals.popupMgr.Instance.Popup("!", Globals.backend.GridToWorldPosCentered(mob.Position), Consts.BuffColor);
+                        Globals.popupMgr.Instance.Popup("HIGH AGGRO", Globals.backend.GridToWorldPosCentered(parentMob.Position), Consts.BuffColor);
+                    }
                 }
             }
             
@@ -170,9 +186,12 @@ namespace miniRAID.Agents
                 {
                     RemoveFromAggro(item);
                 }
-
-
+                
                 currentTarget = target;
+                if (targetIndicator != null && currentTarget.mobRenderer != null)
+                {
+                    targetIndicator.Follow(currentTarget.mobRenderer.transform);
+                }
             }
         }
 
@@ -201,7 +220,7 @@ namespace miniRAID.Agents
             foreach (var entry in aggroList.Keys.ToList())
             {
                 // Decrease aggro by some constant per turn
-                aggroList[entry] *= 0.9f;
+                aggroList[entry] *= Consts.AggroDecay;
             }
             UpdateAggro();
 

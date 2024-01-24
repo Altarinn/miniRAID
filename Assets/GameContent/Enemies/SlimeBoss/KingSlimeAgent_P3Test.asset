@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef7838f53984fb4a468282f077f606e, type: 3}
+  m_Name: KingSlimeAgent_P3Test
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  Guid: 7770bb3868114d18af68e9c7bc60b441
+  Id: 109
+  icon: {fileID: 0}
+  nameKey:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  ToolTipKey:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  type: 5
+  priority: 0
+  eyesight: 10
+  decalIndicatorMaterial: {fileID: 2100000, guid: f5777ec9b4854a845aa96754d9416fed, type: 2}
+  phases:
+  - condition:
+      HealthPercentageLessThan: 1
+      HealthPercentageMoreThan: 0
+      canReturnTo: 0
+    loop: 0
+    phaseSchedule:
+    - doRegularAttack: 0
+      actions:
+      - data: {fileID: 11400000, guid: 30650c72d4a0f0348a06df9aae85478f, type: 2}
+        level: 0
+  - condition:
+      HealthPercentageLessThan: 0.5
+      HealthPercentageMoreThan: 0
+      canReturnTo: 0
+    loop: 1
+    phaseSchedule:
+    - doRegularAttack: 0
+      actions:
+      - data: {fileID: 11400000, guid: d36a1d95636ff4a718304d182e15483e, type: 2}
+        level: 0
+    - doRegularAttack: 1
+      actions:
+      - data: {fileID: 11400000, guid: 8a808c2b1fd03ab49b3bedb6f2176570, type: 2}
+        level: 0
+    - doRegularAttack: 1
+      actions:
+      - data: {fileID: 11400000, guid: 651ce528935d4564580f2eb1e502fef1, type: 2}
+        level: 0
+    - doRegularAttack: 1
+      actions: []
+    - doRegularAttack: 1
+      actions:
+      - data: {fileID: 11400000, guid: 8a808c2b1fd03ab49b3bedb6f2176570, type: 2}
+        level: 0
+    - doRegularAttack: 1
+      actions:
+      - data: {fileID: 11400000, guid: 651ce528935d4564580f2eb1e502fef1, type: 2}
+        level: 0
+      - data: {fileID: 11400000, guid: 8a808c2b1fd03ab49b3bedb6f2176570, type: 2}
+        level: 0
+    - doRegularAttack: 1
+      actions:
+      - data: {fileID: 11400000, guid: 651ce528935d4564580f2eb1e502fef1, type: 2}
+        level: 0
+  references:
+    version: 2
+    RefIds: []

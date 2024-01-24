@@ -13,17 +13,6 @@ template = '''    public class CoroutineEvent<%s>
             yield break;
         }
 
-        static Func<%s, IEnumerator> Wrapper(Action<%s> infunc)
-        {
-            IEnumerator foo(%s) // TArgs
-            {
-                infunc.Invoke(%s); // TParams
-                yield break;
-            }
-
-            return foo;
-        }
-
         public static CoroutineEvent<%s> operator +(CoroutineEvent<%s> evt, Func<%s, IEnumerator> listener)
         {
             if(evt == null) { evt = new(); }
@@ -36,26 +25,16 @@ template = '''    public class CoroutineEvent<%s>
             return evt;
         }
 
-        public static CoroutineEvent<%s> operator +(CoroutineEvent<%s> evt, Action<%s> listener)
-        {
-            return evt + Wrapper(listener);
-        }
-
         public static CoroutineEvent<%s> operator -(CoroutineEvent<%s> evt, Func<%s, IEnumerator> listener)
         {
             if(evt == null) { return null; }
 
-            if (!evt.listeners.Contains(listener))
+            if (evt.listeners.Contains(listener))
             {
                 evt.listeners.Remove(listener);
             }
 
             return evt;
-        }
-
-        public static CoroutineEvent<%s> operator -(CoroutineEvent<%s> evt, Action<%s> listener)
-        {
-            return evt - Wrapper(listener);
         }
     }
 '''
@@ -79,7 +58,7 @@ namespace miniRAID
         TArgs = ", ".join(["T%d %s" % (j, chr(ord('a') + j)) for j in range(i)])
         TParams = ", ".join(["%s" % chr(ord('a') + j) for j in range(i)])
 
-        code = template % (TTypes, TTypes, TTypes, TTypes, TArgs, TParams, TTypes, TTypes, TTypes, TTypes, TTypes, TTypes, TTypes, TTypes, TTypes, TTypes, TTypes, TTypes)
+        code = template % (TTypes, TTypes, TTypes, TTypes, TTypes, TTypes, TTypes, TTypes)
 
         f.write(code + "\n")
 

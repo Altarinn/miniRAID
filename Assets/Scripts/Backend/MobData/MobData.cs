@@ -8,6 +8,7 @@ using miniRAID.Spells;
 using System.Collections.Generic;
 using System.Linq;
 using miniRAID.Backend;
+using UnityEngine.Serialization;
 using XLua;
 
 namespace miniRAID
@@ -67,7 +68,9 @@ namespace miniRAID
         
         public bool isActive { get; private set; }
         public bool isDead { get; private set; }
+        public bool skipAutoAttack { get; private set; }
         public bool isControllable => isActive && (!isDead);
+        public bool canAutoAttack => (!skipAutoAttack) && (!isDead);
 
         public bool initialized = false;
 
@@ -86,10 +89,12 @@ namespace miniRAID
 
         [Header("Battle stats")]
         [SerializeField] private int _actionPointsMul100 = 400;
-        public float actionPoints { get { return _actionPointsMul100 / 100.0f; } }
+
+        [SerializeField] private int _freeActionPointsMul100 = 100;
+        public float actionPoints { get { return (_actionPointsMul100 + _freeActionPointsMul100) / 100.0f; } }
         //public dNumber baseActionPoints = (dNumber)4, extraActionPoints = (dNumber)0;
         public float apRecovery = 3;
-        public int apMax = 5;
+        [FormerlySerializedAs("apMax")] public int apNonFreeMax = 5;
 
         public dNumber moveRange;
         public int movedGrids = 0;
@@ -112,7 +117,7 @@ namespace miniRAID
         public int STR => (int)baseStats.STR.Value;
         public int MAG => (int)baseStats.MAG.Value;
         public int INT => (int)baseStats.INT.Value;
-        public int DEX => (int)baseStats.DEX.Value;
+        public int AGI => (int)baseStats.AGI.Value;
         public int TEC => (int)baseStats.TEC.Value;
 
         public int MoveRange => (int)moveRange.Value;
@@ -146,7 +151,12 @@ namespace miniRAID
         [Tooltip("Runtime action objects; the available actions to the mob now.")]
         public HashSet<RuntimeAction> availableActions = new HashSet<RuntimeAction>();
 
-        public MobData lastTurnTarget = null;
+        public MobData lastTurnTarget
+        {
+            get => _lastTurnTarget;
+            set { _lastTurnTarget = value; Globals.ui.Instance.circles.UpdateAllCircles(); }
+        }
+        private MobData _lastTurnTarget = null;
 
         //[HideInInspector]
         [NonSerialized]
@@ -168,16 +178,23 @@ namespace miniRAID
             OnInitialized?.Invoke(this);
         }
 
-        private void _SetActionPoints(float v)
-        {
-            _actionPointsMul100 = Mathf.RoundToInt(v * 100);
-        }
-
         public bool UseActionPoint(float v)
         {
-            if (actionPoints >= v)
+            // TODO: Emit events here
+            
+            int vMul100 = Mathf.FloorToInt(v * 100);
+            int freeUsage = Mathf.Min(vMul100, _freeActionPointsMul100);
+            vMul100 -= freeUsage;
+            _freeActionPointsMul100 -= freeUsage;
+
+            if (vMul100 <= 0)
             {
-                _SetActionPoints(actionPoints - v);
+                return true;
+            }
+            
+            if (_actionPointsMul100 >= vMul100)
+            {
+                _actionPointsMul100 -= vMul100;
                 return true;
             }
 
@@ -198,10 +215,15 @@ namespace miniRAID
             //_actionPoints = baseActionPoints + extraActionPoints;
             //extraActionPoints = (dNumber)0;
 
-            _actionPointsMul100 += Mathf.RoundToInt(apRecovery * 100);
-            if(_actionPointsMul100 > apMax * 100) { _actionPointsMul100 = apMax * 100; }
-
             mobRenderer?.OnWakeUp();
+        }
+
+        public void Recover()
+        {
+            _freeActionPointsMul100 = Consts.freeAP * 100;
+            
+            _actionPointsMul100 += Mathf.RoundToInt(apRecovery * 100);
+            if(_actionPointsMul100 > apNonFreeMax * 100) { _actionPointsMul100 = apNonFreeMax * 100; }
         }
 
         public void OnNewPhase()
@@ -329,7 +351,9 @@ namespace miniRAID
             switch (cost.type)
             {
                 case Cost.Type.AP:
-                    Debug.LogWarning("Please implement GetResource for AP.");
+                    // Debug.LogWarning("Please implement GetResource for AP.");
+                    _actionPointsMul100 += Mathf.RoundToInt(cost.value * 100);
+                    if(_actionPointsMul100 > apNonFreeMax * 100) { _actionPointsMul100 = apNonFreeMax * 100; }
                     break;
                 case Cost.Type.Mana:
                     Debug.LogWarning("Please implement GetResource for Mana.");
@@ -337,6 +361,11 @@ namespace miniRAID
             }
             
             return;
+        }
+
+        public IEnumerator EnterStrategyPhase()
+        {
+            yield return new JumpIn(SetActive(false));
         }
         
         public IEnumerator SetActive(bool value)
@@ -389,6 +418,13 @@ namespace miniRAID
         public IEnumerator _OnNextTurn()
         {
             yield return new JumpIn(OnNextTurn?.Invoke(this));
+        }
+        
+        public IEnumerator _OnRecoveryStage()
+        {
+            Recover();
+            yield return new JumpIn(OnRecoveryStage?.Invoke(this));
+            RecalculateStats();
         }
     }
 }

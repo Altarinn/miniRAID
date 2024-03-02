@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8962f3b427e4e2bbe69ed44030b1910, type: 3}
+  m_Name: PlayerAutoAttack
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: barIcon
+      Entry: 6
+      Data: 
+  Guid: 361f6a77d4874803b75be468caa0d07c
+  Id: 196
+  icon: {fileID: 0}
+  mainColor: {r: 0.76792455, g: 0.99509805, b: 1, a: 0}
+  label: Auto Attack
+  showInUI: 1
+  group: 0

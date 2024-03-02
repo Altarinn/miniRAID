@@ -7,31 +7,31 @@ namespace miniRAID
 {
 	public partial class CombatSchedulerCoroutine : MonoBehaviour
     {
-        #region Cut-In animations
-        public IEnumerator UIPlayerPhase()
-        {
-            // notify UI
-            Globals.debugMessage.AddMessage($"玩家回合");
-
-            yield break;
-        }
-
-        public IEnumerator UIEnemyPhase()
-        {
-            // notify UI
-            Globals.debugMessage.AddMessage($"敌方回合");
-
-            yield break;
-        }
-
-        public IEnumerator UIAllyPhase()
-        {
-            // notify UI
-            Globals.debugMessage.AddMessage($"友方回合");
-
-            yield break;
-        }
-        #endregion
+        // #region Cut-In animations
+        // public IEnumerator UIPlayerPhase()
+        // {
+        //     // notify UI
+        //     Globals.debugMessage.AddMessage($"玩家回合");
+        //
+        //     yield break;
+        // }
+        //
+        // public IEnumerator UIEnemyPhase()
+        // {
+        //     // notify UI
+        //     Globals.debugMessage.AddMessage($"敌方回合");
+        //
+        //     yield break;
+        // }
+        //
+        // public IEnumerator UIAllyPhase()
+        // {
+        //     // notify UI
+        //     Globals.debugMessage.AddMessage($"友方回合");
+        //
+        //     yield break;
+        // }
+        // #endregion
 
         MobRenderer _chosenMobRenderer = null;
 

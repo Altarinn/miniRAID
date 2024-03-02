@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e349d933f95b441584a006c23e8ab8d5, type: 3}
+  m_Name: StartTurnTurnSlice
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: barIcon
+      Entry: 6
+      Data: 
+  Guid: a2c7d55cf6cf44bd8ac9409dd7f48a45
+  Id: 202
+  icon: {fileID: 0}
+  mainColor: {r: 0, g: 0, b: 0, a: 0}
+  label: 
+  showInUI: 0

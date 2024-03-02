@@ -126,14 +126,14 @@ namespace miniRAID
 
         public void UpdateStatusColor()
         {
-            if (Globals.combatMgr.Instance.currentPhase == data.unitGroup)
-            {
-                GetComponentInChildren<SpriteRenderer>().color = data.isControllable ? Color.white : Color.blue;
-            }
-            else
-            {
-                GetComponentInChildren<SpriteRenderer>().color = Color.white;
-            }
+            // if (Globals.combatMgr.Instance.currentPhase == data.unitGroup)
+            // {
+            //     GetComponentInChildren<SpriteRenderer>().color = data.isControllable ? Color.white : Color.blue;
+            // }
+            // else
+            // {
+            GetComponentInChildren<SpriteRenderer>().color = Color.white;
+            // }
         }
 
         public void OnWakeUp()

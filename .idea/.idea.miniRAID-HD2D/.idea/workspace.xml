@@ -5,141 +5,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c36ca183-e7eb-40c1-9aca-56cfe58c3f4d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Presentation/MobListeners/DecalIndicator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Presentation/MobListeners/DecalIndicator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSchedulers.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSchedulers/DefaultTurnGenerator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSchedulers/DefaultTurnGenerator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSchedulers/TurnSchedulerGeneratorBase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSchedulers/TurnSchedulerGeneratorBase.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/AutoAttackTurnSlice.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/AutoAttackTurnSlice.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/CommonPlayerTurnSlice.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/CommonPlayerTurnSlice.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/EndTurnTurnSlice.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/EndTurnTurnSlice.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/PhaseTurnSlice.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/PhaseTurnSlice.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/RecoveryTurnSlice.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/RecoveryTurnSlice.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/StartTurnTurnSlice.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/StartTurnTurnSlice.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSchedulerHelper.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSchedulerHelper.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSlice.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSlice.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.TurnSlices.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.TurnSlices.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.miniRAID-HD2D/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.miniRAID-HD2D/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/Legacy/Dinkie9-code.fnt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/Legacy/Dinkie9-code.fnt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/Legacy/Dinkie9-code_0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/Legacy/Dinkie9-code_0.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/Legacy/DinkieBitmap-9px-Code.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/Legacy/DinkieBitmap-9px-Code.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/Legacy/DinkieBitmap-9pxCode.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/Legacy/DinkieBitmap-9pxCode.ttf.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Fonts/Non-pixelated/SourceHanSansSC-Regular-01 SDF 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/Non-pixelated/SourceHanSansSC-Regular-01 SDF 1.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Fonts/Non-pixelated/SourceHanSansSC-Regular-01 SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/Non-pixelated/SourceHanSansSC-Regular-01 SDF.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Fonts/Non-pixelated/verdana SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/Non-pixelated/verdana SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/Non-pixelated/verdana.ttf.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/Non-pixelated/verdana.ttf.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/pixelmix.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/pixelmix.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/renew-DinkieBitmap-9px SDF 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/renew-DinkieBitmap-9px SDF 1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/renew-DinkieBitmap-9px SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/renew-DinkieBitmap-9px SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/wqy-zenhei003 SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/wqy-zenhei003 SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/wqy-zenhei003.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/wqy-zenhei003.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Allies/Actions/Class actions/General/Paladin/HorseDash.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Allies/Actions/Class actions/General/Paladin/HorseDash.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Allies/Actions/Essentials/Movement.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Allies/Actions/Essentials/Movement.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Allies/Actions/Essentials/Test/BubbleShot.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Allies/Actions/Essentials/Test/BubbleShot.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Allies/Actions/Essentials/Test/ChargedSlash.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Allies/Actions/Essentials/Test/ChargedSlash.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Allies/Actions/Essentials/Test/CometShot.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Allies/Actions/Essentials/Test/CometShot.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Allies/Actions/Essentials/Test/EmergencyHeal.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Allies/Actions/Essentials/Test/EmergencyHeal.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Allies/Actions/Essentials/Test/Punch.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Allies/Actions/Essentials/Test/Punch.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Allies/Characters/Classes/LiliumGuard.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Allies/Characters/Classes/LiliumGuard.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Allies/Characters/Classes/Warrior.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Allies/Characters/Classes/Warrior.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Allies/Characters/Iron Valiant.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Allies/Characters/Iron Valiant.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Allies/Weapons/Test/LeapingLight.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Allies/Weapons/Test/LeapingLight.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Enemies/SlimeBoss/BossMu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Enemies/SlimeBoss/BossMu.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Enemies/SlimeBoss/KingSlimeAgent.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Enemies/SlimeBoss/KingSlimeAgent.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Enemies/SlimeBoss/KingSlimeAgent_P3Test.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Enemies/SlimeBoss/KingSlimeAgent_P3Test.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Enemies/SlimeBoss/KingSlimeAgent_partialTurnTest.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Enemies/SlimeBoss/KingSlimeAgent_partialTurnTest.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Enemies/SlimeBoss/SmallSlimes/SmallSlime_ChooseTarget.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Enemies/SlimeBoss/SmallSlimes/SmallSlime_ChooseTarget.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameContent/Enemies/Test/SmallMu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameContent/Enemies/Test/SmallMu.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Localization/StringTables/Actions Shared Data.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Localization/StringTables/Actions Shared Data.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Localization/StringTables/Actions_zh-CN.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Localization/StringTables/Actions_zh-CN.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Localization/StringTables/Nouns Shared Data.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Localization/StringTables/Nouns Shared Data.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Localization/StringTables/Nouns_zh-CN.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Localization/StringTables/Nouns_zh-CN.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MobStats.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MobStats.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/New VFX.vfx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/New VFX.vfx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/C5.2.5.3/lib/netstandard1.0/C5.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/C5.2.5.3/lib/netstandard1.0/C5.dll.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlayerMob.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerMob.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Config/Editor/AOTGenerationConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Config/Editor/AOTGenerationConfig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PopupText.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PopupText.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PopupText_Number.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PopupText_Number.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/CombatStats.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/CombatStats.uxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/CombatView.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/CombatView.uxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/UnitBar.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/UnitBar.uxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/CombatBase.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CombatBase.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SlimeKing/MeleePlayground.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SlimeKing/MeleePlayground.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SlimeKing/SlimeKing-All.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SlimeKing/SlimeKing-All.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Agents/AggroAgentBaseSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Agents/AggroAgentBaseSO.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.Phase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.Phase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.UI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.UI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/Databackend.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/Databackend.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/NumericalsCore/FloatEntry.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/NumericalsCore/FloatEntry.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/NumericalsCore/NumericalDatabase.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/NumericalsCore/NumericalDatabase.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/NumericalsCore/NumericalDatabasePopulator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/NumericalsCore/NumericalDatabasePopulator.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/NumericalsCore/impl.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/NumericalsCore/impl/BasicNumericals.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/NumericalsCore/impl/BasicNumericals.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/NumericalsCore/impl/FundamentalNumericalsSO.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/NumericalsCore/impl/FundamentalNumericalsSO.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/NumericalsCore/impl/NumericalSettingsProvider.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/NumericalsCore/impl/NumericalSettingsProvider.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/SOCore/Action/ActionDataSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/SOCore/Action/ActionDataSO.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Presentation/MobRenderer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Presentation/MobRenderer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spells/ActionHelpers/VisualEffects.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spells/ActionHelpers/VisualEffects.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/GridUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/GridUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/PrefabPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PrefabPool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIE/MessagePoolController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIE/MessagePoolController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIE/UnitMenuController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIE/UnitMenuController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/DefaultInputs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/DefaultInputs.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/Editor/SetFromXLSX.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/Editor/SetFromXLSX.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/Globals.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/Globals.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tiles/attack-mask.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tiles/attack-mask.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tiles/buff-mask.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tiles/buff-mask.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tiles/heal-mask.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tiles/heal-mask.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tiles/moveable_mask.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tiles/moveable_mask.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tiles/selected-mask.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tiles/selected-mask.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/URPAssets/Settings/ForwardRenderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/URPAssets/Settings/ForwardRenderer.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Doc/Materials/logo.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Doc/Materials/logo.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Examples/01_Helloworld/Helloworld.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Examples/01_Helloworld/Helloworld.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Examples/01_Helloworld/HelloworldSettings.lighting" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Examples/01_Helloworld/HelloworldSettings.lighting" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Examples/02_U3DScripting/U3DScripting.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Examples/02_U3DScripting/U3DScripting.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Examples/02_U3DScripting/U3DScriptingSettings.lighting" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Examples/02_U3DScripting/U3DScriptingSettings.lighting" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Examples/03_UIEvent/UI.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Examples/03_UIEvent/UI.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Examples/03_UIEvent/UISettings.lighting" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Examples/03_UIEvent/UISettings.lighting" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Examples/04_LuaObjectOrented/InvokeLua.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Examples/04_LuaObjectOrented/InvokeLua.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Examples/04_LuaObjectOrented/InvokeLuaSettings.lighting" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Examples/04_LuaObjectOrented/InvokeLuaSettings.lighting" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Examples/05_NoGc/NoGc.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Examples/05_NoGc/NoGc.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Examples/05_NoGc/NoGcSettings.lighting" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Examples/05_NoGc/NoGcSettings.lighting" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Examples/06_Coroutine/Coroutine.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Examples/06_Coroutine/Coroutine.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Examples/06_Coroutine/CoroutineSettings.lighting" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Examples/06_Coroutine/CoroutineSettings.lighting" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Examples/07_AsyncTest/AsyncTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Examples/07_AsyncTest/AsyncTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Examples/07_AsyncTest/AsyncTestSettings.lighting" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Examples/07_AsyncTest/AsyncTestSettings.lighting" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Examples/07_AsyncTest/Resources/AlertBox.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Examples/07_AsyncTest/Resources/AlertBox.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Examples/07_AsyncTest/Resources/ConfirmBox.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Examples/07_AsyncTest/Resources/ConfirmBox.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Examples/08_Hotfix/HotfixTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Examples/08_Hotfix/HotfixTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Examples/08_Hotfix/HotfixTest2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Examples/08_Hotfix/HotfixTest2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Examples/08_Hotfix/HotfixTest2Settings.lighting" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Examples/08_Hotfix/HotfixTest2Settings.lighting" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Examples/08_Hotfix/HotfixTestSettings.lighting" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Examples/08_Hotfix/HotfixTestSettings.lighting" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Examples/09_GenericMethod/GenericMethod.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Examples/09_GenericMethod/GenericMethod.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Examples/09_GenericMethod/GenericMethodSettings.lighting" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Examples/09_GenericMethod/GenericMethodSettings.lighting" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Examples/10_SignatureLoader/SignatureLoaderTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Examples/10_SignatureLoader/SignatureLoaderTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Examples/10_SignatureLoader/SignatureLoaderTestSettings.lighting" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Examples/10_SignatureLoader/SignatureLoaderTestSettings.lighting" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Examples/11_RawObject/RawObject.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Examples/11_RawObject/RawObject.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Examples/11_RawObject/RawObjectSettings.lighting" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Examples/11_RawObject/RawObjectSettings.lighting" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Examples/12_ReImplementInLua/ReImplementInLua.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Examples/12_ReImplementInLua/ReImplementInLua.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Examples/12_ReImplementInLua/ReImplementInLuaSettings.lighting" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Examples/12_ReImplementInLua/ReImplementInLuaSettings.lighting" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Tutorial/CSharpCallLua/CSCallLua.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Tutorial/CSharpCallLua/CSCallLua.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Tutorial/CSharpCallLua/CSCallLuaSettings.lighting" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Tutorial/CSharpCallLua/CSCallLuaSettings.lighting" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Tutorial/LoadLuaScript/ByFile/ByFile.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Tutorial/LoadLuaScript/ByFile/ByFile.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Tutorial/LoadLuaScript/ByFile/ByFileSettings.lighting" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Tutorial/LoadLuaScript/ByFile/ByFileSettings.lighting" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Tutorial/LoadLuaScript/ByString/ByString.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Tutorial/LoadLuaScript/ByString/ByString.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Tutorial/LoadLuaScript/ByString/ByStringSettings.lighting" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Tutorial/LoadLuaScript/ByString/ByStringSettings.lighting" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Tutorial/LoadLuaScript/Loader/CustomLoader.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Tutorial/LoadLuaScript/Loader/CustomLoader.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Tutorial/LoadLuaScript/Loader/CustomLoaderSettings.lighting" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Tutorial/LoadLuaScript/Loader/CustomLoaderSettings.lighting" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Tutorial/LuaCallCSharp/LuaCallCs.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Tutorial/LuaCallCSharp/LuaCallCs.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Tutorial/LuaCallCSharp/LuaCallCsSettings.lighting" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Tutorial/LuaCallCSharp/LuaCallCsSettings.lighting" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/selection_mask_pivot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/selection_mask_pivot.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/Editor/CombatMonitor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/Editor/CombatMonitor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EffectIDRecord.txt" beforeDir="false" afterPath="$PROJECT_DIR$/EffectIDRecord.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/miniRAID.combat.log" beforeDir="false" afterPath="$PROJECT_DIR$/miniRAID.combat.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/miniRAID.log" beforeDir="false" afterPath="$PROJECT_DIR$/miniRAID.log" afterDir="false" />
     </list>
@@ -251,10 +154,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="27092">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="27092" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -299,7 +202,10 @@
       <workItem from="1701330498204" duration="36298000" />
       <workItem from="1701867673832" duration="11313000" />
       <workItem from="1705158722659" duration="33115000" />
-      <workItem from="1705512665810" duration="12299000" />
+      <workItem from="1705512665810" duration="13182000" />
+      <workItem from="1705772679979" duration="904000" />
+      <workItem from="1707957204064" duration="46000" />
+      <workItem from="1708895438368" duration="4807000" />
     </task>
     <servers />
   </component>

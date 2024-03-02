@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
+using miniRAID.TurnSchedule;
 using UnityEngine;
 using XLua;
 
@@ -29,6 +30,7 @@ namespace miniRAID
         public Databackend backend;
 
         SerialCoroutine sc;
+        private TurnSlice currentTurnSlice;
 
         private void Awake()
         {
@@ -66,69 +68,81 @@ namespace miniRAID
             // The real battle begins; Main loop
             while (!IsCombatFinished())
             {
-                yield return new JumpIn(StartTurn());
+                UpdateSchedulerUI();
                 
-                // Wait a moment (2 frames) to wait everything loading-up
-                yield return null;
-                yield return null;
-
-                // Player phase
-                yield return UIPlayerPhase();
-
-                yield return new JumpIn(Phase(Consts.UnitGroup.Player));
-
-                for (int i = 1; i <= 4; i++)
-                {
-                    yield return new JumpIn(Turn(Consts.UnitGroup.Player, $"{i}/4"));
-                    yield return new JumpIn(Chill());
-                    if (ShouldSkipPlayerPhase())
-                    {
-                        break;
-                    }
-                }
-
-                // Refresh & auto-attack
-                yield return new JumpIn(AutoAttackStage(Consts.UnitGroup.Player));
+                currentTurnSlice = turnSchedule.Dequeue();
+                yield return new JumpIn(currentTurnSlice.Turn());
                 yield return new JumpIn(Chill());
 
-                // Ally phase
-                if (HasAlly())
-                {
-                    yield return UIAllyPhase();
-                    yield return new JumpIn(Chill());
-                }
+                KeepTurnScheduleLength();
 
-                // Enemy phase
-                yield return UIEnemyPhase();
-                yield return new JumpIn(Phase(Consts.UnitGroup.Enemy));
-                yield return new JumpIn(Turn(Consts.UnitGroup.Enemy));
-                yield return new JumpIn(Chill());
-                //yield return new JumpIn(EnemyActions());
-                
-                // TODO: Extra turns / Heavy weapon
-                yield return new JumpIn(RecoveryStage(Consts.UnitGroup.Player));
-                yield return new JumpIn(Chill());
-
-                yield return new JumpIn(EndTurn());
-                yield return new JumpIn(Chill());
+                // yield return new JumpIn(StartTurn());
+                //
+                // // Wait a moment (2 frames) to wait everything loading-up
+                // yield return null;
+                // yield return null;
+                //
+                // // Player phase
+                // yield return UIPlayerPhase();
+                //
+                // yield return new JumpIn(Phase(Consts.UnitGroup.Player));
+                //
+                // for (int i = 1; i <= 4; i++)
+                // {
+                //     yield return new JumpIn(Turn(Consts.UnitGroup.Player, $"{i}/4"));
+                //     yield return new JumpIn(Chill());
+                //     if (ShouldSkipPlayerPhase())
+                //     {
+                //         break;
+                //     }
+                // }
+                //
+                // // Refresh & auto-attack
+                // yield return new JumpIn(AutoAttackStage(Consts.UnitGroup.Player));
+                // yield return new JumpIn(Chill());
+                //
+                // // Ally phase
+                // if (HasAlly())
+                // {
+                //     yield return UIAllyPhase();
+                //     yield return new JumpIn(Chill());
+                // }
+                //
+                // // Enemy phase
+                // yield return UIEnemyPhase();
+                // yield return new JumpIn(Phase(Consts.UnitGroup.Enemy));
+                // yield return new JumpIn(Turn(Consts.UnitGroup.Enemy));
+                // yield return new JumpIn(Chill());
+                // //yield return new JumpIn(EnemyActions());
+                //
+                // // TODO: Extra turns / Heavy weapon
+                // yield return new JumpIn(RecoveryStage(Consts.UnitGroup.Player));
+                // yield return new JumpIn(Chill());
+                //
+                // yield return new JumpIn(EndTurn());
+                // yield return new JumpIn(Chill());
             }
+        }
+
+        // TODO: Move me to another place specific for UI
+        public void UpdateSchedulerUI()
+        {
+            int length = 8;
+
+            string message = String.Join("\n",
+                turnSchedule
+                    .Where(x => x.showInUI)
+                    .Take(length)
+                    .Select(x =>
+                        $"<color=#{ColorUtility.ToHtmlStringRGB(x.mainColor)}> {x.label} </color>")
+                    .ToArray());
+            
+            Globals.ui.Instance.combatView.schedulerPlaceholder.text = message;
         }
 
         private IEnumerator Chill()
         {
             yield return new WaitForSeconds(0.65f);
-        }
-
-        private IEnumerator StartTurn()
-        {
-            turn++;
-            Globals.combatTracker.Turns = turn;
-            yield break;
-        }
-
-        private IEnumerator EndTurn()
-        {
-            yield break;
         }
 
         private bool HasAlly()
@@ -156,6 +170,8 @@ namespace miniRAID
 
         private IEnumerator StartCombat()
         {
+            InitializeTurnSchedule();
+            
             // TODO
             turn = 0;
             yield break;

@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace miniRAID.TurnSchedule
 {
-    public class PhaseTurnSlice : TurnSlice
+    public class PhaseTurnSliceSO : TurnSliceSO
     {
         public Consts.UnitGroup group = Consts.UnitGroup.Player;
         public bool UIOnly = false;
         
-        public override IEnumerator Turn()
+        public override IEnumerator Turn(CombatSchedulerCoroutine coroutine)
         {
             if (group == Consts.UnitGroup.Player)
             {

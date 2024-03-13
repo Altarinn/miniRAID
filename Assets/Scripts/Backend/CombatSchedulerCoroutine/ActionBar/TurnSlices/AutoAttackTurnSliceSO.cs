@@ -5,12 +5,12 @@ using UnityEngine;
 
 namespace miniRAID.TurnSchedule
 {
-    public class AutoAttackTurnSlice : TurnSlice
+    public class AutoAttackTurnSliceSO : TurnSliceSO
     {
         HashSet<MobData> awaitForActions = new HashSet<MobData>();
         public Consts.UnitGroup group = Consts.UnitGroup.Player;
         
-        public override IEnumerator Turn()
+        public override IEnumerator Turn(CombatSchedulerCoroutine coroutine)
         {
             Globals.ui.Instance.combatView.ShowCenterTitle("Auto Attack - Strategy Phase");
             yield return new WaitForSeconds(0.5f);

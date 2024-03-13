@@ -2,9 +2,9 @@ using System.Collections;
 
 namespace miniRAID.TurnSchedule
 {
-    public class StartTurnTurnSlice : TurnSlice
+    public class StartTurnTurnSliceSO : TurnSliceSO
     {
-        public override IEnumerator Turn()
+        public override IEnumerator Turn(CombatSchedulerCoroutine coroutine)
         {
             // TODO: Move logic to coroutine?
             coroutine.turn++;

@@ -5,14 +5,14 @@ using UnityEngine;
 
 namespace miniRAID.TurnSchedule
 {
-    public class CommonPlayerTurnSlice : TurnSlice
+    public class CommonPlayerTurnSliceSO : TurnSliceSO
     {
         HashSet<MobData> awaitForActions = new HashSet<MobData>();
         public string message = null;
 
         public Consts.UnitGroup group = Consts.UnitGroup.Player;
         
-        public override IEnumerator Turn()
+        public override IEnumerator Turn(CombatSchedulerCoroutine coroutine)
         {
             // yield break;
             Globals.logger?.Log($"[csc] TURN START: {group.ToString()}");

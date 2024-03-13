@@ -5,44 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c36ca183-e7eb-40c1-9aca-56cfe58c3f4d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSchedulers.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSchedulers/DefaultTurnGenerator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSchedulers/DefaultTurnGenerator.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSchedulers/TurnSchedulerGeneratorBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSchedulers/TurnSchedulerGeneratorBase.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/AutoAttackTurnSlice.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/AutoAttackTurnSlice.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/CommonPlayerTurnSlice.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/CommonPlayerTurnSlice.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/EndTurnTurnSlice.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/EndTurnTurnSlice.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/PhaseTurnSlice.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/PhaseTurnSlice.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/RecoveryTurnSlice.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/RecoveryTurnSlice.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/StartTurnTurnSlice.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/StartTurnTurnSlice.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSchedulerHelper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSchedulerHelper.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSlice.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSlice.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.TurnSlices.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.TurnSlices.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/PreparableAttacks.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/PreparableAttacks/BasicAttackPreparationTurnSliceSO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/PreparableAttacks/BasicAttackPreparationTurnSliceSO.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/PreparableAttacks/PreparableAttackSO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/PreparableAttacks/PreparableAttackSO.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.miniRAID-HD2D/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.miniRAID-HD2D/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/Non-pixelated/SourceHanSansSC-Regular-01 SDF 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/Non-pixelated/SourceHanSansSC-Regular-01 SDF 1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/Non-pixelated/SourceHanSansSC-Regular-01 SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/Non-pixelated/SourceHanSansSC-Regular-01 SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/Non-pixelated/verdana SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/Non-pixelated/verdana SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/CombatView.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/CombatView.uxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CombatBase.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CombatBase.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SlimeKing/SlimeKing-All.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SlimeKing/SlimeKing-All.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.Phase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.Phase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.UI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.UI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSchedulers/DefaultTurnGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSchedulers/DefaultTurnGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/AutoAttackTurnSlice.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/AutoAttackTurnSliceSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/AutoAttackTurnSlice.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/AutoAttackTurnSliceSO.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/CommonPlayerTurnSlice.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/CommonPlayerTurnSliceSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/CommonPlayerTurnSlice.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/CommonPlayerTurnSliceSO.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/EndTurnTurnSlice.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/EndTurnTurnSliceSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/EndTurnTurnSlice.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/EndTurnTurnSliceSO.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/PhaseTurnSlice.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/PhaseTurnSliceSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/PhaseTurnSlice.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/PhaseTurnSliceSO.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/RecoveryTurnSlice.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/RecoveryTurnSliceSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/RecoveryTurnSlice.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/RecoveryTurnSliceSO.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/StartTurnTurnSlice.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/StartTurnTurnSliceSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/StartTurnTurnSlice.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/StartTurnTurnSliceSO.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSlice.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSliceSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSlice.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSliceSO.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.TurnSlices.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.TurnSlices.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Presentation/MobRenderer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Presentation/MobRenderer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/Editor/CombatMonitor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/Editor/CombatMonitor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EffectIDRecord.txt" beforeDir="false" afterPath="$PROJECT_DIR$/EffectIDRecord.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/miniRAID.combat.log" beforeDir="false" afterPath="$PROJECT_DIR$/miniRAID.combat.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/miniRAID.log" beforeDir="false" afterPath="$PROJECT_DIR$/miniRAID.log" afterDir="false" />
     </list>
@@ -56,6 +43,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0ae5d4e782f74095b2c8d38f4225786f16e200/39/4aa23038/SetupCoroutine.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3d77f9e52a364b2f825fba70966192a5940400/29/38127474/SerializedProperty.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3d77f9e52a364b2f825fba70966192a5940400/72/e0a6a396/SerializedObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5feb870646a4450b9ec32560a750dd5b35ee60/09/080f0a01/LinkedList`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/83161767e3f34f4a9c1453ea3e22d1f146aa00/3f/f19cb11b/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/83161767e3f34f4a9c1453ea3e22d1f146aa00/ac/e362e111/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bcc346f60a2848309228f8de3dee7e9115f000/cc/a08264e9/IXLCell.cs" root0="SKIP_HIGHLIGHTING" />
@@ -113,7 +101,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/Builds/0611-slimeBoss-minimalPrototype\miniRAID-HD2D.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Builds/240305-0-2-1-partial\miniRAID-HD2D.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Builds\0529-slimeBoss-superRoughDemo" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -206,6 +194,8 @@
       <workItem from="1705772679979" duration="904000" />
       <workItem from="1707957204064" duration="46000" />
       <workItem from="1708895438368" duration="4807000" />
+      <workItem from="1709384792181" duration="5782000" />
+      <workItem from="1710360127973" duration="3258000" />
     </task>
     <servers />
   </component>

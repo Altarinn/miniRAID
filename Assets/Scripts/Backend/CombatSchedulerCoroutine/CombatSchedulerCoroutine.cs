@@ -131,10 +131,10 @@ namespace miniRAID
 
             string message = String.Join("\n",
                 turnSchedule
-                    .Where(x => x.showInUI)
+                    .Where(x => x.ShowInUI)
                     .Take(length)
                     .Select(x =>
-                        $"<color=#{ColorUtility.ToHtmlStringRGB(x.mainColor)}> {x.label} </color>")
+                        $"<color=#{ColorUtility.ToHtmlStringRGB(x.MainColor)}> {x.Label} </color>")
                     .ToArray());
             
             Globals.ui.Instance.combatView.schedulerPlaceholder.text = message;

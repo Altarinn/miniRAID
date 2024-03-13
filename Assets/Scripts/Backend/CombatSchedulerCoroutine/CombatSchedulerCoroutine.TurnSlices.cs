@@ -5,15 +5,30 @@ using UnityEngine;
 
 namespace miniRAID
 {
+    public class LinkedListQueue<T> : LinkedList<T>
+    {
+        public void Enqueue(T x)
+        {
+            this.AddLast(x);
+        }
+
+        public T Dequeue()
+        {
+            T x = First.Value;
+            this.RemoveFirst();
+            return x;
+        }
+    }
+    
     public partial class CombatSchedulerCoroutine
     {
-        private Queue<TurnSlice> turnSchedule;
+        public LinkedListQueue<TurnSlice> turnSchedule;
 
         [SerializeField] private TurnSchedulerGeneratorBase turnScheduler;
 
         public void InitializeTurnSchedule()
         {
-            turnSchedule = new Queue<TurnSlice>();
+            turnSchedule = new LinkedListQueue<TurnSlice>();
             KeepTurnScheduleLength();
         }
         
@@ -35,6 +50,24 @@ namespace miniRAID
             });
         }
 
-        public List<TurnSlice> _TurnScheduleView => turnSchedule?.ToList();
+        public void InsertTurnSliceAt(int index, TurnSlice slice)
+        {
+            // Insert at the desired position
+            for (var node = turnSchedule.First;
+                 node != null;
+                 node = node.Next)
+            {
+                if (index <= 0)
+                {
+                    turnSchedule.AddBefore(node, slice);
+                    return;
+                }
+                index--;
+            }
+
+            // If we didn't find the position (index >= turnSchedule.len), append at last instead
+            turnSchedule.AddLast(slice);
+            return;
+        }
     }
 }

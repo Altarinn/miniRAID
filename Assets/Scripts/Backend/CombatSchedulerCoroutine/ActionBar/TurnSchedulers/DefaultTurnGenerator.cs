@@ -5,11 +5,11 @@ namespace miniRAID.TurnSchedule
 {
     public class DefaultTurnGenerator : TurnSchedulerGeneratorBase
     {
-        public List<TurnSlice> turnSlices;
+        public List<TurnSliceSO> turnSlices;
         
         public override List<TurnSlice> GetNewTurn()
         {
-            return turnSlices.Select(Instantiate).ToList();
+            return turnSlices.Select(x => x.Wrap()).ToList();
         }
     }
 }

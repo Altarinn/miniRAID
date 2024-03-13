@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using miniRAID;
 using miniRAID.Agents;
 using miniRAID.TurnSchedule;
@@ -29,7 +30,7 @@ namespace Utils.Editor
         [Button(ButtonSizes.Large)]
         public void UpdateTurnSchedule()
         {
-            turnSchedule = Globals.combatMgr?.Instance?._TurnScheduleView;
+            turnSchedule = Globals.combatMgr?.Instance?.turnSchedule?.ToList();
         }
         
         [LabelText("TurnSchedule")]

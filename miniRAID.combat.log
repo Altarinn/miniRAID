@@ -1,2 +1,60 @@
 - Start of debug log -
-[2024/3/1 10:38:25] AWAKE
+[2024/3/14 6:03:34] AWAKE
+[回合0] 00m 03s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
+[2024/3/14 6:03:37] SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
+[回合0] 00m 03s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
+[2024/3/14 6:03:37] SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
+[回合0] 00m 03s:  Archer3 获得了来自 Archer3 的 攻击者
+[2024/3/14 6:03:37] Archer3 获得了来自 Archer3 的 攻击者
+[回合0] 00m 03s:  Umiko 获得了来自 Umiko 的 生命之歌
+[2024/3/14 6:03:37] Umiko 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 03s:  Felivol 获得了来自 Felivol 的 防卫者
+[2024/3/14 6:03:37] Felivol 获得了来自 Felivol 的 防卫者
+[回合0] 00m 03s:  Felivol 获得了来自 Felivol 的 旅者
+[2024/3/14 6:03:37] Felivol 获得了来自 Felivol 的 旅者
+[回合0] 00m 03s:  Felivol 获得了来自 Felivol 的 聆听神谕
+[2024/3/14 6:03:37] Felivol 获得了来自 Felivol 的 聆听神谕
+[回合0] 00m 03s:  Felivol 获得了来自 Felivol 的 祝福之光
+[2024/3/14 6:03:37] Felivol 获得了来自 Felivol 的 祝福之光
+[回合0] 00m 03s:  Felivol 获得了来自 Felivol 的 防御蓄能
+[2024/3/14 6:03:37] Felivol 获得了来自 Felivol 的 防御蓄能
+[回合0] 00m 03s:  Gaceon 获得了来自 Gaceon 的 治疗者
+[2024/3/14 6:03:37] Gaceon 获得了来自 Gaceon 的 治疗者
+[回合0] 00m 03s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
+[2024/3/14 6:03:37] SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
+[回合0] 00m 03s:  Lilium 获得了来自 Lilium 的 防卫者
+[2024/3/14 6:03:37] Lilium 获得了来自 Lilium 的 防卫者
+[回合0] 00m 03s:  Astrologer 获得了来自 Astrologer 的 流星
+[2024/3/14 6:03:37] Astrologer 获得了来自 Astrologer 的 流星
+[回合0] 00m 03s:  Astrologer 获得了来自 Astrologer 的 星能转化
+[2024/3/14 6:03:37] Astrologer 获得了来自 Astrologer 的 星能转化
+[回合1] 00m 04s:  回合1
+[2024/3/14 6:03:38] 回合1
+[回合1] 00m 14s:  Astrologer 施放了 彗星箭, 目标：(11, 0) 
+[2024/3/14 6:03:48] Astrologer 施放了 彗星箭, 目标：(11, 0) 
+[回合1] 00m 15s:  Astrologer 的 彗星箭 对 SmallMu 造成了 32 点 Ice 伤害。生命值：88
+[2024/3/14 6:03:49] Astrologer 的 彗星箭 对 SmallMu 造成了 32 点 Ice 伤害。生命值：88
+[回合1] 00m 17s:  Astrologer 施放了 星光超流, 目标：(11, 0) 
+[2024/3/14 6:03:51] Astrologer 施放了 星光超流, 目标：(11, 0) 
+[回合1] 00m 18s:  Astrologer 的 星光超流 对 BossMu 造成了 27 点 Light 伤害。生命值：1633
+[2024/3/14 6:03:52] Astrologer 的 星光超流 对 BossMu 造成了 27 点 Light 伤害。生命值：1633
+[回合1] 00m 18s:  BossMu 获得了来自 Astrologer 的 繁星道标
+[2024/3/14 6:03:52] BossMu 获得了来自 Astrologer 的 繁星道标
+[回合1] 00m 21s:  Felivol 施放了 移动, 目标：(11, 0) 
+[2024/3/14 6:03:55] Felivol 施放了 移动, 目标：(11, 0) 
+[回合1] 00m 22s:  Felivol 的 旅者 对 Felivol 造成了 0 点 Heal 。生命值：132
+[2024/3/14 6:03:56] Felivol 的 旅者 对 Felivol 造成了 0 点 Heal 。生命值：132
+[回合1] 00m 22s:  Felivol 的 旅者 对 Felivol 造成了 0 点 Heal 。生命值：132
+[2024/3/14 6:03:56] Felivol 的 旅者 对 Felivol 造成了 0 点 Heal 。生命值：132
+[回合1] 00m 23s:  Felivol 的 旅者 对 Felivol 造成了 0 点 Heal 。生命值：132
+[2024/3/14 6:03:56] Felivol 的 旅者 对 Felivol 造成了 0 点 Heal 。生命值：132
+[回合1] 00m 23s:  Felivol 施放了 移动, 目标：(11, 0) 
+[2024/3/14 6:03:57] Felivol 施放了 移动, 目标：(11, 0) 
+[回合1] 00m 24s:  Felivol 的 旅者 对 Felivol 造成了 0 点 Heal 。生命值：132
+[2024/3/14 6:03:57] Felivol 的 旅者 对 Felivol 造成了 0 点 Heal 。生命值：132
+[回合1] 00m 26s:  Felivol 施放了 斩击, 目标：(11, 0) 
+[2024/3/14 6:03:59] Felivol 施放了 斩击, 目标：(11, 0) 
+[回合1] 00m 26s:  Felivol 的 斩击 对 BossMu 造成了 24 点 Slash 伤害。生命值：1609
+[2024/3/14 6:04:00] Felivol 的 斩击 对 BossMu 造成了 24 点 Slash 伤害。生命值：1609
+[回合1] 00m 29s:  Felivol 施放了 蓄力斩, 目标：(11, 0) 
+[2024/3/14 6:04:02] Felivol 施放了 蓄力斩, 目标：(11, 0) 

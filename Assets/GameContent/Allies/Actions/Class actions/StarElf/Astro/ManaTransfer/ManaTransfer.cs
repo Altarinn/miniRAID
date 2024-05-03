@@ -8,22 +8,20 @@ using miniRAID.Spells;
 
 namespace miniRAID
 {
-    public class ManaTransfer : ActionDataSO
+    public class ManaTransfer : ActionDataSO<SingleMobTarget>
     {
         public LeveledStats<float> transferRate;
 
-        public override IEnumerator OnPerform(RuntimeAction ract, MobData mob,
-            Spells.SpellTarget targetPos)
+        public override IEnumerator OnPerform(RuntimeAction<SingleMobTarget> ract, MobData mob,
+            SingleMobTarget target)
         {
-            var target = Globals.backend.GetMap(targetPos.targetPos[0])?.mob;
-
             if (!costs.ContainsKey(Cost.Type.Mana))
             {
                 yield break;
             }
 
-            float manaAmount = (float)costs[Cost.Type.Mana].Eval((mob, targetPos));
-            var tgtMana = target?.FindListener<GeneralManaListener>();
+            float manaAmount = (float)costs[Cost.Type.Mana].Eval((mob, target));
+            var tgtMana = target.Target?.FindListener<GeneralManaListener>();
 
             if (manaAmount <= 0 || tgtMana == null)
             {

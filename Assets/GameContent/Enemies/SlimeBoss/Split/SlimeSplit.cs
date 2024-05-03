@@ -19,7 +19,7 @@ namespace miniRAID
         public Summon<MobRenderer> summon;
         public ShowImportantMessage message;
         
-        public override IEnumerator OnPerform(RuntimeAction ract, MobData mob,
+        public override IEnumerator OnPerform(RuntimeAction<TSpellTarget> ract, MobData mob,
             Spells.SpellTarget target)
         {
             yield return new JumpIn(message.Do());

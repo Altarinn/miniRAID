@@ -17,7 +17,7 @@ namespace miniRAID
         public SpellDamageHeal explosionDamage;
         public SpellBuff explosionBuff;
         
-        public override IEnumerator OnPerform(RuntimeAction ract, MobData mob,
+        public override IEnumerator OnPerform(RuntimeAction<TSpellTarget> ract, MobData mob,
             Spells.SpellTarget target)
         {
             Vector3Int origin = mob.Position;

@@ -30,7 +30,7 @@ namespace GameContent.Buffs.Test
         private bool triggerOnDeath;
         
         private ActionSOEntry skillData;
-        private RuntimeAction runtimeSkill;
+        private RuntimeAction<TSpellTarget> runtimeSkill;
 
         public override string name
         {

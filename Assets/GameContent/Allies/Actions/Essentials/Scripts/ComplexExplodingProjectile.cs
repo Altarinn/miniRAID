@@ -19,14 +19,12 @@ namespace miniRAID.Actions
         public SpellBuff explosionBuff;
         public SpellDamageHeal explosionDamageOrHeal;
 
-        public override IEnumerator OnPerform(RuntimeAction ract, MobData mob, SpellTarget targets)
+        public override IEnumerator OnPerform(RuntimeAction<SingleMobTarget> ract, MobData mob, SingleMobTarget target)
         {
-            yield return new JumpIn(base.OnPerform(ract, mob, targets));
-            
-            Vector3Int target = targets.targetPos[0];
+            yield return new JumpIn(base.OnPerform(ract, mob, target));
             
             // Capture all targets
-            explosionShape.position = target;
+            explosionShape.position = target.Target.Position;
             var targetMobs = explosionShape.ApplyTransform()
                 .Where(pos => Globals.backend.InMap(pos))
                 .Select(pos => Globals.backend.GetMap(pos.x, pos.y, pos.z).mob)
@@ -36,7 +34,7 @@ namespace miniRAID.Actions
             foreach (var targetMob in targetMobs)
             {
                 if(explosionHitFx != null)
-                    yield return new JumpIn(explosionHitFx.Do(target));
+                    yield return new JumpIn(explosionHitFx.Do(target.Target.Position));
                 
                 if(explosionDamageOrHeal != null)
                     yield return new JumpIn(explosionDamageOrHeal.Do(ract, mob, targetMob));

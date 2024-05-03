@@ -46,7 +46,7 @@ namespace GameContent.Buffs.Test
                 yield break;
             }
 
-            if (weapon.RchargedAttack.isCharging)
+            if (weapon.RchargedAttack is IChargedAction && (weapon.RchargedAttack as IChargedAction).IsCharging)
             {
                 rates.value = Mathf.FloorToInt(rates.value * (1 - dcData.damageReduceRate));
             }

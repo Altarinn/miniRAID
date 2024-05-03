@@ -139,15 +139,7 @@ namespace miniRAID.Weapon
         public SpellTarget QueryTarget(MobData source)
         {
             RuntimeAction action = GetRegularAttackSpell();
-            ActionTargetPickerBase picker = action?.data?.targetPicker;
-            
-            if (picker == null)
-            {
-                Debug.LogError($"{weaponData.name} : {action?.data.ActionName} has no target picker!");
-                return null;
-            }
-            
-            return picker.Pick(source, action);
+            return action.QueryAbstractTarget(source);
         }
 
         public virtual string GetWeaponSpecialAttackTooltip()

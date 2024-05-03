@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using miniRAID.Spells;
 using UnityEngine.InputSystem;
 
 using Sirenix.OdinInspector;
@@ -29,6 +30,9 @@ namespace miniRAID.UI.TargetRequester
         }
     }
 
+    [System.Serializable]
+    public abstract class TargetRequesterUIState : UIState { }
+
     /// <summary>
     /// 1 UIState start a request, given a mob;
     /// 2 TargetRequester will get control of current UI
@@ -37,10 +41,10 @@ namespace miniRAID.UI.TargetRequester
     /// TODO: The requester is unique upto ActionDataSOs, i.e., it is shared among RuntimeActions. Is it okay?
     /// </summary>
     [System.Serializable]
-    public abstract class TargetRequesterBase : UIState
+    public abstract class TargetRequesterBase<T> : TargetRequesterUIState where T : SpellTarget
     {
         protected MobData mob;
-        protected RuntimeAction ract;
+        protected RuntimeAction<T> ract;
 
         [FoldoutGroup("Debug info")]
         [LabelText("Current Stage")]
@@ -55,7 +59,7 @@ namespace miniRAID.UI.TargetRequester
         [ReadOnly]
         public Stack<Vector3Int> choice = new Stack<Vector3Int>();
 
-        public delegate void OnRequestFinish(Spells.SpellTarget target);
+        public delegate void OnRequestFinish(T target);
 
         protected System.Action onCancel;
         protected OnRequestFinish onFinish;
@@ -78,7 +82,7 @@ namespace miniRAID.UI.TargetRequester
         /// This will modify current UI
         /// </summary>
         /// <param name="mob"></param>
-        public virtual void Request(MobData mob, RuntimeAction ract, OnRequestFinish onFinish, System.Action onCancel)
+        public virtual void Request(MobData mob, RuntimeAction<T> ract, OnRequestFinish onFinish, System.Action onCancel)
         {
             this.mob = mob;
             this.ract = ract;
@@ -160,7 +164,7 @@ namespace miniRAID.UI.TargetRequester
             }
         }
 
-        public virtual void Finish(Spells.SpellTarget result)
+        public virtual void Finish(T result)
         {
             SafeKillOverlay();
 
@@ -197,7 +201,7 @@ namespace miniRAID.UI.TargetRequester
             // TODO: change cursor
         }
 
-        public virtual bool CheckTargets(MobData mob, Spells.SpellTarget target)
+        public virtual bool CheckTargets(MobData mob, T target)
         {
             return true;
         }

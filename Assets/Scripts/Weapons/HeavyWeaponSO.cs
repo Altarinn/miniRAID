@@ -29,15 +29,12 @@ namespace miniRAID.Weapon
         
         public HeavyWeapon(MobData parent, HeavyWeaponSO data) : base(parent, data) { }
 
-        private bool isCharging = false;
-        int chargeTimer = 0;
-
-        public ChargedAction RchargedAttack;
+        public RuntimeAction RchargedAttack;
         
         public override void OnAttach(MobData mob)
         {
             base.OnAttach(mob);
-            RchargedAttack = mob.AddAction(heavyData.chargedAttack.ToBase()) as ChargedAction;
+            RchargedAttack = mob.AddAction(heavyData.chargedAttack.ToBase());
         }
 
         public override string GetInformationString()

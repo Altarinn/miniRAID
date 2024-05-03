@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace miniRAID.Actions
 {
-    public class ChargedSlash : ChargedActionSO
+    public class ChargedSlash : ChargedActionSO<FourDirectionalTarget>
     {
         [SerializeField] private GridShape shape;
         [SerializeField] private UnitFilters filter;
@@ -22,16 +22,16 @@ namespace miniRAID.Actions
             return vars;
         }
 
-        public override IEnumerator OnPerformChargedAttack(RuntimeAction ract, MobData mob, SpellTarget target)
+        public override IEnumerator OnPerformChargedAttack(
+            ChargedAction<FourDirectionalTarget> ract, MobData mob, FourDirectionalTarget target)
         {
-            shape.position = target.targetPos[0];
-            var mainTargetPos = target.targetPos[0];
-
-            shape.direction = Globals.backend.GetDominantDirection(mob.Position, mainTargetPos);
+            shape.position = mob.Position;
+            shape.direction = target.Target;
+            
             var capturedTargets = CaptureTargetsInGridShape.CaptureAllTargetsWithinRange(
                 mob, filter, shape.ApplyTransform());
             
-            yield return new JumpIn(fx.Do(mob.Position + 2 * GridShape.directionVectors[(int)shape.direction]));
+            yield return new JumpIn(fx.Do(mob.Position + 2 * Consts.DirectionVectors[(int)shape.direction]));
 
             foreach (var targetMob in capturedTargets)
             {

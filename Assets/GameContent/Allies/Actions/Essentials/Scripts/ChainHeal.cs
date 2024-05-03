@@ -9,7 +9,7 @@ using miniRAID.Spells;
 
 namespace miniRAID.Actions
 {
-    public class ChainHeal : ActionDataSO
+    public class ChainHeal : ActionDataSO<SingleMobTarget>
     {
         public int jumps = 3;
         public int jumpRange = 4;
@@ -39,8 +39,8 @@ namespace miniRAID.Actions
             return result;
         }
 
-        public override IEnumerator OnPerform(RuntimeAction ract, MobData mob,
-            Spells.SpellTarget targets)
+        public override IEnumerator OnPerform(RuntimeAction<SingleMobTarget> ract, MobData mob,
+            SingleMobTarget target)
         {
             if (damageOrHeal.power.type != FloatModifierType.Multiply)
             {
@@ -55,9 +55,8 @@ namespace miniRAID.Actions
 
             SimpleRay[] rays = new SimpleRay[jumps];
             
-            Vector3Int target = targets.targetPos[0];
             Vector3 startPos = Globals.backend.GridToWorldPosCentered(mob.Position);
-            MobData dst = Essentials.MobAtGrid(target);
+            MobData dst = target.Target;
 
             for (int i = 0; i < jumps; i++)
             {

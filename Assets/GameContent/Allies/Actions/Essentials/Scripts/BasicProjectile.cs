@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace miniRAID.Actions
 {
-    public class BasicProjectile : ActionDataSO
+    public class BasicProjectile : ActionDataSO<SingleMobTarget>
     {
         public ActionHelpers.Projectile projectile;
         public SimpleExplosionFx fxOnHit;
@@ -23,18 +23,17 @@ namespace miniRAID.Actions
             return result;
         }
 
-        public override IEnumerator OnPerform(RuntimeAction ract, MobData mob, SpellTarget targets)
+        public override IEnumerator OnPerform(RuntimeAction<SingleMobTarget> ract, MobData mob, SingleMobTarget target)
         {
-            Vector3Int target = targets.targetPos[0];
-            MobData dst = Essentials.MobAtGrid(target);
+            MobData dst = target.Target;
             
             Debug.Log($"Current context: {Globals.cc.animation}");
             
             if(projectile != null)
-                yield return new JumpIn(projectile.WaitForShootAt(mob, target));
+                yield return new JumpIn(projectile.WaitForShootAt(mob, dst.Position));
             
             if(fxOnHit != null)
-                yield return new JumpIn(fxOnHit.Do(target));
+                yield return new JumpIn(fxOnHit.Do(dst.Position));
             
             if(buff != null && buffAppliedFirst)
                 yield return new JumpIn(buff.Do(ract, mob, dst));

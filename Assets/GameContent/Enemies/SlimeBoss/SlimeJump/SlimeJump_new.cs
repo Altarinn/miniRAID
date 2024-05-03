@@ -24,7 +24,7 @@ namespace miniRAID
             return effectList.Any(kvp => kvp.Key.data == poisonPool.effect);
         }
         
-        public override IEnumerator OnPerform(RuntimeAction ract, MobData mob,
+        public override IEnumerator OnPerform(RuntimeAction<TSpellTarget> ract, MobData mob,
             Spells.SpellTarget target)
         {
             // Perform Jump

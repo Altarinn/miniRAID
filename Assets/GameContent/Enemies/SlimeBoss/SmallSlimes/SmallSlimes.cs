@@ -21,7 +21,7 @@ namespace miniRAID
         public Summon<LockTargetAgent> summon;
         public CreateGridEffect poisonPool;
         
-        public override IEnumerator OnPerform(RuntimeAction ract, MobData mob,
+        public override IEnumerator OnPerform(RuntimeAction<TSpellTarget> ract, MobData mob,
             Spells.SpellTarget _)
         {
             // Get all valid targets

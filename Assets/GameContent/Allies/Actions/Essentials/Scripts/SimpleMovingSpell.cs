@@ -8,26 +8,25 @@ using miniRAID.Spells;
 
 namespace miniRAID
 {
-    public class SimpleMovingSpell : ActionDataSO
+    public class SimpleMovingSpell : ActionDataSO<SingleCoordinateTarget>
     {
         public bool isInstant = false;
         
-        public override IEnumerator OnPerform(RuntimeAction ract, MobData mob,
-            Spells.SpellTarget target)
+        public override IEnumerator OnPerform(RuntimeAction<SingleCoordinateTarget> ract, MobData mob,
+            SingleCoordinateTarget target)
         {
             if (isInstant)
             {
-                var targetPos = target.targetPos[0];
-                if (!Globals.backend.CanGridPlaceMob(targetPos, mob.gridBody))
+                if (!Globals.backend.CanGridPlaceMob(target.Target, mob.gridBody))
                 {
                     yield break;
                 }
 
-                yield return new JumpIn(mob.SetPosition(target.targetPos[0]));
+                yield return new JumpIn(mob.SetPosition(target.Target));
             }
             else
             {
-                yield return new JumpIn(mob.MoveToCoroutine(target.targetPos[0], null, false));
+                yield return new JumpIn(mob.MoveToCoroutine(target.Target, null, false));
             }
         }
     }

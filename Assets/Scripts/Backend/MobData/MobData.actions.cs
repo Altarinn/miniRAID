@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using miniRAID.Spells;
 using UnityEngine;
 
 namespace miniRAID
@@ -18,8 +19,7 @@ namespace miniRAID
                 Debug.LogError("Action to be added has null data. Action ignored.");
                 return null;
             }
-            var ract = actSO.data.LeveledWrap(this, actSO.level);
-            ract.SetData(actSO.data);
+            var ract = actSO.data.LeveledWrapAbstract(this, actSO.level);
             actions.Add(ract);
             AddListener(ract);
 
@@ -62,13 +62,13 @@ namespace miniRAID
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public RuntimeAction GetAction<T>() where T : RuntimeAction
+        public T GetAction<T>() where T : RuntimeAction
         {
             foreach (var act in availableActions)
             {
                 if (act is T)
                 {
-                    return act;
+                    return act as T;
                 }
             }
 
@@ -127,20 +127,23 @@ namespace miniRAID
             }
         }
         
-        public IEnumerator ActionPrecheck(RuntimeAction raction, Spells.SpellTarget target)
+        public IEnumerator ActionPrecheck<TSpellTarget>(RuntimeAction<TSpellTarget> raction, TSpellTarget target)
+            where TSpellTarget : SpellTarget
         {
             yield return new JumpIn(OnActionChosen?.Invoke(this, raction, target));
         }
 
-        public IEnumerator ActionBegin(RuntimeAction raction, Spells.SpellTarget target)
+        public IEnumerator ActionBegin<TSpellTarget>(RuntimeAction<TSpellTarget> raction, TSpellTarget target)
+            where TSpellTarget : SpellTarget
         {
             yield return new JumpIn(OnActionPrecast?.Invoke(this, raction, target));
         }
 
-        public IEnumerator ActionDone(RuntimeAction raction, Spells.SpellTarget target)
+        public IEnumerator ActionDone<TSpellTarget>(RuntimeAction<TSpellTarget> raction, TSpellTarget target)
+            where TSpellTarget : SpellTarget
         {
             // TODO: FIXME: move last-turn target switching logic to weapons?
-            if (raction == mainWeapon.GetRegularAttackSpell() || (raction.flags & Consts.ActionFlags.SpecialAction) > 0)
+            if (raction == mainWeapon.GetRegularAttackSpell() || (raction.Flags & Consts.ActionFlags.SpecialAction) > 0)
             {
                 MobData targetMob = Globals.backend.GetMap(target.targetPos[0])?.mob;
                 if (targetMob != null)
@@ -151,7 +154,7 @@ namespace miniRAID
             
             yield return new JumpIn(OnActionPostcast?.Invoke(this, raction, target));
 
-            if (!raction.flags.HasFlag(Consts.ActionFlags.Movement))
+            if (!raction.Flags.HasFlag(Consts.ActionFlags.Movement))
             {
                 actedThisTurn = true;
             }
@@ -159,7 +162,7 @@ namespace miniRAID
             RecalculateStats();
         }
         
-        //public Cost GetDisplayCost(Cost cost, RuntimeAction ract)
+        //public Cost GetDisplayCost(Cost cost, RuntimeAction<TSpellTarget> ract)
         //{
         //    // TODO: Dummy action
         //    OnCostQueryDisplay?.Invoke(cost, ract, this);
@@ -215,12 +218,18 @@ namespace miniRAID
             yield break;
         }
 
-        public IEnumerator DoAction(
+        public IEnumerator DoAction<TSpellTarget>(
             ActionSOEntry actionEntry,
-            Spells.SpellTarget target,
-            List<Cost> costs = null)
+            TSpellTarget target,
+            List<Cost> costs = null) where TSpellTarget : SpellTarget
         {
-            var ra = GetAction(actionEntry.data) ?? AddAction(actionEntry);
+            var ra = (GetAction(actionEntry.data) ?? AddAction(actionEntry)) as RuntimeAction<TSpellTarget>;
+            if (ra == null)
+            {
+                Debug.LogError("RuntimeAction cannot be retrieved!");
+                yield break;
+            }
+            
             int tempLevel = -99;
             if (ra.level != actionEntry.level)
             {
@@ -236,10 +245,10 @@ namespace miniRAID
             }
         }
         
-        public IEnumerator DoAction(
-            RuntimeAction raction,
-            Spells.SpellTarget target,
-            List<Cost> costs = null)
+        public IEnumerator DoAction<TSpellTarget> (
+            RuntimeAction<TSpellTarget> raction,
+            TSpellTarget target,
+            List<Cost> costs = null) where TSpellTarget : SpellTarget
         {
             // Needs this?
             //RecalculateStats();
@@ -263,7 +272,7 @@ namespace miniRAID
                 }
             }
             
-            Globals.logger?.Log($"[DoAction] {nickname} attempts casting {raction.data.name} towards {target.targetPos[0]}");
+            Globals.logger?.Log($"[DoAction] {nickname} attempts casting {raction.data.name} towards {target.ToString()}");
             Globals.combatTracker.Record(new Consts.TrackerActionEvent()
             {
                 action = raction,
@@ -275,9 +284,9 @@ namespace miniRAID
             yield return new JumpIn(ActionDone(raction, target));
         }
         
-        public IEnumerator DoActionWithDefaultCosts(
-            RuntimeAction raction,
-            Spells.SpellTarget target)
+        public IEnumerator DoActionWithDefaultCosts<TSpellTarget>(
+            RuntimeAction<TSpellTarget> raction,
+            TSpellTarget target) where TSpellTarget : SpellTarget
         {
             List<Cost> cost = raction.costs.Select(pair =>
                 new Cost(dNumber.CreateComposite(pair.Value.Eval((this, target))), pair.Key)).ToList();

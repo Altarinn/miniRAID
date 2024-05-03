@@ -13,7 +13,7 @@ namespace miniRAID
         public SpellBuff buff;
         public ActionHelpers.Projectile indicator;
 
-        public override IEnumerator OnPerform(RuntimeAction ract, MobData mob,
+        public override IEnumerator OnPerform(RuntimeAction<TSpellTarget> ract, MobData mob,
             Spells.SpellTarget target)
         {
             // Get current aggro

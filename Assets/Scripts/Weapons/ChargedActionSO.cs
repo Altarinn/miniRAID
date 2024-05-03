@@ -5,7 +5,8 @@ using miniRAID.Spells;
 
 namespace miniRAID.Weapon
 {
-    public abstract class ChargedActionSO : ActionDataSO
+    public abstract class ChargedActionSO<TSpellTarget> : ActionDataSO<TSpellTarget>
+        where TSpellTarget : SpellTarget
     {
         public int chargeTime = 1;
         public int APregenDecrease = 2;
@@ -22,27 +23,33 @@ namespace miniRAID.Weapon
             return vars;
         }
 
-        public virtual IEnumerator OnPerformCharge(RuntimeAction ract, MobData mob, SpellTarget target)
+        public virtual IEnumerator OnPerformCharge(ChargedAction<TSpellTarget> ract, MobData mob, TSpellTarget target)
         {
             mob.FindListener<PlayerAutoAttackAgentBase>()?.SkipNextTurn();
             yield return new JumpIn(mob.SetActive(false));
         }
 
-        public abstract IEnumerator OnPerformChargedAttack(RuntimeAction ract, MobData mob, SpellTarget target);
+        public abstract IEnumerator OnPerformChargedAttack(ChargedAction<TSpellTarget> ract, MobData mob, TSpellTarget target);
 
-        public override RuntimeAction LeveledWrap(MobData source, int level)
+        public override RuntimeAction<TSpellTarget> LeveledWrap(MobData source, int level)
         {
-            return new ChargedAction(source, this, level);
+            return new ChargedAction<TSpellTarget>(source, this, level);
         }
     }
 
-    public class ChargedAction : RuntimeAction
+    public interface IChargedAction
     {
-        protected ChargedActionSO chargedActionData => (ChargedActionSO)data;
+        public bool IsCharging { get; }
+    }
 
-        public SpellTarget target;
+    public class ChargedAction<TSpellTarget> : RuntimeAction<TSpellTarget>, IChargedAction
+        where TSpellTarget : SpellTarget
+    {
+        protected ChargedActionSO<TSpellTarget> chargedActionData => (ChargedActionSO<TSpellTarget>)data;
 
-        public override Consts.ActionFlags flags
+        public TSpellTarget target;
+
+        public override Consts.ActionFlags Flags
         {
             get
             {
@@ -52,15 +59,21 @@ namespace miniRAID.Weapon
                 }
                 else
                 {
-                    return base.flags;
+                    return base.Flags;
                 }
             }
         }
 
-        public ChargedAction(MobData source, ChargedActionSO data, int level) : base(source, data, level)
+        public ChargedAction(MobData source, ChargedActionSO<TSpellTarget> data, int level) : base(source, data, level)
         { }
         
         public bool isCharging = false;
+
+        public bool IsCharging
+        {
+            get { return isCharging; }
+        }
+
         int chargeTimer = 0;
         
         public override void OnAttach(MobData mob)
@@ -101,7 +114,7 @@ namespace miniRAID.Weapon
             yield break;
         }
 
-        public void Charge(SpellTarget target, MobData mob)
+        public void Charge(TSpellTarget target, MobData mob)
         {
             if (isCharging) return;
             isCharging = true;
@@ -120,7 +133,7 @@ namespace miniRAID.Weapon
             return false;
         }
 
-        public override IEnumerator Do(MobData mob, SpellTarget target)
+        public override IEnumerator Do(MobData mob, TSpellTarget target)
         {
             if (isCharging == false)
             {

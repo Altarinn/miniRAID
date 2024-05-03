@@ -1,8 +1,10 @@
+using miniRAID.Spells;
+
 namespace miniRAID.TurnSchedule
 {
-    public class PreparableAttackSO : CustomIconScriptableObject
+    public class PreparableAttackSO<TSpellTarget> : CustomIconScriptableObject where TSpellTarget : SpellTarget
     {
-        public ActionDataSO action;
+        public ActionDataSO<TSpellTarget> action;
         
         // Target picking
         // Turn scheduling (adding attack turns)

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using DG.Tweening;
-using miniRAID.Spells;
+using miniRAID.SpellComponents;
 using UnityEngine;
 
 namespace miniRAID.ActionHelpers
@@ -34,7 +34,7 @@ namespace miniRAID.ActionHelpers
                 // TODO: Projectile firing position pivot
                 GameObject obj = GameObject.Instantiate(projectilePrefab, mob.mobRenderer.transform.position + Vector3.up * 0.5f, Quaternion.identity);
             
-                obj.GetComponent<TestProjectile>().Init(projectileSprite, projectileTrail, Color.white, Color.white);
+                obj.GetComponent<ProjectileComponent>().Init(projectileSprite, projectileTrail, Color.white, Color.white);
 
                 Vector3 dest = Globals.backend.GridToWorldPosCentered(target);
                 // dest.z = obj.transform.position.z;
@@ -43,7 +43,7 @@ namespace miniRAID.ActionHelpers
                     .DOMove(dest, flyTime)
                     .SetEase(Ease.Linear)
                     .WaitForCompletion(true);
-                obj.GetComponent<TestProjectile>().Stop();
+                obj.GetComponent<ProjectileComponent>().Stop();
 
                 GameObject.Destroy(obj, Settings.fxTimeout);
             }

@@ -240,7 +240,7 @@ namespace miniRAID.Agents
 
                     // TODO: Pick advanced attack / OnPickAction()
                     RuntimeAction pickedSpell = mob.mainWeapon.GetRegularAttackSpell();
-                    var sTarget = new Spells.SpellTarget(target.Position);
+                    TODO var sTarget = new Spells.SpellTarget(target.Position);
 
                     // TODO: Move, Add inRange check in CheckWithTargets, etc.
                     if (pickedSpell.data.CheckWithTargets(mob, sTarget))

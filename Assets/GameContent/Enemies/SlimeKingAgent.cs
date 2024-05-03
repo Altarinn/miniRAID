@@ -34,7 +34,7 @@ namespace miniRAID.Agents
         {
             TurnSchedule todo = schedule[(turn - 1) % schedule.Count];
 
-            RuntimeAction ract = null;
+            RuntimeAction<TSpellTarget> ract = null;
             if (todo.action.data != null)
             {
                 ract = mob.GetAction(todo.action.data);

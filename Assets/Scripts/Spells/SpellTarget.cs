@@ -6,20 +6,88 @@ namespace miniRAID.Spells
 {
     [ParameterDefaultName("target")]
 
-    public class SpellTarget
+    public abstract class SpellTarget
     {
-        public List<Vector3Int> targetPos = new List<Vector3Int>();
+        // public List<Vector3Int> targetPos = new List<Vector3Int>();
 
-        public SpellTarget() { }
+        // public SpellTarget() { }
 
-        public SpellTarget(Vector3Int point)
+        // public SpellTarget(Vector3Int point)
+        // {
+        //     targetPos.Add(point);
+        // }
+
+        // public SpellTarget(IEnumerable<Vector3Int> point)
+        // {
+        //     targetPos.AddRange(point);
+        // }
+    }
+
+    public class SingleCoordinateTarget : SpellTarget
+    {
+        public Vector3Int Target;
+
+        public SingleCoordinateTarget(Vector3Int target)
         {
-            targetPos.Add(point);
+            Target = target;
         }
 
-        public SpellTarget(IEnumerable<Vector3Int> point)
+        public override string ToString()
         {
-            targetPos.AddRange(point);
+            return Target.ToString();
         }
+    }
+
+    public class SingleMobTarget : SpellTarget
+    {
+        public MobData Target;
+
+        public SingleMobTarget(MobData target)
+        {
+            Target = target;
+        }
+
+        public override string ToString()
+        {
+            return Target.nickname;
+        }
+    }
+    
+    // public class SelfTarget : SingleMobTarget
+    // {
+    //     public SelfTarget(MobData target) : base(target)
+    //     { }
+    // }
+
+    public class FourDirectionalTarget : SpellTarget
+    {
+        public Consts.Direction Target;
+
+        public FourDirectionalTarget(Consts.Direction target)
+        {
+            Target = target;
+        }
+
+        public override string ToString()
+        {
+            switch (Target)
+            {
+                case Consts.Direction.Down:
+                    return "South";
+                case Consts.Direction.Up:
+                    return "North";
+                case Consts.Direction.Left:
+                    return "West";
+                case Consts.Direction.Right:
+                    return "East";
+            }
+
+            return "";
+        }
+    }
+
+    public class DynamicTypeTarget : SpellTarget
+    {
+        public SpellTarget Target;
     }
 }

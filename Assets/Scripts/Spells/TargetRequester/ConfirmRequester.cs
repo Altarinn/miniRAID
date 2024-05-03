@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using miniRAID.ActionHelpers;
 using miniRAID.Spells;
 
 namespace miniRAID.UI.TargetRequester
 {
-    public class ConfirmRequester : TargetRequesterBase
+    public class ConfirmRequester : TargetRequesterBase<SingleMobTarget>
     {
         GridOverlay.Types type;
 
@@ -29,14 +30,15 @@ namespace miniRAID.UI.TargetRequester
             return stage;
         }
 
-        public override bool CheckTargets(MobData mob, SpellTarget target)
+        public override bool CheckTargets(MobData mob, SingleMobTarget target)
         {
-            return target.targetPos.Count == 1 && target.targetPos[0] == mob.Position;
+            return target.Target == mob;
         }
 
         void Decided(Vector3Int coord)
         {
-            Finish(new Spells.SpellTarget(coord));
+            MobData mob = Essentials.MobAtGrid(coord);
+            Finish(new Spells.SingleMobTarget(mob));
         }
     }
 }

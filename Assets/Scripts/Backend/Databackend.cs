@@ -47,6 +47,22 @@ namespace miniRAID
     [XLua.LuaCallCSharp]
     public static class Consts
     {
+        public enum Direction
+        {
+            Up = 0,
+            Left = 1,
+            Down = 2,
+            Right = 3
+        };
+
+        public static Vector3Int[] DirectionVectors = new Vector3Int[4]
+        {
+            Vector3Int.forward,
+            Vector3Int.left,
+            Vector3Int.back,
+            Vector3Int.right,
+        };
+        
         public enum AllElements
         {
             Physical = 16,
@@ -161,7 +177,7 @@ namespace miniRAID
 
             public bool IsAction => sourceAction != null;
             // public int Id => IsAction ? sourceAction.data.Id : sourceBuff.data.Id;
-            public string Name => IsAction ? sourceAction.data.ActionName : sourceBuff.data.name;
+            public string Name => IsAction ? sourceAction.ActionName : sourceBuff.data.name;
             // public string Description => IsAction ? sourceAction.data.Description : "No description";
 
             public bool popup;
@@ -629,8 +645,6 @@ namespace miniRAID
         public event MobData.MobArgumentDelegate onMobAdded;
         public event MobData.MobArgumentDelegate onMobRemoved;
 
-        public Spell testSpell;
-
         private Databackend()
         {
             for (int i = 0; i < MAX_MAP_SIZE; i++)
@@ -832,31 +846,31 @@ namespace miniRAID
         }
 
         // TODO: Map border
-        public GridShape.Direction GetDominantDirection(Vector3Int from, Vector3Int to)
+        public Consts.Direction GetDominantDirection(Vector3Int from, Vector3Int to)
         {
             Vector3Int diff = to - from;
 
             if(Mathf.Abs(diff.z) >= Mathf.Abs(diff.x) && diff.z >= 0)
             {
-                return GridShape.Direction.Up;
+                return Consts.Direction.Up;
             }
 
             if (Mathf.Abs(diff.z) >= Mathf.Abs(diff.x) && diff.z < 0)
             {
-                return GridShape.Direction.Down;
+                return Consts.Direction.Down;
             }
 
             if (Mathf.Abs(diff.z) <= Mathf.Abs(diff.x) && diff.x >= 0)
             {
-                return GridShape.Direction.Right;
+                return Consts.Direction.Right;
             }
 
             if (Mathf.Abs(diff.z) <= Mathf.Abs(diff.x) && diff.x < 0)
             {
-                return GridShape.Direction.Left;
+                return Consts.Direction.Left;
             }
 
-            return GridShape.Direction.Up;
+            return Consts.Direction.Up;
         }
 
         public void RecordDamageHeal(Consts.DamageHeal_Result result)
@@ -995,31 +1009,12 @@ namespace miniRAID
             }
         }
 
-        public enum Direction
+        private static Consts.Direction[] possibleDirections = new[]
         {
-            // X+, X-
-            Right = 0,
-            Left = 1,
-
-            // Y+, Y-
-            Up = 2,
-            Down = 3
-        }
-
-        public readonly Vector3Int[] dirc_dxyz =
-        {
-            new Vector3Int(1, 0, 0),
-            new Vector3Int(-1, 0, 0),
-            new Vector3Int(0, 0, 1),
-            new Vector3Int(0, 0, -1),
-        };
-
-        public readonly Direction[] possibleDirections =
-        {
-            Direction.Right,
-            Direction.Left,
-            Direction.Up,
-            Direction.Down,
+            Consts.Direction.Up,
+            Consts.Direction.Left,
+            Consts.Direction.Down,
+            Consts.Direction.Right,
         };
 
         public GridPath FindPathTo(Vector3Int from, Vector3Int to, MobData.MovementType movementType = MobData.MovementType.Walk, int maxDistance = -1)
@@ -1053,7 +1048,7 @@ namespace miniRAID
 
                 foreach (var d in possibleDirections)
                 {
-                    var newPos = curr.position + dirc_dxyz[(int)d];
+                    var newPos = curr.position + Consts.DirectionVectors[(int)d];
                     if(!prevGrid.ContainsKey(newPos))
                     {
                         // Get cost of grid
@@ -1176,7 +1171,7 @@ namespace miniRAID
             SpellTarget target = new SpellTarget(targetMob.Position);
             foreach (MobData mob in mobs)
             {
-                if (mob.mainWeapon?.GetRegularAttackSpell()?.data.CheckWithTargets(mob, target) ?? false)
+                if (mob.mainWeapon?.GetRegularAttackSpell()?.data.CheckWithAbstractTargets(mob, target) ?? false)
                 {
                     mob.lastTurnTarget = targetMob;
                 }

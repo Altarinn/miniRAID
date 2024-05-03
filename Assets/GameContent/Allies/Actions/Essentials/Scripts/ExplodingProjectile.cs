@@ -10,7 +10,7 @@ using Sirenix.Utilities;
 
 namespace miniRAID.Actions
 {
-    public class ExplodingProjectile : ActionDataSO
+    public class ExplodingProjectile : ActionDataSO<SingleMobTarget>
     {
         public GridShape explodeShape;
         public UnitFilters targetFilter;
@@ -21,20 +21,18 @@ namespace miniRAID.Actions
         public SpellBuff buff;
         public SpellDamageHeal damageOrHeal;
 
-        public override IEnumerator OnPerform(RuntimeAction ract, MobData mob, SpellTarget targets)
+        public override IEnumerator OnPerform(RuntimeAction<SingleMobTarget> ract, MobData mob, SingleMobTarget target)
         {
-            Vector3Int target = targets.targetPos[0];
-            
             Debug.Log($"Current context: {Globals.cc.animation}");
             
             if(projectile != null)
-                yield return new JumpIn(projectile.WaitForShootAt(mob, target));
+                yield return new JumpIn(projectile.WaitForShootAt(mob, target.Target.Position));
             
             if(fxOnExplode != null)
-                yield return new JumpIn(fxOnExplode.Do(target));
+                yield return new JumpIn(fxOnExplode.Do(target.Target.Position));
             
             // Capture all targets
-            explodeShape.position = target;
+            explodeShape.position = target.Target.Position;
             var targetMobs = explodeShape.ApplyTransform()
                 .Where(pos => Globals.backend.InMap(pos))
                 .Select(pos => Globals.backend.GetMap(pos.x, pos.y, pos.z).mob)
@@ -44,7 +42,7 @@ namespace miniRAID.Actions
             foreach (var targetMob in targetMobs)
             {
                 if(fxOnHit != null)
-                    yield return new JumpIn(fxOnHit.Do(target));
+                    yield return new JumpIn(fxOnHit.Do(target.Target.Position));
                 
                 if(damageOrHeal != null)
                     yield return new JumpIn(damageOrHeal.Do(ract, mob, targetMob));

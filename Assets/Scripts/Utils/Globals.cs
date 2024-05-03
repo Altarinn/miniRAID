@@ -27,8 +27,6 @@ namespace miniRAID
         public static SerialCoroutineContext cc => combatContext;
         public static void ccNewContext(SerialCoroutineContext ctx) => CombatCoroutineNewContext(ctx); // Short-hand for CombatCoroutineNewContext
 
-        public static MonoSingleton<ActionHost> actionHost = new MonoSingleton<ActionHost>(true);
-
         public static Databackend backend = Databackend.GetSingleton();
         public static LocalizationManager localizer = LocalizationManager.GetSingleton();
         public static CombatTracker combatTracker = new CombatTracker();

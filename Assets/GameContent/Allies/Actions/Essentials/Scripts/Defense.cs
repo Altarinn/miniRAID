@@ -8,9 +8,9 @@ namespace miniRAID.Actions
 {
     public class Defense : BasicProjectile
     {
-        public override IEnumerator OnPerform(RuntimeAction ract, MobData mob, SpellTarget targets)
+        public override IEnumerator OnPerform(RuntimeAction<SingleMobTarget> ract, MobData mob, SingleMobTarget target)
         {
-            yield return new JumpIn(base.OnPerform(ract, mob, targets));
+            yield return new JumpIn(base.OnPerform(ract, mob, target));
             
             mob.FindListener<PlayerAutoAttackAgentBase>()?.SkipNextTurn();
 

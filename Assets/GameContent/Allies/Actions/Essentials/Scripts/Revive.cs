@@ -9,21 +9,15 @@ using miniRAID.Spells;
 
 namespace miniRAID
 {
-    public class Revive : ActionDataSO
+    public class Revive : ActionDataSO<SingleMobTarget>
     {
         public SpellDamageHeal damageOrHeal;
         
-        public override IEnumerator OnPerform(RuntimeAction ract, MobData mob,
-            Spells.SpellTarget target)
+        public override IEnumerator OnPerform(RuntimeAction<SingleMobTarget> ract, MobData mob,
+            SingleMobTarget target)
         {
-            var targetMob = Globals.backend.GetMap(target.targetPos[0])?.mob;
-            if (targetMob == null)
-            {
-                yield break;
-            }
-
             var info = damageOrHeal.GetInfo(ract, null, mob);
-            yield return new JumpIn(targetMob.Revive(info));
+            yield return new JumpIn(target.Target.Revive(info));
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using miniRAID;
+using miniRAID.Spells;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UIElements;
@@ -338,7 +339,7 @@ namespace miniRAID
         }
 
         // TODO: Remove this
-        public IEnumerator Cheat(RuntimeAction ract)
+        public IEnumerator Cheat<TSpellTarget>(RuntimeAction<TSpellTarget> ract) where TSpellTarget : SpellTarget
         {
             Consts.DamageHeal_FrontEndInput info = new Consts.DamageHeal_FrontEndInput()
             {

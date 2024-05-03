@@ -10,12 +10,12 @@ using miniRAID.Spells;
 
 namespace miniRAID
 {
-    public class Taunt : ActionDataSO
+    public class Taunt : ActionDataSO<SingleMobTarget>
     {
-        public override IEnumerator OnPerform(RuntimeAction ract, MobData mob,
-            Spells.SpellTarget target)
+        public override IEnumerator OnPerform(RuntimeAction<SingleMobTarget> ract, MobData mob,
+            SingleMobTarget target)
         {
-            MobData targetMob = Essentials.MobAtGrid(target.targetPos[0]);
+            MobData targetMob = target.Target;
             
             // Check if target is aggro based
             if (targetMob.FindListener<AggroAgentBase>() != null)

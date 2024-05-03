@@ -6,7 +6,9 @@ using XLua;
 
 using Sirenix.OdinInspector;
 using System.Linq;
+using miniRAID.Spells;
 using miniRAID.Weapon;
+using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine.Localization;
 using UnityEngine.Serialization;
 using UnityEngine.UIElements;
@@ -122,9 +124,9 @@ namespace miniRAID
      * i.e., you cannot modify some variables that is outside of this function's scope.
      * To keep track of some external state, consider apply buffs to the source mob and query for that buff each time.
      */
-    [LuaCallCSharp]
-    [CreateAssetMenu(fileName = "ActionData.asset", menuName = "ActionDataSO", order = 0)]
-    public class ActionDataSO : CustomIconScriptableObject
+    // [LuaCallCSharp]
+    // [CreateAssetMenu(fileName = "ActionData.asset", menuName = "ActionDataSO", order = 0)]
+    public abstract class ActionDataSO : CustomIconScriptableObject 
     {
         [Title("Basic info")]
         public LocalizedString ActionNameKey;
@@ -137,6 +139,7 @@ namespace miniRAID
         public LocalizedString DescriptionKey;
 
         [Title("Flags")] public Consts.ActionFlags flags;
+        public LuaGetter<MobData, bool> isActivelyUsed = true;
 
         // TODO: Boolean arrays
         // public List<string> Tags;
@@ -145,22 +148,45 @@ namespace miniRAID
         public PowerGetter auxPower;
         // public LeveledStats<float> test;
 
+        public abstract Dictionary<Cost.Type, (double, double)> GetCostBounds(MobData mob);
+        public abstract bool CheckWithAbstractTargets(MobData mob, SpellTarget target);
+
+        public abstract RuntimeAction LeveledWrapAbstract(MobData source, int level);
+
+        /// <summary>
+        /// ract.RecalculateStats should be called before LazyPrepareTooltipVariables to get correct output.
+        /// </summary>
+        /// <returns>A dictionary(K: string, V: object) that represents all raw values can be used in tooltip.</returns>
+        public virtual Dictionary<string, object> LazyPrepareTooltipVariables(RuntimeAction ract)
+        {
+            return new Dictionary<string, object> { {"Power", Mathf.CeilToInt(ract.power)} };
+        }
+    }
+
+    public class ActionDataSO<TSpellTarget> : ActionDataSO where TSpellTarget : SpellTarget
+    {
         // Cost related
         [Title("Costs", horizontalLine: true, bold: true)]
         [DictionaryDrawerSettings(DisplayMode = DictionaryDisplayOptions.OneLine)]
         public Dictionary<
             Cost.Type,
-            LuaBoundedGetter<(MobData, Spells.SpellTarget), MobData, double>> costs = new();
-        //public LuaGetter<(Mob, Spells.SpellTarget), GCDGroup> gcdGroup = GCDGroup.Common;
+            LuaBoundedGetter<(MobData, TSpellTarget), MobData, double>> costs = new();
 
-        public LuaGetter<MobData, bool> isActivelyUsed = true;
+        public override Dictionary<Cost.Type, (double, double)> GetCostBounds(MobData mob)
+        {
+            return costs
+                .Select(kvp => (kvp.Key, kvp.Value.PrecalculatedBounds(mob)))
+                .ToDictionary(kvp => kvp.Key, kvp => kvp.Item2);
+        }
+
+        //public LuaGetter<(Mob, T), GCDGroup> gcdGroup = GCDGroup.Common;
 
         [Title("Requester & Validation", horizontalLine: true, bold: true)]
         [Sirenix.OdinInspector.TypeFilter("GetRequesterTypes")]
-        public UI.TargetRequester.TargetRequesterBase Requester;
-        public ActionTargetPickerBase targetPicker;
+        public UI.TargetRequester.TargetRequesterBase<TSpellTarget> Requester;
+        public ActionTargetPickerBase<TSpellTarget> targetPicker;
 
-        public virtual bool CheckCosts(MobRenderer mobRenderer, RuntimeAction ract)
+        public virtual bool CheckCosts(MobRenderer mobRenderer, RuntimeAction<TSpellTarget> ract)
         {
             // TODO
             return true;
@@ -181,7 +207,7 @@ namespace miniRAID
         public virtual bool Equipable(MobData mobdata) { return true; }
         public virtual bool Check(MobData mob) { return true; }
 
-        public virtual bool CheckWithTargets(MobData mob, Spells.SpellTarget target)
+        public virtual bool CheckWithTargets(MobData mob, TSpellTarget target)
         {
             // TODO
             if (Requester == null)
@@ -190,13 +216,23 @@ namespace miniRAID
             }
             return Requester.CheckTargets(mob, target);
         }
+        
+        public override bool CheckWithAbstractTargets(MobData mob, SpellTarget target)
+        {
+            if ((target as TSpellTarget) is null)
+            {
+                return false;
+            }
+
+            return CheckWithTargets(mob, (TSpellTarget)target);
+        }
 
         public IEnumerable<System.Type> GetRequesterTypes()
         {
-            var q = typeof(UI.TargetRequester.TargetRequesterBase).Assembly.GetTypes()
+            var q = typeof(UI.TargetRequester.TargetRequesterBase<TSpellTarget>).Assembly.GetTypes()
             .Where(x => !x.IsAbstract)
             .Where(x => !x.IsGenericTypeDefinition)
-            .Where(x => typeof(UI.TargetRequester.TargetRequesterBase).IsAssignableFrom(x));
+            .Where(x => typeof(UI.TargetRequester.TargetRequesterBase<TSpellTarget>).IsAssignableFrom(x));
 
             return q;
         }
@@ -205,7 +241,7 @@ namespace miniRAID
         [Title("Behavioural Parameters")] [SerializeField] private None _;
         // [Sirenix.Serialization.OdinSerialize]
         // [EventSlot]
-        // public LuaFunc<(GeneralCombatData, MobRenderer, Spells.SpellTarget), IEnumerator> onPerform = new();
+        // public LuaFunc<(GeneralCombatData, MobRenderer, T), IEnumerator> onPerform = new();
 
         /// <summary>
         /// The coroutine that handles the action when performed.
@@ -213,37 +249,36 @@ namespace miniRAID
         ///
         /// Use `Globals.cc` to access the CoroutineContext, for e.g., animation settings & random number generators.
         /// </summary>
-        /// <param name="ract">The RuntimeAction instance wrapped from this ActionDataSO that will be performed.</param>
+        /// <param name="ract">The RuntimeAction<TSpellTarget> instance wrapped from this ActionDataSO<TSpellTarget> that will be performed.</param>
         /// <param name="mob">MobData performing the action.</param>
         /// <param name="target">Target (List of Vector3Ints) of this action.</param>
         /// <returns>No return values.</returns>
-        public virtual IEnumerator OnPerform(RuntimeAction ract, MobData mob,
-            Spells.SpellTarget target)
+        public virtual IEnumerator OnPerform(RuntimeAction<TSpellTarget> ract, MobData mob,
+            TSpellTarget target)
         {
             yield return -1;
         }
 
         [Obsolete("Use RuntimeAction.Do instead.")]
-        public virtual IEnumerator OnPerform(GeneralCombatData combatData, MobRenderer mobRenderer, Spells.SpellTarget target)
+        public virtual IEnumerator OnPerform(GeneralCombatData combatData, MobRenderer mobRenderer, TSpellTarget target)
         {
             yield break;
             // yield return new JumpIn(onPerform.Eval((combatData, mobRenderer, target)));
         }
 
-        public virtual RuntimeAction LeveledWrap(MobData source, int level)
+        public virtual RuntimeAction<TSpellTarget> LeveledWrap(MobData source, int level)
         {
-            return new RuntimeAction(source, this, level);
+            var ract = new RuntimeAction<TSpellTarget>(source, this, level);
+            ract.SetData(this);
+
+            return ract;
         }
         
-        /// <summary>
-        /// ract.RecalculateStats should be called before LazyPrepareTooltipVariables to get correct output.
-        /// </summary>
-        /// <returns>A dictionary(K: string, V: object) that represents all raw values can be used in tooltip.</returns>
-        public virtual Dictionary<string, object> LazyPrepareTooltipVariables(RuntimeAction ract)
+        public override RuntimeAction LeveledWrapAbstract(MobData source, int level)
         {
-            return new Dictionary<string, object> { {"Power", Mathf.CeilToInt(ract.power)} };
+            return LeveledWrap(source, level);
         }
-
+        
         //public override bool Equals(object other)
         //{
         //    return Guid == ((ActionDataSO)other).Guid;
@@ -252,7 +287,6 @@ namespace miniRAID
         //public override int GetHashCode()
         //{
         //    return Guid.GetHashCode();
-        //}
     }
 
     [System.Serializable]
@@ -263,9 +297,9 @@ namespace miniRAID
     }
     
     [System.Serializable]
-    public struct ActionSOEntry<T> where T : ActionDataSO
+    public struct ActionSOEntry<TAction> where TAction : ActionDataSO
     {
-        public T data;
+        public TAction data;
         public int level;
         
         public ActionSOEntry ToBase()
@@ -278,25 +312,22 @@ namespace miniRAID
         }
     }
 
-    [LuaCallCSharp]
-    public class RuntimeAction : MobListener
+    public abstract class RuntimeAction : MobListener
     {
         public int Level => level;
         public int MaxLevel => data.maxLevel;
 
-        public new ActionDataSO data;
-        public virtual Consts.ActionFlags flags => data.flags;
+        public new ActionDataSO data; // TODO: FIXME: Overrides MobListener's MobListenerSO data. Should it?
+        public ScriptableObject DataSO => data;
 
-        public virtual Dictionary<
-            Cost.Type,
-            LuaBoundedGetter<(MobData, Spells.SpellTarget), MobData, double>> costs => data.costs;
+        public string ActionName => data.ActionName;
+        
+        public virtual Consts.ActionFlags Flags => data.flags;
 
         public override MobListenerSO.ListenerType type => MobListenerSO.ListenerType.RuntimeAction;
 
         public List<(Cost, Cost)> costBounds = new();
         public int cooldownRemain;
-
-        Spells.SpellTarget catchedTarget;
 
         public dNumber power, auxPower;
         public dNumber hit, crit;
@@ -313,66 +344,9 @@ namespace miniRAID
 
         string paddedLuaExpr;
 
-        public RuntimeAction(MobData source, ActionDataSO data, int level) : base(source, null)
+        protected RuntimeAction(MobData source, int level) : base(source, null)
         {
-            this.data = data;
             this.level = level;
-        }
-
-        public void SetData(ActionDataSO data)
-        {
-            this.data = data;
-        }
-
-        /* Action perform routine:
-         * ActivateInUI
-         * > RecalcActionStats() -> Cost bounds
-         * > Check if usable by mob (mob can comsume minimum cost)
-         * > Pickable in UI; Picked in UI
-         * > Target requester (Only legal positions pickable)
-         * > Picked target
-         * ~ Stat recalc?
-         * > mob.ActionPrecheck (OnActionChosen)
-         * > DoCost, etc...
-         * > Activate()
-         * 
-         * Activate(src, target, ...)
-         * > CheckTarget()
-         * > Do()
-         */
-        // TODO: Move Get delegate to Ctor
-        public virtual IEnumerator Do(MobData mob, Spells.SpellTarget target/*, bool cd = true*//*, bool host = false*/)
-        {
-            //            string postfix = data.Id;
-            //            paddedLuaExpr = @$"function routine_{postfix}(mob, target)
-
-            //{data.onPerform.LuaExpr}
-
-            //end
-
-            //function getCsRoutine_{postfix}(mob, target)
-            //    return util.cs_generator(routine_{postfix}, mob, target)
-            //end";
-
-            //            Debug.Log(paddedLuaExpr);
-            //            Globals.xLuaInstance.Instance.luaEnv.DoString(paddedLuaExpr, "Action onPerform chunk");
-
-            //            var testIE = Globals.xLuaInstance.Instance.luaEnv.Global.Get<ActionOnPerform>($"getCsRoutine_{postfix}");
-            //            Debug.Log(testIE);
-
-            // Globals.ccNewContext(new SerialCoroutineContext() { animation = true, rng = Globals.cc.rng });
-            yield return new JumpIn(data.OnPerform(this, mob, target));
-
-            // Wait a bit for animation
-            // yield return new WaitForSeconds(.5f);
-        }
-
-        public IEnumerator Activate(MobData mob, Spells.SpellTarget target)
-        {
-            if(data.CheckWithTargets(mob, target))
-            {
-                yield return new JumpIn(Do(mob, target));
-            }
         }
 
         /// <summary>
@@ -436,53 +410,18 @@ namespace miniRAID
             masterElem.Q<Label>("tooltip").text = Tooltip;
         }
 
-        public IEnumerator RequestInUI(MobData mob)
-        {
-            Debug.LogWarning("Refactor UI to Coroutine based as well as Requesters !!!!!");
-
-            if(cooldownRemain > 0)
-            {
-                Globals.debugMessage.AddMessage($"{mob.nickname} 的 {data.name} 还没有准备好！");
-                yield break;
-            }
-
-            if(data.Check(mob))
-            {
-                catchedTarget = null;
-                bool canceled = false;
-
-                // Assume max 1 request at once.
-                data.Requester.Request(mob, this, (Spells.SpellTarget target) =>
-                {
-                    catchedTarget = target;
-                }, () => { canceled = true; });
-
-                while(catchedTarget == null && canceled == false)
-                {
-                    yield return null;
-                }
-                if (canceled) { yield break; }
-
-                List<Cost> cost = costs.Select(pair =>
-                new Cost(dNumber.CreateComposite(pair.Value.Eval((mob, catchedTarget))), pair.Key)).ToList();
-
-                yield return new JumpIn(mob.DoAction(this, catchedTarget, cost));
-
-                data.Requester.EndState();
-            }
-        }
-
+        public abstract SpellTarget QueryAbstractTarget(MobData source);
+        
         public void RecalculateStats(MobData mob)
         {
             // 1. Reset stats
             costBounds.Clear();
-
-            foreach (var costEntry in data.costs)
+            var preBound = data.GetCostBounds(mob);
+            
+            foreach (var bound in preBound)
             {
-                var bound = costEntry.Value.PrecalculatedBounds(mob);
-
-                Cost lb = new Cost(dNumber.CreateComposite(bound.Item1), costEntry.Key);
-                Cost ub = new Cost(dNumber.CreateComposite(bound.Item2), costEntry.Key);
+                Cost lb = new Cost(dNumber.CreateComposite(bound.Value.Item1), bound.Key);
+                Cost ub = new Cost(dNumber.CreateComposite(bound.Value.Item2), bound.Key);
 
                 // Trigger events and re-calc.
                 costBounds.Add((
@@ -552,6 +491,143 @@ namespace miniRAID
             mob.OnStatCalculationFinish -= OnRecalculateStatsFinish;
             
             base.OnRemove(mob);
+        }
+
+        public abstract IEnumerator DoActionAbstract(MobData mob, SpellTarget target);
+        public abstract IEnumerator RequestInUI(MobData mob);
+    }
+    
+    [LuaCallCSharp]
+    public class RuntimeAction<TSpellTarget> : RuntimeAction where TSpellTarget : SpellTarget
+    {
+        public ActionDataSO<TSpellTarget> actionData => (ActionDataSO<TSpellTarget>)data;
+        public System.Type SpellTargetType => typeof(TSpellTarget);
+        
+        public virtual Dictionary<
+            Cost.Type,
+            LuaBoundedGetter<(MobData, TSpellTarget), MobData, double>> costs => actionData.costs;
+        
+        TSpellTarget catchedTarget;
+        
+        public RuntimeAction(MobData source, ActionDataSO<TSpellTarget> data, int level) : base(source, level)
+        {
+            this.data = data;
+        }
+
+        public void SetData(ActionDataSO<TSpellTarget> data)
+        {
+            this.data = data;
+        }
+
+        /* Action perform routine:
+         * ActivateInUI
+         * > RecalcActionStats() -> Cost bounds
+         * > Check if usable by mob (mob can comsume minimum cost)
+         * > Pickable in UI; Picked in UI
+         * > Target requester (Only legal positions pickable)
+         * > Picked target
+         * ~ Stat recalc?
+         * > mob.ActionPrecheck (OnActionChosen)
+         * > DoCost, etc...
+         * > Activate()
+         * 
+         * Activate(src, target, ...)
+         * > CheckTarget()
+         * > Do()
+         */
+        // TODO: Move Get delegate to Ctor
+        public virtual IEnumerator Do(MobData mob, TSpellTarget target/*, bool cd = true*//*, bool host = false*/)
+        {
+            //            string postfix = data.Id;
+            //            paddedLuaExpr = @$"function routine_{postfix}(mob, target)
+
+            //{data.onPerform.LuaExpr}
+
+            //end
+
+            //function getCsRoutine_{postfix}(mob, target)
+            //    return util.cs_generator(routine_{postfix}, mob, target)
+            //end";
+
+            //            Debug.Log(paddedLuaExpr);
+            //            Globals.xLuaInstance.Instance.luaEnv.DoString(paddedLuaExpr, "Action onPerform chunk");
+
+            //            var testIE = Globals.xLuaInstance.Instance.luaEnv.Global.Get<ActionOnPerform>($"getCsRoutine_{postfix}");
+            //            Debug.Log(testIE);
+
+            // Globals.ccNewContext(new SerialCoroutineContext() { animation = true, rng = Globals.cc.rng });
+            yield return new JumpIn(actionData.OnPerform(this, mob, target));
+
+            // Wait a bit for animation
+            // yield return new WaitForSeconds(.5f);
+        }
+
+        public IEnumerator Activate(MobData mob, TSpellTarget target)
+        {
+            if(actionData.CheckWithTargets(mob, target))
+            {
+                yield return new JumpIn(Do(mob, target));
+            }
+        }
+
+        public override IEnumerator DoActionAbstract(MobData mob, SpellTarget target)
+        {
+            if ((target as TSpellTarget) != null)
+            {
+                yield return new JumpIn(Do(mob, (TSpellTarget)target));
+            }
+
+            yield break;
+        }
+
+        public override IEnumerator RequestInUI(MobData mob)
+        {
+            Debug.LogWarning("Refactor UI to Coroutine based as well as Requesters !!!!!");
+
+            if(cooldownRemain > 0)
+            {
+                Globals.debugMessage.AddMessage($"{mob.nickname} 的 {data.name} 还没有准备好！");
+                yield break;
+            }
+
+            if(actionData.Check(mob))
+            {
+                catchedTarget = null;
+                bool canceled = false;
+
+                // Assume max 1 request at once.
+                actionData.Requester.Request(mob, this, (TSpellTarget target) =>
+                {
+                    catchedTarget = target;
+                }, () => { canceled = true; });
+
+                while(catchedTarget == null && canceled == false)
+                {
+                    yield return null;
+                }
+                if (canceled) { yield break; }
+
+                List<Cost> cost = costs.Select(pair =>
+                new Cost(dNumber.CreateComposite(pair.Value.Eval((mob, catchedTarget))), pair.Key)).ToList();
+
+                yield return new JumpIn(mob.DoAction(this, catchedTarget, cost));
+
+                actionData.Requester.EndState();
+            }
+        }
+
+        public override SpellTarget QueryAbstractTarget(MobData source)
+            => QueryTarget(source);
+
+        public TSpellTarget QueryTarget(MobData source)
+        {
+            if (actionData?.targetPicker == null)
+            {
+                Debug.LogError($"{actionData?.ActionName} has no target picker!");
+                return null;
+            }
+
+            return actionData.targetPicker.Pick(source, this);
         }
     }
 }

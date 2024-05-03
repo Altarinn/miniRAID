@@ -36,7 +36,7 @@ public class XLuaInstance : MonoBehaviour
     int funcID = 0;
 
     [Title("Debug only")]
-    public ActionDataSO actionData;
+    // public ActionDataSO<TSpellTarget> actionData;
     [FormerlySerializedAs("mob")] public MobRenderer mobRenderer;
 
     void Awake()
@@ -225,7 +225,7 @@ end";
     //[ContextMenu("xLua Coroutine Test")]
     //public void Test()
     //{
-    //    RuntimeAction action = new RuntimeAction(actionData);
+    //    RuntimeAction<TSpellTarget> action = new RuntimeAction(actionData);
     //    StartCoroutine(action.Do(mob, new SpellTarget(Vector3Int.zero)));
     //}
 

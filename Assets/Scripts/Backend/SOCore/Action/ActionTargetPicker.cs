@@ -55,14 +55,14 @@ namespace miniRAID.Extensions
 
 namespace miniRAID.Weapon
 {
-    public abstract class ActionTargetPickerBase
+    public abstract class ActionTargetPickerBase<TSpellTarget> where TSpellTarget : SpellTarget
     {
-        public abstract SpellTarget Pick(MobData source, RuntimeAction ract);
+        public abstract TSpellTarget Pick(MobData source, RuntimeAction<TSpellTarget> ract);
     }
     
     public class FollowLastTurnPicker : ActionTargetPickerBase
     {
-        public override SpellTarget Pick(MobData source, RuntimeAction ract)
+        public override SpellTarget Pick(MobData source, RuntimeAction<TSpellTarget> ract)
         {
             if (source.lastTurnTarget == null)
             {
@@ -75,7 +75,7 @@ namespace miniRAID.Weapon
     
     public class SelfPicker : ActionTargetPickerBase
     {
-        public override SpellTarget Pick(MobData source, RuntimeAction ract)
+        public override SpellTarget Pick(MobData source, RuntimeAction<TSpellTarget> ract)
         {
             return new SpellTarget(source.Position);
         }
@@ -89,7 +89,7 @@ namespace miniRAID.Weapon
         [SerializeField] private bool lowestHealthFirst = true;
         [SerializeField] private bool captureFullHealthTargets = false;
 
-        public override SpellTarget Pick(MobData source, RuntimeAction ract)
+        public override SpellTarget Pick(MobData source, RuntimeAction<TSpellTarget> ract)
         {
             MobData target = null;
             var targets = Globals.backend.allMobs

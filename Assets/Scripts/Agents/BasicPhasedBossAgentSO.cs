@@ -173,7 +173,7 @@ namespace miniRAID.Agents
                     break;
                 }
                 
-                RuntimeAction ract = null;
+                RuntimeAction<TSpellTarget> ract = null;
                 if (asoe.data != null)
                 {
                     ract = mob.GetAction(asoe.data);

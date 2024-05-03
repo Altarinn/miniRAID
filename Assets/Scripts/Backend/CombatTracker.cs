@@ -171,11 +171,7 @@ namespace miniRAID
 
         public void Record(Consts.TrackerActionEvent actionEvent)
         {
-            string message = $"{actionEvent.action.parentMob.nickname} 施放了 {actionEvent.action.data.ActionName}, 目标：";
-            foreach (var p in actionEvent.target.targetPos)
-            {
-                message += $"({p.x}, {p.y}) ";
-            }
+            string message = $"{actionEvent.action.parentMob.nickname} 施放了 {actionEvent.action.data.ActionName}, 目标：{actionEvent.target.ToString()}";
             combatLog.Log(message);
         }
 

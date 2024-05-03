@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using miniRAID.Spells;
 using UnityEngine;
 
 namespace miniRAID.UI.TargetRequester
 {
-    public class MovementRequester : TargetRequesterBase
+    public class MovementRequester : TargetRequesterBase<SingleCoordinateTarget>
     {
         public bool overrideMobMovement = false;
         public int moveRange = 3;
@@ -49,7 +51,7 @@ namespace miniRAID.UI.TargetRequester
 
         void Decided()
         {
-            Finish(new Spells.SpellTarget(choice));
+            Finish(new SingleCoordinateTarget(choice.First()));
         }
     }
 }

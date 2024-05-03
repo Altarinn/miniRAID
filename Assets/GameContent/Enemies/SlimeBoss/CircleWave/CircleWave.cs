@@ -21,7 +21,7 @@ namespace miniRAID
         
         private GridShape outerRingShape;
 
-        public override IEnumerator OnPerform(RuntimeAction ract, MobData mob,
+        public override IEnumerator OnPerform(RuntimeAction<TSpellTarget> ract, MobData mob,
             Spells.SpellTarget target)
         {
             yield return new JumpIn(multiTurnWrapper.Do(Action, mob, target, true));

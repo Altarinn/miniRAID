@@ -42,7 +42,7 @@ namespace GameContent.Buffs.Test
 
         public IEnumerator MobOnActionPostcast(MobData mob, RuntimeAction ract, SpellTarget target)
         {
-            if (ract.flags.HasFlag(Consts.ActionFlags.RegularAction))
+            if (ract.Flags.HasFlag(Consts.ActionFlags.RegularAction))
             {
                 mobMana.AddMana(starEnergyData.manaRegen);
             }

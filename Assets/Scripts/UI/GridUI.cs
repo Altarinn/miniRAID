@@ -36,8 +36,6 @@ namespace miniRAID.UI
         Stack<UIState> stateStack = new Stack<UIState>();
         public UIState currentState { get; protected set; }
 
-        public Spells.Spell testSpellOnCounter;
-
         // Reserved for views communication
         public UIMenu_UIContainer uimenu_uicontainer;
 
@@ -85,8 +83,6 @@ namespace miniRAID.UI
         // Start is called before the first frame update
         void Start()
         {
-            Databackend.GetSingleton().testSpell = testSpellOnCounter;
-
             EnterState();
         }
 
@@ -257,7 +253,7 @@ namespace miniRAID.UI
 
         public void OnSubmit(InputValue input)
         {
-            if (isInAnimation && !(currentState is TargetRequester.TargetRequesterBase)) return;
+            if (isInAnimation && !(currentState is TargetRequester.TargetRequesterUIState)) return;
             if (currentState == null) return;
             if (CheckPassEvent())
             {
@@ -297,7 +293,7 @@ namespace miniRAID.UI
 
         public void OnCancel(InputValue input)
         {
-            if (isInAnimation && !(currentState is TargetRequester.TargetRequesterBase)) return;
+            if (isInAnimation && !(currentState is TargetRequester.TargetRequesterUIState)) return;
             if (currentState == null) return;
             currentState.Cancel(input);
         }

@@ -60,36 +60,40 @@ namespace miniRAID.Weapon
         public abstract TSpellTarget Pick(MobData source, RuntimeAction<TSpellTarget> ract);
     }
     
-    public class FollowLastTurnPicker : ActionTargetPickerBase
+    // This won't work for e.g. Grimoires.
+    // TODO: Move the logic to MobData / Weapon in a better way?
+    // Or change to a enemy-priority + target-mob system with each mob favoring their previously attacked mobs?
+    public class FollowLastPicker<TSpellTarget> : ActionTargetPickerBase<TSpellTarget>
+        where TSpellTarget : SpellTarget
     {
-        public override SpellTarget Pick(MobData source, RuntimeAction<TSpellTarget> ract)
+        public override TSpellTarget Pick(MobData source, RuntimeAction<TSpellTarget> ract)
         {
-            if (source.lastTurnTarget == null)
+            if (ract.LastTarget == null)
             {
                 return null;
             }
             
-            return new SpellTarget(source.lastTurnTarget.Position);
+            return ract.LastTarget;
         }
     }
     
-    public class SelfPicker : ActionTargetPickerBase
+    public class SelfPicker : ActionTargetPickerBase<SingleMobTarget>
     {
-        public override SpellTarget Pick(MobData source, RuntimeAction<TSpellTarget> ract)
+        public override SingleMobTarget Pick(MobData source, RuntimeAction<SingleMobTarget> ract)
         {
-            return new SpellTarget(source.Position);
+            return new SingleMobTarget(source);
         }
     }
     
     // TODO: Heal priority?
-    public class HealerPicker : ActionTargetPickerBase
+    public class HealerSingleMobPicker : ActionTargetPickerBase<SingleMobTarget>
     {
         [SerializeField] private UnitFilters unitFilter;
         [SerializeField] private MobListenerSO excludeMobWithListener;
         [SerializeField] private bool lowestHealthFirst = true;
         [SerializeField] private bool captureFullHealthTargets = false;
 
-        public override SpellTarget Pick(MobData source, RuntimeAction<TSpellTarget> ract)
+        public override SingleMobTarget Pick(MobData source, RuntimeAction<SingleMobTarget> ract)
         {
             MobData target = null;
             var targets = Globals.backend.allMobs
@@ -97,7 +101,7 @@ namespace miniRAID.Weapon
                 .Where(x => unitFilter.Check(source, x))
                 .Where(x => excludeMobWithListener == null || x.FindListener(excludeMobWithListener) == null)
                 .Where(x => captureFullHealthTargets || x.health < x.maxHealth)
-                .Where(x => ract.data.CheckWithTargets(source, new SpellTarget(x.Position)));
+                .Where(x => ract.actionData.CheckWithTargets(source, new SingleMobTarget(x)));
 
             // No valid targets
             if (!targets.Any())
@@ -114,7 +118,7 @@ namespace miniRAID.Weapon
                 target = targets.RandomChoice();
             }
 
-            return new SpellTarget(target.Position);
+            return new SingleMobTarget(target);
         }
     }
 }

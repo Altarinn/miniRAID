@@ -24,7 +24,8 @@ namespace miniRAID.SpellComponents
 
         public void Stop()
         {
-            GetComponent<Renderer>().enabled = false;
+            // GetComponent<Renderer>().enabled = false;
+            sprite.enabled = false;
             if (trail != null)
             {
                 trail.Stop();

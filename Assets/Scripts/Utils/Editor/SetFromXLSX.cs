@@ -34,6 +34,7 @@ namespace miniRAID.Editor
             {
                 foreach (var row in sheet)
                 {
+                    Debug.Log(row.address);
                     var obj = Addressables.LoadAssetAsync<UnityEngine.Object>(row.address).WaitForCompletion();
                     if (obj == null)
                     {

@@ -10,9 +10,9 @@ using miniRAID.Spells;
 
 namespace miniRAID
 {
-    public class CircleWave : ActionDataSO
+    public class CircleWave : ActionDataSO<SingleMobTarget>
     {
-        private SimpleMultiTurnAction multiTurnWrapper = new SimpleMultiTurnAction(3);
+        private SimpleMultiTurnAction<SingleMobTarget> multiTurnWrapper = new SimpleMultiTurnAction<SingleMobTarget>(3);
         public UnitFilters filters;
         public SpellDamageHeal damage;
         
@@ -21,26 +21,26 @@ namespace miniRAID
         
         private GridShape outerRingShape;
 
-        public override IEnumerator OnPerform(RuntimeAction<TSpellTarget> ract, MobData mob,
-            Spells.SpellTarget target)
+        public override IEnumerator OnPerform(RuntimeAction<SingleMobTarget> ract, MobData mob,
+            SingleMobTarget target)
         {
             yield return new JumpIn(multiTurnWrapper.Do(Action, mob, target, true));
             
-            IEnumerator Action(int turn, SimpleMultiTurnActionProxy dummy, MobData src, SpellTarget target, object customdata)
+            IEnumerator Action(int turn, SimpleMultiTurnActionProxy<SingleMobTarget> dummy, MobData src, SingleMobTarget target, object customdata)
             {
                 List<MobData> captured;
                 switch (turn)
                 {
                     case 1:
                         // Show inner circ warning
-                        innerCircleShape.position = target.targetPos[0];
+                        innerCircleShape.position = target.Target.Position;
                         dummy.AddIndicator(new GridShapeIndicator(innerCircleShape, GridOverlay.Types.INCOMING_ATTACK))
                             ?.Move(Vector3.forward * 10.0f);
                         break;
                     
                     case 2:
                         // Inner explodes
-                        innerCircleShape.position = target.targetPos[0];
+                        innerCircleShape.position = target.Target.Position;
                         captured = CaptureTargetsInGridShape.CaptureAllTargetsWithinRange(
                                 src, filters, innerCircleShape.ApplyTransform())
                             .ToList();
@@ -52,14 +52,14 @@ namespace miniRAID
                         dummy.RemoveAllIndicators();
                         
                         // Show middle ring warning
-                        middleRingShape.position = target.targetPos[0];
+                        middleRingShape.position = target.Target.Position;
                         dummy.AddIndicator(new GridShapeIndicator(middleRingShape, GridOverlay.Types.INCOMING_ATTACK))
                             ?.Move(Vector3.forward * 10.0f);
                         break;
                     
                     case 3:
                         // Ring explodes
-                        middleRingShape.position = target.targetPos[0];
+                        middleRingShape.position = target.Target.Position;
                         captured = CaptureTargetsInGridShape.CaptureAllTargetsWithinRange(
                                 src, filters, middleRingShape.ApplyTransform())
                             .ToList();

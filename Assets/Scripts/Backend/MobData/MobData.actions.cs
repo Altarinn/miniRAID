@@ -127,31 +127,18 @@ namespace miniRAID
             }
         }
         
-        public IEnumerator ActionPrecheck<TSpellTarget>(RuntimeAction<TSpellTarget> raction, TSpellTarget target)
-            where TSpellTarget : SpellTarget
+        public IEnumerator ActionPrecheck(RuntimeAction raction, SpellTarget target)
         {
             yield return new JumpIn(OnActionChosen?.Invoke(this, raction, target));
         }
 
-        public IEnumerator ActionBegin<TSpellTarget>(RuntimeAction<TSpellTarget> raction, TSpellTarget target)
-            where TSpellTarget : SpellTarget
+        public IEnumerator ActionBegin(RuntimeAction raction, SpellTarget target)
         {
             yield return new JumpIn(OnActionPrecast?.Invoke(this, raction, target));
         }
 
-        public IEnumerator ActionDone<TSpellTarget>(RuntimeAction<TSpellTarget> raction, TSpellTarget target)
-            where TSpellTarget : SpellTarget
+        public IEnumerator ActionDone(RuntimeAction raction, SpellTarget target)
         {
-            // TODO: FIXME: move last-turn target switching logic to weapons?
-            if (raction == mainWeapon.GetRegularAttackSpell() || (raction.Flags & Consts.ActionFlags.SpecialAction) > 0)
-            {
-                MobData targetMob = Globals.backend.GetMap(target.targetPos[0])?.mob;
-                if (targetMob != null)
-                    lastTurnTarget = targetMob;
-                
-                // this.SetGCD(GCDGroup.RegularAttack);
-            }
-            
             yield return new JumpIn(OnActionPostcast?.Invoke(this, raction, target));
 
             if (!raction.Flags.HasFlag(Consts.ActionFlags.Movement))
@@ -244,11 +231,15 @@ namespace miniRAID
                 ra.level = tempLevel;
             }
         }
-        
-        public IEnumerator DoAction<TSpellTarget> (
-            RuntimeAction<TSpellTarget> raction,
-            TSpellTarget target,
-            List<Cost> costs = null) where TSpellTarget : SpellTarget
+
+        // Check costs, apply them and emit the action
+        // Quite dirty due to type-specific / type-agnostic settings, any better workarounds?
+        // Wanted to avoid casting back to type-agnostic RuntimeAction / SpellTarget pairs.
+        public IEnumerator _DoActionWrapper (
+            RuntimeAction raction,
+            SpellTarget target,
+            List<Cost> costs,
+            IEnumerator action)
         {
             // Needs this?
             //RecalculateStats();
@@ -280,9 +271,51 @@ namespace miniRAID
             });
 
             yield return new JumpIn(ActionBegin(raction, target));
-            yield return new JumpIn(raction.Activate(this, target));
+            yield return new JumpIn(action);
             yield return new JumpIn(ActionDone(raction, target));
         }
+        
+        public IEnumerator _DoActionSpecific<TSpellTarget>(
+            RuntimeAction<TSpellTarget> raction,
+            TSpellTarget target) where TSpellTarget : SpellTarget
+        {
+            yield return new JumpIn(raction.Activate(this, target));
+        }
+
+        /// <summary>
+        /// Perform an action.
+        /// </summary>
+        /// <param name="raction">Runtime action instance.</param>
+        /// <param name="target">Target to perform the action.</param>
+        /// <param name="costs">Costs that must be applied before performing the action. Default is null (no cost).</param>
+        /// <typeparam name="TSpellTarget">Type of the SpellTarget of the action.</typeparam>
+        /// <returns></returns>
+        public IEnumerator DoAction<TSpellTarget>(
+            RuntimeAction<TSpellTarget> raction,
+            TSpellTarget target,
+            List<Cost> costs = null) where TSpellTarget : SpellTarget
+            => _DoActionWrapper(raction, target, costs, _DoActionSpecific(raction, target));
+
+        // Type-agnostic version of above
+        public IEnumerator _DoActionAbstract(
+            RuntimeAction raction,
+            SpellTarget target)
+        {
+            yield return new JumpIn(raction.ActivateAbstract(this, target));
+        }
+
+        /// <summary>
+        /// Perform an action (without knowing its target type).
+        /// </summary>
+        /// <param name="raction">Runtime action instance.</param>
+        /// <param name="target">Target to perform the action.</param>
+        /// <param name="costs">Costs that must be applied before performing the action. Default is null (no cost).</param>
+        /// <returns></returns>
+        public IEnumerator DoAction(
+            RuntimeAction raction,
+            SpellTarget target,
+            List<Cost> costs = null)
+            => _DoActionWrapper(raction, target, costs, _DoActionAbstract(raction, target));
         
         public IEnumerator DoActionWithDefaultCosts<TSpellTarget>(
             RuntimeAction<TSpellTarget> raction,

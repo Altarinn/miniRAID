@@ -27,8 +27,23 @@ namespace miniRAID.UI
             SpellTarget target = players[i].FindListener<PlayerAutoAttackAgentBase>()?.GetTarget(players[i]);
             if (target == null) { circles[i].gameObject.SetActive(false); return; }
 
+            Vector3Int targetGrid = Vector3Int.zero;
+            if (typeof(SingleMobTarget).IsAssignableFrom(target.GetType()))
+            {
+                targetGrid = ((SingleMobTarget)target).Target.Position;
+            }
+            else if (typeof(SingleCoordinateTarget).IsAssignableFrom(target.GetType()))
+            {
+                targetGrid = ((SingleCoordinateTarget)target).Target;
+            }
+            else
+            {
+                circles[i].gameObject.SetActive(false);
+                return;
+            }
+
             // Just use the first target for now
-            Vector3 worldPos = Globals.backend.GridToWorldPos(target.targetPos[0]) + Vector3.one * 0.5f;
+            Vector3 worldPos = Globals.backend.GridToWorldPos(targetGrid) + Vector3.one * 0.5f;
 
             circles[i].gameObject.SetActive(true);
             circles[i].GetComponent<SpriteRenderer>().color = players[i].baseDescriptor.color;

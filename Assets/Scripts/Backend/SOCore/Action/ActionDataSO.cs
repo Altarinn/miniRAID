@@ -8,7 +8,6 @@ using Sirenix.OdinInspector;
 using System.Linq;
 using miniRAID.Spells;
 using miniRAID.Weapon;
-using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine.Localization;
 using UnityEngine.Serialization;
 using UnityEngine.UIElements;
@@ -296,6 +295,8 @@ namespace miniRAID
         public int level;
     }
     
+    // ActionSOEntry<TSpellTarget>
+    
     [System.Serializable]
     public struct ActionSOEntry<TAction> where TAction : ActionDataSO
     {
@@ -319,6 +320,7 @@ namespace miniRAID
 
         public new ActionDataSO data; // TODO: FIXME: Overrides MobListener's MobListenerSO data. Should it?
         public ScriptableObject DataSO => data;
+        public abstract System.Type SpellTargetType { get; }
 
         public string ActionName => data.ActionName;
         
@@ -493,7 +495,7 @@ namespace miniRAID
             base.OnRemove(mob);
         }
 
-        public abstract IEnumerator DoActionAbstract(MobData mob, SpellTarget target);
+        public abstract IEnumerator ActivateAbstract(MobData mob, SpellTarget target);
         public abstract IEnumerator RequestInUI(MobData mob);
     }
     
@@ -501,13 +503,11 @@ namespace miniRAID
     public class RuntimeAction<TSpellTarget> : RuntimeAction where TSpellTarget : SpellTarget
     {
         public ActionDataSO<TSpellTarget> actionData => (ActionDataSO<TSpellTarget>)data;
-        public System.Type SpellTargetType => typeof(TSpellTarget);
+        public override System.Type SpellTargetType => typeof(TSpellTarget);
         
         public virtual Dictionary<
             Cost.Type,
             LuaBoundedGetter<(MobData, TSpellTarget), MobData, double>> costs => actionData.costs;
-        
-        TSpellTarget catchedTarget;
         
         public RuntimeAction(MobData source, ActionDataSO<TSpellTarget> data, int level) : base(source, level)
         {
@@ -517,6 +517,13 @@ namespace miniRAID
         public void SetData(ActionDataSO<TSpellTarget> data)
         {
             this.data = data;
+        }
+
+        public TSpellTarget LastTarget { get; private set; }
+
+        public void _SetLastTarget(TSpellTarget target)
+        {
+            LastTarget = target;
         }
 
         /* Action perform routine:
@@ -530,7 +537,7 @@ namespace miniRAID
          * > mob.ActionPrecheck (OnActionChosen)
          * > DoCost, etc...
          * > Activate()
-         * 
+         *
          * Activate(src, target, ...)
          * > CheckTarget()
          * > Do()
@@ -555,6 +562,8 @@ namespace miniRAID
             //            var testIE = Globals.xLuaInstance.Instance.luaEnv.Global.Get<ActionOnPerform>($"getCsRoutine_{postfix}");
             //            Debug.Log(testIE);
 
+            LastTarget = target;
+
             // Globals.ccNewContext(new SerialCoroutineContext() { animation = true, rng = Globals.cc.rng });
             yield return new JumpIn(actionData.OnPerform(this, mob, target));
 
@@ -570,11 +579,11 @@ namespace miniRAID
             }
         }
 
-        public override IEnumerator DoActionAbstract(MobData mob, SpellTarget target)
+        public override IEnumerator ActivateAbstract(MobData mob, SpellTarget target)
         {
             if ((target as TSpellTarget) != null)
             {
-                yield return new JumpIn(Do(mob, (TSpellTarget)target));
+                yield return new JumpIn(Activate(mob, (TSpellTarget)target));
             }
 
             yield break;
@@ -589,6 +598,8 @@ namespace miniRAID
                 Globals.debugMessage.AddMessage($"{mob.nickname} 的 {data.name} 还没有准备好！");
                 yield break;
             }
+            
+            TSpellTarget catchedTarget;
 
             if(actionData.Check(mob))
             {

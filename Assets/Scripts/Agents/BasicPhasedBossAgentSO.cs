@@ -173,18 +173,18 @@ namespace miniRAID.Agents
                     break;
                 }
                 
-                RuntimeAction<TSpellTarget> ract = null;
+                RuntimeAction<SingleMobTarget> ract = null;
                 if (asoe.data != null)
                 {
-                    ract = mob.GetAction(asoe.data);
+                    ract = mob.GetAction(asoe.data) as RuntimeAction<SingleMobTarget>;
                     if (ract == null)
                     {
                         Debug.LogWarning($"Specified action {asoe.data.name} in schedule has not been added to the mob {mob.nickname}. Adding it automatically.");
-                        ract = mob.AddAction(asoe);
+                        ract = mob.AddAction(asoe) as RuntimeAction<SingleMobTarget>;
 
                         if (ract == null)
                         {
-                            Debug.LogError($"Cannot add {asoe.data.name} to mob {mob.nickname}. Action skipped.");
+                            Debug.LogError($"Cannot add {asoe.data.name} to mob {mob.nickname} (not SingleMobTarget?). Action skipped.");
                         }
                     }
 
@@ -196,15 +196,16 @@ namespace miniRAID.Agents
             
                 if(ract != null && currentTarget != null)
                 {
-                    Spells.SpellTarget sTarget;
+                    SingleMobTarget sTarget;
                 
-                    if (ract.data?.Requester?.GetType().IsAssignableFrom(typeof(ConfirmRequester)) ?? false)
+                    // TODO: FIXME: IsAssignableFrom order reversed?
+                    if (ract.actionData?.Requester?.GetType().IsAssignableFrom(typeof(ConfirmRequester)) ?? false)
                     {
-                        sTarget = new SpellTarget(mob.Position);
+                        sTarget = new SingleMobTarget(mob);
                     }
                     else
                     {
-                        sTarget = new Spells.SpellTarget(currentTarget.Position);
+                        sTarget = new SingleMobTarget(currentTarget);
                     }
                 
                     yield return new JumpIn(mob.DoActionWithDefaultCosts(

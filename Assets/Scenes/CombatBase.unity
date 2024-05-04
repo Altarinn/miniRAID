@@ -1377,7 +1377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 27.87803, z: -32}
+  m_FollowOffset: {x: 0, y: 28.15265, z: -32}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -2070,7 +2070,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &765503000
 Transform:
   m_ObjectHideFlags: 0
@@ -2212,7 +2212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 27.87803, z: -30}
+  m_FollowOffset: {x: 0, y: 28.15265, z: -30}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -3407,7 +3407,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ee98e390316c4bcb993e11ac7f2e949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionData: {fileID: 11400000, guid: a2027923027272f40a12811b40d46cd7, type: 2}
   mobRenderer: {fileID: 0}
 --- !u!114 &1256023751
 MonoBehaviour:
@@ -3929,8 +3928,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1412256708}
-  m_LocalRotation: {x: 0.17535707, y: 0.81101775, z: -0.30372736, w: 0.4682413}
-  m_LocalPosition: {x: -18.212812, y: 27.87803, z: 23.500004}
+  m_LocalRotation: {x: 0.17649396, y: 0.8102775, z: -0.30569652, w: 0.467814}
+  m_LocalPosition: {x: -18.212812, y: 28.15265, z: 23.500004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4249,8 +4248,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1578731200}
-  m_LocalRotation: {x: 0.17535707, y: 0.81101775, z: -0.30372736, w: 0.4682413}
-  m_LocalPosition: {x: -18.212812, y: 27.87803, z: 23.500004}
+  m_LocalRotation: {x: 0.17649396, y: 0.8102775, z: -0.30569652, w: 0.467814}
+  m_LocalPosition: {x: -18.212812, y: 28.15265, z: 23.500004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4553,7 +4552,6 @@ MonoBehaviour:
   cursor: {fileID: 610706447}
   panSpeed: 5
   gridWorldUnitSize: 1
-  testSpellOnCounter: {fileID: 11400000, guid: 48ce4bdc26a593a4695b787464b9be6a, type: 2}
   uimenu_uicontainer: {fileID: 1768286385}
   mainMobStatPanel: {fileID: 1412523678}
   mainMobStatText: {fileID: 1600194658}
@@ -5179,8 +5177,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1801201036}
-  m_LocalRotation: {x: 0.18284585, y: 0.8060411, z: -0.31669834, w: 0.465368}
-  m_LocalPosition: {x: -16.480762, y: 27.87803, z: 22.500004}
+  m_LocalRotation: {x: 0.18398309, y: 0.8052644, z: -0.3186681, w: 0.46491957}
+  m_LocalPosition: {x: -16.480762, y: 28.15265, z: 22.500004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5235,6 +5233,7 @@ MonoBehaviour:
   spriteIndicator: {fileID: 4690334935109465677, guid: 6f5974462dfe6c04395608e666ff592a, type: 3}
   decalIndicator: {fileID: 2730933655870402556, guid: 49d7728ac47266d428919ff466e4b649, type: 3}
   ray: {fileID: -6101613858955607381, guid: 294e6b8669202294bb752793e077dc83, type: 3}
+  simpleProjectile: {fileID: 7908800916691549791, guid: 7710575b9f864e344b6f3bd073082e6f, type: 3}
 --- !u!1 &1877815260
 GameObject:
   m_ObjectHideFlags: 0

@@ -34,18 +34,18 @@ namespace miniRAID.Agents
         {
             TurnSchedule todo = schedule[(turn - 1) % schedule.Count];
 
-            RuntimeAction<TSpellTarget> ract = null;
+            RuntimeAction<SingleMobTarget> ract = null;
             if (todo.action.data != null)
             {
-                ract = mob.GetAction(todo.action.data);
+                ract = mob.GetAction(todo.action.data) as RuntimeAction<SingleMobTarget>;
                 if (ract == null)
                 {
                     Debug.LogWarning($"Specified action {todo.action.data.name} in schedule has not been added to the mob {mob.nickname}. Adding it automatically.");
-                    ract = mob.AddAction(todo.action);
+                    ract = mob.AddAction(todo.action) as RuntimeAction<SingleMobTarget>;
 
                     if (ract == null)
                     {
-                        Debug.LogError($"Cannot add {todo.action.data.name} to mob {mob.nickname}. Action skipped.");
+                        Debug.LogError($"Cannot add {todo.action.data.name} to mob {mob.nickname} (not SingleMobTarget?). Action skipped.");
                     }
                 }
 
@@ -57,15 +57,15 @@ namespace miniRAID.Agents
             
             if(ract != null && agent.currentTarget != null)
             {
-                Spells.SpellTarget sTarget;
+                SingleMobTarget sTarget;
                 
-                if (ract.data?.Requester?.GetType().IsAssignableFrom(typeof(ConfirmRequester)) ?? false)
+                if (ract.actionData?.Requester?.GetType().IsAssignableFrom(typeof(ConfirmRequester)) ?? false)
                 {
-                    sTarget = new SpellTarget(mob.Position);
+                    sTarget = new (mob);
                 }
                 else
                 {
-                    sTarget = new Spells.SpellTarget(agent.currentTarget.Position);
+                    sTarget = new (agent.currentTarget);
                 }
                 
                 yield return new JumpIn(mob.DoActionWithDefaultCosts(

@@ -1,3 +1,4 @@
+using miniRAID.SpellComponents;
 using UnityEngine;
 
 namespace miniRAID.UI
@@ -7,5 +8,7 @@ namespace miniRAID.UI
         public GameObject spriteIndicator;
         public BossTargetIndicator decalIndicator;
         public SimpleRay ray;
+
+        public ProjectileComponent simpleProjectile;
     }
 }

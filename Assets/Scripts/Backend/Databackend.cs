@@ -1168,12 +1168,13 @@ namespace miniRAID
         {
             // TODO: Enemy?
             var mobs = Globals.backend.allMobs.Where(x => x.unitGroup == Consts.UnitGroup.Player);
-            SpellTarget target = new SpellTarget(targetMob.Position);
             foreach (MobData mob in mobs)
             {
-                if (mob.mainWeapon?.GetRegularAttackSpell()?.data.CheckWithAbstractTargets(mob, target) ?? false)
+                SingleMobTarget target = new (targetMob);
+                RuntimeAction<SingleMobTarget> ratk = mob.mainWeapon?.GetRegularAttackSpell() as RuntimeAction<SingleMobTarget>;
+                if (ratk?.data.CheckWithAbstractTargets(mob, target) ?? false)
                 {
-                    mob.lastTurnTarget = targetMob;
+                    ratk._SetLastTarget(target);
                 }
             }
         }

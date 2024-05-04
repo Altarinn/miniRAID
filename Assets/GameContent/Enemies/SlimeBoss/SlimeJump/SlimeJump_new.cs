@@ -12,7 +12,7 @@ using System.Linq;
 
 namespace miniRAID
 {
-    public class SlimeJump_new : ActionDataSO
+    public class SlimeJump_new : ActionDataSO<SingleCoordinateTarget>
     {
         public CreateGridEffect poisonPool;
         public ActionSOEntry skillJumpOnPool;
@@ -24,20 +24,20 @@ namespace miniRAID
             return effectList.Any(kvp => kvp.Key.data == poisonPool.effect);
         }
         
-        public override IEnumerator OnPerform(RuntimeAction<TSpellTarget> ract, MobData mob,
-            Spells.SpellTarget target)
+        public override IEnumerator OnPerform(RuntimeAction<SingleCoordinateTarget> ract, MobData mob,
+            SingleCoordinateTarget target)
         {
             // Perform Jump
             yield return mob.WaitForAnimation("JumpPrepare");
 
-            var targetPos = Globals.backend.FindNearestEmptyGrid(target.targetPos[0], mob.gridBody);
+            var targetPos = Globals.backend.FindNearestEmptyGrid(target.Target, mob.gridBody);
             yield return new JumpIn(mob.MoveToCoroutine(targetPos, null));
             
             // Check if landed on poison pool
             if (CheckGridHasPoisonPool(Globals.backend.GetMap(mob.Position)))
             {
                 yield return new JumpIn(importantMessage.Do());
-                yield return new JumpIn(mob.DoAction(skillJumpOnPool, new SpellTarget(mob.Position)));
+                yield return new JumpIn(mob.DoAction(skillJumpOnPool, new SingleMobTarget(mob)));
             }
             
             // Generate poison pool

@@ -9,7 +9,7 @@ namespace miniRAID.ActionHelpers
     [ColoredBox("#ffec6e")]
     public class Projectile
     {
-        public GameObject projectilePrefab;
+        // public GameObject projectilePrefab;
         public Sprite projectileSprite, projectileTrail;
         public float flyTime = 1.0f;
 
@@ -18,9 +18,10 @@ namespace miniRAID.ActionHelpers
         }
 
         public Projectile(
-            GameObject prefab, Sprite projectile, Sprite trail)
+            // GameObject prefab, Sprite projectile, Sprite trail)
+            Sprite projectile, Sprite trail)
         {
-            projectilePrefab = prefab;
+            // projectilePrefab = prefab;
             projectileSprite = projectile;
             projectileTrail = trail;
         }
@@ -32,6 +33,7 @@ namespace miniRAID.ActionHelpers
             if (Globals.cc.animation && mob.mobRenderer != null)
             {
                 // TODO: Projectile firing position pivot
+                var projectilePrefab = Globals.prefabs.Instance.simpleProjectile.gameObject;
                 GameObject obj = GameObject.Instantiate(projectilePrefab, mob.mobRenderer.transform.position + Vector3.up * 0.5f, Quaternion.identity);
             
                 obj.GetComponent<ProjectileComponent>().Init(projectileSprite, projectileTrail, Color.white, Color.white);

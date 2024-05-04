@@ -10,7 +10,7 @@ using miniRAID.Spells;
 
 namespace miniRAID
 {
-    public class SlimeSplit : ActionDataSO
+    public class SlimeSplit : ActionDataSO<SingleMobTarget>
     {
         public Vector3Int summonOffset;
         public float healthRatio;
@@ -19,8 +19,8 @@ namespace miniRAID
         public Summon<MobRenderer> summon;
         public ShowImportantMessage message;
         
-        public override IEnumerator OnPerform(RuntimeAction<TSpellTarget> ract, MobData mob,
-            Spells.SpellTarget target)
+        public override IEnumerator OnPerform(RuntimeAction<SingleMobTarget> ract, MobData mob,
+            SingleMobTarget _)
         {
             yield return new JumpIn(message.Do());
             

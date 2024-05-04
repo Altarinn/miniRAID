@@ -15,7 +15,8 @@ namespace miniRAID.Weapon
             wpType = WeaponType.HeavyWeapon;
         }
 
-        public ActionSOEntry<ChargedActionSO> chargedAttack;
+        // TODO: Editor type constraints?
+        public ActionSOEntry chargedAttack;
 
         public override MobListener Wrap(MobData parent)
         {
@@ -34,7 +35,7 @@ namespace miniRAID.Weapon
         public override void OnAttach(MobData mob)
         {
             base.OnAttach(mob);
-            RchargedAttack = mob.AddAction(heavyData.chargedAttack.ToBase());
+            RchargedAttack = mob.AddAction(heavyData.chargedAttack);
         }
 
         public override string GetInformationString()

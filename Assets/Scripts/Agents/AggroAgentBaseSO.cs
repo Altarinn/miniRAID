@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using miniRAID.Actions;
+using miniRAID.Spells;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -225,7 +226,9 @@ namespace miniRAID.Agents
             UpdateAggro();
 
             shouldStop = false;
-            MobData target = currentTarget;
+            MobData target = currentTarget; 
+            
+            var movementAction = (mob.GetActionFromSO<Movement>() as RuntimeAction<SingleCoordinateTarget>);
 
             while (!shouldStop)
             {
@@ -233,51 +236,67 @@ namespace miniRAID.Agents
 
                 // No target, break the loop
                 // TODO: OnNoTarget()
-                if (target != null)
+                if (target == null) { break; }
+
+                // Obtain some actions for later use
+                // Currently only handles SingleMobTarget actions
+                // GetRegularAttackSpell() may give different results after casting a regular attack
+                // So we need to query it every time
+                RuntimeAction<SingleMobTarget> pickedSpell = mob.mainWeapon.GetRegularAttackSpell()
+                    as RuntimeAction<SingleMobTarget>;
+                
+                if (pickedSpell == null)
                 {
-                    // TODO: Find enemy and move
-                    // Behaviour: pick an attack => If in range then attack => Move towards to target by search a path otherwise
+                    Debug.LogWarning("AggroAgentBase cannot handle non-SingleMobTarget actions. Action ignored!!");
+                    shouldStop = true;
+                }
+            
+                // TODO: Find enemy and move
+                // Behaviour: pick an attack => If in range then attack => Move towards to target by search a path otherwise
 
-                    // TODO: Pick advanced attack / OnPickAction()
-                    RuntimeAction pickedSpell = mob.mainWeapon.GetRegularAttackSpell();
-                    TODO var sTarget = new Spells.SpellTarget(target.Position);
+                // TODO: Pick advanced attack / OnPickAction()
+                var sTarget = new SingleMobTarget(target);
 
-                    // TODO: Move, Add inRange check in CheckWithTargets, etc.
-                    if (pickedSpell.data.CheckWithTargets(mob, sTarget))
+                // TODO: Move, Add inRange check in CheckWithTargets, etc.
+                if (pickedSpell.actionData.CheckWithTargets(mob, sTarget))
+                {
+                    // TODO: Make agent use coroutine actions
+                    // TODO: Cost
+                    pickedAction = pickedSpell;
+                    yield return new JumpIn(mob.DoActionWithDefaultCosts(pickedSpell, sTarget));
+                }
+                else
+                {
+                    // Do we really need to re-calculate the path everytime?
+                    // Will the map change during our action? could be possible though ...
+                    // TODO: Cache the path in some way in case of performance problems
+                    path ??= Globals.backend.FindPathTo(mob.Position, Globals.backend.FindNearestEmptyGrid(target.Position, mob.gridBody), mob.movementType, aggroAgentData.eyesight);
+                    
+                    // TODO: FIXME: This is a dirty patch so the mob won't get stuck when it cannot find a valid path.
+                    // path ??= Globals.backend.FindPathTo(mob.Position, Globals.backend.FindNearestEmptyGrid(target.Position, mob.gridBody), MobData.MovementType.Fly, aggroAgentData.eyesight);
+
+                    // The path needs to be at least 1 grids long
+                    if (path != null && path.path.Count >= 2)
                     {
-                        // TODO: Make agent use coroutine actions
-                        // TODO: Cost
-                        pickedAction = pickedSpell;
-                        yield return new JumpIn(mob.DoActionWithDefaultCosts(pickedSpell, sTarget));
-                    }
-                    else
-                    {
-                        // Do we really need to re-calculate the path everytime?
-                        // Will the map change during our action? could be possible though ...
-                        // TODO: Cache the path in some way in case of performance problems
-                        path ??= Globals.backend.FindPathTo(mob.Position, Globals.backend.FindNearestEmptyGrid(target.Position, mob.gridBody), mob.movementType, aggroAgentData.eyesight);
-                        
-                        // TODO: FIXME: This is a dirty patch so the mob won't get stuck when it cannot find a valid path.
-                        // path ??= Globals.backend.FindPathTo(mob.Position, Globals.backend.FindNearestEmptyGrid(target.Position, mob.gridBody), MobData.MovementType.Fly, aggroAgentData.eyesight);
+                        //throw new System.NotImplementedException();
+                        // TODO: Make agent use coroutine actions.
 
-                        // The path needs to be at least 1 grids long
-                        if (path != null && path.path.Count >= 2)
+                        // We don't know how to move and we cannot reach the target, we screwed
+                        if (movementAction == null) { break; }
+
+                        // If we know how to move then move
+                        pickedAction = movementAction;
+                        yield return new JumpIn(mob.DoActionWithDefaultCosts(
+                            movementAction,
+                            new SingleCoordinateTarget(path.path[0])
+                        ));
+                        path.Step();
+
+                        // Move do not have AP costs
+                        yield return new JumpIn(mob.TryAutoEndTurn());
+                        if(mob.isActive == false)
                         {
-                            //throw new System.NotImplementedException();
-                            // TODO: Make agent use coroutine actions.
-                            pickedAction = mob.GetActionFromSO<Movement>();
-                            yield return new JumpIn(mob.DoActionWithDefaultCosts(
-                                pickedAction,
-                                new Spells.SpellTarget(path.path[0])
-                            ));
-                            path.Step();
-
-                            // Move do not have AP costs
-                            yield return new JumpIn(mob.TryAutoEndTurn());
-                            if(mob.isActive == false)
-                            {
-                                shouldStop = true;
-                            }
+                            shouldStop = true;
                         }
                     }
                 }

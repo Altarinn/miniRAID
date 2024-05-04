@@ -4,24 +4,32 @@ using UnityEngine;
 
 namespace miniRAID.ActionHelpers
 {
-    public class SimpleMultiTurnAction
+    public class SimpleMultiTurnAction<TSpellTarget> where TSpellTarget : SpellTarget
     {
         private int totalTurns = 1;
 
         /// <summary>
         /// Turn starts from 1.
         /// </summary>
-        public delegate IEnumerator MultiTurnAction(int turn, SimpleMultiTurnActionProxy dummy, MobData src, SpellTarget target, object customData);
+        public delegate IEnumerator MultiTurnAction(
+            int turn, SimpleMultiTurnActionProxy<TSpellTarget> dummy, 
+            MobData src, TSpellTarget target, object customData);
 
         public SimpleMultiTurnAction(int turns)
         {
             totalTurns = turns;
         }
 
-        public IEnumerator Do(MultiTurnAction action, MobData src, SpellTarget target, bool startImmediately = false, object customData = null)
+        public IEnumerator Do(
+            MultiTurnAction action, 
+            MobData src, 
+            TSpellTarget target, 
+            bool startImmediately = false, 
+            object customData = null)
         {
             var dummyData = ScriptableObject.CreateInstance<NullListenerSO>();
-            var listener = new SimpleMultiTurnActionProxy(src, dummyData, totalTurns, target, action, customData);
+            var listener = new SimpleMultiTurnActionProxy<TSpellTarget>(
+                src, dummyData, totalTurns, target, action, customData);
             
             src.AddListener(listener);
 
@@ -32,20 +40,20 @@ namespace miniRAID.ActionHelpers
         }
     }
 
-    public class SimpleMultiTurnActionProxy : MobListener
+    public class SimpleMultiTurnActionProxy<TSpellTarget> : MobListener where TSpellTarget : SpellTarget
     {
         public int turn, maxTurn;
         
-        private SpellTarget target;
-        public SimpleMultiTurnAction.MultiTurnAction action;
+        private TSpellTarget target;
+        public SimpleMultiTurnAction<TSpellTarget>.MultiTurnAction action;
         private object customData;
         
         public SimpleMultiTurnActionProxy(
             MobData parent, 
             MobListenerSO data,
             int maxTurn,
-            SpellTarget target,
-            SimpleMultiTurnAction.MultiTurnAction action, 
+            TSpellTarget target,
+            SimpleMultiTurnAction<TSpellTarget>.MultiTurnAction action, 
             object customData = null) : base(parent, data)
         {
             this.target = target;

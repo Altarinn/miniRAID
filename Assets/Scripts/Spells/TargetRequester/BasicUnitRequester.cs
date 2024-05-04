@@ -23,13 +23,16 @@ namespace miniRAID.UI.TargetRequester
 
         public override RequestStage Next(Vector3Int coord, bool notFirst = true)
         {
-            if(currentStageCompleted >= MaxUnits)
+            // TODO: Support multiple targets with MultiMobTarget
+            // if(currentStageCompleted >= MaxUnits)
+            if(currentStageCompleted >= 1)
             {
                 Decided();
                 return null;
             }
 
-            if (currentStageCompleted >= MinUnits)
+            // if (currentStageCompleted >= MinUnits)
+            if (currentStageCompleted >= 1)
             {
                 // TODO: show confirm screen
             }

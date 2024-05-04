@@ -9,7 +9,7 @@ using miniRAID.Spells;
 
 namespace miniRAID
 {
-    public class ExplosiveAttack : ActionDataSO
+    public class ExplosiveAttack : ActionDataSO<SingleMobTarget>
     {
         public SimpleExplosionFx explosionFx;
         public UnitFilters targetFilter;
@@ -17,8 +17,8 @@ namespace miniRAID
         public SpellDamageHeal explosionDamage;
         public SpellBuff explosionBuff;
         
-        public override IEnumerator OnPerform(RuntimeAction<TSpellTarget> ract, MobData mob,
-            Spells.SpellTarget target)
+        public override IEnumerator OnPerform(RuntimeAction<SingleMobTarget> ract, MobData mob,
+            SingleMobTarget target)
         {
             Vector3Int origin = mob.Position;
 

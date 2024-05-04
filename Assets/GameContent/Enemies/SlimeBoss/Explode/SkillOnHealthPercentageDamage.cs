@@ -30,7 +30,7 @@ namespace GameContent.Buffs.Test
         private bool triggerOnDeath;
         
         private ActionSOEntry skillData;
-        private RuntimeAction<TSpellTarget> runtimeSkill;
+        private RuntimeAction<SingleMobTarget> runtimeSkill;
 
         public override string name
         {
@@ -53,7 +53,7 @@ namespace GameContent.Buffs.Test
             base.OnAttach(mob);
 
             damageTotal = 0.0f;
-            runtimeSkill = mob.AddAction(skillData);
+            runtimeSkill = (RuntimeAction<SingleMobTarget>)mob.AddAction(skillData);
 
             if (healthRatio > 0)
             {
@@ -83,7 +83,7 @@ namespace GameContent.Buffs.Test
                 if (damageTotal >= (float)mob.maxHealth * healthRatio)
                 {
                     damageTotal -= (float)mob.maxHealth * healthRatio;
-                    yield return new JumpIn(mob.DoAction(runtimeSkill, new SpellTarget(mob.Position)));
+                    yield return new JumpIn(mob.DoAction(runtimeSkill, new SingleMobTarget(mob)));
                 }
             }
         }
@@ -92,7 +92,7 @@ namespace GameContent.Buffs.Test
         {
             if (triggerOnDeath)
             {
-                yield return new JumpIn(mob.DoAction(runtimeSkill, new SpellTarget(mob.Position)));
+                yield return new JumpIn(mob.DoAction(runtimeSkill, new SingleMobTarget(mob)));
             }
         }
 

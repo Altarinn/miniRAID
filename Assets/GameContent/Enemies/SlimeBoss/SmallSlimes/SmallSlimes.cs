@@ -12,7 +12,7 @@ using miniRAID.Spells;
 namespace miniRAID
 {
     // TODO: Make me to MobData-based (summon) before actual contents (post prototyping) !!
-    public class SmallSlimes : ActionDataSO
+    public class SmallSlimes : ActionDataSO<SingleMobTarget>
     {
         public BuffSO indicatorBuff;
         public ActionHelpers.Projectile smallSlimeProjectile;
@@ -21,8 +21,8 @@ namespace miniRAID
         public Summon<LockTargetAgent> summon;
         public CreateGridEffect poisonPool;
         
-        public override IEnumerator OnPerform(RuntimeAction<TSpellTarget> ract, MobData mob,
-            Spells.SpellTarget _)
+        public override IEnumerator OnPerform(RuntimeAction<SingleMobTarget> ract, MobData mob,
+            SingleMobTarget _)
         {
             // Get all valid targets
             var targets = Globals.backend.GetAllMobs()

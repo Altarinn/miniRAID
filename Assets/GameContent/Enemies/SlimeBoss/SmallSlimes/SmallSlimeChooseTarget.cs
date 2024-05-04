@@ -8,16 +8,16 @@ using miniRAID.Spells;
 
 namespace miniRAID
 {
-    public class SmallSlimeChooseTarget : ActionDataSO
+    public class SmallSlimeChooseTarget : ActionDataSO<SingleMobTarget>
     {
         public SpellBuff buff;
         public ActionHelpers.Projectile indicator;
 
-        public override IEnumerator OnPerform(RuntimeAction<TSpellTarget> ract, MobData mob,
-            Spells.SpellTarget target)
+        public override IEnumerator OnPerform(RuntimeAction<SingleMobTarget> ract, MobData mob,
+            SingleMobTarget target)
         {
             // Get current aggro
-            MobData currentAggro = Essentials.MobAtGrid(target.targetPos[0]);
+            MobData currentAggro = target.Target;
             
             // Get all valid targets
             var enemies = Globals.backend.GetAllMobs()

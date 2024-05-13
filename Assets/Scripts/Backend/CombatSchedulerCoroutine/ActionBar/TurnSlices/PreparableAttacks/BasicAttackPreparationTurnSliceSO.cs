@@ -3,12 +3,12 @@ using miniRAID.Spells;
 
 namespace miniRAID.TurnSchedule
 {
-    public class BasicAttackPreparationTurnSliceSO<TSpellTarget> : TurnSliceSO where TSpellTarget : SpellTarget
+    public class BasicAttackPreparationTurnSliceSO : TurnSliceSO
     {
         [System.Serializable]
         public struct AttackPatterns
         {
-            public PreparableAttackSO<TSpellTarget> attack;
+            public PreparableAttackSO attack;
             public int priority;
             public float weight;
         }

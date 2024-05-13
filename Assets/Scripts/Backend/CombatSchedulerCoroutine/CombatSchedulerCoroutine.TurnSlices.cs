@@ -28,6 +28,7 @@ namespace miniRAID
 
         public void InitializeTurnSchedule()
         {
+            turnScheduler = FindObjectOfType<TurnSchedulerComponent>()?.scheduler ?? turnScheduler;
             turnSchedule = new LinkedListQueue<TurnSlice>();
             KeepTurnScheduleLength();
         }

@@ -11,7 +11,7 @@ namespace miniRAID.TurnSchedule
         public string label;
         public bool showInUI = true;
 
-        public TurnSlice Wrap()
+        public virtual TurnSlice Wrap()
         {
             return new TurnSlice(this);
         }

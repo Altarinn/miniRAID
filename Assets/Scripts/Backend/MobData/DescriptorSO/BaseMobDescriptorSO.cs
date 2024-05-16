@@ -51,6 +51,7 @@ namespace miniRAID
 
         [Header("Behaviour")]
         [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
+        [ColoredBox("#fff4ac")]
         public MobRootAgentBaseSO rootAgent;
 
         public virtual void InitializeMobData(MobData mob)

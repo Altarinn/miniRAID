@@ -1,11 +1,13 @@
 using Sirenix.OdinInspector.Editor;
+using Sirenix.OdinInspector.Editor.Drawers;
 using Sirenix.Utilities.Editor;
 using UnityEditor;
 using UnityEngine;
 
 namespace miniRAID.Editor
 {
-    [DrawerPriority(20)]
+    [DrawerPriority(0.5)]
+    // [DrawerPriority(20)]
     public class ColoredBoxDrawer : OdinAttributeDrawer<ColoredBoxAttribute>
     {
         public static Vector3 LerpHSV(Color a, Color b, float x)
@@ -58,8 +60,19 @@ namespace miniRAID.Editor
                 EditorGUILayout.LabelField($"↯ {Property.NiceName}", labelStyle, GUILayout.Height(17));
                 EditorGUILayout.LabelField($"{Property.ValueEntry.TypeOfValue}", subtitleStyle, GUILayout.Height(14));
 
-                Property.GetActiveDrawerChain().MoveNext();
-                Property.GetActiveDrawerChain().MoveNext();
+                var nextDrawer = Property.GetActiveDrawerChain().BakedDrawerArray
+                    [Property.GetActiveDrawerChain().CurrentIndex + 1];
+                
+                if ( nextDrawer.GetType().IsGenericType && 
+                     typeof(InlineEditorAttributeDrawer<>).IsAssignableFrom(nextDrawer.GetType().GetGenericTypeDefinition()))
+                {
+                    // TODO: Do anything?
+                }
+                else
+                {
+                    Property.GetActiveDrawerChain().MoveNext();
+                    // Property.GetActiveDrawerChain().MoveNext();
+                }
 
                 CallNextDrawer(null);
             }

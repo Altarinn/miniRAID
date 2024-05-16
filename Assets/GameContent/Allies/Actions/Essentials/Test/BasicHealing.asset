@@ -309,9 +309,6 @@ MonoBehaviour:
     - Name: projectile
       Entry: 7
       Data: 13|miniRAID.ActionHelpers.Projectile, Assembly-CSharp
-    - Name: projectilePrefab
-      Entry: 6
-      Data: 
     - Name: projectileSprite
       Entry: 10
       Data: 0
@@ -328,11 +325,71 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: buff
+      Entry: 7
+      Data: 14|miniRAID.ActionHelpers.SpellBuff, Assembly-CSharp
+    - Name: buff
       Entry: 6
+      Data: 
+    - Name: inheritLevel
+      Entry: 5
+      Data: true
+    - Name: inheritPower
+      Entry: 5
+      Data: true
+    - Name: stacks
+      Entry: 3
+      Data: 1
+    - Name: power
+      Entry: 7
+      Data: miniRAID.ActionHelpers.FloatModifier, Assembly-CSharp
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: value
+      Entry: 4
+      Data: 1
+    - Name: expression
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: auxPower
+      Entry: 7
+      Data: miniRAID.ActionHelpers.FloatModifier, Assembly-CSharp
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: value
+      Entry: 4
+      Data: 1
+    - Name: expression
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: crit
+      Entry: 7
+      Data: miniRAID.ActionHelpers.FloatModifier, Assembly-CSharp
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: value
+      Entry: 4
+      Data: 1
+    - Name: expression
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: damageOrHeal
       Entry: 7
-      Data: 14|miniRAID.ActionHelpers.SpellDamageHeal, Assembly-CSharp
+      Data: 15|miniRAID.ActionHelpers.SpellDamageHeal, Assembly-CSharp
     - Name: flags
       Entry: 3
       Data: 0

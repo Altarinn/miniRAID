@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using miniRAID.TurnSchedule;
+using miniRAID.TurnSchedule.RootAgent;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -46,6 +48,10 @@ namespace miniRAID
         
         [Header("Available actions")]
         public ActionSOEntry[] actionSOs;
+
+        [Header("Behaviour")]
+        [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
+        public MobRootAgentBaseSO rootAgent;
 
         public virtual void InitializeMobData(MobData mob)
         {
@@ -101,6 +107,9 @@ namespace miniRAID
             // Register all listeners in class
             job?.classPassives.ForEach(l => mob.AddListener(l.data.LeveledWrap(mob, l.level)));
             job?.classActions.ForEach(l => mob.AddAction(l));
+            
+            // Register root agent
+            mob.AssignRootAgent(rootAgent);
         }
 
         public abstract void RecalculateMobBaseStats(MobData mob);

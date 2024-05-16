@@ -6,7 +6,7 @@ namespace miniRAID.TurnSchedule
     public class PreparableAttackSO : CustomIconScriptableObject
     {
         public ActionSOEntry action;
-        public MobProxyAgentSO agent;
+        // public MobProxyAgentSO agent;
 
         // Target picking
         // Turn scheduling (adding attack turns)

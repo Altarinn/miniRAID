@@ -78,7 +78,7 @@ namespace miniRAID.UIElements
 
         public void AddMessage(string message)
         {
-            string minSec = string.Format("<color=#92d7e7>回合{0}</color> <color=#d3e173>{1:00}m {2:00}s</color>", miniRAID.Globals.combatMgr.Instance.turn, (int)Time.realtimeSinceStartup / 60, (int)Time.realtimeSinceStartup % 60);
+            string minSec = string.Format("<color=#92d7e7>回合{0}</color> <color=#d3e173>{1:00}m {2:00}s</color>", miniRAID.Globals.combatMgr.Instance.now.currentTurnID, (int)Time.realtimeSinceStartup / 60, (int)Time.realtimeSinceStartup % 60);
             
             recentMessage.text = $"{minSec} {message}";
             

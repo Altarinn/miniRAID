@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using miniRAID.TurnSchedule.RootAgent;
 using UnityEngine.UIElements;
 
 namespace miniRAID.UIElements
@@ -17,7 +17,7 @@ namespace miniRAID.UIElements
 
         MobRenderer _mobRenderer;
 
-        miniRAID.Agents.MobAgentBase agent;
+        MobRootAgentBase agent;
 
         public BossStatsController(VisualElement e)
         {
@@ -36,7 +36,7 @@ namespace miniRAID.UIElements
         public void Register(MobRenderer mobRenderer)
         {
             this._mobRenderer = mobRenderer;
-            this.agent = (miniRAID.Agents.MobAgentBase)mobRenderer.data.listeners.Find(x => x is miniRAID.Agents.MobAgentBase);
+            this.agent = mobRenderer.data.FindListener<MobRootAgentBase>();
             Update();
         }
 

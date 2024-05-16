@@ -13,7 +13,7 @@ namespace miniRAID.TurnSchedule
             public float weight;
         }
         
-        public override IEnumerator Turn(CombatSchedulerCoroutine coroutine)
+        public override IEnumerator Turn(TurnSlice slice, CombatSchedulerCoroutine coroutine)
         {
             // TODO: Choose random attack in all patterns
             throw new System.NotImplementedException();

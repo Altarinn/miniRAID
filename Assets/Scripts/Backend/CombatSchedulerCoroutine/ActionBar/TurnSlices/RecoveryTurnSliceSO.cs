@@ -10,7 +10,7 @@ namespace miniRAID.TurnSchedule
         HashSet<MobData> awaitForActions = new HashSet<MobData>();
         public Consts.UnitGroup group = Consts.UnitGroup.Player;
         
-        public override IEnumerator Turn(CombatSchedulerCoroutine coroutine)
+        public override IEnumerator Turn(TurnSlice slice, CombatSchedulerCoroutine coroutine)
         {
             Globals.ui.Instance.combatView.ShowCenterTitle("Recovery");
             yield return new WaitForSeconds(0.5f);

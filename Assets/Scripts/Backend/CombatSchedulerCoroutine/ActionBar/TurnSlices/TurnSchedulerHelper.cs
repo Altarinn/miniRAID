@@ -34,13 +34,6 @@ namespace miniRAID.TurnSchedule
                 yield return new JumpIn(mob.SetActive(true));
                 mob.ResetSkipNextAutoAttack();
             }
-            
-            // Finally trigger Agent events
-            // AwaitForActions may be modified during following processes
-            foreach (var mob in mobs.ToList())
-            {
-                yield return new JumpIn(mob.OnAgentTurn());
-            }
         }
         
         public static IEnumerator NotifyRecoveryStage(IEnumerable<MobData> mobs)

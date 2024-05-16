@@ -25,8 +25,8 @@ namespace miniRAID
         }
 
 
-        [Title("Combat")]
-        public int turn;
+        [Title("Combat")] 
+        public Timestamp now;
         public Databackend backend;
 
         SerialCoroutine sc;
@@ -65,14 +65,14 @@ namespace miniRAID
             // TODO: FIXME: Remove me from here!
             FindObjectOfType<BGMLoopWithIntro>().Play();
 
-            // The real battle begins; Main loop
+            // Battle main loop
             while (!IsCombatFinished())
             {
                 UpdateSchedulerUI();
                 
                 currentTurnSlice = turnSchedule.Dequeue();
                 yield return new JumpIn(currentTurnSlice.Turn());
-                yield return new JumpIn(Chill());
+                // yield return new JumpIn(Chill());
 
                 KeepTurnScheduleLength();
 
@@ -127,7 +127,7 @@ namespace miniRAID
         // TODO: Move me to another place specific for UI
         public void UpdateSchedulerUI()
         {
-            int length = 8;
+            int length = 12;
 
             string message = String.Join("\n",
                 turnSchedule
@@ -173,7 +173,9 @@ namespace miniRAID
             InitializeTurnSchedule();
             
             // TODO
-            turn = 0;
+            now.currentTurnID = 0;
+            now.currentTurnSliceID = 0;
+            
             yield break;
         }
 

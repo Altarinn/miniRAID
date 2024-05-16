@@ -4,11 +4,11 @@ namespace miniRAID.TurnSchedule
 {
     public class StartTurnTurnSliceSO : TurnSliceSO
     {
-        public override IEnumerator Turn(CombatSchedulerCoroutine coroutine)
+        public override IEnumerator Turn(TurnSlice slice, CombatSchedulerCoroutine coroutine)
         {
             // TODO: Move logic to coroutine?
-            coroutine.turn++;
-            Globals.combatTracker.Turns = coroutine.turn;
+            coroutine.now.currentTurnID++;
+            Globals.combatTracker.Turns = coroutine.now.currentTurnID;
             yield break;
         }
     }

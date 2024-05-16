@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,7 @@ namespace miniRAID
         public Vector3Int summonOffset;
         public float healthRatio;
         
+        [InfoBox("This action is left incomplete.", InfoMessageType.Error)]
         public SimpleExplosionFx onHitFx, slimeSpawnFx;
         public Summon<MobRenderer> summon;
         public ShowImportantMessage message;
@@ -22,34 +24,37 @@ namespace miniRAID
         public override IEnumerator OnPerform(RuntimeAction<SingleMobTarget> ract, MobData mob,
             SingleMobTarget _)
         {
-            yield return new JumpIn(message.Do());
+            throw new NotImplementedException();
             
-            for (int s = -1; s <= 1; s += 2)
-            {
-                Vector3Int spawnPos = mob.Position + summonOffset * s;
-                spawnPos.Clamp(Vector3Int.zero, new Vector3Int(
-                    Globals.backend.mapSizeX - 1,
-                    Globals.backend.mapHeight - 1,
-                    Globals.backend.mapSizeZ - 1));
-                
-                // Spawn myself
-                MobRenderer duplicatedSelf = summon.Do(spawnPos, true);
-                var currentProgress = mob.FindListener<BasicPhasedBossAgent>().GetProgress();
-                currentProgress.turnInPhase += 1;
-
-                duplicatedSelf.data.OnInitialized += data =>
-                {
-                    data.health = Mathf.CeilToInt(data.maxHealth * healthRatio);
-                    data.nickname = mob.nickname;
-                    
-                    data.FindListener<BasicPhasedBossAgent>().CopyFrom(currentProgress);
-                    data.FindListener<AggroAgentBase>().SetRandomAggro(10.0f);
-                    
-                    data.SetInactiveImmediately();
-                };
-            }
-
-            yield return new JumpIn(mob.Kill());
+            // TODO: Complete this
+            // yield return new JumpIn(message.Do());
+            //
+            // for (int s = -1; s <= 1; s += 2)
+            // {
+            //     Vector3Int spawnPos = mob.Position + summonOffset * s;
+            //     spawnPos.Clamp(Vector3Int.zero, new Vector3Int(
+            //         Globals.backend.mapSizeX - 1,
+            //         Globals.backend.mapHeight - 1,
+            //         Globals.backend.mapSizeZ - 1));
+            //     
+            //     // Spawn myself
+            //     MobRenderer duplicatedSelf = summon.Do(spawnPos, true);
+            //     var currentProgress = mob.FindListener<BasicPhasedBossAgent>().GetProgress();
+            //     currentProgress.turnInPhase += 1;
+            //
+            //     duplicatedSelf.data.OnInitialized += data =>
+            //     {
+            //         data.health = Mathf.CeilToInt(data.maxHealth * healthRatio);
+            //         data.nickname = mob.nickname;
+            //         
+            //         data.FindListener<BasicPhasedBossAgent>().CopyFrom(currentProgress);
+            //         data.FindListener<AggroAgentBase>().SetRandomAggro(10.0f);
+            //         
+            //         data.SetInactiveImmediately();
+            //     };
+            // }
+            //
+            // yield return new JumpIn(mob.Kill());
 
             yield break;
         }

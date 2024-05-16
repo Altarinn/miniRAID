@@ -19,17 +19,21 @@ namespace miniRAID
             return x;
         }
     }
-    
+
+    public class TurnScheduleSequence : LinkedListQueue<TurnSlice>
+    { }
+
+    // TODO: Implement own LinkedList to support fancier operations, fxxk
     public partial class CombatSchedulerCoroutine
     {
-        public LinkedListQueue<TurnSlice> turnSchedule;
+        public TurnScheduleSequence turnSchedule;
 
         [SerializeField] private TurnSchedulerGeneratorBase turnScheduler;
 
         public void InitializeTurnSchedule()
         {
             turnScheduler = FindObjectOfType<TurnSchedulerComponent>()?.scheduler ?? turnScheduler;
-            turnSchedule = new LinkedListQueue<TurnSlice>();
+            turnSchedule = new TurnScheduleSequence();
             KeepTurnScheduleLength();
         }
         
@@ -43,7 +47,10 @@ namespace miniRAID
         
         public void AppendNewTurn()
         {
-            var newTurn = turnScheduler.GetNewTurn();
+            // TODO: Timestamp is not correct!!!
+            // TODO: Provide timestamp that is later than "now" and actually corresponds to the new turns
+            Debug.LogError("Timestamp is not correct.");
+            var newTurn = turnScheduler.GetNewTurn(now);
             newTurn.ForEach(x =>
             {
                 x.RegisterTo(this);
@@ -60,7 +67,7 @@ namespace miniRAID
             {
                 if (index <= 0)
                 {
-                    turnSchedule.AddBefore(node, slice);
+                    InsertTurnSliceBefore(node, slice);
                     return;
                 }
                 index--;
@@ -69,6 +76,46 @@ namespace miniRAID
             // If we didn't find the position (index >= turnSchedule.len), append at last instead
             turnSchedule.AddLast(slice);
             return;
+        }
+
+        public void InsertTurnSliceBefore(LinkedListNode<TurnSlice> node, TurnSlice slice)
+        {
+            slice.RegisterTo(this);
+            turnSchedule.AddBefore(node, slice);
+        }
+
+        public void RemoveAllTurnSlicesFrom(object source)
+        {
+            var node = turnSchedule.First;
+            while (node != null)
+            {
+                var nextNode = node.Next;
+                if (node.Value.metadata.source == source)
+                {
+                    turnSchedule.Remove(node);
+                }
+
+                node = nextNode;
+            }
+        }
+
+        /// <summary>
+        /// Sorts all turnslices in current schedule by their priority & categories.
+        /// </summary>
+        public void SortTurnSlicesByCategory()
+        {
+            var node = turnSchedule.First;
+            TurnSliceCategory prevCategory = node.Value.metadata.category;
+            var prevNode = node;
+            
+            while (node != null)
+            {
+                if (prevCategory != node.Value.metadata.category)
+                {
+                    // TODO: Remove from schedule
+                    // turnSchedule
+                }
+            }
         }
     }
 }

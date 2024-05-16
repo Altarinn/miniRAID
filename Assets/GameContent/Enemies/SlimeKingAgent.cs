@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using miniRAID.Spells;
+using miniRAID.TurnSchedule;
 using miniRAID.UI.TargetRequester;
 using UnityEngine;
 
@@ -30,9 +31,10 @@ namespace miniRAID.Agents
             MobData mob = GetComponent<MobRenderer>().data;
         }
 
-        public override IEnumerator Act(MobData mob, int turn)
+        public override IEnumerator Turn(MobData mob, Timestamp turn)
         {
-            TurnSchedule todo = schedule[(turn - 1) % schedule.Count];
+            TurnSchedule todo = schedule[(turn.currentTurnID - 1) % schedule.Count];
+            var aggro = mob.FindListener<AggroCollector>();
 
             RuntimeAction<SingleMobTarget> ract = null;
             if (todo.action.data != null)
@@ -55,7 +57,7 @@ namespace miniRAID.Agents
                 }
             }
             
-            if(ract != null && agent.currentTarget != null)
+            if(ract != null && aggro.currentTarget != null)
             {
                 SingleMobTarget sTarget;
                 
@@ -65,7 +67,7 @@ namespace miniRAID.Agents
                 }
                 else
                 {
-                    sTarget = new (agent.currentTarget);
+                    sTarget = new (aggro.currentTarget);
                 }
                 
                 yield return new JumpIn(mob.DoActionWithDefaultCosts(
@@ -76,7 +78,7 @@ namespace miniRAID.Agents
 
             if (todo.doRegularAttack)
             {
-                yield return new JumpIn(agent.Act(mob));
+                yield return new JumpIn(agent.Turn());
             }
 
             yield return new JumpIn(mob.SetActive(false));

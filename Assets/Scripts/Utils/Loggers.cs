@@ -24,7 +24,7 @@ namespace miniRAID
         {
             if (Application.isEditor)
             {
-                string minSec = string.Format("[回合{0}] {1:00}m {2:00}s: ", miniRAID.Globals.combatMgr.Instance.turn, (int)Time.realtimeSinceStartup / 60, (int)Time.realtimeSinceStartup % 60);
+                string minSec = string.Format("[回合{0}] {1:00}m {2:00}s: ", miniRAID.Globals.combatMgr.Instance.now.currentTurnID, (int)Time.realtimeSinceStartup / 60, (int)Time.realtimeSinceStartup % 60);
                 
                 File.AppendAllText(debugLogPath, $"{minSec} {message}\n");
             }

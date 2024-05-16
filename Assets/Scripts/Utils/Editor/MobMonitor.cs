@@ -22,7 +22,7 @@ namespace miniRAID
 
         [LabelText("Aggro")]
         [TableList]
-        public AggroAgentBase.AggroInfo[] targetAggro;
+        public AggroCollector.AggroInfo[] targetAggro;
 
         public string agentInfo;
 
@@ -30,12 +30,11 @@ namespace miniRAID
         {
             if (targetMob != null)
             {
-                var agent = targetMob.data.FindListener<AggroAgentBase>();
-                if (agent != null)
+                var aggro = targetMob.data.FindListener<AggroCollector>();
+                if (aggro != null)
                 {
-                    targetAggro = ((AggroAgentBase)agent).GetAggroListUtil().ToArray();
-
-                    agentInfo = agent.GetInformationString();
+                    targetAggro = aggro.GetAggroListUtil().ToArray();
+                    agentInfo = aggro.GetInformationString();
                 }
                 else
                 {

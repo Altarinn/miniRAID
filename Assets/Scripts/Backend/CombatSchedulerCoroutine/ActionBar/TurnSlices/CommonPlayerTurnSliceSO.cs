@@ -12,7 +12,7 @@ namespace miniRAID.TurnSchedule
 
         public Consts.UnitGroup group = Consts.UnitGroup.Player;
         
-        public override IEnumerator Turn(CombatSchedulerCoroutine coroutine)
+        public override IEnumerator Turn(TurnSlice slice, CombatSchedulerCoroutine coroutine)
         {
             // yield break;
             Globals.logger?.Log($"[csc] TURN START: {group.ToString()}");

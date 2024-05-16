@@ -9,7 +9,7 @@ namespace miniRAID.TurnSchedule
         public Consts.UnitGroup group = Consts.UnitGroup.Player;
         public bool UIOnly = false;
         
-        public override IEnumerator Turn(CombatSchedulerCoroutine coroutine)
+        public override IEnumerator Turn(TurnSlice slice, CombatSchedulerCoroutine coroutine)
         {
             if (group == Consts.UnitGroup.Player)
             {

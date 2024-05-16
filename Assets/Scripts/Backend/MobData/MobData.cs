@@ -8,6 +8,8 @@ using miniRAID.Spells;
 using System.Collections.Generic;
 using System.Linq;
 using miniRAID.Backend;
+using miniRAID.TurnSchedule;
+using miniRAID.TurnSchedule.RootAgent;
 using UnityEngine.Serialization;
 using XLua;
 
@@ -150,6 +152,9 @@ namespace miniRAID
         public List<RuntimeAction> actions = new List<RuntimeAction>();
         [Tooltip("Runtime action objects; the available actions to the mob now.")]
         public HashSet<RuntimeAction> availableActions = new HashSet<RuntimeAction>();
+
+        [Header("Behaviour")]
+        private MobRootAgentBase rootAgent;
 
         public MobData lastTurnTarget
         {
@@ -366,6 +371,7 @@ namespace miniRAID
         public IEnumerator EnterStrategyPhase()
         {
             yield return new JumpIn(SetActive(false));
+            // yield break;
         }
         
         public IEnumerator SetActive(bool value)
@@ -391,13 +397,41 @@ namespace miniRAID
                 yield return new JumpIn(mobRenderer.SetActiveAnim(value));
         }
         
-        public IEnumerator OnAgentTurn()
+        // public IEnumerator OnAgentTurn()
+        // {
+        //     if(!initialized || !isActive) { yield break; }
+        //     
+        //     RecalculateStats();
+        //     yield return new JumpIn(OnAgentWakeUp?.Invoke(this));
+        // }
+
+        public void AssignRootAgent(MobRootAgentBaseSO agentSO)
         {
-            if(!initialized || !isActive) { yield break; }
+            if (agentSO == null)
+            {
+                return;
+            }
             
-            RecalculateStats();
-            yield return new JumpIn(OnAgentWakeUp?.Invoke(this));
+            if (this.rootAgent != null)
+            {
+                RemoveListener(this.rootAgent);
+                this.rootAgent = null;
+            }
+            
+            this.rootAgent = (MobRootAgentBase)(AddListener(agentSO));
         }
+
+        // Modify current TurnSchedule by inserting its own turnSlices
+        public virtual void ModifyTurnSlicesInPlace(Timestamp now, List<TurnSlice> schedule)
+        {
+            if (this.rootAgent != null)
+            {
+                this.rootAgent.ModifyTurnSlicesInPlace(now, schedule);
+            }
+        }
+
+        public virtual int GetTurnSliceModificationPriority(Timestamp now, List<TurnSlice> schedule)
+            => this.rootAgent?.GetTurnSliceModificationPriority(now, schedule) ?? 0;
         
         public void SetInactiveImmediately()
         {

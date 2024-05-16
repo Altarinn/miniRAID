@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 886041762, guid: 53d6db441a45ad94687fbdac848a2a90, type: 3}
-  m_Color: {r: 0.13207549, g: 0.09145604, b: 0.09145604, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -118,7 +118,7 @@ Transform:
   - {fileID: 5625026801670004712}
   - {fileID: 7666238436955693803}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &58932304074847552
 MonoBehaviour:
@@ -141,8 +141,9 @@ MonoBehaviour:
     unitGroup: 1
     nickname: "\u6728\u6869"
     _actionPointsMul100: 200
+    _freeActionPointsMul100: 100
     apRecovery: 2
-    apMax: 2
+    apNonFreeMax: 2
     moveRange:
       valueType: 0
       staticValue: 0

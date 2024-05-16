@@ -18,10 +18,10 @@ namespace miniRAID
             MobData targetMob = target.Target;
             
             // Check if target is aggro based
-            if (targetMob.FindListener<AggroAgentBase>() != null)
+            if (targetMob.FindListener<AggroCollector>() != null)
             {
-                var aggroAgent = targetMob.FindListener<AggroAgentBase>();
-                aggroAgent.SetAsMaxAggro(mob, 1.2f);
+                var aggro = targetMob.FindListener<AggroCollector>();
+                aggro.SetAsMaxAggro(mob, 1.2f);
             }
 
             yield break;

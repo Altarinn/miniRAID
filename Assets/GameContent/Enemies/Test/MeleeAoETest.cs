@@ -13,6 +13,8 @@ namespace miniRAID.Agents.Test
         [SerializeField] private UnitFilters filter;
         [SerializeField] private SpellDamageHeal damageOrHeal;
         [SerializeField] private SimpleExplosionFx fx;
+
+        public override GridShape MainShape => shape; 
         
         public override Dictionary<string, object> LazyPrepareTooltipVariables(RuntimeAction ract)
         {

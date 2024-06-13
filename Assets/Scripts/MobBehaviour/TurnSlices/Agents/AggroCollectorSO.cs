@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using miniRAID.Actions;
 using miniRAID.Spells;
+using miniRAID.TurnSchedule;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -22,7 +23,16 @@ namespace miniRAID.Agents
         }
     }
 
-    public class AggroCollector : MobListener
+    public abstract class TargetIndicator : MobListener
+    {
+        protected TargetIndicator(MobData parent, MobListenerSO data) : base(parent, data)
+        {
+        }
+
+        public virtual MobData CurrentTarget => null;
+    }
+
+    public class AggroCollector : TargetIndicator
     {
         public AggroCollector(MobData parent, MobListenerSO data) : base(parent, data)
         {
@@ -33,9 +43,9 @@ namespace miniRAID.Agents
         public float maxAggro => aggroList.Max(kv => kv.Value);
         public AggroCollectorSO aggroCollectorData => (AggroCollectorSO)data;
 
-        public MobData currentTarget;
+        protected MobData currentTarget;
 
-        public MobData CurrentTarget
+        public override MobData CurrentTarget
         {
             get
             {

@@ -36,6 +36,13 @@ namespace miniRAID
             description = desc;
         }
 
+        public LuaGetter(System.Func<TIn, TOut> getter, string desc = "No description")
+        {
+            type = LuaGetterType.DYNAMIC;
+            parsedDynamic = getter;
+            description = desc;
+        }
+
         public LuaGetterType type = LuaGetterType.STATIC;
 
         // TODO: change everything to private; Requires to get SerializedProperty in Editor.
@@ -83,7 +90,7 @@ namespace miniRAID
         {
             return !(
                 type == LuaGetterType.STATIC
-            || (type == LuaGetterType.DYNAMIC && (LuaExpr == null || LuaExpr.Length == 0))
+            || (type == LuaGetterType.DYNAMIC && (parsedDynamic != null || LuaExpr == null || LuaExpr.Length == 0))
             || (type == LuaGetterType.TEMPLATE && getterTemplate == null));
         }
 

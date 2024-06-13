@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using miniRAID.TurnSchedule;
@@ -6,7 +7,7 @@ using UnityEngine;
 namespace miniRAID.Agents
 {
     [CreateAssetMenu(menuName = "Agents/MonoBehaviourAgent")]
-    public class MonoBehaviourAgentSO : AggroAgentBaseSO
+    public class MonoBehaviourAgentSO : TargetedAgentBaseSO
     {
         public override MobTurnSlice Wrap(MobData parent, TurnSliceMetadata metadata)
         {
@@ -14,7 +15,8 @@ namespace miniRAID.Agents
         }
     }
 
-    public class MonoBehaviourAgent : AggroAgentBase
+    [Obsolete]
+    public class MonoBehaviourAgent : TargetedAgentBase
     {
         MonoBehaviourAgentComponent agentComponent;
 
@@ -37,7 +39,7 @@ namespace miniRAID.Agents
             }
         }
 
-        public Dictionary<MobData, float> AggroList => mobAggro.AggroList;
+        // public Dictionary<MobData, float> AggroList => mobAggro.AggroList;
 
         public IEnumerator RegularAttack() => Turn();
 

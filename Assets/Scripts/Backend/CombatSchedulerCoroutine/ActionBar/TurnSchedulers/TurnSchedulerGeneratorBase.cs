@@ -4,6 +4,6 @@ namespace miniRAID.TurnSchedule
 {
     public abstract class TurnSchedulerGeneratorBase : CustomIconScriptableObject
     {
-        public abstract List<TurnSlice> GetNewTurn(Timestamp now);
+        public abstract TurnScheduleSequence GetNewTurn(ref Timestamp now);
     }
 }

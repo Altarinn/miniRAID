@@ -65,6 +65,17 @@ namespace miniRAID
         // Use this for initialization
         void Start()
         {
+            Init();
+        }
+
+        private bool _inited = false;
+        public void Init()
+        {
+            if (_inited)
+            {
+                return;
+            }
+            
             animator = GetComponent<Animator>();
 
             backend = Databackend.GetSingleton();
@@ -87,6 +98,8 @@ namespace miniRAID
             {
                 Globals.ui.Instance.BindAsBoss(this);
             }
+
+            _inited = true;
         }
 
         // Update is called once per frame

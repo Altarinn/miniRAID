@@ -8,7 +8,7 @@ using UnityEngine;
 namespace miniRAID
 {
     [ColoredBox("#7fd")]
-    public class GridShape
+    public class GridShape : ICloneable
     {
 
         public HashSet<Vector3Int> shape;
@@ -38,6 +38,24 @@ namespace miniRAID
         public GridShape(HashSet<Vector3Int> shape)
         {
             this.shape = shape;
+        }
+
+        public GridShape(GridShape from)
+        {
+            position = from.position;
+            direction = from.direction;
+            canvasSize = from.canvasSize;
+
+            // Better ways to copy this?
+            // https://stackoverflow.com/questions/3927789/efficient-way-to-clone-a-hashsett
+            // > in .NET 4.7.2, can clone effectively via new HashSet(from, from.Comparer);.
+            // Do we have .NET 4.7.2?
+            shape = new HashSet<Vector3Int>(from.shape.ToList());
+        }
+        
+        public object Clone()
+        {
+            return new GridShape(this);
         }
 
         public void AddGrid(Vector3Int rPos)

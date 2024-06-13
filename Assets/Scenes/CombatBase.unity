@@ -1377,7 +1377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 24.97713, z: -32}
+  m_FollowOffset: {x: 0, y: 39.03964, z: -32}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -2212,7 +2212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 24.97713, z: -30}
+  m_FollowOffset: {x: 0, y: 39.03964, z: -30}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -3927,8 +3927,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1412256708}
-  m_LocalRotation: {x: 0.16267389, y: 0.8189089, z: -0.28175947, w: 0.4727972}
-  m_LocalPosition: {x: -18.212812, y: 24.97713, z: 23.500004}
+  m_LocalRotation: {x: 0.2139125, y: 0.7827671, z: -0.37050733, w: 0.4519308}
+  m_LocalPosition: {x: -18.212812, y: 39.03964, z: 26.500004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4247,8 +4247,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1578731200}
-  m_LocalRotation: {x: 0.16267389, y: 0.8189089, z: -0.28175947, w: 0.4727972}
-  m_LocalPosition: {x: -18.212812, y: 24.97713, z: 23.500004}
+  m_LocalRotation: {x: 0.2139125, y: 0.7827671, z: -0.37050733, w: 0.4519308}
+  m_LocalPosition: {x: -18.212812, y: 39.03964, z: 26.500004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4964,7 +4964,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720508450}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.5, y: 0, z: 7.5}
+  m_LocalPosition: {x: 9.5, y: 0, z: 10.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5176,8 +5176,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1801201036}
-  m_LocalRotation: {x: 0.17010681, y: 0.81436545, z: -0.29463366, w: 0.4701741}
-  m_LocalPosition: {x: -16.480762, y: 24.97713, z: 22.500004}
+  m_LocalRotation: {x: 0.22098596, y: 0.7768498, z: -0.3827589, w: 0.44851446}
+  m_LocalPosition: {x: -16.480762, y: 39.03964, z: 25.500004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

@@ -641,9 +641,11 @@ namespace miniRAID
         public HashSet<MobData> allMobs { get; private set; } = new HashSet<MobData>();
         public Dictionary<GridEffect, List<Vector3Int>> allGridEffects { get; private set; } = new();
         public int mapSizeX, mapHeight, mapSizeZ;
+        public Vector3Int MapSize => new Vector3Int(mapSizeX, mapHeight, mapSizeZ);
 
         public event MobData.MobArgumentDelegate onMobAdded;
         public event MobData.MobArgumentDelegate onMobRemoved;
+        public CoroutineEvent<MobData, RuntimeAction, Spells.SpellTarget> onGlobalActionPostcast;
 
         private Databackend()
         {
@@ -685,14 +687,21 @@ namespace miniRAID
             }
         }
 
+        private IEnumerator GlobalActionPostcast(MobData mob, RuntimeAction action, Spells.SpellTarget target)
+        {
+            yield return new JumpIn(onGlobalActionPostcast?.Invoke(mob, action, target));
+        }
+
         private void AddMob(MobData mob)
         {
             allMobs.Add(mob);
+            mob.OnActionPostcast += GlobalActionPostcast;
             onMobAdded?.Invoke(mob);
         }
 
         private void RemoveMob(MobData mob)
         {
+            mob.OnActionPostcast -= GlobalActionPostcast;
             allMobs.Remove(mob);
             onMobRemoved?.Invoke(mob);
         }

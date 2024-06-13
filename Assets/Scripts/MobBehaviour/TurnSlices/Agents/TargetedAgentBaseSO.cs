@@ -14,7 +14,7 @@ using UnityEngine.Serialization;
 namespace miniRAID.Agents
 {
     [CreateAssetMenu(menuName = "Agents/AggroAgentBase")]
-    public class AggroAgentBaseSO : MobTurnSliceBaseSO
+    public class TargetedAgentBaseSO : MobTurnSliceBaseSO
     {
         [Tooltip("视野范围，不会向超出范围的敌对目标移动。目前视距受移动种类影响，如飞行单位视野穿山但步行单位看不到山对面。")]
         public int eyesight = 10;
@@ -23,7 +23,7 @@ namespace miniRAID.Agents
 
         public override MobTurnSlice Wrap(MobData mob, TurnSliceMetadata metadata)
         {
-            return new AggroAgentBase(mob, this, metadata);
+            return new TargetedAgentBase(mob, this, metadata);
         }
 
         public override IEnumerator Turn(TurnSlice slice, CombatSchedulerCoroutine coroutine)
@@ -38,15 +38,15 @@ namespace miniRAID.Agents
      * If the regular attack is illegal (e.g., out of range, etc.), it will move towards current target instead.
      * It will never stop until the mob run out of AP, cannot do anything, or as specified in the variable `maxActionPerTurn`.
      */
-    public class AggroAgentBase : MobTurnSlice
+    public class TargetedAgentBase : MobTurnSlice
     {
-        public AggroAgentBaseSO aggroAgentData => (AggroAgentBaseSO)data;
+        public TargetedAgentBaseSO targetedAgentData => (TargetedAgentBaseSO)data;
 
-        public AggroCollector mobAggro;
+        public TargetIndicator mobAggro;
 
-        public AggroAgentBase(MobData mob, AggroAgentBaseSO data, TurnSliceMetadata metadata) : base(mob, data, metadata)
+        public TargetedAgentBase(MobData mob, TargetedAgentBaseSO data, TurnSliceMetadata metadata) : base(mob, data, metadata)
         {
-            mobAggro = mob.FindListener<AggroCollector>();
+            mobAggro = mob.FindListener<TargetIndicator>();
         }
 
         public void OnBeginSlice()
@@ -135,7 +135,7 @@ namespace miniRAID.Agents
                     // Do we really need to re-calculate the path everytime?
                     // Will the map change during our action? could be possible though ...
                     // TODO: Cache the path in some way in case of performance problems
-                    path ??= Globals.backend.FindPathTo(mob.Position, Globals.backend.FindNearestEmptyGrid(target.Position, mob.gridBody), mob.movementType, aggroAgentData.eyesight);
+                    path ??= Globals.backend.FindPathTo(mob.Position, Globals.backend.FindNearestEmptyGrid(target.Position, mob.gridBody), mob.movementType, targetedAgentData.eyesight);
                     
                     // TODO: FIXME: This is a dirty patch so the mob won't get stuck when it cannot find a valid path.
                     // path ??= Globals.backend.FindPathTo(mob.Position, Globals.backend.FindNearestEmptyGrid(target.Position, mob.gridBody), MobData.MovementType.Fly, aggroAgentData.eyesight);

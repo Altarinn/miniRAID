@@ -26,7 +26,7 @@ namespace miniRAID
 
 
         [Title("Combat")] 
-        public Timestamp now;
+        public Timestamp now, appendedTurns;
         public Databackend backend;
 
         SerialCoroutine sc;
@@ -73,6 +73,8 @@ namespace miniRAID
                 currentTurnSlice = turnSchedule.Dequeue();
                 yield return new JumpIn(currentTurnSlice.Turn());
                 // yield return new JumpIn(Chill());
+                
+                currentTurnSlice.OnRemove(this);
 
                 KeepTurnScheduleLength();
 

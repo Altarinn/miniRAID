@@ -9,7 +9,7 @@
     <Style src="project://database/Assets/Resources/UI/UnitMenu.uss?fileID=7433441132597879392&amp;guid=a0add0ae97395f2429640186459de10a&amp;type=3#UnitMenu" />
     <Style src="project://database/Assets/Resources/UI/miniRAID_default.uss?fileID=7433441132597879392&amp;guid=54e6eee580e008a468415140067b7312&amp;type=3#miniRAID_default" />
     <ui:VisualElement name="CombatPanel" picking-mode="Ignore" style="flex-direction: row; height: 100%; width: 100%;">
-        <ui:Label tabindex="-1" text="v0.2.0" display-tooltip-when-elided="true" name="VersionNum" style="position: absolute; margin-left: 2px; margin-top: 2px; color: rgb(96, 108, 79);" />
+        <ui:Label tabindex="-1" text="v0.2.3" display-tooltip-when-elided="true" name="VersionNum" style="position: absolute; margin-left: 2px; margin-top: 2px; color: rgb(96, 108, 79);" />
         <ui:VisualElement name="MainPanel" picking-mode="Ignore" style="flex-grow: 1;">
             <ui:Instance template="MobDetails" name="MobDetails" picking-mode="Ignore" style="position: absolute; left: 164px; top: 69px; width: 550px; visibility: hidden;" />
             <ui:Instance template="MobInfo" name="MobInfo" style="left: 164px; top: 69px; width: 550px; visibility: hidden; position: absolute;" />
@@ -47,6 +47,9 @@
             <ui:VisualElement class="ActionBar" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); position: absolute; flex-direction: row; right: 0; align-items: flex-start;">
                 <ui:Label tabindex="-1" text="&gt;" display-tooltip-when-elided="true" name="CurrentTurnIndicator" style="margin-top: 0; margin-left: 0; background-color: rgba(0, 0, 0, 0.75); padding-left: 2px; padding-right: 0; padding-top: 1.7px; padding-bottom: 2px; top: 0;" />
                 <ui:Label tabindex="-1" text="Turns" display-tooltip-when-elided="true" name="ActionBar" style="margin-top: 0; margin-left: 0; background-color: rgba(0, 0, 0, 0.75); padding-left: 2px; padding-right: 2px; padding-top: 2px; padding-bottom: 2px; margin-right: 0; margin-bottom: 0;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="TempInfoContainer" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); top: 50px; position: absolute; right: 0; left: 0; align-items: flex-start;">
+                <ui:Label tabindex="-1" display-tooltip-when-elided="true" name="TempInformation" style="background-color: rgb(0, 0, 0); visibility: visible;" />
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="MiddleTitle" picking-mode="Ignore" style="background-color: rgb(48, 48, 48); position: absolute; width: 100%; height: 10%; top: 45%; justify-content: center; visibility: hidden;">

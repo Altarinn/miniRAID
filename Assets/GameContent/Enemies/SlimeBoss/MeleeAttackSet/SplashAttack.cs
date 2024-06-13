@@ -1,0 +1,32 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using miniRAID.ActionHelpers;
+using miniRAID.Spells;
+
+namespace miniRAID.Agents.SlimeBoss.MeleeAttackSet
+{
+    public class SplashAttack : ActionDataSO<SingleMobTarget>
+    {
+        public UnitFilters filters;
+        public SpellDamageHeal damage;
+        
+        public GridShape range;
+
+        public override GridShape MainShape => range;
+
+        public override IEnumerator OnPerform(RuntimeAction<SingleMobTarget> ract, MobData mob, SingleMobTarget target)
+        {
+            List<MobData> captured;
+            range.position = target.Target.Position;
+            captured = CaptureTargetsInGridShape.CaptureAllTargetsWithinRange(
+                    mob, filters, range.ApplyTransform())
+                .ToList();
+            
+            foreach (var m in captured)
+            {
+                yield return new JumpIn(damage.Do(ract, mob, m));
+            }
+        }
+    }
+}

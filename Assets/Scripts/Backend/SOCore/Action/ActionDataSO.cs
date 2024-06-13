@@ -146,6 +146,9 @@ namespace miniRAID
         public PowerGetter power;
         public PowerGetter auxPower;
         // public LeveledStats<float> test;
+        
+        // Mainshape of the action, typically effective range
+        public virtual GridShape MainShape { get; }
 
         public abstract Dictionary<Cost.Type, (double, double)> GetCostBounds(MobData mob);
         public abstract bool CheckWithAbstractTargets(MobData mob, SpellTarget target);
@@ -333,8 +336,8 @@ namespace miniRAID
 
         public dNumber power, auxPower;
         public dNumber hit, crit;
-        
-        public GridShape shape;
+
+        public virtual GridShape Shape => data.MainShape; 
 
         GeneralCombatData envData = new();
 
@@ -441,7 +444,7 @@ namespace miniRAID
             crit = dNumber.CreateComposite(mob.crit, "actionBase");
             
             // TODO: FIXME: Assign gridShape here
-            shape = null;
+            // shape = null;
 
             // After this, we will return to Mob.RecalculateStats();
             // Then Mob.OnActionStatCalculation event will be triggered,
@@ -455,7 +458,7 @@ namespace miniRAID
 
             envData.power = power;
             envData.auxPower = auxPower;
-            envData.shape = shape;
+            envData.shape = Shape;
             envData.ract = this;
         }
 

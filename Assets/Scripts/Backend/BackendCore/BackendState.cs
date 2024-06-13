@@ -26,5 +26,47 @@ namespace miniRAID.Backend
         {
             Globals.backend.RegisterState(this);
         }
+        
+        // TODO: Move me to another place
+        public HashSet<IMobListenerIndicator> indicators;
+        public T AddIndicator<T>(T indicator) where T : IMobListenerIndicator
+        {
+            if (indicators == null)
+            {
+                indicators = new();
+            }
+            
+            if(indicators.Add(indicator))
+            {
+                indicator.Instantiate();
+                return indicator;
+            }
+
+            return default;
+        }
+
+        public void RemoveIndicator(IMobListenerIndicator indicator)
+        {
+            if (indicators.Remove(indicator))
+            {
+                indicator.Destroy();
+            }
+        }
+        
+        public void RemoveAllIndicators()
+        {
+            if (indicators == null)
+            {
+                return;
+            }
+            
+            foreach(var indicator in indicators)
+            {
+                indicator.Destroy();
+            }
+            
+            indicators.Clear();
+        }
+        
     }
 }

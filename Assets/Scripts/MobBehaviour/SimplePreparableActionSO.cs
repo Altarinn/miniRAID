@@ -36,7 +36,7 @@ namespace miniRAID.MobBehaviour
                     RuntimeAction ract = mob.GetAction(action.data)
                                            ?? mob.AddAction(action);
 
-                    coroutine.InsertTurnSliceBefore(node, sliceToInsert.Wrap(
+                    coroutine.turnSchedule.InsertTurnSliceAfter(node, sliceToInsert.Wrap(
                         mob, ract, new TurnSliceMetadata(mob)));
                 }
 

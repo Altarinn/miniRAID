@@ -7,6 +7,7 @@ namespace miniRAID.MobBehaviour
 {
     public abstract class PreparableActionSO : CustomIconScriptableObject
     {
+        [InfoBox("No strong typing about SpellTarget here! Please fix PreparableActionSO.cs.", InfoMessageType.Warning)]
         // If corresponding action has already been added to the Mob,
         // level will be ignored. Otherwise, a new action with corre-
         // sponding level will be added to the Mob.

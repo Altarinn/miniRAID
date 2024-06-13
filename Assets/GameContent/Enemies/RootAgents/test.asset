@@ -46,7 +46,7 @@ MonoBehaviour:
   priority: 0
   TurnSchedulePriority: 0
   pivotSlice: {fileID: 11400000, guid: a82388ea330b82740b4089dff5afdd8f, type: 2}
-  sliceToInsert: {fileID: 11400000, guid: 33c2d79d1a499084f8de2cfee5c78339, type: 2}
+  sliceToInsert: {fileID: 11400000, guid: 1ad9b64c3e0a11240a07c98dfecf0c8d, type: 2}
   references:
     version: 2
     RefIds: []

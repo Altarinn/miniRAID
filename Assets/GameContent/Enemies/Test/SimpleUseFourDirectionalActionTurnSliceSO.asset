@@ -31,3 +31,4 @@ MonoBehaviour:
   label: 
   showInUI: 1
   defaultCategory: 3
+  UpdateTargetAfterInitialized: 0

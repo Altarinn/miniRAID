@@ -30,4 +30,6 @@ MonoBehaviour:
   mainColor: {r: 0.76792455, g: 0.99509805, b: 1, a: 0}
   label: Auto Attack
   showInUI: 1
+  defaultCategory: 0
   group: 0
+  SkipUserInput: 1

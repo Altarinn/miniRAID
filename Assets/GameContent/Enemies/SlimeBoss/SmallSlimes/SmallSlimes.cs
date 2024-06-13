@@ -18,7 +18,7 @@ namespace miniRAID
         public ActionHelpers.Projectile smallSlimeProjectile;
         public SimpleExplosionFx onHitFx, smallSlimeSpawnFx;
         public SpellDamageHeal damage;
-        public Summon<LockTargetAgent> summon;
+        public Summon<MobRenderer> summon;
         public CreateGridEffect poisonPool;
         
         public override IEnumerator OnPerform(RuntimeAction<SingleMobTarget> ract, MobData mob,
@@ -54,8 +54,12 @@ namespace miniRAID
                     yield return new JumpIn(smallSlimeSpawnFx.Do(spawnPos));
                     
                     // Spawn
-                    LockTargetAgent summonedMob = summon.Do(spawnPos, false).GetComponent<LockTargetAgent>();
-                    summonedMob.target = mob;
+                    MobRenderer summonedMob = summon.Do(spawnPos, false).GetComponent<MobRenderer>();
+                    var lt = summonedMob.data.FindListener<LockedTarget>();
+                    if (lt != null)
+                    {
+                        lt.target = mob;
+                    }
 
                     // Generate poison pool
                     yield return new JumpIn(poisonPool.Do(ract, mob, target.Position));

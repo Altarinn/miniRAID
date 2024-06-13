@@ -33,6 +33,7 @@ namespace miniRAID.MobBehaviour.TurnSlices
                 if (rng <= 0)
                 {
                     pickedAction = actionList[i];
+                    break;
                 }
             }
 

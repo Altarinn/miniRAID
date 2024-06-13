@@ -79,7 +79,7 @@ MonoBehaviour:
   Guid: cb37ffc9640f43479a369467a188723c
   Id: 88
   icon: {fileID: 0}
-  nickname: 
+  nickname: Felivol
   race: {fileID: 11400000, guid: 465e4bee7598c314988f3f7eff0fed75, type: 2}
   job: {fileID: 11400000, guid: fcf3ec1329d8c584f87250f61ae58ba9, type: 2}
   color: {r: 0.56037736, g: 0.8431818, b: 1, a: 1}
@@ -98,6 +98,7 @@ MonoBehaviour:
     level: 0
   - data: {fileID: 11400000, guid: 26c0b2c1cb8d1aa41bad5b90e9aba93e, type: 2}
     level: 0
+  rootAgent: {fileID: 0}
   baseStats:
     VIT: 17
     STR: 13

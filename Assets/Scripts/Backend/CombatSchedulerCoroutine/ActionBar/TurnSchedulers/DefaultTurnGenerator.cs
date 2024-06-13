@@ -7,9 +7,11 @@ namespace miniRAID.TurnSchedule
     {
         public List<TurnSliceSO> turnSlices;
         
-        public override List<TurnSlice> GetNewTurn(Timestamp now)
+        public override TurnScheduleSequence GetNewTurn(ref Timestamp now)
         {
-            return turnSlices.Select(x => x.Wrap(new TurnSliceMetadata(null))).ToList();
+            now.currentTurnID += 1;
+            return new TurnScheduleSequence(
+                turnSlices.Select(x => x.Wrap(new TurnSliceMetadata(null))));
         }
     }
 }

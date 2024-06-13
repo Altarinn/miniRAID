@@ -95,53 +95,12 @@ namespace miniRAID
         
         public virtual string Tooltip => Globals.localizer.L(data.ToolTipKey, new object[]{LazyPrepareTooltipVariables()});
 
-        public HashSet<IMobListenerIndicator> indicators;
-
         public MobListener(MobData parent, MobListenerSO data) { this.parentMob = parent; this.data = data; }
 
         public virtual bool TryAdd(MobData mob)
         {
             if(data == null) { return true; }
             return data.TryAdd(mob);
-        }
-
-        public T AddIndicator<T>(T indicator) where T : IMobListenerIndicator
-        {
-            if (indicators == null)
-            {
-                indicators = new();
-            }
-            
-            if(indicators.Add(indicator))
-            {
-                indicator.Instantiate();
-                return indicator;
-            }
-
-            return default;
-        }
-
-        public void RemoveIndicator(IMobListenerIndicator indicator)
-        {
-            if (indicators.Remove(indicator))
-            {
-                indicator.Destroy();
-            }
-        }
-        
-        public void RemoveAllIndicators()
-        {
-            if (indicators == null)
-            {
-                return;
-            }
-            
-            foreach(var indicator in indicators)
-            {
-                indicator.Destroy();
-            }
-            
-            indicators.Clear();
         }
 
         ////////////////////////////////////////////////////

@@ -196,6 +196,11 @@ namespace miniRAID.ActionHelpers
 
         public IEnumerator Do(RuntimeAction spellContext, MobData src, MobData tgt)
         {
+            if (buff == null)
+            {
+                yield break;
+            }
+
             // TODO: Change to coroutine.
             Debug.LogError("Refactor this to coroutine and find better solutions than (power, auxPower).");
             
@@ -232,7 +237,10 @@ namespace miniRAID.ActionHelpers
                 position = Globals.backend.FindNearestEmptyGrid(position);
             }
             
+            Debug.LogError("Summon and LockTargetAgent still uses MonoBehaviour-based code!");
+            
             var summoned = GameObject.Instantiate(mobPrefab.gameObject, Globals.backend.GridToWorldPos(position) + Vector3.one * 0.5f, Quaternion.identity).GetComponent<MobRenderer>();
+            summoned.Init();
 
             return summoned;
         }
@@ -306,6 +314,33 @@ namespace miniRAID.ActionHelpers
                 // Globals.ui.Instance.combatView.ShowImportantText(message);
                 // yield return new WaitForSeconds(seconds);
                 // Globals.ui.Instance.combatView.HideImportantText();
+            }
+        }
+    }
+
+    [ColoredBox("#fa7")]
+    public class KnockBack
+    {
+        public bool isInstant = false;
+        
+        public IEnumerator Do(MobData mob, Vector3Int knockback)
+        {
+            Vector3Int newPos = mob.Position + knockback;
+            
+            // TODO: Check newPos validity
+            newPos = Vector3Int.Max(Vector3Int.Min(newPos, Globals.backend.MapSize), Vector3Int.zero);
+            if (Globals.backend.GetMap(newPos).mob != null)
+            {
+                yield break;
+            }
+            
+            if ((!isInstant) && Globals.cc.animation)
+            {
+                yield return new JumpIn(mob.MoveToCoroutine(newPos, null, false));
+            }
+            else
+            {
+                yield return new JumpIn(mob.SetPosition(newPos));
             }
         }
     }

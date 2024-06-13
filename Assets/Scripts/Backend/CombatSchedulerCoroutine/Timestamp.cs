@@ -4,5 +4,11 @@ namespace miniRAID.TurnSchedule
     {
         public int currentTurnID;
         public int currentTurnSliceID;
+        
+        public Timestamp(int turnID)
+        {
+            currentTurnID = turnID;
+            currentTurnSliceID = -1;
+        }
     }
 }

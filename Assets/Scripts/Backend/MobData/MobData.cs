@@ -419,18 +419,21 @@ namespace miniRAID
             }
             
             this.rootAgent = (MobRootAgentBase)(AddListener(agentSO));
+            this.ModifyTurnSlicesInPlace(
+                 Globals.combatMgr.Instance.now,
+                 Globals.combatMgr.Instance.turnSchedule);
         }
 
         // Modify current TurnSchedule by inserting its own turnSlices
-        public virtual void ModifyTurnSlicesInPlace(Timestamp now, List<TurnSlice> schedule)
+        public virtual void ModifyTurnSlicesInPlace(Timestamp now, TurnScheduleSequence schedule)
         {
-            if (this.rootAgent != null)
+            if (this.rootAgent != null && schedule != null)
             {
                 this.rootAgent.ModifyTurnSlicesInPlace(now, schedule);
             }
         }
 
-        public virtual int GetTurnSliceModificationPriority(Timestamp now, List<TurnSlice> schedule)
+        public virtual int GetTurnSliceModificationPriority(Timestamp now, TurnScheduleSequence schedule)
             => this.rootAgent?.GetTurnSliceModificationPriority(now, schedule) ?? 0;
         
         public void SetInactiveImmediately()

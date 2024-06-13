@@ -279,9 +279,6 @@ MonoBehaviour:
     - Name: projectile
       Entry: 7
       Data: 12|miniRAID.ActionHelpers.Projectile, Assembly-CSharp
-    - Name: projectilePrefab
-      Entry: 6
-      Data: 
     - Name: projectileSprite
       Entry: 10
       Data: 0

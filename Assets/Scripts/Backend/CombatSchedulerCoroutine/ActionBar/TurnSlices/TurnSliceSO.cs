@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using Sprite = UnityEngine.ProBuilder.Shapes.Sprite;
@@ -39,7 +40,8 @@ namespace miniRAID.TurnSchedule
     public struct TurnSliceMetadata
     {
         public TurnSliceCategory category;
-        public int priority;
+        public Timestamp timestamp;
+        public LuaGetter<None, int> Priority;
         
         // TODO: FIXME: Savedata? How to handle this? Is this okay?
         public MobData source;
@@ -47,28 +49,31 @@ namespace miniRAID.TurnSchedule
         public TurnSliceMetadata(MobData source)
         {
             this.category = TurnSliceCategory.Inherited;
-            this.priority = 0;
+            this.Priority = 0;
 
             this.source = source;
+            this.timestamp = new Timestamp();
         }
 
         public TurnSliceMetadata(MobData source, int priority)
         {
             this.category = TurnSliceCategory.Inherited;
 
-            this.priority = priority;
+            this.Priority = priority;
             this.source = source;
+            this.timestamp = new Timestamp();
         }
         
         public TurnSliceMetadata(MobData source, int priority, TurnSliceCategory category)
         {
             this.category = category;
-            this.priority = priority;
+            this.Priority = priority;
             this.source = source;
+            this.timestamp = new Timestamp();
         }
     }
 
-    public class TurnSlice
+    public class TurnSlice : Backend.BackendState
     {
         public AbstractTurnSliceSO data;
         public TurnSliceMetadata metadata;
@@ -95,6 +100,8 @@ namespace miniRAID.TurnSchedule
         {
             this.coroutine = coroutine;
         }
+
+        public virtual void OnRemove(CombatSchedulerCoroutine coroutine) { }
 
         public virtual IEnumerator Turn() => data.Turn(this, coroutine);
     }

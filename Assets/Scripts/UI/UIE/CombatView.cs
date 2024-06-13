@@ -16,7 +16,7 @@ namespace miniRAID.UIElements
         public MobInfoController mobInfo;
         public UnitBarController unitBar;
 
-        public Label battlePreview, centerTitleText, importantText, schedulerPlaceholder;
+        public Label battlePreview, centerTitleText, importantText, schedulerPlaceholder, debugText;
         public VisualElement centerTitlePanel, importantPanel, importantPanelProgressBar;
 
         private UIDocument uiDocument;
@@ -53,6 +53,7 @@ namespace miniRAID.UIElements
             schedulerPlaceholder = uiDocument.rootVisualElement.Q<Label>("ActionBar");
             centerTitlePanel = uiDocument.rootVisualElement.Q("MiddleTitle");
             centerTitleText = centerTitlePanel.Q<Label>("TitleText");
+            debugText = uiDocument.rootVisualElement.Q<Label>("TempInformation");
             
             importantPanel = uiDocument.rootVisualElement.Q("ImportantTextPanel");
             importantText = importantPanel.Q<Label>("ImportantText");

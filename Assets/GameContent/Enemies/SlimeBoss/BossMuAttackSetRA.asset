@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6b8c17fb7ad47eb9b71273d14d098fb, type: 3}
+  m_Name: BossMuAttackSetRA
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  Guid: 85186c7ddb264e97933398ea2952eaa9
+  Id: 222
+  icon: {fileID: 3089988010669003195, guid: 7fe9a382566f75a429badd968a5161fa, type: 3}
+  nameKey:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  ToolTipKey:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  type: 5
+  priority: 0
+  TurnSchedulePriority: 0
+  sliceRotations:
+  - list:
+    - {fileID: 11400000, guid: 94f410b09b5dbb84193a88d09dcf0548, type: 2}
+    - {fileID: 11400000, guid: 1ad9b64c3e0a11240a07c98dfecf0c8d, type: 2}
+  - list:
+    - {fileID: 11400000, guid: 94f410b09b5dbb84193a88d09dcf0548, type: 2}
+    - {fileID: 11400000, guid: 6782a8a8746fb3a409cf46bbb15cde44, type: 2}
+    - {fileID: 11400000, guid: cdb3e3ff38a4cff4694395404b5c5a27, type: 2}
+    - {fileID: 11400000, guid: f8e675e3faf929541abb903f4db5c45b, type: 2}
+  - list:
+    - {fileID: 11400000, guid: 94f410b09b5dbb84193a88d09dcf0548, type: 2}
+    - {fileID: 11400000, guid: 1ad9b64c3e0a11240a07c98dfecf0c8d, type: 2}
+  pivotSlice: {fileID: 11400000, guid: a82388ea330b82740b4089dff5afdd8f, type: 2}
+  references:
+    version: 2
+    RefIds: []

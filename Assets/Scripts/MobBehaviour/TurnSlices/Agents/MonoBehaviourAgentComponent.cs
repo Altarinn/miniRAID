@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using miniRAID.TurnSchedule;
@@ -5,6 +6,7 @@ using UnityEngine;
 
 namespace miniRAID.Agents
 {
+    [Obsolete]
     public abstract class MonoBehaviourAgentComponent : MonoBehaviour
     {
         public MonoBehaviourAgent agent;

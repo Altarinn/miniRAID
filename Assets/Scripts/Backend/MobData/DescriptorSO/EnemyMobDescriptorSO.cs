@@ -71,6 +71,7 @@ namespace miniRAID
             
             // DEBUG ONLY
             mob.healPower = dNumber.CreateComposite(1, "mobbase");
+            mob.buffPower = dNumber.CreateComposite(1, "mobbase");
             // DEBUG ONLY ENDS
 
             mob.hitAcc = dNumber.CreateComposite((baseEnemyStats.ExHitAcc + BaseHitAccPerLevel) * level, "mobbase");

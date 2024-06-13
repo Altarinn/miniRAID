@@ -15,7 +15,7 @@ namespace miniRAID.TurnSchedule.RootAgent
         [Tooltip("Different from mob.AGI; as this is not expected to be changed dynamically across combat.")]
         public int TurnSchedulePriority;
 
-        public abstract void ModifyTurnSlicesInPlace(Timestamp now, MobRootAgentBase agent, List<TurnSlice> schedule);
+        public abstract void ModifyTurnSlicesInPlace(Timestamp now, MobRootAgentBase agent, TurnScheduleSequence schedule);
 
         public override MobListener Wrap(MobData parent)
         {
@@ -32,10 +32,10 @@ namespace miniRAID.TurnSchedule.RootAgent
             this.data = data;
         }
 
-        public virtual int GetTurnSliceModificationPriority(Timestamp now, List<TurnSlice> schedule)
+        public virtual int GetTurnSliceModificationPriority(Timestamp now, TurnScheduleSequence schedule)
             => agentData.TurnSchedulePriority;
 
-        public virtual void ModifyTurnSlicesInPlace(Timestamp now, List<TurnSlice> schedule)
+        public virtual void ModifyTurnSlicesInPlace(Timestamp now, TurnScheduleSequence schedule)
             => agentData.ModifyTurnSlicesInPlace(now, this, schedule);
 
         [Obsolete]

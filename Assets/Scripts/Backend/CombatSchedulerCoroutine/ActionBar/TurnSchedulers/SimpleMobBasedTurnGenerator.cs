@@ -7,12 +7,20 @@ namespace miniRAID.TurnSchedule
     {
         public List<TurnSliceSO> initialTurnSlices;
         
-        public override List<TurnSlice> GetNewTurn(Timestamp now)
+        public override TurnScheduleSequence GetNewTurn(ref Timestamp now)
         {
-            var turnSlices = initialTurnSlices.Select(x => x.Wrap(new TurnSliceMetadata(null))).ToList();
+            Timestamp copiedNow = now;
+            
+            TurnScheduleSequence turnSlices = new(
+                initialTurnSlices.Select(x =>
+                {
+                    var xx = x.Wrap(new TurnSliceMetadata(null));
+                    xx.metadata.timestamp = new Timestamp(copiedNow.currentTurnID);
+                    return xx;
+                }));
 
             var sortedMobs = Globals.backend.GetAllMobs()
-                .Select(x => (x, x.GetTurnSliceModificationPriority(now, turnSlices)))
+                .Select(x => (x, x.GetTurnSliceModificationPriority(copiedNow, turnSlices)))
                 .OrderByDescending(x => x.Item2)
                 .Select(x => x.Item1)
                 .ToList();
@@ -21,6 +29,8 @@ namespace miniRAID.TurnSchedule
             {
                 mob.ModifyTurnSlicesInPlace(now, turnSlices);
             }
+
+            now.currentTurnID += 1;
 
             return turnSlices;
         }

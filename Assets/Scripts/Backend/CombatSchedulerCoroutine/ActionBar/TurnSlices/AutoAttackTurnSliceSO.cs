@@ -9,6 +9,8 @@ namespace miniRAID.TurnSchedule
     {
         HashSet<MobData> awaitForActions = new HashSet<MobData>();
         public Consts.UnitGroup group = Consts.UnitGroup.Player;
+
+        public bool SkipUserInput = false;
         
         public override IEnumerator Turn(TurnSlice slice, CombatSchedulerCoroutine coroutine)
         {
@@ -24,7 +26,10 @@ namespace miniRAID.TurnSchedule
             }
             
             // Wait for UI confirmation
-            yield return new JumpIn(coroutine.UIWaitPlayerInput());
+            if (!SkipUserInput)
+            {
+                yield return new JumpIn(coroutine.UIWaitPlayerInput());
+            }
 
             // Perform auto-attack
             yield return new JumpIn(TurnSchedulerHelper.DoAutoAttack(awaitForActions));

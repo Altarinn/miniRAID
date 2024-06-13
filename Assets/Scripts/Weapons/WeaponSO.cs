@@ -139,7 +139,7 @@ namespace miniRAID.Weapon
         public SpellTarget QueryTarget(MobData source)
         {
             RuntimeAction action = GetRegularAttackSpell();
-            return action.QueryAbstractTarget(source);
+            return action?.QueryAbstractTarget(source);
         }
 
         public virtual string GetWeaponSpecialAttackTooltip()

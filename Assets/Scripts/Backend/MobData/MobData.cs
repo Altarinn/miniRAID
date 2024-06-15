@@ -36,7 +36,9 @@ namespace miniRAID
         [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
         public BaseMobDescriptorSO baseDescriptor;
         public bool enemyDebug = false;
-        
+        public bool IsInWorld => World != null;
+        public Databackend World { get; private set; }
+
         public enum MovementType
         {
             Walk,
@@ -58,6 +60,19 @@ namespace miniRAID
                     _position = value;
                     mobRenderer?.SyncRendererPosition();
                 }
+            }
+        }
+
+        public void AddedToWorld(Databackend world)
+        {
+            World = world;
+        }
+        
+        public void RemovedFromWorld(Databackend world)
+        {
+            if (World == world)
+            {
+                World = null;
             }
         }
 
@@ -446,6 +461,8 @@ namespace miniRAID
         
         public IEnumerator TryAutoEndTurn()
         {
+            // Auto end disabled
+            yield break;
             if(actionPoints <= 0)
             {
                 yield return new JumpIn(SetActive(false));

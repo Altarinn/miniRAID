@@ -695,6 +695,7 @@ namespace miniRAID
         private void AddMob(MobData mob)
         {
             allMobs.Add(mob);
+            mob.AddedToWorld(this);
             mob.OnActionPostcast += GlobalActionPostcast;
             onMobAdded?.Invoke(mob);
         }
@@ -704,6 +705,8 @@ namespace miniRAID
             mob.OnActionPostcast -= GlobalActionPostcast;
             allMobs.Remove(mob);
             onMobRemoved?.Invoke(mob);
+            
+            mob.RemovedFromWorld(this);
         }
 
         public void SetMob(int x, int y, int z, GridShape body, MobData mob)

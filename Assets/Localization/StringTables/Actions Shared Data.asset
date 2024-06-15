@@ -491,6 +491,26 @@ MonoBehaviour:
     m_Key: slash.tooltip
     m_Metadata:
       m_Items: []
+  - m_Id: 118412717457399808
+    m_Key: slimeking.dashattack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118412870381723648
+    m_Key: slimeking.splash
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118413151257485312
+    m_Key: slimeking.breath
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118413235340697600
+    m_Key: slimeking.breathbuff
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118413491876913152
+    m_Key: slimeking.breathbuff.tooltip
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

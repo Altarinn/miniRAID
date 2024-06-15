@@ -68,7 +68,7 @@ namespace miniRAID.Weapon
     {
         public override TSpellTarget Pick(MobData source, RuntimeAction<TSpellTarget> ract)
         {
-            if (ract.LastTarget == null)
+            if (ract.LastTarget is not { Valid: true })
             {
                 return null;
             }

@@ -21,6 +21,8 @@ namespace miniRAID.Spells
         // {
         //     targetPos.AddRange(point);
         // }
+        
+        public abstract bool Valid { get; }
     }
 
     public class SingleCoordinateTarget : SpellTarget
@@ -36,6 +38,8 @@ namespace miniRAID.Spells
         {
             return Target.ToString();
         }
+
+        public override bool Valid => Globals.backend.InMap(Target);
     }
 
     public class SingleMobTarget : SpellTarget
@@ -51,6 +55,8 @@ namespace miniRAID.Spells
         {
             return Target.nickname;
         }
+
+        public override bool Valid => Target is { IsInWorld: true };
     }
     
     // public class SelfTarget : SingleMobTarget
@@ -84,10 +90,13 @@ namespace miniRAID.Spells
 
             return "";
         }
+
+        public override bool Valid => true;
     }
 
     public class DynamicTypeTarget : SpellTarget
     {
         public SpellTarget Target;
+        public override bool Valid => Target.Valid;
     }
 }

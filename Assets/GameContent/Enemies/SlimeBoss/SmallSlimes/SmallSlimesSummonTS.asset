@@ -27,7 +27,7 @@ MonoBehaviour:
   Guid: e51ce63941dc41b4b3c41431641b0fd4
   Id: 223
   icon: {fileID: 0}
-  mainColor: {r: 0, g: 0, b: 0, a: 0}
+  mainColor: {r: 0.9625906, g: 0.60754716, b: 1, a: 1}
   label: 
   showInUI: 1
   defaultCategory: 3

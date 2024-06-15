@@ -69,7 +69,7 @@ MonoBehaviour:
       addedValue: 0
       addMultiplier: 0
       mulMultiplier: 0
-    DEX:
+    AGI:
       valueType: 0
       staticValue: 0
       source:
@@ -91,7 +91,7 @@ MonoBehaviour:
   - data: {fileID: 11400000, guid: 869ff8d9c45faae4fa38285d22cefa0b, type: 2}
     level: 0
   - data: {fileID: 11400000, guid: fc5b09eb3bcdd3549b79f2f69902cc82, type: 2}
-    level: 2
+    level: 1
   - data: {fileID: 11400000, guid: 1d5c520dc12d2f6438f4f04a8cbccbf4, type: 2}
     level: 0
   - data: {fileID: 11400000, guid: 59c7ab3bcc40f4e2f9dddddc98b46a84, type: 2}

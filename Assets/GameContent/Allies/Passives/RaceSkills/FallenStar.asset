@@ -16,7 +16,6 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 6549173031084157918, guid: 8514406af415f3f45be82aa2f544fa24, type: 3}
     - {fileID: 163885661, guid: 8270a4de8a74f984e93d472d36efdb12, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
@@ -165,15 +164,12 @@ MonoBehaviour:
     - Name: projectile
       Entry: 7
       Data: 7|miniRAID.ActionHelpers.Projectile, Assembly-CSharp
-    - Name: projectilePrefab
-      Entry: 10
-      Data: 0
     - Name: projectileSprite
       Entry: 10
-      Data: 1
+      Data: 0
     - Name: projectileTrail
       Entry: 10
-      Data: 1
+      Data: 0
     - Name: flyTime
       Entry: 4
       Data: 0.3
@@ -185,7 +181,7 @@ MonoBehaviour:
       Data: 8|miniRAID.ActionHelpers.SpellDamageHeal, Assembly-CSharp
     - Name: flags
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: type
       Entry: 3
       Data: 1
@@ -264,6 +260,8 @@ MonoBehaviour:
   type: 6
   priority: 0
   timed: 0
+  testValue: 0
+  phaseTimed: 0
   timeMax: 1
   stackable: 0
   stackRefreshesTime: 1

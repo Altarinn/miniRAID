@@ -58,7 +58,6 @@ namespace miniRAID.MobBehaviour.TurnSlices
                     sTarget
                 ));
             }
-            
         }
     }
 }

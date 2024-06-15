@@ -47,15 +47,12 @@ MonoBehaviour:
   TurnSchedulePriority: 0
   sliceRotations:
   - list:
-    - {fileID: 11400000, guid: 94f410b09b5dbb84193a88d09dcf0548, type: 2}
     - {fileID: 11400000, guid: 1ad9b64c3e0a11240a07c98dfecf0c8d, type: 2}
   - list:
-    - {fileID: 11400000, guid: 94f410b09b5dbb84193a88d09dcf0548, type: 2}
     - {fileID: 11400000, guid: 6782a8a8746fb3a409cf46bbb15cde44, type: 2}
-    - {fileID: 11400000, guid: cdb3e3ff38a4cff4694395404b5c5a27, type: 2}
     - {fileID: 11400000, guid: f8e675e3faf929541abb903f4db5c45b, type: 2}
   - list:
-    - {fileID: 11400000, guid: 94f410b09b5dbb84193a88d09dcf0548, type: 2}
+    - {fileID: 11400000, guid: cdb3e3ff38a4cff4694395404b5c5a27, type: 2}
     - {fileID: 11400000, guid: 1ad9b64c3e0a11240a07c98dfecf0c8d, type: 2}
   pivotSlice: {fileID: 11400000, guid: a82388ea330b82740b4089dff5afdd8f, type: 2}
   references:

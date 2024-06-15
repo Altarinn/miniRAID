@@ -199,6 +199,15 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  ToolTipKey:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   type: 1
   priority: 0
   itemLevel: 24
@@ -218,7 +227,7 @@ MonoBehaviour:
   specialAttack:
     data: {fileID: 11400000, guid: 0eb957b88567b6b40a6fa8486ac92bab, type: 2}
     level: 0
-  regenTime: 3
+  regenTime: 2
   references:
     version: 2
     RefIds: []

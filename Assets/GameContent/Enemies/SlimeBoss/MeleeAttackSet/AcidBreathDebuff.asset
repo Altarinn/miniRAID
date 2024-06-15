@@ -208,29 +208,29 @@ MonoBehaviour:
   icon: {fileID: 0}
   nameKey:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 118413235340697600
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   ToolTipKey:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 118413491876913152
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   type: 0
   priority: 0
-  timed: 0
+  timed: 1
   testValue: 0
   phaseTimed: 0
-  timeMax: 1
-  stackable: 0
+  timeMax: 20
+  stackable: 1
   stackRefreshesTime: 1
   maxStack: 1
   snapShot: 1

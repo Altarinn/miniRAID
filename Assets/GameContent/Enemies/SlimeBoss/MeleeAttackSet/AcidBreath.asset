@@ -65,7 +65,7 @@ MonoBehaviour:
       Data: 5
     - Name: 
       Entry: 4
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 4
       Data: 1
@@ -687,19 +687,19 @@ MonoBehaviour:
       Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 7
+      Data: 11
     - Name: 
       Entry: 3
       Data: 0
     - Name: 
       Entry: 3
-      Data: 12
+      Data: 10
     - Name: 
       Entry: 8
       Data: 
     - Name: direction
       Entry: 3
-      Data: 2
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -861,9 +861,9 @@ MonoBehaviour:
   icon: {fileID: 0}
   ActionNameKey:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 118413151257485312
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0

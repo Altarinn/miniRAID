@@ -283,13 +283,13 @@ MonoBehaviour:
       Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 7
+      Data: 15
     - Name: 
       Entry: 3
       Data: 0
     - Name: 
       Entry: 3
-      Data: 12
+      Data: 8
     - Name: 
       Entry: 8
       Data: 
@@ -348,13 +348,13 @@ MonoBehaviour:
       Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 7
+      Data: 15
     - Name: 
       Entry: 3
       Data: 0
     - Name: 
       Entry: 3
-      Data: 12
+      Data: 8
     - Name: 
       Entry: 8
       Data: 

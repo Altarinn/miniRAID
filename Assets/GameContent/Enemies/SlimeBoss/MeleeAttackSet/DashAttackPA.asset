@@ -27,7 +27,7 @@ MonoBehaviour:
   action:
     data: {fileID: 11400000, guid: 23e025457251e234ba0d5506b46d1a20, type: 2}
     level: 0
-  weight: 25
-  actionDelay: 1
+  weight: 30
+  actionDelay: 2
   playerTurn: {fileID: 11400000, guid: 5a62abcab72ef584c975171fff2e2ab2, type: 2}
   sliceToInsert: {fileID: 11400000, guid: 3b25bba9bacdb974283498b681cde0aa, type: 2}

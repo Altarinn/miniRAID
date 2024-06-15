@@ -65,19 +65,19 @@ MonoBehaviour:
       Data: 5
     - Name: 
       Entry: 4
-      Data: 0.566433549
+      Data: 0.736363649
     - Name: 
       Entry: 4
-      Data: 0.566433549
+      Data: 0.736363649
     - Name: 
       Entry: 4
-      Data: 0.566433549
+      Data: 0.736363649
     - Name: 
       Entry: 4
-      Data: 0.566433549
+      Data: 0.736363649
     - Name: 
       Entry: 4
-      Data: 0.566433549
+      Data: 0.736363649
     - Name: 
       Entry: 13
       Data: 
@@ -247,13 +247,13 @@ MonoBehaviour:
       Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 4
+      Data: 5
     - Name: 
       Entry: 3
       Data: 0
     - Name: 
       Entry: 3
-      Data: 10
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -312,13 +312,13 @@ MonoBehaviour:
       Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 4
+      Data: 5
     - Name: 
       Entry: 3
       Data: 0
     - Name: 
       Entry: 3
-      Data: 10
+      Data: 2
     - Name: 
       Entry: 8
       Data: 

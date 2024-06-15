@@ -37,9 +37,10 @@ namespace GameContent.Buffs.Test
 
         private IEnumerator MobBeforeDamageHealApplied(MobData mob, Consts.DamageHeal_FrontEndInput input, Consts.DamageHeal_ComputedRates rates)
         {
-            if (input.sourceAction.data == ((IncreaseDamageOfActionBuffSO)data).targetAction)
+            if (input.sourceAction != null &&
+                input.sourceAction.data == ((IncreaseDamageOfActionBuffSO)data).targetAction)
             {
-                rates.value = Mathf.RoundToInt((float)rates.value * ((IncreaseDamageOfActionBuffSO)data).rate);
+                rates.value = Mathf.RoundToInt((float)rates.value * ((IncreaseDamageOfActionBuffSO)data).rate * stacks);
             }
 
             yield break;

@@ -54,6 +54,11 @@ namespace miniRAID.Editor
 
                         if (kv.Value.IsBlank)
                         {
+                            if (ip.ValueEntry.TypeOfValue == typeof(double))
+                            {
+                                ip.ValueEntry.WeakValues[0] = (double)0;
+                            }
+                            
                             continue;
                         }
 

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7173fc930864205b5dee397c719be04, type: 3}
+  m_Name: TestMobBasedAll
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  Guid: da2b238c422f43dda5add8b6584ff298
+  Id: 205
+  icon: {fileID: 0}
+  initialTurnSlices:
+  - {fileID: 11400000, guid: fcc693c38e5fb2d4382db71deb601aea, type: 2}
+  - {fileID: 11400000, guid: 012e6a26146f40a4e94ef1acd10c9a94, type: 2}
+  - {fileID: 11400000, guid: 5a62abcab72ef584c975171fff2e2ab2, type: 2}
+  - {fileID: 11400000, guid: 5a62abcab72ef584c975171fff2e2ab2, type: 2}
+  - {fileID: 11400000, guid: 5a62abcab72ef584c975171fff2e2ab2, type: 2}
+  - {fileID: 11400000, guid: 5a62abcab72ef584c975171fff2e2ab2, type: 2}
+  - {fileID: 11400000, guid: 6335829b4eb8a5242bbb32756f6e06ff, type: 2}
+  - {fileID: 11400000, guid: 507e2d01d2099f2429dabca1067c083c, type: 2}
+  - {fileID: 11400000, guid: 6170784ce54d5fc44a09c7fe80362e8e, type: 2}
+  - {fileID: 11400000, guid: a82388ea330b82740b4089dff5afdd8f, type: 2}
+  - {fileID: 11400000, guid: f38fcb03300c75c4aa45ed0b7000a56b, type: 2}
+  - {fileID: 11400000, guid: 7278987a19ad47c4199006245d2463fa, type: 2}

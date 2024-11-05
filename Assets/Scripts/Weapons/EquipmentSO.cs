@@ -73,7 +73,7 @@ namespace miniRAID.Weapon
             derivedBaseStatsRequirements.TEC = dNumber.CreateStatic(
                 eqData.baseStatsRequirements.TEC > 0 ? Consts.BaseStatsFromLevel(mob.level, eqData.baseStatsRequirements.TEC) : 0);
             derivedBaseStatsRequirements.AGI = dNumber.CreateStatic(
-                eqData.baseStatsRequirements.DEX > 0 ? Consts.BaseStatsFromLevel(mob.level, eqData.baseStatsRequirements.DEX) : 0);
+                eqData.baseStatsRequirements.AGI > 0 ? Consts.BaseStatsFromLevel(mob.level, eqData.baseStatsRequirements.AGI) : 0);
 
             // TODO: Handle the case when itemLevel changes during combat
             itemLevel = dNumber.CreateComposite(eqData.itemLevel, "eqbase");

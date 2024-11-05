@@ -231,7 +231,7 @@ namespace miniRAID
             {
                 // FIXME: Test animation
                 GetComponentInChildren<SpriteRenderer>().color = Color.cyan;
-                yield return new WaitForSeconds(.35f);
+                yield return new WaitForSeconds(.15f);
                 UpdateStatusColor();
             }
 

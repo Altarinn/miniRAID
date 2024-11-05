@@ -15,7 +15,8 @@ namespace miniRAID.UIElements
     public class MessagePoolController
     {
         VisualElement masterElem, messagePoolContainer;
-        private Label recentMessage, allMessage;
+        private Label recentMessage;
+        private VisualElement allMessages;
         private Button toggleLog, toggleSound, downloadLog;
 
         public string message;
@@ -28,7 +29,7 @@ namespace miniRAID.UIElements
 
             messagePoolContainer = elem.Q("MessagePoolContainer");
             recentMessage = elem.Q<Label>("RecentMessage");
-            allMessage = elem.Q<Label>("AllMessages");
+            allMessages = elem.Q("MessageContainer");
             toggleLog = elem.Q<Button>("ToggleLog");
             toggleSound = elem.Q<Button>("ToggleBGM");
             downloadLog = elem.Q<Button>("DownloadLog");
@@ -83,10 +84,10 @@ namespace miniRAID.UIElements
             recentMessage.text = $"{minSec} {message}";
             
             // TODO: FIXME: Re-enable this with a more efficient way
-            return;
+            // return;
             
             this.message += $"{minSec} {message}\n";
-            allMessage.text = this.message;
+            allMessages.Add(new Label($"{minSec} {message}"));
         }
     }
 }

@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using DocumentFormat.OpenXml.Math;
 using miniRAID.TurnSchedule;
-using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 
 namespace miniRAID
@@ -150,6 +149,28 @@ namespace miniRAID
                     // turnSchedule
                 }
             }
+        }
+
+        public int TurnRemainingSlices(System.Func<TurnSlice, bool> condition)
+        {
+            var node = First;
+            var prevNode = node;
+
+            int result = 0;
+            while (node != null)
+            {
+                if (condition.Invoke(node.Value))
+                {
+                    result += 1;
+                }
+
+                if (node.Value.data.GetType() == typeof(EndTurnTurnSliceSO))
+                {
+                    break;
+                }
+            }
+
+            return result;
         }
     }
 

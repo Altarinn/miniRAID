@@ -68,7 +68,7 @@ namespace GameContent.Buffs.Test
             if (mob != source && ((AuraEffectSO)buffData).filter.Check(source, mob))
             {
                 validTargets.Add(mob);
-                mob.OnMobMoved += TargetOnMobMoved;
+                mob.OnMobMoved += TargetOnMobMovedCoroutine;
                 TargetOnMobMoved(mob, mob.Position);
             }
         }
@@ -78,7 +78,7 @@ namespace GameContent.Buffs.Test
             if (validTargets.Contains(mob))
             {
                 DeactivateAuraOnMob(mob);
-                mob.OnMobMoved -= TargetOnMobMoved;
+                mob.OnMobMoved -= TargetOnMobMovedCoroutine;
                 validTargets.Remove(mob);
             }
         }
@@ -87,16 +87,24 @@ namespace GameContent.Buffs.Test
         {
             foreach (var target in validTargets)
             {
-                yield return new JumpIn(TargetOnMobMoved(target, target.Position));
+                TargetOnMobMoved(target, target.Position);
             }
+
+            yield break;
         }
 
-        protected IEnumerator TargetOnMobMoved(MobData mob, Vector3Int from)
+        protected IEnumerator TargetOnMobMovedCoroutine(MobData mob, Vector3Int from)
+        {
+            TargetOnMobMoved(mob, from);
+            yield break;
+        }
+
+        protected void TargetOnMobMoved(MobData mob, Vector3Int from)
         {
             // Ignore non-target mobs. Should not be triggered tho?
             if (!((AuraEffectSO)buffData).filter.Check(source, mob))
             {
-                yield break;
+                return;
             }
             
             // We want to remove the aura

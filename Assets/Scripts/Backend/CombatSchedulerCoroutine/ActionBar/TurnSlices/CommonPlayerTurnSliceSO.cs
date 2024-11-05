@@ -35,11 +35,9 @@ namespace miniRAID.TurnSchedule
             {
                 Globals.ui.Instance.combatView.ShowCenterTitle(message);
                 // Globals.ui.Instance.combatView.schedulerPlaceholder.text = message;
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.4f);
                 Globals.ui.Instance.combatView.HideCenterTitle();
             }
-            
-            yield return new WaitForSeconds(0.3f);
             
             // yield return new JumpIn(NotifyNewTurn(awaitForActions));
             

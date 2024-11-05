@@ -162,7 +162,7 @@ MonoBehaviour:
       Data: 0
     - Name: staticOut
       Entry: 4
-      Data: 0.5
+      Data: 0
     - Name: LuaExpr
       Entry: 6
       Data: 
@@ -227,6 +227,8 @@ MonoBehaviour:
   type: 6
   priority: 0
   timed: 0
+  testValue: 0
+  phaseTimed: 0
   timeMax: 1
   stackable: 0
   stackRefreshesTime: 1

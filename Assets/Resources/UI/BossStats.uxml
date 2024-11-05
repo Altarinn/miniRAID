@@ -14,7 +14,7 @@
             </ui:VisualElement>
             <ui:VisualElement name="UnderHPBar" style="flex-direction: row; justify-content: space-between; padding-left: 60px; padding-right: 15px; align-items: flex-start;">
                 <ui:Label tabindex="-1" text="BUFF LIST" display-tooltip-when-elided="true" name="Buffs" class="UnderHPBarText" />
-                <ui:Label tabindex="-1" text="- INCOMING -&#10;SKILL 1&#10;SKILL 2" display-tooltip-when-elided="true" name="Incoming" class="UnderHPBarText" style="font-size: 10px;" />
+                <ui:Label tabindex="-1" text="- INCOMING -&#10;SKILL 1&#10;SKILL 2" display-tooltip-when-elided="true" name="Incoming" class="UnderHPBarText" style="font-size: 10px; visibility: hidden;" />
                 <ui:Label tabindex="-1" text="DEBUFF LIST" display-tooltip-when-elided="true" name="Debuffs" class="UnderHPBarText" />
             </ui:VisualElement>
         </ui:VisualElement>

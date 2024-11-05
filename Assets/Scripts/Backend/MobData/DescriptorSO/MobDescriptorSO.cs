@@ -19,7 +19,7 @@ namespace miniRAID
             mob.baseStats.STR = dNumber.CreateComposite(baseStats.STR, "mobbase");
             mob.baseStats.MAG = dNumber.CreateComposite(baseStats.MAG, "mobbase");
             mob.baseStats.INT = dNumber.CreateComposite(baseStats.INT, "mobbase");
-            mob.baseStats.AGI = dNumber.CreateComposite(baseStats.DEX, "mobbase");
+            mob.baseStats.AGI = dNumber.CreateComposite(baseStats.AGI, "mobbase");
             mob.baseStats.TEC = dNumber.CreateComposite(baseStats.TEC, "mobbase");
         }
 
@@ -38,8 +38,10 @@ namespace miniRAID
             mob.spellPower = dNumber.CreateComposite(mob.INT, "mobbase");
             
             // DEBUG ONLY
-            mob.healPower = dNumber.CreateComposite(mob.INT, "mobbase");
-            mob.buffPower = dNumber.CreateComposite(mob.TEC, "mobbase");
+            mob.healPower = dNumber.CreateComposite(mob.TEC, "mobbase");
+            mob.buffPower = dNumber.CreateComposite(mob.MAG, "mobbase");
+            // mob.healPower = dNumber.CreateComposite(mob.INT, "mobbase");
+            // mob.buffPower = dNumber.CreateComposite(mob.TEC, "mobbase");
             // DEBUG ONLY ENDS
 
             mob.hitAcc = dNumber.CreateComposite(mob.TEC, "mobbase");

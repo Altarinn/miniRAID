@@ -95,11 +95,12 @@ MonoBehaviour:
   actionSOs:
   - data: {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
     level: 0
+  rootAgent: {fileID: 0}
   baseStats:
-    VIT: 10
+    VIT: 8
     STR: 8
-    MAG: 17
+    MAG: 18
     INT: 20
-    DEX: 11
+    AGI: 11
     TEC: 17
   healPriority: 1

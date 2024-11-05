@@ -134,12 +134,18 @@ namespace miniRAID
             string message = String.Join("\n",
                 turnSchedule
                     .Where(x => x.ShowInUI)
+                    // .Skip(1)
                     .Take(length)
                     .Select(x =>
                         $"<color=#{ColorUtility.ToHtmlStringRGB(x.MainColor)}> {x.Label} </color>")
                     .ToArray());
             
             Globals.ui.Instance.combatView.schedulerPlaceholder.text = message;
+
+            var t = turnSchedule
+                .First(x => x.ShowInUI);
+
+            Globals.ui.Instance.combatView.currentTurnPlaceholder.text = $"<color=#{ColorUtility.ToHtmlStringRGB(t.MainColor)}> {t.Label} </color>";
         }
 
         private IEnumerator Chill()

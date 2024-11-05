@@ -14,9 +14,9 @@ namespace miniRAID.TurnSchedule
         
         public override IEnumerator Turn(TurnSlice slice, CombatSchedulerCoroutine coroutine)
         {
-            Globals.ui.Instance.combatView.ShowCenterTitle("Auto Attack - Strategy Phase");
-            yield return new WaitForSeconds(0.5f);
-            Globals.ui.Instance.combatView.HideCenterTitle();
+            // Globals.ui.Instance.combatView.ShowCenterTitle("Auto Attack - Strategy Phase");
+            // yield return new WaitForSeconds(0.5f);
+            // Globals.ui.Instance.combatView.HideCenterTitle();
 
             // Enter phase
             awaitForActions = Globals.backend.allMobs.Where(x => x.unitGroup == group).ToHashSet();

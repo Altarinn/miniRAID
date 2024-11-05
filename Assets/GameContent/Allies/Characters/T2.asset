@@ -100,10 +100,10 @@ MonoBehaviour:
     level: 0
   rootAgent: {fileID: 0}
   baseStats:
-    VIT: 17
-    STR: 13
+    VIT: 15
+    STR: 15
     MAG: 11
     INT: 13
-    DEX: 8
+    AGI: 8
     TEC: 13
-  healPriority: 1.4
+  healPriority: 1.3

@@ -54,6 +54,7 @@ namespace miniRAID.Actions
             newHeal.power.value /= TotalHealMul();
 
             SimpleRay[] rays = new SimpleRay[jumps];
+            MobData[] affectedMobs = new MobData[jumps];
             
             Vector3 startPos = Globals.backend.GridToWorldPosCentered(mob.Position);
             MobData dst = target.Target;
@@ -71,11 +72,12 @@ namespace miniRAID.Actions
                     yield return new JumpIn(newHeal.Do(ract, mob, dst));
                 
                 // Find next target
+                affectedMobs[i] = dst;
                 startPos = Globals.backend.GridToWorldPosCentered(dst.Position);
                 dst = Globals.backend.allMobs
                     .Where(t => filter.Check(mob, t))
                     .Where(t => Consts.Distance(dst.Position, t.Position) <= jumpRange)
-                    .Where(t => t != dst)
+                    .Where(t => !affectedMobs.Contains(t))
                     .OrderBy(Consts.GetPrioritizedHealthRatio)
                     .FirstOrDefault();
 

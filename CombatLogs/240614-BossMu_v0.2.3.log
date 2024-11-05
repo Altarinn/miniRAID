@@ -1246,14 +1246,14 @@
 Damage
 -- NAME --	-- DMG --		-- Attack Power --
 Archer3		529 (58.8)		30
-Felivol		405 (45)		24
+Felivol		405 (45)			24
 Astrologer	381 (42.3)		32
 Umiko		262 (29.1)		11 (35 BuffP.)
-Lilium		225 (25)		18
-Gaceon		70 (7.8)		14
-Flora			29 (3.2)		14
+Lilium		225 (25)			18
+Gaceon		70 (7.8)			14
+Flora		29 (3.2)			14
 
 Healing
 Gaceon		494 (54.9)		43 (w/ Umiko)
-Flora			367 (40.8)		36 (w/ Umiko)
-Felivol		43 (6.1)		15
+Flora		367 (40.8)		36 (w/ Umiko)
+Felivol		43 (6.1)			15

@@ -7,6 +7,7 @@ using Sirenix.OdinInspector;
 using miniRAID.Spells;
 using System.Collections.Generic;
 using System.Linq;
+using MemoryPack;
 using miniRAID.Backend;
 using miniRAID.TurnSchedule;
 using miniRAID.TurnSchedule.RootAgent;
@@ -31,6 +32,7 @@ namespace miniRAID
     [Serializable]
     [ParameterDefaultName("mob")]
     [LuaCallCSharp]
+    [MemoryPackable]
     public partial class MobData : BackendState
     {
         [InlineEditor(InlineEditorObjectFieldModes.Boxed)]

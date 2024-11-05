@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using MemoryPack;
 using miniRAID.Agents;
 using miniRAID.Editor;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 using UnityEditor;
+using UnityEngine;
 
 namespace miniRAID
 {
@@ -25,6 +27,14 @@ namespace miniRAID
         public AggroCollector.AggroInfo[] targetAggro;
 
         public string agentInfo;
+
+        [Button(ButtonSizes.Large)]
+        public void Serialize()
+        {
+            // TODO
+            var test = MemoryPackSerializer.Serialize(targetMob.data);
+            Debug.Log("Packed");
+        }
 
         private void OnInspectorUpdate()
         {

@@ -1,74 +1,38 @@
 - Start of debug log -
-[2024/6/16 1:05:29] AWAKE
+[2024/11/6 0:22:29] AWAKE
 [回合0] 00m 03s:  SerialCoroutine awake
-[2024/6/16 1:05:32] SerialCoroutine awake
-[回合0] 00m 05s:  StartSerialCoroutine
+[回合0] 00m 04s:  StartSerialCoroutine
 
-[2024/6/16 1:05:34] StartSerialCoroutine
-
-[回合0] 00m 05s:  new JumpIn at Combat ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 54 )
-[2024/6/16 1:05:34] new JumpIn at Combat ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 54 )
-[回合0] 00m 07s:  new JumpIn at Combat ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 60 )
-[2024/6/16 1:05:35] new JumpIn at Combat ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 60 )
-[回合0] 00m 07s:  new JumpIn at Combat ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 63 )
-[2024/6/16 1:05:35] new JumpIn at Combat ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 63 )
-[回合0] 00m 07s:  new JumpIn at Combat ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 74 )
-[2024/6/16 1:05:35] new JumpIn at Combat ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 74 )
-[回合1] 00m 07s:  new JumpIn at Combat ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 74 )
-[2024/6/16 1:05:35] new JumpIn at Combat ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 74 )
-[回合1] 00m 08s:  new JumpIn at Turn ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\PhaseTurnSliceSO.cs : 43 )
-[2024/6/16 1:05:36] new JumpIn at Turn ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\PhaseTurnSliceSO.cs : 43 )
-[回合1] 00m 08s:  new JumpIn at WakeUpMobs ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSchedulerHelper.cs : 34 )
-[2024/6/16 1:05:36] new JumpIn at WakeUpMobs ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSchedulerHelper.cs : 34 )
-[回合1] 00m 08s:  [SetActive] Umiko: True
-[2024/6/16 1:05:36] [SetActive] Umiko: True
-[回合1] 00m 08s:  new JumpIn at SetActive ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 412 )
-[2024/6/16 1:05:36] new JumpIn at SetActive ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 412 )
-[回合1] 00m 08s:  new JumpIn at WakeUpMobs ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSchedulerHelper.cs : 34 )
-[2024/6/16 1:05:36] new JumpIn at WakeUpMobs ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSchedulerHelper.cs : 34 )
-[回合1] 00m 08s:  [SetActive] Gaceon: True
-[2024/6/16 1:05:36] [SetActive] Gaceon: True
-[回合1] 00m 08s:  new JumpIn at SetActive ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 412 )
-[2024/6/16 1:05:36] new JumpIn at SetActive ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 412 )
-[回合1] 00m 08s:  new JumpIn at WakeUpMobs ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSchedulerHelper.cs : 34 )
-[2024/6/16 1:05:36] new JumpIn at WakeUpMobs ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSchedulerHelper.cs : 34 )
-[回合1] 00m 08s:  [SetActive] Archer3: True
-[2024/6/16 1:05:36] [SetActive] Archer3: True
-[回合1] 00m 08s:  new JumpIn at SetActive ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 412 )
-[2024/6/16 1:05:36] new JumpIn at SetActive ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 412 )
-[回合1] 00m 08s:  new JumpIn at WakeUpMobs ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSchedulerHelper.cs : 34 )
-[2024/6/16 1:05:36] new JumpIn at WakeUpMobs ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSchedulerHelper.cs : 34 )
-[回合1] 00m 08s:  [SetActive] Astrologer: True
-[2024/6/16 1:05:36] [SetActive] Astrologer: True
-[回合1] 00m 08s:  new JumpIn at SetActive ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 412 )
-[2024/6/16 1:05:36] new JumpIn at SetActive ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 412 )
-[回合1] 00m 08s:  new JumpIn at WakeUpMobs ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSchedulerHelper.cs : 34 )
-[2024/6/16 1:05:36] new JumpIn at WakeUpMobs ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSchedulerHelper.cs : 34 )
-[回合1] 00m 08s:  [SetActive] Lilium: True
-[2024/6/16 1:05:36] [SetActive] Lilium: True
-[回合1] 00m 08s:  new JumpIn at SetActive ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 412 )
-[2024/6/16 1:05:36] new JumpIn at SetActive ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 412 )
-[回合1] 00m 08s:  new JumpIn at WakeUpMobs ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSchedulerHelper.cs : 34 )
-[2024/6/16 1:05:36] new JumpIn at WakeUpMobs ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSchedulerHelper.cs : 34 )
-[回合1] 00m 08s:  [SetActive] Flora: True
-[2024/6/16 1:05:36] [SetActive] Flora: True
-[回合1] 00m 08s:  new JumpIn at SetActive ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 412 )
-[2024/6/16 1:05:36] new JumpIn at SetActive ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 412 )
-[回合1] 00m 08s:  new JumpIn at WakeUpMobs ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSchedulerHelper.cs : 34 )
-[2024/6/16 1:05:36] new JumpIn at WakeUpMobs ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSchedulerHelper.cs : 34 )
-[回合1] 00m 08s:  [SetActive] Felivol: True
-[2024/6/16 1:05:36] [SetActive] Felivol: True
-[回合1] 00m 08s:  new JumpIn at SetActive ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 404 )
-[2024/6/16 1:05:36] new JumpIn at SetActive ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 404 )
-[回合1] 00m 08s:  new JumpIn at Invoke ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\Essentials\CoroutineEvent.cs : 67 )
-[2024/6/16 1:05:36] new JumpIn at Invoke ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\Essentials\CoroutineEvent.cs : 67 )
-[回合1] 00m 08s:  new JumpIn at Invoke ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\Essentials\CoroutineEvent.cs : 67 )
-[2024/6/16 1:05:36] new JumpIn at Invoke ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\Essentials\CoroutineEvent.cs : 67 )
-[回合1] 00m 08s:  new JumpIn at SetActive ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 412 )
-[2024/6/16 1:05:36] new JumpIn at SetActive ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 412 )
-[回合1] 00m 08s:  new JumpIn at Combat ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 74 )
-[2024/6/16 1:05:36] new JumpIn at Combat ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 74 )
-[回合1] 00m 08s:  [csc] TURN START: Player
-[2024/6/16 1:05:36] [csc] TURN START: Player
-[回合1] 00m 09s:  new JumpIn at Turn ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\CommonPlayerTurnSliceSO.cs : 49 )
-[2024/6/16 1:05:37] new JumpIn at Turn ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\CommonPlayerTurnSliceSO.cs : 49 )
+[回合0] 00m 04s:  new JumpIn at Combat ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 54 )
+[回合0] 00m 05s:  new JumpIn at Combat ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 60 )
+[回合0] 00m 05s:  new JumpIn at Combat ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 63 )
+[回合0] 00m 05s:  new JumpIn at Combat ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 74 )
+[回合1] 00m 05s:  new JumpIn at Combat ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 74 )
+[回合1] 00m 05s:  new JumpIn at Turn ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\PhaseTurnSliceSO.cs : 43 )
+[回合1] 00m 05s:  new JumpIn at WakeUpMobs ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSchedulerHelper.cs : 34 )
+[回合1] 00m 05s:  [SetActive] Gaceon: True
+[回合1] 00m 05s:  new JumpIn at SetActive ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 414 )
+[回合1] 00m 05s:  new JumpIn at WakeUpMobs ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSchedulerHelper.cs : 34 )
+[回合1] 00m 05s:  [SetActive] Archer3: True
+[回合1] 00m 05s:  new JumpIn at SetActive ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 414 )
+[回合1] 00m 05s:  new JumpIn at WakeUpMobs ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSchedulerHelper.cs : 34 )
+[回合1] 00m 05s:  [SetActive] Flora: True
+[回合1] 00m 05s:  new JumpIn at SetActive ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 414 )
+[回合1] 00m 05s:  new JumpIn at WakeUpMobs ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSchedulerHelper.cs : 34 )
+[回合1] 00m 05s:  [SetActive] Umiko: True
+[回合1] 00m 05s:  new JumpIn at SetActive ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 414 )
+[回合1] 00m 05s:  new JumpIn at WakeUpMobs ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSchedulerHelper.cs : 34 )
+[回合1] 00m 05s:  [SetActive] Astrologer: True
+[回合1] 00m 05s:  new JumpIn at SetActive ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 414 )
+[回合1] 00m 05s:  new JumpIn at WakeUpMobs ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSchedulerHelper.cs : 34 )
+[回合1] 00m 05s:  [SetActive] Lilium: True
+[回合1] 00m 05s:  new JumpIn at SetActive ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 414 )
+[回合1] 00m 05s:  new JumpIn at WakeUpMobs ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSchedulerHelper.cs : 34 )
+[回合1] 00m 05s:  [SetActive] Felivol: True
+[回合1] 00m 05s:  new JumpIn at SetActive ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 406 )
+[回合1] 00m 05s:  new JumpIn at Invoke ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\Essentials\CoroutineEvent.cs : 67 )
+[回合1] 00m 05s:  new JumpIn at Invoke ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\Essentials\CoroutineEvent.cs : 67 )
+[回合1] 00m 05s:  new JumpIn at SetActive ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 414 )
+[回合1] 00m 05s:  new JumpIn at Combat ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 74 )
+[回合1] 00m 05s:  [csc] TURN START: Player
+[回合1] 00m 06s:  new JumpIn at Turn ( D:\Sharefolder\Research_Projs_Games\UnityProj\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\CommonPlayerTurnSliceSO.cs : 47 )

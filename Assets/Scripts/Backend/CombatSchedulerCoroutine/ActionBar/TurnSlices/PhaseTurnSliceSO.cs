@@ -29,7 +29,7 @@ namespace miniRAID.TurnSchedule
             }
             
             // Wait some time
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.6f);
             
             Globals.ui.Instance.combatView.HideCenterTitle();
 

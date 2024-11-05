@@ -376,13 +376,17 @@ namespace miniRAID
         [Serializable]
         public struct BaseStatsInt
         {
-            public int VIT, STR, MAG, INT, DEX, TEC;
+            public int VIT, STR, MAG, INT;
+            [FormerlySerializedAs("DEX")] public int AGI;
+            public int TEC;
         }
         
         [Serializable]
         public struct BaseStatsGrowth
         {
-            public float VIT, STR, MAG, INT, DEX, TEC;
+            public float VIT, STR, MAG, INT;
+            [FormerlySerializedAs("DEX")] public float AGI;
+            public float TEC;
         }
 
         [Serializable]
@@ -418,7 +422,7 @@ namespace miniRAID
         public static float CritRangePerLevel = 7;
         public static float BaseCrit = -0.1f;
 
-        public static float APRegenPerDEX = 0.03f;
+        public static float APRegenPerDEX = 0.05f;
         public static float baseAPRegenTurn = 1.0f;
         public static int freeAP = 1, maximumNonFreeAP = 5;
         public static float baseAPRegenRecoveryStage = 0.0f;
@@ -525,7 +529,7 @@ namespace miniRAID
 
         public static float GetHealth(int lvl, float VIT)
         {
-            return lvl * 3 + VIT * 6;
+            return lvl * 2 + VIT * 6;
         }
 
         public static float HealerSelfFocusThresholdHPPercentage = 0.4f;

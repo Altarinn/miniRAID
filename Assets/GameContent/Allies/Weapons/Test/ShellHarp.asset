@@ -199,16 +199,25 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  ToolTipKey:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   type: 1
   priority: 0
-  itemLevel: 24
+  itemLevel: 10
   levelRequirement: 8
   baseStatsRequirements:
     VIT: 0
     STR: 0
     MAG: 0.8
     INT: 0
-    DEX: 0
+    AGI: 0
     TEC: 0
   wpType: 6
   regularAttack:

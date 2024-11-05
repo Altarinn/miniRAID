@@ -253,14 +253,14 @@ MonoBehaviour:
     m_LocalVariables: []
   type: 1
   priority: 0
-  itemLevel: 20
+  itemLevel: 10
   levelRequirement: 5
   baseStatsRequirements:
     VIT: 0
     STR: 1
     MAG: 0
     INT: 0
-    DEX: 0
+    AGI: 0
     TEC: 0.6
   wpType: 0
   regularAttack:

@@ -36,6 +36,7 @@ namespace miniRAID
     public partial class MobData : BackendState
     {
         [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
+        [MemoryPackAllowSerialize]
         public BaseMobDescriptorSO baseDescriptor;
         public bool enemyDebug = false;
         public bool IsInWorld => World != null;

@@ -206,7 +206,7 @@ namespace miniRAID.UIElements
             // Add to shortcut list
             if (useable && entry.keycode != null)
             {
-                shortcutList.Add(entry.keycode, act);
+                shortcutList.TryAdd(entry.keycode, act);
             }
         }
 
@@ -221,8 +221,8 @@ namespace miniRAID.UIElements
 
         public void PrepareMenu(List<UIMenuEntry> entries)
         {
-            view.itemsSource = entries;
             shortcutList = new();
+            view.itemsSource = entries;
 
             view.RefreshItems();
             ShowMenu();

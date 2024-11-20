@@ -6,6 +6,7 @@ using miniRAID.Spells;
 using miniRAID.Buff;
 using System;
 using System.Linq;
+using MemoryPack;
 using miniRAID.Backend;
 using UnityEngine.Serialization;
 
@@ -625,7 +626,8 @@ namespace miniRAID
     }
 
     [XLua.LuaCallCSharp]
-    public class Databackend
+    [MemoryPackable]
+    public partial class Databackend
     {
         const int MAX_MAP_SIZE = 16;
         private const int MAX_MAP_HEIGHT = 1;

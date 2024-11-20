@@ -13,19 +13,17 @@ MonoBehaviour:
   m_Name: Localization-String-Tables-Chinese (Simplified) (zh-CN)
   m_EditorClassIdentifier: 
   m_GroupName: Localization-String-Tables-Chinese (Simplified) (zh-CN)
-  m_Data:
-    m_SerializedData: []
   m_GUID: c8bb30c3508d346878b1f4824d7b9679
   m_SerializeEntries:
-  - m_GUID: b85f3b0adfa294bd9a0406e3f68ca8f9
-    m_Address: Actions_zh-CN
+  - m_GUID: 0245fe9a120cb45d7a9dcac2590c89d4
+    m_Address: Nouns_zh-CN
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-zh-CN
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0245fe9a120cb45d7a9dcac2590c89d4
-    m_Address: Nouns_zh-CN
+  - m_GUID: b85f3b0adfa294bd9a0406e3f68ca8f9
+    m_Address: Actions_zh-CN
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-zh-CN

@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using MemoryPack;
 using UnityEngine;
 
 namespace miniRAID
@@ -132,7 +133,8 @@ namespace miniRAID
         }
     }
 
-    public class CoroutineEvent<T0, T1, T2>
+    [MemoryPackable]
+    public partial class CoroutineEvent<T0, T1, T2>
     {
         HashSet<Func<T0, T1, T2, IEnumerator>> listeners = new();
 

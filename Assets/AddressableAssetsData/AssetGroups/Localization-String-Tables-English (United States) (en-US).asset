@@ -13,19 +13,17 @@ MonoBehaviour:
   m_Name: Localization-String-Tables-English (United States) (en-US)
   m_EditorClassIdentifier: 
   m_GroupName: Localization-String-Tables-English (United States) (en-US)
-  m_Data:
-    m_SerializedData: []
   m_GUID: 49616d0f8e78b486cac846105852aef0
   m_SerializeEntries:
-  - m_GUID: 7adda025d532c437eb98d3e11da4baa3
-    m_Address: Actions_en-US
+  - m_GUID: 72c0195e4a3b042028801e01e5d98342
+    m_Address: Nouns_en-US
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en-US
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 72c0195e4a3b042028801e01e5d98342
-    m_Address: Nouns_en-US
+  - m_GUID: 7adda025d532c437eb98d3e11da4baa3
+    m_Address: Actions_en-US
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en-US

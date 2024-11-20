@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 using Sirenix.OdinInspector;
+using UnityEditor;
 
 //#if UNITY_EDITOR
 //using UnityEditor;
@@ -36,6 +38,11 @@ namespace miniRAID
 
 //            return v;
 //        }
+
+        private void OnValidate()
+        {
+            Guid = AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(this)).ToString();
+        }
     }
 
     public class RuntimeWrapper<T> where T : CustomIconScriptableObject

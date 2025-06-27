@@ -30,7 +30,7 @@ namespace miniRAID
             mob.OnCheckCost += MobOnCheckCost;
             mob.OnApplyCost += MobOnApplyCost;
             mob.OnStatCalculation += MobOnStatCalculation;
-            mob.OnRecoveryStage += MobOnRecoveryStage;
+            mob.OnRecoveryStage.AddListener(MobOnRecoveryStage);
         }
 
         public override void OnRemove(MobData mob)
@@ -38,7 +38,7 @@ namespace miniRAID
             mob.OnCheckCost -= MobOnCheckCost;
             mob.OnApplyCost -= MobOnApplyCost;
             mob.OnStatCalculation -= MobOnStatCalculation;
-            mob.OnRecoveryStage -= MobOnRecoveryStage;
+            mob.OnRecoveryStage.RemoveListener(MobOnRecoveryStage);
             
             base.OnRemove(mob);
         }

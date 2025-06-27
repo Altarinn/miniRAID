@@ -484,15 +484,15 @@ namespace miniRAID
         {
             base.OnAttach(mob);
 
-            mob.OnNextTurn += OnNextTurn;
-            mob.OnRecoveryStage += OnRecoveryStage;
+            mob.OnNextTurn.AddListener(OnNextTurn);
+            mob.OnRecoveryStage.AddListener(OnRecoveryStage);
             mob.OnStatCalculationFinish += OnRecalculateStatsFinish;
         }
 
         public override void OnRemove(MobData mob)
         {
-            mob.OnNextTurn -= OnNextTurn;
-            mob.OnRecoveryStage -= OnRecoveryStage;
+            mob.OnNextTurn.RemoveListener(OnNextTurn);
+            mob.OnRecoveryStage.RemoveListener(OnRecoveryStage);
             mob.OnStatCalculationFinish -= OnRecalculateStatsFinish;
             
             base.OnRemove(mob);

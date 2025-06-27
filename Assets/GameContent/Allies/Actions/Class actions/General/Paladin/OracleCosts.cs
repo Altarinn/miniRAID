@@ -38,12 +38,12 @@ namespace GameContent.Buffs.Test
             
             mob.OnCheckCost += MobOnCheckCost;
             mob.OnApplyCost += MobOnApplyCost;
-            mob.OnWakeup += MobOnWakeup;
+            mob.OnWakeup.AddListener(MobOnWakeup);
             // mob.OnStatCalculation += MobOnStatCalculation;
 
             onRemoveFromMob += m =>
             {
-                mob.OnWakeup -= MobOnWakeup;
+                mob.OnWakeup.RemoveListener(MobOnWakeup);
                 mob.OnApplyCost -= MobOnApplyCost;
                 mob.OnCheckCost -= MobOnCheckCost;
                 // mob.OnStatCalculation -= MobOnStatCalculation;

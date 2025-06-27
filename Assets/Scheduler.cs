@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace miniRAID
 {
-    public class Scheduler : MonoBehaviour
+    public partial class Scheduler : MonoBehaviour
     {
         static Scheduler mInstance;
 

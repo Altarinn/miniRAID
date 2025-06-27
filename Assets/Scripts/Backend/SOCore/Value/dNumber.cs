@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using MemoryPack;
 using UnityEngine;
 
 using XLua;
@@ -10,10 +11,12 @@ namespace miniRAID
     // RIP Generic DynamicValue<T>
     [System.Serializable]
     [LuaCallCSharp]
-    public struct dNumber
+    [MemoryPackable]
+    public partial struct dNumber
     {
         [System.Serializable]
-        public struct DynamicValueSource
+        [MemoryPackable]
+        public partial struct DynamicValueSource
         {
             public string source;
         }

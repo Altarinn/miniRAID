@@ -68,12 +68,12 @@ namespace miniRAID.ActionHelpers
         {
             base.OnAttach(mob);
 
-            mob.OnWakeup += Do;
+            mob.OnWakeup.AddListener(Do);
         }
 
         public override void OnRemove(MobData mob)
         {
-            mob.OnWakeup -= Do;
+            mob.OnWakeup.RemoveListener(Do);
             
             base.OnRemove(mob);
         }

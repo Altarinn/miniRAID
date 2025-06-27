@@ -4,7 +4,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DocumentFormat.OpenXml.Office.MetaAttributes;
 using MemoryPack;
+using miniRAID.Collections;
 using UnityEngine;
 
 namespace miniRAID
@@ -57,41 +59,73 @@ namespace miniRAID
         }
     }
     
+    // public class MobEvent<T0>
+    // {
+    //     
+    // }
+    
     public class CoroutineEvent<T0>
     {
-        HashSet<Func<T0, IEnumerator>> listeners = new();
+        public struct EventEntry : IComparable
+        {
+            public string MethodName;
+            public object Target;
+            public int Priority;
+
+            public Func<T0, IEnumerator> Listener => _listener;
+            private Func<T0, IEnumerator> _listener;
+
+            public EventEntry(Func<T0, IEnumerator> foo, int priority = 0)
+            {
+                MethodName = foo.Method.Name;
+                Target = foo.Target;
+                Priority = priority;
+
+                _listener = foo;
+                
+                Debug.Log($"Created EventEntry from {Target}.{MethodName} with priority {Priority}");
+            }
+
+            public override int GetHashCode()
+            {
+                return _listener.GetHashCode();
+            }
+
+            public int CompareTo(object obj)
+            {
+                if (obj == null) return 1;
+                return this.Priority.CompareTo((obj as EventEntry?)?.Priority);
+            }
+
+            public override bool Equals(object obj)
+            {
+                return _listener == (obj as EventEntry?)?._listener;
+            }
+        }
+        
+        private PrioritySet<EventEntry> listeners = new();
 
         public IEnumerator Invoke(params object[] vs)
         {
-            foreach (var e in listeners.ToList())
+            foreach (var e in listeners.List.ToList())
             {
-                yield return new JumpIn((IEnumerator)e.DynamicInvoke(vs));
+                yield return new JumpIn((IEnumerator)e.Listener.DynamicInvoke(vs));
             }
             yield break;
         }
 
-        public static CoroutineEvent<T0> operator +(CoroutineEvent<T0> evt, Func<T0, IEnumerator> listener)
+        // public static CoroutineEvent<T0> operator +(CoroutineEvent<T0> evt, Func<T0, IEnumerator> listener)
+        public void AddListener(Func<T0, IEnumerator> listener, int priority = 0)
         {
-            if(evt == null) { evt = new(); }
-
-            if(!evt.listeners.Contains(listener))
-            {
-                evt.listeners.Add(listener);
-            }
-
-            return evt;
+            EventEntry entry = new EventEntry(listener, priority);
+            listeners.AddUnique(entry);
         }
 
-        public static CoroutineEvent<T0> operator -(CoroutineEvent<T0> evt, Func<T0, IEnumerator> listener)
+        // public static CoroutineEvent<T0> operator -(CoroutineEvent<T0> evt, Func<T0, IEnumerator> listener)
+        public void RemoveListener(Func<T0, IEnumerator> listener)
         {
-            if(evt == null) { return null; }
-
-            if (evt.listeners.Contains(listener))
-            {
-                evt.listeners.Remove(listener);
-            }
-
-            return evt;
+            EventEntry entry = new EventEntry(listener);
+            listeners.Remove(entry);
         }
     }
 

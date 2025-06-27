@@ -39,14 +39,14 @@ namespace miniRAID.Weapon
 
             RaimedAttack = mob.AddAction(bowData.aimedAttack);
 
-            mob.OnNextTurn += OnNextTurn;
+            mob.OnNextTurn.AddListener(OnNextTurn);
             mob.OnMobMoved += MobOnOnMobMoved;
         }
 
         public override void OnRemove(MobData mob)
         {
             // TODO: Remove action?
-            mob.OnNextTurn -= OnNextTurn;
+            mob.OnNextTurn.RemoveListener(OnNextTurn);
             mob.OnMobMoved -= MobOnOnMobMoved;
         }
 

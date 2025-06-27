@@ -274,7 +274,8 @@ namespace miniRAID
 
         // ......
         [Serializable]
-        public struct AllTypes<T>
+        [MemoryPackable]
+        public partial struct AllTypes<T>
         {
             public T Physical;
             public T Elemental;
@@ -295,50 +296,50 @@ namespace miniRAID
 
             public T Heal;
 
-            public T Get(AllElements e)
-            {
-                switch(e)
-                {
-                    case AllElements.Physical:
-                        return Physical;
-                    case AllElements.Elemental:
-                        return Elemental;
-                    case AllElements.Pure:
-                        return Pure;
-
-                    case AllElements.Slash:
-                        return Slash;
-                    case AllElements.Knock:
-                        return Knock;
-                    case AllElements.Pierce:
-                        return Pierce;
-
-                    case AllElements.Fire:
-                        return Fire;
-                    case AllElements.Ice:
-                        return Ice;
-                    case AllElements.Water:
-                        return Water;
-                    case AllElements.Nature:
-                        return Nature;
-                    case AllElements.Wind:
-                        return Wind;
-                    case AllElements.Thunder:
-                        return Thunder;
-                    case AllElements.Light:
-                        return Light;
-                    case AllElements.Dark:
-                        return Dark;
-
-                    case AllElements.Heal:
-                        return Heal;
-
-                    default:
-                        return default;
-                }
-            }
-
-            public T Get(Elements e) => Get((AllElements)e);
+            // public T Get(AllElements e)
+            // {
+            //     switch(e)
+            //     {
+            //         case AllElements.Physical:
+            //             return Physical;
+            //         case AllElements.Elemental:
+            //             return Elemental;
+            //         case AllElements.Pure:
+            //             return Pure;
+            //
+            //         case AllElements.Slash:
+            //             return Slash;
+            //         case AllElements.Knock:
+            //             return Knock;
+            //         case AllElements.Pierce:
+            //             return Pierce;
+            //
+            //         case AllElements.Fire:
+            //             return Fire;
+            //         case AllElements.Ice:
+            //             return Ice;
+            //         case AllElements.Water:
+            //             return Water;
+            //         case AllElements.Nature:
+            //             return Nature;
+            //         case AllElements.Wind:
+            //             return Wind;
+            //         case AllElements.Thunder:
+            //             return Thunder;
+            //         case AllElements.Light:
+            //             return Light;
+            //         case AllElements.Dark:
+            //             return Dark;
+            //
+            //         case AllElements.Heal:
+            //             return Heal;
+            //
+            //         default:
+            //             return default;
+            //     }
+            // }
+            //
+            // public T Get(Elements e) => Get((AllElements)e);
         }
 
         public static AllElements parentType(AllElements e)
@@ -391,7 +392,8 @@ namespace miniRAID
         }
 
         [Serializable]
-        public struct BaseStats
+        [MemoryPackable]
+        public partial struct BaseStats
         {
             public dNumber VIT, STR, MAG, INT;
             [FormerlySerializedAs("DEX")] public dNumber AGI;
@@ -449,7 +451,8 @@ namespace miniRAID
         }
         
         [Serializable]
-        public struct BattleStats
+        [MemoryPackable]
+        public partial struct BattleStats
         {
             public AllTypes<float> exResist;
             public AllTypes<float> exDamage;

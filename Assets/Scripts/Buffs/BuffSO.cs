@@ -302,8 +302,8 @@ namespace miniRAID.Buff
         {
             base.OnAttach(mob);
 
-            mob.OnNextTurn += BuffBase_OnNextTurn;
-            mob.OnRecoveryStage += BuffBase_OnRecoveryStage;
+            mob.OnNextTurn.AddListener(BuffBase_OnNextTurn);
+            mob.OnRecoveryStage.AddListener(BuffBase_OnRecoveryStage);
 
             // TODO: Separate me into something else
             if (Globals.cc.animation && buffData.alwaysOnIndicator)
@@ -434,8 +434,8 @@ namespace miniRAID.Buff
                 eventType = Consts.BuffEventType.Removed
             });
             
-            mob.OnNextTurn -= BuffBase_OnNextTurn;
-            mob.OnRecoveryStage -= BuffBase_OnRecoveryStage;
+            mob.OnNextTurn.RemoveListener(BuffBase_OnNextTurn);
+            mob.OnRecoveryStage.RemoveListener(BuffBase_OnRecoveryStage);
             onRemoveFromMob?.Invoke(mob);
 
             base.OnRemove(mob);

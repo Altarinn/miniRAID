@@ -28,7 +28,7 @@ namespace miniRAID.Agents
         {
             base.OnAttach(mob);
 
-            mob.OnAutoAttackAgentWakeUp += OnAgentWakeUp;
+            mob.OnAutoAttackAgentWakeUp.AddListener(OnAgentWakeUp);
             mob.OnMobSelectedInUI += MobOnOnMobSelectedInUI;
             mob.OnMobDeselectedInUI += MobOnOnMobDeselectedInUI;
         }
@@ -37,7 +37,7 @@ namespace miniRAID.Agents
         {
             base.OnRemove(mob);
 
-            mob.OnAutoAttackAgentWakeUp -= OnAgentWakeUp;
+            mob.OnAutoAttackAgentWakeUp.RemoveListener(OnAgentWakeUp);
             // mob.OnMobSelectedInUI -= MobOnOnMobSelectedInUI;
             // mob.OnMobDeselectedInUI -= MobOnOnMobDeselectedInUI;
         }

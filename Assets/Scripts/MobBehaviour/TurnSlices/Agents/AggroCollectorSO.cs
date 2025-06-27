@@ -63,7 +63,7 @@ namespace miniRAID.Agents
             base.OnAttach(mob);
             
             mob.OnDamageReceived += Mob_OnReceiveDamageFinal;
-            mob.OnRecoveryStage += Mob_OnRecoveryStage;
+            mob.OnRecoveryStage.AddListener(Mob_OnRecoveryStage);
             aggroList = new Dictionary<MobData, float>();
 
             if (aggroCollectorData.decalIndicatorMaterial)
@@ -79,7 +79,7 @@ namespace miniRAID.Agents
             base.OnRemove(mob);
 
             mob.OnDamageReceived -= Mob_OnReceiveDamageFinal;
-            mob.OnRecoveryStage -= Mob_OnRecoveryStage;
+            mob.OnRecoveryStage.RemoveListener(Mob_OnRecoveryStage);
 
             foreach (MobData targetMob in aggroList.Keys)
             {

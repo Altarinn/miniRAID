@@ -35,19 +35,19 @@ namespace miniRAID
         //public event MobArgumentDelegate OnEarlyWakeup;
 
         // Emitted when the mob has its active state turned from "slept / 待机" to "awake / 可行动", after resetted all related parameters.
-        public CoroutineEvent<MobData> OnWakeup;
+        public CoroutineEvent<MobData> OnWakeup = new();
 
         // Used for agents, after the regular wakeup process
-        public CoroutineEvent<MobData> OnAgentWakeUp;
+        public CoroutineEvent<MobData> OnAgentWakeUp = new();
         
         // Used for auto-attack agents
-        public CoroutineEvent<MobData> OnAutoAttackAgentWakeUp;
+        public CoroutineEvent<MobData> OnAutoAttackAgentWakeUp = new();
 
         // Emitted when the mob has entered a new turn ("PHASE" for this mob has started)
-        public CoroutineEvent<MobData> OnNextTurn;
+        public CoroutineEvent<MobData> OnNextTurn = new();
         
         // Emitted when the mob has entered a new turn ("PHASE" for this mob has started)
-        public CoroutineEvent<MobData> OnRecoveryStage;
+        public CoroutineEvent<MobData> OnRecoveryStage = new();
         
         //// Status calculation
         
@@ -115,7 +115,7 @@ namespace miniRAID
         /// The check passes if any of the delegates returns true.
         /// Therefore, make sure you return false if 1) the cost is not applicable, or 2) the requirement is not met.
         /// </summary>
-        public SequentialAny<CostCheckDelegate> OnCheckCost;
+        public SequentialAny<CostCheckDelegate> OnCheckCost = new();
         public CoroutineEvent<Cost, RuntimeAction, MobData> OnApplyCost;
 
         public event CostQueryDelegate OnCostQueryDisplay;

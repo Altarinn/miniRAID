@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using miniRAID.UIElements;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -28,10 +29,10 @@ namespace miniRAID.Weapon
     {
         public BowSO bowData => (BowSO)data;
 
-        bool moved = false;
+        [SerializeField] bool moved = false;
 
         public Bow(MobData parent, BowSO data) : base(parent, data) { this.data = data; }
-        RuntimeAction RaimedAttack;
+        [SerializeField] RuntimeAction RaimedAttack;
 
         public override void OnAttach(MobData mob)
         {
@@ -40,14 +41,14 @@ namespace miniRAID.Weapon
             RaimedAttack = mob.AddAction(bowData.aimedAttack);
 
             mob.OnNextTurn.AddListener(OnNextTurn);
-            mob.OnMobMoved += MobOnOnMobMoved;
+            mob.OnMobMoved.AddListener(MobOnOnMobMoved);
         }
 
         public override void OnRemove(MobData mob)
         {
             // TODO: Remove action?
             mob.OnNextTurn.RemoveListener(OnNextTurn);
-            mob.OnMobMoved -= MobOnOnMobMoved;
+            mob.OnMobMoved.RemoveListener(MobOnOnMobMoved);
         }
 
         private IEnumerator MobOnOnMobMoved(MobData mob, Vector3Int from)

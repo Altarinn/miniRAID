@@ -85,6 +85,8 @@ namespace miniRAID.TurnSchedule
         
         protected CombatSchedulerCoroutine coroutine;
 
+        public bool muted = false;
+
         public TurnSlice(AbstractTurnSliceSO data, TurnSliceMetadata metadata)
         {
             this.data = data;
@@ -99,10 +101,24 @@ namespace miniRAID.TurnSchedule
         public void RegisterTo(CombatSchedulerCoroutine coroutine)
         {
             this.coroutine = coroutine;
+            Register();
+        }
+
+        public void Mute()
+        {
+            muted = true;
         }
 
         public virtual void OnRemove(CombatSchedulerCoroutine coroutine) { }
 
-        public virtual IEnumerator Turn() => data.Turn(this, coroutine);
+        public virtual IEnumerator Turn()
+        {
+            if (muted)
+            {
+                yield break;
+            }
+
+            yield return new JumpIn(data.Turn(this, coroutine));
+        }
     }
 }

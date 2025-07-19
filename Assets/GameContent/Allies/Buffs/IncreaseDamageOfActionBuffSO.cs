@@ -28,11 +28,12 @@ namespace GameContent.Buffs.Test
         {
             base.OnAttach(mob);
 
-            mob.OnBeforeDamageApplied += MobBeforeDamageHealApplied;
-            onRemoveFromMob += m =>
-            {
-                m.OnBeforeDamageApplied -= MobBeforeDamageHealApplied;
-            };
+            mob.OnBeforeDamageApplied.AddListener(MobBeforeDamageHealApplied);
+        }
+
+        protected override void OnRemoveFromMob(MobData mob)
+        {
+            mob.OnBeforeDamageApplied.RemoveListener(MobBeforeDamageHealApplied);
         }
 
         private IEnumerator MobBeforeDamageHealApplied(MobData mob, Consts.DamageHeal_FrontEndInput input, Consts.DamageHeal_ComputedRates rates)

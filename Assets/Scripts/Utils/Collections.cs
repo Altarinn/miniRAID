@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace miniRAID.Collections
 {
     public class PrioritySet<T> where T: IComparable
     {
+        [SerializeField]
         private List<T> _list = new();
         public List<T> List => _list;
 

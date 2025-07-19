@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using UnityEngine;
 
 namespace miniRAID.Backend
@@ -22,51 +24,56 @@ namespace miniRAID.Backend
     
     public class BackendState
     {
+        public Guid guid;
+
+        public override int GetHashCode()
+        {
+            return guid.GetHashCode();
+        }
+
+        public override bool Equals(object obj)
+        {
+            BackendState s = (obj as BackendState);
+            return (s != null) && guid.Equals(s.guid);
+        }
+
         public BackendState()
         {
-            Globals.backend.RegisterState(this);
-        }
-        
-        // TODO: Move me to another place
-        public HashSet<IMobListenerIndicator> indicators;
-        public T AddIndicator<T>(T indicator) where T : IMobListenerIndicator
-        {
-            if (indicators == null)
-            {
-                indicators = new();
-            }
-            
-            if(indicators.Add(indicator))
-            {
-                indicator.Instantiate();
-                return indicator;
-            }
-
-            return default;
+            guid = Guid.NewGuid();
         }
 
-        public void RemoveIndicator(IMobListenerIndicator indicator)
+        public void Register()
         {
-            if (indicators.Remove(indicator))
+            if (Globals.backend != null)
             {
-                indicator.Destroy();
+                Globals.backend.RegisterState(this);
             }
         }
-        
-        public void RemoveAllIndicators()
+
+        [NonSerialized]
+        public IStateRenderer renderer;
+
+        public void DestroyRenderer()
         {
-            if (indicators == null)
-            {
-                return;
-            }
-            
-            foreach(var indicator in indicators)
-            {
-                indicator.Destroy();
-            }
-            
-            indicators.Clear();
+            renderer?.Destroy();
+            renderer = null;
         }
+    }
+
+    public interface IRenderableState
+    {
+        public void ConstructRenderer();
+        public void UpdateRenderer();
+    }
+
+    public interface IStateRenderer
+    {
+        public abstract void Refresh();
         
+        // Triggers when the renderer is being attached to new instance of BackendState
+        // e.g., during deserialization.
+        public virtual void OnReload() { }
+
+        public abstract void Destroy();
     }
 }

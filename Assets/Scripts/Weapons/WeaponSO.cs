@@ -115,6 +115,8 @@ namespace miniRAID.Weapon
     {
         public WeaponSO weaponData => (WeaponSO)data;
         public Weapon(MobData parent, WeaponSO data) : base(parent, data) { this.data = data; }
+        
+        [SerializeField]
         protected RuntimeAction RregularAttack;
 
         public override void OnAttach(MobData mob)
@@ -123,7 +125,7 @@ namespace miniRAID.Weapon
 
             RregularAttack = mob.AddAction(weaponData.regularAttack);
 
-            mob.OnQueryActions += OnQueryActions;
+            mob.OnQueryActions.AddListener(OnQueryActions);
         }
 
         protected virtual void OnQueryActions(MobData mob, HashSet<RuntimeAction> actions)

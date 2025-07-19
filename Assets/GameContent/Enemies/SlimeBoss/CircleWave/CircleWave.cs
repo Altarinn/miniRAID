@@ -10,7 +10,7 @@ using miniRAID.Spells;
 
 namespace miniRAID
 {
-    public class CircleWave : ActionDataSO<SingleMobTarget>
+    public class CircleWave : ActionDataSO<SingleMobTarget>, IMultiTurnActionBehaviour<SingleMobTarget>
     {
         private SimpleMultiTurnAction<SingleMobTarget> multiTurnWrapper = new SimpleMultiTurnAction<SingleMobTarget>(3);
         public UnitFilters filters;
@@ -24,73 +24,78 @@ namespace miniRAID
         public override IEnumerator OnPerform(RuntimeAction<SingleMobTarget> ract, MobData mob,
             SingleMobTarget target)
         {
-            yield return new JumpIn(multiTurnWrapper.Do(Action, mob, target, true));
-            
-            IEnumerator Action(int turn, SimpleMultiTurnActionProxy<SingleMobTarget> dummy, MobData src, SingleMobTarget target, object customdata)
-            {
-                List<MobData> captured;
-                switch (turn)
-                {
-                    case 1:
-                        // Show inner circ warning
-                        innerCircleShape.position = target.Target.Position;
-                        dummy.AddIndicator(new GridShapeIndicator(innerCircleShape, GridOverlay.Types.INCOMING_ATTACK))
-                            ?.Move(Vector3.forward * 10.0f);
-                        break;
-                    
-                    case 2:
-                        // Inner explodes
-                        innerCircleShape.position = target.Target.Position;
-                        captured = CaptureTargetsInGridShape.CaptureAllTargetsWithinRange(
-                                src, filters, innerCircleShape.ApplyTransform())
-                            .ToList();
-                        foreach (var m in captured)
-                        {
-                            yield return new JumpIn(damage.Do(ract, src, m));
-                        }
+            yield return new JumpIn(multiTurnWrapper.Do(this, ract, mob, target, true));
+        }
 
-                        dummy.RemoveAllIndicators();
-                        
-                        // Show middle ring warning
-                        middleRingShape.position = target.Target.Position;
-                        dummy.AddIndicator(new GridShapeIndicator(middleRingShape, GridOverlay.Types.INCOMING_ATTACK))
-                            ?.Move(Vector3.forward * 10.0f);
-                        break;
-                    
-                    case 3:
-                        // Ring explodes
-                        middleRingShape.position = target.Target.Position;
-                        captured = CaptureTargetsInGridShape.CaptureAllTargetsWithinRange(
-                                src, filters, middleRingShape.ApplyTransform())
-                            .ToList();
-                        foreach (var m in captured)
-                        {
-                            yield return new JumpIn(damage.Do(ract, src, m));
-                        }
-                        
-                        dummy.RemoveAllIndicators();
-                        break;
-                        // Show outer warning
-                    //     innerCircleShape.position = target.targetPos[0];
-                    //     middleRingShape.position = target.targetPos[0];
-                    //     outerRingShape = GridShape.Negate(GridShape.Combine(
-                    //         innerCircleShape.ApplyTransform(), 
-                    //         middleRingShape.ApplyTransform()));
-                    //     outerRingShape.position = Vector3Int.zero;
-                    //
-                    //     dummy.AddIndicator(new GridShapeIndicator(
-                    //             outerRingShape,
-                    //             GridOverlay.Types.INCOMING_ATTACK))
-                    //         ?.Move(Vector3.forward * 10.0f);
-                    //     break;
-                    // case 4:
-                    //     // Outer explodes
-                    //     dummy.RemoveAllIndicators();
-                    //     break;
-                }
-                
-                yield break;
+        public IEnumerator DoAction(
+            RuntimeAction<SingleMobTarget> ract,
+            int turn, SimpleMultiTurnActionProxy<SingleMobTarget> dummy, MobData src,
+            SingleMobTarget target,
+            object customData)
+        {
+            List<MobData> captured;
+            switch (turn)
+            {
+                case 1:
+                    // Show inner circ warning
+                    innerCircleShape.position = target.Target.Position;
+                    dummy.renderer = new GridShapeIndicator(innerCircleShape, GridOverlay.Types.INCOMING_ATTACK)
+                        .Move(Vector3.forward * 10.0f);
+                    break;
+
+                case 2:
+                    // Inner explodes
+                    innerCircleShape.position = target.Target.Position;
+                    captured = CaptureTargetsInGridShape.CaptureAllTargetsWithinRange(
+                            src, filters, innerCircleShape.ApplyTransform())
+                        .ToList();
+                    foreach (var m in captured)
+                    {
+                        yield return new JumpIn(damage.Do(ract, src, m));
+                    }
+
+                    dummy.renderer.Destroy();
+
+                    // Show middle ring warning
+                    middleRingShape.position = target.Target.Position;
+                    dummy.renderer = new GridShapeIndicator(middleRingShape, GridOverlay.Types.INCOMING_ATTACK)
+                        ?.Move(Vector3.forward * 10.0f);
+                    break;
+
+                case 3:
+                    // Ring explodes
+                    middleRingShape.position = target.Target.Position;
+                    captured = CaptureTargetsInGridShape.CaptureAllTargetsWithinRange(
+                            src, filters, middleRingShape.ApplyTransform())
+                        .ToList();
+                    foreach (var m in captured)
+                    {
+                        yield return new JumpIn(damage.Do(ract, src, m));
+                    }
+
+                    dummy.renderer.Destroy();
+                    dummy.renderer = null;
+                    break;
+                // Show outer warning
+                //     innerCircleShape.position = target.targetPos[0];
+                //     middleRingShape.position = target.targetPos[0];
+                //     outerRingShape = GridShape.Negate(GridShape.Combine(
+                //         innerCircleShape.ApplyTransform(), 
+                //         middleRingShape.ApplyTransform()));
+                //     outerRingShape.position = Vector3Int.zero;
+                //
+                //     dummy.AddIndicator(new GridShapeIndicator(
+                //             outerRingShape,
+                //             GridOverlay.Types.INCOMING_ATTACK))
+                //         ?.Move(Vector3.forward * 10.0f);
+                //     break;
+                // case 4:
+                //     // Outer explodes
+                //     dummy.RemoveAllIndicators();
+                //     break;
             }
+
+            yield break;
         }
     }
 }

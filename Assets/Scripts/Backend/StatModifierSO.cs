@@ -153,7 +153,7 @@ namespace miniRAID
         private StatModifierSO statData => (StatModifierSO)data;
         
         public int stacks = 1;
-        public dNumber power, auxPower;
+        public dNumber power, auxPower; // This has to be serialized to enable snapshotting
         
         public StatModifier(MobData parent, MobListenerSO data) : base(parent, data)
         {
@@ -187,16 +187,16 @@ namespace miniRAID
         {
             base.OnAttach(mob);
             
-            mob.OnBaseStatCalculation += ModifyBaseStats;
-            mob.OnStatCalculation += ModifyMoreStats;
+            mob.OnBaseStatCalculation.AddListener(ModifyBaseStats);
+            mob.OnStatCalculation.AddListener(ModifyMoreStats);
         }
 
         public override void OnRemove(MobData mob)
         {
             base.OnRemove(mob);
 
-            mob.OnBaseStatCalculation -= ModifyBaseStats;
-            mob.OnStatCalculation -= ModifyMoreStats;
+            mob.OnBaseStatCalculation.RemoveListener(ModifyBaseStats);
+            mob.OnStatCalculation.RemoveListener(ModifyMoreStats);
         }
     }
 }

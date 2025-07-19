@@ -1,4 +1,5 @@
 using System.Collections;
+using miniRAID.Backend;
 using miniRAID.Spells;
 using miniRAID.TurnSchedule;
 
@@ -17,7 +18,7 @@ namespace miniRAID.MobBehaviour.TurnSlices
         }
     }
 
-    public class UseSelfActionTurnSlice : PreparableActionTurnSlice
+    public class UseSelfActionTurnSlice : PreparableActionTurnSlice, IRenderableState
     {
         private GridShape indicatorShape;
         
@@ -25,16 +26,24 @@ namespace miniRAID.MobBehaviour.TurnSlices
         {
             indicatorShape = new GridShape(((RuntimeAction<SingleMobTarget>)action).Shape);
             indicatorShape.position = mob.Position;
-            
-            AddIndicator(new GridShapeIndicator(
-                indicatorShape, GridOverlay.Types.INCOMING_ATTACK));
         }
 
         public override IEnumerator Turn()
         {
-            RemoveAllIndicators();
+            DestroyRenderer();
             RuntimeAction<SingleMobTarget> act = (RuntimeAction<SingleMobTarget>)action;
             yield return new JumpIn(mob.DoActionWithDefaultCosts(act, new SingleMobTarget(mob)));
+        }
+
+        public void ConstructRenderer()
+        {
+            renderer = new GridShapeIndicator(
+                indicatorShape, GridOverlay.Types.INCOMING_ATTACK);
+        }
+
+        public void UpdateRenderer()
+        {
+            // Pass
         }
     }
 }

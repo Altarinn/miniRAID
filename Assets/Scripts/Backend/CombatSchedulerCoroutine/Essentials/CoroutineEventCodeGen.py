@@ -2,39 +2,95 @@ import os
 
 template = '''    public class CoroutineEvent<%s>
     {
-        HashSet<Func<%s, IEnumerator>> listeners = new();
+        public class EventEntry : IComparable
+        {
+            public string MethodName;
+            public object Target;
+            public int Priority;
+
+            public Func<%s, IEnumerator> Listener => _listener;
+            private Func<%s, IEnumerator> _listener;
+
+            public EventEntry(Func<%s, IEnumerator> foo, int priority = 0)
+            {
+                MethodName = foo.Method.Name;
+                Target = foo.Target;
+                Priority = priority;
+
+                _listener = foo;
+                
+                Debug.Log($"Created EventEntry from {Target}.{MethodName} with priority {Priority}");
+            }
+
+            public void RestoreListener()
+            {
+                MethodInfo foo = null;
+                Type type = Target.GetType();
+                while (foo == null && type != null)
+                {
+                    foo = type.GetMethod(MethodName,
+                        BindingFlags.Public|BindingFlags.NonPublic|BindingFlags.Instance|BindingFlags.Static);
+                    type = type.BaseType;
+                }
+                
+                if (foo != null)
+                {
+                    _listener = (Func<%s, IEnumerator>)Delegate.CreateDelegate(
+                        typeof(Func<%s, IEnumerator>), Target, (MethodInfo)foo);
+                }
+                else
+                {
+                    Debug.LogError($"Failed to restore event: {Target}||{MethodName}");
+                }
+            }
+
+            public override int GetHashCode()
+            {
+                return _listener.GetHashCode();
+            }
+
+            public int CompareTo(object obj)
+            {
+                if (obj == null) return 1;
+                return this.Priority.CompareTo((obj as EventEntry)?.Priority);
+            }
+
+            public override bool Equals(object obj)
+            {
+                return _listener == (obj as EventEntry)?._listener;
+            }
+        }
+        
+        [SerializeField]
+        private PrioritySet<EventEntry> listeners = new();
 
         public IEnumerator Invoke(params object[] vs)
         {
-            foreach (var e in listeners.ToList())
+            foreach (var e in listeners.List.ToList())
             {
-                yield return new JumpIn((IEnumerator)e.DynamicInvoke(vs));
+                yield return new JumpIn((IEnumerator)e.Listener.DynamicInvoke(vs));
             }
             yield break;
         }
 
-        public static CoroutineEvent<%s> operator +(CoroutineEvent<%s> evt, Func<%s, IEnumerator> listener)
+        public void AddListener(Func<%s, IEnumerator> listener, int priority = 0)
         {
-            if(evt == null) { evt = new(); }
-
-            if(!evt.listeners.Contains(listener))
-            {
-                evt.listeners.Add(listener);
-            }
-
-            return evt;
+            EventEntry entry = new EventEntry(listener, priority);
+            listeners.AddUnique(entry);
         }
 
-        public static CoroutineEvent<%s> operator -(CoroutineEvent<%s> evt, Func<%s, IEnumerator> listener)
+        public void RemoveListener(Func<%s, IEnumerator> listener)
         {
-            if(evt == null) { return null; }
+            EventEntry entry = new EventEntry(listener);
+            listeners.Remove(entry);
+        }
 
-            if (evt.listeners.Contains(listener))
+        public void RestoreListener()
+        {
+            foreach (var e in listeners.List)
             {
-                evt.listeners.Remove(listener);
+                e.RestoreListener();
             }
-
-            return evt;
         }
     }
 '''

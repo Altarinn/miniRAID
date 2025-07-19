@@ -1,45 +1,50 @@
+using miniRAID.Backend;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 namespace miniRAID
 {
-    public class DecalIndicator : IMobListenerIndicator
+    public abstract class FollowMobStateRenderer : MonoBehaviour, IStateRenderer
+    {
+        protected MobData follow;
+
+        public virtual void Refresh()
+        {
+            transform.parent = follow?.mobRenderer?.transform;
+            transform.localPosition = Vector3.zero;
+        }
+
+        public FollowMobStateRenderer Follow(MobData follow)
+        {
+            this.follow = follow;
+            Refresh();
+            return this;
+        }
+
+        public virtual void Destroy()
+        {
+            GameObject.Destroy(gameObject);
+        }
+    }
+    
+    public class DecalIndicator : FollowMobStateRenderer
     {
         public Material decalMaterial;
-        public Vector3 position;
 
-        BossTargetIndicator obj;
+        private Transform follow;
 
-        public DecalIndicator(Material decalMaterial, Vector3 pos)
+        public static DecalIndicator Instantiate(Material decalMaterial, Vector3 pos)
         {
-            this.decalMaterial = decalMaterial;
-            this.position = pos;
-        }
-        
-        public void Instantiate()
-        {
-            obj = GameObject.Instantiate(Globals.prefabs.Instance.decalIndicator.gameObject, position, Quaternion.identity).GetComponent<BossTargetIndicator>();
+            DecalIndicator d = GameObject.Instantiate(
+                Globals.prefabs.Instance.decalIndicator.gameObject, pos, Quaternion.identity)
+                .AddComponent<DecalIndicator>();
             
-            if (this.decalMaterial != null)
+            if (decalMaterial != null)
             {
-                obj.GetComponentInChildren<DecalProjector>().material = decalMaterial;
+                d.GetComponentInChildren<DecalProjector>().material = decalMaterial;
             }
-        }
 
-        public void Update()
-        {
-            
-        }
-
-        public void Destroy()
-        {
-            GameObject.Destroy(obj);
-        }
-
-        public DecalIndicator Follow(Transform follow)
-        {
-            obj.Follow(follow);
-            return this;
+            return d;
         }
     }
 }

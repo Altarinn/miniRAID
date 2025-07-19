@@ -22,7 +22,7 @@ namespace GameContent.Buffs.Test
     public class StarEnergyRuntimeBuff : Buff
     {
         private StarEnergy starEnergyData => (StarEnergy)buffData;
-        private GeneralManaListener mobMana;
+        [SerializeField] private GeneralManaListener mobMana;
         
         public StarEnergyRuntimeBuff(MobData source, StarEnergy data) : base(source, data)
         {}
@@ -32,12 +32,14 @@ namespace GameContent.Buffs.Test
             base.OnAttach(mob);
 
             mobMana = mob.FindListener<GeneralManaListener>();
-            mob.OnActionPostcast += MobOnActionPostcast;
+            mob.OnActionPostcast.AddListener(MobOnActionPostcast);
 
-            onRemoveFromMob += m =>
-            {
-                m.OnActionPostcast -= MobOnActionPostcast;
-            };
+        }
+
+        protected override void OnRemoveFromMob(MobData mob)
+        {
+            mob.OnActionPostcast.RemoveListener(MobOnActionPostcast);
+            base.OnRemoveFromMob(mob);
         }
 
         public IEnumerator MobOnActionPostcast(MobData mob, RuntimeAction ract, SpellTarget target)

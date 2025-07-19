@@ -43,7 +43,7 @@ namespace miniRAID.MobBehaviour.TurnSlices
             : base(mob, action, data, metadata)
         {
             paSliceData.OnConstruction(this);
-            Globals.backend.onGlobalActionPostcast += OnGlobalPostAction;
+            Globals.backend.onGlobalActionPostcast.AddListener(OnGlobalPostAction);
         }
 
         protected virtual IEnumerator OnGlobalPostAction(
@@ -54,7 +54,7 @@ namespace miniRAID.MobBehaviour.TurnSlices
 
         public override void OnRemove(CombatSchedulerCoroutine coroutine)
         {
-            Globals.backend.onGlobalActionPostcast -= OnGlobalPostAction;
+            Globals.backend.onGlobalActionPostcast.RemoveListener(OnGlobalPostAction);
             base.OnRemove(coroutine);
         }
     }

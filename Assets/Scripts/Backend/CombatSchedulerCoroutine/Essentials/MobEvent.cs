@@ -4,8 +4,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using DocumentFormat.OpenXml.Office.MetaAttributes;
-using MemoryPack;
 using miniRAID.Collections;
 using UnityEngine;
 
@@ -59,23 +59,18 @@ namespace miniRAID
         }
     }
     
-    // public class MobEvent<T0>
-    // {
-    //     
-    // }
-    
-    public class CoroutineEvent<T0>
+    public class MobEvent<T> where T : Delegate
     {
-        public struct EventEntry : IComparable
+        public class EventEntry : IComparable
         {
             public string MethodName;
             public object Target;
             public int Priority;
 
-            public Func<T0, IEnumerator> Listener => _listener;
-            private Func<T0, IEnumerator> _listener;
+            public T Listener => _listener;
+            private T _listener;
 
-            public EventEntry(Func<T0, IEnumerator> foo, int priority = 0)
+            public EventEntry(T foo, int priority = 0)
             {
                 MethodName = foo.Method.Name;
                 Target = foo.Target;
@@ -86,6 +81,28 @@ namespace miniRAID
                 Debug.Log($"Created EventEntry from {Target}.{MethodName} with priority {Priority}");
             }
 
+            public void RestoreListener()
+            {
+                MethodInfo foo = null;
+                Type type = Target.GetType();
+                while (foo == null && type != null)
+                {
+                    foo = type.GetMethod(MethodName,
+                        BindingFlags.Public|BindingFlags.NonPublic|BindingFlags.Instance|BindingFlags.Static);
+                    type = type.BaseType;
+                }
+                
+                if (foo != null)
+                {
+                    _listener = (T)Delegate.CreateDelegate(
+                        typeof(T), Target, (MethodInfo)foo);
+                }
+                else
+                {
+                    Debug.LogError($"Failed to restore event: {Target}||{MethodName}");
+                }
+            }
+
             public override int GetHashCode()
             {
                 return _listener.GetHashCode();
@@ -94,18 +111,37 @@ namespace miniRAID
             public int CompareTo(object obj)
             {
                 if (obj == null) return 1;
-                return this.Priority.CompareTo((obj as EventEntry?)?.Priority);
+                return this.Priority.CompareTo((obj as EventEntry)?.Priority);
             }
 
             public override bool Equals(object obj)
             {
-                return _listener == (obj as EventEntry?)?._listener;
+                return _listener == (obj as EventEntry)?._listener;
+            }
+        }
+
+        public enum EventType
+        {
+            Undetermined,
+            Void,
+            Coroutine,
+            Boolean
+        }
+
+        private EventType _eventType = EventType.Undetermined;
+        
+        [SerializeField]
+        private PrioritySet<EventEntry> listeners = new();
+
+        public void InvokeInstant(params object[] vs)
+        {
+            foreach (var e in listeners.List.ToList())
+            {
+                e.Listener.DynamicInvoke(vs);
             }
         }
         
-        private PrioritySet<EventEntry> listeners = new();
-
-        public IEnumerator Invoke(params object[] vs)
+        public IEnumerator InvokeCoroutine(params object[] vs)
         {
             foreach (var e in listeners.List.ToList())
             {
@@ -113,19 +149,44 @@ namespace miniRAID
             }
             yield break;
         }
+        
+        public bool InvokeBool(params object[] vs)
+        {
+            foreach (var e in listeners.List.ToList())
+            {
+                var result = (bool)(e.Listener.DynamicInvoke(vs));
+                if (result)
+                {
+                    return true;
+                }
+            }
 
-        // public static CoroutineEvent<T0> operator +(CoroutineEvent<T0> evt, Func<T0, IEnumerator> listener)
-        public void AddListener(Func<T0, IEnumerator> listener, int priority = 0)
+            return false;
+        }
+
+        public bool InvokeWhenNot(bool initialValue, params object[] vs)
+        {
+            return initialValue || InvokeBool(vs);
+        }
+
+        public void AddListener(T listener, int priority = 0)
         {
             EventEntry entry = new EventEntry(listener, priority);
             listeners.AddUnique(entry);
         }
 
-        // public static CoroutineEvent<T0> operator -(CoroutineEvent<T0> evt, Func<T0, IEnumerator> listener)
-        public void RemoveListener(Func<T0, IEnumerator> listener)
+        public void RemoveListener(T listener)
         {
             EventEntry entry = new EventEntry(listener);
             listeners.Remove(entry);
+        }
+
+        public void RestoreListener()
+        {
+            foreach (var e in listeners.List)
+            {
+                e.RestoreListener();
+            }
         }
     }
 
@@ -167,8 +228,7 @@ namespace miniRAID
         }
     }
 
-    [MemoryPackable]
-    public partial class CoroutineEvent<T0, T1, T2>
+    public class CoroutineEvent<T0, T1, T2>
     {
         HashSet<Func<T0, T1, T2, IEnumerator>> listeners = new();
 

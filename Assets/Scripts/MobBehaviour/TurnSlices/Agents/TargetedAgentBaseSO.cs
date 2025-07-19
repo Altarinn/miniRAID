@@ -51,12 +51,12 @@ namespace miniRAID.Agents
 
         public void OnBeginSlice()
         {
-            mob.OnActionPostcast += Mob_OnActionPostcast;
+            mob.OnActionPostcast.AddListener(Mob_OnActionPostcast);
         }
 
         public void OnEndSlice()
         {
-            mob.OnActionPostcast -= Mob_OnActionPostcast;
+            mob.OnActionPostcast.RemoveListener(Mob_OnActionPostcast);
         }
 
         public IEnumerator Mob_OnActionPostcast(MobData mob, RuntimeAction ra, Spells.SpellTarget target)

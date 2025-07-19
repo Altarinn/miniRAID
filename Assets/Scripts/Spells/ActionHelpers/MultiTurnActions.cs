@@ -4,6 +4,14 @@ using UnityEngine;
 
 namespace miniRAID.ActionHelpers
 {
+    public interface IMultiTurnActionBehaviour<TSpellTarget> where TSpellTarget : SpellTarget
+    {
+        public IEnumerator DoAction(
+            RuntimeAction<TSpellTarget> ract,
+            int turn, SimpleMultiTurnActionProxy<TSpellTarget> dummy,
+            MobData src, TSpellTarget target, object customData);
+    }
+    
     public class SimpleMultiTurnAction<TSpellTarget> where TSpellTarget : SpellTarget
     {
         private int totalTurns = 1;
@@ -11,17 +19,16 @@ namespace miniRAID.ActionHelpers
         /// <summary>
         /// Turn starts from 1.
         /// </summary>
-        public delegate IEnumerator MultiTurnAction(
-            int turn, SimpleMultiTurnActionProxy<TSpellTarget> dummy, 
-            MobData src, TSpellTarget target, object customData);
-
+        public IMultiTurnActionBehaviour<TSpellTarget> behaviour;
+        
         public SimpleMultiTurnAction(int turns)
         {
             totalTurns = turns;
         }
 
         public IEnumerator Do(
-            MultiTurnAction action, 
+            IMultiTurnActionBehaviour<TSpellTarget> behaviour, 
+            RuntimeAction<TSpellTarget> ract,
             MobData src, 
             TSpellTarget target, 
             bool startImmediately = false, 
@@ -29,7 +36,7 @@ namespace miniRAID.ActionHelpers
         {
             var dummyData = ScriptableObject.CreateInstance<NullListenerSO>();
             var listener = new SimpleMultiTurnActionProxy<TSpellTarget>(
-                src, dummyData, totalTurns, target, action, customData);
+                src, ract, dummyData, totalTurns, target, behaviour, customData);
             
             src.AddListener(listener);
 
@@ -44,21 +51,24 @@ namespace miniRAID.ActionHelpers
     {
         public int turn, maxTurn;
         
-        private TSpellTarget target;
-        public SimpleMultiTurnAction<TSpellTarget>.MultiTurnAction action;
-        private object customData;
+        [SerializeField] private TSpellTarget target;
+        [SerializeField] private RuntimeAction<TSpellTarget> ract;
+        public IMultiTurnActionBehaviour<TSpellTarget> behaviour;
+        [SerializeField] private object customData;
         
         public SimpleMultiTurnActionProxy(
             MobData parent, 
+            RuntimeAction<TSpellTarget> ract,
             MobListenerSO data,
             int maxTurn,
             TSpellTarget target,
-            SimpleMultiTurnAction<TSpellTarget>.MultiTurnAction action, 
+            IMultiTurnActionBehaviour<TSpellTarget> behaviour, 
             object customData = null) : base(parent, data)
         {
             this.target = target;
-            this.action = action;
+            this.behaviour = behaviour;
             this.customData = customData;
+            this.ract = ract;
 
             this.maxTurn = maxTurn;
             this.turn = 0;
@@ -81,7 +91,7 @@ namespace miniRAID.ActionHelpers
         public IEnumerator Do(MobData mob)
         {
             turn += 1;
-            yield return new JumpIn(action.Invoke(turn, this, mob, target, customData));
+            yield return new JumpIn(behaviour.DoAction(ract, turn, this, mob, target, customData));
 
             if (turn >= maxTurn)
             {

@@ -1,4 +1,4 @@
-using MemoryPack;
+/*using MemoryPack;
 using UnityEngine.AddressableAssets;
 
 namespace miniRAID
@@ -30,4 +30,12 @@ namespace miniRAID
             value = Addressables.LoadAssetAsync<CustomIconScriptableObject>(key).WaitForCompletion();
         }
     }
-}
+}*/
+
+// namespace miniRAID
+// {
+//     public class ScriptableObjectGuidConverter : JsonConverterFactory
+//     {
+//         
+//     }
+// }

@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using DocumentFormat.OpenXml.Math;
 using miniRAID.TurnSchedule;
 using UnityEngine;
@@ -42,7 +44,7 @@ namespace miniRAID
     public class TurnScheduleSequence : LinkedListQueue<TurnSlice>
     {
         public CombatSchedulerCoroutine parentScheduler;
-
+        
         public TurnScheduleSequence() : base() { }
         
         public TurnScheduleSequence(IEnumerable<TurnSlice> slices) : base(slices)
@@ -177,7 +179,7 @@ namespace miniRAID
     // TODO: Implement own LinkedList to support fancier operations, fxxk
     public partial class CombatSchedulerCoroutine
     {
-        public TurnScheduleSequence turnSchedule;
+        [NonSerialized] public TurnScheduleSequence turnSchedule;
 
         [SerializeField] private TurnSchedulerGeneratorBase turnScheduler;
 

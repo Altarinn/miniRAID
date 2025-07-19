@@ -35,14 +35,15 @@ namespace GameContent.Buffs.Test
         {
             base.OnAttach(mob);
             
-            mob.OnDamageReceived += MobOnDamageReceived;
-
-            onRemoveFromMob += m =>
-            {
-                m.OnDamageReceived -= MobOnDamageReceived;
-            };
+            mob.OnDamageReceived.AddListener(MobOnDamageReceived);
         }
-        
+
+        protected override void OnRemoveFromMob(MobData mob)
+        {
+            mob.OnDamageReceived.RemoveListener(MobOnDamageReceived);
+            base.OnRemoveFromMob(mob);
+        }
+
         public IEnumerator MobOnDamageReceived(MobData mob, Consts.DamageHeal_Result result)
         {
             if ((!result.isAvoid) && (!result.isBlock) &&

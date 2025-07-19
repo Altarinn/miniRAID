@@ -29,8 +29,7 @@ namespace miniRAID.Agents
             base.OnAttach(mob);
 
             mob.OnAutoAttackAgentWakeUp.AddListener(OnAgentWakeUp);
-            mob.OnMobSelectedInUI += MobOnOnMobSelectedInUI;
-            mob.OnMobDeselectedInUI += MobOnOnMobDeselectedInUI;
+            mob.OnMobDeselectedInUI.AddListener(MobOnOnMobDeselectedInUI);
         }
 
         public override void OnRemove(MobData mob)
@@ -39,24 +38,13 @@ namespace miniRAID.Agents
 
             mob.OnAutoAttackAgentWakeUp.RemoveListener(OnAgentWakeUp);
             // mob.OnMobSelectedInUI -= MobOnOnMobSelectedInUI;
-            // mob.OnMobDeselectedInUI -= MobOnOnMobDeselectedInUI;
-        }
-
-        [Obsolete]
-        private void MobOnOnMobSelectedInUI(MobData mob)
-        {
-            // var sTarget = GetTarget(mob);
-            // if (sTarget != null)
-            // {
-            //     AddIndicator(new SimpleSpriteIndicator(
-            //         null, 
-            //         Globals.backend.GridToWorldPos(GetTarget(mob).targetPos[0]) + Vector3.back * 5.0f));
-            // }
+            mob.OnMobDeselectedInUI.RemoveListener(MobOnOnMobDeselectedInUI);
         }
         
+        // TODO: FIXME: The fuck is this??
         private void MobOnOnMobDeselectedInUI(MobData mob)
         {
-            RemoveAllIndicators();
+            DestroyRenderer();
         }
 
         protected IEnumerator OnAgentWakeUp(MobData mob)

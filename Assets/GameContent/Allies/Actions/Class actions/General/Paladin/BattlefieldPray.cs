@@ -41,12 +41,12 @@ namespace miniRAID
         public override void OnAttach(MobData mob)
         {
             base.OnAttach(mob);
-            mob.OnActionPrecast += TryAppendBaseAction;
+            mob.OnActionPrecast.AddListener(TryAppendBaseAction);
         }
 
         public override void OnRemove(MobData mob)
         {
-            mob.OnActionPrecast -= TryAppendBaseAction;
+            mob.OnActionPrecast.RemoveListener(TryAppendBaseAction);
             base.OnRemove(mob);
         }
 

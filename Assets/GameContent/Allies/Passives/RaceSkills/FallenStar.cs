@@ -33,12 +33,13 @@ namespace GameContent.Buffs.Test
         {
             base.OnAttach(mob);
 
-            mob.OnDamageDealt += MobOnDamageDealt;
+            mob.OnDamageDealt.AddListener(MobOnDamageDealt);
+        }
 
-            onRemoveFromMob += m =>
-            {
-                m.OnDamageDealt -= MobOnDamageDealt;
-            };
+        protected override void OnRemoveFromMob(MobData mob)
+        {
+            mob.OnDamageDealt.RemoveListener(MobOnDamageDealt);
+            base.OnRemoveFromMob(mob);
         }
 
         public IEnumerator MobOnDamageDealt(MobData mob, Consts.DamageHeal_Result result)

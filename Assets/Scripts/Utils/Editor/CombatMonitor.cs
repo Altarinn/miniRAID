@@ -2,12 +2,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using miniRAID;
+using miniRAID.ActionHelpers;
 using miniRAID.Agents;
+using miniRAID.Buff;
 using miniRAID.TurnSchedule;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
+using Sirenix.Serialization;
 using UnityEditor;
-using UnityEngine.Device;
+using UnityEngine;
+using UnityEngine.Profiling;
+using Application = UnityEngine.Device.Application;
+using Random = UnityEngine.Random;
+using SerializationUtility = Sirenix.Serialization.SerializationUtility;
 
 namespace Utils.Editor
 {
@@ -43,6 +50,34 @@ namespace Utils.Editor
                 turnSummary = Globals.combatTracker?.turnSummaries.ToArray();
                 rngHistory = Globals.combatCoroutine?.Instance.currentContext.rng?.history.ToArray();
             }
+        }
+        
+        // GridFx Test
+        public GridEffectSO effect;
+        public MobRenderer dummySrc;
+        [Button(ButtonSizes.Small)]
+        public void MakePools()
+        {
+            Vector3Int pos = new Vector3Int(
+                Random.Range(0, Globals.backend.mapSizeX),
+                Random.Range(0, Globals.backend.mapHeight),
+                Random.Range(0, Globals.backend.mapSizeZ));
+            
+            GridEffect rfx = (GridEffect)effect.LeveledWrapFx(
+                dummySrc.data, 1, pos);
+            rfx.Extend(pos);
+        }
+        
+        [Button(ButtonSizes.Large)]
+        public void SaveState()
+        {
+            SaveDataSerializer.saveSlot = SaveDataSerializer.saveSlotBackup;
+        }
+
+        [Button(ButtonSizes.Large)]
+        public void LoadState()
+        {
+            SaveDataSerializer.DeserializeEverything(SaveDataSerializer.saveSlot);
         }
     }
 }

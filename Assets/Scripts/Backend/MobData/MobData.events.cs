@@ -19,15 +19,30 @@ namespace miniRAID
         public delegate void MobMenuGUIDelegate(MobData data, UI.UnitMenu state, UI.UIMenu_UIContainer menu);
 
         public delegate void CostQueryDelegate(Cost cost, RuntimeAction ract, MobData mob);
-        public delegate bool CostCheckDelegate(Cost cost, RuntimeAction ract, MobData mob);
+        public delegate bool CostCheckBooleanDelegate(Cost cost, RuntimeAction ract, MobData mob);
         // WTF??? How about mana-draining attacks?
         // Cost = Damage ?
 
         // TODO: Think about this signature
         public delegate void MobActionQueryDelegate(MobData mob, HashSet<RuntimeAction> actions);
+
+        public delegate IEnumerator MobDataCoroutineDelegate(MobData mob);
+        public delegate IEnumerator MobMovedCoroutineDelegate(MobData mob, Vector3Int destination);
+
+        public delegate IEnumerator MobDamageHealPreCalcCoroutineDelegate(MobData mob, Consts.DamageHeal_FrontEndInput input);
+        public delegate IEnumerator MobDamageHealResultCoroutineDelegate(MobData mob, Consts.DamageHeal_Result input);
+
+        public delegate IEnumerator MobDamageHealBeforeApplicationCoroutineDelegate(MobData mob,
+            Consts.DamageHeal_FrontEndInput input, Consts.DamageHeal_ComputedRates rates);
+
+        public delegate IEnumerator MobActionWithTargetCoroutineDelegate(MobData mob, RuntimeAction action,
+            Spells.SpellTarget target);
+
+        public delegate IEnumerator MobOnApplyCostCoroutineDelegate(Cost cost, RuntimeAction action, MobData mob);
+        
         
         /////////////////////////////  Events  //////////////////////////////
-        /// TODO: Invoke order ......
+        /// TODO: Invoke order ...... (Has priority now but nobody use)
 
         //// Timing
 
@@ -35,36 +50,36 @@ namespace miniRAID
         //public event MobArgumentDelegate OnEarlyWakeup;
 
         // Emitted when the mob has its active state turned from "slept / 待机" to "awake / 可行动", after resetted all related parameters.
-        public CoroutineEvent<MobData> OnWakeup = new();
+        public MobEvent<MobDataCoroutineDelegate> OnWakeup = new();
 
         // Used for agents, after the regular wakeup process
-        public CoroutineEvent<MobData> OnAgentWakeUp = new();
+        public MobEvent<MobDataCoroutineDelegate> OnAgentWakeUp = new();
         
         // Used for auto-attack agents
-        public CoroutineEvent<MobData> OnAutoAttackAgentWakeUp = new();
+        public MobEvent<MobDataCoroutineDelegate> OnAutoAttackAgentWakeUp = new();
 
         // Emitted when the mob has entered a new turn ("PHASE" for this mob has started)
-        public CoroutineEvent<MobData> OnNextTurn = new();
+        public MobEvent<MobDataCoroutineDelegate> OnNextTurn = new();
         
         // Emitted when the mob has entered a new turn ("PHASE" for this mob has started)
-        public CoroutineEvent<MobData> OnRecoveryStage = new();
+        public MobEvent<MobDataCoroutineDelegate> OnRecoveryStage = new();
         
         //// Status calculation
         
-        public event MobArgumentDelegate OnInitialized;
-        public event MobArgumentDelegate OnBaseStatCalculation;
-        public event MobArgumentDelegate OnStatCalculation;
-        public event MobArgumentDelegate OnActionStatCalculation;
-        public event MobArgumentDelegate OnStatCalculationFinish;
+        public MobEvent<MobArgumentDelegate> OnInitialized = new();
+        public MobEvent<MobArgumentDelegate> OnBaseStatCalculation = new();
+        public MobEvent<MobArgumentDelegate> OnStatCalculation = new();
+        public MobEvent<MobArgumentDelegate> OnActionStatCalculation = new();
+        public MobEvent<MobArgumentDelegate> OnStatCalculationFinish = new();
         
         // Parameters: MobData, previous position
-        public CoroutineEvent<MobData, Vector3Int> OnMobMoved;
+        public MobEvent<MobMovedCoroutineDelegate> OnMobMoved = new();
 
-        public event MobActionQueryDelegate OnQueryActions;
+        public MobEvent<MobActionQueryDelegate> OnQueryActions = new();
 
         //// User Interface
         // TODO: ?
-        public event MobMenuGUIDelegate OnShowMobMenu;
+        public MobEvent<MobMenuGUIDelegate> OnShowMobMenu = new();
         
         //// Combat-related
 
@@ -74,40 +89,40 @@ namespace miniRAID
         /// This event also happens before rolling the RNG for hit/dodge and critical strikes.
         /// As they are represented as corresponding probabilities (values) instead of rolled results.
         /// </summary>
-        public CoroutineEvent<MobData, Consts.DamageHeal_FrontEndInput> OnDealDmg;
+        public MobEvent<MobDamageHealPreCalcCoroutineDelegate> OnDealDmg = new();
         // public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnDealDamageFinal;
         
         /// <summary>
         /// Emitted when the mob has finished dealt a damage as the source.
         /// </summary>
-        public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnDamageDealt;
+        public MobEvent<MobDamageHealResultCoroutineDelegate> OnDamageDealt = new();
 
-        public CoroutineEvent<MobData, Consts.DamageHeal_FrontEndInput> OnDealHeal;
+        public MobEvent<MobDamageHealPreCalcCoroutineDelegate> OnDealHeal = new();
         // public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnDealHealFinal;
-        public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnHealDealt;
+        public MobEvent<MobDamageHealResultCoroutineDelegate> OnHealDealt = new();
 
-        public CoroutineEvent<MobData, Consts.DamageHeal_FrontEndInput> OnReceiveDamage;
-        public CoroutineEvent<MobData, Consts.DamageHeal_FrontEndInput, Consts.DamageHeal_ComputedRates> OnBeforeDamageApplied;
+        public MobEvent<MobDamageHealPreCalcCoroutineDelegate> OnReceiveDamage = new();
+        public MobEvent<MobDamageHealBeforeApplicationCoroutineDelegate> OnBeforeDamageApplied = new();
         // public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnReceiveDamageFinal;
-        public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnDamageReceived;
+        public MobEvent<MobDamageHealResultCoroutineDelegate> OnDamageReceived = new();
 
-        public CoroutineEvent<MobData, Consts.DamageHeal_FrontEndInput> OnReceiveHeal;
-        public CoroutineEvent<MobData, Consts.DamageHeal_FrontEndInput, Consts.DamageHeal_ComputedRates> OnBeforeHealApplied;
+        public MobEvent<MobDamageHealPreCalcCoroutineDelegate> OnReceiveHeal = new();
+        public MobEvent<MobDamageHealBeforeApplicationCoroutineDelegate> OnBeforeHealApplied = new();
         // public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnReceiveHealFinal;
-        public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnHealReceived;
+        public MobEvent<MobDamageHealResultCoroutineDelegate> OnHealReceived = new();
 
-        public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnKill; // TODO: ByRef?
-        public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnPreDeath; // TODO: ByRef?
-        public CoroutineEvent<MobData, Consts.DamageHeal_Result> OnRealDeath;
+        public MobEvent<MobDamageHealResultCoroutineDelegate> OnKill = new(); // TODO: ByRef?
+        public MobEvent<MobDamageHealResultCoroutineDelegate> OnPreDeath = new(); // TODO: ByRef?
+        public MobEvent<MobDamageHealResultCoroutineDelegate> OnRealDeath = new();
 
         // When we still don't know if the action can be performed or not, but targets already pick'd
-        public CoroutineEvent<MobData, RuntimeAction, Spells.SpellTarget> OnActionChosen;
+        public MobEvent<MobActionWithTargetCoroutineDelegate> OnActionChosen = new();
         // Action ready, confirmed okay to be performed, but not performed yet
-        public CoroutineEvent<MobData, RuntimeAction, Spells.SpellTarget> OnActionPrecast;
+        public MobEvent<MobActionWithTargetCoroutineDelegate> OnActionPrecast = new();
         // Action finished
-        public CoroutineEvent<MobData, RuntimeAction, Spells.SpellTarget> OnActionPostcast;
+        public MobEvent<MobActionWithTargetCoroutineDelegate> OnActionPostcast = new();
 
-        public event CostQueryDelegate OnModifyCost;
+        public MobEvent<CostQueryDelegate> OnModifyCost = new();
         
         /// <summary>
         /// Emits when the mob is checking a cost to see if it meets the requirements.
@@ -115,17 +130,17 @@ namespace miniRAID
         /// The check passes if any of the delegates returns true.
         /// Therefore, make sure you return false if 1) the cost is not applicable, or 2) the requirement is not met.
         /// </summary>
-        public SequentialAny<CostCheckDelegate> OnCheckCost = new();
-        public CoroutineEvent<Cost, RuntimeAction, MobData> OnApplyCost;
+        public MobEvent<CostCheckBooleanDelegate> OnCheckCost = new();
+        public MobEvent<MobOnApplyCostCoroutineDelegate> OnApplyCost = new();
 
-        public event CostQueryDelegate OnCostQueryDisplay;
+        public MobEvent<CostQueryDelegate> OnCostQueryDisplay = new();
 
         /// <summary>
         /// Emitted when the mob is being selected in the UI.
         /// Perhaps always comes with a valid MobRenderer.
         /// </summary>
-        public event MobArgumentDelegate OnMobSelectedInUI;
-        public event MobArgumentDelegate OnMobDeselectedInUI;
+        public MobEvent<MobArgumentDelegate> OnMobSelectedInUI = new();
+        public MobEvent<MobArgumentDelegate> OnMobDeselectedInUI = new();
         
         /////////////////////////////  Logics  //////////////////////////////
 
@@ -194,11 +209,11 @@ namespace miniRAID
             // Trigger Before Applied events
             if (Consts.IsHeal(info))
             {
-                yield return new JumpIn(OnBeforeHealApplied?.Invoke(this, info, rates));
+                yield return new JumpIn(OnBeforeHealApplied?.InvokeCoroutine(this, info, rates));
             }
             else
             {
-                yield return new JumpIn(OnBeforeDamageApplied?.Invoke(this, info, rates));
+                yield return new JumpIn(OnBeforeDamageApplied?.InvokeCoroutine(this, info, rates));
             }
 
             // Manipulate HP
@@ -256,19 +271,19 @@ namespace miniRAID
             {
                 if (info.type == Consts.Elements.Heal)
                 {
-                    yield return new JumpIn(info.source.OnHealDealt?.Invoke(info.source, result));
-                    yield return new JumpIn(this.OnHealReceived?.Invoke(this, result));
+                    yield return new JumpIn(info.source.OnHealDealt?.InvokeCoroutine(info.source, result));
+                    yield return new JumpIn(this.OnHealReceived?.InvokeCoroutine(this, result));
                 }
                 else
                 {
-                    yield return new JumpIn(info.source.OnDamageDealt?.Invoke(info.source, result));
-                    yield return new JumpIn(this.OnDamageReceived?.Invoke(this, result));
+                    yield return new JumpIn(info.source.OnDamageDealt?.InvokeCoroutine(info.source, result));
+                    yield return new JumpIn(this.OnDamageReceived?.InvokeCoroutine(this, result));
                 }
                 
                 if(health <= 0 && !isDead)
                 {
                     // TODO: Event invoke order; Event termination
-                    yield return new JumpIn(this.OnPreDeath?.Invoke(this, result));
+                    yield return new JumpIn(this.OnPreDeath?.InvokeCoroutine(this, result));
                 }
 
                 // If we still dead
@@ -291,7 +306,7 @@ namespace miniRAID
         {
             isDead = true;
             initialized = false;
-            yield return new JumpIn(this.OnRealDeath?.Invoke(this, info));
+            yield return new JumpIn(this.OnRealDeath?.InvokeCoroutine(this, info));
 
             foreach (var listener in listeners.ToArray())
             {
@@ -307,7 +322,7 @@ namespace miniRAID
 
             if (shouldDestroy)
             {
-                mobRenderer = null;
+                renderer = null;
             
                 // Remove me from world
                 Databackend.GetSingleton().ClearMob(Position, gridBody, this, true);
@@ -379,7 +394,7 @@ namespace miniRAID
             if(!canAutoAttack)
                 yield break;
             
-            yield return new JumpIn(this.OnAutoAttackAgentWakeUp?.Invoke(this));
+            yield return new JumpIn(this.OnAutoAttackAgentWakeUp?.InvokeCoroutine(this));
             
             RecalculateStats();
         }
@@ -402,21 +417,21 @@ namespace miniRAID
         {
             baseDescriptor.RecalculateMobBaseStats(this);
 
-            OnBaseStatCalculation?.Invoke(this);
+            OnBaseStatCalculation?.InvokeInstant(this);
 
             float healthPercent = (float)health / maxHealth;
             
             baseDescriptor.RecalculateMobBattleStats(this);
 
-            OnStatCalculation?.Invoke(this);
+            OnStatCalculation?.InvokeInstant(this);
 
             // Set current health based on previous percentage
             health = Mathf.Clamp(Mathf.CeilToInt(maxHealth * healthPercent), 0, maxHealth);
 
             RefreshActions();
-            OnActionStatCalculation?.Invoke(this);
+            OnActionStatCalculation?.InvokeInstant(this);
 
-            OnStatCalculationFinish?.Invoke(this);
+            OnStatCalculationFinish?.InvokeInstant(this);
         }
         
         public void RefreshActions()
@@ -439,17 +454,17 @@ namespace miniRAID
                 }
             }
             
-            OnQueryActions?.Invoke(this, availableActions);
+            OnQueryActions?.InvokeInstant(this, availableActions);
         }
 
         public void SelectedInUI()
         {
-            OnMobSelectedInUI?.Invoke(this);
+            OnMobSelectedInUI?.InvokeInstant(this);
         }
         
         public void DeselectedInUI()
         {
-            OnMobDeselectedInUI?.Invoke(this);
+            OnMobDeselectedInUI?.InvokeInstant(this);
         }
     }
 }

@@ -76,7 +76,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  Guid: cb37ffc9640f43479a369467a188723c
+  Guid: 2297d2e86b30cf3408c1e4c359efbf8f
   Id: 88
   icon: {fileID: 0}
   nickname: Felivol
@@ -97,6 +97,8 @@ MonoBehaviour:
   - data: {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
     level: 0
   - data: {fileID: 11400000, guid: 26c0b2c1cb8d1aa41bad5b90e9aba93e, type: 2}
+    level: 0
+  - data: {fileID: 11400000, guid: 59df9475495bd144da0111f8fb9ce3e4, type: 2}
     level: 0
   rootAgent: {fileID: 0}
   baseStats:

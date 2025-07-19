@@ -30,14 +30,15 @@ namespace GameContent.Buffs.Test
         {
             base.OnAttach(mob);
 
-            mob.OnBeforeDamageApplied += MobOnBeforeDamageApplied;
-            
-            onRemoveFromMob += m =>
-            {
-                m.OnBeforeDamageApplied -= MobOnBeforeDamageApplied;
-            };
+            mob.OnBeforeDamageApplied.AddListener(MobOnBeforeDamageApplied);
         }
-        
+
+        protected override void OnRemoveFromMob(MobData mob)
+        {
+            mob.OnBeforeDamageApplied.RemoveListener(MobOnBeforeDamageApplied);
+            base.OnRemoveFromMob(mob);
+        }
+
         private IEnumerator MobOnBeforeDamageApplied(MobData mob, Consts.DamageHeal_FrontEndInput info, Consts.DamageHeal_ComputedRates rates)
         {
             HeavyWeapon weapon = mob.mainWeapon as HeavyWeapon;

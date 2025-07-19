@@ -20,11 +20,12 @@ namespace GameContent.Buffs.Test
         {
             base.OnAttach(mob);
             
-            mob.OnModifyCost += MobOnModifyCost;
-            onRemoveFromMob += m =>
-            {
-                m.OnModifyCost -= MobOnModifyCost;
-            };
+            mob.OnModifyCost.AddListener(MobOnModifyCost);
+        }
+
+        protected override void OnRemoveFromMob(MobData mob)
+        {
+            mob.OnModifyCost.RemoveListener(MobOnModifyCost);
         }
 
         private void MobOnModifyCost(Cost cost, RuntimeAction ract, MobData mob)

@@ -30,11 +30,7 @@ namespace GameContent.Buffs.Test
         {
             base.OnAttach(mob);
             
-            mob.OnMobMoved += MobOnMobMoved;
-            onRemoveFromMob += m =>
-            {
-                m.OnMobMoved -= MobOnMobMoved;
-            };
+            mob.OnMobMoved.AddListener(MobOnMobMoved);
             
             /* Custom events:
             mob.OnXXXX += XXXX;
@@ -43,6 +39,12 @@ namespace GameContent.Buffs.Test
                 m.OnXXXX -= XXXX;
             };
             */
+        }
+
+        protected override void OnRemoveFromMob(MobData mob)
+        {
+            mob.OnMobMoved.RemoveListener(MobOnMobMoved);
+            base.OnRemoveFromMob(mob);
         }
 
         private IEnumerator MobOnMobMoved(MobData mob, Vector3Int from)

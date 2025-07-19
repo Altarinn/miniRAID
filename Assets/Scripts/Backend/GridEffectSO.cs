@@ -4,6 +4,7 @@ using UnityEngine;
 
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
+using Sirenix.Serialization;
 
 namespace miniRAID.Buff
 {
@@ -26,11 +27,11 @@ namespace miniRAID.Buff
 
     public class GridEffect : Buff
     {
-        Dictionary<MobData, GridEffect> activeMobs;
+        [OdinSerialize] Dictionary<MobData, GridEffect> activeMobs;
         GridEffectComponent entity;
-        public new GridEffectSO data;
+        public GridEffectSO gridData => (GridEffectSO)data;
 
-        int mask;
+        public int mask;
 
         bool isFx => activeMobs != null;
 
@@ -50,7 +51,7 @@ namespace miniRAID.Buff
         public GridEffect(GridEffect from)
             : base(
                   from.source,
-                  from.data
+                  from.gridData
               )
         {
             // Don't create active mobs, entity & register to backend
@@ -92,7 +93,8 @@ namespace miniRAID.Buff
         {
             if (activeMobs.ContainsKey(mob))
             {
-                mob.RemoveListener(activeMobs[mob]);
+                // TODO: Should remove 1 stack of the buff, perhaps?
+                mob.RemoveBuffOnce(activeMobs[mob]);
                 activeMobs.Remove(mob);
             }
         }

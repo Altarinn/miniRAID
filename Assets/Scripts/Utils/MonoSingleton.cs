@@ -58,4 +58,11 @@ public class MonoSingleton<T> where T : MonoBehaviour
             }
         }
     }
+
+    public void ReplaceInstance(T instance)
+    {
+        GameObject obj = _instance.gameObject;
+        Component.Destroy(_instance);
+        _instance = instance;
+    }
 }

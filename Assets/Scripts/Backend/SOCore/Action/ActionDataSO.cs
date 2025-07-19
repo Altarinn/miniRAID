@@ -77,6 +77,8 @@ namespace miniRAID
                     break;
                     
                 case PowerGetterType.DYNAMIC:
+                    Debug.LogError("PowerGetterType.DYNAMIC will cause problems during serialization, please be careful!");
+                    throw new NotImplementedException();
                     return dynamicGetter(param);
                     break;
                 
@@ -331,14 +333,19 @@ namespace miniRAID
 
         public override MobListenerSO.ListenerType type => MobListenerSO.ListenerType.RuntimeAction;
 
+        [NonSerialized]
         public List<(Cost, Cost)> costBounds = new();
         public int cooldownRemain;
 
-        public dNumber power, auxPower;
-        public dNumber hit, crit;
+        [NonSerialized] public dNumber power;
+        [NonSerialized] public dNumber auxPower;
+        [NonSerialized] public dNumber hit;
+        [NonSerialized] public dNumber crit;
 
         public virtual GridShape Shape => data.MainShape; 
 
+        [NonSerialized]
+        [Obsolete]
         GeneralCombatData envData = new();
 
         [CSharpCallLua]
@@ -347,6 +354,8 @@ namespace miniRAID
         [CSharpCallLua]
         public delegate void Test(MobRenderer mobRenderer);
 
+        [NonSerialized]
+        [Obsolete]
         string paddedLuaExpr;
 
         protected RuntimeAction(MobData source, int level) : base(source, null)
@@ -419,6 +428,11 @@ namespace miniRAID
         
         public void RecalculateStats(MobData mob)
         {
+            if (costBounds == null)
+            {
+                costBounds = new();
+            }
+            
             // 1. Reset stats
             costBounds.Clear();
             var preBound = data.GetCostBounds(mob);
@@ -486,14 +500,14 @@ namespace miniRAID
 
             mob.OnNextTurn.AddListener(OnNextTurn);
             mob.OnRecoveryStage.AddListener(OnRecoveryStage);
-            mob.OnStatCalculationFinish += OnRecalculateStatsFinish;
+            mob.OnStatCalculationFinish.AddListener(OnRecalculateStatsFinish);
         }
 
         public override void OnRemove(MobData mob)
         {
             mob.OnNextTurn.RemoveListener(OnNextTurn);
             mob.OnRecoveryStage.RemoveListener(OnRecoveryStage);
-            mob.OnStatCalculationFinish -= OnRecalculateStatsFinish;
+            mob.OnStatCalculationFinish.RemoveListener(OnRecalculateStatsFinish);
             
             base.OnRemove(mob);
         }

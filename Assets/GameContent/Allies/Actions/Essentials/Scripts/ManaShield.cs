@@ -24,12 +24,7 @@ namespace GameContent.Buffs.Test
         public override void OnAttach(MobData mob)
         {
             base.OnAttach(mob);
-            mob.OnBeforeDamageApplied += MobOnBeforeDamageApplied;
-            
-            onRemoveFromMob += m =>
-            {
-                m.OnBeforeDamageApplied -= MobOnBeforeDamageApplied;
-            };
+            mob.OnBeforeDamageApplied.AddListener(MobOnBeforeDamageApplied);
             
             /* Custom events:
             mob.OnXXXX += XXXX;
@@ -39,7 +34,12 @@ namespace GameContent.Buffs.Test
             };
             */
         }
-        
+
+        protected override void OnRemoveFromMob(MobData mob)
+        {
+            mob.OnBeforeDamageApplied.RemoveListener(MobOnBeforeDamageApplied);
+        }
+
         private IEnumerator MobOnBeforeDamageApplied(MobData mob, Consts.DamageHeal_FrontEndInput info, Consts.DamageHeal_ComputedRates rates)
         {
             var mana = mob.FindListener<GeneralManaListener>();

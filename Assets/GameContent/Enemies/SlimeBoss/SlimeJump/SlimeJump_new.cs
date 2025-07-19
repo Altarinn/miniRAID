@@ -21,7 +21,7 @@ namespace miniRAID
         private bool CheckGridHasPoisonPool(GridData grid)
         {
             var effectList = grid.effects;
-            return effectList.Any(kvp => kvp.Key.data == poisonPool.effect);
+            return effectList.Any(kvp => kvp.data == poisonPool.effect);
         }
         
         public override IEnumerator OnPerform(RuntimeAction<SingleCoordinateTarget> ract, MobData mob,

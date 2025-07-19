@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using Unity.Mathematics;
+using UnityEngine;
 using Random = Unity.Mathematics.Random;
 
 namespace miniRAID
@@ -8,6 +10,7 @@ namespace miniRAID
     // TODO: Record my state at each time-step
     public class RNG
     {
+        [SerializeField]
         private Random random;
 
         public struct RNGHistoryEntry
@@ -21,6 +24,7 @@ namespace miniRAID
             public bool result;
         }
 
+        [NonSerialized]
         public List<RNGHistoryEntry> history = new List<RNGHistoryEntry>();
 
         public RNG(uint seed = 42)

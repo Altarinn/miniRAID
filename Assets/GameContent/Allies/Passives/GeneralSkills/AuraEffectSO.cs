@@ -6,6 +6,7 @@ using System.Linq;
 using miniRAID;
 using miniRAID.ActionHelpers;
 using miniRAID.Buff;
+using Sirenix.Serialization;
 
 namespace GameContent.Buffs.Test
 {
@@ -22,7 +23,10 @@ namespace GameContent.Buffs.Test
 
     public class AuraEffectSORuntimeBuff : Buff
     {
+        [OdinSerialize]
         private HashSet<MobData> validTargets;
+        
+        [OdinSerialize]
         private Dictionary<MobData, AuraEffectSORuntimeBuff> activeMobs;
         
         public AuraEffectSORuntimeBuff(MobData source, AuraEffectSO data) : base(source, data)
@@ -45,21 +49,24 @@ namespace GameContent.Buffs.Test
                     .ToList();
 
                 // Register listeners to all valid targets
-                source.OnMobMoved += SourceOnMobMoved;
+                source.OnMobMoved.AddListener(SourceOnMobMoved);
                 targetList.ForEach(OnMobAdded);
 
                 // Register listener to any new mobs etc.
-                Globals.backend.onMobAdded += OnMobAdded;
-                Globals.backend.onMobRemoved += OnMobRemoved;
+                Globals.backend.onMobAdded.AddListener(OnMobAdded);
+                Globals.backend.onMobRemoved.AddListener(OnMobRemoved);
+            }
+        }
+
+        protected override void OnRemoveFromMob(MobData mob)
+        {
+            if (mob == source)
+            {
+                Globals.backend.onMobAdded.RemoveListener(OnMobAdded);
+                Globals.backend.onMobRemoved.RemoveListener(OnMobRemoved);
                 
-                onRemoveFromMob += m =>
-                {
-                    Globals.backend.onMobAdded -= OnMobAdded;
-                    Globals.backend.onMobRemoved -= OnMobRemoved;
-                    
-                    validTargets.ToList().ForEach(OnMobRemoved);
-                    m.OnMobMoved -= SourceOnMobMoved;
-                };
+                validTargets.ToList().ForEach(OnMobRemoved);
+                mob.OnMobMoved.RemoveListener(SourceOnMobMoved);
             }
         }
 
@@ -68,7 +75,7 @@ namespace GameContent.Buffs.Test
             if (mob != source && ((AuraEffectSO)buffData).filter.Check(source, mob))
             {
                 validTargets.Add(mob);
-                mob.OnMobMoved += TargetOnMobMovedCoroutine;
+                mob.OnMobMoved.AddListener(TargetOnMobMovedCoroutine);
                 TargetOnMobMoved(mob, mob.Position);
             }
         }
@@ -78,7 +85,7 @@ namespace GameContent.Buffs.Test
             if (validTargets.Contains(mob))
             {
                 DeactivateAuraOnMob(mob);
-                mob.OnMobMoved -= TargetOnMobMovedCoroutine;
+                mob.OnMobMoved.RemoveListener(TargetOnMobMovedCoroutine);
                 validTargets.Remove(mob);
             }
         }

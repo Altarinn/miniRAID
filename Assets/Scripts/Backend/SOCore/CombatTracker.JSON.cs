@@ -19,7 +19,7 @@ namespace miniRAID
             public List<MobEntry> mobs;
         }
         
-        private Dictionary<miniRAID.MobData, int> mobID;
+        private Dictionary<MobData, int> mobID;
         private FullJSONData fullJSONData;
         private List<CombatJSONEntry> currentTurnJSONdata;
 
@@ -159,7 +159,7 @@ namespace miniRAID
             };
             mobID = new();
 
-            Globals.backend.onMobAdded += OnMobAdded;
+            Globals.backend.onMobAdded.AddListener(OnMobAdded);
         }
 
         public void OnMobAdded(MobData mob)

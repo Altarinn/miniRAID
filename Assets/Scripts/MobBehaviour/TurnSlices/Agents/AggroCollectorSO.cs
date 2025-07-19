@@ -5,9 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using miniRAID.Actions;
+using miniRAID.Backend;
 using miniRAID.Spells;
 using miniRAID.TurnSchedule;
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -32,18 +34,18 @@ namespace miniRAID.Agents
         public virtual MobData CurrentTarget => null;
     }
 
-    public class AggroCollector : TargetIndicator
+    public class AggroCollector : TargetIndicator, IRenderableState
     {
         public AggroCollector(MobData parent, MobListenerSO data) : base(parent, data)
         {
         }
 
         public Dictionary<MobData, float> AggroList => aggroList; // TODO: Readonly?
-        protected Dictionary<MobData, float> aggroList;
+        [OdinSerialize] protected Dictionary<MobData, float> aggroList;
         public float maxAggro => aggroList.Max(kv => kv.Value);
         public AggroCollectorSO aggroCollectorData => (AggroCollectorSO)data;
 
-        protected MobData currentTarget;
+        [OdinSerialize] protected MobData currentTarget;
 
         public override MobData CurrentTarget
         {
@@ -56,34 +58,29 @@ namespace miniRAID.Agents
         
         public bool useAggro = true;
 
-        private DecalIndicator targetIndicator;
+        private DecalIndicator targetIndicator => (DecalIndicator)renderer;
 
         public override void OnAttach(MobData mob)
         {
             base.OnAttach(mob);
             
-            mob.OnDamageReceived += Mob_OnReceiveDamageFinal;
+            mob.OnDamageReceived.AddListener(Mob_OnReceiveDamageFinal);
             mob.OnRecoveryStage.AddListener(Mob_OnRecoveryStage);
             aggroList = new Dictionary<MobData, float>();
-
-            if (aggroCollectorData.decalIndicatorMaterial)
-            {
-                targetIndicator = AddIndicator(new DecalIndicator(
-                    aggroCollectorData.decalIndicatorMaterial,
-                    Globals.backend.GridToWorldPosCenteredGrounded(mob.Position)));
-            }
+            
+            ConstructRenderer();
         }
 
         public override void OnRemove(MobData mob)
         {
             base.OnRemove(mob);
 
-            mob.OnDamageReceived -= Mob_OnReceiveDamageFinal;
+            mob.OnDamageReceived.RemoveListener(Mob_OnReceiveDamageFinal);
             mob.OnRecoveryStage.RemoveListener(Mob_OnRecoveryStage);
 
             foreach (MobData targetMob in aggroList.Keys)
             {
-                targetMob.OnHealReceived -= TargetMob_OnReceiveHealFinal;
+                targetMob.OnHealReceived.RemoveListener(TargetMob_OnReceiveHealFinal);
             }
         }
 
@@ -134,7 +131,7 @@ namespace miniRAID.Agents
             if (!aggroList.ContainsKey(mob))
             {
                 aggroList.Add(mob, 0);
-                mob.OnHealReceived += TargetMob_OnReceiveHealFinal;
+                mob.OnHealReceived.AddListener(TargetMob_OnReceiveHealFinal);
                 // TODO: Buffs
             }
 
@@ -166,7 +163,7 @@ namespace miniRAID.Agents
             if (aggroList.ContainsKey(mob))
             {
                 aggroList.Remove(mob);
-                mob.OnHealReceived -= TargetMob_OnReceiveHealFinal;
+                mob.OnHealReceived.RemoveListener(TargetMob_OnReceiveHealFinal);
                 // TODO: Buffs
             }
             UpdateAggro();
@@ -213,10 +210,7 @@ namespace miniRAID.Agents
                 }
                 
                 currentTarget = target;
-                if (currentTarget != null && targetIndicator != null && currentTarget.mobRenderer != null)
-                {
-                    targetIndicator.Follow(currentTarget.mobRenderer.transform);
-                }
+                UpdateRenderer();
             }
         }
 
@@ -241,6 +235,24 @@ namespace miniRAID.Agents
         {
             aggroList[target] = 0;
             AddToAggro(target, maxAggro + margin);
+        }
+
+        public void ConstructRenderer()
+        {
+            if (aggroCollectorData.decalIndicatorMaterial)
+            {
+                renderer = DecalIndicator.Instantiate(
+                    aggroCollectorData.decalIndicatorMaterial,
+                    Globals.backend.GridToWorldPosCenteredGrounded(parentMob.Position));
+            }
+        }
+
+        public void UpdateRenderer()
+        {
+            if (currentTarget != null && targetIndicator != null)
+            {
+                targetIndicator.Follow(currentTarget);
+            }
         }
     }
 }

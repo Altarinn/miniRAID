@@ -81,7 +81,7 @@ namespace miniRAID.Weapon
             base.OnAttach(mob);
 
             mob.OnWakeup.AddListener(MobOnWakeup);
-            mob.OnStatCalculation += MobOnOnStatCalculation;
+            mob.OnStatCalculation.AddListener(MobOnOnStatCalculation);
         }
 
         private void MobOnOnStatCalculation(MobData mob)
@@ -95,7 +95,7 @@ namespace miniRAID.Weapon
         public override void OnRemove(MobData mob)
         {
             mob.OnWakeup.RemoveListener(MobOnWakeup);
-            mob.OnStatCalculation -= MobOnOnStatCalculation;
+            mob.OnStatCalculation.RemoveListener(MobOnOnStatCalculation);
             
             base.OnRemove(mob);
         }

@@ -5,6 +5,7 @@ using System.Linq;
 
 using miniRAID;
 using miniRAID.Buff;
+using Sirenix.Serialization;
 
 namespace GameContent.Buffs.Test
 {
@@ -23,7 +24,7 @@ namespace GameContent.Buffs.Test
     {
         protected OracleCosts oracleData => (OracleCosts)data;
 
-        private HashSet<Vector2Int> oracleGrids;
+        [OdinSerialize] private HashSet<Vector2Int> oracleGrids;
 
         private int oraclesPerTurn => (1 + level);
 
@@ -36,20 +37,21 @@ namespace GameContent.Buffs.Test
         {
             base.OnAttach(mob);
             
-            mob.OnCheckCost += MobOnCheckCost;
-            mob.OnApplyCost += MobOnApplyCost;
+            mob.OnCheckCost.AddListener(MobOnCheckCost);
+            mob.OnApplyCost.AddListener(MobOnApplyCost);
             mob.OnWakeup.AddListener(MobOnWakeup);
             // mob.OnStatCalculation += MobOnStatCalculation;
-
-            onRemoveFromMob += m =>
-            {
-                mob.OnWakeup.RemoveListener(MobOnWakeup);
-                mob.OnApplyCost -= MobOnApplyCost;
-                mob.OnCheckCost -= MobOnCheckCost;
-                // mob.OnStatCalculation -= MobOnStatCalculation;
-            };
         }
-        
+
+        protected override void OnRemoveFromMob(MobData mob)
+        {
+            mob.OnWakeup.RemoveListener(MobOnWakeup);
+            mob.OnApplyCost.RemoveListener(MobOnApplyCost);
+            mob.OnCheckCost.RemoveListener(MobOnCheckCost);
+            // mob.OnStatCalculation -= MobOnStatCalculation;
+            base.OnRemoveFromMob(mob);
+        }
+
         private IEnumerator MobOnWakeup(MobData mob)
         {
             // Generate oracle grids
@@ -71,17 +73,23 @@ namespace GameContent.Buffs.Test
                 }
             }
 
-            RefreshIndicators();
+            UpdateRenderer();
             
             yield break;
         }
 
-        void RefreshIndicators()
+        public override void ConstructRenderer()
         {
-            RemoveAllIndicators();
+            renderer = new BatchedRenderer();
+            UpdateRenderer();
+        }
+
+        public override void UpdateRenderer()
+        {
+            (renderer as BatchedRenderer)?.Destroy();
             foreach (var grid in oracleGrids)
             {
-                AddIndicator(new SimpleSpriteIndicator(
+                (renderer as BatchedRenderer)?.renderers?.Add(SimpleSpriteIndicator.Instantiate(
                         oracleData.indicator,
                         Globals.backend.GridToWorldPosCentered(new Vector3Int(grid.x, 0, grid.y))));
             }
@@ -114,7 +122,7 @@ namespace GameContent.Buffs.Test
             {
                 case Cost.Type.OracleGrid:
                     oracleGrids.Remove(new Vector2Int(mob.Position.x, mob.Position.z));
-                    RefreshIndicators();
+                    UpdateRenderer();
                     break;
                 case Cost.Type.OracleBuff:
                 {

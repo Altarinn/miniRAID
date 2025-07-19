@@ -5,6 +5,7 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using Cinemachine;
+using miniRAID.Backend;
 using miniRAID.Backend.Numericals;
 
 namespace miniRAID.Buff
@@ -31,6 +32,7 @@ namespace miniRAID.Buff
         public int timeMax = 1;
 
         public bool stackable = false;
+        public bool allowDuplicate = false;
         public bool stackRefreshesTime = true;
         public int maxStack = 1;
         public bool snapShot = true;
@@ -161,35 +163,9 @@ namespace miniRAID.Buff
 
             return result;
         }
-
-        public override bool TryAdd(MobData target)
-        {
-            if(base.TryAdd(target))
-            {
-                // Find myself in target mob
-                Buff duplicated = (Buff)(target.FindListener(x => x.data == this));
-                if(duplicated != null)
-                {
-                    if (stackable)
-                    {
-                        if (duplicated.Stack()) { /*Success!*/ }
-                    }
-                    else
-                    {
-                        if (duplicated.Refresh()) { /*Success!*/ }
-                    }
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
     }
 
-    public class Buff : StatModifier
+    public class Buff : StatModifier, IRenderableState
     {
         public int timeRemain, stacks;
         protected BuffSO buffData => (BuffSO)data;
@@ -222,8 +198,8 @@ namespace miniRAID.Buff
             }
         }
 
-        protected delegate void OnRemoved(MobData mob);
-        protected event OnRemoved onRemoveFromMob;
+        // protected delegate void OnRemoved(MobData mob);
+        // protected event OnRemoved onRemoveFromMob;
 
         public Buff(MobData source, BuffSO data) : base(source, data)
         {
@@ -244,6 +220,8 @@ namespace miniRAID.Buff
             this.stacks = 1;
         }
 
+        protected virtual void OnRemoveFromMob(MobData mob) { }
+
         protected override void UpdatePower(MobData mob)
         {
             if (!buffData.snapShot)
@@ -253,6 +231,53 @@ namespace miniRAID.Buff
             
             // If snapshot has been enabled, don't modify anything and return
             return;
+        }
+        
+        public bool IsDuplicated(Buff other)
+        {
+            if (buffData.allowDuplicate == true)
+            {
+                return true;
+            }
+
+            if (other == null)
+            {
+                return false;
+            }
+
+            return (other.data == this.data) && (other.source.Equals(this.source));
+        }
+        
+        public override bool TryAdd(MobData target)
+        {
+            // Can comment out but for a little bit performance
+            if (buffData.allowDuplicate == true)
+            {
+                return base.TryAdd(target);
+            }
+            
+            if(base.TryAdd(target))
+            {
+                // Find myself in target mob
+                Buff duplicated = (Buff)(target.FindListener(x => this.IsDuplicated(x as Buff)));
+                if(duplicated != null)
+                {
+                    if (buffData.stackable)
+                    {
+                        if (duplicated.Stack()) { /*Success!*/ }
+                    }
+                    else
+                    {
+                        if (duplicated.Refresh()) { /*Success!*/ }
+                    }
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public virtual bool Stack()
@@ -304,16 +329,6 @@ namespace miniRAID.Buff
 
             mob.OnNextTurn.AddListener(BuffBase_OnNextTurn);
             mob.OnRecoveryStage.AddListener(BuffBase_OnRecoveryStage);
-
-            // TODO: Separate me into something else
-            if (Globals.cc.animation && buffData.alwaysOnIndicator)
-            {
-                AddIndicator(new SimpleSpriteIndicator(
-                    buffData.alwaysOnIndicator,
-                    Globals.backend.GridToWorldPosCentered(mob.Position), 3))
-                    .Move(new Vector3(0, 0, 0.0f))
-                    .Follow(mob.mobRenderer);
-            }
 
             // Register events
             // Stats
@@ -424,6 +439,8 @@ namespace miniRAID.Buff
                 buff = this,
                 eventType = Consts.BuffEventType.Attached
             });
+            
+            ConstructRenderer();
         }
 
         public override void OnRemove(MobData mob)
@@ -436,7 +453,7 @@ namespace miniRAID.Buff
             
             mob.OnNextTurn.RemoveListener(BuffBase_OnNextTurn);
             mob.OnRecoveryStage.RemoveListener(BuffBase_OnRecoveryStage);
-            onRemoveFromMob?.Invoke(mob);
+            OnRemoveFromMob(mob);
 
             base.OnRemove(mob);
         }
@@ -512,6 +529,23 @@ namespace miniRAID.Buff
             {
                 Destroy();
             }
+        }
+
+        public virtual void ConstructRenderer()
+        {
+            // TODO: Separate me into something else
+            if (Globals.cc.animation && buffData.alwaysOnIndicator)
+            {
+                renderer = SimpleSpriteIndicator.Instantiate(
+                    buffData.alwaysOnIndicator,
+                    Globals.backend.GridToWorldPosCentered(parentMob.Position), 3)
+                    .Follow(parentMob);
+            }
+        }
+
+        public virtual void UpdateRenderer()
+        {
+            (renderer as FollowMobStateRenderer)?.Follow(parentMob);
         }
     }
 }

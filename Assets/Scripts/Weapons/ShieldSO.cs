@@ -1,4 +1,5 @@
 using miniRAID.UIElements;
+using Sirenix.Serialization;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.UIElements;
@@ -27,7 +28,7 @@ namespace miniRAID.Weapon
         
         public Shield(MobData parent, ShieldSO data) : base(parent, data) { }
 
-        private RuntimeAction RDefenseAction;
+        [SerializeField] private RuntimeAction RDefenseAction;
         
         public override void OnAttach(MobData mob)
         {

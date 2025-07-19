@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using miniRAID.UIElements;
+using Sirenix.Serialization;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.UIElements;
@@ -28,8 +29,8 @@ namespace miniRAID.Weapon
     {
         public StaffSO staffData => (StaffSO)data;
 
-        private int regenTimer = 0;
-        RuntimeAction RspecialAttack;
+        [SerializeField] private int regenTimer = 0;
+        [SerializeField] RuntimeAction RspecialAttack;
         
         public Staff(MobData parent, WeaponSO data) : base(parent, data)
         {
@@ -42,13 +43,13 @@ namespace miniRAID.Weapon
             
             RspecialAttack = mob.AddAction(staffData.specialAttack);
 
-            mob.OnActionPostcast += OnActionPostCast;
+            mob.OnActionPostcast.AddListener(OnActionPostCast);
             mob.OnRecoveryStage.AddListener(OnRecoveryStage);
         }
         
         public override void OnRemove(MobData mob)
         {
-            mob.OnActionPostcast -= OnActionPostCast;
+            mob.OnActionPostcast.RemoveListener(OnActionPostCast);
             mob.OnRecoveryStage.RemoveListener(OnRecoveryStage);
             
             base.OnRemove(mob);

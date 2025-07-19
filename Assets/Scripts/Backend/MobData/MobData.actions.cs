@@ -129,17 +129,17 @@ namespace miniRAID
         
         public IEnumerator ActionPrecheck(RuntimeAction raction, SpellTarget target)
         {
-            yield return new JumpIn(OnActionChosen?.Invoke(this, raction, target));
+            yield return new JumpIn(OnActionChosen?.InvokeCoroutine(this, raction, target));
         }
 
         public IEnumerator ActionBegin(RuntimeAction raction, SpellTarget target)
         {
-            yield return new JumpIn(OnActionPrecast?.Invoke(this, raction, target));
+            yield return new JumpIn(OnActionPrecast?.InvokeCoroutine(this, raction, target));
         }
 
         public IEnumerator ActionDone(RuntimeAction raction, SpellTarget target)
         {
-            yield return new JumpIn(OnActionPostcast?.Invoke(this, raction, target));
+            yield return new JumpIn(OnActionPostcast?.InvokeCoroutine(this, raction, target));
 
             if (!raction.Flags.HasFlag(Consts.ActionFlags.Movement))
             {
@@ -159,7 +159,7 @@ namespace miniRAID
         public Cost GetModifiedCost(Cost cost, RuntimeAction ract)
         {
             // TODO: Dummy action
-            OnModifyCost?.Invoke(cost, ract, this);
+            OnModifyCost?.InvokeInstant(cost, ract, this);
             return cost;
         }
         
@@ -184,7 +184,7 @@ namespace miniRAID
         
         public IEnumerator ApplyCost(Cost cost, RuntimeAction ract)
         {
-            yield return new JumpIn(OnApplyCost?.Invoke(cost, ract, this));
+            yield return new JumpIn(OnApplyCost?.InvokeCoroutine(cost, ract, this));
 
             switch (cost.type)
             {

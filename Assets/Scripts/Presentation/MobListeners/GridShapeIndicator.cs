@@ -1,8 +1,9 @@
+using miniRAID.Backend;
 using UnityEngine;
 
 namespace miniRAID
 {
-    public class GridShapeIndicator : IMobListenerIndicator
+    public class GridShapeIndicator : IStateRenderer
     {
         public GridShape shape;
         public Sprite icon;
@@ -15,12 +16,16 @@ namespace miniRAID
             this.shape = shape;
             this.overlayType = GridOverlay.Types.CUSTOM;
             this.icon = icon;
+            
+            Instantiate();
         }
         
         public GridShapeIndicator(GridShape shape, GridOverlay.Types overlayType)
         {
             this.shape = shape;
             this.overlayType = overlayType;
+            
+            Instantiate();
         }
         
         public void Instantiate()
@@ -40,12 +45,19 @@ namespace miniRAID
             }
         }
 
-        public void Update()
+        public void Update(GridShape shape)
         {
-            return;
+            this.shape = shape;
+            Refresh();
         }
 
-        public void Destroy()
+        public virtual void Refresh()
+        {
+            Destroy();
+            Instantiate();
+        }
+
+        public virtual void Destroy()
         {
             if (instantiatedOverlay != null)
             {

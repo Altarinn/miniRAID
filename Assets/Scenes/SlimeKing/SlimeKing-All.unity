@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -38,13 +38,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
-  m_GIWorkflowMode: 1
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -67,9 +66,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 0
@@ -149,13 +145,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 43158368}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 16.5, y: 0, z: 8}
   m_LocalScale: {x: 1, y: 1, z: 18}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1515871877}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &43158370
 BoxCollider:
@@ -195,6 +191,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -265,13 +264,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 66535455}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &124344446
 GameObject:
@@ -296,6 +295,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 124344446}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -312,7 +312,6 @@ Transform:
   - {fileID: 387295606}
   - {fileID: 547442346}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &136332303
 PrefabInstance:
@@ -340,19 +339,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.45297784
+      value: 0.4667642
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.21168631
+      value: 0.17925158
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.78458065
+      value: 0.8084594
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.36665142
+      value: -0.3104729
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -389,6 +388,10 @@ PrefabInstance:
     - target: {fileID: 6365938299931361831, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_DrawMode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7593692246047247037, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
+      propertyPath: handleDataInit
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7593692246047247037, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: data.baseDescriptor
@@ -446,7 +449,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 141169435}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.8660255, z: -0, w: 0.49999988}
   m_LocalPosition: {x: 2.5, y: 10.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -455,11 +459,10 @@ Transform:
   - {fileID: 1460416235}
   - {fileID: 253330256}
   m_Father: {fileID: 427119835}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &141169437
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -473,10 +476,12 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &141169439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,114 +498,14 @@ MonoBehaviour:
   data:
     baseDescriptor: {fileID: 0}
     enemyDebug: 0
+    _position: {x: 0, y: 0, z: 0}
     initialized: 0
     movementType: 0
     unitGroup: 1
     nickname: 
     _actionPointsMul100: 400
     _freeActionPointsMul100: 100
-    apRecovery: 3
-    apNonFreeMax: 5
-    moveRange:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
     movedGrids: 0
-    attackPower:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    spellPower:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    healPower:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    buffPower:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    defense:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    spDefense:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    hitAcc:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    dodge:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    crit:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    antiCrit:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
     extraRange:
       valueType: 0
       staticValue: 0
@@ -610,108 +515,11 @@ MonoBehaviour:
       addedValue: 0
       addMultiplier: 0
       mulMultiplier: 0
-    aggroMul:
-      valueType: 0
-      staticValue: 1
-      source:
-        source: Unknown
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 1
-      mulMultiplier: 1
-    healPriority: 1
-    baseStats:
-      VIT:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-      STR:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-      MAG:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-      INT:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-      AGI:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-      TEC:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-    battleStats:
-      exResist:
-        Physical: 0
-        Elemental: 0
-        Pure: 0
-        Slash: 0
-        Knock: 0
-        Pierce: 0
-        Fire: 0
-        Ice: 0
-        Water: 0
-        Nature: 0
-        Wind: 0
-        Thunder: 0
-        Light: 0
-        Dark: 0
-        Heal: 0
-      exDamage:
-        Physical: 0
-        Elemental: 0
-        Pure: 0
-        Slash: 0
-        Knock: 0
-        Pierce: 0
-        Fire: 0
-        Ice: 0
-        Water: 0
-        Nature: 0
-        Wind: 0
-        Thunder: 0
-        Light: 0
-        Dark: 0
-        Heal: 0
     health: 100
     maxHealth: 100
     damageShield: 0
   animator: {fileID: 0}
+  handleDataInit: 1
 --- !u!114 &141169440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -783,6 +591,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -823,13 +634,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 173946176}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.01, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1515871877}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &181936617
 PrefabInstance:
@@ -845,7 +656,7 @@ PrefabInstance:
       objectReference: {fileID: 1865483634}
     - target: {fileID: 906608722723996479, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2390354673250043810, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: initialTarget
@@ -861,23 +672,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3429153956045358056, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.5
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 3429153956045358056, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.45297784
+      value: 0.4667642
       objectReference: {fileID: 0}
     - target: {fileID: 3429153956045358056, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.21168631
+      value: 0.17925158
       objectReference: {fileID: 0}
     - target: {fileID: 3429153956045358056, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.78458065
+      value: 0.8084594
       objectReference: {fileID: 0}
     - target: {fileID: 3429153956045358056, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.36665142
+      value: -0.3104729
       objectReference: {fileID: 0}
     - target: {fileID: 5180081312367153648, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: m_RootOrder
@@ -926,6 +737,10 @@ PrefabInstance:
     - target: {fileID: 5180081312367153651, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: m_Name
       value: SmallMu (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5886882680468495439, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
+      propertyPath: handleDataInit
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5886882680468495439, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: data._actionPointsMul100
@@ -1274,19 +1089,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.45297784
+      value: 0.4667642
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.21168631
+      value: 0.17925158
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.78458065
+      value: 0.8084594
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.36665142
+      value: -0.3104729
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1308,6 +1123,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1542497325, guid: 53d6db441a45ad94687fbdac848a2a90, type: 3}
+    - target: {fileID: 7593692246047247037, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
+      propertyPath: handleDataInit
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7593692246047247037, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: data.baseDescriptor
       value: 
@@ -1427,6 +1246,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 427119834}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -1441,7 +1261,6 @@ Transform:
   - {fileID: 1991234849}
   - {fileID: 181936618}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &436291073
 PrefabInstance:
@@ -1469,19 +1288,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.45297784
+      value: 0.4667642
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.21168631
+      value: 0.17925158
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.78458065
+      value: 0.8084594
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.36665142
+      value: -0.3104729
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1503,6 +1322,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 716080347, guid: 53d6db441a45ad94687fbdac848a2a90, type: 3}
+    - target: {fileID: 7593692246047247037, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
+      propertyPath: handleDataInit
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7593692246047247037, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: data.baseDescriptor
       value: 
@@ -1733,13 +1556,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 496821955}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 547442346}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &496821957
 SpriteRenderer:
@@ -1758,6 +1581,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1884,6 +1710,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 547442345}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 8.5, y: 4.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -1893,7 +1720,6 @@ Transform:
   - {fileID: 506425917}
   - {fileID: 1003713253}
   m_Father: {fileID: 124344447}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &547442347
 MonoBehaviour:
@@ -1911,114 +1737,14 @@ MonoBehaviour:
   data:
     baseDescriptor: {fileID: 11400000, guid: 7626a1dcca487de4d98b2b37c5439dc5, type: 2}
     enemyDebug: 0
+    _position: {x: 0, y: 0, z: 0}
     initialized: 0
     movementType: 0
     unitGroup: 0
     nickname: 
     _actionPointsMul100: 200
     _freeActionPointsMul100: 100
-    apRecovery: 1
-    apNonFreeMax: 5
-    moveRange:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
     movedGrids: 0
-    attackPower:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    spellPower:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    healPower:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    buffPower:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    defense:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    spDefense:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    hitAcc:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    dodge:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    crit:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    antiCrit:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
     extraRange:
       valueType: 0
       staticValue: 0
@@ -2028,108 +1754,11 @@ MonoBehaviour:
       addedValue: 0
       addMultiplier: 0
       mulMultiplier: 0
-    aggroMul:
-      valueType: 0
-      staticValue: 1
-      source:
-        source: Unknown
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 1
-      mulMultiplier: 1
-    healPriority: 1
-    baseStats:
-      VIT:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-      STR:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-      MAG:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-      INT:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-      AGI:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-      TEC:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-    battleStats:
-      exResist:
-        Physical: 0
-        Elemental: 0
-        Pure: 0
-        Slash: 0
-        Knock: 0
-        Pierce: 0
-        Fire: 0
-        Ice: 0
-        Water: 0
-        Nature: 0
-        Wind: 0
-        Thunder: 0
-        Light: 0
-        Dark: 0
-        Heal: 0
-      exDamage:
-        Physical: 0
-        Elemental: 0
-        Pure: 0
-        Slash: 0
-        Knock: 0
-        Pierce: 0
-        Fire: 0
-        Ice: 0
-        Water: 0
-        Nature: 0
-        Wind: 0
-        Thunder: 0
-        Light: 0
-        Dark: 0
-        Heal: 0
     health: 100
     maxHealth: 100
     damageShield: 0
   animator: {fileID: 0}
+  handleDataInit: 1
 --- !u!114 &547442348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2167,13 +1796,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 642268544}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.0625, y: -0.03125, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1356366518}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &642268546
 SpriteRenderer:
@@ -2192,6 +1821,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2253,7 +1885,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 799371568}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.8660255, z: -0, w: 0.49999988}
   m_LocalPosition: {x: 2.5, y: 6.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2262,11 +1895,10 @@ Transform:
   - {fileID: 206521650}
   - {fileID: 485865520}
   m_Father: {fileID: 427119835}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &799371570
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2280,10 +1912,12 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &799371571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2300,114 +1934,14 @@ MonoBehaviour:
   data:
     baseDescriptor: {fileID: 0}
     enemyDebug: 0
+    _position: {x: 0, y: 0, z: 0}
     initialized: 0
     movementType: 0
     unitGroup: 1
     nickname: 
     _actionPointsMul100: 400
     _freeActionPointsMul100: 100
-    apRecovery: 3
-    apNonFreeMax: 5
-    moveRange:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
     movedGrids: 0
-    attackPower:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    spellPower:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    healPower:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    buffPower:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    defense:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    spDefense:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    hitAcc:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    dodge:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    crit:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    antiCrit:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
     extraRange:
       valueType: 0
       staticValue: 0
@@ -2417,108 +1951,11 @@ MonoBehaviour:
       addedValue: 0
       addMultiplier: 0
       mulMultiplier: 0
-    aggroMul:
-      valueType: 0
-      staticValue: 1
-      source:
-        source: Unknown
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 1
-      mulMultiplier: 1
-    healPriority: 1
-    baseStats:
-      VIT:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-      STR:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-      MAG:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-      INT:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-      AGI:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-      TEC:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-    battleStats:
-      exResist:
-        Physical: 0
-        Elemental: 0
-        Pure: 0
-        Slash: 0
-        Knock: 0
-        Pierce: 0
-        Fire: 0
-        Ice: 0
-        Water: 0
-        Nature: 0
-        Wind: 0
-        Thunder: 0
-        Light: 0
-        Dark: 0
-        Heal: 0
-      exDamage:
-        Physical: 0
-        Elemental: 0
-        Pure: 0
-        Slash: 0
-        Knock: 0
-        Pierce: 0
-        Fire: 0
-        Ice: 0
-        Water: 0
-        Nature: 0
-        Wind: 0
-        Thunder: 0
-        Light: 0
-        Dark: 0
-        Heal: 0
     health: 100
     maxHealth: 100
     damageShield: 0
   animator: {fileID: 0}
+  handleDataInit: 1
 --- !u!114 &799371572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2581,9 +2018,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 968610954}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 1
-  m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1.4
   m_Range: 10
@@ -2633,8 +2069,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!4 &968610957
 Transform:
   m_ObjectHideFlags: 0
@@ -2642,13 +2082,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 968610954}
+  serializedVersion: 2
   m_LocalRotation: {x: 0.40208578, y: 0.2790587, z: -0.13012722, w: 0.8622762}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: 35.866, z: 0}
 --- !u!1001 &1003713252
 PrefabInstance:
@@ -2778,13 +2218,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011785484}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 8, y: 0, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 16}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1515871877}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!65 &1011785486
 BoxCollider:
@@ -2824,6 +2264,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2883,19 +2326,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.45297784
+      value: 0.4667642
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.21168631
+      value: 0.17925158
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.78458065
+      value: 0.8084594
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.36665142
+      value: -0.3104729
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2921,6 +2364,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -899021012, guid: 53d6db441a45ad94687fbdac848a2a90, type: 3}
+    - target: {fileID: 7593692246047247037, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
+      propertyPath: handleDataInit
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7593692246047247037, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: data.baseDescriptor
       value: 
@@ -2975,13 +2422,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1223093625}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.0625, y: -0.03125, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1556026363}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1223093627
 SpriteRenderer:
@@ -3000,6 +2447,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3171,7 +2621,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1356366517}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.8660255, z: -0, w: 0.49999988}
   m_LocalPosition: {x: 2.5, y: 4.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3180,11 +2631,10 @@ Transform:
   - {fileID: 463689140}
   - {fileID: 1343832514}
   m_Father: {fileID: 427119835}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1356366519
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3198,10 +2648,12 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1356366520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3218,114 +2670,14 @@ MonoBehaviour:
   data:
     baseDescriptor: {fileID: 0}
     enemyDebug: 0
+    _position: {x: 0, y: 0, z: 0}
     initialized: 0
     movementType: 0
     unitGroup: 1
     nickname: 
     _actionPointsMul100: 400
     _freeActionPointsMul100: 100
-    apRecovery: 3
-    apNonFreeMax: 5
-    moveRange:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
     movedGrids: 0
-    attackPower:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    spellPower:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    healPower:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    buffPower:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    defense:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    spDefense:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    hitAcc:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    dodge:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    crit:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    antiCrit:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
     extraRange:
       valueType: 0
       staticValue: 0
@@ -3335,108 +2687,11 @@ MonoBehaviour:
       addedValue: 0
       addMultiplier: 0
       mulMultiplier: 0
-    aggroMul:
-      valueType: 0
-      staticValue: 1
-      source:
-        source: Unknown
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 1
-      mulMultiplier: 1
-    healPriority: 1
-    baseStats:
-      VIT:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-      STR:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-      MAG:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-      INT:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-      AGI:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-      TEC:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-    battleStats:
-      exResist:
-        Physical: 0
-        Elemental: 0
-        Pure: 0
-        Slash: 0
-        Knock: 0
-        Pierce: 0
-        Fire: 0
-        Ice: 0
-        Water: 0
-        Nature: 0
-        Wind: 0
-        Thunder: 0
-        Light: 0
-        Dark: 0
-        Heal: 0
-      exDamage:
-        Physical: 0
-        Elemental: 0
-        Pure: 0
-        Slash: 0
-        Knock: 0
-        Pierce: 0
-        Fire: 0
-        Ice: 0
-        Water: 0
-        Nature: 0
-        Wind: 0
-        Thunder: 0
-        Light: 0
-        Dark: 0
-        Heal: 0
     health: 100
     maxHealth: 100
     damageShield: 0
   animator: {fileID: 0}
+  handleDataInit: 1
 --- !u!114 &1356366521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3474,13 +2729,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1447923988}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.0625, y: -0.03125, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 799371569}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1447923990
 SpriteRenderer:
@@ -3499,6 +2754,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3623,6 +2881,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1515871876}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -3634,7 +2893,6 @@ Transform:
   - {fileID: 2047954352}
   - {fileID: 1011785485}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1556026362
 GameObject:
@@ -3662,7 +2920,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1556026362}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.8660255, z: -0, w: 0.49999988}
   m_LocalPosition: {x: 2.5, y: 8.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3671,11 +2930,10 @@ Transform:
   - {fileID: 399362967}
   - {fileID: 381815345}
   m_Father: {fileID: 427119835}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1556026364
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3689,10 +2947,12 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1556026365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3709,114 +2969,14 @@ MonoBehaviour:
   data:
     baseDescriptor: {fileID: 0}
     enemyDebug: 0
+    _position: {x: 0, y: 0, z: 0}
     initialized: 0
     movementType: 0
     unitGroup: 1
     nickname: 
     _actionPointsMul100: 400
     _freeActionPointsMul100: 100
-    apRecovery: 3
-    apNonFreeMax: 5
-    moveRange:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
     movedGrids: 0
-    attackPower:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    spellPower:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    healPower:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    buffPower:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    defense:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    spDefense:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    hitAcc:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    dodge:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    crit:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    antiCrit:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
     extraRange:
       valueType: 0
       staticValue: 0
@@ -3826,108 +2986,11 @@ MonoBehaviour:
       addedValue: 0
       addMultiplier: 0
       mulMultiplier: 0
-    aggroMul:
-      valueType: 0
-      staticValue: 1
-      source:
-        source: Unknown
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 1
-      mulMultiplier: 1
-    healPriority: 1
-    baseStats:
-      VIT:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-      STR:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-      MAG:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-      INT:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-      AGI:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-      TEC:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-    battleStats:
-      exResist:
-        Physical: 0
-        Elemental: 0
-        Pure: 0
-        Slash: 0
-        Knock: 0
-        Pierce: 0
-        Fire: 0
-        Ice: 0
-        Water: 0
-        Nature: 0
-        Wind: 0
-        Thunder: 0
-        Light: 0
-        Dark: 0
-        Heal: 0
-      exDamage:
-        Physical: 0
-        Elemental: 0
-        Pure: 0
-        Slash: 0
-        Knock: 0
-        Pierce: 0
-        Fire: 0
-        Ice: 0
-        Water: 0
-        Nature: 0
-        Wind: 0
-        Thunder: 0
-        Light: 0
-        Dark: 0
-        Heal: 0
     health: 100
     maxHealth: 100
     damageShield: 0
   animator: {fileID: 0}
+  handleDataInit: 1
 --- !u!114 &1556026366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3967,19 +3030,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.45297784
+      value: 0.4667642
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.21168631
+      value: 0.17925158
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.78458065
+      value: 0.8084594
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.36665142
+      value: -0.3104729
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4001,6 +3064,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 930526523, guid: 53d6db441a45ad94687fbdac848a2a90, type: 3}
+    - target: {fileID: 7593692246047247037, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
+      propertyPath: handleDataInit
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7593692246047247037, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: data.baseDescriptor
       value: 
@@ -4096,6 +3163,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -221403108, guid: 53d6db441a45ad94687fbdac848a2a90, type: 3}
     - target: {fileID: 7593692246047247037, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
+      propertyPath: handleDataInit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7593692246047247037, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: data.baseDescriptor
       value: 
       objectReference: {fileID: 11400000, guid: 7c782241659924b178893d9776b25d29, type: 2}
@@ -4190,6 +3261,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -748273962, guid: 53d6db441a45ad94687fbdac848a2a90, type: 3}
     - target: {fileID: 7593692246047247037, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
+      propertyPath: handleDataInit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7593692246047247037, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: data.baseDescriptor
       value: 
       objectReference: {fileID: 11400000, guid: 05513a5b5491da3459f45c0d9dd12cb8, type: 2}
@@ -4233,7 +3308,7 @@ PrefabInstance:
       objectReference: {fileID: 1865483634}
     - target: {fileID: 906608722723996479, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2390354673250043810, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: initialTarget
@@ -4249,23 +3324,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3429153956045358056, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.5
+      value: 8.5
       objectReference: {fileID: 0}
     - target: {fileID: 3429153956045358056, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.45297784
+      value: 0.4667642
       objectReference: {fileID: 0}
     - target: {fileID: 3429153956045358056, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.21168631
+      value: 0.17925158
       objectReference: {fileID: 0}
     - target: {fileID: 3429153956045358056, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.78458065
+      value: 0.8084594
       objectReference: {fileID: 0}
     - target: {fileID: 3429153956045358056, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.36665142
+      value: -0.3104729
       objectReference: {fileID: 0}
     - target: {fileID: 5180081312367153648, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: m_RootOrder
@@ -4316,12 +3391,20 @@ PrefabInstance:
       value: SmallMu
       objectReference: {fileID: 0}
     - target: {fileID: 5886882680468495439, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
+      propertyPath: handleDataInit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5886882680468495439, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: data._actionPointsMul100
       value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 8938163161670509485, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: m_fontSizeBase
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8938163161670509485, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
       objectReference: {fileID: 0}
     - target: {fileID: 8938163162452527226, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4375,13 +3458,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838616219}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.5, y: 0, z: 8}
   m_LocalScale: {x: 1, y: 1, z: 18}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1515871877}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1838616221
 BoxCollider:
@@ -4421,6 +3504,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4484,7 +3570,7 @@ PrefabInstance:
       objectReference: {fileID: 1865483634}
     - target: {fileID: 906608722723996479, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2390354673250043810, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: initialTarget
@@ -4492,7 +3578,7 @@ PrefabInstance:
       objectReference: {fileID: 1865483634}
     - target: {fileID: 3429153956045358056, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.5
+      value: 13.5
       objectReference: {fileID: 0}
     - target: {fileID: 3429153956045358056, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4504,19 +3590,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3429153956045358056, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.45297784
+      value: 0.4667642
       objectReference: {fileID: 0}
     - target: {fileID: 3429153956045358056, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.21168631
+      value: 0.17925158
       objectReference: {fileID: 0}
     - target: {fileID: 3429153956045358056, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.78458065
+      value: 0.8084594
       objectReference: {fileID: 0}
     - target: {fileID: 3429153956045358056, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.36665142
+      value: -0.3104729
       objectReference: {fileID: 0}
     - target: {fileID: 5180081312367153648, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: m_RootOrder
@@ -4565,6 +3651,10 @@ PrefabInstance:
     - target: {fileID: 5180081312367153651, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: m_Name
       value: SmallMu (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5886882680468495439, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
+      propertyPath: handleDataInit
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5886882680468495439, guid: 12328e4b78e1d8245917150cb1f99ee3, type: 3}
       propertyPath: data._actionPointsMul100
@@ -4622,19 +3712,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.45297784
+      value: 0.4667642
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.21168631
+      value: 0.17925158
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.78458065
+      value: 0.8084594
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.36665142
+      value: -0.3104729
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4656,6 +3746,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 286514903, guid: 53d6db441a45ad94687fbdac848a2a90, type: 3}
+    - target: {fileID: 7593692246047247037, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
+      propertyPath: handleDataInit
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7593692246047247037, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: data.baseDescriptor
       value: 
@@ -4712,13 +3806,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2047954351}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 8, y: 0, z: 16.5}
   m_LocalScale: {x: 1, y: 1, z: 16}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1515871877}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!65 &2047954353
 BoxCollider:
@@ -4758,6 +3852,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4815,13 +3912,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2080520772}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.0625, y: -0.03125, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 141169436}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2080520774
 SpriteRenderer:
@@ -4840,6 +3937,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4884,6 +3984,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 427119835}
     m_Modifications:
     - target: {fileID: 17043920121896397, guid: 4e9cebfc1f26cf743833e49cf8938d49, type: 3}
+      propertyPath: handleDataInit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 17043920121896397, guid: 4e9cebfc1f26cf743833e49cf8938d49, type: 3}
       propertyPath: data._actionPointsMul100
       value: 200
       objectReference: {fileID: 0}
@@ -4905,19 +4009,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2147563115298858228, guid: 4e9cebfc1f26cf743833e49cf8938d49, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.45297784
+      value: 0.4667642
       objectReference: {fileID: 0}
     - target: {fileID: 2147563115298858228, guid: 4e9cebfc1f26cf743833e49cf8938d49, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.21168631
+      value: 0.17925158
       objectReference: {fileID: 0}
     - target: {fileID: 2147563115298858228, guid: 4e9cebfc1f26cf743833e49cf8938d49, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.78458065
+      value: 0.8084594
       objectReference: {fileID: 0}
     - target: {fileID: 2147563115298858228, guid: 4e9cebfc1f26cf743833e49cf8938d49, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.36665142
+      value: -0.3104729
       objectReference: {fileID: 0}
     - target: {fileID: 2147563115298858228, guid: 4e9cebfc1f26cf743833e49cf8938d49, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4982,19 +4086,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.45297784
+      value: 0.4667642
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.21168631
+      value: 0.17925158
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.78458065
+      value: 0.8084594
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.36665142
+      value: -0.3104729
       objectReference: {fileID: 0}
     - target: {fileID: 1174639310042915465, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5016,6 +4120,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 163912931, guid: 53d6db441a45ad94687fbdac848a2a90, type: 3}
+    - target: {fileID: 7593692246047247037, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
+      propertyPath: handleDataInit
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7593692246047247037, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
       propertyPath: data.baseDescriptor
       value: 
@@ -5041,3 +4149,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4fb1790bd4cddc47adc1683f9d07d58, type: 3}
+--- !u!1660057539 &9223372036854775807
+SceneRoots:
+  m_ObjectHideFlags: 0
+  m_Roots:
+  - {fileID: 124344447}
+  - {fileID: 427119835}
+  - {fileID: 1515871877}
+  - {fileID: 968610957}
+  - {fileID: 66535457}

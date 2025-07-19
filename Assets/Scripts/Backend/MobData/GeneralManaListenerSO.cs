@@ -27,17 +27,17 @@ namespace miniRAID
         {
             base.OnAttach(mob);
 
-            mob.OnCheckCost += MobOnCheckCost;
-            mob.OnApplyCost += MobOnApplyCost;
-            mob.OnStatCalculation += MobOnStatCalculation;
+            mob.OnCheckCost.AddListener(MobOnCheckCost);
+            mob.OnApplyCost.AddListener(MobOnApplyCost);
+            mob.OnStatCalculation.AddListener(MobOnStatCalculation);
             mob.OnRecoveryStage.AddListener(MobOnRecoveryStage);
         }
 
         public override void OnRemove(MobData mob)
         {
-            mob.OnCheckCost -= MobOnCheckCost;
-            mob.OnApplyCost -= MobOnApplyCost;
-            mob.OnStatCalculation -= MobOnStatCalculation;
+            mob.OnCheckCost.RemoveListener(MobOnCheckCost);
+            mob.OnApplyCost.RemoveListener(MobOnApplyCost);
+            mob.OnStatCalculation.RemoveListener(MobOnStatCalculation);
             mob.OnRecoveryStage.RemoveListener(MobOnRecoveryStage);
             
             base.OnRemove(mob);

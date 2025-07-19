@@ -4,14 +4,15 @@ using System;
 using System.Collections.Generic;
 
 using System.Linq;
-
+using miniRAID.Backend;
+using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 
 namespace miniRAID
 {
     [XLua.LuaCallCSharp]
     [ParameterDefaultName("mob")]
-    public partial class MobRenderer : MonoBehaviour
+    public partial class MobRenderer : MonoBehaviour, IStateRenderer
     {
         // A bunch of grids occpied by this mob (for 1x1 mobs, only 1 grid; 2x2 -> 4 grids, etc.)
         // TODO: seperate GridBody into a single MonoBehaviour
@@ -37,29 +38,6 @@ namespace miniRAID
 
         public event MobMenuGUIDelegate OnShowMobMenu;
 
-        //// Combat-related
-
-        #region Stats
-
-        public int VIT => (int)data.baseStats.VIT.Value;
-        public int STR => (int)data.baseStats.STR.Value;
-        public int MAG => (int)data.baseStats.MAG.Value;
-        public int INT => (int)data.baseStats.INT.Value;
-        public int DEX => (int)data.baseStats.AGI.Value;
-        public int TEC => (int)data.baseStats.TEC.Value;
-
-        public int AttackPower => (int)data.attackPower.Value;
-        public int SpellPower => (int)data.spellPower.Value;
-        public int HealPower => (int)data.healPower.Value;
-        public int BuffPower => (int)data.buffPower.Value;
-
-        public int Def => (int)data.defense.Value;
-        public int SpDef => (int)data.spDefense.Value;
-
-        public float AggroMul => (float)data.aggroMul.Value;
-
-        #endregion
-
         //public MobDHInputArgumentDelegate
 
         // Use this for initialization
@@ -69,6 +47,9 @@ namespace miniRAID
         }
 
         private bool _inited = false;
+        
+        [InfoBox("Enable this when MobData should be initialized from Editor.")]
+        public bool handleDataInit = false;
         public void Init()
         {
             if (_inited)
@@ -89,10 +70,13 @@ namespace miniRAID
             // {
             //     data.gridBody.AddGrid(Databackend.GetSingleton().GetGridPos(proxy.transform.position) - data.Position);
             // }
-            
-            data.mobRenderer = this;
-            data.nickname = this.name;
-            data.Init();
+
+            if (handleDataInit)
+            {
+                data.renderer = this;
+                data.nickname = this.name;
+                data.Init();
+            }
 
             if(isBoss)
             {
@@ -114,8 +98,20 @@ namespace miniRAID
         //     data.Position = backend.GetGridPos(transform.position);
         // }
 
+        public void Refresh()
+        {
+            backend = Globals.backend;
+            SyncRendererPosition();
+            UpdateStatusColor();
+        }
+
         public void SyncRendererPosition()
         {
+            if (data == null)
+            {
+                Debug.LogError("!?");
+            }
+
             transform.position = backend.GridToWorldPosCenteredGrounded(data.Position);
         }
 
@@ -236,6 +232,11 @@ namespace miniRAID
             }
 
             yield break;
+        }
+
+        public void Destroy()
+        {
+            GameObject.Destroy(gameObject);
         }
     }
 }

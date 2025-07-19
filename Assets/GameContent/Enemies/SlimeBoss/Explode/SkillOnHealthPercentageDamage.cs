@@ -25,12 +25,12 @@ namespace GameContent.Buffs.Test
 
     public class SkillOnHealthPercentageDamageRuntimeBuff : Buff
     {
-        private float damageTotal = 0;
-        private float healthRatio;
-        private bool triggerOnDeath;
+        [SerializeField] private float damageTotal = 0;
+        private float healthRatio => ((SkillOnHealthPercentageDamage)data).healthRatio;
+        private bool triggerOnDeath => ((SkillOnHealthPercentageDamage)data).triggerOnDeath;
         
-        private ActionSOEntry skillData;
-        private RuntimeAction<SingleMobTarget> runtimeSkill;
+        private ActionSOEntry skillData => ((SkillOnHealthPercentageDamage)data).skill;
+        [SerializeField] private RuntimeAction<SingleMobTarget> runtimeSkill;
 
         public override string name
         {
@@ -42,11 +42,7 @@ namespace GameContent.Buffs.Test
         }
 
         public SkillOnHealthPercentageDamageRuntimeBuff(MobData source, SkillOnHealthPercentageDamage data) : base(source, data)
-        {
-            healthRatio = data.healthRatio;
-            skillData = data.skill;
-            triggerOnDeath = data.triggerOnDeath;
-        }
+        { }
 
         public override void OnAttach(MobData mob)
         {
@@ -57,22 +53,23 @@ namespace GameContent.Buffs.Test
 
             if (healthRatio > 0)
             {
-                mob.OnDamageReceived += OnReceiveDamageFinal;
-                mob.OnHealReceived += OnReceiveHealFinal;
+                mob.OnDamageReceived.AddListener(OnReceiveDamageFinal);
+                mob.OnHealReceived.AddListener(OnReceiveHealFinal);
             }
             
-            mob.OnRealDeath += OnRealDeath;
-            
-            onRemoveFromMob += m =>
+            mob.OnRealDeath.AddListener(OnRealDeath);
+        }
+
+        protected override void OnRemoveFromMob(MobData mob)
+        {
+            if (healthRatio > 0)
             {
-                if (healthRatio > 0)
-                {
-                    m.OnDamageReceived -= OnReceiveDamageFinal;
-                    m.OnHealReceived -= OnReceiveHealFinal;
-                }
-                
-                m.OnRealDeath -= OnRealDeath;
-            };
+                mob.OnDamageReceived.RemoveListener(OnReceiveDamageFinal);
+                mob.OnHealReceived.RemoveListener(OnReceiveHealFinal);
+            }
+            
+            mob.OnRealDeath.RemoveListener(OnRealDeath);
+            base.OnRemoveFromMob(mob);
         }
 
         public IEnumerator OnReceiveDamageFinal(MobData mob, Consts.DamageHeal_Result info)

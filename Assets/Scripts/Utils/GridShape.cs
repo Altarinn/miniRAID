@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MemoryPack;
 using UnityEngine;
 
 namespace miniRAID
 {
     [ColoredBox("#7fd")]
-    [MemoryPackable]
     public class GridShape : ICloneable
     {
-
         public HashSet<Vector3Int> shape;
 
         // Editor only

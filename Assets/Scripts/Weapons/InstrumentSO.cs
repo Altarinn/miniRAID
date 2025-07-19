@@ -28,7 +28,7 @@ namespace miniRAID.Weapon
         
         public Instrument(MobData parent, InstrumentSO data) : base(parent, data) { }
 
-        private Buff.Buff RBuff;
+        [SerializeField] private Buff.Buff RBuff;
 
         public override void OnAttach(MobData mob)
         {

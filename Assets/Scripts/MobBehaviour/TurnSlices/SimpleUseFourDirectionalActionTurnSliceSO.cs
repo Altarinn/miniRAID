@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Linq;
 using miniRAID.Agents;
+using miniRAID.Backend;
 using miniRAID.Spells;
 using miniRAID.TurnSchedule;
 
@@ -22,7 +23,7 @@ namespace miniRAID.MobBehaviour.TurnSlices
         }
     }
 
-    public class SimpleUseFourDirectionalActionTurnSlice : PreparableActionTurnSlice
+    public class SimpleUseFourDirectionalActionTurnSlice : PreparableActionTurnSlice, IRenderableState
     {
         private FourDirectionalTarget target;
         private GridShape indicatorShape;
@@ -37,13 +38,12 @@ namespace miniRAID.MobBehaviour.TurnSlices
             indicatorShape.position = mob.Position;
             indicatorShape.direction = target.Target;
             
-            AddIndicator(new GridShapeIndicator(
-                indicatorShape, GridOverlay.Types.INCOMING_ATTACK));
+            ConstructRenderer();
         }
         
         private FourDirectionalTarget GetTarget(MobData self, TargetIndicator targetIndicator)
         {
-            if (targetIndicator.CurrentTarget == null)
+            if (targetIndicator == null || targetIndicator.CurrentTarget == null)
             {
                 Globals.ui.Instance.combatView.debugText.text = $"{mob.nickname}: {action.ActionName} -> NO Target";
                 return new FourDirectionalTarget(Consts.Direction.Up);
@@ -67,20 +67,43 @@ namespace miniRAID.MobBehaviour.TurnSlices
                 yield break;
             }
 
+            if (mob.isDead)
+            { Mute(); }
+
             this.target = GetTarget(mob, mob.FindListener<AggroCollector>());
             
             // TODO: Find better solution?
             indicatorShape.direction = this.target.Target;
-            RemoveAllIndicators();
-            AddIndicator(new GridShapeIndicator(
-                indicatorShape, GridOverlay.Types.INCOMING_ATTACK));
+            UpdateRenderer();
         }
 
         public override IEnumerator Turn()
         {
-            RemoveAllIndicators();
+            if (mob.isDead)
+            {
+                yield break;
+            }
+            
+            indicatorShape = null;
+            UpdateRenderer();
+            
             RuntimeAction<FourDirectionalTarget> act = (RuntimeAction<FourDirectionalTarget>)action;
             yield return new JumpIn(mob.DoActionWithDefaultCosts(act, target));
+        }
+
+        public void ConstructRenderer()
+        {
+            if (indicatorShape != null)
+            {
+                renderer = new GridShapeIndicator(
+                    indicatorShape, GridOverlay.Types.INCOMING_ATTACK);
+            }
+            UpdateRenderer();
+        }
+
+        public void UpdateRenderer()
+        {
+            (renderer as GridShapeIndicator)?.Update(indicatorShape);
         }
     }
 }

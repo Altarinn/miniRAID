@@ -5,9 +5,9 @@ using System.Linq;
 using DG.Tweening;
 using miniRAID.TurnSchedule;
 using UnityEngine;
-using XLua;
 
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 
 namespace miniRAID
 {
@@ -27,10 +27,11 @@ namespace miniRAID
 
         [Title("Combat")] 
         public Timestamp now, appendedTurns;
-        public Databackend backend;
 
         SerialCoroutine sc;
-        private TurnSlice currentTurnSlice;
+        [OdinSerialize] private TurnSlice currentTurnSlice;
+
+        [NonSerialized] public Action OnBeforeNextTurnSlice;
 
         private void Awake()
         {
@@ -48,6 +49,16 @@ namespace miniRAID
             });
         }
 
+        public void OnNextSnapshot(Action act)
+        {
+            if (OnBeforeNextTurnSlice != null)
+            {
+                Debug.LogError("CombatSchedulerCoroutine is already full of OnBeforeNextTurnSlice! Action Ignored!");
+                return;
+            }
+            OnBeforeNextTurnSlice = act;
+        }
+        
         public IEnumerator Combat()
         {
             // TODO: Move me to the game's beginning scene
@@ -68,6 +79,18 @@ namespace miniRAID
             // Battle main loop
             while (!IsCombatFinished())
             {
+                // Save-Load happens only here, perhaps
+                if (turnSchedule.First.Value != null &&
+                    turnSchedule.First.Value.data.GetType() == typeof(CommonPlayerTurnSliceSO))
+                {
+                    SaveDataSerializer.saveSlotBackup = SaveDataSerializer.SerializeEverything();
+                }
+                if (OnBeforeNextTurnSlice != null)
+                {
+                    OnBeforeNextTurnSlice.Invoke();
+                    OnBeforeNextTurnSlice = null;
+                }
+                
                 UpdateSchedulerUI();
                 
                 currentTurnSlice = turnSchedule.Dequeue();
@@ -77,52 +100,6 @@ namespace miniRAID
                 currentTurnSlice.OnRemove(this);
 
                 KeepTurnScheduleLength();
-
-                // yield return new JumpIn(StartTurn());
-                //
-                // // Wait a moment (2 frames) to wait everything loading-up
-                // yield return null;
-                // yield return null;
-                //
-                // // Player phase
-                // yield return UIPlayerPhase();
-                //
-                // yield return new JumpIn(Phase(Consts.UnitGroup.Player));
-                //
-                // for (int i = 1; i <= 4; i++)
-                // {
-                //     yield return new JumpIn(Turn(Consts.UnitGroup.Player, $"{i}/4"));
-                //     yield return new JumpIn(Chill());
-                //     if (ShouldSkipPlayerPhase())
-                //     {
-                //         break;
-                //     }
-                // }
-                //
-                // // Refresh & auto-attack
-                // yield return new JumpIn(AutoAttackStage(Consts.UnitGroup.Player));
-                // yield return new JumpIn(Chill());
-                //
-                // // Ally phase
-                // if (HasAlly())
-                // {
-                //     yield return UIAllyPhase();
-                //     yield return new JumpIn(Chill());
-                // }
-                //
-                // // Enemy phase
-                // yield return UIEnemyPhase();
-                // yield return new JumpIn(Phase(Consts.UnitGroup.Enemy));
-                // yield return new JumpIn(Turn(Consts.UnitGroup.Enemy));
-                // yield return new JumpIn(Chill());
-                // //yield return new JumpIn(EnemyActions());
-                //
-                // // TODO: Extra turns / Heavy weapon
-                // yield return new JumpIn(RecoveryStage(Consts.UnitGroup.Player));
-                // yield return new JumpIn(Chill());
-                //
-                // yield return new JumpIn(EndTurn());
-                // yield return new JumpIn(Chill());
             }
         }
 

@@ -1,5 +1,4 @@
 using System;
-using MemoryPack;
 using UnityEngine;
 
 namespace miniRAID
@@ -8,7 +7,7 @@ namespace miniRAID
     {
         private void Awake()
         {
-            MemoryPackFormatterProvider.Register<CustomIconScriptableObject>(new CustomIconScriptableObjectFormatter());
+            // MemoryPackFormatterProvider.Register<CustomIconScriptableObject>(new CustomIconScriptableObjectFormatter());
         }
     }
 }

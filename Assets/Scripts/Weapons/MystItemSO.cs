@@ -28,11 +28,11 @@ namespace miniRAID.Weapon
     {
         public MystItemSO mystData => (MystItemSO)data;
 
-        bool moved = false;
-        int currentEnergy = 0;
+        [SerializeField] bool moved = false;
+        [SerializeField] int currentEnergy = 0;
 
         public MystItem(MobData parent, MystItemSO data) : base(parent, data) { this.data = data; }
-        RuntimeAction RspecialAttack;
+        [SerializeField] RuntimeAction RspecialAttack;
 
         public override void OnAttach(MobData mob)
         {
@@ -40,14 +40,14 @@ namespace miniRAID.Weapon
 
             RspecialAttack = mob.AddAction(mystData.specialAttack);
 
-            mob.OnActionPostcast += OnActionPostCast;
+            mob.OnActionPostcast.AddListener(OnActionPostCast);
 
             currentEnergy = 0;
         }
 
         public override void OnRemove(MobData mob)
         {
-            mob.OnActionPostcast -= OnActionPostCast;
+            mob.OnActionPostcast.RemoveListener(OnActionPostCast);
             
             base.OnRemove(mob);
         }

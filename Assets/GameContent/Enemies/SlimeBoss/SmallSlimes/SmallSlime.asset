@@ -97,7 +97,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  Guid: a6c6d66425ce44e8bce67d8d0d3f888c
+  Guid: bf22e6efd35e0304dba128d290ff4b91
   Id: 91
   icon: {fileID: 0}
   nickname: 
@@ -105,7 +105,7 @@ MonoBehaviour:
   job: {fileID: 0}
   color: {r: 0, g: 0, b: 0, a: 0}
   level: 10
-  rendererPrefab: {fileID: 0}
+  rendererPrefab: {fileID: 8335323150292242298, guid: d26d8f30d4b3cbb4794c5b16d06cb4e9, type: 3}
   movementType: 0
   movable: 1
   moveRange: 4

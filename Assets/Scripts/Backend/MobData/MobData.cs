@@ -6,11 +6,12 @@ using Sirenix.OdinInspector;
 
 using miniRAID.Spells;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.Linq;
-using MemoryPack;
 using miniRAID.Backend;
 using miniRAID.TurnSchedule;
 using miniRAID.TurnSchedule.RootAgent;
+using Sirenix.Serialization;
 using UnityEngine.Serialization;
 using XLua;
 
@@ -32,11 +33,9 @@ namespace miniRAID
     [Serializable]
     [ParameterDefaultName("mob")]
     [LuaCallCSharp]
-    [MemoryPackable]
-    public partial class MobData : BackendState
+    public partial class MobData : BackendState, IRenderableState
     {
         [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
-        [MemoryPackAllowSerialize]
         public BaseMobDescriptorSO baseDescriptor;
         public bool enemyDebug = false;
         public bool IsInWorld => World != null;
@@ -48,6 +47,7 @@ namespace miniRAID
             Fly
         }
 
+        [SerializeField]
         Vector3Int _position;
         public Vector3Int Position
         {
@@ -61,7 +61,7 @@ namespace miniRAID
                         value,
                         this);
                     _position = value;
-                    mobRenderer?.SyncRendererPosition();
+                    UpdateRenderer();
                 }
             }
         }
@@ -83,12 +83,13 @@ namespace miniRAID
         {
             var prevPos = Position;
             Position = position;
-            yield return new JumpIn(OnMobMoved?.Invoke(this, prevPos));
+            yield return new JumpIn(OnMobMoved?.InvokeCoroutine(this, prevPos));
         }
         
-        public bool isActive { get; private set; }
-        public bool isDead { get; private set; }
-        public bool skipAutoAttack { get; private set; }
+        [OdinSerialize] public bool isActive { get; private set; }
+        [OdinSerialize] public bool isDead { get; private set; }
+        [OdinSerialize] public bool skipAutoAttack { get; private set; }
+        
         public bool isControllable => isActive && (!isDead);
         public bool canAutoAttack => (!skipAutoAttack) && (!isDead);
 
@@ -113,25 +114,34 @@ namespace miniRAID
         [SerializeField] private int _freeActionPointsMul100 = 100;
         public float actionPoints { get { return (_actionPointsMul100 + _freeActionPointsMul100) / 100.0f; } }
         //public dNumber baseActionPoints = (dNumber)4, extraActionPoints = (dNumber)0;
-        public float apRecovery = 3;
-        [FormerlySerializedAs("apMax")] public int apNonFreeMax = 5;
+        [NonSerialized] [ShowInInspector] public float apRecovery = 3;
+        [NonSerialized] [ShowInInspector] [FormerlySerializedAs("apMax")] public int apNonFreeMax = 5;
 
-        public dNumber moveRange;
         public int movedGrids = 0;
-        public dNumber attackPower, spellPower, healPower, buffPower;
-        public dNumber defense, spDefense;
+        
+        [NonSerialized] [ShowInInspector] public dNumber moveRange;
+        [NonSerialized] [ShowInInspector] public dNumber attackPower;
+        [NonSerialized] [ShowInInspector] public dNumber spellPower;
+        [NonSerialized] [ShowInInspector] public dNumber healPower;
+        [NonSerialized] [ShowInInspector] public dNumber buffPower;
+        [NonSerialized] [ShowInInspector] public dNumber defense;
+        [NonSerialized] [ShowInInspector] public dNumber spDefense;
 
-        public dNumber hitAcc, dodge;
-        public dNumber crit, antiCrit;
+        [NonSerialized] [ShowInInspector] public dNumber hitAcc;
+        [NonSerialized] [ShowInInspector] public dNumber dodge;
+        [NonSerialized] [ShowInInspector] public dNumber crit;
+        [NonSerialized] [ShowInInspector] public dNumber antiCrit;
+        
+        [NonSerialized] [ShowInInspector] public dNumber aggroMul = (dNumber)1.0f;
+        [NonSerialized] [ShowInInspector] public float healPriority = 1.0f;
+        
+        // TODO: Me?
         public dNumber extraRange;
-
-        public dNumber aggroMul = (dNumber)1.0f;
-        public float healPriority = 1.0f;
 
         public HashSet<GCDGroup> GCDstatus;
 
-        public Consts.BaseStats baseStats;
-        public Consts.BattleStats battleStats;
+        [NonSerialized] [ShowInInspector] public Consts.BaseStats baseStats;
+        [NonSerialized] [ShowInInspector] public Consts.BattleStats battleStats;
         
         public int VIT => (int)baseStats.VIT.Value;
         public int STR => (int)baseStats.STR.Value;
@@ -179,11 +189,11 @@ namespace miniRAID
             get => _lastTurnTarget;
             set { _lastTurnTarget = value; Globals.ui.Instance.circles.UpdateAllCircles(); }
         }
+        [SerializeField]
         private MobData _lastTurnTarget = null;
 
-        //[HideInInspector]
-        [NonSerialized]
-        public MobRenderer mobRenderer;
+        [HideInInspector]
+        public MobRenderer mobRenderer => (MobRenderer)renderer;
 
         public void Init()
         {
@@ -197,8 +207,9 @@ namespace miniRAID
             initialized = true;
 
             Databackend.GetSingleton().SetMob(Position, gridBody, this);
+            Register();
             
-            OnInitialized?.Invoke(this);
+            OnInitialized?.InvokeInstant(this);
         }
 
         public bool UseActionPoint(float v)
@@ -328,6 +339,20 @@ namespace miniRAID
             // TODO: Check if buff duplicated
             return (Buff.Buff)AddListener(buff);
         }
+        
+        public void RemoveBuffOnce(Buff.BuffSO buffData, int stacks = 1)
+        {
+            listeners
+                .FindAll(l => l.data == buffData)
+                .ForEach(l => (l as Buff.Buff)?.RemoveStacks(stacks));
+        }
+
+        public void RemoveBuffOnce(Buff.Buff buff, int stacks = 1)
+        {
+            listeners
+                .FindAll(l => buff.IsDuplicated(l as Buff.Buff))
+                .ForEach(l => (l as Buff.Buff)?.RemoveStacks(stacks));
+        }
 
         public void RemoveListener(MobListenerSO listenerSO)
         {
@@ -404,7 +429,7 @@ namespace miniRAID
 
                 OnWakeUp();
                 RecalculateStats(); // Do we need it here? <- Yes (e.g., ChargedAction will modify AP regen here)
-                yield return new JumpIn(OnWakeup?.Invoke(this));
+                yield return new JumpIn(OnWakeup?.InvokeCoroutine(this));
             }
             else
             {
@@ -474,14 +499,28 @@ namespace miniRAID
 
         public IEnumerator _OnNextTurn()
         {
-            yield return new JumpIn(OnNextTurn?.Invoke(this));
+            yield return new JumpIn(OnNextTurn?.InvokeCoroutine(this));
         }
         
         public IEnumerator _OnRecoveryStage()
         {
             Recover();
-            yield return new JumpIn(OnRecoveryStage?.Invoke(this));
+            yield return new JumpIn(OnRecoveryStage?.InvokeCoroutine(this));
             RecalculateStats();
+        }
+
+        public void ConstructRenderer()
+        {
+            renderer = GameObject.Instantiate(
+                    baseDescriptor.rendererPrefab.gameObject, Globals.backend.GridToWorldPosCenteredGrounded(Position),
+                    Quaternion.identity)
+                .GetComponent<MobRenderer>();
+        }
+
+        public void UpdateRenderer()
+        {
+            mobRenderer.data = this;
+            mobRenderer?.Refresh();
         }
     }
 }

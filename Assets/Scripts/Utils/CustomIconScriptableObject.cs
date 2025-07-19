@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections;
+using Newtonsoft.Json;
 using UnityEngine;
 
 using Sirenix.OdinInspector;
-using UnityEditor;
 
-//#if UNITY_EDITOR
-//using UnityEditor;
-//#endif
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class ScriptableObjectIdAttribute : PropertyAttribute { }
 
@@ -26,6 +26,7 @@ namespace miniRAID
         public int Id;
 
         [PropertyOrder(-100)]
+        [JsonIgnore]
         public Sprite icon;
 
 //        protected T AppendChild<T>() where T : ScriptableObject
@@ -39,10 +40,12 @@ namespace miniRAID
 //            return v;
 //        }
 
+#if UNITY_EDITOR
         private void OnValidate()
         {
             Guid = AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(this)).ToString();
         }
+#endif
     }
 
     public class RuntimeWrapper<T> where T : CustomIconScriptableObject

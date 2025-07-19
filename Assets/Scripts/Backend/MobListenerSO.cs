@@ -77,7 +77,6 @@ namespace miniRAID
     // [System.Serializable]
     public class MobListener : Backend.BackendState
     {
-        [System.NonSerialized]
         public MobData parentMob;
         
         public int level = 0;
@@ -118,13 +117,14 @@ namespace miniRAID
         public virtual void OnAttach(MobData mob)
         {
             this.parentMob = mob;
+            Register();
         }
 
         // Emitted before it is going to be removed from a mob.
         public virtual void OnRemove(MobData mob)
         {
             // Destroy all indicators
-            RemoveAllIndicators();
+            DestroyRenderer();
             
             this.parentMob = null;
         }

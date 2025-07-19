@@ -6,8 +6,8 @@ using miniRAID.Spells;
 using miniRAID.Buff;
 using System;
 using System.Linq;
-using MemoryPack;
 using miniRAID.Backend;
+using Sirenix.Serialization;
 using UnityEngine.Serialization;
 
 namespace miniRAID
@@ -26,7 +26,7 @@ namespace miniRAID
         public bool solid = false;
         public MobData mob;
 
-        public Dictionary<GridEffect, GridEffect> effects = new Dictionary<GridEffect, GridEffect>();
+        public HashSet<GridEffect> effects = new();
     }
 
     [XLua.LuaCallCSharp]
@@ -274,8 +274,7 @@ namespace miniRAID
 
         // ......
         [Serializable]
-        [MemoryPackable]
-        public partial struct AllTypes<T>
+        public struct AllTypes<T>
         {
             public T Physical;
             public T Elemental;
@@ -392,8 +391,7 @@ namespace miniRAID
         }
 
         [Serializable]
-        [MemoryPackable]
-        public partial struct BaseStats
+        public struct BaseStats
         {
             public dNumber VIT, STR, MAG, INT;
             [FormerlySerializedAs("DEX")] public dNumber AGI;
@@ -451,8 +449,7 @@ namespace miniRAID
         }
         
         [Serializable]
-        [MemoryPackable]
-        public partial struct BattleStats
+        public struct BattleStats
         {
             public AllTypes<float> exResist;
             public AllTypes<float> exDamage;
@@ -629,7 +626,6 @@ namespace miniRAID
     }
 
     [XLua.LuaCallCSharp]
-    [MemoryPackable]
     public partial class Databackend
     {
         const int MAX_MAP_SIZE = 16;
@@ -644,17 +640,23 @@ namespace miniRAID
             }
             return instance;
         }
-
+        
+        [OdinSerialize]
         GridData[,,] map = new GridData[MAX_MAP_SIZE, MAX_MAP_HEIGHT, MAX_MAP_SIZE];
+        
         bool[,,] visited = new bool[MAX_MAP_SIZE, MAX_MAP_HEIGHT, MAX_MAP_SIZE];
+        
+        [OdinSerialize]
         public HashSet<MobData> allMobs { get; private set; } = new HashSet<MobData>();
-        public Dictionary<GridEffect, List<Vector3Int>> allGridEffects { get; private set; } = new();
+        
+        [OdinSerialize]
+        public Dictionary<GridEffect, List<Vector3Int>> allGridEffects { get; private set; } = new(); // Fx -> Fx location
         public int mapSizeX, mapHeight, mapSizeZ;
         public Vector3Int MapSize => new Vector3Int(mapSizeX, mapHeight, mapSizeZ);
 
-        public event MobData.MobArgumentDelegate onMobAdded;
-        public event MobData.MobArgumentDelegate onMobRemoved;
-        public CoroutineEvent<MobData, RuntimeAction, Spells.SpellTarget> onGlobalActionPostcast;
+        public MobEvent<MobData.MobArgumentDelegate> onMobAdded = new();
+        public MobEvent<MobData.MobArgumentDelegate> onMobRemoved = new();
+        public MobEvent<MobData.MobActionWithTargetCoroutineDelegate> onGlobalActionPostcast = new();
 
         private Databackend()
         {
@@ -698,22 +700,22 @@ namespace miniRAID
 
         private IEnumerator GlobalActionPostcast(MobData mob, RuntimeAction action, Spells.SpellTarget target)
         {
-            yield return new JumpIn(onGlobalActionPostcast?.Invoke(mob, action, target));
+            yield return new JumpIn(onGlobalActionPostcast?.InvokeCoroutine(mob, action, target));
         }
 
         private void AddMob(MobData mob)
         {
             allMobs.Add(mob);
             mob.AddedToWorld(this);
-            mob.OnActionPostcast += GlobalActionPostcast;
-            onMobAdded?.Invoke(mob);
+            mob.OnActionPostcast.AddListener(GlobalActionPostcast);
+            onMobAdded?.InvokeInstant(mob);
         }
 
         private void RemoveMob(MobData mob)
         {
-            mob.OnActionPostcast -= GlobalActionPostcast;
+            mob.OnActionPostcast.RemoveListener(GlobalActionPostcast);
             allMobs.Remove(mob);
-            onMobRemoved?.Invoke(mob);
+            onMobRemoved?.InvokeInstant(mob);
             
             mob.RemovedFromWorld(this);
         }
@@ -765,7 +767,7 @@ namespace miniRAID
         public void AddFxAt(GridEffect fx, Vector3Int pos)
         {
             if (!InMap(pos)) { return; }
-            if(map[pos.x, pos.y, pos.z].effects.TryAdd(fx, fx))
+            if(map[pos.x, pos.y, pos.z].effects.Add(fx))
             {
                 allGridEffects[fx].Add(pos);
                 if(map[pos.x, pos.y, pos.z].mob != null)
@@ -788,6 +790,7 @@ namespace miniRAID
             allGridEffects.Remove(fx);
         }
 
+        // Temp array for MoveMob
         Dictionary<GridEffect, bool> gridEffectChanges = new();
         public void MoveMob(Vector3Int from, Vector3Int to, MobData mob)
         {
@@ -804,7 +807,7 @@ namespace miniRAID
 
                 foreach (var fx in map[from_o.x, from_o.y, from_o.z].effects)
                 {
-                    gridEffectChanges.TryAdd(fx.Value, false);
+                    gridEffectChanges.TryAdd(fx, false);
                 }
             }
 
@@ -813,13 +816,10 @@ namespace miniRAID
                 Vector3Int to_o = to + offset;
                 foreach (var fx in map[to_o.x, to_o.y, to_o.z].effects)
                 {
-                    if(gridEffectChanges.ContainsKey(fx.Value))
+                    // If "fx -> false" exists (i.e., being marked as DELETE)
+                    if(!gridEffectChanges.TryAdd(fx, true))
                     {
-                        gridEffectChanges.Remove(fx.Value);
-                    }
-                    else
-                    {
-                        gridEffectChanges.Add(fx.Value, true);
+                        gridEffectChanges.Remove(fx);
                     }
                 }
             }
@@ -1173,18 +1173,6 @@ namespace miniRAID
             return allMobs.ToList();
         }
 
-        #region BackendState-Undos
-
-        private List<BackendState> allStates = new();
-        
-        public void RegisterState(BackendState state)
-        {
-            Debug.LogWarning($"DataBackend.RegisterState is not implemented. Incoming state of type: {state.GetType()}");
-            
-            // TODO
-            allStates.Add(state);
-        }
-
         public void AimOnTarget(MobData targetMob)
         {
             // TODO: Enemy?
@@ -1199,7 +1187,5 @@ namespace miniRAID
                 }
             }
         }
-
-        #endregion
     }
 }

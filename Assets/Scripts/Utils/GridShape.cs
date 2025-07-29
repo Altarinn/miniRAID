@@ -93,6 +93,13 @@ namespace miniRAID
             return result;
         }
 
+        public void ApplyTransformInplace()
+        {
+            shape = ApplyTransform();
+            position = Vector3Int.zero;
+            direction = Consts.Direction.Up;
+        }
+
         public static GridShape Combine(GridShape a, GridShape b) => Combine(a.shape, b.shape);
         
         public static GridShape Combine(HashSet<Vector3Int> a, HashSet<Vector3Int> b)

@@ -47,6 +47,7 @@ namespace miniRAID
 
         public void Update(GridShape shape)
         {
+            if(shape == null){Destroy(); return;}
             this.shape = shape;
             Refresh();
         }
@@ -62,6 +63,7 @@ namespace miniRAID
             if (instantiatedOverlay != null)
             {
                 GameObject.Destroy(instantiatedOverlay.gameObject);
+                instantiatedOverlay = null;
             }
         }
 

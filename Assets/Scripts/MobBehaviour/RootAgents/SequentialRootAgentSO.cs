@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
+using Sirenix.Serialization;
+using UnityEngine;
 
 namespace miniRAID.TurnSchedule.RootAgent
 {
@@ -20,8 +22,8 @@ namespace miniRAID.TurnSchedule.RootAgent
 
     public class SequentialRootAgent : MobRootAgentBase
     {
-        private MobRootAgentBase[] rootAgents;
-        private SequentialRootAgentSO seqData => (SequentialRootAgentSO)data;
+        [SerializeField] private MobRootAgentBase[] rootAgents;
+        [SerializeField] private SequentialRootAgentSO seqData => (SequentialRootAgentSO)data;
 
         public SequentialRootAgent(MobData parent, MobRootAgentBaseSO data) : base(parent, data)
         {

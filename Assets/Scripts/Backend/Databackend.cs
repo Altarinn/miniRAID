@@ -648,9 +648,10 @@ namespace miniRAID
         
         [OdinSerialize]
         public HashSet<MobData> allMobs { get; private set; } = new HashSet<MobData>();
-        
+
         [OdinSerialize]
-        public Dictionary<GridEffect, List<Vector3Int>> allGridEffects { get; private set; } = new(); // Fx -> Fx location
+        // public Dictionary<GridEffect, List<Vector3Int>> allGridEffects { get; private set; } = new(); // Fx -> Fx location
+        public HashSet<GridEffect> allGridEffects = new();
         public int mapSizeX, mapHeight, mapSizeZ;
         public Vector3Int MapSize => new Vector3Int(mapSizeX, mapHeight, mapSizeZ);
 
@@ -701,6 +702,10 @@ namespace miniRAID
         private IEnumerator GlobalActionPostcast(MobData mob, RuntimeAction action, Spells.SpellTarget target)
         {
             yield return new JumpIn(onGlobalActionPostcast?.InvokeCoroutine(mob, action, target));
+            foreach (var state in allStates)
+            {
+                (state as IRenderableState)?.UpdateRenderer();
+            }
         }
 
         private void AddMob(MobData mob)
@@ -761,7 +766,12 @@ namespace miniRAID
 
         public void AddFx(GridEffect fx)
         {
-            allGridEffects.Add(fx, new());
+            fx.Register();
+            allGridEffects.Add(fx);
+            foreach(var pos in fx.grids.shape)
+            {
+                AddFxAt(fx, pos);
+            }
         }
 
         public void AddFxAt(GridEffect fx, Vector3Int pos)
@@ -769,7 +779,7 @@ namespace miniRAID
             if (!InMap(pos)) { return; }
             if(map[pos.x, pos.y, pos.z].effects.Add(fx))
             {
-                allGridEffects[fx].Add(pos);
+                allGridEffects.Add(fx);
                 if(map[pos.x, pos.y, pos.z].mob != null)
                 {
                     fx.RegisterMob(map[pos.x, pos.y, pos.z].mob);
@@ -779,7 +789,7 @@ namespace miniRAID
 
         public void RemoveFx(GridEffect fx)
         {
-            foreach (var p in allGridEffects[fx])
+            foreach (var p in fx.grids.shape)
             {
                 map[p.x, p.y, p.z].effects.Remove(fx);
                 if (map[p.x, p.y, p.z].mob != null)

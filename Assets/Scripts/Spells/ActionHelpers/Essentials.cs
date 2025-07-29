@@ -259,17 +259,11 @@ namespace miniRAID.ActionHelpers
             // TODO: Animations?
             
             shape.position = targetShapeOrigin;
-            var grids = shape.ApplyTransform();
             GridEffect rfx =
                 (Buff.GridEffect)effect.LeveledWrapFx(
-                    src, 
+                    src,
                     inheritLevel ? spellContext.level : 1,
-                    new Vector3(targetShapeOrigin.x, targetShapeOrigin.y, 0));
-            
-            foreach (var grid in grids)
-            {
-                rfx.Extend(grid);
-            }
+                    shape);
 
             yield return -1;
         }

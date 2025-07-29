@@ -182,6 +182,7 @@ namespace miniRAID
         public HashSet<RuntimeAction> availableActions = new HashSet<RuntimeAction>();
 
         [Header("Behaviour")]
+        [SerializeField]
         private MobRootAgentBase rootAgent;
 
         public MobData lastTurnTarget

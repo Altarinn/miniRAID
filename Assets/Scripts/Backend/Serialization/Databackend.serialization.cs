@@ -18,6 +18,14 @@ namespace miniRAID
         {
             Debug.Log($"Registered {state}");
             allStates.Add(state);
+
+            Globals.combatCoroutine.Instance.RequireOnNextFrameEnd(() =>
+            {
+                if (state.renderer == null)
+                {
+                    (state as IRenderableState)?.ConstructRenderer();
+                }
+            });
         }
         
         // Used for deserialization only
@@ -52,6 +60,7 @@ namespace miniRAID
             // Handle global events
             onMobAdded.RestoreListener();
             onMobRemoved.RestoreListener();
+            onGlobalActionPostcast.RestoreListener();
 
             // Pass 3: Handle renderers
             Databackend previousBackend = Globals.backend;

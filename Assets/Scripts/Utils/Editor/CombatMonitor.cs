@@ -64,7 +64,7 @@ namespace Utils.Editor
                 Random.Range(0, Globals.backend.mapSizeZ));
             
             GridEffect rfx = (GridEffect)effect.LeveledWrapFx(
-                dummySrc.data, 1, pos);
+                dummySrc.data, 1, new GridShape(pos));
             rfx.Extend(pos);
         }
         

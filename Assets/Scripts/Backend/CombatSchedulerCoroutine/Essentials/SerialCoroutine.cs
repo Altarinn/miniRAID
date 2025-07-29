@@ -214,6 +214,8 @@ namespace miniRAID
     public class SerialCoroutine : MonoBehaviour
     {
         Stack<SerialCoroutineHandle> handleStack = new();
+        
+        private event Action onNextCoroutineFrameEnd;
 
         public SerialCoroutineHandle currentHandle { get; private set; }
 
@@ -275,6 +277,9 @@ namespace miniRAID
 
                 if (currentHandle.handle.MoveNext())
                 {
+                    onNextCoroutineFrameEnd?.Invoke();
+                    onNextCoroutineFrameEnd = null; // TODO: FIXME: Good?
+                    
                     object result = currentHandle.handle.Current;
 
                     // Unity instructions
@@ -330,6 +335,11 @@ namespace miniRAID
                     handleStack.Pop();
                 }
             }
+        }
+
+        public void RequireOnNextFrameEnd(Action action)
+        {
+            onNextCoroutineFrameEnd += action;
         }
 
         public void SwitchContext(SerialCoroutineContext context)

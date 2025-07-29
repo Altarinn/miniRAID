@@ -19,23 +19,25 @@ namespace miniRAID.Buff
         [PropertyOrder(-1)]
         public bool toEnemies = true;
 
-        public MobListener LeveledWrapFx(MobData parent, int level, Vector3 position)
+        public MobListener LeveledWrapFx(MobData parent, int level, GridShape shape)
         {
-            return new GridEffect(parent, this, position);
+            return new GridEffect(parent, this, shape);
         }
     }
 
     public class GridEffect : Buff
     {
         [OdinSerialize] Dictionary<MobData, GridEffect> activeMobs;
-        GridEffectComponent entity;
+        GridEffectComponent entity => (GridEffectComponent)renderer;
         public GridEffectSO gridData => (GridEffectSO)data;
+
+        public GridShape grids;
 
         public int mask;
 
         bool isFx => activeMobs != null;
 
-        public GridEffect(MobData source, GridEffectSO data, Vector3 position) : base(source, data)
+        public GridEffect(MobData source, GridEffectSO data, GridShape shape) : base(source, data)
         {
             mask = 0;
 
@@ -43,11 +45,15 @@ namespace miniRAID.Buff
             if (data.toEnemies) { mask |= Consts.EnemyMask(source.unitGroup); }
 
             this.data = data;
+            this.grids = shape;
+            this.grids.ApplyTransformInplace();
+            
             activeMobs = new Dictionary<MobData, GridEffect>();
-            entity = GameObject.Instantiate(data.prefab.gameObject, position, Quaternion.identity).GetComponent<GridEffectComponent>();
             Globals.backend.AddFx(this);
         }
 
+        // This is used to copy itself to Mob.
+        // Not actually "Clone constructor".
         public GridEffect(GridEffect from)
             : base(
                   from.source,
@@ -65,8 +71,14 @@ namespace miniRAID.Buff
 
         public void Extend(Vector3Int pos)
         {
+            if (!Globals.backend.InMap(pos))
+            {
+                return;
+            }
+            
+            grids.AddGrid(pos);
             Globals.backend.AddFxAt(this, pos);
-            entity.AddGrid(Globals.backend.GridToWorldPos(pos));
+            // entity.AddGrid(Globals.backend.GridToWorldPos(pos));
         }
 
         public void Fx_OnNextTurn(MobData mob)
@@ -97,6 +109,20 @@ namespace miniRAID.Buff
                 mob.RemoveBuffOnce(activeMobs[mob]);
                 activeMobs.Remove(mob);
             }
+        }
+
+        public override void ConstructRenderer()
+        {
+            renderer = GameObject.Instantiate(
+                gridData.prefab.gameObject, 
+                Globals.backend.GridToWorldPosCenteredGrounded(source.Position), Quaternion.identity).GetComponent<GridEffectComponent>();
+
+            UpdateRenderer();
+        }
+
+        public override void UpdateRenderer()
+        {
+            entity.SetShape(grids?.shape);
         }
     }
 }

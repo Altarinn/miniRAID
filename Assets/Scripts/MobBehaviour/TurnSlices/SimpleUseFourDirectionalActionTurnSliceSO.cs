@@ -4,6 +4,7 @@ using miniRAID.Agents;
 using miniRAID.Backend;
 using miniRAID.Spells;
 using miniRAID.TurnSchedule;
+using UnityEngine;
 
 namespace miniRAID.MobBehaviour.TurnSlices
 {
@@ -25,20 +26,13 @@ namespace miniRAID.MobBehaviour.TurnSlices
 
     public class SimpleUseFourDirectionalActionTurnSlice : PreparableActionTurnSlice, IRenderableState
     {
-        private FourDirectionalTarget target;
-        private GridShape indicatorShape;
+        [SerializeField] private FourDirectionalTarget target;
         
         public SimpleUseFourDirectionalActionTurnSlice(
             MobData mob, RuntimeAction action, AbstractTurnSliceSO data, TurnSliceMetadata metadata)
             : base(mob, action, data, metadata)
         {
             target = GetTarget(mob, mob.FindListener<TargetIndicator>());
-
-            indicatorShape = new GridShape(((RuntimeAction<FourDirectionalTarget>)action).Shape);
-            indicatorShape.position = mob.Position;
-            indicatorShape.direction = target.Target;
-            
-            ConstructRenderer();
         }
         
         private FourDirectionalTarget GetTarget(MobData self, TargetIndicator targetIndicator)
@@ -71,10 +65,6 @@ namespace miniRAID.MobBehaviour.TurnSlices
             { Mute(); }
 
             this.target = GetTarget(mob, mob.FindListener<AggroCollector>());
-            
-            // TODO: Find better solution?
-            indicatorShape.direction = this.target.Target;
-            UpdateRenderer();
         }
 
         public override IEnumerator Turn()
@@ -83,9 +73,9 @@ namespace miniRAID.MobBehaviour.TurnSlices
             {
                 yield break;
             }
-            
-            indicatorShape = null;
-            UpdateRenderer();
+
+            renderer.Destroy();
+            renderer = null;
             
             RuntimeAction<FourDirectionalTarget> act = (RuntimeAction<FourDirectionalTarget>)action;
             yield return new JumpIn(mob.DoActionWithDefaultCosts(act, target));
@@ -93,17 +83,27 @@ namespace miniRAID.MobBehaviour.TurnSlices
 
         public void ConstructRenderer()
         {
+            GridShape indicatorShape = new GridShape(((RuntimeAction<FourDirectionalTarget>)action).Shape);
+            indicatorShape.position = mob.Position;
+            indicatorShape.direction = target.Target;
+            
             if (indicatorShape != null)
             {
                 renderer = new GridShapeIndicator(
                     indicatorShape, GridOverlay.Types.INCOMING_ATTACK);
+                UpdateRenderer();
             }
-            UpdateRenderer();
         }
 
         public void UpdateRenderer()
         {
-            (renderer as GridShapeIndicator)?.Update(indicatorShape);
+            GridShape indicatorShape = (renderer as GridShapeIndicator)?.shape;
+            if (indicatorShape != null)
+            {
+                indicatorShape.position = mob.Position;
+                indicatorShape.direction = target.Target;
+                (renderer as GridShapeIndicator)?.Update(indicatorShape);
+            }
         }
     }
 }

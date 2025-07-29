@@ -67,8 +67,6 @@ namespace miniRAID.Agents
             mob.OnDamageReceived.AddListener(Mob_OnReceiveDamageFinal);
             mob.OnRecoveryStage.AddListener(Mob_OnRecoveryStage);
             aggroList = new Dictionary<MobData, float>();
-            
-            ConstructRenderer();
         }
 
         public override void OnRemove(MobData mob)
@@ -249,7 +247,7 @@ namespace miniRAID.Agents
 
         public void UpdateRenderer()
         {
-            if (currentTarget != null && targetIndicator != null)
+            if (targetIndicator != null)
             {
                 targetIndicator.Follow(currentTarget);
             }

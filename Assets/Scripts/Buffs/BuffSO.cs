@@ -439,8 +439,6 @@ namespace miniRAID.Buff
                 buff = this,
                 eventType = Consts.BuffEventType.Attached
             });
-            
-            ConstructRenderer();
         }
 
         public override void OnRemove(MobData mob)

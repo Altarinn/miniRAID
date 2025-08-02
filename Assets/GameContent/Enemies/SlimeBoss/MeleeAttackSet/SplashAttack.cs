@@ -22,11 +22,10 @@ namespace miniRAID.Agents.SlimeBoss.MeleeAttackSet
             captured = CaptureTargetsInGridShape.CaptureAllTargetsWithinRange(
                     mob, filters, range.ApplyTransform())
                 .ToList();
-            
-            foreach (var m in captured)
-            {
-                yield return new JumpIn(damage.Do(ract, mob, m));
-            }
+
+            yield return new JumpIn(
+                MobListHelpers.WaitForAllMobs(captured, m => damage.Do(ract, mob, m))
+            );
         }
     }
 }

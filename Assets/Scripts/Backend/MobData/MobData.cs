@@ -520,8 +520,11 @@ namespace miniRAID
 
         public void UpdateRenderer()
         {
-            mobRenderer.data = this;
-            mobRenderer?.Refresh();
+            if (mobRenderer != null)
+            {
+                mobRenderer.data = this;
+                mobRenderer.Refresh();
+            }
         }
     }
 }

@@ -145,7 +145,6 @@ namespace miniRAID
         }
         */
         
-        [Obsolete("JumpIn's now should always be constructed with a context. This constructor will be moved to private soon.")]
         public JumpIn(
             IEnumerator obj,
             [CallerLineNumber] int lineNumber = 0,
@@ -211,9 +210,41 @@ namespace miniRAID
         }
     }
 
+    public static class JumpInHelper
+    {
+        public static IEnumerator Chain(params IEnumerator[] coroutines)
+        {
+            foreach (var coroutine in coroutines)
+            {
+                if(coroutine == null){continue;}
+                yield return new JumpIn(coroutine);
+            }
+        }
+    }
+
+    public class CoroutineFence
+    {
+        private int counter = 0;
+
+        public void PlaceOne()
+        {
+            counter++;
+        }
+
+        public void RemoveOne()
+        {
+            counter--;
+        }
+
+        public bool IsNotFinished()
+        {
+            return counter > 0;
+        }
+    }
+
     public class SerialCoroutine : MonoBehaviour
     {
-        Stack<SerialCoroutineHandle> handleStack = new();
+        Stack<SerialCoroutineHandle> mainHandleStack = new();
         
         private event Action onNextCoroutineFrameEnd;
 
@@ -246,14 +277,14 @@ namespace miniRAID
 
         public void StartSerialCoroutine(IEnumerator obj, SerialCoroutineContext context)
         {
-            if(handleStack.Count == 0)
+            if(mainHandleStack.Count == 0)
             {
-                handleStack.Push(new SerialCoroutineHandle(obj, context));
+                mainHandleStack.Push(new SerialCoroutineHandle(obj, context));
                 if (enableDebugging)
                 {
                     Globals.logger.Log($"StartSerialCoroutine\n");
                 }
-                StartCoroutine(Tick());
+                StartCoroutine(Tick(mainHandleStack, true));
             }
             else
             {
@@ -261,11 +292,26 @@ namespace miniRAID
             }
         }
 
-        public IEnumerator Tick()
+        public Coroutine StartAuxiliaryCoroutine(IEnumerator obj, CoroutineFence fence = null)
         {
+            // TODO: Pool this?
+            Stack<SerialCoroutineHandle> handleStack = new();
+            handleStack.Push(new SerialCoroutineHandle(obj, currentContext));
+            return StartCoroutine(Tick(handleStack, false, fence));
+        }
+
+        public IEnumerator Tick(
+            Stack<SerialCoroutineHandle> handleStack, 
+            bool isMainCoroutine = false,
+            CoroutineFence fence = null)
+        {
+            SerialCoroutineHandle tickHandle;
+            fence?.PlaceOne();
+            
             while(handleStack.Count > 0)
             {
-                currentHandle = handleStack.Peek();
+                tickHandle = handleStack.Peek();
+                if (isMainCoroutine) { currentHandle = tickHandle; }
 
                 //if(currentHandle.condition != null)
                 //{
@@ -275,12 +321,15 @@ namespace miniRAID
 
                 bool shouldPop = false;
 
-                if (currentHandle.handle.MoveNext())
+                if (tickHandle.handle.MoveNext())
                 {
-                    onNextCoroutineFrameEnd?.Invoke();
-                    onNextCoroutineFrameEnd = null; // TODO: FIXME: Good?
-                    
-                    object result = currentHandle.handle.Current;
+                    if (isMainCoroutine)
+                    {
+                        onNextCoroutineFrameEnd?.Invoke();
+                        onNextCoroutineFrameEnd = null; // TODO: FIXME: Good?
+                    }
+
+                    object result = tickHandle.handle.Current;
 
                     // Unity instructions
                     if (
@@ -307,7 +356,7 @@ namespace miniRAID
                     {
                         if(ji.dest != null)
                         {
-                            handleStack.Push(new SerialCoroutineHandle(ji.dest, currentHandle.context, ji.info));
+                            handleStack.Push(new SerialCoroutineHandle(ji.dest, tickHandle.context, ji.info));
                             if (enableDebugging)
                             {
                                 Globals.logger.Log($"new JumpIn at {ji.info.member} ( {ji.info.file} : {ji.info.lineNum} )");
@@ -331,10 +380,13 @@ namespace miniRAID
 
                 if(shouldPop)
                 {
-                    currentHandle = null;
+                    tickHandle = null;
+                    if (isMainCoroutine) { currentHandle = tickHandle; }
                     handleStack.Pop();
                 }
             }
+            
+            fence?.RemoveOne();
         }
 
         public void RequireOnNextFrameEnd(Action action)
@@ -353,7 +405,7 @@ namespace miniRAID
         public string StackTrace()
         {
             string s = "JumpIn StackTrace:\n";
-            foreach (var entry in handleStack)
+            foreach (var entry in mainHandleStack)
             {
                 s += $"{entry.debugInfo.member} : {entry.debugInfo.lineNum} ( {entry.debugInfo.file} )\n";
             }

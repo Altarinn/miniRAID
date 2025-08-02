@@ -34,10 +34,9 @@ namespace miniRAID.Agents.Test
             
             yield return new JumpIn(fx.Do(mob.Position + 2 * Consts.DirectionVectors[(int)shape.direction]));
 
-            foreach (var targetMob in capturedTargets)
-            {
-                yield return new JumpIn(damageOrHeal.Do(ract, mob, targetMob));
-            }
+            yield return new JumpIn(
+                MobListHelpers.WaitForAllMobs(capturedTargets, m => damageOrHeal.Do(ract, mob, m))
+            );
         }
         
     }

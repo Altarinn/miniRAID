@@ -14,7 +14,7 @@ miniRAID的战斗场景（`Scenes/NewScene`）大体由以下几部分组成：
 - 摄像机组（使用`Cinemachine2D`的虚拟摄像机）
 - 格子和格子管理器（`GridOverlayManager`）。格子管理器可以接收一组坐标点，显示各种颜色的提示（如下图）
 
-![image-20230620213315530](image-20230620213315530.png)
+![image-20230620213315530](Images/image-20230620213315530.png)
 
 - UI组件。miniRAID现在同时使用了UGUI和UI Toolkit。
 - 战斗管理器`CombatManager`
@@ -145,7 +145,7 @@ if(damageOrHeal != null)
 
 选中新创建好的asset文件，可以在Inspector中看到类似以下的信息：
 
-![image-20230621001703494](image-20230621001703494.png)
+![image-20230621001703494](Images/image-20230621001703494.png)
 
 - Max Level - 最高技能等级。目前不用管
 - Flags - 技能的各种flags，如直接伤害、不可被打断等等
@@ -275,7 +275,7 @@ public void RecalculateStats()
 
 使用`LeveledStats<T>`包住所使用的属性，便可以对不同等级的属性进行修改。在Inspector中点击右侧的L（Leveled）：
 
-![image-20230621004059783](image-20230621004059783.png)
+![image-20230621004059783](Images/image-20230621004059783.png)
 
 对应属性就会按等级分开便于调整。
 
@@ -295,15 +295,15 @@ miniRAID广泛使用了 [ScriptableObject](https://docs.unity3d.com/cn/2022.2/Ma
 
 - 技能信息（威力、效果参数等）
 
-![image-20230620233920888](image-20230620233920888.png)
+![image-20230620233920888](Images/image-20230620233920888.png)
 
 - 增益效果（Buff）；下图展示了一个持续3回合的HOT效果（栽培），每跳造成 60% * 33.3% = 20% 治疗强度的治疗。
 
-![image-20230620234106086](image-20230620234106086.png)
+![image-20230620234106086](Images/image-20230620234106086.png)
 
 - 单位信息，如下图展示的Attacker和他拥有的WindBuffAction（狂风加护）等技能；这个技能也是一个ScriptableObject。
 
-![image-20230620234241377](image-20230620234241377.png)
+![image-20230620234241377](Images/image-20230620234241377.png)
 
 ### MobListenerSO和ActionDataSO的运行时
 

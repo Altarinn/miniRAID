@@ -52,12 +52,12 @@ namespace miniRAID.Agents.SlimeBoss.MeleeAttackSet
 
             yield return new JumpIn(mob.SetPosition(targetGrid));
 
-            foreach (var targetMob in capturedTargets)
-            {
-                yield return new JumpIn(damageOrHeal.Do(ract, mob, targetMob));
-                yield return new JumpIn(knockBack.Do(targetMob,
-                    Consts.DirectionVectors[(int)target.Target] * KnockbackDistance));
-            }
+            yield return new JumpIn(MobListHelpers.WaitForAllMobs(
+                capturedTargets,
+                m => JumpInHelper.Chain(
+                    damageOrHeal?.Do(ract, mob, m),
+                    knockBack?.Do(m, Consts.DirectionVectors[(int)target.Target] * KnockbackDistance))
+            ));
         }
     }
 }

@@ -39,17 +39,15 @@ namespace miniRAID.Actions
                 .Where(targetMob => targetMob != null)
                 .Where(targetMob => targetFilter.Check(mob, targetMob));
 
-            foreach (var targetMob in targetMobs)
-            {
-                if(fxOnHit != null)
-                    yield return new JumpIn(fxOnHit.Do(target.Target.Position));
-                
-                if(damageOrHeal != null)
-                    yield return new JumpIn(damageOrHeal.Do(ract, mob, targetMob));
-
-                if (buff != null)
-                    yield return new JumpIn(buff.Do(ract, mob, targetMob));
-            }
+            yield return new JumpIn(
+                MobListHelpers.WaitForAllMobs(
+                    targetMobs, m => JumpInHelper.Chain(
+                        fxOnHit?.Do(target.Target.Position),
+                        damageOrHeal?.Do(ract, mob, m),
+                        buff?.Do(ract, mob, m)
+                    )
+                )
+            );
         }
     }
 }

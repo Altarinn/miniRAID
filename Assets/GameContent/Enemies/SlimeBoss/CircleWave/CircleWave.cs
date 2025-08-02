@@ -49,10 +49,9 @@ namespace miniRAID
                     captured = CaptureTargetsInGridShape.CaptureAllTargetsWithinRange(
                             src, filters, innerCircleShape.ApplyTransform())
                         .ToList();
-                    foreach (var m in captured)
-                    {
-                        yield return new JumpIn(damage.Do(ract, src, m));
-                    }
+                    yield return new JumpIn(
+                        MobListHelpers.WaitForAllMobs(captured, m => damage.Do(ract, src, m))
+                    );
 
                     dummy.renderer.Destroy();
 
@@ -68,10 +67,9 @@ namespace miniRAID
                     captured = CaptureTargetsInGridShape.CaptureAllTargetsWithinRange(
                             src, filters, middleRingShape.ApplyTransform())
                         .ToList();
-                    foreach (var m in captured)
-                    {
-                        yield return new JumpIn(damage.Do(ract, src, m));
-                    }
+                    yield return new JumpIn(
+                        MobListHelpers.WaitForAllMobs(captured, m => damage.Do(ract, src, m))
+                    );
 
                     dummy.renderer.Destroy();
                     dummy.renderer = null;

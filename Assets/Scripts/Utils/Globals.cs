@@ -22,6 +22,8 @@ namespace miniRAID
 
         public static SerialCoroutineContext combatContext => combatCoroutine.Instance.currentContext;
         public static void CombatCoroutineNewContext(SerialCoroutineContext ctx) => combatCoroutine.Instance.SwitchContext(ctx);
+        public static void JumpInParallel(IEnumerator routine, CoroutineFence fence = null)
+            => combatCoroutine.Instance.StartAuxiliaryCoroutine(routine, fence);
 
         // Short-hand for combatContext
         public static SerialCoroutineContext cc => combatContext;

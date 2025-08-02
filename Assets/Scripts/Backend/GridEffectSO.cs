@@ -122,7 +122,7 @@ namespace miniRAID.Buff
 
         public override void UpdateRenderer()
         {
-            entity.SetShape(grids?.shape);
+            entity?.SetShape(grids?.shape);
         }
     }
 }

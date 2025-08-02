@@ -30,14 +30,12 @@ namespace miniRAID
                 .Where(m => targetFilter.Check(mob, m)) // Enemies
                 .Where(m => Consts.Distance(m.Position, origin) <= explosionRange); // Within explosion range
 
-            foreach (MobData targetMob in capturedMobs)
-            {
-                if(explosionDamage != null)
-                    yield return new JumpIn(explosionDamage.Do(ract, mob, targetMob));
-
-                if(explosionBuff != null)
-                    yield return new JumpIn(explosionBuff.Do(ract, mob, targetMob));
-            }
+            yield return new JumpIn(
+                MobListHelpers.WaitForAllMobs(capturedMobs, m => JumpInHelper.Chain(
+                    explosionDamage?.Do(ract, mob, m),
+                    explosionBuff?.Do(ract, mob, m))
+                )
+            );
         }
     }
 }

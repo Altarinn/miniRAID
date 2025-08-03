@@ -1,250 +1,44 @@
 - Start of debug log -
-[2025/7/31 21:54:15] AWAKE
-[回合0] 00m 05s:  Astrologer 获得了来自 Astrologer 的 流星
-[2025/7/31 21:54:15] Astrologer 获得了来自 Astrologer 的 流星
-[回合0] 00m 05s:  Astrologer 获得了来自 Astrologer 的 星能转化
-[2025/7/31 21:54:15] Astrologer 获得了来自 Astrologer 的 星能转化
-[回合0] 00m 05s:  Lilium 获得了来自 Lilium 的 防卫者
-[2025/7/31 21:54:15] Lilium 获得了来自 Lilium 的 防卫者
-[回合0] 00m 05s:  Felivol 获得了来自 Felivol 的 防卫者
-[2025/7/31 21:54:15] Felivol 获得了来自 Felivol 的 防卫者
-[回合0] 00m 05s:  Felivol 获得了来自 Felivol 的 旅者
-[2025/7/31 21:54:15] Felivol 获得了来自 Felivol 的 旅者
-[回合0] 00m 05s:  Felivol 获得了来自 Felivol 的 聆听神谕
-[2025/7/31 21:54:15] Felivol 获得了来自 Felivol 的 聆听神谕
-[回合0] 00m 05s:  Felivol 获得了来自 Felivol 的 祝福之光
-[2025/7/31 21:54:16] Felivol 获得了来自 Felivol 的 祝福之光
-[回合0] 00m 05s:  Felivol 获得了来自 Felivol 的 防御蓄能
-[2025/7/31 21:54:16] Felivol 获得了来自 Felivol 的 防御蓄能
-[回合0] 00m 05s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
-[2025/7/31 21:54:16] SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
-[回合0] 00m 05s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
-[2025/7/31 21:54:16] SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
-[回合0] 00m 05s:  Umiko 获得了来自 Umiko 的 生命之歌
-[2025/7/31 21:54:16] Umiko 获得了来自 Umiko 的 生命之歌
-[回合0] 00m 05s:  Astrologer 获得了来自 Umiko 的 生命之歌
-[2025/7/31 21:54:16] Astrologer 获得了来自 Umiko 的 生命之歌
-[回合0] 00m 05s:  Lilium 获得了来自 Umiko 的 生命之歌
-[2025/7/31 21:54:16] Lilium 获得了来自 Umiko 的 生命之歌
-[回合0] 00m 05s:  Felivol 获得了来自 Umiko 的 生命之歌
-[2025/7/31 21:54:16] Felivol 获得了来自 Umiko 的 生命之歌
-[回合0] 00m 05s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
-[2025/7/31 21:54:16] SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
-[回合0] 00m 05s:  Flora 获得了来自 Umiko 的 生命之歌
-[2025/7/31 21:54:16] Flora 获得了来自 Umiko 的 生命之歌
-[回合0] 00m 05s:  Gaceon 获得了来自 Gaceon 的 治疗者
-[2025/7/31 21:54:16] Gaceon 获得了来自 Gaceon 的 治疗者
-[回合0] 00m 05s:  Gaceon 获得了来自 Umiko 的 生命之歌
-[2025/7/31 21:54:16] Gaceon 获得了来自 Umiko 的 生命之歌
-[回合0] 00m 05s:  Archer3 获得了来自 Archer3 的 攻击者
-[2025/7/31 21:54:16] Archer3 获得了来自 Archer3 的 攻击者
-[回合0] 00m 05s:  Archer3 获得了来自 Umiko 的 生命之歌
-[2025/7/31 21:54:16] Archer3 获得了来自 Umiko 的 生命之歌
-[回合1] 00m 06s:  回合1
-[2025/7/31 21:54:16] 回合1
-[回合1] 00m 09s:  Felivol 施放了 BAD_STRING, 目标：East
-[2025/7/31 21:54:19] Felivol 施放了 BAD_STRING, 目标：East
-[回合1] 00m 09s:  Felivol 的 BAD_STRING 对 SmallMu 造成了 120 点 Ice 伤害。生命值：0
-[2025/7/31 21:54:20] Felivol 的 BAD_STRING 对 SmallMu 造成了 120 点 Ice 伤害。生命值：0
-[回合1] 00m 09s:  SmallMu 施放了 小史莱姆爆炸, 目标：SmallMu
-[2025/7/31 21:54:20] SmallMu 施放了 小史莱姆爆炸, 目标：SmallMu
-[回合1] 00m 09s:  Felivol 的 BAD_STRING 对 SmallMu 造成了 120 点 Ice 伤害。生命值：0
-[2025/7/31 21:54:20] Felivol 的 BAD_STRING 对 SmallMu 造成了 120 点 Ice 伤害。生命值：0
-[回合1] 00m 09s:  SmallMu 施放了 小史莱姆爆炸, 目标：SmallMu
-[2025/7/31 21:54:20] SmallMu 施放了 小史莱姆爆炸, 目标：SmallMu
-[回合1] 00m 09s:  Felivol 的 BAD_STRING 对 SmallMu 造成了 120 点 Ice 伤害（暴击）。生命值：0
-[2025/7/31 21:54:20] Felivol 的 BAD_STRING 对 SmallMu 造成了 120 点 Ice 伤害（暴击）。生命值：0
-[回合1] 00m 09s:  SmallMu 施放了 小史莱姆爆炸, 目标：SmallMu
-[2025/7/31 21:54:20] SmallMu 施放了 小史莱姆爆炸, 目标：SmallMu
-[回合1] 00m 09s:  Felivol 的 BAD_STRING 对 BossMu 造成了 586 点 Ice 伤害。生命值：654
-[2025/7/31 21:54:20] Felivol 的 BAD_STRING 对 BossMu 造成了 586 点 Ice 伤害。生命值：654
-[回合1] 00m 10s:  SmallMu 的 小史莱姆爆炸 对 Astrologer 造成了 24 点 Nature 伤害。生命值：0
-[2025/7/31 21:54:20] SmallMu 的 小史莱姆爆炸 对 Astrologer 造成了 24 点 Nature 伤害。生命值：0
-[回合1] 00m 10s:  Astrologer 失去了来自 Astrologer 的 流星
-[2025/7/31 21:54:20] Astrologer 失去了来自 Astrologer 的 流星
-[回合1] 00m 10s:  Astrologer 失去了来自 Astrologer 的 星能转化
-[2025/7/31 21:54:20] Astrologer 失去了来自 Astrologer 的 星能转化
-[回合1] 00m 10s:  Astrologer 失去了来自 Umiko 的 生命之歌
-[2025/7/31 21:54:20] Astrologer 失去了来自 Umiko 的 生命之歌
-[回合1] 00m 10s:  SmallMu 的 小史莱姆爆炸 对 Lilium 造成了 24 点 Nature 伤害。生命值：44
-[2025/7/31 21:54:20] SmallMu 的 小史莱姆爆炸 对 Lilium 造成了 24 点 Nature 伤害。生命值：44
-[回合1] 00m 10s:  SmallMu 的 小史莱姆爆炸 对 Felivol 造成了 24 点 Nature 伤害。生命值：38
-[2025/7/31 21:54:20] SmallMu 的 小史莱姆爆炸 对 Felivol 造成了 24 点 Nature 伤害。生命值：38
-[回合1] 00m 10s:  SmallMu 的 小史莱姆爆炸 对 Umiko 造成了 24 点 Nature 伤害。生命值：44
-[2025/7/31 21:54:20] SmallMu 的 小史莱姆爆炸 对 Umiko 造成了 24 点 Nature 伤害。生命值：44
-[回合1] 00m 10s:  SmallMu 的 小史莱姆爆炸 对 Flora 造成了 24 点 Nature 伤害。生命值：20
-[2025/7/31 21:54:20] SmallMu 的 小史莱姆爆炸 对 Flora 造成了 24 点 Nature 伤害。生命值：20
-[回合1] 00m 10s:  SmallMu 的 小史莱姆爆炸 对 Gaceon 造成了 24 点 Nature 伤害。生命值：20
-[2025/7/31 21:54:20] SmallMu 的 小史莱姆爆炸 对 Gaceon 造成了 24 点 Nature 伤害。生命值：20
-[回合1] 00m 10s:  SmallMu 的 小史莱姆爆炸 对 Archer3 造成了 24 点 Nature 伤害。生命值：14
-[2025/7/31 21:54:20] SmallMu 的 小史莱姆爆炸 对 Archer3 造成了 24 点 Nature 伤害。生命值：14
-[回合1] 00m 10s:  SmallMu 的 小史莱姆爆炸 对 Astrologer 造成了 24 点 Nature 伤害。生命值：0
-[2025/7/31 21:54:20] SmallMu 的 小史莱姆爆炸 对 Astrologer 造成了 24 点 Nature 伤害。生命值：0
-[回合1] 00m 10s:  SmallMu 的 小史莱姆爆炸 对 Lilium 造成了 24 点 Nature 伤害。生命值：44
-[2025/7/31 21:54:20] SmallMu 的 小史莱姆爆炸 对 Lilium 造成了 24 点 Nature 伤害。生命值：44
-[回合1] 00m 10s:  SmallMu 的 小史莱姆爆炸 对 Felivol 造成了 24 点 Nature 伤害。生命值：38
-[2025/7/31 21:54:20] SmallMu 的 小史莱姆爆炸 对 Felivol 造成了 24 点 Nature 伤害。生命值：38
-[回合1] 00m 10s:  SmallMu 的 小史莱姆爆炸 对 Umiko 造成了 24 点 Nature 伤害。生命值：44
-[2025/7/31 21:54:20] SmallMu 的 小史莱姆爆炸 对 Umiko 造成了 24 点 Nature 伤害。生命值：44
-[回合1] 00m 10s:  SmallMu 的 小史莱姆爆炸 对 Flora 造成了 24 点 Nature 伤害。生命值：20
-[2025/7/31 21:54:20] SmallMu 的 小史莱姆爆炸 对 Flora 造成了 24 点 Nature 伤害。生命值：20
-[回合1] 00m 10s:  SmallMu 的 小史莱姆爆炸 对 Gaceon 造成了 24 点 Nature 伤害。生命值：20
-[2025/7/31 21:54:20] SmallMu 的 小史莱姆爆炸 对 Gaceon 造成了 24 点 Nature 伤害。生命值：20
-[回合1] 00m 10s:  SmallMu 的 小史莱姆爆炸 对 Archer3 造成了 24 点 Nature 伤害。生命值：14
-[2025/7/31 21:54:20] SmallMu 的 小史莱姆爆炸 对 Archer3 造成了 24 点 Nature 伤害。生命值：14
-[回合1] 00m 10s:  SmallMu 的 小史莱姆爆炸 对 Astrologer 造成了 20 点 Nature 伤害。生命值：0
-[2025/7/31 21:54:20] SmallMu 的 小史莱姆爆炸 对 Astrologer 造成了 20 点 Nature 伤害。生命值：0
-[回合1] 00m 10s:  SmallMu 的 小史莱姆爆炸 对 Lilium 造成了 24 点 Nature 伤害。生命值：44
-[2025/7/31 21:54:20] SmallMu 的 小史莱姆爆炸 对 Lilium 造成了 24 点 Nature 伤害。生命值：44
-[回合1] 00m 10s:  SmallMu 的 小史莱姆爆炸 对 Felivol 造成了 24 点 Nature 伤害。生命值：38
-[2025/7/31 21:54:20] SmallMu 的 小史莱姆爆炸 对 Felivol 造成了 24 点 Nature 伤害。生命值：38
-[回合1] 00m 10s:  SmallMu 的 小史莱姆爆炸 对 Umiko 造成了 24 点 Nature 伤害。生命值：44
-[2025/7/31 21:54:20] SmallMu 的 小史莱姆爆炸 对 Umiko 造成了 24 点 Nature 伤害。生命值：44
-[回合1] 00m 10s:  SmallMu 的 小史莱姆爆炸 对 Flora 造成了 24 点 Nature 伤害。生命值：20
-[2025/7/31 21:54:20] SmallMu 的 小史莱姆爆炸 对 Flora 造成了 24 点 Nature 伤害。生命值：20
-[回合1] 00m 10s:  SmallMu 的 小史莱姆爆炸 对 Gaceon 造成了 24 点 Nature 伤害。生命值：20
-[2025/7/31 21:54:20] SmallMu 的 小史莱姆爆炸 对 Gaceon 造成了 24 点 Nature 伤害。生命值：20
-[回合1] 00m 10s:  SmallMu 的 小史莱姆爆炸 对 Archer3 造成了 24 点 Nature 伤害。生命值：14
-[2025/7/31 21:54:20] SmallMu 的 小史莱姆爆炸 对 Archer3 造成了 24 点 Nature 伤害。生命值：14
-[回合1] 00m 10s:  SmallMu 失去了来自 SmallMu 的 死亡爆裂 [0]
-[2025/7/31 21:54:20] SmallMu 失去了来自 SmallMu 的 死亡爆裂 [0]
-[回合1] 00m 10s:  Felivol 的 BAD_STRING 击杀了 SmallMu !
-[2025/7/31 21:54:20] Felivol 的 BAD_STRING 击杀了 SmallMu !
-[回合1] 00m 10s:  SmallMu 失去了来自 SmallMu 的 死亡爆裂 [0]
-[2025/7/31 21:54:20] SmallMu 失去了来自 SmallMu 的 死亡爆裂 [0]
-[回合1] 00m 10s:  Felivol 的 BAD_STRING 击杀了 SmallMu !
-[2025/7/31 21:54:20] Felivol 的 BAD_STRING 击杀了 SmallMu !
-[回合1] 00m 10s:  SmallMu 的 小史莱姆爆炸 击杀了 Astrologer !
-[2025/7/31 21:54:21] SmallMu 的 小史莱姆爆炸 击杀了 Astrologer !
-[回合1] 00m 10s:  SmallMu 失去了来自 SmallMu 的 死亡爆裂 [0]
-[2025/7/31 21:54:21] SmallMu 失去了来自 SmallMu 的 死亡爆裂 [0]
-[回合1] 00m 10s:  Felivol 的 BAD_STRING 击杀了 SmallMu !
-[2025/7/31 21:54:21] Felivol 的 BAD_STRING 击杀了 SmallMu !
-[回合1] 00m 15s:  Flora 施放了 栽培, 目标：Flora
-[2025/7/31 21:54:26] Flora 施放了 栽培, 目标：Flora
-[回合1] 00m 16s:  Flora 获得了来自 Flora 的 栽培
-[2025/7/31 21:54:26] Flora 获得了来自 Flora 的 栽培
-[回合1] 00m 16s:  Gaceon 施放了 治疗链, 目标：Gaceon
-[2025/7/31 21:54:26] Gaceon 施放了 治疗链, 目标：Gaceon
-[回合1] 00m 16s:  Gaceon 的 治疗链 对 Gaceon 造成了 13 点 Heal 。生命值：33
-[2025/7/31 21:54:26] Gaceon 的 治疗链 对 Gaceon 造成了 13 点 Heal 。生命值：33
-[回合1] 00m 16s:  Gaceon 的 治疗链 对 Archer3 造成了 9 点 Heal 。生命值：23
-[2025/7/31 21:54:27] Gaceon 的 治疗链 对 Archer3 造成了 9 点 Heal 。生命值：23
-[回合1] 00m 16s:  Gaceon 的 治疗链 对 Flora 造成了 7 点 Heal 。生命值：27
-[2025/7/31 21:54:27] Gaceon 的 治疗链 对 Flora 造成了 7 点 Heal 。生命值：27
-[回合1] 00m 18s:  BossMu 施放了 移动, 目标：(11, 0, 6)
-[2025/7/31 21:54:28] BossMu 施放了 移动, 目标：(11, 0, 6)
-[回合1] 00m 18s:  BossMu 施放了 史莱姆攻击, 目标：Felivol
-[2025/7/31 21:54:29] BossMu 施放了 史莱姆攻击, 目标：Felivol
-[回合1] 00m 19s:  BossMu 的 史莱姆攻击 对 Felivol 造成了 20 点 Knock 伤害。生命值：18
-[2025/7/31 21:54:29] BossMu 的 史莱姆攻击 对 Felivol 造成了 20 点 Knock 伤害。生命值：18
-[回合1] 00m 19s:  BossMu 施放了 小史莱姆标记, 目标：BossMu
-[2025/7/31 21:54:30] BossMu 施放了 小史莱姆标记, 目标：BossMu
-[回合1] 00m 20s:  Lilium 获得了来自 BossMu 的 锁定
-[2025/7/31 21:54:30] Lilium 获得了来自 BossMu 的 锁定
-[回合2] 00m 20s:  回合2
-[2025/7/31 21:54:31] 回合2
-[回合2] 00m 23s:  Felivol 施放了 移动, 目标：(12, 0, 7)
-[2025/7/31 21:54:34] Felivol 施放了 移动, 目标：(12, 0, 7)
-[回合2] 00m 24s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：20
-[2025/7/31 21:54:35] Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：20
-[回合2] 00m 24s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：22
-[2025/7/31 21:54:35] Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：22
-[回合2] 00m 25s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：24
-[2025/7/31 21:54:35] Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：24
-[回合2] 00m 25s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：26
-[2025/7/31 21:54:35] Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：26
-[回合2] 00m 30s:  Gaceon 施放了 移动, 目标：(8, 0, 8)
-[2025/7/31 21:54:41] Gaceon 施放了 移动, 目标：(8, 0, 8)
-[回合2] 00m 33s:  Gaceon 施放了 治疗术, 目标：Lilium
-[2025/7/31 21:54:44] Gaceon 施放了 治疗术, 目标：Lilium
-[回合2] 00m 34s:  Gaceon 的 治疗术 对 Lilium 造成了 25 点 Heal 。生命值：69
-[2025/7/31 21:54:45] Gaceon 的 治疗术 对 Lilium 造成了 25 点 Heal 。生命值：69
-[回合2] 00m 36s:  Gaceon 施放了 应急治疗, 目标：Felivol
-[2025/7/31 21:54:46] Gaceon 施放了 应急治疗, 目标：Felivol
-[回合2] 00m 36s:  Felivol 获得了来自 Gaceon 的 应急处置
-[2025/7/31 21:54:47] Felivol 获得了来自 Gaceon 的 应急处置
-[回合2] 00m 37s:  Gaceon 的 应急治疗 对 Felivol 造成了 54 点 Heal 。生命值：88
-[2025/7/31 21:54:47] Gaceon 的 应急治疗 对 Felivol 造成了 54 点 Heal 。生命值：88
-[回合2] 00m 40s:  Lilium 施放了 法力护盾, 目标：Lilium
-[2025/7/31 21:54:50] Lilium 施放了 法力护盾, 目标：Lilium
-[回合2] 00m 40s:  Lilium 获得了来自 Lilium 的 法力护盾
-[2025/7/31 21:54:51] Lilium 获得了来自 Lilium 的 法力护盾
-[回合2] 00m 40s:  Flora 的 栽培 对 Flora 造成了 2 点 Heal 。生命值：29
-[2025/7/31 21:54:51] Flora 的 栽培 对 Flora 造成了 2 点 Heal 。生命值：29
-[回合2] 00m 40s:  BossMu 施放了 腐蚀吐息, 目标：North
-[2025/7/31 21:54:51] BossMu 施放了 腐蚀吐息, 目标：North
-[回合2] 00m 41s:  BossMu 的 腐蚀吐息 对 Lilium 造成了 0 点 Nature 伤害。生命值：69
-[2025/7/31 21:54:52] BossMu 的 腐蚀吐息 对 Lilium 造成了 0 点 Nature 伤害。生命值：69
-[回合2] 00m 41s:  Lilium 获得了来自 BossMu 的 腐蚀吐息
-[2025/7/31 21:54:52] Lilium 获得了来自 BossMu 的 腐蚀吐息
-[回合2] 00m 41s:  BossMu 的 腐蚀吐息 对 Felivol 造成了 42 点 Nature 伤害。生命值：46
-[2025/7/31 21:54:52] BossMu 的 腐蚀吐息 对 Felivol 造成了 42 点 Nature 伤害。生命值：46
-[回合2] 00m 41s:  Felivol 获得了来自 BossMu 的 腐蚀吐息
-[2025/7/31 21:54:52] Felivol 获得了来自 BossMu 的 腐蚀吐息
-[回合2] 00m 50s:  Felivol 施放了 奔袭, 目标：(13, 0, 3)
-[2025/7/31 21:55:01] Felivol 施放了 奔袭, 目标：(13, 0, 3)
-[回合2] 00m 51s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：48
-[2025/7/31 21:55:02] Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：48
-[回合2] 00m 51s:  Felivol 失去了来自 Umiko 的 生命之歌
-[2025/7/31 21:55:02] Felivol 失去了来自 Umiko 的 生命之歌
-[回合2] 00m 51s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：50
-[2025/7/31 21:55:02] Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：50
-[回合2] 00m 52s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：52
-[2025/7/31 21:55:02] Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：52
-[回合2] 00m 52s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：54
-[2025/7/31 21:55:02] Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：54
-[回合2] 00m 52s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：56
-[2025/7/31 21:55:02] Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：56
-[回合2] 00m 56s:  Felivol 施放了 祈祷, 目标：Felivol
-[2025/7/31 21:55:06] Felivol 施放了 祈祷, 目标：Felivol
-[回合2] 00m 57s:  Felivol 的 祈祷 对 Felivol 造成了 10 点 Heal 。生命值：66
-[2025/7/31 21:55:07] Felivol 的 祈祷 对 Felivol 造成了 10 点 Heal 。生命值：66
-[回合2] 00m 57s:  Felivol 重新获得了来自 Felivol 的 祝福之光
-[2025/7/31 21:55:07] Felivol 重新获得了来自 Felivol 的 祝福之光
-[回合2] 00m 57s:  Flora 的 栽培 对 Flora 造成了 2 点 Heal 。生命值：31
-[2025/7/31 21:55:08] Flora 的 栽培 对 Flora 造成了 2 点 Heal 。生命值：31
-[回合2] 01m 00s:  Flora 的 栽培 对 Flora 造成了 2 点 Heal 。生命值：33
-[2025/7/31 21:55:11] Flora 的 栽培 对 Flora 造成了 2 点 Heal 。生命值：33
-[回合2] 01m 03s:  Flora 施放了 栽培, 目标：Astrologer
-[2025/7/31 21:55:14] Flora 施放了 栽培, 目标：Astrologer
-[回合2] 01m 05s:  Flora 的 栽培 对 Flora 造成了 2 点 Heal 。生命值：35
-[2025/7/31 21:55:15] Flora 的 栽培 对 Flora 造成了 2 点 Heal 。生命值：35
-[回合2] 01m 05s:  Flora 施放了 栽培, 目标：Archer3
-[2025/7/31 21:55:16] Flora 施放了 栽培, 目标：Archer3
-[回合2] 01m 06s:  Archer3 获得了来自 Flora 的 栽培
-[2025/7/31 21:55:16] Archer3 获得了来自 Flora 的 栽培
-[回合2] 01m 07s:  BossMu 施放了 移动, 目标：(11, 0, 5)
-[2025/7/31 21:55:17] BossMu 施放了 移动, 目标：(11, 0, 5)
-[回合2] 01m 07s:  BossMu 施放了 移动, 目标：(11, 0, 4)
-[2025/7/31 21:55:17] BossMu 施放了 移动, 目标：(11, 0, 4)
-[回合2] 01m 07s:  BossMu 施放了 移动, 目标：(12, 0, 4)
-[2025/7/31 21:55:17] BossMu 施放了 移动, 目标：(12, 0, 4)
-[回合2] 01m 07s:  BossMu 施放了 小史莱姆投掷, 目标：BossMu
-[2025/7/31 21:55:18] BossMu 施放了 小史莱姆投掷, 目标：BossMu
-[回合2] 01m 09s:  BossMu 的 小史莱姆投掷 对 Lilium 造成了 0 点 Nature 伤害。生命值：69
-[2025/7/31 21:55:19] BossMu 的 小史莱姆投掷 对 Lilium 造成了 0 点 Nature 伤害。生命值：69
-[回合2] 01m 09s:  Lilium 失去了来自 BossMu 的 锁定
-[2025/7/31 21:55:19] Lilium 失去了来自 BossMu 的 锁定
-[回合2] 01m 09s:  Lilium 失去了来自 Lilium 的 法力护盾
-[2025/7/31 21:55:20] Lilium 失去了来自 Lilium 的 法力护盾
-[回合3] 01m 09s:  回合3
-[2025/7/31 21:55:20] 回合3
-[回合3] 01m 24s:  Lilium 施放了 移动, 目标：(10, 0, 7)
-[2025/7/31 21:55:35] Lilium 施放了 移动, 目标：(10, 0, 7)
-[回合3] 01m 27s:  Flora 的 栽培 对 Flora 造成了 2 点 Heal 。生命值：37
-[2025/7/31 21:55:38] Flora 的 栽培 对 Flora 造成了 2 点 Heal 。生命值：37
-[回合3] 01m 28s:  Flora 的 栽培 对 Archer3 造成了 2 点 Heal 。生命值：25
-[2025/7/31 21:55:38] Flora 的 栽培 对 Archer3 造成了 2 点 Heal 。生命值：25
-[回合3] 01m 29s:  Gaceon 施放了 移动, 目标：(5, 0, 7)
-[2025/7/31 21:55:40] Gaceon 施放了 移动, 目标：(5, 0, 7)
-[回合3] 01m 30s:  Flora 的 栽培 对 Flora 造成了 2 点 Heal 。生命值：39
-[2025/7/31 21:55:41] Flora 的 栽培 对 Flora 造成了 2 点 Heal 。生命值：39
-[回合3] 01m 31s:  Flora 的 栽培 对 Archer3 造成了 2 点 Heal 。生命值：27
-[2025/7/31 21:55:41] Flora 的 栽培 对 Archer3 造成了 2 点 Heal 。生命值：27
-[回合3] 01m 31s:  BossMu 施放了 突进, 目标：South
-[2025/7/31 21:55:41] BossMu 施放了 突进, 目标：South
-[回合3] 01m 31s:  BossMu 的 突进 对 Felivol 造成了 42 点 Knock 伤害。生命值：24
-[2025/7/31 21:55:42] BossMu 的 突进 对 Felivol 造成了 42 点 Knock 伤害。生命值：24
-[回合3] 01m 31s:  Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：26
-[2025/7/31 21:55:42] Felivol 的 旅者 对 Felivol 造成了 2 点 Heal 。生命值：26
+[2025/8/4 2:28:49] AWAKE
+[回合0] 00m 21s:  Necrozma 获得了来自 Necrozma 的 流星
+[2025/8/4 2:28:50] Necrozma 获得了来自 Necrozma 的 流星
+[回合0] 00m 21s:  Necrozma 获得了来自 Necrozma 的 星能转化
+[2025/8/4 2:28:50] Necrozma 获得了来自 Necrozma 的 星能转化
+[回合1] 00m 22s:  回合1
+[2025/8/4 2:28:51] 回合1
+[回合1] 02m 30s:  Necrozma 施放了 彗星箭, 目标：Abomasnow
+[2025/8/4 2:30:59] Necrozma 施放了 彗星箭, 目标：Abomasnow
+[回合1] 02m 30s:  Necrozma 的 彗星箭 对 Abomasnow 造成了 25 点 Ice 伤害。生命值：99975
+[2025/8/4 2:30:59] Necrozma 的 彗星箭 对 Abomasnow 造成了 25 点 Ice 伤害。生命值：99975
+[回合1] 02m 34s:  Necrozma 施放了 星光超流, 目标：Abomasnow
+[2025/8/4 2:31:03] Necrozma 施放了 星光超流, 目标：Abomasnow
+[回合1] 02m 34s:  Necrozma 的 星光超流 对 Abomasnow 造成了 20 点 Light 伤害。生命值：99955
+[2025/8/4 2:31:03] Necrozma 的 星光超流 对 Abomasnow 造成了 20 点 Light 伤害。生命值：99955
+[回合1] 02m 34s:  Necrozma 的 流星 对 Abomasnow 造成了 8 点 Knock 伤害。生命值：99947
+[2025/8/4 2:31:03] Necrozma 的 流星 对 Abomasnow 造成了 8 点 Knock 伤害。生命值：99947
+[回合1] 02m 34s:  Abomasnow 获得了来自 Necrozma 的 繁星道标
+[2025/8/4 2:31:03] Abomasnow 获得了来自 Necrozma 的 繁星道标
+[回合1] 02m 36s:  Necrozma 施放了 彗星箭, 目标：Abomasnow
+[2025/8/4 2:31:05] Necrozma 施放了 彗星箭, 目标：Abomasnow
+[回合1] 02m 36s:  Necrozma 的 彗星箭 对 Abomasnow 造成了 25 点 Ice 伤害。生命值：99922
+[2025/8/4 2:31:05] Necrozma 的 彗星箭 对 Abomasnow 造成了 25 点 Ice 伤害。生命值：99922
+[回合1] 02m 38s:  Necrozma 施放了 星光超流, 目标：Abomasnow
+[2025/8/4 2:31:07] Necrozma 施放了 星光超流, 目标：Abomasnow
+[回合1] 02m 38s:  Necrozma 的 星光超流 对 Abomasnow 造成了 20 点 Light 伤害。生命值：99902
+[2025/8/4 2:31:07] Necrozma 的 星光超流 对 Abomasnow 造成了 20 点 Light 伤害。生命值：99902
+[回合1] 02m 38s:  Necrozma 的 繁星道标 对 Abomasnow 造成了 12 点 Light 伤害。生命值：99890
+[2025/8/4 2:31:07] Necrozma 的 繁星道标 对 Abomasnow 造成了 12 点 Light 伤害。生命值：99890
+[回合1] 02m 38s:  Necrozma 的 流星 对 Abomasnow 造成了 8 点 Knock 伤害。生命值：99882
+[2025/8/4 2:31:07] Necrozma 的 流星 对 Abomasnow 造成了 8 点 Knock 伤害。生命值：99882
+[回合1] 02m 38s:  Abomasnow 重新获得了来自 Necrozma 的 繁星道标
+[2025/8/4 2:31:07] Abomasnow 重新获得了来自 Necrozma 的 繁星道标
+[回合1] 02m 40s:  Necrozma 施放了 彗星箭, 目标：Abomasnow
+[2025/8/4 2:31:09] Necrozma 施放了 彗星箭, 目标：Abomasnow
+[回合1] 02m 40s:  Necrozma 的 彗星箭 对 Abomasnow 造成了 25 点 Ice 伤害。生命值：99857
+[2025/8/4 2:31:09] Necrozma 的 彗星箭 对 Abomasnow 造成了 25 点 Ice 伤害。生命值：99857
+[回合2] 02m 40s:  回合2
+[2025/8/4 2:31:09] 回合2
+[回合2] 02m 42s:  Necrozma 施放了 彗星箭, 目标：Abomasnow
+[2025/8/4 2:31:11] Necrozma 施放了 彗星箭, 目标：Abomasnow
+[回合2] 02m 42s:  Necrozma 的 彗星箭 对 Abomasnow 造成了 25 点 Ice 伤害。生命值：99832
+[2025/8/4 2:31:11] Necrozma 的 彗星箭 对 Abomasnow 造成了 25 点 Ice 伤害。生命值：99832

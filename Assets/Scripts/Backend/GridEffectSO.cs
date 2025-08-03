@@ -45,8 +45,7 @@ namespace miniRAID.Buff
             if (data.toEnemies) { mask |= Consts.EnemyMask(source.unitGroup); }
 
             this.data = data;
-            this.grids = shape;
-            this.grids.ApplyTransformInplace();
+            this.grids = new GridShape(shape.ApplyTransform());
             
             activeMobs = new Dictionary<MobData, GridEffect>();
             Globals.backend.AddFx(this);

@@ -10,6 +10,7 @@ namespace miniRAID
     public struct SerialCoroutineContext
     {
         public bool animation;
+        public bool forceNoWait;
         public RNG rng;
     }
     
@@ -333,6 +334,15 @@ namespace miniRAID
 
                     // Unity instructions
                     if (
+                        result is WaitForSeconds ||
+                        result is WaitForSecondsRealtime)
+                    {
+                        if (!currentContext.forceNoWait)
+                        {
+                            yield return result;
+                        }
+                    }
+                    else if (
                         result is YieldInstruction ||
                         result is CustomYieldInstruction ||
                         result is Coroutine ||
@@ -342,7 +352,7 @@ namespace miniRAID
                     }
                     else if (result is int num)
                     {
-                        if (num >= 0) { yield return num; }
+                        if (num >= 0 && !currentContext.forceNoWait) { yield return num; }
                         else // <0, treated as EndImmediate
                         {
                             shouldPop = true;

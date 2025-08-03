@@ -8,6 +8,7 @@ using UnityEngine;
 
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
+using Utils;
 
 namespace miniRAID
 {
@@ -33,6 +34,8 @@ namespace miniRAID
 
         [NonSerialized] public Action OnBeforeNextTurnSlice;
 
+        [NonSerialized] private float turnWaitTime = 0.0f;
+
         private void Awake()
         {
             sc = GetComponent<SerialCoroutine>();
@@ -40,11 +43,16 @@ namespace miniRAID
 
         private void Start()
         {
+            // Try to read global config
+            SceneConfig config = FindFirstObjectByType<SceneConfig>();
+            turnWaitTime = config?.turnWaitTimeSec ?? 0.0f;
+            
             // This starts the whole combat SerialCoroutine.
             // Changes on default context should not be made here as this will last for entire combat.
             sc.StartSerialCoroutine(Combat(), new SerialCoroutineContext()
             {
-                animation = true,
+                animation = config?.enableAnimation ?? true,
+                forceNoWait = config?.forceNoWait ?? false,
                 rng = new RNG((uint)(DateTime.Now.GetHashCode() - int.MinValue))
             });
         }
@@ -95,7 +103,11 @@ namespace miniRAID
                 
                 currentTurnSlice = turnSchedule.Dequeue();
                 yield return new JumpIn(currentTurnSlice.Turn());
-                // yield return new JumpIn(Chill());
+
+                if (turnWaitTime > 0)
+                {
+                    yield return new JumpIn(Chill());
+                }
                 
                 currentTurnSlice.OnRemove(this);
 
@@ -127,7 +139,14 @@ namespace miniRAID
 
         private IEnumerator Chill()
         {
-            yield return new WaitForSeconds(0.65f);
+            var ctx = Globals.cc;
+            var ctxBackup = Globals.cc;
+            ctx.forceNoWait = false;
+            Globals.ccNewContext(ctx);
+            
+            yield return new WaitForSeconds(turnWaitTime);
+            
+            Globals.ccNewContext(ctxBackup);
         }
 
         private bool HasAlly()

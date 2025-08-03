@@ -27,10 +27,10 @@ namespace miniRAID.TurnSchedule
             {
                 Globals.ui.Instance.combatView.ShowCenterTitle("Phase");
             }
-            
+
             // Wait some time
             yield return new WaitForSeconds(0.6f);
-            
+
             Globals.ui.Instance.combatView.HideCenterTitle();
 
             if (!UIOnly)

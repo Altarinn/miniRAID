@@ -21,22 +21,31 @@ namespace miniRAID
         public GridShape() 
         { 
             this.shape = new HashSet<Vector3Int>();
+            this.position = Vector3Int.zero;
+            this.direction = Consts.Direction.Up;
         }
 
         public GridShape(Vector3Int shape)
         {
             this.shape = new HashSet<Vector3Int>();
             this.shape.Add(shape);
+            
+            this.position = Vector3Int.zero;
+            this.direction = Consts.Direction.Up;
         }
 
         public GridShape(IEnumerable<Vector3Int> shape)
         {
             this.shape = new HashSet<Vector3Int>(shape);
+            this.position = Vector3Int.zero;
+            this.direction = Consts.Direction.Up;
         }
 
         public GridShape(HashSet<Vector3Int> shape)
         {
             this.shape = shape;
+            this.position = Vector3Int.zero;
+            this.direction = Consts.Direction.Up;
         }
 
         public GridShape(GridShape from)

@@ -47,6 +47,7 @@ namespace miniRAID
             Fly
         }
 
+        // This (float) is accurate as long as non-solid blocks have 2^N steps (e.g., 8.)
         [SerializeField]
         Vector3Int _position;
         public Vector3Int Position

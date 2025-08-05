@@ -88,7 +88,7 @@ if(projectile != null)
     yield return new JumpIn(projectile.WaitForShootAt(mob, target));
 ```
 
-`yield return new JumpIn(...)` 等同于在当前位置建立一个新的协程并等待其结束。与Unity协程不同的地方是，如果新协程立刻结束，程序将立刻往下运行而不会等待1帧。
+`yield return new JumpIn(...)` 等同于在当前位置建立一个新的协程并等待其结束。~~与Unity协程不同的地方是，如果新协程立刻结束，程序将立刻往下运行而不会等待1帧。~~ `JumpIn`比协程更轻量，但协程之间只能串行执行。
 
 让我们看一下`WaitForShootAt`内部的逻辑：
 

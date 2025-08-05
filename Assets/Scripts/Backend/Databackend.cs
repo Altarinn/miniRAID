@@ -671,6 +671,8 @@ namespace miniRAID
                     }
                 }
             }
+            
+            Debug.Log($"{(9592.3f + 0.7f == (int)9593)}");
 
             mapSizeX = MAX_MAP_SIZE;
             mapHeight = MAX_MAP_HEIGHT;

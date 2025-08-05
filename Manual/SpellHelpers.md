@@ -43,3 +43,4 @@ public class SimpleDirectionalAoE : ActionDataSO<FourDirectionalTarget>
 }
 ```
 
+ 

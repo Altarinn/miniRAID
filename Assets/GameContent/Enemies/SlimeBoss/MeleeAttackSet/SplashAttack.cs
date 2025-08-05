@@ -11,9 +11,9 @@ namespace miniRAID.Agents.SlimeBoss.MeleeAttackSet
         public UnitFilters filters;
         public SpellDamageHeal damage;
         
-        public GridShape range;
+        public EnumerateGridCollider range;
 
-        public override GridShape MainShape => range;
+        public override EnumerateGridCollider MainShape => range;
 
         public override IEnumerator OnPerform(RuntimeAction<SingleMobTarget> ract, MobData mob, SingleMobTarget target)
         {

@@ -12,7 +12,7 @@ namespace miniRAID.Actions
 {
     public class ComplexExplodingProjectile : BasicProjectile
     {
-        public GridShape explosionShape;
+        public EnumerateGridCollider explosionShape;
         public UnitFilters explosionTargetFilter;
         
         public SimpleExplosionFx explosionHitFx;

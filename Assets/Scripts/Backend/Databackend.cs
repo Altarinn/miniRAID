@@ -727,7 +727,7 @@ namespace miniRAID
             mob.RemovedFromWorld(this);
         }
 
-        public void SetMob(int x, int y, int z, GridShape body, MobData mob)
+        public void SetMob(int x, int y, int z, EnumerateGridCollider body, MobData mob)
         {
             foreach (Vector3Int p in body.shape)
             {
@@ -740,7 +740,7 @@ namespace miniRAID
             }
         }
 
-        public void ClearMob(int x, int y, int z, GridShape body, MobData mob, bool remove = true)
+        public void ClearMob(int x, int y, int z, EnumerateGridCollider body, MobData mob, bool remove = true)
         {
             foreach (Vector3Int p in body.shape)
             {
@@ -756,12 +756,12 @@ namespace miniRAID
             }
         }
 
-        public void SetMob(Vector3Int pos, GridShape body, MobData mob)
+        public void SetMob(Vector3Int pos, EnumerateGridCollider body, MobData mob)
         {
             SetMob(pos.x, pos.y, pos.z, body, mob);
         }
 
-        public void ClearMob(Vector3Int pos, GridShape body, MobData mob, bool remove = true)
+        public void ClearMob(Vector3Int pos, EnumerateGridCollider body, MobData mob, bool remove = true)
         {
             ClearMob(pos.x, pos.y, pos.z, body, mob, remove);
         }
@@ -1109,7 +1109,7 @@ namespace miniRAID
             return path.path.Count <= mob.actionPoints;
         }
 
-        public bool CanGridPlaceMob(Vector3Int center, GridShape body)
+        public bool CanGridPlaceMob(Vector3Int center, EnumerateGridCollider body)
         {
             if (body != null && body.shape.Count > 1)
             {
@@ -1121,7 +1121,7 @@ namespace miniRAID
 
         public Vector3Int FindNearestEmptyGrid(Vector3Int center) => FindNearestEmptyGrid(center, null);
 
-        public Vector3Int FindNearestEmptyGrid(Vector3Int center, GridShape body)
+        public Vector3Int FindNearestEmptyGrid(Vector3Int center, EnumerateGridCollider body)
         {
             if (!InMap(center)) { return -Vector3Int.one; }
             if(CanGridPlaceMob(center, body)) { return center; }

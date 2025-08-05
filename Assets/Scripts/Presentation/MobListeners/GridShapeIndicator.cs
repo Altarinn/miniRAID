@@ -5,13 +5,13 @@ namespace miniRAID
 {
     public class GridShapeIndicator : IStateRenderer
     {
-        public GridShape shape;
+        public EnumerateGridCollider shape;
         public Sprite icon;
         public GridOverlay.Types overlayType;
 
         private GridOverlay instantiatedOverlay;
 
-        public GridShapeIndicator(GridShape shape, Sprite icon)
+        public GridShapeIndicator(EnumerateGridCollider shape, Sprite icon)
         {
             this.shape = shape;
             this.overlayType = GridOverlay.Types.CUSTOM;
@@ -20,7 +20,7 @@ namespace miniRAID
             Instantiate();
         }
         
-        public GridShapeIndicator(GridShape shape, GridOverlay.Types overlayType)
+        public GridShapeIndicator(EnumerateGridCollider shape, GridOverlay.Types overlayType)
         {
             this.shape = shape;
             this.overlayType = overlayType;
@@ -45,7 +45,7 @@ namespace miniRAID
             }
         }
 
-        public void Update(GridShape shape)
+        public void Update(EnumerateGridCollider shape)
         {
             if(shape == null){Destroy(); return;}
             this.shape = shape;

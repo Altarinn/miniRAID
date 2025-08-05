@@ -8,13 +8,13 @@ namespace miniRAID.Agents.SlimeBoss.MeleeAttackSet
 {
     public class DashAttack : ActionDataSO<FourDirectionalTarget>
     {
-        [SerializeField] private GridShape shape;
+        [SerializeField] private EnumerateGridCollider shape;
         [SerializeField] private UnitFilters filter;
         [SerializeField] private SpellDamageHeal damageOrHeal;
         [SerializeField] private SimpleExplosionFx fx;
         [SerializeField] private KnockBack knockBack;
 
-        public override GridShape MainShape => shape;
+        public override EnumerateGridCollider MainShape => shape;
         public int KnockbackDistance = 1;
         public int DashDistance = 5;
         

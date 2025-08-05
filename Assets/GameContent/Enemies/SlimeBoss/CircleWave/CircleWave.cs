@@ -16,10 +16,10 @@ namespace miniRAID
         public UnitFilters filters;
         public SpellDamageHeal damage;
         
-        public GridShape innerCircleShape;
-        public GridShape middleRingShape;
+        public EnumerateGridCollider innerCircleShape;
+        public EnumerateGridCollider middleRingShape;
         
-        private GridShape outerRingShape;
+        private EnumerateGridCollider outerRingShape;
 
         public override IEnumerator OnPerform(RuntimeAction<SingleMobTarget> ract, MobData mob,
             SingleMobTarget target)

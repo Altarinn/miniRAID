@@ -9,7 +9,7 @@ namespace miniRAID.UI.TargetRequester
     // TODO: Implement this
     public class FourDirectionalRequester : TargetRequesterBase<FourDirectionalTarget>
     {
-        public GridShape shape;
+        public EnumerateGridCollider shape;
         public GridOverlay.Types type;
 
         public override RequestStage Next(Vector3Int coord, bool notFirst = true)

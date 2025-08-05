@@ -4,6 +4,7 @@ using UnityEngine;
 
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
+using miniRAID.Backend;
 using Sirenix.Serialization;
 
 namespace miniRAID.Buff
@@ -19,25 +20,25 @@ namespace miniRAID.Buff
         [PropertyOrder(-1)]
         public bool toEnemies = true;
 
-        public MobListener LeveledWrapFx(MobData parent, int level, GridShape shape)
+        public MobListener LeveledWrapFx(MobData parent, int level, EnumerateGridCollider shape)
         {
             return new GridEffect(parent, this, shape);
         }
     }
 
-    public class GridEffect : Buff
+    public class GridEffect : 
     {
         [OdinSerialize] Dictionary<MobData, GridEffect> activeMobs;
         GridEffectComponent entity => (GridEffectComponent)renderer;
         public GridEffectSO gridData => (GridEffectSO)data;
 
-        public GridShape grids;
+        public EnumerateGridCollider grids;
 
         public int mask;
 
         bool isFx => activeMobs != null;
 
-        public GridEffect(MobData source, GridEffectSO data, GridShape shape) : base(source, data)
+        public GridEffect(MobData source, GridEffectSO data, EnumerateGridCollider shape) : base(source, data)
         {
             mask = 0;
 
@@ -45,7 +46,7 @@ namespace miniRAID.Buff
             if (data.toEnemies) { mask |= Consts.EnemyMask(source.unitGroup); }
 
             this.data = data;
-            this.grids = new GridShape(shape.ApplyTransform());
+            this.grids = new EnumerateGridCollider(shape.ApplyTransform());
             
             activeMobs = new Dictionary<MobData, GridEffect>();
             Globals.backend.AddFx(this);

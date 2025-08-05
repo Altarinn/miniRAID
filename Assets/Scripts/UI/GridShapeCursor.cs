@@ -20,7 +20,7 @@ namespace miniRAID.UI
             gridsPivot.localRotation = Quaternion.identity;
             gridsPivot.localScale = Vector3.one;
 
-            this.cursorShape = new GridShape(new Vector3Int(0, 0, 0));
+            this.cursorShape = new EnumerateGridCollider(new Vector3Int(0, 0, 0));
         }
 
         public Vector3Int position
@@ -36,8 +36,8 @@ namespace miniRAID.UI
             }
         }
 
-        GridShape _cursorShape;
-        public GridShape cursorShape
+        EnumerateGridCollider _cursorShape;
+        public EnumerateGridCollider cursorShape
         {
             get => _cursorShape;
 

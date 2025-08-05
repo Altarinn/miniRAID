@@ -9,8 +9,8 @@ namespace miniRAID
     {
         public bool rotationLocked = false;
 
-        GridShape _shape;
-        public GridShape Shape
+        EnumerateGridCollider _shape;
+        public EnumerateGridCollider Shape
         {
             get
             {

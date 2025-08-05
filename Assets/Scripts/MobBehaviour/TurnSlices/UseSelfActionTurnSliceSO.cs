@@ -20,11 +20,11 @@ namespace miniRAID.MobBehaviour.TurnSlices
 
     public class UseSelfActionTurnSlice : PreparableActionTurnSlice, IRenderableState
     {
-        private GridShape indicatorShape;
+        private EnumerateGridCollider indicatorShape;
         
         public UseSelfActionTurnSlice(MobData mob, RuntimeAction action, AbstractTurnSliceSO data, TurnSliceMetadata metadata) : base(mob, action, data, metadata)
         {
-            indicatorShape = new GridShape(((RuntimeAction<SingleMobTarget>)action).Shape);
+            indicatorShape = new EnumerateGridCollider(((RuntimeAction<SingleMobTarget>)action).Shape);
             indicatorShape.position = mob.Position;
         }
 

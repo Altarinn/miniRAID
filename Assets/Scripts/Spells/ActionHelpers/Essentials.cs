@@ -250,7 +250,7 @@ namespace miniRAID.ActionHelpers
     public class CreateGridEffect
     {
         public Buff.GridEffectSO effect;
-        public GridShape shape;
+        public EnumerateGridCollider shape;
 
         public bool inheritLevel = true;
 

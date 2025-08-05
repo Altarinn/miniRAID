@@ -187,7 +187,7 @@ namespace miniRAID.UI.TargetRequester
         public override void OnStateExit()
         {
             base.OnStateExit();
-            ui.cursor.cursorShape = new GridShape(Vector3Int.zero);
+            ui.cursor.cursorShape = new EnumerateGridCollider(Vector3Int.zero);
         }
 
         public void ShowQuery()

@@ -9,12 +9,12 @@ namespace miniRAID.Agents.Test
 {
     public class MeleeAoETest : ActionDataSO<FourDirectionalTarget>
     {
-        [SerializeField] private GridShape shape;
+        [SerializeField] private EnumerateGridCollider shape;
         [SerializeField] private UnitFilters filter;
         [SerializeField] private SpellDamageHeal damageOrHeal;
         [SerializeField] private SimpleExplosionFx fx;
 
-        public override GridShape MainShape => shape; 
+        public override EnumerateGridCollider MainShape => shape; 
         
         public override Dictionary<string, object> LazyPrepareTooltipVariables(RuntimeAction ract)
         {

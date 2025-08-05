@@ -23,7 +23,7 @@ namespace miniRAID
     public class GeneralCombatData
     {
         public dNumber power, auxPower;
-        public GridShape shape;
+        public EnumerateGridCollider shape;
         public RuntimeAction ract;
 
         public GameObject[] gameObjects;
@@ -150,7 +150,7 @@ namespace miniRAID
         // public LeveledStats<float> test;
         
         // Mainshape of the action, typically effective range
-        public virtual GridShape MainShape { get; }
+        public virtual EnumerateGridCollider MainShape { get; }
 
         public abstract Dictionary<Cost.Type, (double, double)> GetCostBounds(MobData mob);
         public abstract bool CheckWithAbstractTargets(MobData mob, SpellTarget target);
@@ -342,7 +342,7 @@ namespace miniRAID
         [NonSerialized] public dNumber hit;
         [NonSerialized] public dNumber crit;
 
-        public virtual GridShape Shape => data.MainShape; 
+        public virtual EnumerateGridCollider Shape => data.MainShape; 
 
         [NonSerialized]
         [Obsolete]

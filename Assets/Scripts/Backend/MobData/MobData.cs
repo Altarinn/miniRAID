@@ -49,8 +49,8 @@ namespace miniRAID
 
         // This (float) is accurate as long as non-solid blocks have 2^N steps (e.g., 8.)
         [SerializeField]
-        Vector3Int _position;
-        public Vector3Int Position
+        Vector3 _position;
+        public Vector3 Position
         {
             get { return _position; }
             private set 
@@ -99,7 +99,7 @@ namespace miniRAID
         [Header("Basic stats")]
         public MovementType movementType;
 
-        public GridShape gridBody;
+        public EnumerateGridCollider gridBody;
         public Consts.UnitGroup unitGroup;
 
         public int level => baseDescriptor.level;

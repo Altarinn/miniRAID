@@ -83,7 +83,7 @@ namespace miniRAID.MobBehaviour.TurnSlices
 
         public void ConstructRenderer()
         {
-            GridShape indicatorShape = new GridShape(((RuntimeAction<FourDirectionalTarget>)action).Shape);
+            EnumerateGridCollider indicatorShape = new EnumerateGridCollider(((RuntimeAction<FourDirectionalTarget>)action).Shape);
             indicatorShape.position = mob.Position;
             indicatorShape.direction = target.Target;
             
@@ -97,7 +97,7 @@ namespace miniRAID.MobBehaviour.TurnSlices
 
         public void UpdateRenderer()
         {
-            GridShape indicatorShape = (renderer as GridShapeIndicator)?.shape;
+            EnumerateGridCollider indicatorShape = (renderer as GridShapeIndicator)?.shape;
             if (indicatorShape != null)
             {
                 indicatorShape.position = mob.Position;

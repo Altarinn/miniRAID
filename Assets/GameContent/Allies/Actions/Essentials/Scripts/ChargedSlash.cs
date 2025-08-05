@@ -9,7 +9,7 @@ namespace miniRAID.Actions
 {
     public class ChargedSlash : ChargedActionSO<FourDirectionalTarget>
     {
-        [SerializeField] private GridShape shape;
+        [SerializeField] private EnumerateGridCollider shape;
         [SerializeField] private UnitFilters filter;
         [SerializeField] private SpellDamageHeal damageOrHeal;
         [SerializeField] private SimpleExplosionFx fx;

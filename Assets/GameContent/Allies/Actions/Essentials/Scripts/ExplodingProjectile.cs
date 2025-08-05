@@ -12,7 +12,7 @@ namespace miniRAID.Actions
 {
     public class ExplodingProjectile : ActionDataSO<SingleMobTarget>
     {
-        public GridShape explodeShape;
+        public EnumerateGridCollider explodeShape;
         public UnitFilters targetFilter;
         
         public ActionHelpers.Projectile projectile;

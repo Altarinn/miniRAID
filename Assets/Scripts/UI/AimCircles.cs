@@ -30,7 +30,7 @@ namespace miniRAID.UI
             Vector3Int targetGrid = Vector3Int.zero;
             if (typeof(SingleMobTarget).IsAssignableFrom(target.GetType()))
             {
-                targetGrid = ((SingleMobTarget)target).Target.Position;
+                targetGrid = ((SingleMobTarget)target).Target.GridPosition;
             }
             else if (typeof(SingleCoordinateTarget).IsAssignableFrom(target.GetType()))
             {
@@ -43,7 +43,7 @@ namespace miniRAID.UI
             }
 
             // Just use the first target for now
-            Vector3 worldPos = Globals.backend.GridToWorldPos(targetGrid) + Vector3.one * 0.5f;
+            Vector3 worldPos = Globals.backend.BackendToRenderPos(targetGrid) + Vector3.one * 0.5f;
 
             circles[i].gameObject.SetActive(true);
             circles[i].GetComponent<SpriteRenderer>().color = players[i].baseDescriptor.color;

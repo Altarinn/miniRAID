@@ -100,7 +100,7 @@ namespace miniRAID.UI.TargetRequester
             // }
             
             if(
-                Globals.backend.Distance(mob.Position, target.Target.Position) > range ||
+                Consts.RangedActionDistance(mob.Position, target.Target.Position) > range ||
                 (!toEnemies && Consts.ApplyMask(Consts.EnemyMask(mob.unitGroup), target.Target.unitGroup)) ||
                 (!toAllies && Consts.ApplyMask(Consts.AllyMask(mob.unitGroup), target.Target.unitGroup)))
             {
@@ -115,7 +115,7 @@ namespace miniRAID.UI.TargetRequester
 
             ui.combatView.HideBattlePreview();
 
-            var pointedMob = Globals.backend.GetMap(gridPos.x, gridPos.y, gridPos.z)?.mob;
+            var pointedMob = Globals.backend.GetMap(gridPos)?.mob;
             if (pointedMob == null) { return; }
 
             // TODO: Formalize me and ask ract for proper info

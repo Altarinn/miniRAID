@@ -86,7 +86,7 @@ namespace miniRAID.Editor
 
     // A bit confused ... What is T? LuaGetter or LuaGetter<TIn, TOut>??
     [DrawerPriority(super: 0.1)]
-    public class LuaGetterDrawer<T, TIn, TOut> : OdinValueDrawer<T> where T : LuaGetter<TIn, TOut>, new()
+    public class LuaGetterDrawer<T, TIn, TOut> : OdinValueDrawer<T> where T : ValueGetter<TIn, TOut>, new()
     {
         public static Vector3 LerpHSV(Color a, Color b, float x)
         {
@@ -112,7 +112,7 @@ namespace miniRAID.Editor
         {
             // Handle null values
             //LuaGetter<TIn, TOut> value = ValueEntry.Values[0];
-            LuaGetter<TIn, TOut> value = ValueEntry.SmartValue;
+            ValueGetter<TIn, TOut> value = ValueEntry.SmartValue;
             if (ValueEntry.ValueState == PropertyValueState.NullReference)
             {
                 // Create automatically if null
@@ -179,45 +179,36 @@ namespace miniRAID.Editor
                 {
                     typeMenu.AddItem(
                         new GUIContent("Static"),
-                        value.type == LuaGetter<TIn, TOut>.LuaGetterType.STATIC,
-                        OnVarTypeSelected, LuaGetter<TIn, TOut>.LuaGetterType.STATIC);
+                        value.type == ValueGetter<TIn, TOut>.LuaGetterType.STATIC,
+                        OnVarTypeSelected, ValueGetter<TIn, TOut>.LuaGetterType.STATIC);
                 }
                 else
                 {
                     typeMenu.AddItem(
                         new GUIContent("Disabled (static)"),
-                        value.type == LuaGetter<TIn, TOut>.LuaGetterType.STATIC,
-                        OnVarTypeSelected, LuaGetter<TIn, TOut>.LuaGetterType.STATIC);
+                        value.type == ValueGetter<TIn, TOut>.LuaGetterType.STATIC,
+                        OnVarTypeSelected, ValueGetter<TIn, TOut>.LuaGetterType.STATIC);
                 }
 
                 typeMenu.AddItem(
-                    new GUIContent("Dynamic (Lua)"),
-                    value.type == LuaGetter<TIn, TOut>.LuaGetterType.DYNAMIC,
-                    OnVarTypeSelected, LuaGetter<TIn, TOut>.LuaGetterType.DYNAMIC);
-                typeMenu.AddItem(
                     new GUIContent("Template"),
-                    value.type == LuaGetter<TIn, TOut>.LuaGetterType.TEMPLATE,
-                    OnVarTypeSelected, LuaGetter<TIn, TOut>.LuaGetterType.TEMPLATE);
+                    value.type == ValueGetter<TIn, TOut>.LuaGetterType.TEMPLATE,
+                    OnVarTypeSelected, ValueGetter<TIn, TOut>.LuaGetterType.TEMPLATE);
 
                 System.Type typ = typeof(TIn);
 
                 string s = "?";
-                if (!isEvt && value.type == LuaGetter<TIn, TOut>.LuaGetterType.STATIC)
+                if (!isEvt && value.type == ValueGetter<TIn, TOut>.LuaGetterType.STATIC)
                 {
                     s = "S";
                 }
 
-                if (isEvt && value.type == LuaGetter<TIn, TOut>.LuaGetterType.STATIC)
+                if (isEvt && value.type == ValueGetter<TIn, TOut>.LuaGetterType.STATIC)
                 {
                     s = "-";
                 }
 
-                if (value.type == LuaGetter<TIn, TOut>.LuaGetterType.DYNAMIC)
-                {
-                    s = "D";
-                }
-
-                if (value.type == LuaGetter<TIn, TOut>.LuaGetterType.TEMPLATE)
+                if (value.type == ValueGetter<TIn, TOut>.LuaGetterType.TEMPLATE)
                 {
                     s = "T";
                 }
@@ -233,7 +224,7 @@ namespace miniRAID.Editor
 
                 switch (value.type)
                 {
-                    case LuaGetter<TIn, TOut>.LuaGetterType.STATIC:
+                    case ValueGetter<TIn, TOut>.LuaGetterType.STATIC:
                         //if (typeof(TOut) == typeof(int))
                         //{
                         //    value.staticOut = SirenixEditorFields.IntField((dynamic)value.staticOut);
@@ -261,26 +252,25 @@ namespace miniRAID.Editor
                         }
 
                         break;
-                    case LuaGetter<TIn, TOut>.LuaGetterType.DYNAMIC:
-                    case LuaGetter<TIn, TOut>.LuaGetterType.TEMPLATE:
-                        string intype = "";
-                        var typeArr = typeof(TIn).GetGenericArguments();
-                        if (typeArr.Length == 0)
-                        {
-                            intype = XLuaInstance.GetDefaultParamName(typeof(TIn));
-                        }
-                        else
-                        {
-                            intype = string.Join<string>(
-                                ", ",
-                                typeArr.Select(x => XLuaInstance.GetDefaultParamName(x)
-                                ));
-                            intype = $"{intype}";
-                        }
-
-                        string outtype = typeof(TOut).ToString().Split('.').Last();
-
-                        SirenixEditorGUI.Title($"{intype} → {outtype}", null, TextAlignment.Left, false, false);
+                    case ValueGetter<TIn, TOut>.LuaGetterType.TEMPLATE:
+                        // string intype = "";
+                        // var typeArr = typeof(TIn).GetGenericArguments();
+                        // if (typeArr.Length == 0)
+                        // {
+                        //     intype = XLuaInstance.GetDefaultParamName(typeof(TIn));
+                        // }
+                        // else
+                        // {
+                        //     intype = string.Join<string>(
+                        //         ", ",
+                        //         typeArr.Select(x => XLuaInstance.GetDefaultParamName(x)
+                        //         ));
+                        //     intype = $"{intype}";
+                        // }
+                        //
+                        // string outtype = typeof(TOut).ToString().Split('.').Last();
+                        //
+                        // SirenixEditorGUI.Title($"{intype} → {outtype}", null, TextAlignment.Left, false, false);
                         //EditorGUILayout.LabelField($"{intype} → {outtype}");
                         break;
                 }
@@ -288,30 +278,7 @@ namespace miniRAID.Editor
                 EditorGUI.indentLevel = lvl;
                 EditorGUILayout.EndHorizontal();
 
-                if (value.type == LuaGetter<TIn, TOut>.LuaGetterType.DYNAMIC)
-                {
-                    SirenixEditorGUI.BeginBox();
-
-                    if (typeof(T) != typeof(LuaFunc<TIn, TOut>))
-                    {
-                        value.description = SirenixEditorFields.TextField("Description", value.description);
-                    }
-
-                    if (typeof(T).GetGenericTypeDefinition() == typeof(LuaBoundedGetter<,,>))
-                    {
-                        SirenixEditorGUI.BeginBox();
-                        Property.FindChild(prop => prop.Name == "lowerBound", false).Draw();
-                        Property.FindChild(prop => prop.Name == "upperBound", false).Draw();
-                        SirenixEditorGUI.EndBox();
-                    }
-
-                    //value.LuaExpr = EditorGUILayout.TextArea(value.LuaExpr);
-                    Property.FindChild(x => x.Name == "LuaExpr", false).Draw(null);
-
-                    SirenixEditorGUI.EndBox();
-                }
-
-                if (value.type == LuaGetter<TIn, TOut>.LuaGetterType.TEMPLATE)
+                if (value.type == ValueGetter<TIn, TOut>.LuaGetterType.TEMPLATE)
                 {
                     var p = Property.FindChild(prop => prop.Name == "getterTemplate", false);
                     if (p != null)
@@ -346,7 +313,7 @@ namespace miniRAID.Editor
         
         void OnVarTypeSelected(object type)
         {
-            ValueEntry.SmartValue.type = (LuaGetter<TIn, TOut>.LuaGetterType)type;
+            ValueEntry.SmartValue.type = (ValueGetter<TIn, TOut>.LuaGetterType)type;
         }
     }
 

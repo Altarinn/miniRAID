@@ -20,74 +20,89 @@ namespace miniRAID.Buff
         [PropertyOrder(-1)]
         public bool toEnemies = true;
 
-        public MobListener LeveledWrapFx(MobData parent, int level, EnumerateGridCollider shape)
+        [PropertyOrder(-1)] public int GridFxTimeMax = 0;
+
+        public GridEffect LeveledWrapFx(MobData parent, int level, IGridCollider shape)
         {
-            return new GridEffect(parent, this, shape);
+            var buff = (Buff)base.LeveledWrap(parent, level);
+            return new GridEffect(parent, this, buff, (IGridCollider)shape.Clone());
         }
     }
 
-    public class GridEffect : 
+    // Contains a buff inside.
+    // GridEffect is a collider in scene, registers buff (copy) to all mobs entering it.
+    public class GridEffect : MobListener, IRenderableState, IColliderState
     {
-        [OdinSerialize] Dictionary<MobData, GridEffect> activeMobs;
+        [OdinSerialize] Dictionary<MobData, Buff> activeMobs;
         GridEffectComponent entity => (GridEffectComponent)renderer;
-        public GridEffectSO gridData => (GridEffectSO)data;
-
-        public EnumerateGridCollider grids;
 
         public int mask;
+        public Buff cachedBuff;
+        public GridEffectSO gridData => (GridEffectSO)data;
 
         bool isFx => activeMobs != null;
+        public IGridCollider Collider { get; set; }
 
-        public GridEffect(MobData source, GridEffectSO data, EnumerateGridCollider shape) : base(source, data)
+        [SerializeField] private int timeRemain;
+
+        public GridEffect(MobData source, GridEffectSO data, Buff rBuff, IGridCollider shape) : base(source, data)
         {
             mask = 0;
 
             if (data.toAllies) { mask |= Consts.AllyMask(source.unitGroup); }
             if (data.toEnemies) { mask |= Consts.EnemyMask(source.unitGroup); }
 
-            this.data = data;
-            this.grids = new EnumerateGridCollider(shape.ApplyTransform());
+            this.Collider = shape;
+            cachedBuff = rBuff;
+
+            timeRemain = -1;
+            if (data.GridFxTimeMax > 0)
+            {
+                timeRemain = data.GridFxTimeMax;
+            }
             
-            activeMobs = new Dictionary<MobData, GridEffect>();
+            activeMobs = new Dictionary<MobData, Buff>();
             Globals.backend.AddFx(this);
         }
 
-        // This is used to copy itself to Mob.
-        // Not actually "Clone constructor".
-        public GridEffect(GridEffect from)
-            : base(
-                  from.source,
-                  from.gridData
-              )
+        public override void OnAttach(MobData mob)
         {
-            // Don't create active mobs, entity & register to backend
-            power = dNumber.CreateComposite(from.power.Value, "copied");
-            auxPower = dNumber.CreateComposite(from.auxPower.Value, "copied");
-            hit = dNumber.CreateComposite(from.hit.Value, "copied");
-            crit = dNumber.CreateComposite(from.crit.Value, "copied");
-
-            level = from.level;
-        }
-
-        public void Extend(Vector3Int pos)
-        {
-            if (!Globals.backend.InMap(pos))
-            {
-                return;
-            }
+            base.OnAttach(mob);
             
-            grids.AddGrid(pos);
-            Globals.backend.AddFxAt(this, pos);
-            // entity.AddGrid(Globals.backend.GridToWorldPos(pos));
+            mob.OnNextTurn.AddListener(Fx_OnNextTurn);
         }
 
-        public void Fx_OnNextTurn(MobData mob)
+        public override void OnRemove(MobData mob)
         {
-            timeRemain--;
-            if(timeRemain <= 0)
+            mob.OnNextTurn.RemoveListener(Fx_OnNextTurn);
+            
+            base.OnRemove(mob);
+        }
+
+        // public void Extend(Vector3Int pos)
+        // {
+        //     if (!Globals.backend.InMap(pos))
+        //     {
+        //         return;
+        //     }
+        //     
+        //     grids.AddGrid(pos);
+        //     Globals.backend.AddFxAt(this, pos);
+        //     // entity.AddGrid(Globals.backend.GridToWorldPos(pos));
+        // }
+
+        public IEnumerator Fx_OnNextTurn(MobData mob)
+        {
+            if (timeRemain > 0)
             {
-                Globals.backend.RemoveFx(this);
+                timeRemain--;
+                if(timeRemain <= 0)
+                {
+                    Globals.backend.RemoveFx(this);
+                }
             }
+
+            yield break;
         }
 
         public void RegisterMob(MobData mob)
@@ -96,7 +111,7 @@ namespace miniRAID.Buff
             {
                 return;
             }
-            var copied = new GridEffect(this);
+            var copied = new Buff(this.cachedBuff);
             mob.AddBuff(copied);
             activeMobs.Add(mob, copied);
         }
@@ -111,18 +126,35 @@ namespace miniRAID.Buff
             }
         }
 
-        public override void ConstructRenderer()
+        public void ConstructRenderer()
         {
             renderer = GameObject.Instantiate(
                 gridData.prefab.gameObject, 
-                Globals.backend.GridToWorldPosCenteredGrounded(source.Position), Quaternion.identity).GetComponent<GridEffectComponent>();
+                Globals.backend.BackendToRenderPosCenteredGrounded(Collider.Position), Quaternion.identity).GetComponent<GridEffectComponent>();
 
             UpdateRenderer();
         }
 
-        public override void UpdateRenderer()
+        public void UpdateRenderer()
         {
-            entity?.SetShape(grids?.shape);
+            // TODO: Performance heavy?
+            entity?.SetShape(new HashSet<Vector3Int>(Collider));
+        }
+
+        public void OnEnterCollider(BackendState other)
+        {
+            if (other is MobData)
+            {
+                RegisterMob(other as MobData);
+            }
+        }
+
+        public void OnExitCollider(BackendState other)
+        {
+            if (other is MobData)
+            {
+                RemoveMob(other as MobData);
+            }
         }
     }
 }

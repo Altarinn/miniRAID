@@ -12,7 +12,7 @@ namespace miniRAID.Actions
 {
     public class ExplodingProjectile : ActionDataSO<SingleMobTarget>
     {
-        public EnumerateGridCollider explodeShape;
+        public IGridCollider explodeShape;
         public UnitFilters targetFilter;
         
         public ActionHelpers.Projectile projectile;
@@ -32,12 +32,9 @@ namespace miniRAID.Actions
                 yield return new JumpIn(fxOnExplode.Do(target.Target.Position));
             
             // Capture all targets
-            explodeShape.position = target.Target.Position;
-            var targetMobs = explodeShape.ApplyTransform()
-                .Where(pos => Globals.backend.InMap(pos))
-                .Select(pos => Globals.backend.GetMap(pos.x, pos.y, pos.z).mob)
-                .Where(targetMob => targetMob != null)
-                .Where(targetMob => targetFilter.Check(mob, targetMob));
+            explodeShape.Position = target.Target.Position;
+            var targetMobs =
+                CaptureTargetsInCollider.CaptureAllTargetsWithinRange(mob, targetFilter, explodeShape);
 
             yield return new JumpIn(
                 MobListHelpers.WaitForAllMobs(

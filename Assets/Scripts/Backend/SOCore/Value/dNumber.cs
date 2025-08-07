@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using XLua;
 using Sirenix.OdinInspector;
 
 namespace miniRAID
 {
     // RIP Generic DynamicValue<T>
     [System.Serializable]
-    [LuaCallCSharp]
     public struct dNumber
     {
         [System.Serializable]

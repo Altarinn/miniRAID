@@ -46,7 +46,7 @@ namespace miniRAID.MobBehaviour.TurnSlices
             Globals.ui.Instance.combatView.debugText.text = $"{mob.nickname}: {action.ActionName} -> {(((SimpleUseFourDirectionalActionTurnSliceSO)data).UpdateTargetAfterInitialized ? "" : "(LOCK) ")}{targetIndicator.CurrentTarget.nickname}";
             
             return new FourDirectionalTarget(
-                Globals.backend.GetDominantDirection(self.Position, targetIndicator.CurrentTarget.Position));
+                Globals.backend.GetDominantDirection(self.GridPosition, targetIndicator.CurrentTarget.GridPosition));
         }
 
         protected override IEnumerator OnGlobalPostAction(MobData source, RuntimeAction action, SpellTarget target)
@@ -83,13 +83,13 @@ namespace miniRAID.MobBehaviour.TurnSlices
 
         public void ConstructRenderer()
         {
-            EnumerateGridCollider indicatorShape = new EnumerateGridCollider(((RuntimeAction<FourDirectionalTarget>)action).Shape);
-            indicatorShape.position = mob.Position;
-            indicatorShape.direction = target.Target;
+            IGridCollider indicatorShape = (IGridCollider)((RuntimeAction<FourDirectionalTarget>)action).Shape.Clone();
+            indicatorShape.Position = mob.Position;
+            indicatorShape.Direction = target.Target;
             
             if (indicatorShape != null)
             {
-                renderer = new GridShapeIndicator(
+                renderer = new GridColliderIndicator(
                     indicatorShape, GridOverlay.Types.INCOMING_ATTACK);
                 UpdateRenderer();
             }
@@ -97,12 +97,12 @@ namespace miniRAID.MobBehaviour.TurnSlices
 
         public void UpdateRenderer()
         {
-            EnumerateGridCollider indicatorShape = (renderer as GridShapeIndicator)?.shape;
+            IGridCollider indicatorShape = (renderer as GridColliderIndicator).collider;
             if (indicatorShape != null)
             {
-                indicatorShape.position = mob.Position;
-                indicatorShape.direction = target.Target;
-                (renderer as GridShapeIndicator)?.Update(indicatorShape);
+                indicatorShape.Position = mob.Position;
+                indicatorShape.Direction = target.Target;
+                (renderer as GridColliderIndicator)?.Update(indicatorShape);
             }
         }
     }

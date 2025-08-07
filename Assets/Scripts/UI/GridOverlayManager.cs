@@ -20,7 +20,7 @@ namespace miniRAID.UI
 
         }
 
-        public GridOverlay FromDictionary(Dictionary<Vector3Int, GridOverlay.Types> data)
+        public GridOverlay FromDictionary(Dictionary<Vector3, GridOverlay.Types> data)
         {
             GridOverlay overlay = Instantiate<GameObject>(overlayPrefab.gameObject, transform.position, Quaternion.identity).GetComponent<GridOverlay>();
             overlay.overlay = data;
@@ -29,11 +29,11 @@ namespace miniRAID.UI
             return overlay;
         }
         
-        public GridOverlay FromShape(EnumerateGridCollider shape, GridOverlay.Types type)
+        public GridOverlay FromShape(IEnumerable<Vector3> shape, GridOverlay.Types type)
         {
             GridOverlay overlay = Instantiate<GameObject>(overlayPrefab.gameObject, transform.position, Quaternion.identity).GetComponent<GridOverlay>();
             
-            foreach (var p in shape.ApplyTransform())
+            foreach (var p in shape)
             {
                 overlay.overlay.Add(p, type);
             }
@@ -42,12 +42,12 @@ namespace miniRAID.UI
             return overlay;
         }
         
-        public GridOverlay FromShape(EnumerateGridCollider shape, Sprite icon)
+        public GridOverlay FromShape(IEnumerable<Vector3> shape, Sprite icon)
         {
             GridOverlay overlay = Instantiate<GameObject>(overlayPrefab.gameObject, transform.position, Quaternion.identity).GetComponent<GridOverlay>();
             overlay.SetCustomSprite(icon);
             
-            foreach (var p in shape.ApplyTransform())
+            foreach (var p in shape)
             {
                 overlay.overlay.Add(p, GridOverlay.Types.CUSTOM);
             }

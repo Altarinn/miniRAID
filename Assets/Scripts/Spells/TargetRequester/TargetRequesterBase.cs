@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using miniRAID.Spells;
 using UnityEngine.InputSystem;
 
@@ -98,7 +99,7 @@ namespace miniRAID.UI.TargetRequester
             this.onCancel = onCancel;
 
             ui.EnterState(this, true);
-            _Next(mob.Position, false);
+            _Next(mob.GridPosition, false);
         }
 
         protected void _Next(Vector3Int coord, bool notFirst = true)
@@ -144,9 +145,10 @@ namespace miniRAID.UI.TargetRequester
         public override void Submit(InputValue input)
         {
             base.Submit(input);
-            if(IsChoiceValid(ui.cursor.position))
+            var gridPos = ui.cursor.GridPos;
+            if(IsChoiceValid(gridPos))
             {
-                _Next(ui.cursor.position);
+                _Next(gridPos);
             }
         }
 
@@ -187,7 +189,7 @@ namespace miniRAID.UI.TargetRequester
         public override void OnStateExit()
         {
             base.OnStateExit();
-            ui.cursor.cursorShape = new EnumerateGridCollider(Vector3Int.zero);
+            ui.cursor.ChangeCollider(new PointCollider());
         }
 
         public void ShowQuery()
@@ -196,7 +198,12 @@ namespace miniRAID.UI.TargetRequester
 
             if (currentQuery != null)
             {
-                overlay = Globals.overlayMgr.Instance.FromDictionary(currentQuery.map);
+                overlay = Globals.overlayMgr.Instance.FromDictionary(
+                    currentQuery.map.ToDictionary(
+                        x => Globals.backend.GetColliderMapIntersect(x.Key),
+                        x => x.Value
+                    )
+                );
             }
             // TODO: change cursor
         }

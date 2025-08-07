@@ -13,7 +13,6 @@ using miniRAID.TurnSchedule;
 using miniRAID.TurnSchedule.RootAgent;
 using Sirenix.Serialization;
 using UnityEngine.Serialization;
-using XLua;
 
 namespace miniRAID
 {
@@ -31,9 +30,7 @@ namespace miniRAID
     /// This is designed to be used when save / restore current game state ... ?
     /// </summary>
     [Serializable]
-    [ParameterDefaultName("mob")]
-    [LuaCallCSharp]
-    public partial class MobData : BackendState, IRenderableState
+    public partial class MobData : BackendState, IColliderState, IRenderableState
     {
         [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
         public BaseMobDescriptorSO baseDescriptor;
@@ -48,24 +45,37 @@ namespace miniRAID
         }
 
         // This (float) is accurate as long as non-solid blocks have 2^N steps (e.g., 8.)
-        [SerializeField]
-        Vector3 _position;
+        public IGridCollider Collider { get; set; }
+
         public Vector3 Position
         {
-            get { return _position; }
+            get { return Collider.Position; }
             private set 
             {
-                if(value != _position)
+                if(value != Collider.Position)
                 {
                     Globals.backend.MoveMob(
-                        _position,
+                        Collider.Position,
                         value,
                         this);
-                    _position = value;
                     UpdateRenderer();
                 }
             }
         }
+
+        public void OnEnterCollider(BackendState other)
+        {
+            // TODO: Do nothing?
+            return;
+        }
+
+        public void OnExitCollider(BackendState other)
+        {
+            // TODO: Do nothing?
+            return;
+        }
+
+        public Vector3Int GridPosition => Databackend.BackendToGridPos(Position);
 
         public void AddedToWorld(Databackend world)
         {
@@ -83,7 +93,7 @@ namespace miniRAID
         public IEnumerator SetPosition(Vector3Int position)
         {
             var prevPos = Position;
-            Position = position;
+            Position = Globals.backend.GridToBackendFloorPos(position);
             yield return new JumpIn(OnMobMoved?.InvokeCoroutine(this, prevPos));
         }
         
@@ -99,7 +109,6 @@ namespace miniRAID
         [Header("Basic stats")]
         public MovementType movementType;
 
-        public EnumerateGridCollider gridBody;
         public Consts.UnitGroup unitGroup;
 
         public int level => baseDescriptor.level;
@@ -199,16 +208,16 @@ namespace miniRAID
 
         public void Init()
         {
-            Position = Globals.backend.GetGridPos(mobRenderer.transform.position);
-            
+            Vector3 position = mobRenderer.transform.position;
             baseDescriptor.InitializeMobData(this);
+            Position = Databackend.BackendToGridPos(position);
             
             // Initial stats calculation
             RecalculateStats();
 
             initialized = true;
 
-            Databackend.GetSingleton().SetMob(Position, gridBody, this);
+            Databackend.GetSingleton().SetMob(this);
             Register();
             
             OnInitialized?.InvokeInstant(this);
@@ -514,7 +523,7 @@ namespace miniRAID
         public void ConstructRenderer()
         {
             renderer = GameObject.Instantiate(
-                    baseDescriptor.rendererPrefab.gameObject, Globals.backend.GridToWorldPosCenteredGrounded(Position),
+                    baseDescriptor.rendererPrefab.gameObject, Globals.backend.BackendToRenderPosCenteredGrounded(Position),
                     Quaternion.identity)
                 .GetComponent<MobRenderer>();
         }

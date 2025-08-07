@@ -31,7 +31,7 @@ namespace miniRAID
         public int level;
         
         [Header("Appearance")]
-        public EnumerateGridCollider gridBody;
+        public IGridCollider gridBody;
         public MobRenderer rendererPrefab;
 
         [Header("Movement")]
@@ -59,15 +59,10 @@ namespace miniRAID
             // Sanity check
             if (gridBody == null)
             {
-                gridBody = new EnumerateGridCollider();
-                gridBody.AddGrid(Vector3Int.zero);
+                gridBody = new PointCollider();
             }
 
-            mob.gridBody = new EnumerateGridCollider();
-            foreach (var g in gridBody.shape)
-            {
-                mob.gridBody.AddGrid(g);
-            }
+            mob.Collider = (IGridCollider)gridBody.Clone();
             
             mob.GCDstatus = new HashSet<GCDGroup>();
             mob.actions = new List<RuntimeAction>();

@@ -57,11 +57,11 @@ namespace miniRAID.Buff
 
             [HorizontalGroup]
             [LabelText("Power%")]
-            public LuaGetter<MobData, float> power;
+            public ValueGetter<MobData, float> power;
 
             [HorizontalGroup]
             [LabelWidth(25)]
-            public LuaGetter<MobData, float> crit;
+            public ValueGetter<MobData, float> crit;
         }
 
         [TabGroup("DOT - HOTs")]
@@ -218,6 +218,20 @@ namespace miniRAID.Buff
             }
 
             this.stacks = 1;
+        }
+
+        public Buff(Buff from) : base(from.source, from.data)
+        {
+            source = from.source;
+            
+            power = dNumber.CreateComposite(from.power.Value, "copied");
+            auxPower = dNumber.CreateComposite(from.auxPower.Value, "copied");
+            hit = dNumber.CreateComposite(from.hit.Value, "copied");
+            crit = dNumber.CreateComposite(from.crit.Value, "copied");
+
+            level = from.level;
+            stacks = from.stacks;
+            timeRemain = from.timeRemain;
         }
 
         protected virtual void OnRemoveFromMob(MobData mob) { }
@@ -536,7 +550,7 @@ namespace miniRAID.Buff
             {
                 renderer = SimpleSpriteIndicator.Instantiate(
                     buffData.alwaysOnIndicator,
-                    Globals.backend.GridToWorldPosCentered(parentMob.Position), 3)
+                    Globals.backend.BackendToRenderPosCentered(parentMob.Position), 3)
                     .Follow(parentMob);
             }
         }

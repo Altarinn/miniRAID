@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using Sprite = UnityEngine.ProBuilder.Shapes.Sprite;
 
 namespace miniRAID.TurnSchedule
 {
@@ -41,7 +40,7 @@ namespace miniRAID.TurnSchedule
     {
         public TurnSliceCategory category;
         public Timestamp timestamp;
-        public LuaGetter<None, int> Priority;
+        public ValueGetter<None, int> Priority;
         
         // TODO: FIXME: Savedata? How to handle this? Is this okay?
         public MobData source;

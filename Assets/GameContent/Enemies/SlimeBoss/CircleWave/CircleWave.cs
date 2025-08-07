@@ -16,10 +16,10 @@ namespace miniRAID
         public UnitFilters filters;
         public SpellDamageHeal damage;
         
-        public EnumerateGridCollider innerCircleShape;
-        public EnumerateGridCollider middleRingShape;
+        public IGridCollider innerCircleShape;
+        public IGridCollider middleRingShape;
         
-        private EnumerateGridCollider outerRingShape;
+        private IGridCollider outerRingShape;
 
         public override IEnumerator OnPerform(RuntimeAction<SingleMobTarget> ract, MobData mob,
             SingleMobTarget target)
@@ -38,16 +38,16 @@ namespace miniRAID
             {
                 case 1:
                     // Show inner circ warning
-                    innerCircleShape.position = target.Target.Position;
-                    dummy.renderer = new GridShapeIndicator(innerCircleShape, GridOverlay.Types.INCOMING_ATTACK)
+                    innerCircleShape.Position = target.Target.Position;
+                    dummy.renderer = new GridColliderIndicator(innerCircleShape, GridOverlay.Types.INCOMING_ATTACK)
                         .Move(Vector3.forward * 10.0f);
                     break;
 
                 case 2:
                     // Inner explodes
-                    innerCircleShape.position = target.Target.Position;
-                    captured = CaptureTargetsInGridShape.CaptureAllTargetsWithinRange(
-                            src, filters, innerCircleShape.ApplyTransform())
+                    innerCircleShape.Position = target.Target.Position;
+                    captured = CaptureTargetsInCollider.CaptureAllTargetsWithinRange(
+                            src, filters, innerCircleShape)
                         .ToList();
                     yield return new JumpIn(
                         MobListHelpers.WaitForAllMobs(captured, m => damage.Do(ract, src, m))
@@ -56,16 +56,16 @@ namespace miniRAID
                     dummy.renderer.Destroy();
 
                     // Show middle ring warning
-                    middleRingShape.position = target.Target.Position;
-                    dummy.renderer = new GridShapeIndicator(middleRingShape, GridOverlay.Types.INCOMING_ATTACK)
+                    middleRingShape.Position = target.Target.Position;
+                    dummy.renderer = new GridColliderIndicator(middleRingShape, GridOverlay.Types.INCOMING_ATTACK)
                         ?.Move(Vector3.forward * 10.0f);
                     break;
 
                 case 3:
                     // Ring explodes
-                    middleRingShape.position = target.Target.Position;
-                    captured = CaptureTargetsInGridShape.CaptureAllTargetsWithinRange(
-                            src, filters, middleRingShape.ApplyTransform())
+                    middleRingShape.Position = target.Target.Position;
+                    captured = CaptureTargetsInCollider.CaptureAllTargetsWithinRange(
+                            src, filters, middleRingShape)
                         .ToList();
                     yield return new JumpIn(
                         MobListHelpers.WaitForAllMobs(captured, m => damage.Do(ract, src, m))

@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using XLua;
 
 using Sirenix.OdinInspector;
 using System.Linq;
@@ -18,12 +17,10 @@ using UnityEditor;
 
 namespace miniRAID
 {
-    [LuaCallCSharp]
-    [ParameterDefaultName("s")]
     public class GeneralCombatData
     {
         public dNumber power, auxPower;
-        public EnumerateGridCollider shape;
+        public IGridCollider shape;
         public RuntimeAction ract;
 
         public GameObject[] gameObjects;
@@ -140,7 +137,7 @@ namespace miniRAID
         public LocalizedString DescriptionKey;
 
         [Title("Flags")] public Consts.ActionFlags flags;
-        public LuaGetter<MobData, bool> isActivelyUsed = true;
+        public ValueGetter<MobData, bool> isActivelyUsed = true;
 
         // TODO: Boolean arrays
         // public List<string> Tags;
@@ -150,7 +147,7 @@ namespace miniRAID
         // public LeveledStats<float> test;
         
         // Mainshape of the action, typically effective range
-        public virtual EnumerateGridCollider MainShape { get; }
+        public virtual IGridCollider MainShape { get; }
 
         public abstract Dictionary<Cost.Type, (double, double)> GetCostBounds(MobData mob);
         public abstract bool CheckWithAbstractTargets(MobData mob, SpellTarget target);
@@ -174,7 +171,7 @@ namespace miniRAID
         [DictionaryDrawerSettings(DisplayMode = DictionaryDisplayOptions.OneLine)]
         public Dictionary<
             Cost.Type,
-            LuaBoundedGetter<(MobData, TSpellTarget), MobData, double>> costs = new();
+            ValueBoundedGetter<(MobData, TSpellTarget), MobData, double>> costs = new();
 
         public override Dictionary<Cost.Type, (double, double)> GetCostBounds(MobData mob)
         {
@@ -342,16 +339,14 @@ namespace miniRAID
         [NonSerialized] public dNumber hit;
         [NonSerialized] public dNumber crit;
 
-        public virtual EnumerateGridCollider Shape => data.MainShape; 
+        public virtual IGridCollider Shape => data.MainShape; 
 
         [NonSerialized]
         [Obsolete]
         GeneralCombatData envData = new();
 
-        [CSharpCallLua]
         public delegate IEnumerator ActionOnPerform(MobRenderer mobRenderer, Spells.SpellTarget target);
 
-        [CSharpCallLua]
         public delegate void Test(MobRenderer mobRenderer);
 
         [NonSerialized]
@@ -516,7 +511,6 @@ namespace miniRAID
         public abstract IEnumerator RequestInUI(MobData mob);
     }
     
-    [LuaCallCSharp]
     public class RuntimeAction<TSpellTarget> : RuntimeAction where TSpellTarget : SpellTarget
     {
         public ActionDataSO<TSpellTarget> actionData => (ActionDataSO<TSpellTarget>)data;
@@ -524,7 +518,7 @@ namespace miniRAID
         
         public virtual Dictionary<
             Cost.Type,
-            LuaBoundedGetter<(MobData, TSpellTarget), MobData, double>> costs => actionData.costs;
+            ValueBoundedGetter<(MobData, TSpellTarget), MobData, double>> costs => actionData.costs;
         
         public RuntimeAction(MobData source, ActionDataSO<TSpellTarget> data, int level) : base(source, level)
         {

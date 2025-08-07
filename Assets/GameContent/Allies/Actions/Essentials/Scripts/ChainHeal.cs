@@ -56,7 +56,7 @@ namespace miniRAID.Actions
             SimpleRay[] rays = new SimpleRay[jumps];
             MobData[] affectedMobs = new MobData[jumps];
             
-            Vector3 startPos = Globals.backend.GridToWorldPosCentered(mob.Position);
+            Vector3 startPos = Globals.backend.BackendToRenderPosCentered(mob.Position);
             MobData dst = target.Target;
 
             for (int i = 0; i < jumps; i++)
@@ -65,7 +65,7 @@ namespace miniRAID.Actions
                 if (Globals.cc.animation && ray != null)
                     rays[i] = ray.InstantiateRay(
                         startPos, 
-                        Globals.backend.GridToWorldPosCentered(dst.Position));
+                        Globals.backend.BackendToRenderPosCentered(dst.Position));
                 
                 // Heal
                 if (damageOrHeal != null)
@@ -73,7 +73,7 @@ namespace miniRAID.Actions
                 
                 // Find next target
                 affectedMobs[i] = dst;
-                startPos = Globals.backend.GridToWorldPosCentered(dst.Position);
+                startPos = Globals.backend.BackendToRenderPosCentered(dst.Position);
                 dst = Globals.backend.allMobs
                     .Where(t => filter.Check(mob, t))
                     .Where(t => Consts.Distance(dst.Position, t.Position) <= jumpRange)

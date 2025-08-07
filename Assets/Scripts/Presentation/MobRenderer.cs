@@ -10,8 +10,6 @@ using Sirenix.Serialization;
 
 namespace miniRAID
 {
-    [XLua.LuaCallCSharp]
-    [ParameterDefaultName("mob")]
     public partial class MobRenderer : MonoBehaviour, IStateRenderer
     {
         // A bunch of grids occpied by this mob (for 1x1 mobs, only 1 grid; 2x2 -> 4 grids, etc.)
@@ -112,13 +110,13 @@ namespace miniRAID
                 Debug.LogError("!?");
             }
 
-            transform.position = backend.GridToWorldPosCenteredGrounded(data.Position);
+            transform.position = backend.BackendToRenderPosCenteredGrounded(data.Position);
         }
 
         public IEnumerator MoveTowards(Vector3Int targetPos)
         {
             // Vector3 targetPosReal = new Vector3(targetPos.x + 0.5f, targetPos.z + 0.5f, transform.position.z);
-            Vector3 targetPosReal = Globals.backend.GridToWorldPosCenteredGrounded(targetPos);
+            Vector3 targetPosReal = Globals.backend.BackendToRenderPosCenteredGrounded(targetPos);
 
             // Move until reached target
             while ((transform.position - targetPosReal).magnitude >= 1e-3)

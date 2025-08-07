@@ -4,8 +4,6 @@ using System.Collections.Generic;
 
 namespace miniRAID.Spells
 {
-    [ParameterDefaultName("target")]
-
     public abstract class SpellTarget
     {
         // public List<Vector3Int> targetPos = new List<Vector3Int>();

@@ -61,8 +61,8 @@ namespace GameContent.Buffs.Test
                 for (int j = 0; j < 100; j++)
                 {
                     Vector2Int gridPos = new Vector2Int(
-                        mob.Position.x + Globals.cc.rng.NextInt(-5, 5),
-                        mob.Position.z + Globals.cc.rng.NextInt(-5, 5));
+                        mob.GridPosition.x + Globals.cc.rng.NextInt(-5, 5),
+                        mob.GridPosition.z + Globals.cc.rng.NextInt(-5, 5));
 
                     if (!oracleGrids.Contains(gridPos) &&
                         Globals.backend.InMap(new Vector3Int(gridPos.x, 0, gridPos.y)))
@@ -91,7 +91,7 @@ namespace GameContent.Buffs.Test
             {
                 (renderer as BatchedRenderer)?.renderers?.Add(SimpleSpriteIndicator.Instantiate(
                         oracleData.indicator,
-                        Globals.backend.GridToWorldPosCentered(new Vector3Int(grid.x, 0, grid.y))));
+                        Globals.backend.BackendToRenderPosCentered(new Vector3Int(grid.x, 0, grid.y))));
             }
         }
 
@@ -100,7 +100,7 @@ namespace GameContent.Buffs.Test
             switch (cost.type)
             {
                 case Cost.Type.OracleGrid:
-                    return oracleGrids.Contains(new Vector2Int(mob.Position.x, mob.Position.z));
+                    return oracleGrids.Contains(new Vector2Int(mob.GridPosition.x, mob.GridPosition.z));
                 case Cost.Type.OracleBuff:
                 {
                     Buff buff = mob.FindListener(oracleData.oracleBuffSO) as Buff;
@@ -121,7 +121,7 @@ namespace GameContent.Buffs.Test
             switch (cost.type)
             {
                 case Cost.Type.OracleGrid:
-                    oracleGrids.Remove(new Vector2Int(mob.Position.x, mob.Position.z));
+                    oracleGrids.Remove(new Vector2Int(mob.GridPosition.x, mob.GridPosition.z));
                     UpdateRenderer();
                     break;
                 case Cost.Type.OracleBuff:

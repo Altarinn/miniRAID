@@ -41,7 +41,7 @@ namespace miniRAID.Buff
             buffer.ExceptWith(shape);
             foreach (var p in buffer)
             {
-                AddGrid(p);
+                AddGrid(Globals.backend.GridToBackendFloorPos(p));
             }
             
             shape.UnionWith(buffer);

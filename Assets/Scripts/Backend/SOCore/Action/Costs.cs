@@ -1,15 +1,11 @@
 ﻿using System;
 using miniRAID.Backend.Numericals;
-using XLua;
 using Sirenix.OdinInspector;
 
 namespace miniRAID
 {
-    [LuaCallCSharp]
-    [ParameterDefaultName("cost")]
     public class Cost
     {
-        [LuaCallCSharp]
         public enum Type
         {
             AP,

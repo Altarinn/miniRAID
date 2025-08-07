@@ -1464,7 +1464,6 @@ Transform:
   - {fileID: 1324139187}
   - {fileID: 842676328}
   - {fileID: 443248695}
-  - {fileID: 610706446}
   - {fileID: 1301855560}
   - {fileID: 1256023747}
   - {fileID: 1076219403}
@@ -1473,51 +1472,6 @@ Transform:
   - {fileID: 693325210}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &610706445
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 610706446}
-  - component: {fileID: 610706447}
-  m_Layer: 0
-  m_Name: GridCursor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &610706446
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 610706445}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 605421908}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &610706447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 610706445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bda69fe4f0a72c04f87a1067f32ff978, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gridMask: {fileID: 2697305935769578498, guid: 25f6691c3332d4a4c9e29c9888b32257, type: 3}
 --- !u!1 &660244277
 GameObject:
   m_ObjectHideFlags: 0
@@ -3348,9 +3302,7 @@ GameObject:
   - component: {fileID: 1256023747}
   - component: {fileID: 1256023752}
   - component: {fileID: 1256023751}
-  - component: {fileID: 1256023750}
   - component: {fileID: 1256023749}
-  - component: {fileID: 1256023748}
   m_Layer: 0
   m_Name: CombatManager
   m_TagString: Untagged
@@ -3373,18 +3325,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 605421908}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1256023748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1256023746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 608f7532cb549ba4ba6d13aeb123d0de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1256023749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3398,19 +3338,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enableDebugging: 1
---- !u!114 &1256023750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1256023746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ee98e390316c4bcb993e11ac7f2e949, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mobRenderer: {fileID: 0}
 --- !u!114 &1256023751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4564,7 +4491,6 @@ MonoBehaviour:
   cinemachineBrain: {fileID: 1412256709}
   mainVCam: {fileID: 1578731201}
   characterFocusVCam: {fileID: 1801201037}
-  cursor: {fileID: 610706447}
   panSpeed: 5
   gridWorldUnitSize: 1
   uimenu_uicontainer: {fileID: 1768286385}

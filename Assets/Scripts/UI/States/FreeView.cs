@@ -18,7 +18,7 @@ namespace miniRAID.UI
         public override void Submit(InputValue input)
         {
             base.Submit(input);
-            MobRenderer mobRenderer = Databackend.GetSingleton().GetMap(ui.cursor.position.x, ui.cursor.position.y, ui.cursor.position.z)?.mob?.mobRenderer;
+            MobRenderer mobRenderer = Databackend.GetSingleton().GetMap(ui.cursor.GridPos)?.mob?.mobRenderer;
             if (mobRenderer)
             {
                 if (mobRenderer.data.isControllable)

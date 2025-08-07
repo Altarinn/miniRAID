@@ -47,7 +47,7 @@ namespace miniRAID.ActionHelpers
         [HorizontalGroup]
         [ShowIf("type",FloatModifierType.Expression)]
         [HideLabel]
-        public LuaGetter<float, float> expression;
+        public ValueGetter<float, float> expression;
 
         public FloatModifier(float val)
         {
@@ -239,7 +239,7 @@ namespace miniRAID.ActionHelpers
             
             Debug.LogError("Summon and LockTargetAgent still uses MonoBehaviour-based code!");
             
-            var summoned = GameObject.Instantiate(mobPrefab.gameObject, Globals.backend.GridToWorldPos(position) + Vector3.one * 0.5f, Quaternion.identity).GetComponent<MobRenderer>();
+            var summoned = GameObject.Instantiate(mobPrefab.gameObject, Globals.backend.BackendToRenderPos(position) + Vector3.one * 0.5f, Quaternion.identity).GetComponent<MobRenderer>();
             summoned.Init();
 
             return summoned;
@@ -254,16 +254,17 @@ namespace miniRAID.ActionHelpers
 
         public bool inheritLevel = true;
 
-        public IEnumerator Do(RuntimeAction spellContext, MobData src, Vector3Int targetShapeOrigin)
+        public IEnumerator Do(RuntimeAction spellContext, MobData src, Vector3 targetShapeOrigin)
         {
             // TODO: Animations?
-            
-            shape.position = targetShapeOrigin;
+            shape.Position = targetShapeOrigin;
             GridEffect rfx =
                 (Buff.GridEffect)effect.LeveledWrapFx(
                     src,
                     inheritLevel ? spellContext.level : 1,
                     shape);
+            
+            src.AddListener(rfx);
 
             yield return -1;
         }
@@ -319,7 +320,7 @@ namespace miniRAID.ActionHelpers
         
         public IEnumerator Do(MobData mob, Vector3Int knockback)
         {
-            Vector3Int newPos = mob.Position + knockback;
+            Vector3Int newPos = mob.GridPosition + knockback;
             
             // TODO: Check newPos validity
             newPos = Vector3Int.Max(Vector3Int.Min(newPos, Globals.backend.MapSize - Vector3Int.one), Vector3Int.zero);

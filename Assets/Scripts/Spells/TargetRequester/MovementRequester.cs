@@ -32,7 +32,7 @@ namespace miniRAID.UI.TargetRequester
             Dictionary<Vector3Int, float> moveRange;
             if (overrideMobMovement)
             {
-                moveRange = Databackend.GetSingleton().GetMoveableGrids(mob.Position, this.moveRange, extraRange, moveType);
+                moveRange = Databackend.GetSingleton().GetMoveableGrids(mob.GridPosition, this.moveRange, extraRange, moveType);
             }
             else
             {

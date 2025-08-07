@@ -142,13 +142,13 @@ namespace miniRAID.Agents
                 {
                     if (aggroList[mob] >= maxAggro)
                     {
-                        Globals.popupMgr.Instance.Popup(">TARGET<", Globals.backend.GridToWorldPosCentered(mob.Position), Consts.BuffColor);
-                        Globals.popupMgr.Instance.Popup("ATTACKING YOU", Globals.backend.GridToWorldPosCentered(parentMob.Position), Consts.BuffColor);
+                        Globals.popupMgr.Instance.Popup(">TARGET<", Globals.backend.BackendToRenderPosCentered(mob.Position), Consts.BuffColor);
+                        Globals.popupMgr.Instance.Popup("ATTACKING YOU", Globals.backend.BackendToRenderPosCentered(parentMob.Position), Consts.BuffColor);
                     }
                     else if (aggroList[mob] >= maxAggro * Settings.highAggroThreshold)
                     {
-                        Globals.popupMgr.Instance.Popup("!", Globals.backend.GridToWorldPosCentered(mob.Position), Consts.BuffColor);
-                        Globals.popupMgr.Instance.Popup("HIGH AGGRO", Globals.backend.GridToWorldPosCentered(parentMob.Position), Consts.BuffColor);
+                        Globals.popupMgr.Instance.Popup("!", Globals.backend.BackendToRenderPosCentered(mob.Position), Consts.BuffColor);
+                        Globals.popupMgr.Instance.Popup("HIGH AGGRO", Globals.backend.BackendToRenderPosCentered(parentMob.Position), Consts.BuffColor);
                     }
                 }
             }
@@ -241,7 +241,7 @@ namespace miniRAID.Agents
             {
                 renderer = DecalIndicator.Instantiate(
                     aggroCollectorData.decalIndicatorMaterial,
-                    Globals.backend.GridToWorldPosCenteredGrounded(parentMob.Position));
+                    Globals.backend.BackendToRenderPosCenteredGrounded(parentMob.Position));
             }
         }
 

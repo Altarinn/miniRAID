@@ -23,10 +23,13 @@ MonoBehaviour:
     SerializationNodes:
     - Name: gridBody
       Entry: 7
-      Data: 0|miniRAID.GridShape, Assembly-CSharp
+      Data: 0|miniRAID.PointCollider, miniRAID.Core
     - Name: shape
       Entry: 7
-      Data: 1|System.Collections.Generic.HashSet`1[[UnityEngine.Vector3Int, UnityEngine.CoreModule]],
+      Data: 1|miniRAID.GridShape, miniRAID.Core
+    - Name: shape
+      Entry: 7
+      Data: 2|System.Collections.Generic.HashSet`1[[UnityEngine.Vector3Int, UnityEngine.CoreModule]],
         System.Core
     - Name: 
       Entry: 12
@@ -52,31 +55,22 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: bounds
+      Entry: 7
+      Data: UnityEngine.BoundsInt, UnityEngine.CoreModule
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: canvasSize
       Entry: 3
       Data: 2
-    - Name: position
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 0
     - Name: 
       Entry: 8
       Data: 
-    - Name: direction
-      Entry: 3
-      Data: 0
     - Name: 
       Entry: 8
       Data: 
-  Guid: 6429baf4f4f84a5099fe0004e8012408
+  Guid: 686bb55f21b7e8a41bdb6b5285520300
   Id: 119
   icon: {fileID: 0}
   nickname: 

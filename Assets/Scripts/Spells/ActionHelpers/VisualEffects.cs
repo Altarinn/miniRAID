@@ -51,7 +51,7 @@ namespace miniRAID.ActionHelpers
             yield return -1;
         }
 
-        public IEnumerator Do(Vector3Int gridPosition) => Do(Globals.backend.GridToWorldPos(gridPosition));
+        public IEnumerator Do(Vector3Int gridPosition) => Do(Globals.backend.BackendToRenderPos(gridPosition));
     }
     
     // TODO
@@ -90,6 +90,6 @@ namespace miniRAID.ActionHelpers
             yield return -1;
         }
 
-        public IEnumerator Do(Vector3Int gridPosition) => Do(Globals.backend.GridToWorldPos(gridPosition));
+        public IEnumerator Do(Vector3Int gridPosition) => Do(Globals.backend.BackendToRenderPos(gridPosition));
     }
 }

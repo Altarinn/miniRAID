@@ -325,7 +325,7 @@ namespace miniRAID
                 renderer = null;
             
                 // Remove me from world
-                Databackend.GetSingleton().ClearMob(Position, gridBody, this, true);
+                Databackend.GetSingleton().ClearMob(this, true);
             }
         }
 

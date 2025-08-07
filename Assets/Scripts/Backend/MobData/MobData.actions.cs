@@ -95,7 +95,7 @@ namespace miniRAID
         public IEnumerator MoveToCoroutine(Vector3Int targetPos, GridPath path, bool doCost = true)
         {
             // Check if targetPos is valid; If not, terminate the movement
-            if (!Globals.backend.CanGridPlaceMob(targetPos, gridBody))
+            if (!Globals.backend.CanPositionPlaceMob(targetPos, Collider))
             {
                 yield return -1;
             }

@@ -5,7 +5,6 @@ using System.Runtime.Serialization;
 using miniRAID.Backend;
 using Sirenix.Serialization;
 using Sirenix.Utilities;
-using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 
 namespace miniRAID

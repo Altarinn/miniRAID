@@ -8,13 +8,13 @@ namespace miniRAID.Agents.SlimeBoss.MeleeAttackSet
 {
     public class DashAttack : ActionDataSO<FourDirectionalTarget>
     {
-        [SerializeField] private EnumerateGridCollider shape;
+        [SerializeField] private IGridCollider shape;
         [SerializeField] private UnitFilters filter;
         [SerializeField] private SpellDamageHeal damageOrHeal;
         [SerializeField] private SimpleExplosionFx fx;
         [SerializeField] private KnockBack knockBack;
 
-        public override EnumerateGridCollider MainShape => shape;
+        public override IGridCollider MainShape => shape;
         public int KnockbackDistance = 1;
         public int DashDistance = 5;
         
@@ -28,16 +28,16 @@ namespace miniRAID.Agents.SlimeBoss.MeleeAttackSet
 
         public override IEnumerator OnPerform(RuntimeAction<FourDirectionalTarget> ract, MobData mob, FourDirectionalTarget target)
         {
-            shape.position = mob.Position;
-            shape.direction = target.Target;
+            shape.Position = mob.Position;
+            shape.Direction = target.Target;
             
-            var capturedTargets = CaptureTargetsInGridShape.CaptureAllTargetsWithinRange(
-                mob, filter, shape.ApplyTransform());
+            var capturedTargets = CaptureTargetsInCollider.CaptureAllTargetsWithinRange(
+                mob, filter, shape);
             
-            yield return new JumpIn(fx.Do(mob.Position + 2 * Consts.DirectionVectors[(int)shape.direction]));
+            yield return new JumpIn(fx.Do(mob.Position + 2 * Consts.DirectionVectors[(int)shape.Direction]));
             
             // Find target grid
-            Vector3Int targetGrid = mob.Position + Consts.DirectionVectors[(int)target.Target] * DashDistance;
+            Vector3Int targetGrid = mob.GridPosition + Consts.DirectionVectors[(int)target.Target] * DashDistance;
             
             targetGrid = Vector3Int.Max(
                 Vector3Int.Min(targetGrid, Globals.backend.MapSize - Vector3Int.one), Vector3Int.zero);

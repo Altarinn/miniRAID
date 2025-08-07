@@ -1,0 +1,37 @@
+{
+    "name": "miniRAID.Core",
+    "rootNamespace": "",
+    "references": [
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:2bafac87e7f4b9b418d9448d219b01ab",
+        "GUID:4307f53044263cf4b835bd812fc161a4",
+        "GUID:eec0964c48f6f4e40bc3ec2257ccf8c5",
+        "GUID:c3514680f5eb93a429827149138c560a",
+        "GUID:15fc0a57446b3144c949da3e2b9737a9",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:9e24947de15b9834991c9d8411ea37cf",
+        "GUID:84651a3751eca9349aac36a66bba901b",
+        "GUID:d8b63aba1907145bea998dd612889d6b"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "DOTween.dll",
+        "Sirenix.OdinInspector.Attributes.dll",
+        "Sirenix.Serialization.dll",
+        "Sirenix.Utilities.dll",
+        "ClosedXML.dll",
+        "DocumentFormat.OpenXml.dll",
+        "Sirenix.Utilities.Editor.dll",
+        "Sirenix.OdinInspector.Editor.dll",
+        "Newtonsoft.Json.dll",
+        "Sirenix.Serialization.Config.dll",
+        "C5.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

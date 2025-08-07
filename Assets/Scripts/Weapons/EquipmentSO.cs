@@ -96,7 +96,7 @@ namespace miniRAID.Weapon
                     {
                         aux = false,
                         type = StatModifierSO.dNumberModType.Add,
-                        value = new LuaGetter<MobData, float>(
+                        value = new ValueGetter<MobData, float>(
                             Consts.ValueFromItemLevel(cachedItemLevel, entry.Key, entry.Value.value.Eval(mob)))
                     };
                     break;

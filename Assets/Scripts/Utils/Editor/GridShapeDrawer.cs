@@ -8,13 +8,13 @@ using UnityEngine;
 
 namespace miniRAID.Editor
 {
-    public class GridShapeDrawer : OdinValueDrawer<EnumerateGridCollider>
+    public class GridShapeDrawer : OdinValueDrawer<GridShape>
     {
         private const float TileSize = 20;
         
         protected override void DrawPropertyLayout(GUIContent label)
         {
-            EnumerateGridCollider value = ValueEntry.SmartValue;
+            GridShape value = ValueEntry.SmartValue;
 
             EditorGUILayout.BeginHorizontal();
 

@@ -9,7 +9,7 @@ namespace miniRAID.UI.TargetRequester
     // TODO: Implement this
     public class FourDirectionalRequester : TargetRequesterBase<FourDirectionalTarget>
     {
-        public EnumerateGridCollider shape;
+        public IGridCollider shape;
         public GridOverlay.Types type;
 
         public override RequestStage Next(Vector3Int coord, bool notFirst = true)
@@ -30,21 +30,21 @@ namespace miniRAID.UI.TargetRequester
             this.onCancel = onCancel;
 
             ui.EnterState(this, true);
-            ui.cursor.cursorShape = shape;
+            ui.cursor.ChangeCollider(shape);
         }
 
         public override void Submit(InputValue input)
         {
-            _Next(ui.cursor.position);
+            _Next(ui.cursor.GridPos);
             
-            var dirc = Globals.backend.GetDominantDirection(mob.Position, choice.First());
+            var dirc = Globals.backend.GetDominantDirection(mob.GridPosition, choice.First());
             Finish(new FourDirectionalTarget(dirc));
         }
 
         public override void OnStateEnter()
         {
             base.OnStateEnter();
-            UpdateCursor(ui.cursor.position);
+            UpdateCursor(ui.cursor.GridPos);
         }
 
         public override void PointAtGrid(Vector3Int gridPos)
@@ -56,26 +56,26 @@ namespace miniRAID.UI.TargetRequester
 
         void UpdateCursor(Vector3Int gridPos)
         {
-            var dirc = Globals.backend.GetDominantDirection(mob.Position, gridPos);
-            if (dirc != shape.direction)
+            var dirc = Globals.backend.GetDominantDirection(mob.GridPosition, gridPos);
+            if (dirc != shape.Direction)
             {
-                shape.direction = dirc;
-                ui.cursor.cursorShape = shape;
+                shape.Direction = dirc;
+                ui.cursor.ChangeCollider(shape);
             }
 
             switch (dirc)
             {
                 case Consts.Direction.Up:
-                    ui.cursor.position = mob.Position + new Vector3Int(0, 0, 1);
+                    ui.cursor.Position = mob.Position + new Vector3Int(0, 0, 1);
                     break;
                 case Consts.Direction.Left:
-                    ui.cursor.position = mob.Position + new Vector3Int(-1, 0, 0);
+                    ui.cursor.Position = mob.Position + new Vector3Int(-1, 0, 0);
                     break;
                 case Consts.Direction.Down:
-                    ui.cursor.position = mob.Position + new Vector3Int(0, 0, -1);
+                    ui.cursor.Position = mob.Position + new Vector3Int(0, 0, -1);
                     break;
                 case Consts.Direction.Right:
-                    ui.cursor.position = mob.Position + new Vector3Int(1, 0, 0);
+                    ui.cursor.Position = mob.Position + new Vector3Int(1, 0, 0);
                     break;
             }
         }

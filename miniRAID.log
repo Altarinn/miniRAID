@@ -1,2 +1,42 @@
 - Start of debug log -
-[8/5/2025 8:19:12 PM] AWAKE
+[2025/8/8 0:01:03] AWAKE
+[回合0] 00m 03s:  SerialCoroutine awake
+[2025/8/8 0:01:03] SerialCoroutine awake
+[回合0] 00m 03s:  StartSerialCoroutine
+
+[2025/8/8 0:01:04] StartSerialCoroutine
+
+[回合0] 00m 03s:  new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 73 )
+[2025/8/8 0:01:04] new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 73 )
+[回合0] 00m 04s:  new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 79 )
+[2025/8/8 0:01:05] new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 79 )
+[回合0] 00m 04s:  new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 82 )
+[2025/8/8 0:01:05] new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 82 )
+[回合0] 00m 04s:  new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 105 )
+[2025/8/8 0:01:05] new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 105 )
+[回合0] 00m 04s:  new JumpIn at Turn ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSliceSO.cs : 120 )
+[2025/8/8 0:01:05] new JumpIn at Turn ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSliceSO.cs : 120 )
+[回合1] 00m 04s:  new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 109 )
+[2025/8/8 0:01:05] new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 109 )
+[回合1] 00m 05s:  new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 105 )
+[2025/8/8 0:01:05] new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 105 )
+[回合1] 00m 05s:  new JumpIn at Turn ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSliceSO.cs : 120 )
+[2025/8/8 0:01:05] new JumpIn at Turn ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSliceSO.cs : 120 )
+[回合1] 00m 05s:  new JumpIn at Turn ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\PhaseTurnSliceSO.cs : 43 )
+[2025/8/8 0:01:05] new JumpIn at Turn ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\PhaseTurnSliceSO.cs : 43 )
+[回合1] 00m 05s:  new JumpIn at WakeUpMobs ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSchedulerHelper.cs : 34 )
+[2025/8/8 0:01:05] new JumpIn at WakeUpMobs ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSchedulerHelper.cs : 34 )
+[回合1] 00m 05s:  [SetActive] Necrozma: True
+[2025/8/8 0:01:05] [SetActive] Necrozma: True
+[回合1] 00m 05s:  new JumpIn at SetActive ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 443 )
+[2025/8/8 0:01:05] new JumpIn at SetActive ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 443 )
+[回合1] 00m 05s:  new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 109 )
+[2025/8/8 0:01:05] new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 109 )
+[回合1] 00m 05s:  new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 105 )
+[2025/8/8 0:01:05] new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 105 )
+[回合1] 00m 05s:  new JumpIn at Turn ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSliceSO.cs : 120 )
+[2025/8/8 0:01:05] new JumpIn at Turn ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSliceSO.cs : 120 )
+[回合1] 00m 05s:  [csc] TURN START: Player
+[2025/8/8 0:01:05] [csc] TURN START: Player
+[回合1] 00m 05s:  new JumpIn at Turn ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\CommonPlayerTurnSliceSO.cs : 47 )
+[2025/8/8 0:01:05] new JumpIn at Turn ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\CommonPlayerTurnSliceSO.cs : 47 )

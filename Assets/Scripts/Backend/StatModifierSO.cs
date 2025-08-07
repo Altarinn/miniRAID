@@ -59,7 +59,7 @@ namespace miniRAID
             [HorizontalGroup]
             [LabelText("Power%")]
             [LabelWidth(56)]
-            public LuaGetter<MobData, float> value;
+            public ValueGetter<MobData, float> value;
         }
         
         public PowerGetter power, auxPower;

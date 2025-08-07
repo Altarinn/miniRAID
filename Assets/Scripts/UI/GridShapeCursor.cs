@@ -6,71 +6,49 @@ using UnityEngine.InputSystem;
 
 namespace miniRAID.UI
 {
-    public class GridShapeCursor : MonoBehaviour
+    public class GridShapeCursor : GridColliderIndicator
     {
-        public GameObject gridMask;
-        Transform gridsPivot;
+        public Vector3Int GridPos => Databackend.BackendToGridPos(collider.Position);
 
-        private void Awake()
+        public Vector3 Position
         {
-            gridsPivot = new GameObject().transform;
-            gridsPivot.parent = transform;
-
-            gridsPivot.localPosition = Vector3.zero;
-            gridsPivot.localRotation = Quaternion.identity;
-            gridsPivot.localScale = Vector3.one;
-
-            this.cursorShape = new EnumerateGridCollider(new Vector3Int(0, 0, 0));
-        }
-
-        public Vector3Int position
-        {
-            get => Globals.backend.GetGridPos(
-                transform.position
-            );
-
+            get => collider.Position;
             set
             {
-                //this.cursorShape.position = position;
-                transform.position = Globals.backend.GridToWorldPos(value);
+                collider.Position = value;
+                Refresh();
             }
         }
 
-        EnumerateGridCollider _cursorShape;
-        public EnumerateGridCollider cursorShape
+        public Consts.Direction Direction
         {
-            get => _cursorShape;
-
+            get => collider.Direction;
             set
             {
-                _cursorShape = value;
-
-                // temporarily remove position
-                Vector3Int _pos = _cursorShape.position;
-                _cursorShape.position = new Vector3Int(0, 0, 0);
-
-                var result = _cursorShape.ApplyTransform();
-
-                _cursorShape.position = _pos;
-
-                // Update masks
-                foreach (Transform child in gridsPivot)
-                {
-                    Destroy(child.gameObject);
-                }
-
-                foreach (var p in result)
-                {
-                    Instantiate(
-                        gridMask,
-                        gridsPivot.position + Globals.backend.GridToWorldPos(p),
-                        Quaternion.identity,
-                        gridsPivot
-                    );
-                }
+                collider.Direction = value;
+                Refresh();
             }
         }
+        
+        public GridShapeCursor(IGridCollider collider, Sprite icon) : base(collider, icon)
+        {
+        }
 
+        public GridShapeCursor(IGridCollider collider, GridOverlay.Types overlayType) : base(collider, overlayType)
+        {
+        }
+        
+        public void ChangeCollider(IGridCollider collider)
+        {
+            var p = this.collider.Position;
+            var d = this.collider.Direction;
+            
+            this.collider = collider;
 
+            this.collider.Position = p;
+            this.collider.Direction = d;
+            
+            Refresh();
+        }
     }
 }

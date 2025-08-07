@@ -28,7 +28,7 @@ namespace miniRAID.ActionHelpers
         
         public IEnumerator WaitForShootAt(
             MobData mob, 
-            Vector3Int target)
+            Vector3 target)
         {
             if (Globals.cc.animation && mob.mobRenderer != null)
             {
@@ -38,7 +38,7 @@ namespace miniRAID.ActionHelpers
             
                 obj.GetComponent<ProjectileComponent>().Init(projectileSprite, projectileTrail, Color.white, Color.white);
 
-                Vector3 dest = Globals.backend.GridToWorldPosCentered(target);
+                Vector3 dest = Globals.backend.BackendToRenderPosCentered(target);
                 // dest.z = obj.transform.position.z;
 
                 yield return obj.transform

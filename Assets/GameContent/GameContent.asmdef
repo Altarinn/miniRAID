@@ -1,0 +1,16 @@
+{
+    "name": "miniRAID.GameContent",
+    "rootNamespace": "",
+    "references": [
+        "GUID:fd21e316f1551c34a9893dc901776446"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

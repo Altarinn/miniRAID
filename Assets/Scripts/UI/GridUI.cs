@@ -30,7 +30,7 @@ namespace miniRAID.UI
         public float panSpeed = 5.0f;
 
         [Obsolete("Use cursor.position instead.")]
-        public Vector3Int currentGridPos => cursor.position;
+        public Vector3Int currentGridPos => cursor.GridPos;
 
         public float gridWorldUnitSize = 1.0f;
         Stack<UIState> stateStack = new Stack<UIState>();
@@ -68,6 +68,7 @@ namespace miniRAID.UI
             groundPlane = new Plane(Vector3.up, Vector3.zero);
             inputs = new DefaultInputs();
             combatView = FindObjectOfType<miniRAID.UIElements.CombatView>();
+            cursor = new GridShapeCursor(new PointCollider(), GridOverlay.Types.SELECTED);
         }
 
         private void OnEnable()
@@ -231,14 +232,15 @@ namespace miniRAID.UI
             }
             
             // Vector2 _gridPos = (cursorPos / gridWorldUnitSize);
-            Vector3Int tmp = new Vector3Int(cursor.position.x, cursor.position.y, cursor.position.z);
-            cursor.position = Globals.backend.GetGridPos(cursorPos);
-
+            Vector3Int oldPos = cursor.GridPos;
+            Vector3Int newPos = Globals.backend.RenderToGridPos(cursorPos);
+            
             // cursor.position = new Vector3Int(Mathf.FloorToInt(_gridPos.x), 0, Mathf.FloorToInt(_gridPos.y));
 
-            if (cursor.position != tmp && currentState != null)
+            if (newPos != oldPos && currentState != null)
             {
-                currentState.PointAtGrid(cursor.position);
+                cursor.Position = Globals.backend.GridToBackendFloorPos(newPos);
+                currentState.PointAtGrid(newPos);
             }
         }
 
@@ -266,15 +268,18 @@ namespace miniRAID.UI
             //if (currentState.freeNavigation)
             {
                 var inp = input.Get<Vector2>();
-                cursor.position += new Vector3Int(
-                    inp.x == 0 ? 0 : (inp.x > 0 ? 1 : -1),
-                    0,
-                    inp.y == 0 ? 0 : (inp.y > 0 ? 1 : -1));
+                cursor.Position = Globals.backend.BackendPosReflooring(
+                    cursor.Position + new Vector3Int(
+                        inp.x == 0 ? 0 : (inp.x > 0 ? 1 : -1),
+                        0,
+                        inp.y == 0 ? 0 : (inp.y > 0 ? 1 : -1)
+                    )
+                );
 
-                cursor.position = 
-                    Vector3Int.Max(
-                        Vector3Int.Min(
-                            cursor.position, 
+                cursor.Position = 
+                    Vector3.Max(
+                        Vector3.Min(
+                            cursor.Position, 
                             new Vector3Int(
                                 Globals.backend.mapSizeX, 
                                 Globals.backend.mapHeight,

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using Sirenix.Serialization;
 using UnityEngine;
 
 namespace miniRAID.Backend
@@ -58,6 +59,26 @@ namespace miniRAID.Backend
             renderer?.Destroy();
             renderer = null;
         }
+    }
+
+    public interface IColliderState
+    {
+        [OdinSerialize] public IGridCollider Collider { get; set; }
+
+        public Vector3 Position
+        {
+            get => Collider.Position;
+            set => Collider.Position = value;
+        }
+        
+        public Consts.Direction Direction
+        {
+            get => Collider.Direction;
+            set => Collider.Direction = value;
+        }
+
+        public void OnEnterCollider(BackendState other);
+        public void OnExitCollider(BackendState other);
     }
 
     public interface IRenderableState

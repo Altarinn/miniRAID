@@ -21,6 +21,7 @@ namespace GameContent.Buffs.Test
         }
     }
 
+    // TODO: Perhaps can change me to collider based?
     public class AuraEffectSORuntimeBuff : Buff
     {
         [OdinSerialize]
@@ -76,7 +77,7 @@ namespace GameContent.Buffs.Test
             {
                 validTargets.Add(mob);
                 mob.OnMobMoved.AddListener(TargetOnMobMovedCoroutine);
-                TargetOnMobMoved(mob, mob.Position);
+                TargetOnMobMoved(mob, mob.GridPosition);
             }
         }
         
@@ -94,7 +95,7 @@ namespace GameContent.Buffs.Test
         {
             foreach (var target in validTargets)
             {
-                TargetOnMobMoved(target, target.Position);
+                TargetOnMobMoved(target, target.GridPosition);
             }
 
             yield break;

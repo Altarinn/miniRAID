@@ -135,7 +135,7 @@ namespace miniRAID.Agents
                     // Do we really need to re-calculate the path everytime?
                     // Will the map change during our action? could be possible though ...
                     // TODO: Cache the path in some way in case of performance problems
-                    path ??= Globals.backend.FindPathTo(mob.Position, Globals.backend.FindNearestEmptyGrid(target.Position, mob.gridBody), mob.movementType, targetedAgentData.eyesight);
+                    path ??= Globals.backend.FindPathTo(mob.GridPosition, Globals.backend.FindNearestEmptyGrid(target.GridPosition, mob.Collider), mob.movementType, targetedAgentData.eyesight);
                     
                     // TODO: FIXME: This is a dirty patch so the mob won't get stuck when it cannot find a valid path.
                     // path ??= Globals.backend.FindPathTo(mob.Position, Globals.backend.FindNearestEmptyGrid(target.Position, mob.gridBody), MobData.MovementType.Fly, aggroAgentData.eyesight);

@@ -17,7 +17,7 @@ namespace miniRAID
         {
             if (isInstant)
             {
-                if (!Globals.backend.CanGridPlaceMob(target.Target, mob.gridBody))
+                if (!Globals.backend.CanPositionPlaceMob(target.Target, mob.Collider))
                 {
                     yield break;
                 }

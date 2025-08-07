@@ -8,11 +8,11 @@ using System;
 using System.Linq;
 using miniRAID.Backend;
 using Sirenix.Serialization;
+using Sirenix.Utilities;
 using UnityEngine.Serialization;
 
 namespace miniRAID
 {
-    [XLua.LuaCallCSharp]
     public class GridData
     {
         public enum TerrainType
@@ -29,7 +29,6 @@ namespace miniRAID
         public HashSet<GridEffect> effects = new();
     }
 
-    [XLua.LuaCallCSharp]
     public class GridPath
     {
         public List<Vector3Int> path = new List<Vector3Int>();
@@ -45,7 +44,6 @@ namespace miniRAID
         public static T Clone<T>(this T val) where T : struct => val;
     }
 
-    [XLua.LuaCallCSharp]
     public static class Consts
     {
         public enum Direction
@@ -63,7 +61,31 @@ namespace miniRAID
             Vector3Int.back,
             Vector3Int.right,
         };
-        
+
+        public static Vector3 Rotate(Vector3 osVector, Direction direction)
+        {
+            switch (direction)
+            {
+                case Consts.Direction.Up:
+                    return osVector;
+                    break;
+                case Consts.Direction.Down:
+                    return new Vector3(-osVector.x, osVector.y, -osVector.z);
+                    break;
+                case Consts.Direction.Left:
+                    return new Vector3(-osVector.z, osVector.y, osVector.x);
+                    break;
+                case Consts.Direction.Right:
+                    return new Vector3(osVector.z, osVector.y, -osVector.x);
+                    break;
+            }
+
+            return Vector3.zero;
+        }
+
+        public static Vector3Int Rotate(Vector3Int osVector, Direction direction)
+            => Vector3Int.FloorToInt(Rotate((Vector3)osVector, direction));
+
         public enum AllElements
         {
             Physical = 16,
@@ -603,9 +625,16 @@ namespace miniRAID
             return (mask & UnitGroupToMaskBit[(int)group]) > 0;
         }
 
-        public static int Distance(Vector3Int a, Vector3Int b)
+        public static int Distance(Vector3 _a, Vector3 _b)
         {
+            var a = Vector3Int.FloorToInt(_a);
+            var b = Vector3Int.FloorToInt(_b);
             return (Mathf.Abs(a.x - b.x) + Mathf.Abs(a.y - b.y) + Mathf.Abs(a.z - b.z));
+        }
+
+        public static int RangedActionDistance(Vector3 _src, Vector3 _dst)
+        {
+            return Distance(_src, _dst);
         }
         
         public static bool IsPointWithinCollider(Collider collider, Vector3 point)
@@ -625,7 +654,6 @@ namespace miniRAID
         }
     }
 
-    [XLua.LuaCallCSharp]
     public partial class Databackend
     {
         const int MAX_MAP_SIZE = 16;
@@ -672,20 +700,36 @@ namespace miniRAID
                 }
             }
             
-            Debug.Log($"{(9592.3f + 0.7f == (int)9593)}");
-
             mapSizeX = MAX_MAP_SIZE;
             mapHeight = MAX_MAP_HEIGHT;
             mapSizeZ = MAX_MAP_SIZE;
         }
 
-        public GridData GetMap(int x, int y, int z)
+        public GridData GetMap(Vector3 backendPos)
+        {
+            var gridPos = BackendToGridPos(backendPos);
+            return GetMap(gridPos.x, gridPos.y, gridPos.z);
+        }
+
+        public GridData GetMap(int x, int y, int z, bool queryMob = true)
         {
             if (x < 0 || x >= mapSizeX || y < 0 || y >= mapHeight || z < 0 || z >= mapSizeZ) { return null; }
-            return map[x, y, z];
+            var grid = map[x, y, z];
+
+            if (queryMob)
+            {
+                grid.mob = null;
+                
+                PointCollider p = new();
+                p.Position = new Vector3(x, y, z);
+                grid.mob = allMobs.FirstOrDefault(m => p.Overlaps(m.Collider));
+            }
+
+            return grid;
         }
 
         public GridData GetMap(Vector3Int pos) => GetMap(pos.x, pos.y, pos.z);
+        public GridData GetMap(Vector3Int pos, bool queryMob) => GetMap(pos.x, pos.y, pos.z, queryMob);
         
         public IEnumerator<Vector3Int> GetAllMapGridPositions()
         {
@@ -727,84 +771,40 @@ namespace miniRAID
             mob.RemovedFromWorld(this);
         }
 
-        public void SetMob(int x, int y, int z, EnumerateGridCollider body, MobData mob)
+        public void SetMob(MobData mob)
         {
-            foreach (Vector3Int p in body.shape)
-            {
-                map[x + p.x, y + p.y, z + p.z].mob = mob;
-            }
-
             if (!allMobs.Contains(mob))
             {
                 AddMob(mob);
             }
         }
 
-        public void ClearMob(int x, int y, int z, EnumerateGridCollider body, MobData mob, bool remove = true)
+        public void ClearMob(MobData mob, bool remove = true)
         {
-            foreach (Vector3Int p in body.shape)
-            {
-                if (map[x + p.x, y + p.y, z + p.z].mob == mob)
-                {
-                    map[x + p.x, y + p.y, z + p.z].mob = null;
-                }
-            }
-
             if (remove)
             {
                 RemoveMob(mob);
             }
         }
 
-        public void SetMob(Vector3Int pos, EnumerateGridCollider body, MobData mob)
-        {
-            SetMob(pos.x, pos.y, pos.z, body, mob);
-        }
-
-        public void ClearMob(Vector3Int pos, EnumerateGridCollider body, MobData mob, bool remove = true)
-        {
-            ClearMob(pos.x, pos.y, pos.z, body, mob, remove);
-        }
-
         public void AddFx(GridEffect fx)
         {
             fx.Register();
             allGridEffects.Add(fx);
-            foreach(var pos in fx.grids.shape)
-            {
-                AddFxAt(fx, pos);
-            }
-        }
-
-        public void AddFxAt(GridEffect fx, Vector3Int pos)
-        {
-            if (!InMap(pos)) { return; }
-            if(map[pos.x, pos.y, pos.z].effects.Add(fx))
-            {
-                allGridEffects.Add(fx);
-                if(map[pos.x, pos.y, pos.z].mob != null)
-                {
-                    fx.RegisterMob(map[pos.x, pos.y, pos.z].mob);
-                }
-            }
+            
+            // TODO: FIXME: Handle Register
         }
 
         public void RemoveFx(GridEffect fx)
         {
-            foreach (var p in fx.grids.shape)
-            {
-                map[p.x, p.y, p.z].effects.Remove(fx);
-                if (map[p.x, p.y, p.z].mob != null)
-                {
-                    fx.RemoveMob(map[p.x, p.y, p.z].mob);
-                }
-            }
+            // TODO: FIXME: Handle Remove Mob From Fx
+            
             allGridEffects.Remove(fx);
         }
 
         // Temp array for MoveMob
         Dictionary<GridEffect, bool> gridEffectChanges = new();
-        public void MoveMob(Vector3Int from, Vector3Int to, MobData mob)
+        public void MoveMob(Vector3 from, Vector3 to, MobData mob)
         {
             if (mob.initialized == false)
             {
@@ -813,69 +813,79 @@ namespace miniRAID
             
             gridEffectChanges.Clear();
 
-            foreach(Vector3Int offset in mob.gridBody.shape)
-            {
-                Vector3Int from_o = from + offset;
+            allGridEffects
+                .Where(fx => fx.Collider.Overlaps(mob.Collider))
+                .ForEach(fx => gridEffectChanges.TryAdd(fx, false));
 
-                foreach (var fx in map[from_o.x, from_o.y, from_o.z].effects)
+            mob.Collider.Position = to;
+            
+            allGridEffects
+                .Where(fx => fx.Collider.Overlaps(mob.Collider))
+                .ForEach(fx =>
                 {
-                    gridEffectChanges.TryAdd(fx, false);
-                }
-            }
-
-            foreach (Vector3Int offset in mob.gridBody.shape)
-            {
-                Vector3Int to_o = to + offset;
-                foreach (var fx in map[to_o.x, to_o.y, to_o.z].effects)
-                {
-                    // If "fx -> false" exists (i.e., being marked as DELETE)
-                    if(!gridEffectChanges.TryAdd(fx, true))
+                    if (!gridEffectChanges.TryAdd(fx, true))
                     {
                         gridEffectChanges.Remove(fx);
                     }
-                }
-            }
-
+                });
+            
             foreach (var fx in gridEffectChanges)
             {
                 // Add
                 if(fx.Value == true)
                 {
-                    fx.Key.RegisterMob(mob);
+                    fx.Key.OnEnterCollider(mob);
+                    mob.OnEnterCollider(fx.Key);
                 }
                 // Remove
                 else
                 {
-                    fx.Key.RemoveMob(mob);
+                    fx.Key.OnExitCollider(mob);
+                    mob.OnExitCollider(fx.Key);
                 }
             }
-
-            ClearMob(from.x, from.y, from.z, mob.gridBody, mob, false);
-            SetMob(to.x, to.y, to.z, mob.gridBody, mob);
         }
 
         // TODO: Modify me when implementing new renderer !!
-        public Vector3Int GetGridPos(Vector3 pos)
+        public static Vector3Int BackendToGridPos(Vector3 backendPos)
         {
             // return new Vector3Int(Mathf.FloorToInt(pos.x), 0, Mathf.FloorToInt(pos.y));
-            return new Vector3Int(Mathf.FloorToInt(pos.x), 0, Mathf.FloorToInt(pos.z));
+            return new Vector3Int(Mathf.FloorToInt(backendPos.x), 0, Mathf.FloorToInt(backendPos.z));
+        }
+
+        public Vector3 RenderToBackendPos(Vector3 renderPos)
+        {
+            return renderPos;
+        }
+
+        public Vector3Int RenderToGridPos(Vector3 renderPos) => BackendToGridPos(RenderToBackendPos(renderPos));
+        
+        public Vector3 BackendPosReflooring(Vector3 backendPos)
+            => GridToBackendFloorPos(BackendToGridPos(backendPos));
+        
+        public Vector3 WorldToBackendFlooredPos(Vector3 worldPos)
+            => BackendPosReflooring(RenderToBackendPos(worldPos));
+
+        public Vector3 GridToBackendFloorPos(Vector3Int gridPos)
+        {
+            return gridPos;
         }
 
         // TODO: Modify me when implementing new renderer !!
-        public Vector3 GridToWorldPos(Vector3Int gridPos)
+        public Vector3 BackendToRenderPos(Vector3 backendPos)
         {
-            // return new Vector3(gridPos.x, gridPos.z, 0) * 1.0f;
-            return new Vector3(gridPos.x, 0, gridPos.z) * 1.0f;
+            // return newVector3(gridPos.x, gridPos.z, 0) * 1.0f;
+            return new Vector3(backendPos.x, 0, backendPos.z) * 1.0f;
         }
 
-        public Vector3 GridToWorldPosCentered(Vector3Int gridPos)
+        public Vector3 BackendToRenderPosCentered(Vector3 backendPos)
         {
-            return GridToWorldPos(gridPos) + new Vector3(0.5f, 0.5f, 0.5f);
+            return BackendToRenderPos(backendPos) + new Vector3(0.5f, 0.5f, 0.5f);
         }
-        
-        public Vector3 GridToWorldPosCenteredGrounded(Vector3Int gridPos)
+
+        public Vector3 BackendToRenderPosCenteredGrounded(Vector3 backendPos)
         {
-            return GridToWorldPos(gridPos) + new Vector3(0.5f, 0.0f, 0.5f);
+            return BackendToRenderPos(backendPos) + new Vector3(0.5f, 0.0f, 0.5f);
         }
 
         // TODO: Map border
@@ -936,7 +946,7 @@ namespace miniRAID
         {
             // TODO: detailed check
             return GetMoveableGrids(
-                mob.Position,
+                mob.GridPosition,
                 mob.actedThisTurn ? 0 : mob.MoveRangeLeft,
                 Mathf.FloorToInt(mob.actionPoints),
                 mob.baseDescriptor.movementType);
@@ -994,6 +1004,7 @@ namespace miniRAID
         public delegate bool IsGridValidFunc(Vector3Int pos, GridData data);
         public delegate bool IsMobValidFunc(MobData mob);
 
+        // TODO: FIXME
         public HashSet<Vector3Int> GetGridsWithMob(IsMobValidFunc mobFilter, IsGridValidFunc gridFilter)
         {
             HashSet<Vector3Int> result = new HashSet<Vector3Int>();
@@ -1002,11 +1013,11 @@ namespace miniRAID
             {
                 if (mobFilter == null || mobFilter(mob))
                 {
-                    Vector3Int pivot = mob.Position;
-                    foreach (var grid in mob.gridBody.shape)
+                    foreach (var grid in mob.Collider)
                     {
-                        Vector3Int current = pivot + grid;
-                        GridData data = map[current.x, current.y, current.z];
+                        Vector3Int current = Vector3Int.zero;
+                        GridData data = GetMap(grid, false);
+                        data.mob = mob;
 
                         if (gridFilter == null || gridFilter(current, data))
                         {
@@ -1017,6 +1028,16 @@ namespace miniRAID
             }
 
             return result;
+        }
+
+        public List<Vector3> GetColliderMapIntersect(IEnumerable<Vector3Int> grids)
+        {
+            return grids.Select(GridToBackendFloorPos).ToList();
+        }
+
+        public Vector3 GetColliderMapIntersect(Vector3Int grid)
+        {
+            return GridToBackendFloorPos(grid);
         }
 
         public struct GridBFSKeys : IComparable
@@ -1109,22 +1130,29 @@ namespace miniRAID
             return path.path.Count <= mob.actionPoints;
         }
 
-        public bool CanGridPlaceMob(Vector3Int center, EnumerateGridCollider body)
+        // TODO: Add support for maps
+        public bool CanPositionPlaceMob(Vector3 position, IGridCollider body)
         {
-            if (body != null && body.shape.Count > 1)
-            {
-                throw new NotImplementedException();
-            }
-
-            return map[center.x, center.y, center.z].mob == null;
+            Vector3 temp = body.Position;
+            body.Position = position;
+            
+            var result = allMobs.All(x => !(x.Collider.Overlaps(body)));
+            
+            body.Position = temp;
+            return result;
         }
 
-        public Vector3Int FindNearestEmptyGrid(Vector3Int center) => FindNearestEmptyGrid(center, null);
+        public Vector3Int FindNearestEmptyGrid(Vector3Int center) => FindNearestEmptyGrid(center, new PointCollider());
 
-        public Vector3Int FindNearestEmptyGrid(Vector3Int center, EnumerateGridCollider body)
+        public Vector3Int FindNearestEmptyGrid(Vector3Int center, IGridCollider body)
         {
+            var temp = body.Position;
             if (!InMap(center)) { return -Vector3Int.one; }
-            if(CanGridPlaceMob(center, body)) { return center; }
+            
+            if (CanPositionPlaceMob(GridToBackendFloorPos(center), body))
+            {
+                return center;
+            }
 
             int start = UnityEngine.Random.Range(0, 4);
 
@@ -1163,8 +1191,8 @@ namespace miniRAID
                         }
 
                         Vector3Int pos = center + new Vector3Int(x, y);
-                        if (InMap(pos) && CanGridPlaceMob(pos, body)) 
-                        { 
+                        if (InMap(pos) && CanPositionPlaceMob(GridToBackendFloorPos(pos), body))
+                        {
                             return pos;
                         }
                     }
@@ -1172,12 +1200,6 @@ namespace miniRAID
             }
 
             return -Vector3Int.one;
-        }
-
-        public int Distance(Vector3Int a, Vector3Int b)
-        {
-            var tmp = (a - b);
-            return Mathf.Abs(tmp.x) + Mathf.Abs(tmp.y) + Mathf.Abs(tmp.z);
         }
 
         public List<MobData> GetAllMobs()

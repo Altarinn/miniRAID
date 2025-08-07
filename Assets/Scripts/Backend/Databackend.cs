@@ -808,6 +808,7 @@ namespace miniRAID
         {
             if (mob.initialized == false)
             {
+                mob.Collider.Position = to;
                 return;
             }
             

@@ -1,8 +1,12 @@
 - Start of debug log -
-[2025/8/8 0:01:03] AWAKE
+[8/8/2025 4:09:23 AM] AWAKE
 [回合0] 00m 04s:  Necrozma 获得了来自 Necrozma 的 流星
-[2025/8/8 0:01:04] Necrozma 获得了来自 Necrozma 的 流星
+[8/8/2025 4:09:24 AM] Necrozma 获得了来自 Necrozma 的 流星
 [回合0] 00m 04s:  Necrozma 获得了来自 Necrozma 的 星能转化
-[2025/8/8 0:01:04] Necrozma 获得了来自 Necrozma 的 星能转化
+[8/8/2025 4:09:24 AM] Necrozma 获得了来自 Necrozma 的 星能转化
 [回合1] 00m 04s:  回合1
-[2025/8/8 0:01:05] 回合1
+[8/8/2025 4:09:24 AM] 回合1
+[回合1] 00m 23s:  Necrozma 施放了 闪光, 目标：(8, 0, 7)
+[8/8/2025 4:09:43 AM] Necrozma 施放了 闪光, 目标：(8, 0, 7)
+[回合1] 00m 30s:  Necrozma 施放了 移动, 目标：(12, 0, 4)
+[8/8/2025 4:09:50 AM] Necrozma 施放了 移动, 目标：(12, 0, 4)

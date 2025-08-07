@@ -1,11 +1,25 @@
+using System;
 using UnityEngine;
 
 namespace miniRAID
 {
-    public class EnumerateGridCollider__ : IGridCollider
+    public class EnumerateGridCollider : IGridCollider, ICloneable
     {
-        public EnumerateGridCollider shape;
+        public GridShape shape;
         
+        public Vector3 Position { get => shape.position; set => shape.position = value; }
+        public Consts.Direction Direction { get; set; }
+
+        public EnumerateGridCollider()
+        { }
+
+        public EnumerateGridCollider(EnumerateGridCollider other)
+        {
+            shape = new GridShape(other.shape);
+            Position = other.Position;
+            Direction = other.Direction;
+        }
+
         public bool Overlaps(IGridCollider other)
         {
             if (other is EnumerateGridCollider)
@@ -14,14 +28,9 @@ namespace miniRAID
             throw new System.NotImplementedException();
         }
 
-        public void SetPosition(Vector3 position)
+        public object Clone()
         {
-            throw new System.NotImplementedException();
-        }
-
-        public void SetDirection(Consts.Direction dirc)
-        {
-            throw new System.NotImplementedException();
+            return new EnumerateGridCollider(this);
         }
     }
 }

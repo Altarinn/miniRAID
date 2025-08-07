@@ -6,8 +6,8 @@ namespace miniRAID
     {
         bool Overlaps(IGridCollider other);
 
-        void SetPosition(Vector3 position);
-        void SetDirection(Consts.Direction dirc);
+        Vector3 Position { get; set; }
+        Consts.Direction Direction { get; set; }
     }
 
     public static class ColliderOverlapTests

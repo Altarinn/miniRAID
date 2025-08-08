@@ -36,11 +36,8 @@ namespace miniRAID
         /// <returns>True if the bounds intersect, false otherwise</returns>
         public static bool IntersectsBounds(EnumerateGridCollider a, EnumerateGridCollider b)
         {
-            var bounds1 = a.shape.bounds;
-            bounds1.SetMinMax(Consts.Rotate(bounds1.min, a.Direction), Consts.Rotate(bounds1.max, a.Direction));
-            
-            var bounds2 = b.shape.bounds;
-            bounds2.SetMinMax(Consts.Rotate(bounds2.min, b.Direction), Consts.Rotate(bounds2.max, b.Direction));
+            var bounds1 = Consts.Rotate(a.shape.Bounds, a.Direction);
+            var bounds2 = Consts.Rotate(b.shape.Bounds, b.Direction);
             
             var offset1 = a.Position;
             var offset2 = b.Position;
@@ -75,7 +72,7 @@ namespace miniRAID
             }
     
             // Handle position offset
-            Vector3 relativePos = larger.Position - smaller.Position;
+            Vector3 relativePos = smaller.Position - larger.Position;
     
             // Check smaller set with duplication logic - no temporary HashSets
             foreach (var pos in EnumerateGridCollider.OverlappedPoints(smaller.shape, relativePos, smaller.Direction))

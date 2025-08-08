@@ -16,6 +16,9 @@ namespace miniRAID.Editor
         {
             GridShape value = ValueEntry.SmartValue;
 
+            SirenixEditorFields.Vector3Field("Bounds Min", value.Bounds.min);
+            SirenixEditorFields.Vector3Field("Bounds Max", value.Bounds.max);
+            
             EditorGUILayout.BeginHorizontal();
 
             value.canvasSize = Mathf.Clamp(SirenixEditorFields.IntField("Canvas Size", value.canvasSize), 2, 9);

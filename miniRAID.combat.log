@@ -1,12 +1,46 @@
 - Start of debug log -
-[8/8/2025 4:09:23 AM] AWAKE
-[回合0] 00m 04s:  Necrozma 获得了来自 Necrozma 的 流星
-[8/8/2025 4:09:24 AM] Necrozma 获得了来自 Necrozma 的 流星
-[回合0] 00m 04s:  Necrozma 获得了来自 Necrozma 的 星能转化
-[8/8/2025 4:09:24 AM] Necrozma 获得了来自 Necrozma 的 星能转化
-[回合1] 00m 04s:  回合1
-[8/8/2025 4:09:24 AM] 回合1
-[回合1] 00m 23s:  Necrozma 施放了 闪光, 目标：(8, 0, 7)
-[8/8/2025 4:09:43 AM] Necrozma 施放了 闪光, 目标：(8, 0, 7)
-[回合1] 00m 30s:  Necrozma 施放了 移动, 目标：(12, 0, 4)
-[8/8/2025 4:09:50 AM] Necrozma 施放了 移动, 目标：(12, 0, 4)
+[2025/8/8 15:43:20] AWAKE
+[回合0] 00m 05s:  Necrozma 获得了来自 Necrozma 的 流星
+[2025/8/8 15:43:20] Necrozma 获得了来自 Necrozma 的 流星
+[回合0] 00m 05s:  Necrozma 获得了来自 Necrozma 的 星能转化
+[2025/8/8 15:43:20] Necrozma 获得了来自 Necrozma 的 星能转化
+[回合1] 00m 07s:  回合1
+[2025/8/8 15:43:22] 回合1
+[回合1] 07m 08s:  Necrozma 施放了 BAD_STRING, 目标：North
+[2025/8/8 15:50:23] Necrozma 施放了 BAD_STRING, 目标：North
+[回合1] 07m 08s:  Necrozma 的 BAD_STRING 对 Abomasnow 造成了 244 点 Ice 伤害。生命值：99756
+[2025/8/8 15:50:23] Necrozma 的 BAD_STRING 对 Abomasnow 造成了 244 点 Ice 伤害。生命值：99756
+[回合1] 07m 20s:  Necrozma 施放了 BAD_STRING, 目标：North
+[2025/8/8 15:50:34] Necrozma 施放了 BAD_STRING, 目标：North
+[回合1] 07m 20s:  Necrozma 的 BAD_STRING 对 Abomasnow 造成了 244 点 Ice 伤害。生命值：99512
+[2025/8/8 15:50:34] Necrozma 的 BAD_STRING 对 Abomasnow 造成了 244 点 Ice 伤害。生命值：99512
+[回合1] 12m 02s:  Necrozma 施放了 彗星箭, 目标：Abomasnow
+[2025/8/8 15:55:17] Necrozma 施放了 彗星箭, 目标：Abomasnow
+[回合1] 12m 02s:  Necrozma 的 彗星箭 对 Abomasnow 造成了 25 点 Ice 伤害。生命值：99487
+[2025/8/8 15:55:17] Necrozma 的 彗星箭 对 Abomasnow 造成了 25 点 Ice 伤害。生命值：99487
+[回合1] 12m 03s:  Necrozma 施放了 彗星箭, 目标：Abomasnow
+[2025/8/8 15:55:18] Necrozma 施放了 彗星箭, 目标：Abomasnow
+[回合1] 12m 03s:  Necrozma 的 彗星箭 对 Abomasnow 造成了 25 点 Ice 伤害。生命值：99462
+[2025/8/8 15:55:18] Necrozma 的 彗星箭 对 Abomasnow 造成了 25 点 Ice 伤害。生命值：99462
+[回合1] 12m 03s:  Abomasnow 施放了 小史莱姆标记, 目标：Abomasnow
+[2025/8/8 15:55:18] Abomasnow 施放了 小史莱姆标记, 目标：Abomasnow
+[回合1] 12m 03s:  Necrozma 获得了来自 Abomasnow 的 锁定
+[2025/8/8 15:55:18] Necrozma 获得了来自 Abomasnow 的 锁定
+[回合1] 12m 03s:  Abomasnow 施放了 小史莱姆投掷, 目标：Abomasnow
+[2025/8/8 15:55:18] Abomasnow 施放了 小史莱姆投掷, 目标：Abomasnow
+[回合1] 12m 03s:  Abomasnow 的 小史莱姆投掷 对 Necrozma 造成了 18 点 Nature 伤害。生命值：50
+[2025/8/8 15:55:18] Abomasnow 的 小史莱姆投掷 对 Necrozma 造成了 18 点 Nature 伤害。生命值：50
+[回合1] 12m 03s:  Necrozma 失去了来自 Abomasnow 的 锁定
+[2025/8/8 15:55:18] Necrozma 失去了来自 Abomasnow 的 锁定
+[回合1] 12m 03s:  Necrozma 获得了来自 Abomasnow 的 剧毒酸池
+[2025/8/8 15:55:18] Necrozma 获得了来自 Abomasnow 的 剧毒酸池
+[回合2] 12m 04s:  回合2
+[2025/8/8 15:55:18] 回合2
+[回合2] 12m 05s:  Necrozma 施放了 移动, 目标：(9, 0, 2)
+[2025/8/8 15:55:20] Necrozma 施放了 移动, 目标：(9, 0, 2)
+[回合2] 12m 05s:  Necrozma 失去了来自 Abomasnow 的 剧毒酸池
+[2025/8/8 15:55:20] Necrozma 失去了来自 Abomasnow 的 剧毒酸池
+[回合2] 12m 25s:  Necrozma 施放了 BAD_STRING, 目标：North
+[2025/8/8 15:55:39] Necrozma 施放了 BAD_STRING, 目标：North
+[回合2] 12m 27s:  Abomasnow 施放了 腐蚀吐息, 目标：South
+[2025/8/8 15:55:42] Abomasnow 施放了 腐蚀吐息, 目标：South

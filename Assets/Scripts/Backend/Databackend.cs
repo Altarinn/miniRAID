@@ -86,6 +86,17 @@ namespace miniRAID
         public static Vector3Int Rotate(Vector3Int osVector, Direction direction)
             => Vector3Int.FloorToInt(Rotate((Vector3)osVector, direction));
 
+        public static BoundsInt Rotate(BoundsInt osBounds, Direction direction)
+        {
+            var min = osBounds.min;
+            var max = osBounds.max;
+            min = Rotate(min, direction);
+            max = Rotate(max, direction);
+            
+            osBounds.SetMinMax(Vector3Int.Min(min, max), Vector3Int.Max(min, max));
+            return osBounds;
+        }
+
         public enum AllElements
         {
             Physical = 16,
@@ -791,13 +802,17 @@ namespace miniRAID
         {
             fx.Register();
             allGridEffects.Add(fx);
-            
-            // TODO: FIXME: Handle Register
+
+            allMobs
+                .Where(m => m.Collider.Overlaps(fx.Collider))
+                .ForEach(fx.OnEnterCollider);
         }
 
         public void RemoveFx(GridEffect fx)
         {
-            // TODO: FIXME: Handle Remove Mob From Fx
+            allMobs
+                .Where(m => m.Collider.Overlaps(fx.Collider))
+                .ForEach(fx.OnExitCollider);
             
             allGridEffects.Remove(fx);
         }
@@ -1016,13 +1031,12 @@ namespace miniRAID
                 {
                     foreach (var grid in mob.Collider)
                     {
-                        Vector3Int current = Vector3Int.zero;
                         GridData data = GetMap(grid, false);
                         data.mob = mob;
 
-                        if (gridFilter == null || gridFilter(current, data))
+                        if (gridFilter == null || gridFilter(grid, data))
                         {
-                            result.Add(current);
+                            result.Add(grid);
                         }
                     }
                 }
@@ -1137,7 +1151,7 @@ namespace miniRAID
             Vector3 temp = body.Position;
             body.Position = position;
             
-            var result = allMobs.All(x => !(x.Collider.Overlaps(body)));
+            var result = allMobs.All(x => (x.Collider == body || !(x.Collider.Overlaps(body))));
             
             body.Position = temp;
             return result;

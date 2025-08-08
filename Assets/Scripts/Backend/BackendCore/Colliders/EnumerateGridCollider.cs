@@ -12,6 +12,11 @@ namespace miniRAID
         public Vector3 Position { get; set; }
         public Consts.Direction Direction { get; set; }
 
+        public EnumerateGridCollider()
+        {
+            this.shape = new GridShape();
+        }
+        
         public EnumerateGridCollider(GridShape shape)
         {
             this.shape = shape;

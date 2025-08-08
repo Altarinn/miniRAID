@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Sirenix.Serialization;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace miniRAID
 {
@@ -11,7 +13,25 @@ namespace miniRAID
     public class GridShape : ICloneable
     {
         public HashSet<Vector3Int> shape;
-        public BoundsInt bounds;
+
+        public BoundsInt Bounds
+        {
+            get
+            {
+                if (!initialized)
+                {
+                    UpdateBounds();
+                    initialized = true;
+                }
+                return _bounds;
+            }
+            set => _bounds = value;
+        }
+        private BoundsInt _bounds;
+        
+        // Not sure why but need this to handle serialization for bounds 
+        [NonSerialized]
+        private bool initialized = false; 
 
         // Editor only
         public int canvasSize;
@@ -53,7 +73,7 @@ namespace miniRAID
             // > in .NET 4.7.2, can clone effectively via new HashSet(from, from.Comparer);.
             // Do we have .NET 4.7.2?
             shape = new HashSet<Vector3Int>(from.shape.ToList());
-            bounds = from.bounds;
+            Bounds = from.Bounds;
         }
         
         public object Clone()
@@ -79,10 +99,10 @@ namespace miniRAID
             foreach (Vector3Int p in shape)
             {
                 min = Vector3Int.Min(min, p);
-                max = Vector3Int.Max(max, p);
+                max = Vector3Int.Max(max, p + Vector3Int.one);
             }
             
-            bounds.SetMinMax(min, max);
+            _bounds.SetMinMax(min, max);
         }
 
         // public HashSet<Vector3Int> ApplyTransform()

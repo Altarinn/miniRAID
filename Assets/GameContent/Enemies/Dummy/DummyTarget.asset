@@ -23,10 +23,13 @@ MonoBehaviour:
     SerializationNodes:
     - Name: gridBody
       Entry: 7
-      Data: 0|miniRAID.GridShape, Assembly-CSharp
+      Data: 0|miniRAID.PointCollider, miniRAID.Core
     - Name: shape
       Entry: 7
-      Data: 1|System.Collections.Generic.HashSet`1[[UnityEngine.Vector3Int, UnityEngine.CoreModule]],
+      Data: 1|miniRAID.GridShape, miniRAID.Core
+    - Name: shape
+      Entry: 7
+      Data: 2|System.Collections.Generic.HashSet`1[[UnityEngine.Vector3Int, UnityEngine.CoreModule]],
         System.Core
     - Name: 
       Entry: 12
@@ -55,30 +58,15 @@ MonoBehaviour:
     - Name: canvasSize
       Entry: 3
       Data: 2
-    - Name: position
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 0
     - Name: 
       Entry: 8
       Data: 
-    - Name: direction
-      Entry: 3
-      Data: 0
     - Name: 
       Entry: 8
       Data: 
     - Name: baseEnemyStats
       Entry: 7
-      Data: miniRAID.EnemyMobDescriptorSO+EnemyStatBase, Assembly-CSharp
+      Data: miniRAID.EnemyMobDescriptorSO+EnemyStatBase, miniRAID.Core
     - Name: MaxHP
       Entry: 3
       Data: 100000
@@ -116,4 +104,4 @@ MonoBehaviour:
   actionSOs:
   - data: {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
     level: 0
-  rootAgent: {fileID: 0}
+  rootAgent: {fileID: 11400000, guid: 3c4f2815d9074bf448db29e544439efc, type: 2}

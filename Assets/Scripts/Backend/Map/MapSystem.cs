@@ -29,20 +29,34 @@ namespace Backend.Map
         // Convert world position to chunk coordinate
         public static Vector3Int WorldToChunkCoordinate(Vector3 worldPos)
         {
+            Vector3Int gridPos = Vector3Int.FloorToInt(worldPos);
+            return WorldToChunkCoordinate(gridPos);
+        }
+
+        // Convert grid position to chunk coordinate
+        public static Vector3Int WorldToChunkCoordinate(Vector3Int gridPos)
+        {
             return new Vector3Int(
-                Mathf.FloorToInt(worldPos.x / MapChunk.SIZE),
-                Mathf.FloorToInt(worldPos.y / MapChunk.SIZE), 
-                Mathf.FloorToInt(worldPos.z / MapChunk.SIZE)
+                Mathf.FloorToInt((float)gridPos.x / MapChunk.SIZE),
+                Mathf.FloorToInt((float)gridPos.y / MapChunk.SIZE),
+                Mathf.FloorToInt((float)gridPos.z / MapChunk.SIZE)
             );
         }
 
         // Convert world position to local chunk coordinate  
         public static Vector3Int WorldToLocalChunkCoordinate(Vector3 worldPos)
         {
+            Vector3Int gridPos = Vector3Int.FloorToInt(worldPos);
+            return WorldToLocalChunkCoordinate(gridPos);
+        }
+
+        // Convert grid position to local chunk coordinate
+        public static Vector3Int WorldToLocalChunkCoordinate(Vector3Int gridPos)
+        {
             return new Vector3Int(
-                ((int)Mathf.Floor(worldPos.x) % MapChunk.SIZE + MapChunk.SIZE) % MapChunk.SIZE,
-                ((int)Mathf.Floor(worldPos.y) % MapChunk.SIZE + MapChunk.SIZE) % MapChunk.SIZE,
-                ((int)Mathf.Floor(worldPos.z) % MapChunk.SIZE + MapChunk.SIZE) % MapChunk.SIZE
+                ((gridPos.x % MapChunk.SIZE) + MapChunk.SIZE) % MapChunk.SIZE,
+                ((gridPos.y % MapChunk.SIZE) + MapChunk.SIZE) % MapChunk.SIZE,
+                ((gridPos.z % MapChunk.SIZE) + MapChunk.SIZE) % MapChunk.SIZE
             );
         }
 
@@ -114,8 +128,15 @@ namespace Backend.Map
         // Get map data at world position (replaces Databackend.GetMap)
         public miniRAID.GridData GetMap(Vector3 worldPos)
         {
-            Vector3Int chunkCoord = WorldToChunkCoordinate(worldPos);
-            Vector3Int localCoord = WorldToLocalChunkCoordinate(worldPos);
+            Vector3Int gridPos = Vector3Int.FloorToInt(worldPos);
+            return GetMap(gridPos);
+        }
+
+        // Get map data at grid position (core implementation)
+        public miniRAID.GridData GetMap(Vector3Int gridPos)
+        {
+            Vector3Int chunkCoord = WorldToChunkCoordinate(gridPos);
+            Vector3Int localCoord = WorldToLocalChunkCoordinate(gridPos);
 
             if (!loadedChunks.TryGetValue(chunkCoord, out MapChunk chunk))
                 return CreateDefaultGridData(); // Return default if chunk not loaded
@@ -135,19 +156,20 @@ namespace Backend.Map
             return gridData;
         }
 
-        // Get map data at grid position
-        public miniRAID.GridData GetMap(Vector3Int gridPos)
-        {
-            return GetMap(new Vector3(gridPos.x, gridPos.y, gridPos.z));
-        }
-
         // Check if position is moveable (for pathfinding)
         public bool IsMoveable(Vector3 worldPos, miniRAID.MobData.MovementType movementType, out int cost)
         {
+            Vector3Int gridPos = Vector3Int.FloorToInt(worldPos);
+            return IsMoveable(gridPos, movementType, out cost);
+        }
+
+        // Check if grid position is moveable (core implementation)
+        public bool IsMoveable(Vector3Int gridPos, miniRAID.MobData.MovementType movementType, out int cost)
+        {
             cost = 1;
             
-            Vector3Int chunkCoord = WorldToChunkCoordinate(worldPos);
-            Vector3Int localCoord = WorldToLocalChunkCoordinate(worldPos);
+            Vector3Int chunkCoord = WorldToChunkCoordinate(gridPos);
+            Vector3Int localCoord = WorldToLocalChunkCoordinate(gridPos);
 
             if (!loadedChunks.TryGetValue(chunkCoord, out MapChunk chunk))
             {
@@ -162,17 +184,17 @@ namespace Backend.Map
             
             // For walking, need passable space and standable ground
             bool isPassable = chunk.GetIsPassable(localCoord.x, localCoord.y, localCoord.z);
-            bool hasFloor = GetIsStandableAtWorldPos(worldPos) || 
-                           GetIsStandableAtWorldPos(worldPos + Vector3.down);
+            bool hasFloor = GetIsStandableAtGridPos(gridPos) || 
+                           GetIsStandableAtGridPos(gridPos + Vector3Int.down);
             
             return isPassable && hasFloor;
         }
 
         // Helper methods to check block properties across chunk boundaries
-        private bool GetIsStandableAtWorldPos(Vector3 worldPos)
+        private bool GetIsStandableAtGridPos(Vector3Int gridPos)
         {
-            Vector3Int chunkCoord = WorldToChunkCoordinate(worldPos);
-            Vector3Int localCoord = WorldToLocalChunkCoordinate(worldPos);
+            Vector3Int chunkCoord = WorldToChunkCoordinate(gridPos);
+            Vector3Int localCoord = WorldToLocalChunkCoordinate(gridPos);
 
             if (!loadedChunks.TryGetValue(chunkCoord, out MapChunk chunk))
             {
@@ -182,10 +204,10 @@ namespace Backend.Map
             return chunk.GetIsStandable(localCoord.x, localCoord.y, localCoord.z);
         }
 
-        private bool GetIsSolidAtWorldPos(Vector3 worldPos)
+        private bool GetIsSolidAtGridPos(Vector3Int gridPos)
         {
-            Vector3Int chunkCoord = WorldToChunkCoordinate(worldPos);
-            Vector3Int localCoord = WorldToLocalChunkCoordinate(worldPos);
+            Vector3Int chunkCoord = WorldToChunkCoordinate(gridPos);
+            Vector3Int localCoord = WorldToLocalChunkCoordinate(gridPos);
 
             if (!loadedChunks.TryGetValue(chunkCoord, out MapChunk chunk))
             {
@@ -195,10 +217,10 @@ namespace Backend.Map
             return chunk.GetIsSolid(localCoord.x, localCoord.y, localCoord.z);
         }
 
-        private bool GetIsPassableAtWorldPos(Vector3 worldPos)
+        private bool GetIsPassableAtGridPos(Vector3Int gridPos)
         {
-            Vector3Int chunkCoord = WorldToChunkCoordinate(worldPos);
-            Vector3Int localCoord = WorldToLocalChunkCoordinate(worldPos);
+            Vector3Int chunkCoord = WorldToChunkCoordinate(gridPos);
+            Vector3Int localCoord = WorldToLocalChunkCoordinate(gridPos);
 
             if (!loadedChunks.TryGetValue(chunkCoord, out MapChunk chunk))
             {
@@ -229,17 +251,36 @@ namespace Backend.Map
         // Public methods for cross-chunk block queries
         public bool IsStandable(Vector3 worldPos)
         {
-            return GetIsStandableAtWorldPos(worldPos);
+            Vector3Int gridPos = Vector3Int.FloorToInt(worldPos);
+            return GetIsStandableAtGridPos(gridPos);
         }
 
         public bool IsSolid(Vector3 worldPos)
         {
-            return GetIsSolidAtWorldPos(worldPos);
+            Vector3Int gridPos = Vector3Int.FloorToInt(worldPos);
+            return GetIsSolidAtGridPos(gridPos);
         }
 
         public bool IsPassable(Vector3 worldPos)
         {
-            return GetIsPassableAtWorldPos(worldPos);
+            Vector3Int gridPos = Vector3Int.FloorToInt(worldPos);
+            return GetIsPassableAtGridPos(gridPos);
+        }
+
+        // Vector3Int versions for direct grid queries
+        public bool IsStandable(Vector3Int gridPos)
+        {
+            return GetIsStandableAtGridPos(gridPos);
+        }
+
+        public bool IsSolid(Vector3Int gridPos)
+        {
+            return GetIsSolidAtGridPos(gridPos);
+        }
+
+        public bool IsPassable(Vector3Int gridPos)
+        {
+            return GetIsPassableAtGridPos(gridPos);
         }
 
         // Save chunk to disk

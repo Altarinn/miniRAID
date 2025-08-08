@@ -49,22 +49,29 @@ Central manager handling chunk loading, unloading, and world queries.
 
 **Core Methods:**
 ```csharp
-// Coordinate conversion
+// Coordinate conversion (Vector3 floors to Vector3Int internally)
 Vector3Int WorldToChunkCoordinate(Vector3 worldPos)
-Vector3Int WorldToLocalChunkCoordinate(Vector3 worldPos)
+Vector3Int WorldToChunkCoordinate(Vector3Int gridPos)
+Vector3Int WorldToLocalChunkCoordinate(Vector3 worldPos)  
+Vector3Int WorldToLocalChunkCoordinate(Vector3Int gridPos)
 
 // Chunk management  
 void UpdateChunkLoading(Vector3 playerPosition)
 MapChunk GetLoadedChunk(Vector3Int chunkCoordinate)
 
 // World queries (replaces Databackend.GetMap)
-GridData GetMap(Vector3 worldPos)
+GridData GetMap(Vector3 worldPos)      // Floors to Vector3Int internally
+GridData GetMap(Vector3Int gridPos)    // Core implementation
 bool IsMoveable(Vector3 worldPos, MovementType type, out int cost)
+bool IsMoveable(Vector3Int gridPos, MovementType type, out int cost)
 
 // Cross-chunk block queries (handles chunk boundaries)
-bool IsStandable(Vector3 worldPos)
-bool IsSolid(Vector3 worldPos)  
+bool IsStandable(Vector3 worldPos)     // Floors to Vector3Int internally
+bool IsStandable(Vector3Int gridPos)   // Core implementation
+bool IsSolid(Vector3 worldPos)
+bool IsSolid(Vector3Int gridPos)
 bool IsPassable(Vector3 worldPos)
+bool IsPassable(Vector3Int gridPos)
 ```
 
 **Loading Strategy:**
@@ -128,12 +135,16 @@ bool hasFloor = mapSystem.IsStandable(worldPos + Vector3.down);
 ```csharp
 public bool IsMoveable(Vector3 worldPos, MovementType type, out int cost)
 {
-    // Check current position passability
-    bool isPassable = GetIsPassableAtWorldPos(worldPos);
-    
-    // Check floor support across chunk boundaries
-    bool hasFloor = GetIsStandableAtWorldPos(worldPos) || 
-                   GetIsStandableAtWorldPos(worldPos + Vector3.down);
+    Vector3Int gridPos = Vector3Int.FloorToInt(worldPos); // Floor early!
+    return IsMoveable(gridPos, type, out cost);
+}
+
+public bool IsMoveable(Vector3Int gridPos, MovementType type, out int cost) 
+{
+    // All internal operations use Vector3Int
+    bool isPassable = GetIsPassableAtGridPos(gridPos);
+    bool hasFloor = GetIsStandableAtGridPos(gridPos) || 
+                   GetIsStandableAtGridPos(gridPos + Vector3Int.down);
     
     return isPassable && hasFloor;
 }
@@ -144,10 +155,17 @@ public bool IsMoveable(Vector3 worldPos, MovementType type, out int cost)
 - **Unloaded Chunks**: Safe fallback behavior when adjacent chunks not loaded
 - **Coordinate Wrapping**: Proper local coordinate calculation across chunk edges
 
+**Coordinate System Design:**
+- **Vector3 API**: Public methods accept floating-point positions (mob compatibility)
+- **Early Flooring**: `Vector3Int.FloorToInt()` applied immediately at entry points
+- **Vector3Int Internal**: All grid operations use integer coordinates for precision  
+- **Dual API**: Both `Vector3` and `Vector3Int` overloads available for performance
+
 **Performance Considerations:**
 - **Cached Chunk Lookups**: Efficient chunk coordinate calculations
 - **Boundary Optimization**: Only cross-chunk queries when necessary
 - **Fallback Behavior**: Graceful degradation for unloaded adjacent chunks
+- **Integer Operations**: Grid math uses Vector3Int for better performance and precision
 
 ## Integration with Existing Systems
 

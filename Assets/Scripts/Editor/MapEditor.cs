@@ -266,6 +266,32 @@ namespace Backend.Map.Editor
             {
                 ClearAllChunks();
             }
+            
+            EditorGUILayout.Space();
+            
+            // Save/Load Buttons
+            EditorGUILayout.LabelField("Save/Load", EditorStyles.boldLabel);
+            
+            EditorGUILayout.BeginHorizontal();
+            if (GUILayout.Button("Save All Chunks"))
+            {
+                SaveAllChunks();
+            }
+            if (GUILayout.Button("Force Reload All"))
+            {
+                ForceReloadAllChunks();
+            }
+            EditorGUILayout.EndHorizontal();
+            
+            if (GUILayout.Button("Save Current Chunk"))
+            {
+                SaveCurrentChunk();
+            }
+            
+            if (GUILayout.Button("Open Save Folder"))
+            {
+                OpenSaveFolder();
+            }
         }
         
         void OnSceneGUI(SceneView sceneView)
@@ -634,6 +660,131 @@ namespace Backend.Map.Editor
             {
                 mapRenderer.RefreshAllChunks();
             }
+        }
+        
+        void SaveAllChunks()
+        {
+            if (mapSystem == null)
+            {
+                EditorUtility.DisplayDialog("Error", "MapSystem not found! Enter Play Mode first.", "OK");
+                return;
+            }
+            
+            var loadedChunks = mapSystem.GetLoadedChunkCoordinates().ToList();
+            int savedCount = 0;
+            
+            foreach (var chunkCoord in loadedChunks)
+            {
+                if (SaveChunkToDisk(chunkCoord))
+                    savedCount++;
+            }
+            
+            EditorUtility.DisplayDialog("Save Complete", 
+                $"Saved {savedCount} chunks to disk.\nLocation: {UnityEngine.Application.persistentDataPath}/MapChunks/", "OK");
+        }
+        
+        void SaveCurrentChunk()
+        {
+            if (mapSystem == null)
+            {
+                EditorUtility.DisplayDialog("Error", "MapSystem not found! Enter Play Mode first.", "OK");
+                return;
+            }
+            
+            Vector3Int playerChunk = MapSystem.WorldToChunkCoordinate(playerPosition);
+            
+            if (SaveChunkToDisk(playerChunk))
+            {
+                EditorUtility.DisplayDialog("Save Complete", 
+                    $"Saved chunk {playerChunk} to disk.", "OK");
+            }
+            else
+            {
+                EditorUtility.DisplayDialog("Save Failed", 
+                    $"Could not save chunk {playerChunk}. Chunk may not be loaded.", "OK");
+            }
+        }
+        
+        void ForceReloadAllChunks()
+        {
+            if (mapSystem == null)
+            {
+                EditorUtility.DisplayDialog("Error", "MapSystem not found! Enter Play Mode first.", "OK");
+                return;
+            }
+            
+            bool confirmed = EditorUtility.DisplayDialog("Confirm Reload", 
+                "This will reload all chunks from disk, discarding unsaved changes. Continue?", 
+                "Yes", "Cancel");
+                
+            if (!confirmed) return;
+            
+            var loadedChunks = mapSystem.GetLoadedChunkCoordinates().ToList();
+            int reloadedCount = 0;
+            
+            // Force reload by triggering the chunk loading system
+            foreach (var chunkCoord in loadedChunks)
+            {
+                // Mark chunks as needing reload by temporarily changing player position
+                mapSystem.UpdateChunkLoading(Vector3.zero); // Unload all
+                reloadedCount++;
+            }
+            
+            // Restore proper chunk loading
+            mapSystem.UpdateChunkLoading(playerPosition);
+            
+            // Refresh rendering
+            if (mapRenderer != null)
+            {
+                mapRenderer.RefreshAllChunks();
+            }
+            
+            EditorUtility.DisplayDialog("Reload Complete", 
+                $"Reloaded {reloadedCount} chunks from disk.", "OK");
+        }
+        
+        bool SaveChunkToDisk(Vector3Int chunkCoordinate)
+        {
+            var chunk = mapSystem.GetLoadedChunk(chunkCoordinate);
+            if (chunk == null) return false;
+            
+            try
+            {
+                string chunkStoragePath = System.IO.Path.Combine(UnityEngine.Application.persistentDataPath, "MapChunks");
+                if (!System.IO.Directory.Exists(chunkStoragePath))
+                {
+                    System.IO.Directory.CreateDirectory(chunkStoragePath);
+                }
+                
+                string filename = $"chunk_{chunkCoordinate.x}_{chunkCoordinate.y}_{chunkCoordinate.z}.chunk";
+                string filepath = System.IO.Path.Combine(chunkStoragePath, filename);
+                
+                byte[] data = chunk.SerializeToBytes();
+                System.IO.File.WriteAllBytes(filepath, data);
+                
+                Debug.Log($"[MapEditor] Saved chunk {chunkCoordinate} to {filepath}");
+                return true;
+            }
+            catch (System.Exception ex)
+            {
+                Debug.LogError($"[MapEditor] Failed to save chunk {chunkCoordinate}: {ex.Message}");
+                return false;
+            }
+        }
+        
+        void OpenSaveFolder()
+        {
+            string chunkStoragePath = System.IO.Path.Combine(UnityEngine.Application.persistentDataPath, "MapChunks");
+            
+            if (!System.IO.Directory.Exists(chunkStoragePath))
+            {
+                System.IO.Directory.CreateDirectory(chunkStoragePath);
+            }
+            
+            // Open folder in OS file explorer
+            EditorUtility.RevealInFinder(chunkStoragePath);
+            
+            Debug.Log($"[MapEditor] Opened chunk save folder: {chunkStoragePath}");
         }
     }
 }

@@ -6,6 +6,7 @@ using miniRAID;
 
 namespace Backend.Map
 {
+    [ExecuteAlways]
     public class MapRenderer : MonoBehaviour
     {
         [Header("Rendering Settings")]
@@ -28,9 +29,11 @@ namespace Backend.Map
         public bool showStandableBlocks = true;
         public bool showPassableBlocks = false; // Usually air, off by default
         public bool enableOcclusionCulling = true;
+        public bool debugMode = false; // Show debug info in console
         
         private MapSystem mapSystem;
         private Dictionary<Vector3Int, ChunkRenderer> chunkRenderers = new Dictionary<Vector3Int, ChunkRenderer>();
+        private bool wasInPlayMode = false; // Track play mode transitions
         
         private class ChunkRenderer
         {
@@ -72,27 +75,78 @@ namespace Backend.Map
         {
             if (mapSystem == null)
             {
-                mapSystem = Globals.backend?.GetMapSystem();
+                // Mark as editor-only to prevent saving in scene
+                if (Application.isPlaying)
+                {
+                    SetMapSystem(Globals.backend?.GetMapSystem());
+                }
+            }
+        }
+        
+        // Method for editor to set MapSystem outside play mode
+        public void SetMapSystem(MapSystem mapSystem)
+        {
+            this.mapSystem = mapSystem;
+            
+            if (debugMode)
+            {
+                Debug.Log($"[MapRenderer] SetMapSystem called in {(Application.isPlaying ? "Play" : "Edit")} mode");
             }
             
+            // Ensure material is created
+            EnsureMaterial();
+            
+            // Force chunk rendering update immediately
+            if (mapSystem != null)
+            {
+                UpdateChunkRendering();
+                
+                if (debugMode)
+                {
+                    var loadedChunks = mapSystem.GetLoadedChunkCoordinates().ToList();
+                    Debug.Log($"[MapRenderer] Found {loadedChunks.Count} loaded chunks: {string.Join(", ", loadedChunks)}");
+                }
+            }
+        }
+        
+        private void EnsureMaterial()
+        {
             if (chunkMaterial == null)
             {
-                // Create a default transparent material
+                // Create a default material if none assigned
                 chunkMaterial = new Material(Shader.Find("ProBuilder6/Standard Vertex Color"));
                 chunkMaterial.color = new Color(1, 1, 1, 0.5f);
-                // chunkMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-                // chunkMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-                // chunkMaterial.SetInt("_ZWrite", 0);
-                // chunkMaterial.DisableKeyword("_ALPHATEST_ON");
-                // chunkMaterial.EnableKeyword("_ALPHABLEND_ON");
-                // chunkMaterial.DisableKeyword("_ALPHAPREMULTIPLY_ON");
                 chunkMaterial.renderQueue = 3000;
+                
+                if (debugMode)
+                {
+                    Debug.Log("[MapRenderer] Created default material");
+                }
             }
         }
         
         void Update()
         {
+            // Safety checks for ExecuteAlways
             if (!enableRendering || mapSystem == null) return;
+            
+            // Check for play mode transitions
+            if (wasInPlayMode != Application.isPlaying)
+            {
+                if (debugMode)
+                {
+                    Debug.Log($"[MapRenderer] Play mode transition detected: {wasInPlayMode} -> {Application.isPlaying}");
+                }
+                CleanupAllChunkRenderers();
+                wasInPlayMode = Application.isPlaying;
+            }
+            
+            // Additional safety for editor mode
+            if (!Application.isPlaying)
+            {
+                // In editor mode, only update if we have valid data
+                if (this == null || gameObject == null) return;
+            }
             
             UpdateChunkRendering();
         }
@@ -124,11 +178,22 @@ namespace Backend.Map
             var chunk = mapSystem.GetLoadedChunk(chunkCoord);
             if (chunk == null) return;
             
+            // Safety check for editor mode
+            if (!Application.isPlaying && (this == null || gameObject == null)) return;
+            
+            // Ensure material exists before creating renderer
+            EnsureMaterial();
+            
             var renderer = new ChunkRenderer(gameObject, chunkCoord);
             chunkRenderers[chunkCoord] = renderer;
             
             GenerateChunkMesh(chunk, renderer);
             renderer.meshRenderer.material = chunkMaterial;
+            
+            if (debugMode)
+            {
+                Debug.Log($"[MapRenderer] Created chunk renderer for {chunkCoord} with material: {chunkMaterial?.name}");
+            }
         }
         
         private void GenerateChunkMesh(MapChunk chunk, ChunkRenderer renderer)
@@ -392,6 +457,45 @@ namespace Backend.Map
             foreach (var renderer in chunkRenderers.Values)
             {
                 renderer.Destroy();
+            }
+            chunkRenderers.Clear();
+        }
+        
+        void OnDisable()
+        {
+            // Cleanup chunk renderers when disabled or mode changes
+            CleanupAllChunkRenderers();
+        }
+        
+        void OnApplicationPause(bool pauseStatus)
+        {
+            // Handle play mode transitions
+            if (!Application.isPlaying)
+            {
+                CleanupAllChunkRenderers();
+            }
+        }
+        
+        private void CleanupAllChunkRenderers()
+        {
+            if (debugMode)
+            {
+                Debug.Log($"[MapRenderer] Cleaning up {chunkRenderers.Count} chunk renderers");
+            }
+            
+            foreach (var renderer in chunkRenderers.Values.ToList())
+            {
+                if (renderer?.gameObject != null)
+                {
+                    if (Application.isPlaying)
+                    {
+                        Destroy(renderer.gameObject);
+                    }
+                    else
+                    {
+                        DestroyImmediate(renderer.gameObject);
+                    }
+                }
             }
             chunkRenderers.Clear();
         }

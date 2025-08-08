@@ -15,6 +15,7 @@ namespace Backend.Map.Editor
         }
 
         private MapSystem mapSystem;
+        private MapSystem editorMapSystem; // Standalone MapSystem for editor use
         private Vector3 playerPosition = Vector3.zero;
         private Vector3Int selectedChunk = Vector3Int.zero;
         private Vector3Int selectedBlock = Vector3Int.zero;
@@ -84,21 +85,47 @@ namespace Backend.Map.Editor
         void OnDisable()
         {
             SceneView.duringSceneGui -= OnSceneGUI;
+            
+            // Clean up editor-only MapSystem when editor closes
+            if (editorMapSystem != null)
+            {
+                // Note: MapSystem doesn't implement IDisposable, but we can null it
+                editorMapSystem = null;
+            }
         }
         
         void OnGUI()
         {
             EditorGUILayout.LabelField("Map Editor", EditorStyles.boldLabel);
             
+            // Show current mode
+            string mode = Application.isPlaying ? "Play Mode (Runtime MapSystem)" : "Edit Mode (Standalone MapSystem)";
+            EditorGUILayout.LabelField("Mode:", mode, EditorStyles.miniLabel);
+            
             // Initialize map system if needed
-            if (mapSystem == null && Application.isPlaying)
+            if (Application.isPlaying)
             {
-                mapSystem = miniRAID.Globals.backend?.GetMapSystem();
+                // Use runtime MapSystem in play mode
+                if (mapSystem == null)
+                {
+                    mapSystem = miniRAID.Globals.backend?.GetMapSystem();
+                }
+            }
+            else
+            {
+                // Use editor-only MapSystem outside play mode
+                if (editorMapSystem == null)
+                {
+                    editorMapSystem = new MapSystem();
+                    // Load initial chunks around player position
+                    editorMapSystem.UpdateChunkLoading(playerPosition);
+                }
+                mapSystem = editorMapSystem;
             }
             
-            if (mapSystem == null && !Application.isPlaying)
+            if (mapSystem == null)
             {
-                EditorGUILayout.HelpBox("Map Editor requires Play Mode to access the MapSystem.", MessageType.Warning);
+                EditorGUILayout.HelpBox("Failed to initialize MapSystem.", MessageType.Error);
                 return;
             }
             
@@ -135,18 +162,18 @@ namespace Backend.Map.Editor
                 var loadedChunks = mapSystem.GetLoadedChunkCoordinates().ToList();
                 EditorGUILayout.LabelField($"Loaded Chunks: {loadedChunks.Count}");
                 
-                if (loadedChunks.Count > 0)
-                {
-                    EditorGUILayout.LabelField("Chunks:");
-                    foreach (var chunk in loadedChunks.Take(10)) // Show first 10
-                    {
-                        EditorGUILayout.LabelField($"  {chunk}");
-                    }
-                    if (loadedChunks.Count > 10)
-                    {
-                        EditorGUILayout.LabelField($"  ... and {loadedChunks.Count - 10} more");
-                    }
-                }
+                // if (loadedChunks.Count > 0)
+                // {
+                //     EditorGUILayout.LabelField("Chunks:");
+                //     foreach (var chunk in loadedChunks.Take(10)) // Show first 10
+                //     {
+                //         EditorGUILayout.LabelField($"  {chunk}");
+                //     }
+                //     if (loadedChunks.Count > 10)
+                //     {
+                //         EditorGUILayout.LabelField($"  ... and {loadedChunks.Count - 10} more");
+                //     }
+                // }
             }
             
             EditorGUILayout.Space();
@@ -235,6 +262,12 @@ namespace Backend.Map.Editor
             {
                 mapRenderer.showChunkBoundaries = showChunkBoundaries;
                 
+                // Ensure MapRenderer has the correct MapSystem in editor mode
+                if (!Application.isPlaying)
+                {
+                    mapRenderer.SetMapSystem(mapSystem);
+                }
+                
                 EditorGUILayout.LabelField("Block Type Visibility", EditorStyles.boldLabel);
                 mapRenderer.showSolidBlocks = EditorGUILayout.Toggle("Show Solid Blocks", mapRenderer.showSolidBlocks);
                 mapRenderer.showStandableBlocks = EditorGUILayout.Toggle("Show Standable Blocks", mapRenderer.showStandableBlocks);
@@ -292,6 +325,16 @@ namespace Backend.Map.Editor
             {
                 OpenSaveFolder();
             }
+            
+            EditorGUILayout.Space();
+            
+            // Cleanup Tools
+            EditorGUILayout.LabelField("Cleanup", EditorStyles.boldLabel);
+            
+            if (GUILayout.Button("Clean Ghost Renderers"))
+            {
+                CleanupGhostRenderers();
+            }
         }
         
         void OnSceneGUI(SceneView sceneView)
@@ -329,6 +372,7 @@ namespace Backend.Map.Editor
                     selectedChunk = MapSystem.WorldToChunkCoordinate(worldPos);
                     selectedBlock = MapSystem.WorldToLocalChunkCoordinate(worldPos);
                     Repaint();
+                    SceneView.RepaintAll(); // Force SceneView refresh for red cube indicator
                 }
             }
         }
@@ -558,18 +602,40 @@ namespace Backend.Map.Editor
         
         void FindOrCreateMapRenderer()
         {
-            mapRenderer = FindObjectOfType<MapRenderer>();
+            // Find existing renderer first
+            if (mapRenderer == null || mapRenderer.gameObject == null)
+            {
+                mapRenderer = FindObjectOfType<MapRenderer>();
+            }
             
             if (mapRenderer == null)
             {
-                GameObject rendererGO = new GameObject("Map Renderer");
+                GameObject rendererGO = new GameObject("Map Renderer (Editor)");
                 mapRenderer = rendererGO.AddComponent<MapRenderer>();
                 
                 // Set up renderer
                 mapRenderer.showChunkBoundaries = showChunkBoundaries;
                 mapRenderer.enableRendering = true;
+                mapRenderer.debugMode = true; // Enable debug by default
+                
+                // Mark as editor-only to prevent saving in scene
+                if (!Application.isPlaying)
+                {
+                    rendererGO.hideFlags = HideFlags.DontSave;
+                }
                 
                 Selection.activeGameObject = rendererGO;
+                Debug.Log("[MapEditor] Created new MapRenderer");
+            }
+            else
+            {
+                Debug.Log($"[MapEditor] Found existing MapRenderer: {mapRenderer.name}");
+            }
+            
+            // Always ensure the renderer has the correct MapSystem
+            if (!Application.isPlaying)
+            {
+                mapRenderer.SetMapSystem(mapSystem);
             }
         }
         
@@ -785,6 +851,58 @@ namespace Backend.Map.Editor
             EditorUtility.RevealInFinder(chunkStoragePath);
             
             Debug.Log($"[MapEditor] Opened chunk save folder: {chunkStoragePath}");
+        }
+        
+        void CleanupGhostRenderers()
+        {
+            // Find all MapRenderer instances and force cleanup
+            var allRenderers = FindObjectsOfType<MapRenderer>();
+            int cleanedCount = 0;
+            
+            foreach (var renderer in allRenderers)
+            {
+                if (renderer != null)
+                {
+                    // Force cleanup of all chunk renderers
+                    System.Reflection.MethodInfo cleanupMethod = 
+                        typeof(MapRenderer).GetMethod("CleanupAllChunkRenderers", 
+                        System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+                    
+                    if (cleanupMethod != null)
+                    {
+                        cleanupMethod.Invoke(renderer, null);
+                        cleanedCount++;
+                    }
+                    
+                    // Also ensure material is set
+                    System.Reflection.MethodInfo ensureMaterialMethod = 
+                        typeof(MapRenderer).GetMethod("EnsureMaterial", 
+                        System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+                        
+                    ensureMaterialMethod?.Invoke(renderer, null);
+                }
+            }
+            
+            // Clean up orphaned GameObjects with chunk-like names
+            var allObjects = FindObjectsOfType<GameObject>();
+            int orphanedCount = 0;
+            
+            foreach (var obj in allObjects)
+            {
+                if (obj.name.StartsWith("Chunk_"))
+                {
+                    // Check if it's a chunk renderer with no parent MapRenderer
+                    var meshRenderer = obj.GetComponent<MeshRenderer>();
+                    if (meshRenderer != null && (meshRenderer.material == null || meshRenderer.material.name.Contains("Missing")))
+                    {
+                        DestroyImmediate(obj);
+                        orphanedCount++;
+                    }
+                }
+            }
+            
+            EditorUtility.DisplayDialog("Cleanup Complete", 
+                $"Cleaned {cleanedCount} MapRenderer(s) and removed {orphanedCount} orphaned/pink chunk objects.", "OK");
         }
     }
 }

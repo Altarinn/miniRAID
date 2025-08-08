@@ -7,6 +7,7 @@ using miniRAID.Buff;
 using System;
 using System.Linq;
 using miniRAID.Backend;
+using Backend.Map;
 using Sirenix.Serialization;
 using Sirenix.Utilities;
 using UnityEngine.Serialization;
@@ -680,8 +681,8 @@ namespace miniRAID
             return instance;
         }
         
-        [OdinSerialize]
-        GridData[,,] map = new GridData[MAX_MAP_SIZE, MAX_MAP_HEIGHT, MAX_MAP_SIZE];
+        // New Map System
+        private MapSystem mapSystem;
         
         bool[,,] visited = new bool[MAX_MAP_SIZE, MAX_MAP_HEIGHT, MAX_MAP_SIZE];
         
@@ -700,18 +701,13 @@ namespace miniRAID
 
         private Databackend()
         {
-            for (int i = 0; i < MAX_MAP_SIZE; i++)
-            {
-                for (int j = 0; j < MAX_MAP_HEIGHT; j++)
-                {
-                    for (int k = 0; k < MAX_MAP_SIZE; k++)
-                    {
-                        map[i, j, k] = new GridData();
-                    }
-                }
-            }
+            // Initialize new map system
+            mapSystem = new MapSystem();
             
-            mapSizeX = MAX_MAP_SIZE;
+            // Update chunk loading around player starting position (0,0,0)
+            mapSystem.UpdateChunkLoading(Vector3.zero);
+            
+            mapSizeX = MAX_MAP_SIZE; // Keep for backward compatibility
             mapHeight = MAX_MAP_HEIGHT;
             mapSizeZ = MAX_MAP_SIZE;
         }
@@ -719,28 +715,37 @@ namespace miniRAID
         public GridData GetMap(Vector3 backendPos)
         {
             var gridPos = BackendToGridPos(backendPos);
-            return GetMap(gridPos.x, gridPos.y, gridPos.z);
+            return GetMap(gridPos, true);
         }
 
         public GridData GetMap(int x, int y, int z, bool queryMob = true)
         {
-            if (x < 0 || x >= mapSizeX || y < 0 || y >= mapHeight || z < 0 || z >= mapSizeZ) { return null; }
-            var grid = map[x, y, z];
+            return GetMap(new Vector3Int(x, y, z), queryMob);
+        }
+
+        public GridData GetMap(Vector3Int pos, bool queryMob = true)
+        {
+            // Use new map system
+            var backendPos = new Vector3(pos.x, pos.y, pos.z);
+            var gridData = mapSystem.GetMap(backendPos);
+            
+            if (gridData == null) return null;
 
             if (queryMob)
             {
-                grid.mob = null;
-                
                 PointCollider p = new();
-                p.Position = new Vector3(x, y, z);
-                grid.mob = allMobs.FirstOrDefault(m => p.Overlaps(m.Collider));
+                p.Position = backendPos;
+                gridData.mob = allMobs.FirstOrDefault(m => p.Overlaps(m.Collider));
+            }
+            else
+            {
+                gridData.mob = null;
             }
 
-            return grid;
+            return gridData;
         }
 
-        public GridData GetMap(Vector3Int pos) => GetMap(pos.x, pos.y, pos.z);
-        public GridData GetMap(Vector3Int pos, bool queryMob) => GetMap(pos.x, pos.y, pos.z, queryMob);
+        public GridData GetMap(Vector3Int pos) => GetMap(pos, true);
         
         public IEnumerator<Vector3Int> GetAllMapGridPositions()
         {
@@ -1004,7 +1009,6 @@ namespace miniRAID
             return result;
         }
 
-        // TODO: Implement this
         public bool IsMoveable(GridData grid, MobData.MovementType type, out int cost)
         {
             cost = 1;
@@ -1014,7 +1018,13 @@ namespace miniRAID
                 return true;
             }
             
-            return grid.mob == null;
+            return grid.mob == null && !grid.solid;
+        }
+
+        // Add new method that uses MapSystem directly for better performance
+        public bool IsMoveable(Vector3 worldPos, MobData.MovementType type, out int cost)
+        {
+            return mapSystem.IsMoveable(worldPos, type, out cost);
         }
 
         public delegate bool IsGridValidFunc(Vector3Int pos, GridData data);
@@ -1220,6 +1230,18 @@ namespace miniRAID
         public List<MobData> GetAllMobs()
         {
             return allMobs.ToList();
+        }
+
+        // Expose MapSystem for editor access
+        public MapSystem GetMapSystem()
+        {
+            return mapSystem;
+        }
+
+        // Update map loading when player moves
+        public void UpdateMapLoading(Vector3 playerPosition)
+        {
+            mapSystem.UpdateChunkLoading(playerPosition);
         }
 
         public void AimOnTarget(MobData targetMob)

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,8 +21,11 @@ namespace miniRAID
 
         private bool CheckGridHasPoisonPool(GridData grid)
         {
-            var effectList = grid.effects;
-            return effectList.Any(kvp => kvp.data == poisonPool.effect);
+            throw new NotImplementedException();
+            return false;
+            
+            // var effectList = grid.effects;
+            // return effectList.Any(kvp => kvp.data == poisonPool.effect);
         }
         
         public override IEnumerator OnPerform(RuntimeAction<SingleCoordinateTarget> ract, MobData mob,

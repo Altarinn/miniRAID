@@ -24,6 +24,8 @@ namespace Backend.Map.Editor
         private bool autoLoadChunks = true;
         private int brushSize = 1;
         private TerrainEditMode editMode = TerrainEditMode.TerrainType;
+        private RaycastTarget raycastTarget = RaycastTarget.Solid;
+        private PlaceMode placeMode = PlaceMode.Replace;
         
         // Painting settings
         private miniRAID.GridData.TerrainType selectedTerrainType = miniRAID.GridData.TerrainType.Normal;
@@ -40,6 +42,19 @@ namespace Backend.Map.Editor
             Solid,
             Standable,
             Passable
+        }
+        
+        private enum RaycastTarget
+        {
+            Solid,
+            Standable,
+            SolidOrStandable
+        }
+        
+        private enum PlaceMode
+        {
+            Replace, // Overwrite existing block (digging)
+            Adjacent  // Place next to existing block (building)
         }
         
         void OnEnable()
@@ -121,6 +136,15 @@ namespace Backend.Map.Editor
             EditorGUILayout.LabelField("Painting Tools", EditorStyles.boldLabel);
             editMode = (TerrainEditMode)EditorGUILayout.EnumPopup("Edit Mode", editMode);
             brushSize = EditorGUILayout.IntSlider("Brush Size", brushSize, 1, 5);
+            raycastTarget = (RaycastTarget)EditorGUILayout.EnumPopup("Raycast Target", raycastTarget);
+            placeMode = (PlaceMode)EditorGUILayout.EnumPopup("Place Mode", placeMode);
+            
+            // Help text
+            EditorGUILayout.HelpBox(
+                placeMode == PlaceMode.Replace 
+                ? "Replace Mode: Overwrites the targeted block (good for digging holes)" 
+                : "Adjacent Mode: Places next to the targeted block (good for building)", 
+                MessageType.Info);
             
             switch (editMode)
             {
@@ -220,9 +244,10 @@ namespace Backend.Map.Editor
             {
                 // Ctrl+Click to paint
                 Ray ray = HandleUtility.GUIPointToWorldRay(current.mousePosition);
-                if (Physics.Raycast(ray, out RaycastHit hit))
+                var raycastResult = DDAGridRaycast(ray);
+                if (raycastResult.HasValue)
                 {
-                    Vector3 worldPos = hit.point;
+                    Vector3 worldPos = GetPaintPosition(raycastResult.Value);
                     PaintAtPosition(worldPos);
                     current.Use();
                 }
@@ -231,13 +256,133 @@ namespace Backend.Map.Editor
             {
                 // Update selection
                 Ray ray = HandleUtility.GUIPointToWorldRay(current.mousePosition);
-                if (Physics.Raycast(ray, out RaycastHit hit))
+                var raycastResult = DDAGridRaycast(ray);
+                if (raycastResult.HasValue)
                 {
-                    Vector3 worldPos = hit.point;
+                    Vector3 worldPos = GetPaintPosition(raycastResult.Value);
                     selectedChunk = MapSystem.WorldToChunkCoordinate(worldPos);
                     selectedBlock = MapSystem.WorldToLocalChunkCoordinate(worldPos);
                     Repaint();
                 }
+            }
+        }
+        
+        Vector3 GetPaintPosition((Vector3Int hitPos, Vector3Int faceNormal) raycastResult)
+        {
+            if (placeMode == PlaceMode.Adjacent)
+            {
+                // Place adjacent to the hit block
+                return raycastResult.hitPos + raycastResult.faceNormal;
+            }
+            else
+            {
+                // Replace the hit block
+                return raycastResult.hitPos;
+            }
+        }
+        
+        (Vector3Int hitPos, Vector3Int faceNormal)? DDAGridRaycast(Ray ray)
+        {
+            if (mapSystem == null) return null;
+            
+            Vector3 rayPos = ray.origin;
+            Vector3 rayDir = ray.direction.normalized;
+            
+            // Maximum distance to check
+            float maxDistance = 1000f;
+            
+            // Current grid position
+            Vector3Int gridPos = Vector3Int.FloorToInt(rayPos);
+            
+            // Calculate step direction (1 or -1 for each axis)
+            Vector3Int step = new Vector3Int(
+                rayDir.x > 0 ? 1 : -1,
+                rayDir.y > 0 ? 1 : -1,
+                rayDir.z > 0 ? 1 : -1
+            );
+            
+            // Calculate distance to next grid boundary on each axis
+            Vector3 deltaDist = new Vector3(
+                rayDir.x != 0 ? Mathf.Abs(1f / rayDir.x) : float.MaxValue,
+                rayDir.y != 0 ? Mathf.Abs(1f / rayDir.y) : float.MaxValue,
+                rayDir.z != 0 ? Mathf.Abs(1f / rayDir.z) : float.MaxValue
+            );
+            
+            // Calculate initial distance to next grid boundary
+            Vector3 sideDist;
+            if (rayDir.x < 0)
+                sideDist.x = (rayPos.x - gridPos.x) * deltaDist.x;
+            else
+                sideDist.x = (gridPos.x + 1.0f - rayPos.x) * deltaDist.x;
+                
+            if (rayDir.y < 0)
+                sideDist.y = (rayPos.y - gridPos.y) * deltaDist.y;
+            else
+                sideDist.y = (gridPos.y + 1.0f - rayPos.y) * deltaDist.y;
+                
+            if (rayDir.z < 0)
+                sideDist.z = (rayPos.z - gridPos.z) * deltaDist.z;
+            else
+                sideDist.z = (gridPos.z + 1.0f - rayPos.z) * deltaDist.z;
+            
+            // DDA stepping
+            Vector3Int faceNormal = Vector3Int.zero;
+            float currentDist = 0f;
+            
+            while (currentDist < maxDistance)
+            {
+                // Check if current grid position matches our raycast target
+                if (IsRaycastTarget(gridPos))
+                {
+                    return (gridPos, faceNormal);
+                }
+                
+                // Step to next grid boundary and track which face we crossed
+                if (sideDist.x < sideDist.y && sideDist.x < sideDist.z)
+                {
+                    sideDist.x += deltaDist.x;
+                    gridPos.x += step.x;
+                    faceNormal = new Vector3Int(-step.x, 0, 0); // Face normal opposite to step direction
+                    currentDist = sideDist.x;
+                }
+                else if (sideDist.y < sideDist.z)
+                {
+                    sideDist.y += deltaDist.y;
+                    gridPos.y += step.y;
+                    faceNormal = new Vector3Int(0, -step.y, 0);
+                    currentDist = sideDist.y;
+                }
+                else
+                {
+                    sideDist.z += deltaDist.z;
+                    gridPos.z += step.z;
+                    faceNormal = new Vector3Int(0, 0, -step.z);
+                    currentDist = sideDist.z;
+                }
+            }
+            
+            return null;
+        }
+        
+        bool IsRaycastTarget(Vector3Int gridPos)
+        {
+            Vector3Int chunkCoord = MapSystem.WorldToChunkCoordinate(gridPos);
+            Vector3Int localCoord = MapSystem.WorldToLocalChunkCoordinate(gridPos);
+            
+            var chunk = mapSystem.GetLoadedChunk(chunkCoord);
+            if (chunk == null) return false;
+            
+            switch (raycastTarget)
+            {
+                case RaycastTarget.Solid:
+                    return chunk.GetIsSolid(localCoord.x, localCoord.y, localCoord.z);
+                case RaycastTarget.Standable:
+                    return chunk.GetIsStandable(localCoord.x, localCoord.y, localCoord.z);
+                case RaycastTarget.SolidOrStandable:
+                    return chunk.GetIsSolid(localCoord.x, localCoord.y, localCoord.z) || 
+                           chunk.GetIsStandable(localCoord.x, localCoord.y, localCoord.z);
+                default:
+                    return false;
             }
         }
         
@@ -276,32 +421,47 @@ namespace Backend.Map.Editor
         
         void PaintAtPosition(Vector3 worldPos)
         {
-            Vector3Int chunkCoord = MapSystem.WorldToChunkCoordinate(worldPos);
-            Vector3Int localCoord = MapSystem.WorldToLocalChunkCoordinate(worldPos);
+            Vector3Int gridPos = Vector3Int.FloorToInt(worldPos);
+            Vector3Int chunkCoord = MapSystem.WorldToChunkCoordinate(gridPos);
+            Vector3Int localCoord = MapSystem.WorldToLocalChunkCoordinate(gridPos);
             
             var chunk = mapSystem.GetLoadedChunk(chunkCoord);
             if (chunk == null) return;
             
             // Apply brush
+            HashSet<Vector3Int> affectedChunks = new HashSet<Vector3Int>();
             for (int dx = -brushSize + 1; dx < brushSize; dx++)
             {
                 for (int dy = -brushSize + 1; dy < brushSize; dy++)
                 {
                     for (int dz = -brushSize + 1; dz < brushSize; dz++)
                     {
-                        Vector3Int targetLocal = localCoord + new Vector3Int(dx, dy, dz);
+                        Vector3Int targetWorldPos = gridPos + new Vector3Int(dx, dy, dz);
+                        Vector3Int targetChunkCoord = MapSystem.WorldToChunkCoordinate(targetWorldPos);
+                        Vector3Int targetLocalCoord = MapSystem.WorldToLocalChunkCoordinate(targetWorldPos);
                         
-                        if (targetLocal.x >= 0 && targetLocal.x < MapChunk.SIZE &&
-                            targetLocal.y >= 0 && targetLocal.y < MapChunk.SIZE &&
-                            targetLocal.z >= 0 && targetLocal.z < MapChunk.SIZE)
+                        var targetChunk = mapSystem.GetLoadedChunk(targetChunkCoord);
+                        if (targetChunk != null &&
+                            targetLocalCoord.x >= 0 && targetLocalCoord.x < MapChunk.SIZE &&
+                            targetLocalCoord.y >= 0 && targetLocalCoord.y < MapChunk.SIZE &&
+                            targetLocalCoord.z >= 0 && targetLocalCoord.z < MapChunk.SIZE)
                         {
-                            ApplyPaint(chunk, targetLocal.x, targetLocal.y, targetLocal.z);
+                            ApplyPaint(targetChunk, targetLocalCoord.x, targetLocalCoord.y, targetLocalCoord.z);
+                            affectedChunks.Add(targetChunkCoord);
                         }
                     }
                 }
             }
             
-            mapSystem.MarkChunkDirty(chunkCoord);
+            // Mark all affected chunks as dirty and refresh their rendering
+            foreach (var affectedChunk in affectedChunks)
+            {
+                mapSystem.MarkChunkDirty(affectedChunk);
+                if (mapRenderer != null)
+                {
+                    mapRenderer.RefreshChunk(affectedChunk);
+                }
+            }
         }
         
         void ApplyPaint(MapChunk chunk, int x, int y, int z)
@@ -382,6 +542,10 @@ namespace Backend.Map.Editor
             }
             
             mapSystem.MarkChunkDirty(playerChunk);
+            if (mapRenderer != null)
+            {
+                mapRenderer.RefreshChunk(playerChunk);
+            }
         }
         
         void ClearAllChunks()
@@ -416,6 +580,12 @@ namespace Backend.Map.Editor
                 }
                 
                 mapSystem.MarkChunkDirty(chunkCoord);
+            }
+            
+            // Refresh all chunk rendering
+            if (mapRenderer != null)
+            {
+                mapRenderer.RefreshAllChunks();
             }
         }
     }

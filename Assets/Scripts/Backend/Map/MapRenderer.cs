@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using Backend.Map;
+using miniRAID;
 
 namespace Backend.Map
 {
@@ -67,7 +68,7 @@ namespace Backend.Map
             if (chunkMaterial == null)
             {
                 // Create a default transparent material
-                chunkMaterial = new Material(Shader.Find("Standard"));
+                chunkMaterial = new Material(Shader.Find("Universal Render Pipeline/Lit"));
                 chunkMaterial.color = new Color(1, 1, 1, 0.5f);
                 chunkMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
                 chunkMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
@@ -279,6 +280,32 @@ namespace Backend.Map
                 triangles.Add(v1);
                 triangles.Add(v2);
                 triangles.Add(v1);
+            }
+        }
+        
+        // Public method to refresh a specific chunk
+        public void RefreshChunk(Vector3Int chunkCoordinate)
+        {
+            if (chunkRenderers.TryGetValue(chunkCoordinate, out ChunkRenderer renderer))
+            {
+                var chunk = mapSystem.GetLoadedChunk(chunkCoordinate);
+                if (chunk != null)
+                {
+                    GenerateChunkMesh(chunk, renderer);
+                }
+            }
+        }
+        
+        // Public method to refresh all chunks
+        public void RefreshAllChunks()
+        {
+            foreach (var kvp in chunkRenderers)
+            {
+                var chunk = mapSystem.GetLoadedChunk(kvp.Key);
+                if (chunk != null)
+                {
+                    GenerateChunkMesh(chunk, kvp.Value);
+                }
             }
         }
         

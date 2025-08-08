@@ -26,8 +26,6 @@ namespace miniRAID
 
         public bool solid = false;
         public MobData mob;
-
-        public HashSet<GridEffect> effects = new();
     }
 
     public class GridPath

@@ -13,11 +13,21 @@ namespace Backend.Map
         public bool showChunkBoundaries = true;
         public bool enableRendering = true;
         
+        [Header("Block State Colors")]
+        public Color solidBlockColor = Color.red;
+        public Color standableBlockColor = Color.green;
+        public Color passableBlockColor = Color.blue;
+        public Color solidStandableBlockColor = Color.yellow; // Both solid and standable
+        
         [Header("Terrain Colors")]
         public Color normalTerrainColor = Color.white;
         public Color mountainTerrainColor = Color.gray;
-        public Color solidBlockColor = Color.red;
-        public Color standableBlockColor = Color.green;
+        
+        [Header("Rendering Options")]
+        public bool showSolidBlocks = true;
+        public bool showStandableBlocks = true;
+        public bool showPassableBlocks = false; // Usually air, off by default
+        public bool enableOcclusionCulling = true;
         
         private MapSystem mapSystem;
         private Dictionary<Vector3Int, ChunkRenderer> chunkRenderers = new Dictionary<Vector3Int, ChunkRenderer>();
@@ -68,14 +78,14 @@ namespace Backend.Map
             if (chunkMaterial == null)
             {
                 // Create a default transparent material
-                chunkMaterial = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+                chunkMaterial = new Material(Shader.Find("ProBuilder6/Standard Vertex Color"));
                 chunkMaterial.color = new Color(1, 1, 1, 0.5f);
-                chunkMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-                chunkMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-                chunkMaterial.SetInt("_ZWrite", 0);
-                chunkMaterial.DisableKeyword("_ALPHATEST_ON");
-                chunkMaterial.EnableKeyword("_ALPHABLEND_ON");
-                chunkMaterial.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                // chunkMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+                // chunkMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+                // chunkMaterial.SetInt("_ZWrite", 0);
+                // chunkMaterial.DisableKeyword("_ALPHATEST_ON");
+                // chunkMaterial.EnableKeyword("_ALPHABLEND_ON");
+                // chunkMaterial.DisableKeyword("_ALPHAPREMULTIPLY_ON");
                 chunkMaterial.renderQueue = 3000;
             }
         }
@@ -127,25 +137,27 @@ namespace Backend.Map
             List<int> triangles = new List<int>();
             List<Color> colors = new List<Color>();
             
-            // Generate cubes for solid blocks
+            // Generate cubes based on multi-state visualization
             for (int x = 0; x < MapChunk.SIZE; x++)
             {
                 for (int y = 0; y < MapChunk.SIZE; y++)
                 {
                     for (int z = 0; z < MapChunk.SIZE; z++)
                     {
-                        if (chunk.GetIsSolid(x, y, z))
+                        // Skip if occlusion culling is enabled and block is occluded
+                        if (enableOcclusionCulling && IsBlockOccluded(chunk, x, y, z))
+                            continue;
+                            
+                        bool isSolid = chunk.GetIsSolid(x, y, z);
+                        bool isStandable = chunk.GetIsStandable(x, y, z);
+                        bool isPassable = chunk.GetIsPassable(x, y, z);
+                        
+                        Color blockColor = GetBlockStateColor(isSolid, isStandable, isPassable, chunk.GetTerrainType(x, y, z));
+                        bool shouldRender = ShouldRenderBlock(isSolid, isStandable, isPassable);
+                        
+                        if (shouldRender)
                         {
-                            AddCube(vertices, triangles, colors, 
-                                new Vector3(x, y, z), 
-                                GetTerrainColor(chunk.GetTerrainType(x, y, z)));
-                        }
-                        else if (chunk.GetIsStandable(x, y, z))
-                        {
-                            // Show standable blocks as wireframe or lighter color
-                            AddCube(vertices, triangles, colors, 
-                                new Vector3(x, y, z), 
-                                standableBlockColor * 0.5f);
+                            AddCube(vertices, triangles, colors, new Vector3(x, y, z), blockColor);
                         }
                     }
                 }
@@ -170,17 +182,82 @@ namespace Backend.Map
             renderer.meshFilter.mesh = renderer.mesh;
         }
         
-        private Color GetTerrainColor(miniRAID.GridData.TerrainType terrainType)
+        private bool ShouldRenderBlock(bool isSolid, bool isStandable, bool isPassable)
+        {
+            if (isSolid && showSolidBlocks) return true;
+            if (isStandable && !isSolid && showStandableBlocks) return true;
+            if (isPassable && !isSolid && !isStandable && showPassableBlocks) return true;
+            return false;
+        }
+        
+        private Color GetBlockStateColor(bool isSolid, bool isStandable, bool isPassable, miniRAID.GridData.TerrainType terrainType)
+        {
+            // Priority: solid+standable > solid > standable > passable
+            if (isSolid && isStandable)
+            {
+                return solidStandableBlockColor * GetTerrainModifier(terrainType);
+            }
+            else if (isSolid)
+            {
+                return solidBlockColor * GetTerrainModifier(terrainType);
+            }
+            else if (isStandable)
+            {
+                return standableBlockColor * GetTerrainModifier(terrainType);
+            }
+            else if (isPassable)
+            {
+                return passableBlockColor * GetTerrainModifier(terrainType);
+            }
+            else
+            {
+                // Default fallback (shouldn't happen)
+                return Color.gray * GetTerrainModifier(terrainType);
+            }
+        }
+        
+        private Color GetTerrainModifier(miniRAID.GridData.TerrainType terrainType)
         {
             switch (terrainType)
             {
                 case miniRAID.GridData.TerrainType.Normal:
-                    return normalTerrainColor;
+                    return Color.white;
                 case miniRAID.GridData.TerrainType.Mountain:
-                    return mountainTerrainColor;
+                    return new Color(0.7f, 0.7f, 0.7f, 1f); // Darker modifier
                 default:
-                    return normalTerrainColor;
+                    return Color.white;
             }
+        }
+        
+        private bool IsBlockOccluded(MapChunk chunk, int x, int y, int z)
+        {
+            // A block is occluded if all 6 adjacent positions are solid
+            Vector3Int[] neighbors = {
+                new Vector3Int(x-1, y, z), new Vector3Int(x+1, y, z),
+                new Vector3Int(x, y-1, z), new Vector3Int(x, y+1, z),
+                new Vector3Int(x, y, z-1), new Vector3Int(x, y, z+1)
+            };
+            
+            foreach (var neighbor in neighbors)
+            {
+                if (!IsSolidAt(chunk, neighbor.x, neighbor.y, neighbor.z))
+                    return false; // Not occluded if any neighbor is not solid
+            }
+            
+            return true; // All neighbors are solid, so this block is occluded
+        }
+        
+        private bool IsSolidAt(MapChunk chunk, int x, int y, int z)
+        {
+            // Handle out-of-chunk boundaries
+            if (x < 0 || x >= MapChunk.SIZE || y < 0 || y >= MapChunk.SIZE || z < 0 || z >= MapChunk.SIZE)
+            {
+                // For cross-chunk queries, we need to check neighboring chunks
+                // For now, assume non-solid (could be optimized to check actual neighboring chunks)
+                return false;
+            }
+            
+            return chunk.GetIsSolid(x, y, z);
         }
         
         private void AddCube(List<Vector3> vertices, List<int> triangles, List<Color> colors, Vector3 position, Color color)

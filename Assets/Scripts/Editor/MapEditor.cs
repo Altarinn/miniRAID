@@ -33,6 +33,9 @@ namespace Backend.Map.Editor
         private bool paintStandable = true;
         private bool paintPassable = true;
         
+        // Direct block state settings
+        private BlockState paintBlockState = new BlockState();
+        
         // Rendering
         private MapRenderer mapRenderer;
         
@@ -41,7 +44,23 @@ namespace Backend.Map.Editor
             TerrainType,
             Solid,
             Standable,
-            Passable
+            Passable,
+            DirectBlockState // New mode for direct multi-state editing
+        }
+        
+        // Direct block state settings
+        [System.Serializable]
+        public class BlockState
+        {
+            public bool solid = false;
+            public bool standable = true;
+            public bool passable = true;
+            public miniRAID.GridData.TerrainType terrainType = miniRAID.GridData.TerrainType.Normal;
+            
+            public override string ToString()
+            {
+                return $"S:{(solid ? "Y" : "N")} St:{(standable ? "Y" : "N")} P:{(passable ? "Y" : "N")} T:{terrainType}";
+            }
         }
         
         private enum RaycastTarget
@@ -160,6 +179,16 @@ namespace Backend.Map.Editor
                 case TerrainEditMode.Passable:
                     paintPassable = EditorGUILayout.Toggle("Set Passable", paintPassable);
                     break;
+                case TerrainEditMode.DirectBlockState:
+                    EditorGUILayout.LabelField("Direct Block State Painting", EditorStyles.boldLabel);
+                    paintBlockState.solid = EditorGUILayout.Toggle("Solid", paintBlockState.solid);
+                    paintBlockState.standable = EditorGUILayout.Toggle("Standable", paintBlockState.standable);
+                    paintBlockState.passable = EditorGUILayout.Toggle("Passable", paintBlockState.passable);
+                    paintBlockState.terrainType = (miniRAID.GridData.TerrainType)EditorGUILayout.EnumPopup("Terrain Type", paintBlockState.terrainType);
+                    
+                    EditorGUILayout.Space();
+                    EditorGUILayout.HelpBox($"Will paint: {paintBlockState.ToString()}", MessageType.Info);
+                    break;
             }
             
             EditorGUILayout.Space();
@@ -205,6 +234,17 @@ namespace Backend.Map.Editor
             if (mapRenderer != null)
             {
                 mapRenderer.showChunkBoundaries = showChunkBoundaries;
+                
+                EditorGUILayout.LabelField("Block Type Visibility", EditorStyles.boldLabel);
+                mapRenderer.showSolidBlocks = EditorGUILayout.Toggle("Show Solid Blocks", mapRenderer.showSolidBlocks);
+                mapRenderer.showStandableBlocks = EditorGUILayout.Toggle("Show Standable Blocks", mapRenderer.showStandableBlocks);
+                mapRenderer.showPassableBlocks = EditorGUILayout.Toggle("Show Passable Blocks", mapRenderer.showPassableBlocks);
+                mapRenderer.enableOcclusionCulling = EditorGUILayout.Toggle("Enable Occlusion Culling", mapRenderer.enableOcclusionCulling);
+                
+                if (GUILayout.Button("Refresh All Rendering"))
+                {
+                    mapRenderer.RefreshAllChunks();
+                }
             }
             
             if (GUILayout.Button("Find/Create Map Renderer"))
@@ -479,6 +519,13 @@ namespace Backend.Map.Editor
                     break;
                 case TerrainEditMode.Passable:
                     chunk.SetIsPassable(x, y, z, paintPassable);
+                    break;
+                case TerrainEditMode.DirectBlockState:
+                    // Apply all block state properties at once
+                    chunk.SetIsSolid(x, y, z, paintBlockState.solid);
+                    chunk.SetIsStandable(x, y, z, paintBlockState.standable);
+                    chunk.SetIsPassable(x, y, z, paintBlockState.passable);
+                    chunk.SetTerrainType(x, y, z, paintBlockState.terrainType);
                     break;
             }
         }

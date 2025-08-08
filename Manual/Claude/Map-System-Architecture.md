@@ -60,6 +60,11 @@ MapChunk GetLoadedChunk(Vector3Int chunkCoordinate)
 // World queries (replaces Databackend.GetMap)
 GridData GetMap(Vector3 worldPos)
 bool IsMoveable(Vector3 worldPos, MovementType type, out int cost)
+
+// Cross-chunk block queries (handles chunk boundaries)
+bool IsStandable(Vector3 worldPos)
+bool IsSolid(Vector3 worldPos)  
+bool IsPassable(Vector3 worldPos)
 ```
 
 **Loading Strategy:**
@@ -103,6 +108,46 @@ Unity Editor window for visual map editing with brush tools.
 3. **Selection**: Mouse over blocks to inspect properties
 4. **Painting**: Ctrl+Click with brush tools to modify terrain
 5. **Testing**: Generate test terrain or clear chunks
+
+## Chunk Border Handling
+
+### Cross-Chunk Queries
+
+The MapSystem provides seamless access across chunk boundaries for critical gameplay mechanics:
+
+**Standable Detection:**
+```csharp
+// OLD: Limited to single chunk
+bool hasFloor = chunk.GetIsStandable(x, y-1, z);
+
+// NEW: Cross-chunk detection
+bool hasFloor = mapSystem.IsStandable(worldPos + Vector3.down);
+```
+
+**Movement Validation:**
+```csharp
+public bool IsMoveable(Vector3 worldPos, MovementType type, out int cost)
+{
+    // Check current position passability
+    bool isPassable = GetIsPassableAtWorldPos(worldPos);
+    
+    // Check floor support across chunk boundaries
+    bool hasFloor = GetIsStandableAtWorldPos(worldPos) || 
+                   GetIsStandableAtWorldPos(worldPos + Vector3.down);
+    
+    return isPassable && hasFloor;
+}
+```
+
+**Edge Cases Handled:**
+- **Chunk Y-boundaries**: Walking on blocks spanning Y=0/Y=32 boundaries
+- **Unloaded Chunks**: Safe fallback behavior when adjacent chunks not loaded
+- **Coordinate Wrapping**: Proper local coordinate calculation across chunk edges
+
+**Performance Considerations:**
+- **Cached Chunk Lookups**: Efficient chunk coordinate calculations
+- **Boundary Optimization**: Only cross-chunk queries when necessary
+- **Fallback Behavior**: Graceful degradation for unloaded adjacent chunks
 
 ## Integration with Existing Systems
 

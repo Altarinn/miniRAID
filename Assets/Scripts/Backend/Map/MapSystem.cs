@@ -125,7 +125,6 @@ namespace Backend.Map
             {
                 solid = chunk.GetIsSolid(localCoord.x, localCoord.y, localCoord.z),
                 mob = null, // Will be set by collision detection in calling code
-                effects = new HashSet<miniRAID.GridEffect>() // Effects handled separately
             };
 
             // Set terrain type from private field using reflection or make it public
@@ -163,10 +162,50 @@ namespace Backend.Map
             
             // For walking, need passable space and standable ground
             bool isPassable = chunk.GetIsPassable(localCoord.x, localCoord.y, localCoord.z);
-            bool hasFloor = chunk.GetIsStandable(localCoord.x, localCoord.y, localCoord.z) || 
-                           (localCoord.y > 0 && chunk.GetIsStandable(localCoord.x, localCoord.y - 1, localCoord.z));
+            bool hasFloor = GetIsStandableAtWorldPos(worldPos) || 
+                           GetIsStandableAtWorldPos(worldPos + Vector3.down);
             
             return isPassable && hasFloor;
+        }
+
+        // Helper methods to check block properties across chunk boundaries
+        private bool GetIsStandableAtWorldPos(Vector3 worldPos)
+        {
+            Vector3Int chunkCoord = WorldToChunkCoordinate(worldPos);
+            Vector3Int localCoord = WorldToLocalChunkCoordinate(worldPos);
+
+            if (!loadedChunks.TryGetValue(chunkCoord, out MapChunk chunk))
+            {
+                return false; // Assume not standable if chunk not loaded
+            }
+
+            return chunk.GetIsStandable(localCoord.x, localCoord.y, localCoord.z);
+        }
+
+        private bool GetIsSolidAtWorldPos(Vector3 worldPos)
+        {
+            Vector3Int chunkCoord = WorldToChunkCoordinate(worldPos);
+            Vector3Int localCoord = WorldToLocalChunkCoordinate(worldPos);
+
+            if (!loadedChunks.TryGetValue(chunkCoord, out MapChunk chunk))
+            {
+                return false; // Assume not solid if chunk not loaded
+            }
+
+            return chunk.GetIsSolid(localCoord.x, localCoord.y, localCoord.z);
+        }
+
+        private bool GetIsPassableAtWorldPos(Vector3 worldPos)
+        {
+            Vector3Int chunkCoord = WorldToChunkCoordinate(worldPos);
+            Vector3Int localCoord = WorldToLocalChunkCoordinate(worldPos);
+
+            if (!loadedChunks.TryGetValue(chunkCoord, out MapChunk chunk))
+            {
+                return true; // Assume passable if chunk not loaded
+            }
+
+            return chunk.GetIsPassable(localCoord.x, localCoord.y, localCoord.z);
         }
 
         // Get loaded chunk for direct access (for editor)
@@ -185,6 +224,22 @@ namespace Backend.Map
         public void MarkChunkDirty(Vector3Int chunkCoordinate)
         {
             // TODO: Implement dirty tracking
+        }
+
+        // Public methods for cross-chunk block queries
+        public bool IsStandable(Vector3 worldPos)
+        {
+            return GetIsStandableAtWorldPos(worldPos);
+        }
+
+        public bool IsSolid(Vector3 worldPos)
+        {
+            return GetIsSolidAtWorldPos(worldPos);
+        }
+
+        public bool IsPassable(Vector3 worldPos)
+        {
+            return GetIsPassableAtWorldPos(worldPos);
         }
 
         // Save chunk to disk
@@ -261,7 +316,6 @@ namespace Backend.Map
             {
                 solid = false,
                 mob = null,
-                effects = new HashSet<miniRAID.GridEffect>()
             };
         }
     }

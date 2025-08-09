@@ -8,8 +8,8 @@ namespace Backend.Map
     public class MapSystem
     {
         // Chunk loading range around player (5x3x5 as requested)
-        public static readonly Vector3Int LoadingRange = new Vector3Int(5, 3, 5);
-        private static readonly Vector3Int LoadingOffset = new Vector3Int(2, 1, 2); // Center offset
+        public static readonly Vector3Int LoadingRange = new Vector3Int(1, 1, 1);
+        private static readonly Vector3Int LoadingOffset = new Vector3Int(0, 0, 0); // Center offset
 
         private Dictionary<Vector3Int, MapChunk> loadedChunks = new Dictionary<Vector3Int, MapChunk>();
         private Vector3Int currentPlayerChunk;
@@ -145,49 +145,13 @@ namespace Backend.Map
             var gridData = new miniRAID.GridData
             {
                 solid = chunk.GetIsSolid(localCoord.x, localCoord.y, localCoord.z),
+                standable = chunk.GetIsStandable(localCoord.x, localCoord.y, localCoord.z),
+                passable = chunk.GetIsPassable(localCoord.x, localCoord.y, localCoord.z),
+                type = chunk.GetTerrainType(localCoord.x, localCoord.y, localCoord.z),
                 mob = null, // Will be set by collision detection in calling code
             };
 
-            // Set terrain type from private field using reflection or make it public
-            var terrainField = typeof(miniRAID.GridData).GetField("type", 
-                System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-            terrainField?.SetValue(gridData, chunk.GetTerrainType(localCoord.x, localCoord.y, localCoord.z));
-
             return gridData;
-        }
-
-        // Check if position is moveable (for pathfinding)
-        public bool IsMoveable(Vector3 worldPos, miniRAID.MobData.MovementType movementType, out int cost)
-        {
-            Vector3Int gridPos = Vector3Int.FloorToInt(worldPos);
-            return IsMoveable(gridPos, movementType, out cost);
-        }
-
-        // Check if grid position is moveable (core implementation)
-        public bool IsMoveable(Vector3Int gridPos, miniRAID.MobData.MovementType movementType, out int cost)
-        {
-            cost = 1;
-            
-            Vector3Int chunkCoord = WorldToChunkCoordinate(gridPos);
-            Vector3Int localCoord = WorldToLocalChunkCoordinate(gridPos);
-
-            if (!loadedChunks.TryGetValue(chunkCoord, out MapChunk chunk))
-            {
-                // If chunk not loaded, assume passable for flying, not for walking
-                return movementType == miniRAID.MobData.MovementType.Fly;
-            }
-
-            if (movementType == miniRAID.MobData.MovementType.Fly)
-            {
-                return chunk.GetIsPassable(localCoord.x, localCoord.y, localCoord.z);
-            }
-            
-            // For walking, need passable space and standable ground
-            bool isPassable = chunk.GetIsPassable(localCoord.x, localCoord.y, localCoord.z);
-            bool hasFloor = GetIsStandableAtGridPos(gridPos) || 
-                           GetIsStandableAtGridPos(gridPos + Vector3Int.down);
-            
-            return isPassable && hasFloor;
         }
 
         // Helper methods to check block properties across chunk boundaries
@@ -359,5 +323,117 @@ namespace Backend.Map
                 mob = null,
             };
         }
+        
+        // Raycast
+        public enum RaycastTarget
+        {
+            Solid,
+            Standable,
+            SolidOrStandable
+        }
+        
+        public (Vector3Int hitPos, Vector3Int faceNormal)? DDAGridRaycast(Ray ray, RaycastTarget raycastTarget)
+        {
+            Vector3 rayPos = ray.origin;
+            Vector3 rayDir = ray.direction.normalized;
+            
+            // Maximum distance to check
+            float maxDistance = 1000f;
+            
+            // Current grid position
+            Vector3Int gridPos = Vector3Int.FloorToInt(rayPos);
+            
+            // Calculate step direction (1 or -1 for each axis)
+            Vector3Int step = new Vector3Int(
+                rayDir.x > 0 ? 1 : -1,
+                rayDir.y > 0 ? 1 : -1,
+                rayDir.z > 0 ? 1 : -1
+            );
+            
+            // Calculate distance to next grid boundary on each axis
+            Vector3 deltaDist = new Vector3(
+                rayDir.x != 0 ? Mathf.Abs(1f / rayDir.x) : float.MaxValue,
+                rayDir.y != 0 ? Mathf.Abs(1f / rayDir.y) : float.MaxValue,
+                rayDir.z != 0 ? Mathf.Abs(1f / rayDir.z) : float.MaxValue
+            );
+            
+            // Calculate initial distance to next grid boundary
+            Vector3 sideDist;
+            if (rayDir.x < 0)
+                sideDist.x = (rayPos.x - gridPos.x) * deltaDist.x;
+            else
+                sideDist.x = (gridPos.x + 1.0f - rayPos.x) * deltaDist.x;
+                
+            if (rayDir.y < 0)
+                sideDist.y = (rayPos.y - gridPos.y) * deltaDist.y;
+            else
+                sideDist.y = (gridPos.y + 1.0f - rayPos.y) * deltaDist.y;
+                
+            if (rayDir.z < 0)
+                sideDist.z = (rayPos.z - gridPos.z) * deltaDist.z;
+            else
+                sideDist.z = (gridPos.z + 1.0f - rayPos.z) * deltaDist.z;
+            
+            // DDA stepping
+            Vector3Int faceNormal = Vector3Int.zero;
+            float currentDist = 0f;
+            
+            while (currentDist < maxDistance)
+            {
+                // Check if current grid position matches our raycast target
+                if (IsRaycastTarget(gridPos, raycastTarget))
+                {
+                    return (gridPos, faceNormal);
+                }
+                
+                // Step to next grid boundary and track which face we crossed
+                if (sideDist.x < sideDist.y && sideDist.x < sideDist.z)
+                {
+                    sideDist.x += deltaDist.x;
+                    gridPos.x += step.x;
+                    faceNormal = new Vector3Int(-step.x, 0, 0); // Face normal opposite to step direction
+                    currentDist = sideDist.x;
+                }
+                else if (sideDist.y < sideDist.z)
+                {
+                    sideDist.y += deltaDist.y;
+                    gridPos.y += step.y;
+                    faceNormal = new Vector3Int(0, -step.y, 0);
+                    currentDist = sideDist.y;
+                }
+                else
+                {
+                    sideDist.z += deltaDist.z;
+                    gridPos.z += step.z;
+                    faceNormal = new Vector3Int(0, 0, -step.z);
+                    currentDist = sideDist.z;
+                }
+            }
+            
+            return null;
+        }
+        
+        bool IsRaycastTarget(Vector3Int gridPos, RaycastTarget raycastTarget)
+        {
+            Vector3Int chunkCoord = MapSystem.WorldToChunkCoordinate(gridPos);
+            Vector3Int localCoord = MapSystem.WorldToLocalChunkCoordinate(gridPos);
+            
+            var chunk = GetLoadedChunk(chunkCoord);
+            if (chunk == null) return false;
+            
+            switch (raycastTarget)
+            {
+                case RaycastTarget.Solid:
+                    return chunk.GetIsSolid(localCoord.x, localCoord.y, localCoord.z);
+                case RaycastTarget.Standable:
+                    return chunk.GetIsStandable(localCoord.x, localCoord.y, localCoord.z);
+                case RaycastTarget.SolidOrStandable:
+                    return chunk.GetIsSolid(localCoord.x, localCoord.y, localCoord.z) || 
+                           chunk.GetIsStandable(localCoord.x, localCoord.y, localCoord.z);
+                default:
+                    return false;
+            }
+        }
+        
     }
 }

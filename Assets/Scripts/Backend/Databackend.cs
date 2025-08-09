@@ -22,10 +22,10 @@ namespace miniRAID
             Mountain
         }
 
-        TerrainType type;
-
-        public bool solid = false;
+        public bool solid = false, standable = false, passable = true;
         public MobData mob;
+        
+        public TerrainType type;
     }
 
     public class GridPath
@@ -666,9 +666,6 @@ namespace miniRAID
 
     public partial class Databackend
     {
-        const int MAX_MAP_SIZE = 16;
-        private const int MAX_MAP_HEIGHT = 1;
-
         static private Databackend instance;
         static public Databackend GetSingleton()
         {
@@ -682,16 +679,12 @@ namespace miniRAID
         // New Map System
         private MapSystem mapSystem;
         
-        bool[,,] visited = new bool[MAX_MAP_SIZE, MAX_MAP_HEIGHT, MAX_MAP_SIZE];
-        
         [OdinSerialize]
         public HashSet<MobData> allMobs { get; private set; } = new HashSet<MobData>();
 
         [OdinSerialize]
         // public Dictionary<GridEffect, List<Vector3Int>> allGridEffects { get; private set; } = new(); // Fx -> Fx location
         public HashSet<GridEffect> allGridEffects = new();
-        public int mapSizeX, mapHeight, mapSizeZ;
-        public Vector3Int MapSize => new Vector3Int(mapSizeX, mapHeight, mapSizeZ);
 
         public MobEvent<MobData.MobArgumentDelegate> onMobAdded = new();
         public MobEvent<MobData.MobArgumentDelegate> onMobRemoved = new();
@@ -704,10 +697,6 @@ namespace miniRAID
             
             // Update chunk loading around player starting position (0,0,0)
             mapSystem.UpdateChunkLoading(Vector3.zero);
-            
-            mapSizeX = MAX_MAP_SIZE; // Keep for backward compatibility
-            mapHeight = MAX_MAP_HEIGHT;
-            mapSizeZ = MAX_MAP_SIZE;
         }
 
         public GridData GetMap(Vector3 backendPos)
@@ -745,20 +734,6 @@ namespace miniRAID
 
         public GridData GetMap(Vector3Int pos) => GetMap(pos, true);
         
-        public IEnumerator<Vector3Int> GetAllMapGridPositions()
-        {
-            for (int i = 0; i < mapSizeX; i++)
-            {
-                for (int j = 0; j < mapHeight; j++)
-                {
-                    for (int k = 0; k < mapSizeZ; k++)
-                    {
-                        yield return new Vector3Int(i, j, k);
-                    }
-                }
-            }
-        }
-
         private IEnumerator GlobalActionPostcast(MobData mob, RuntimeAction action, Spells.SpellTarget target)
         {
             yield return new JumpIn(onGlobalActionPostcast?.InvokeCoroutine(mob, action, target));
@@ -869,7 +844,7 @@ namespace miniRAID
         public static Vector3Int BackendToGridPos(Vector3 backendPos)
         {
             // return new Vector3Int(Mathf.FloorToInt(pos.x), 0, Mathf.FloorToInt(pos.y));
-            return new Vector3Int(Mathf.FloorToInt(backendPos.x), 0, Mathf.FloorToInt(backendPos.z));
+            return new Vector3Int(Mathf.FloorToInt(backendPos.x), Mathf.FloorToInt(backendPos.y), Mathf.FloorToInt(backendPos.z));
         }
 
         public Vector3 RenderToBackendPos(Vector3 renderPos)
@@ -894,7 +869,7 @@ namespace miniRAID
         public Vector3 BackendToRenderPos(Vector3 backendPos)
         {
             // return newVector3(gridPos.x, gridPos.z, 0) * 1.0f;
-            return new Vector3(backendPos.x, 0, backendPos.z) * 1.0f;
+            return new Vector3(backendPos.x, backendPos.y, backendPos.z) * 1.0f;
         }
 
         public Vector3 BackendToRenderPosCentered(Vector3 backendPos)
@@ -951,78 +926,7 @@ namespace miniRAID
 
         public bool InMap(Vector3Int pos)
         {
-            return !((pos.x < 0) || (pos.x >= mapSizeX) || (pos.y < 0) || (pos.y >= mapHeight) || (pos.z < 0) || (pos.z >= mapSizeZ));
-        }
-
-        /// <summary>
-        /// This method don't care if the mob will die while moving to target grid.
-        /// In that case, you can select to move but your mob will die in the midways.
-        /// </summary>
-        /// <param name="mob">Mob that you want to check with. This method uses mob.data.position and mob.data.actionPoints as starting point.</param>
-        /// <returns></returns>
-        [Obsolete("Perhaps you should consider FindPathTo ... ? Idk, try avoid using this now, refactoring WIP for 3D grids")]
-        public Dictionary<Vector3Int, float> GetMoveableGrids(MobData mob)
-        {
-            // TODO: detailed check
-            return GetMoveableGrids(
-                mob.GridPosition,
-                mob.actedThisTurn ? 0 : mob.MoveRangeLeft,
-                Mathf.FloorToInt(mob.actionPoints),
-                mob.baseDescriptor.movementType);
-        }
-        
-        [Obsolete("Perhaps you should consider FindPathTo ... ? Idk, try avoid using this now, refactoring WIP for 3D grids")]
-        public Dictionary<Vector3Int, float> GetMoveableGrids(Vector3Int startPos, int freeRange = 3, int exMove = 5,
-            BaseMobDescriptorSO.MovementType moveType = BaseMobDescriptorSO.MovementType.Walk)
-        {
-            Dictionary<Vector3Int, float> result = new();
-            Queue<KeyValuePair<Vector3Int, int>> BFSQueue = new Queue<KeyValuePair<Vector3Int, int>>();
-            System.Array.Clear(visited, 0, visited.Length);
-
-            Vector3Int[] dirc = new Vector3Int[] { new Vector3Int(0, 0, 1), new Vector3Int(0, 0, -1), new Vector3Int(1, 0, 0), new Vector3Int(-1, 0, 0) };
-
-            BFSQueue.Enqueue(new KeyValuePair<Vector3Int, int>(
-                startPos,
-                freeRange + exMove)
-            );
-            visited[startPos.x, startPos.y, startPos.z] = true;
-
-            while (BFSQueue.Count > 0)
-            {
-                var current = BFSQueue.Dequeue();
-                result.Add(current.Key, current.Value);
-
-                foreach (var dir in dirc)
-                {
-                    var next = current.Key + dir;
-                    if (!InMap(next)) { continue; }
-                    if (visited[next.x, next.y, next.z] == false && current.Value > 0)
-                    {
-                        visited[next.x, next.y, next.z] = true;
-                        BFSQueue.Enqueue(new KeyValuePair<Vector3Int, int>(next, current.Value - 1));
-                    }
-                }
-            }
-
-            return result;
-        }
-
-        public bool IsMoveable(GridData grid, MobData.MovementType type, out int cost)
-        {
-            cost = 1;
-
-            if (type == MobData.MovementType.Fly)
-            {
-                return true;
-            }
-            
-            return grid.mob == null && !grid.solid;
-        }
-
-        // Add new method that uses MapSystem directly for better performance
-        public bool IsMoveable(Vector3 worldPos, MobData.MovementType type, out int cost)
-        {
-            return mapSystem.IsMoveable(worldPos, type, out cost);
+            return true;
         }
 
         public delegate bool IsGridValidFunc(Vector3Int pos, GridData data);
@@ -1066,22 +970,16 @@ namespace miniRAID
         public struct GridBFSKeys : IComparable
         {
             public Vector3Int position;
-            public int distance;
+            public float distance;
 
             public int CompareTo(object obj)
             {
-                return distance - ((GridBFSKeys)obj).distance;
+                return Math.Sign(distance - ((GridBFSKeys)obj).distance);
             }
 
-            public GridBFSKeys(Vector3Int p, int d)
+            public GridBFSKeys(Vector3Int p, float d)
             {
                 this.position = p;
-                this.distance = d;
-            }
-
-            public GridBFSKeys(int x, int y, int d)
-            {
-                this.position = new Vector3Int(x, y);
                 this.distance = d;
             }
         }
@@ -1094,56 +992,90 @@ namespace miniRAID
             Consts.Direction.Right,
         };
 
-        public GridPath FindPathTo(Vector3Int from, Vector3Int to, MobData.MovementType movementType = MobData.MovementType.Walk, int maxDistance = -1)
+        public GridPath FindPathTo(IGridCollider origin, Vector3Int to, Movement movement, int maxDistance = -1)
         {
+            if (GenericMovementBFS(
+                    origin, movement, key => key.position == to, maxDistance,
+                    out var gridInfo))
+            {
+                // Found a path
+                return ReconstructPath(x => gridInfo[x].prevGrid, to);
+            }
+
+            return null;
+        }
+
+        public static GridPath ReconstructPath(Func<Vector3Int, Vector3Int> getPrevGrid, Vector3Int destination)
+        {
+            GridPath path = new GridPath();
+            path.path = new List<Vector3Int>();
+
+            Vector3Int pathCurr = destination;
+            while(getPrevGrid(pathCurr) != pathCurr)
+            {
+                path.path.Add(pathCurr);
+                pathCurr = getPrevGrid(pathCurr);
+            }
+
+            path.path.Reverse();
+            return path;
+        }
+
+        public delegate bool MovementTerminationCondition(GridBFSKeys key);
+
+        public bool GenericMovementBFS(
+            IGridCollider origin,
+            Movement movement,
+            MovementTerminationCondition termCond,
+            int maxDistance,
+            out Dictionary<Vector3Int, (Vector3Int prevGrid, float distance)> gridInfo)
+        {
+            Vector3Int from = BackendToGridPos(origin.Position);
+            
+            // TODO: Dont new them everytime
             C5.IntervalHeap<GridBFSKeys> searchedGrids = new C5.IntervalHeap<GridBFSKeys>();
-            Dictionary<Vector3Int, Vector3Int> prevGrid = new Dictionary<Vector3Int, Vector3Int>();
+            gridInfo = new();
 
             searchedGrids.Add(new GridBFSKeys(from, 0));
-            prevGrid.Add(from, from);
+            gridInfo.Add(from, (from, 0));
 
             while(!searchedGrids.IsEmpty)
             {
                 var curr = searchedGrids.DeleteMin();
 
-                if (curr.position == to)
+                // Reconstruct a collider
+                var coll = origin.ShallowClone();
+                coll.Position = GridToBackendFloorPos(curr.position);
+                
+                // Ask the movement action where could we go
+                var targetGrids = movement.ProposeMovementGrids(coll, curr);
+                        
+                foreach (var newKey in targetGrids)
                 {
-                    // Found a path
-                    GridPath path = new GridPath();
-                    path.path = new List<Vector3Int>();
-
-                    Vector3Int pathCurr = curr.position;
-                    while(prevGrid[pathCurr] != pathCurr)
-                    {
-                        path.path.Add(pathCurr);
-                        pathCurr = prevGrid[pathCurr];
-                    }
-
-                    path.path.Reverse();
-                    return path;
-                }
-
-                foreach (var d in possibleDirections)
-                {
-                    var newPos = curr.position + Consts.DirectionVectors[(int)d];
-                    if(!prevGrid.ContainsKey(newPos))
+                    var newPos = newKey.position;
+                    if(!gridInfo.ContainsKey(newPos))
                     {
                         // Get cost of grid
                         // TODO: IsMoveable might get stuck with >1x1 gridBodies
-                        if(InMap(newPos) && IsMoveable(GetMap(newPos.x, newPos.y, newPos.z), movementType, out int cost))
+
+                        if (InMap(newPos))
                         {
-                            if(maxDistance < 0 || (curr.distance + cost) <= maxDistance)
+                            if (termCond(newKey))
+                            {
+                                return true;
+                            }
+                            else if(newKey.distance < maxDistance)
                             {
                                 // TODO: Record path
-                                searchedGrids.Add(new GridBFSKeys(newPos, curr.distance + cost));
-                                prevGrid.Add(newPos, curr.position);
+                                searchedGrids.Add(newKey);
+                                gridInfo.Add(newPos, (curr.position, newKey.distance));
                             }
-                        }
+                        } 
                     }
                 }
             }
 
-            return null;
+            return false;
         }
 
         public bool IsPathValid(MobData mob, GridPath path)
@@ -1153,15 +1085,20 @@ namespace miniRAID
             return path.path.Count <= mob.actionPoints;
         }
 
-        // TODO: Add support for maps
+        // TODO: Optimize this by caching results.
+        // Use a non-serialized version number system on IGridColliders to cache valid results.
         public bool CanPositionPlaceMob(Vector3 position, IGridCollider body)
         {
-            Vector3 temp = body.Position;
-            body.Position = position;
+            var newbody = body.ShallowClone();
+            newbody.Position = position;
             
+            return CanPositionPlaceMob(newbody);
+        }
+        
+        // TODO: Add support for maps
+        public bool CanPositionPlaceMob(IGridCollider body)
+        {
             var result = allMobs.All(x => (x.Collider == body || !(x.Collider.Overlaps(body))));
-            
-            body.Position = temp;
             return result;
         }
 

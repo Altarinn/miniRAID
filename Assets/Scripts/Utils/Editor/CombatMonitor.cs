@@ -53,23 +53,23 @@ namespace Utils.Editor
         }
         
         // GridFx Test
-        public GridEffectSO effect;
-        public MobRenderer dummySrc;
-        [Button(ButtonSizes.Small)]
-        public void MakePools()
-        {
-            Vector3Int pos = new Vector3Int(
-                Random.Range(0, Globals.backend.mapSizeX),
-                Random.Range(0, Globals.backend.mapHeight),
-                Random.Range(0, Globals.backend.mapSizeZ));
-
-            var coll = new PointCollider();
-            coll.Position = pos;
-            GridEffect rfx = (GridEffect)effect.LeveledWrapFx(
-                dummySrc.data, 1, coll);
-            
-            dummySrc.data.AddListener(rfx);
-        }
+        // public GridEffectSO effect;
+        // public MobRenderer dummySrc;
+        // [Button(ButtonSizes.Small)]
+        // public void MakePools()
+        // {
+        //     Vector3Int pos = new Vector3Int(
+        //         Random.Range(0, Globals.backend.mapSizeX),
+        //         Random.Range(0, Globals.backend.mapHeight),
+        //         Random.Range(0, Globals.backend.mapSizeZ));
+        //
+        //     var coll = new PointCollider();
+        //     coll.Position = pos;
+        //     GridEffect rfx = (GridEffect)effect.LeveledWrapFx(
+        //         dummySrc.data, 1, coll);
+        //     
+        //     dummySrc.data.AddListener(rfx);
+        // }
         
         [Button(ButtonSizes.Large)]
         public void SaveState()

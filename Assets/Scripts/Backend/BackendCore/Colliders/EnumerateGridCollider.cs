@@ -22,11 +22,24 @@ namespace miniRAID
             this.shape = shape;
         }
 
-        public EnumerateGridCollider(EnumerateGridCollider other)
+        public EnumerateGridCollider(EnumerateGridCollider other, bool shallow = false)
         {
-            shape = new GridShape(other.shape);
+            if (shallow)
+            {
+                shape = other.shape;
+            }
+            else
+            {
+                shape = new GridShape(other.shape);
+            }
+            
             Position = other.Position;
             Direction = other.Direction;
+        }
+        
+        public IGridCollider ShallowClone()
+        {
+            return new EnumerateGridCollider(this);
         }
 
         public bool Overlaps(IGridCollider other)

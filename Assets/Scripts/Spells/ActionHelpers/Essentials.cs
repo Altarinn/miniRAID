@@ -323,7 +323,6 @@ namespace miniRAID.ActionHelpers
             Vector3Int newPos = mob.GridPosition + knockback;
             
             // TODO: Check newPos validity
-            newPos = Vector3Int.Max(Vector3Int.Min(newPos, Globals.backend.MapSize - Vector3Int.one), Vector3Int.zero);
             if (Globals.backend.GetMap(newPos).mob != null)
             {
                 yield break;

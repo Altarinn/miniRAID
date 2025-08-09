@@ -34,8 +34,8 @@ namespace miniRAID
         public IGridCollider gridBody;
         public MobRenderer rendererPrefab;
 
-        [Header("Movement")]
-        public MovementType movementType;
+        [Header("Movement")] 
+        public MovementSO movement;
         public bool movable = true;
         public int moveRange = 3;
         
@@ -70,6 +70,11 @@ namespace miniRAID
             
             // Compute some basic stats for later listeners
             mob.RecalculateStats();
+
+            if (movement != null)
+            {
+                mob.movement = (Movement)mob.AddAction(new ActionSOEntry(){data = movement, level = 1});
+            }
 
             if (actionSOs != null)
             {

@@ -12,6 +12,8 @@ namespace miniRAID
 
         Vector3 Position { get; set; }
         Consts.Direction Direction { get; set; }
+
+        IGridCollider ShallowClone();
     }
 
     // TODO: Refine me?

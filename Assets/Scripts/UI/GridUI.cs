@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using Backend.Map;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -222,18 +223,26 @@ namespace miniRAID.UI
         {
             // Vector2 cursorPos = cinemachineBrain.ScreenToWorldPoint(input.Get<Vector2>());
 
-            Vector3 cursorPos = Vector3.zero;
+            Vector3Int cursorGPos = Vector3Int.zero;
             
             Ray pointer = cinemachineBrain.ScreenPointToRay(input.Get<Vector2>());
-            float enter = 0.0f;
-            if (groundPlane.Raycast(pointer, out enter))
+            var rayCastResult = Globals.backend.GetMapSystem()
+                .DDAGridRaycast(pointer, MapSystem.RaycastTarget.SolidOrStandable);
+
+            if (!rayCastResult.HasValue)
             {
-                cursorPos = pointer.GetPoint(enter);
+                return;
+            }
+            
+            cursorGPos = rayCastResult.Value.hitPos;
+            if (!Globals.backend.GetMapSystem().IsPassable(cursorGPos))
+            {
+                cursorGPos += rayCastResult.Value.faceNormal;
             }
             
             // Vector2 _gridPos = (cursorPos / gridWorldUnitSize);
             Vector3Int oldPos = cursor.GridPos;
-            Vector3Int newPos = Globals.backend.RenderToGridPos(cursorPos);
+            Vector3Int newPos = cursorGPos;
             
             // cursor.position = new Vector3Int(Mathf.FloorToInt(_gridPos.x), 0, Mathf.FloorToInt(_gridPos.y));
 
@@ -275,19 +284,6 @@ namespace miniRAID.UI
                         inp.y == 0 ? 0 : (inp.y > 0 ? 1 : -1)
                     )
                 );
-
-                cursor.Position = 
-                    Vector3.Max(
-                        Vector3.Min(
-                            cursor.Position, 
-                            new Vector3Int(
-                                Globals.backend.mapSizeX, 
-                                Globals.backend.mapHeight,
-                                Globals.backend.mapSizeZ
-                            )
-                        ), 
-                        Vector3Int.zero
-                    );
             }
         }
 

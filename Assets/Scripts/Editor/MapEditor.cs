@@ -25,7 +25,7 @@ namespace Backend.Map.Editor
         private bool autoLoadChunks = true;
         private int brushSize = 1;
         private TerrainEditMode editMode = TerrainEditMode.TerrainType;
-        private RaycastTarget raycastTarget = RaycastTarget.Solid;
+        private MapSystem.RaycastTarget raycastTarget = MapSystem.RaycastTarget.Solid;
         private PlaceMode placeMode = PlaceMode.Replace;
         
         // Painting settings
@@ -62,13 +62,6 @@ namespace Backend.Map.Editor
             {
                 return $"S:{(solid ? "Y" : "N")} St:{(standable ? "Y" : "N")} P:{(passable ? "Y" : "N")} T:{terrainType}";
             }
-        }
-        
-        private enum RaycastTarget
-        {
-            Solid,
-            Standable,
-            SolidOrStandable
         }
         
         private enum PlaceMode
@@ -113,6 +106,8 @@ namespace Backend.Map.Editor
             }
             else
             {
+                EditorGUILayout.HelpBox("Only usable under Play Mode.", MessageType.Warning);
+                return;
                 // Use editor-only MapSystem outside play mode
                 if (editorMapSystem == null)
                 {
@@ -182,7 +177,7 @@ namespace Backend.Map.Editor
             EditorGUILayout.LabelField("Painting Tools", EditorStyles.boldLabel);
             editMode = (TerrainEditMode)EditorGUILayout.EnumPopup("Edit Mode", editMode);
             brushSize = EditorGUILayout.IntSlider("Brush Size", brushSize, 1, 5);
-            raycastTarget = (RaycastTarget)EditorGUILayout.EnumPopup("Raycast Target", raycastTarget);
+            raycastTarget = (MapSystem.RaycastTarget)EditorGUILayout.EnumPopup("Raycast Target", raycastTarget);
             placeMode = (PlaceMode)EditorGUILayout.EnumPopup("Place Mode", placeMode);
             
             // Help text
@@ -262,11 +257,8 @@ namespace Backend.Map.Editor
             {
                 mapRenderer.showChunkBoundaries = showChunkBoundaries;
                 
-                // Ensure MapRenderer has the correct MapSystem in editor mode
-                if (!Application.isPlaying)
-                {
-                    mapRenderer.SetMapSystem(mapSystem);
-                }
+                // Ensure MapRenderer has the correct MapSystem
+                mapRenderer.SetMapSystem(mapSystem);
                 
                 EditorGUILayout.LabelField("Block Type Visibility", EditorStyles.boldLabel);
                 mapRenderer.showSolidBlocks = EditorGUILayout.Toggle("Show Solid Blocks", mapRenderer.showSolidBlocks);
@@ -353,7 +345,7 @@ namespace Backend.Map.Editor
             {
                 // Ctrl+Click to paint
                 Ray ray = HandleUtility.GUIPointToWorldRay(current.mousePosition);
-                var raycastResult = DDAGridRaycast(ray);
+                var raycastResult = mapSystem?.DDAGridRaycast(ray, raycastTarget);
                 if (raycastResult.HasValue)
                 {
                     Vector3 worldPos = GetPaintPosition(raycastResult.Value);
@@ -365,7 +357,7 @@ namespace Backend.Map.Editor
             {
                 // Update selection
                 Ray ray = HandleUtility.GUIPointToWorldRay(current.mousePosition);
-                var raycastResult = DDAGridRaycast(ray);
+                var raycastResult = mapSystem?.DDAGridRaycast(ray, raycastTarget);
                 if (raycastResult.HasValue)
                 {
                     Vector3 worldPos = GetPaintPosition(raycastResult.Value);
@@ -391,127 +383,25 @@ namespace Backend.Map.Editor
             }
         }
         
-        (Vector3Int hitPos, Vector3Int faceNormal)? DDAGridRaycast(Ray ray)
-        {
-            if (mapSystem == null) return null;
-            
-            Vector3 rayPos = ray.origin;
-            Vector3 rayDir = ray.direction.normalized;
-            
-            // Maximum distance to check
-            float maxDistance = 1000f;
-            
-            // Current grid position
-            Vector3Int gridPos = Vector3Int.FloorToInt(rayPos);
-            
-            // Calculate step direction (1 or -1 for each axis)
-            Vector3Int step = new Vector3Int(
-                rayDir.x > 0 ? 1 : -1,
-                rayDir.y > 0 ? 1 : -1,
-                rayDir.z > 0 ? 1 : -1
-            );
-            
-            // Calculate distance to next grid boundary on each axis
-            Vector3 deltaDist = new Vector3(
-                rayDir.x != 0 ? Mathf.Abs(1f / rayDir.x) : float.MaxValue,
-                rayDir.y != 0 ? Mathf.Abs(1f / rayDir.y) : float.MaxValue,
-                rayDir.z != 0 ? Mathf.Abs(1f / rayDir.z) : float.MaxValue
-            );
-            
-            // Calculate initial distance to next grid boundary
-            Vector3 sideDist;
-            if (rayDir.x < 0)
-                sideDist.x = (rayPos.x - gridPos.x) * deltaDist.x;
-            else
-                sideDist.x = (gridPos.x + 1.0f - rayPos.x) * deltaDist.x;
-                
-            if (rayDir.y < 0)
-                sideDist.y = (rayPos.y - gridPos.y) * deltaDist.y;
-            else
-                sideDist.y = (gridPos.y + 1.0f - rayPos.y) * deltaDist.y;
-                
-            if (rayDir.z < 0)
-                sideDist.z = (rayPos.z - gridPos.z) * deltaDist.z;
-            else
-                sideDist.z = (gridPos.z + 1.0f - rayPos.z) * deltaDist.z;
-            
-            // DDA stepping
-            Vector3Int faceNormal = Vector3Int.zero;
-            float currentDist = 0f;
-            
-            while (currentDist < maxDistance)
-            {
-                // Check if current grid position matches our raycast target
-                if (IsRaycastTarget(gridPos))
-                {
-                    return (gridPos, faceNormal);
-                }
-                
-                // Step to next grid boundary and track which face we crossed
-                if (sideDist.x < sideDist.y && sideDist.x < sideDist.z)
-                {
-                    sideDist.x += deltaDist.x;
-                    gridPos.x += step.x;
-                    faceNormal = new Vector3Int(-step.x, 0, 0); // Face normal opposite to step direction
-                    currentDist = sideDist.x;
-                }
-                else if (sideDist.y < sideDist.z)
-                {
-                    sideDist.y += deltaDist.y;
-                    gridPos.y += step.y;
-                    faceNormal = new Vector3Int(0, -step.y, 0);
-                    currentDist = sideDist.y;
-                }
-                else
-                {
-                    sideDist.z += deltaDist.z;
-                    gridPos.z += step.z;
-                    faceNormal = new Vector3Int(0, 0, -step.z);
-                    currentDist = sideDist.z;
-                }
-            }
-            
-            return null;
-        }
-        
-        bool IsRaycastTarget(Vector3Int gridPos)
-        {
-            Vector3Int chunkCoord = MapSystem.WorldToChunkCoordinate(gridPos);
-            Vector3Int localCoord = MapSystem.WorldToLocalChunkCoordinate(gridPos);
-            
-            var chunk = mapSystem.GetLoadedChunk(chunkCoord);
-            if (chunk == null) return false;
-            
-            switch (raycastTarget)
-            {
-                case RaycastTarget.Solid:
-                    return chunk.GetIsSolid(localCoord.x, localCoord.y, localCoord.z);
-                case RaycastTarget.Standable:
-                    return chunk.GetIsStandable(localCoord.x, localCoord.y, localCoord.z);
-                case RaycastTarget.SolidOrStandable:
-                    return chunk.GetIsSolid(localCoord.x, localCoord.y, localCoord.z) || 
-                           chunk.GetIsStandable(localCoord.x, localCoord.y, localCoord.z);
-                default:
-                    return false;
-            }
-        }
-        
         void DrawGizmos()
         {
             // Draw loaded chunks
             if (mapSystem != null)
             {
-                Handles.color = Color.yellow;
-                foreach (var chunkCoord in mapSystem.GetLoadedChunkCoordinates())
+                if (showChunkBoundaries)
                 {
-                    Vector3 chunkWorldPos = new Vector3(
-                        chunkCoord.x * MapChunk.SIZE,
-                        chunkCoord.y * MapChunk.SIZE,
-                        chunkCoord.z * MapChunk.SIZE
-                    );
-                    
-                    Vector3 chunkSize = Vector3.one * MapChunk.SIZE;
-                    Handles.DrawWireCube(chunkWorldPos + chunkSize * 0.5f, chunkSize);
+                    Handles.color = Color.yellow;
+                    foreach (var chunkCoord in mapSystem.GetLoadedChunkCoordinates())
+                    {
+                        Vector3 chunkWorldPos = new Vector3(
+                            chunkCoord.x * MapChunk.SIZE,
+                            chunkCoord.y * MapChunk.SIZE,
+                            chunkCoord.z * MapChunk.SIZE
+                        );
+                        
+                        Vector3 chunkSize = Vector3.one * MapChunk.SIZE;
+                        Handles.DrawWireCube(chunkWorldPos + chunkSize * 0.5f, chunkSize);
+                    }
                 }
                 
                 // Draw selected block
@@ -610,20 +500,16 @@ namespace Backend.Map.Editor
             
             if (mapRenderer == null)
             {
-                GameObject rendererGO = new GameObject("Map Renderer (Editor)");
+                GameObject rendererGO = new GameObject("MapRenderer");
                 mapRenderer = rendererGO.AddComponent<MapRenderer>();
                 
                 // Set up renderer
                 mapRenderer.showChunkBoundaries = showChunkBoundaries;
                 mapRenderer.enableRendering = true;
                 mapRenderer.debugMode = true; // Enable debug by default
+                mapRenderer.autoConnectToMapSystem = false; // Manual control in editor
                 
-                // Mark as editor-only to prevent saving in scene
-                if (!Application.isPlaying)
-                {
-                    rendererGO.hideFlags = HideFlags.DontSave;
-                }
-                
+                // Don't hide flags - let it be saved in scene
                 Selection.activeGameObject = rendererGO;
                 Debug.Log("[MapEditor] Created new MapRenderer");
             }
@@ -633,10 +519,7 @@ namespace Backend.Map.Editor
             }
             
             // Always ensure the renderer has the correct MapSystem
-            if (!Application.isPlaying)
-            {
-                mapRenderer.SetMapSystem(mapSystem);
-            }
+            mapRenderer.SetMapSystem(mapSystem);
         }
         
         void GenerateTestTerrain()

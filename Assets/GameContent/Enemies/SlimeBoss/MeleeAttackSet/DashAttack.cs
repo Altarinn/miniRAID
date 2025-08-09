@@ -39,8 +39,6 @@ namespace miniRAID.Agents.SlimeBoss.MeleeAttackSet
             // Find target grid
             Vector3Int targetGrid = mob.GridPosition + Consts.DirectionVectors[(int)target.Target] * DashDistance;
             
-            targetGrid = Vector3Int.Max(
-                Vector3Int.Min(targetGrid, Globals.backend.MapSize - Vector3Int.one), Vector3Int.zero);
             // TODO: Check target grid validity
 
             var existingMob = Globals.backend.GetMap(targetGrid).mob;

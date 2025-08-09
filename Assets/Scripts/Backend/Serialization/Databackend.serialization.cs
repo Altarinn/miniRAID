@@ -36,7 +36,6 @@ namespace miniRAID
         [OnDeserialized]
         public void RestoreFromDeserialization()
         {
-            visited = new bool[MAX_MAP_SIZE, MAX_MAP_HEIGHT, MAX_MAP_SIZE];
             gridEffectChanges = new();
 
             // Pass 1

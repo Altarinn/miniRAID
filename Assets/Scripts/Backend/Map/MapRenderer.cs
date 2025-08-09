@@ -6,19 +6,19 @@ using miniRAID;
 
 namespace Backend.Map
 {
-    [ExecuteAlways]
     public class MapRenderer : MonoBehaviour
     {
         [Header("Rendering Settings")]
         public Material chunkMaterial;
         public bool showChunkBoundaries = true;
         public bool enableRendering = true;
+        public bool autoConnectToMapSystem = true; // Auto-connect in play mode
         
         [Header("Block State Colors")]
-        public Color solidBlockColor = Color.red;
-        public Color standableBlockColor = Color.green;
-        public Color passableBlockColor = Color.blue;
-        public Color solidStandableBlockColor = Color.yellow; // Both solid and standable
+        public Color solidBlockColor = new Color(0.8f, 0.2f, 0.2f, 1f); // Opaque red
+        public Color standableBlockColor = new Color(0.2f, 0.8f, 0.2f, 1f); // Opaque green
+        public Color passableBlockColor = new Color(0.2f, 0.2f, 0.8f, 1f); // Opaque blue
+        public Color solidStandableBlockColor = new Color(0.9f, 0.9f, 0.2f, 1f); // Opaque yellow
         
         [Header("Terrain Colors")]
         public Color normalTerrainColor = Color.white;
@@ -46,7 +46,7 @@ namespace Backend.Map
             {
                 gameObject = new GameObject($"Chunk_{chunkCoord.x}_{chunkCoord.y}_{chunkCoord.z}");
                 gameObject.transform.SetParent(parent.transform);
-                gameObject.transform.position = new Vector3(
+                gameObject.transform.localPosition = new Vector3(
                     chunkCoord.x * MapChunk.SIZE,
                     chunkCoord.y * MapChunk.SIZE,
                     chunkCoord.z * MapChunk.SIZE
@@ -73,9 +73,8 @@ namespace Backend.Map
         
         void Start()
         {
-            if (mapSystem == null)
+            if (mapSystem == null && autoConnectToMapSystem)
             {
-                // Mark as editor-only to prevent saving in scene
                 if (Application.isPlaying)
                 {
                     SetMapSystem(Globals.backend?.GetMapSystem());
@@ -113,40 +112,37 @@ namespace Backend.Map
         {
             if (chunkMaterial == null)
             {
-                // Create a default material if none assigned
-                chunkMaterial = new Material(Shader.Find("ProBuilder6/Standard Vertex Color"));
-                chunkMaterial.color = new Color(1, 1, 1, 0.5f);
-                chunkMaterial.renderQueue = 3000;
+                // Create a default lit material if none assigned
+                chunkMaterial = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+                if (chunkMaterial.shader == null)
+                {
+                    // Fallback to built-in Standard if URP not available
+                    chunkMaterial = new Material(Shader.Find("Standard"));
+                }
+                
+                chunkMaterial.color = Color.white; // Use vertex colors for coloring
+                chunkMaterial.SetFloat("_Metallic", 0.2f);
+                chunkMaterial.SetFloat("_Smoothness", 0.3f);
                 
                 if (debugMode)
                 {
-                    Debug.Log("[MapRenderer] Created default material");
+                    Debug.Log($"[MapRenderer] Created default material with shader: {chunkMaterial.shader.name}");
                 }
             }
         }
         
         void Update()
         {
-            // Safety checks for ExecuteAlways
-            if (!enableRendering || mapSystem == null) return;
+            if (!enableRendering) return;
             
-            // Check for play mode transitions
-            if (wasInPlayMode != Application.isPlaying)
+            // Auto-connect to map system in play mode if not connected
+            if (mapSystem == null && autoConnectToMapSystem && Application.isPlaying)
             {
-                if (debugMode)
-                {
-                    Debug.Log($"[MapRenderer] Play mode transition detected: {wasInPlayMode} -> {Application.isPlaying}");
-                }
-                CleanupAllChunkRenderers();
-                wasInPlayMode = Application.isPlaying;
+                SetMapSystem(Globals.backend?.GetMapSystem());
+                return;
             }
             
-            // Additional safety for editor mode
-            if (!Application.isPlaying)
-            {
-                // In editor mode, only update if we have valid data
-                if (this == null || gameObject == null) return;
-            }
+            if (mapSystem == null) return;
             
             UpdateChunkRendering();
         }
@@ -178,9 +174,6 @@ namespace Backend.Map
             var chunk = mapSystem.GetLoadedChunk(chunkCoord);
             if (chunk == null) return;
             
-            // Safety check for editor mode
-            if (!Application.isPlaying && (this == null || gameObject == null)) return;
-            
             // Ensure material exists before creating renderer
             EnsureMaterial();
             
@@ -189,6 +182,8 @@ namespace Backend.Map
             
             GenerateChunkMesh(chunk, renderer);
             renderer.meshRenderer.material = chunkMaterial;
+            renderer.meshRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+            renderer.meshRenderer.receiveShadows = true;
             
             if (debugMode)
             {
@@ -201,6 +196,7 @@ namespace Backend.Map
             List<Vector3> vertices = new List<Vector3>();
             List<int> triangles = new List<int>();
             List<Color> colors = new List<Color>();
+            List<Vector2> uvs = new List<Vector2>();
             
             // Generate cubes based on multi-state visualization
             for (int x = 0; x < MapChunk.SIZE; x++)
@@ -222,7 +218,7 @@ namespace Backend.Map
                         
                         if (shouldRender)
                         {
-                            AddCube(vertices, triangles, colors, new Vector3(x, y, z), blockColor);
+                            AddCubeWithFaces(vertices, triangles, colors, uvs, new Vector3(x, y, z), blockColor, chunk, x, y, z);
                         }
                     }
                 }
@@ -231,7 +227,7 @@ namespace Backend.Map
             // Add chunk boundaries if enabled
             if (showChunkBoundaries)
             {
-                AddChunkBoundary(vertices, triangles, colors);
+                AddChunkBoundary(vertices, triangles, colors, uvs);
             }
             
             renderer.mesh.Clear();
@@ -240,6 +236,9 @@ namespace Backend.Map
                 renderer.mesh.vertices = vertices.ToArray();
                 renderer.mesh.triangles = triangles.ToArray();
                 renderer.mesh.colors = colors.ToArray();
+                renderer.mesh.uv = uvs.ToArray();
+                
+                // Let Unity calculate proper normals for lighting instead of using manual ones
                 renderer.mesh.RecalculateNormals();
                 renderer.mesh.RecalculateBounds();
             }
@@ -325,103 +324,177 @@ namespace Backend.Map
             return chunk.GetIsSolid(x, y, z);
         }
         
-        private void AddCube(List<Vector3> vertices, List<int> triangles, List<Color> colors, Vector3 position, Color color)
+        // Add cube with proper face culling for better performance and lighting
+        private void AddCubeWithFaces(List<Vector3> vertices, List<int> triangles, List<Color> colors, 
+            List<Vector2> uvs, Vector3 position, Color color, MapChunk chunk, int x, int y, int z)
+        {
+            // Check each face and only add if it's exposed (not adjacent to another solid block)
+            Vector3Int[] faceDirections = {
+                Vector3Int.up,    // Top
+                Vector3Int.down,  // Bottom
+                Vector3Int.right, // Right
+                Vector3Int.left,  // Left
+                Vector3Int.forward, // Front
+                Vector3Int.back   // Back
+            };
+            
+            Vector3[] faceNormals = {
+                Vector3.up, Vector3.down, Vector3.right, Vector3.left, Vector3.forward, Vector3.back
+            };
+            
+            for (int face = 0; face < 6; face++)
+            {
+                var neighborPos = new Vector3Int(x, y, z) + faceDirections[face];
+                
+                // Check if this face should be rendered (not occluded by adjacent block)
+                if (!ShouldRenderFace(chunk, neighborPos))
+                    continue;
+                
+                AddQuadFace(vertices, triangles, colors, uvs, position, face, color, faceNormals[face]);
+            }
+        }
+        
+        private bool ShouldRenderFace(MapChunk chunk, Vector3Int neighborPos)
+        {
+            // Don't render face if neighbor is solid (occluded)
+            if (neighborPos.x >= 0 && neighborPos.x < MapChunk.SIZE &&
+                neighborPos.y >= 0 && neighborPos.y < MapChunk.SIZE &&
+                neighborPos.z >= 0 && neighborPos.z < MapChunk.SIZE)
+            {
+                return !chunk.GetIsSolid(neighborPos.x, neighborPos.y, neighborPos.z);
+            }
+            
+            // Render faces on chunk boundaries (could be optimized to check neighboring chunks)
+            return true;
+        }
+        
+        private void AddQuadFace(List<Vector3> vertices, List<int> triangles, List<Color> colors,
+           List<Vector2> uvs, Vector3 position, int faceIndex, Color color, Vector3 normal)
         {
             int startVertex = vertices.Count;
             
-            // Cube vertices (8 vertices)
+            // Define quad vertices for each face
+            Vector3[] faceVertices = new Vector3[4];
+            
+            switch (faceIndex)
+            {
+                case 0: // Top
+                    faceVertices[0] = position + new Vector3(0, 1, 0);
+                    faceVertices[1] = position + new Vector3(0, 1, 1);
+                    faceVertices[2] = position + new Vector3(1, 1, 1);
+                    faceVertices[3] = position + new Vector3(1, 1, 0);
+                    break;
+                case 1: // Bottom
+                    faceVertices[0] = position + new Vector3(0, 0, 1);
+                    faceVertices[1] = position + new Vector3(0, 0, 0);
+                    faceVertices[2] = position + new Vector3(1, 0, 0);
+                    faceVertices[3] = position + new Vector3(1, 0, 1);
+                    break;
+                case 2: // Right
+                    faceVertices[0] = position + new Vector3(1, 0, 0);
+                    faceVertices[1] = position + new Vector3(1, 1, 0);
+                    faceVertices[2] = position + new Vector3(1, 1, 1);
+                    faceVertices[3] = position + new Vector3(1, 0, 1);
+                    break;
+                case 3: // Left
+                    faceVertices[0] = position + new Vector3(0, 0, 1);
+                    faceVertices[1] = position + new Vector3(0, 1, 1);
+                    faceVertices[2] = position + new Vector3(0, 1, 0);
+                    faceVertices[3] = position + new Vector3(0, 0, 0);
+                    break;
+                case 4: // Front
+                    faceVertices[0] = position + new Vector3(0, 0, 1);
+                    faceVertices[1] = position + new Vector3(1, 0, 1);
+                    faceVertices[2] = position + new Vector3(1, 1, 1);
+                    faceVertices[3] = position + new Vector3(0, 1, 1);
+                    break;
+                case 5: // Back
+                    faceVertices[0] = position + new Vector3(1, 0, 0);
+                    faceVertices[1] = position + new Vector3(0, 0, 0);
+                    faceVertices[2] = position + new Vector3(0, 1, 0);
+                    faceVertices[3] = position + new Vector3(1, 1, 0);
+                    break;
+            }
+            
+            vertices.AddRange(faceVertices);
+            
+            // Add colors, normals and UVs for the quad
+            for (int i = 0; i < 4; i++)
+            {
+                colors.Add(color);
+                uvs.Add(new Vector2(i % 2, i / 2)); // Simple UV mapping
+            }
+            
+            // Add triangles for the quad (2 triangles)
+            triangles.Add(startVertex + 0);
+            triangles.Add(startVertex + 1);
+            triangles.Add(startVertex + 2);
+            
+            triangles.Add(startVertex + 0);
+            triangles.Add(startVertex + 2);
+            triangles.Add(startVertex + 3);
+        }
+        
+        private void AddChunkBoundary(List<Vector3> vertices, List<int> triangles, List<Color> colors, List<Vector2> uvs)
+        {
+            // Add wireframe boundary for chunk (simplified - just corner markers)
+            Color boundaryColor = new Color(1f, 1f, 0f, 1f); // Opaque yellow
+            
+            // Add small cubes at chunk corners as markers
+            Vector3[] cornerPositions = {
+                new Vector3(0, 0, 0),
+                new Vector3(MapChunk.SIZE - 1, 0, 0),
+                new Vector3(0, MapChunk.SIZE - 1, 0),
+                new Vector3(0, 0, MapChunk.SIZE - 1)
+            };
+            
+            foreach (var corner in cornerPositions)
+            {
+                AddSmallMarkerCube(vertices, triangles, colors, uvs, corner, boundaryColor, 0.2f);
+            }
+        }
+        
+        private void AddSmallMarkerCube(List<Vector3> vertices, List<int> triangles, List<Color> colors,
+            List<Vector2> uvs, Vector3 position, Color color, float size)
+        {
+            int startVertex = vertices.Count;
+            
+            // Small cube vertices
             Vector3[] cubeVertices = new Vector3[]
             {
-                position + new Vector3(0, 0, 0), // 0
-                position + new Vector3(1, 0, 0), // 1
-                position + new Vector3(1, 1, 0), // 2
-                position + new Vector3(0, 1, 0), // 3
-                position + new Vector3(0, 0, 1), // 4
-                position + new Vector3(1, 0, 1), // 5
-                position + new Vector3(1, 1, 1), // 6
-                position + new Vector3(0, 1, 1)  // 7
+                position + new Vector3(0, 0, 0) * size,
+                position + new Vector3(1, 0, 0) * size,
+                position + new Vector3(1, 1, 0) * size,
+                position + new Vector3(0, 1, 0) * size,
+                position + new Vector3(0, 0, 1) * size,
+                position + new Vector3(1, 0, 1) * size,
+                position + new Vector3(1, 1, 1) * size,
+                position + new Vector3(0, 1, 1) * size
             };
             
             vertices.AddRange(cubeVertices);
             
-            // Add colors for all vertices
+            // Add properties for all vertices
             for (int i = 0; i < 8; i++)
             {
                 colors.Add(color);
+                uvs.Add(new Vector2(i % 2, (i / 2) % 2)); // Basic UV mapping
             }
             
-            // Cube triangles (12 triangles, 2 per face)
+            // Simple cube triangles
             int[] cubeTriangles = new int[]
             {
-                // Front face
-                0, 2, 1, 0, 3, 2,
-                // Back face  
-                4, 5, 6, 4, 6, 7,
-                // Left face
-                0, 7, 3, 0, 4, 7,
-                // Right face
-                1, 2, 6, 1, 6, 5,
-                // Top face
-                3, 7, 6, 3, 6, 2,
-                // Bottom face
-                0, 1, 5, 0, 5, 4
+                0, 2, 1, 0, 3, 2, // Front
+                4, 5, 6, 4, 6, 7, // Back
+                0, 7, 3, 0, 4, 7, // Left
+                1, 2, 6, 1, 6, 5, // Right
+                3, 7, 6, 3, 6, 2, // Top
+                0, 1, 5, 0, 5, 4  // Bottom
             };
             
-            // Offset triangle indices by startVertex
             for (int i = 0; i < cubeTriangles.Length; i++)
             {
                 triangles.Add(cubeTriangles[i] + startVertex);
-            }
-        }
-        
-        private void AddChunkBoundary(List<Vector3> vertices, List<int> triangles, List<Color> colors)
-        {
-            // Add wireframe boundary for chunk
-            Color boundaryColor = Color.yellow;
-            boundaryColor.a = 0.8f;
-            
-            // Add corner vertices for boundary
-            Vector3[] boundaryVertices = new Vector3[]
-            {
-                new Vector3(0, 0, 0),
-                new Vector3(MapChunk.SIZE, 0, 0),
-                new Vector3(MapChunk.SIZE, MapChunk.SIZE, 0),
-                new Vector3(0, MapChunk.SIZE, 0),
-                new Vector3(0, 0, MapChunk.SIZE),
-                new Vector3(MapChunk.SIZE, 0, MapChunk.SIZE),
-                new Vector3(MapChunk.SIZE, MapChunk.SIZE, MapChunk.SIZE),
-                new Vector3(0, MapChunk.SIZE, MapChunk.SIZE)
-            };
-            
-            int startVertex = vertices.Count;
-            vertices.AddRange(boundaryVertices);
-            
-            for (int i = 0; i < 8; i++)
-            {
-                colors.Add(boundaryColor);
-            }
-            
-            // Add lines as thin triangles (wireframe effect)
-            int[] boundaryLines = new int[]
-            {
-                // Bottom face edges
-                0, 1, 1, 2, 2, 3, 3, 0,
-                // Top face edges  
-                4, 5, 5, 6, 6, 7, 7, 4,
-                // Vertical edges
-                0, 4, 1, 5, 2, 6, 3, 7
-            };
-            
-            // Create thin triangles for wireframe effect
-            for (int i = 0; i < boundaryLines.Length; i += 2)
-            {
-                int v1 = boundaryLines[i] + startVertex;
-                int v2 = boundaryLines[i + 1] + startVertex;
-                
-                // Create a thin triangle (degenerate for wireframe effect)
-                triangles.Add(v1);
-                triangles.Add(v2);
-                triangles.Add(v1);
             }
         }
         

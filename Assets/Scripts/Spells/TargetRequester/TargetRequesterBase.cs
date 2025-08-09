@@ -6,6 +6,7 @@ using miniRAID.Spells;
 using UnityEngine.InputSystem;
 
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 
 namespace miniRAID.UI.TargetRequester
 {

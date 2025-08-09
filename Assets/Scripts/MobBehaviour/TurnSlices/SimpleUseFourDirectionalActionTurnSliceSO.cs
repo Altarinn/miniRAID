@@ -97,7 +97,7 @@ namespace miniRAID.MobBehaviour.TurnSlices
 
         public void UpdateRenderer()
         {
-            IGridCollider indicatorShape = (renderer as GridColliderIndicator).collider;
+            IGridCollider indicatorShape = (renderer as GridColliderIndicator)?.collider;
             if (indicatorShape != null)
             {
                 indicatorShape.Position = mob.Position;

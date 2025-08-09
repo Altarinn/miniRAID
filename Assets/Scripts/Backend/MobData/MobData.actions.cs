@@ -11,6 +11,7 @@ namespace miniRAID
         #region Manipulating actions
         
         public bool actedThisTurn { get; protected set; }
+        public Movement movement;
         
         public RuntimeAction AddAction(ActionSOEntry actSO)
         {

@@ -6,12 +6,13 @@ using UnityEngine;
 
 namespace miniRAID.UI.TargetRequester
 {
-    public class MovementRequester : TargetRequesterBase<SingleCoordinateTarget>
+    public class MovementRequester : TargetRequesterBase<MovementTarget>
     {
         public bool overrideMobMovement = false;
         public int moveRange = 3;
         public int extraRange = 0;
-        public BaseMobDescriptorSO.MovementType moveType;
+
+        private Dictionary<Vector3Int, (Vector3Int prevGrid, float distance)> gridInfo;
 
         protected virtual int GridPathCost(GridData data)
         {
@@ -28,22 +29,28 @@ namespace miniRAID.UI.TargetRequester
             }
 
             RequestStage stage = new RequestStage();
-            
-            Dictionary<Vector3Int, float> moveRange;
+
+            int resolvedMoveRange = mob.actedThisTurn ? 0 : mob.MoveRangeLeft;
+            int resolvedExtraRange = Mathf.FloorToInt(mob.actionPoints);
             if (overrideMobMovement)
             {
-                moveRange = Databackend.GetSingleton().GetMoveableGrids(mob.GridPosition, this.moveRange, extraRange, moveType);
-            }
-            else
-            {
-                moveRange = Databackend.GetSingleton().GetMoveableGrids(mob);
+                resolvedMoveRange = this.moveRange;
+                resolvedExtraRange = extraRange;
             }
 
+            Globals.backend.GenericMovementBFS(
+                mob.Collider,
+                (Movement)ract,
+                x => false,
+                resolvedMoveRange + resolvedExtraRange,
+                out gridInfo
+            );
+            
             stage.type = RequestType.Ground;
 
-            foreach (var gridPos in moveRange)
+            foreach (var gridPos in gridInfo)
             {
-                stage.map.Add(gridPos.Key, gridPos.Value >= mob.actionPoints ? GridOverlay.Types.MOVE : GridOverlay.Types.BUFF);
+                stage.map.Add(gridPos.Key, gridPos.Value.distance >= moveRange ? GridOverlay.Types.MOVE : GridOverlay.Types.BUFF);
             }
 
             return stage;
@@ -51,7 +58,12 @@ namespace miniRAID.UI.TargetRequester
 
         void Decided()
         {
-            Finish(new SingleCoordinateTarget(choice.First()));
+            // Reconstruct path
+            var result = new MovementTarget();
+            result.path = Databackend.ReconstructPath(x => gridInfo[x].prevGrid, choice.First());
+            result.destinationGrid = choice.First();
+            
+            Finish(result);
         }
     }
 }

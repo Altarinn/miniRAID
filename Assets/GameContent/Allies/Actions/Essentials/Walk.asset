@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f068e8cc6f2064348a52ce1c09edaed1, type: 3}
-  m_Name: AcidPool
-  m_EditorClassIdentifier: 
+  m_Script: {fileID: 0}
+  m_Name: Walk
+  m_EditorClassIdentifier: miniRAID.Core:miniRAID:WalkMovementSO
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
@@ -21,9 +21,25 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
+    - Name: isActivelyUsed
+      Entry: 7
+      Data: 0|miniRAID.ValueGetter`2[[miniRAID.MobData, miniRAID.Core],[System.Boolean,
+        mscorlib]], miniRAID.Core
+    - Name: type
+      Entry: 3
+      Data: 0
+    - Name: staticOut
+      Entry: 5
+      Data: true
+    - Name: getterTemplate
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: power
       Entry: 7
-      Data: 0|miniRAID.PowerGetter, miniRAID.Core
+      Data: 1|miniRAID.PowerGetter, miniRAID.Core
     - Name: powerType
       Entry: 3
       Data: 1
@@ -35,13 +51,13 @@ MonoBehaviour:
       Data: false
     - Name: values
       Entry: 7
-      Data: 1|System.Single[], mscorlib
+      Data: 2|System.Single[], mscorlib
     - Name: 
       Entry: 14
       Data: 5
     - Name: 
       Entry: 4
-      Data: 0.5
+      Data: 1
     - Name: 
       Entry: 4
       Data: 1
@@ -71,7 +87,7 @@ MonoBehaviour:
       Data: 
     - Name: auxPower
       Entry: 7
-      Data: 2|miniRAID.PowerGetter, miniRAID.Core
+      Data: 3|miniRAID.PowerGetter, miniRAID.Core
     - Name: powerType
       Entry: 3
       Data: 1
@@ -83,7 +99,7 @@ MonoBehaviour:
       Data: false
     - Name: values
       Entry: 7
-      Data: 3|System.Single[], mscorlib
+      Data: 4|System.Single[], mscorlib
     - Name: 
       Entry: 14
       Data: 5
@@ -117,14 +133,14 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: modifiers
+    - Name: costs
       Entry: 7
-      Data: 4|System.Collections.Generic.Dictionary`2[[miniRAID.StatModifierSO+StatModTarget,
-        miniRAID.Core],[miniRAID.StatModifierSO+dNumberModifier, miniRAID.Core]],
-        mscorlib
+      Data: 5|System.Collections.Generic.Dictionary`2[[miniRAID.Cost+Type, miniRAID.Core],[miniRAID.ValueBoundedGetter`3[[System.ValueTuple`2[[miniRAID.MobData,
+        miniRAID.Core],[miniRAID.MovementTarget, miniRAID.Core]], mscorlib],[miniRAID.MobData,
+        miniRAID.Core],[System.Double, mscorlib]], miniRAID.Core]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 5|System.Collections.Generic.EnumEqualityComparer`1[[miniRAID.StatModifierSO+StatModTarget,
+      Data: 6|System.Collections.Generic.EnumEqualityComparer`1[[miniRAID.Cost+Type,
         miniRAID.Core]], mscorlib
     - Name: 
       Entry: 12
@@ -144,101 +160,82 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: BuffEffects
+    - Name: Requester
+      Entry: 7
+      Data: 7|miniRAID.UI.TargetRequester.MovementRequester, miniRAID.Core
+    - Name: stateStr
       Entry: 6
       Data: 
-    - Name: overtimeEffects
+    - Name: currentStageCompleted
+      Entry: 3
+      Data: -1
+    - Name: query_stack
       Entry: 7
-      Data: 6|System.Collections.Generic.List`1[[miniRAID.Buff.BuffSO+BuffDHOTDef,
+      Data: 8|System.Collections.Generic.Stack`1[[miniRAID.UI.TargetRequester.RequestStage,
         miniRAID.Core]], mscorlib
     - Name: 
       Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: miniRAID.Buff.BuffSO+BuffDHOTDef, miniRAID.Core
-    - Name: type
-      Entry: 3
-      Data: 6
-    - Name: power
-      Entry: 7
-      Data: 7|miniRAID.ValueGetter`2[[miniRAID.MobData, miniRAID.Core],[System.Single,
-        mscorlib]], miniRAID.Core
-    - Name: type
-      Entry: 3
       Data: 0
-    - Name: staticOut
-      Entry: 4
-      Data: 1
-    - Name: getterTemplate
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: crit
-      Entry: 7
-      Data: 8|miniRAID.ValueGetter`2[[miniRAID.MobData, miniRAID.Core],[System.Single,
-        mscorlib]], miniRAID.Core
-    - Name: type
-      Entry: 3
-      Data: 0
-    - Name: staticOut
-      Entry: 4
-      Data: 0
-    - Name: getterTemplate
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: 
       Entry: 13
       Data: 
     - Name: 
       Entry: 8
       Data: 
-  Guid: 9e2af50a9fe2072449078fdebd47b282
-  Id: 40
-  icon: {fileID: -560436078510605240, guid: 7fe9a382566f75a429badd968a5161fa, type: 3}
-  nameKey:
+    - Name: choice
+      Entry: 7
+      Data: 9|System.Collections.Generic.Stack`1[[UnityEngine.Vector3Int, UnityEngine.CoreModule]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: overrideMobMovement
+      Entry: 5
+      Data: false
+    - Name: moveRange
+      Entry: 3
+      Data: 3
+    - Name: extraRange
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: targetPicker
+      Entry: 6
+      Data: 
+    - Name: _
+      Entry: 6
+      Data: 
+  Guid: c917e07e12994f44e85a9c8c5e79c31a
+  Id: 227
+  icon: {fileID: 999429910747490026, guid: 7fe9a382566f75a429badd968a5161fa, type: 3}
+  ActionNameKey:
     m_TableReference:
       m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
     m_TableEntryReference:
-      m_KeyId: 1766790294740992
+      m_KeyId: 16990428192768
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ToolTipKey:
+  maxLevel: 0
+  DescriptionKey:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 1510736172490752
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  type: 9
-  priority: 0
-  timed: 0
-  testValue: 0
-  phaseTimed: 0
-  timeMax: 999
-  stackable: 0
-  allowDuplicate: 0
-  stackRefreshesTime: 1
-  maxStack: 1
-  snapShot: 1
-  alwaysOnIndicator: {fileID: 0}
-  flags: 6
-  prefab: {fileID: 2952179133118524667, guid: 5b7dfa4a9876a914eaf6090b9aa43b54, type: 3}
-  toAllies: 0
-  toEnemies: 1
-  GridFxTimeMax: 0
+  flags: 32
   references:
     version: 2
     RefIds: []

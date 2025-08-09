@@ -30,7 +30,7 @@ namespace miniRAID.UI.TargetRequester
 
             RequestStage stage = new RequestStage();
 
-            int resolvedMoveRange = mob.actedThisTurn ? 0 : mob.MoveRangeLeft;
+            float resolvedMoveRange = mob.actedThisTurn ? 0 : mob.MoveRangeLeft;
             int resolvedExtraRange = Mathf.FloorToInt(mob.actionPoints);
             if (overrideMobMovement)
             {
@@ -42,7 +42,7 @@ namespace miniRAID.UI.TargetRequester
                 mob.Collider,
                 (Movement)ract,
                 x => false,
-                resolvedMoveRange + resolvedExtraRange,
+                Mathf.CeilToInt(resolvedMoveRange) + resolvedExtraRange,
                 out gridInfo
             );
             

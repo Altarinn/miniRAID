@@ -127,7 +127,7 @@ namespace miniRAID
         [NonSerialized] [ShowInInspector] public float apRecovery = 3;
         [NonSerialized] [ShowInInspector] [FormerlySerializedAs("apMax")] public int apNonFreeMax = 5;
 
-        public int movedGrids = 0;
+        public float movedGrids = 0;
         
         [NonSerialized] [ShowInInspector] public dNumber moveRange;
         [NonSerialized] [ShowInInspector] public dNumber attackPower;
@@ -161,7 +161,7 @@ namespace miniRAID
         public int TEC => (int)baseStats.TEC.Value;
 
         public int MoveRange => (int)moveRange.Value;
-        public int MoveRangeLeft => MoveRange - movedGrids;
+        public float MoveRangeLeft => MoveRange - movedGrids;
         
         public int AttackPower => (int)attackPower.Value;
         public int SpellPower => (int)spellPower.Value;

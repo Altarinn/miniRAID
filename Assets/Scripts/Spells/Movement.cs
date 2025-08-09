@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using miniRAID.ActionHelpers;
 using miniRAID.Spells;
 using UnityEngine;
@@ -9,7 +10,8 @@ namespace miniRAID.Actions
     {
         public override IEnumerator OnPerform(RuntimeAction<SingleCoordinateTarget> ract, MobData mob, SingleCoordinateTarget target)
         {
-            yield return new JumpIn(mob.MoveToCoroutine(target.Target, null));
+            throw new NotImplementedException();
+            // yield return new JumpIn(mob.MoveToCoroutine(target.Target, null));
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,7 +27,8 @@ namespace miniRAID
             }
             else
             {
-                yield return new JumpIn(mob.MoveToCoroutine(target.Target, null, false));
+                throw new NotImplementedException();
+                // yield return new JumpIn(mob.MoveToCoroutine(target.Target, null, false));
             }
         }
     }

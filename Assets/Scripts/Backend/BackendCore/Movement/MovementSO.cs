@@ -21,10 +21,44 @@ namespace miniRAID
         public abstract List<Databackend.GridBFSKeys> ProposeMovementGrids(IGridCollider origin, Databackend.GridBFSKeys fromKey);
         public abstract float ComputeDistance(Vector3Int from, Vector3Int to);
         
+        public IEnumerator MoveToCoroutine(MobData mob, Movement movement, Vector3Int targetPos, bool doCost = true)
+        {
+            // Check if targetPos is valid; If not, terminate the movement
+            if (!Globals.backend.CanPositionPlaceMob(targetPos, mob.Collider))
+            {
+                yield return -1;
+            }
+            
+            // TODO: implement path for field effects (move w.r.t. the path & tell backend that we reached a intermediate point)
+            if (Globals.cc.animation && mob.mobRenderer != null)
+                yield return new JumpIn(mob.mobRenderer.MoveTowards(targetPos));
+            
+            float distance = movement.ComputeDistance(Databackend.BackendToGridPos(mob.Position), targetPos);
+
+            // Tell backend that we finished the movement
+
+            // TODO: Move MoveRange / movedGrids / actedThisTurn etc. to Movement instance
+            if (doCost)
+            {
+                mob.UseActionPoint(
+                    Mathf.Max(0, distance - (mob.actedThisTurn ? 0 : (mob.MoveRange - mob.movedGrids))));
+
+                if (!mob.actedThisTurn)
+                {
+                    mob.movedGrids = Mathf.Min(mob.MoveRange, mob.movedGrids + distance);
+                }
+            }
+
+            yield return new JumpIn(mob.SetPosition(targetPos));
+        }
+        
         public override IEnumerator OnPerform(RuntimeAction<MovementTarget> ract, MobData mob, MovementTarget movementTarget)
         {
             // TODO: Move MoveToCoroutine to here and apply path.
-            yield return new JumpIn(mob.MoveToCoroutine(movementTarget.destinationGrid, movementTarget.path));
+            foreach (var step in movementTarget.path.path)
+            {
+                yield return new JumpIn(MoveToCoroutine(mob, (Movement)ract, step));
+            }
         }
 
         public override RuntimeAction<MovementTarget> LeveledWrap(MobData source, int level)

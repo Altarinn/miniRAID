@@ -93,41 +93,6 @@ namespace miniRAID
         
         #region Performing actions
         
-        public IEnumerator MoveToCoroutine(Vector3Int targetPos, GridPath path, bool doCost = true)
-        {
-            // Check if targetPos is valid; If not, terminate the movement
-            if (!Globals.backend.CanPositionPlaceMob(targetPos, Collider))
-            {
-                yield return -1;
-            }
-            
-            // TODO: implement path for field effects (move w.r.t. the path & tell backend that we reached a intermediate point)
-            if (Globals.cc.animation && mobRenderer != null)
-                yield return new JumpIn(mobRenderer.MoveTowards(targetPos));
-            
-            int distance = Consts.Distance(targetPos, Position);
-
-            // Tell backend that we finished the movement
-
-            // TODO: change to use path
-            if (doCost)
-            {
-                UseActionPoint(
-                    Mathf.Max(0, distance - (actedThisTurn ? 0 : (MoveRange - movedGrids))));
-
-                if (!actedThisTurn)
-                {
-                    movedGrids = Mathf.Min(MoveRange, movedGrids + distance);
-                }
-            }
-
-            // TODO: Use actual path
-            for (int i = 0; i < distance; i++)
-            {
-                yield return new JumpIn(SetPosition(targetPos));
-            }
-        }
-        
         public IEnumerator ActionPrecheck(RuntimeAction raction, SpellTarget target)
         {
             yield return new JumpIn(OnActionChosen?.InvokeCoroutine(this, raction, target));

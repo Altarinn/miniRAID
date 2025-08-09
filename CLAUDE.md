@@ -17,9 +17,10 @@ miniRAID is a Unity-based tactical RPG game written in C#. The project uses a gr
 - **Odin Inspector & Serializer**: Commercial Unity inspector enhancement and serialization system (has keyless claim option)
 - **NuGet for Unity**: Package manager for .NET libraries
 - **DOTween**: Animation library
-- **XLua**: Lua scripting integration (legacy, being phased out - classes remain but Lua functionality unused)
 - **Addressables**: Unity's asset management system
 - **Localization**: Unity's localization package
+
+**Note**: XLua (Lua scripting integration) has been removed from the project as it was unused.
 
 ### Common Development Tasks
 - **Play Scene**: Open `Assets/Scenes/CombatBase.unity` and press Play in Unity
@@ -54,6 +55,31 @@ The game uses a clean separation between backend logic and frontend presentation
 - **`CombatSchedulerCoroutine`**: Orchestrates turn-based combat flow using Unity coroutines
 - **`MobListener`**: Event-driven system for buffs, equipment, skills, and other mob effects
 
+### Map System Architecture
+The game features a sophisticated 3D chunk-based map system with real-time visualization and editing capabilities:
+
+- **`MapSystem`** (`Assets/Scripts/Backend/Map/MapSystem.cs`): Core chunk-based map management
+  - **32³ Chunks**: Each chunk contains 32,768 blocks with multi-state properties (Solid, Standable, Passable)
+  - **3D DDA Raycast**: Precise block selection and targeting using 3D Digital Differential Analyzer
+  - **Chunk Loading/Unloading**: Dynamic chunk management with persistence to disk
+  - **Gzip Compression**: Efficient chunk serialization with compression along Y-axis for better storage
+- **`MapChunk`** (`Assets/Scripts/Backend/Map/MapChunk.cs`): Individual 32³ chunk data container
+  - **Multi-State Blocks**: Each block tracks Solid, Standable, Passable, FloorDirection, BlockIntrude, and TerrainType
+  - **Efficient Indexing**: Y-least-significant coordinate mapping for better compression
+  - **Serialization**: Full Odin Serializer support with compression
+- **`MapRenderer`** (`Assets/Scripts/Backend/Map/MapRenderer.cs`): Real-time 3D visualization system
+  - **Scene Integration**: Works as regular scene GameObject with auto-connection to MapSystem
+  - **Proper Lighting**: Uses Unity's Lit shaders with proper normal calculation and Lambert shading
+  - **Face Culling**: Only renders exposed faces for optimal performance and lighting
+  - **Multi-State Visualization**: Different colors for block states (Solid=red, Standable=green, etc.)
+  - **Occlusion Culling**: Optional performance optimization to skip fully surrounded blocks
+- **`MapEditor`** (`Assets/Scripts/Editor/MapEditor.cs`): Advanced in-editor terrain painting tools
+  - **3D DDA Raycast Selection**: Precise block targeting in scene view
+  - **Multi-Property Painting**: Paint Solid, Standable, Passable, and TerrainType simultaneously
+  - **Real-time Preview**: Immediate visual feedback during editing
+  - **Manual Save/Load**: Explicit chunk persistence controls
+  - **Ghost Renderer Cleanup**: Proper editor state management
+
 ### BackendState System
 Core infrastructure for runtime state management:
 
@@ -76,10 +102,22 @@ Core infrastructure for runtime state management:
   - Uses efficient `HashSet<T>.Overlaps()` for collision detection
 - **Future Extensions**: `SphereGridCollider`, `BoxGridCollider` with mathematical overlap computation
 
+### Movement System
+The project includes an integrated movement system that works with the map architecture:
+
+- **`MovementSO`** (`Assets/Scripts/Backend/BackendCore/Movement/MovementSO.cs`): Abstract base for movement types
+  - **Movement Target System**: Uses `MovementTarget` with destination grids and pathfinding
+  - **Runtime Wrapping**: Converts to `Movement` runtime actions with level-based scaling
+- **`WalkMovementSO`**: Concrete implementation for ground-based movement
+  - **Smart Pathfinding**: Considers Solid, Standable, and Passable block states
+  - **Jump Mechanics**: Handles height differences with jump capability (up to 2 blocks)
+  - **Fall Mechanics**: Automatic falling with collision detection (up to 3 blocks)
+  - **Platform Detection**: Distinguishes between walkable surfaces and obstacles
+
 ### Turn-Based Combat System
 - **Turn Slices**: Modular turn components that can be combined to create complex turn structures
 - **Action System**: Skill/spell system using `ActionDataSO` ScriptableObjects
-- **Grid System**: 3D grid-based positioning with collision detection
+- **Grid System**: 3D grid-based positioning with collision detection and map integration
 
 ### ScriptableObject Architecture
 The project heavily uses Unity's ScriptableObject system for data-driven design:
@@ -142,6 +180,25 @@ Extensive use of C# events for:
 4. Use `[NonSerialized]` for calculated values and renderer references
 5. **Registration**: Call `Register()` to add state to backend tracking
 
+### Working with the Map System
+1. **Setup MapRenderer in Scene**: 
+   - Create empty GameObject, add `MapRenderer` component
+   - Configure colors and rendering options in inspector
+   - Renderer auto-connects to MapSystem in Play mode
+2. **Using Map Editor**:
+   - Access via `miniRAID > Map Editor` menu
+   - Use 3D DDA raycast to select blocks in Scene view
+   - Paint multi-state blocks (Solid, Standable, Passable, Terrain)
+   - Manual save/load controls for chunk persistence
+3. **Integrating Movement**:
+   - Create `WalkMovementSO` assets for character movement
+   - System automatically considers block states for pathfinding
+   - Supports jumping (2 blocks up) and falling (3 blocks down)
+4. **Custom Block States**:
+   - Modify `MapChunk` for additional properties
+   - Update `MapRenderer` color schemes for new states
+   - Extend `MapEditor` painting tools as needed
+
 ### Code Conventions
 - Use `Globals.backend` for accessing the main data backend
 - Use `Globals.cc` for coroutine context and animation settings
@@ -170,12 +227,18 @@ Extensive use of C# events for:
 
 ## Important Files
 - **`Assets/Scripts/Utils/Globals.cs`**: Central singleton manager and global references
-- **`Assets/Scripts/Backend/Databackend.cs`**: Main game state and map data
+- **`Assets/Scripts/Backend/Databackend.cs`**: Main game state and map data integration
 - **`Assets/Scripts/Backend/MobData/MobData.events.cs`**: Event definitions for the mob system
 - **`Assets/Scripts/Backend/BackendCore/`**: Core backend infrastructure
   - `BackendState.cs`: Base class for all persistent game state with renderer integration
   - `Colliders/GridColliders.cs`: `IGridCollider` interface definition
   - `Colliders/EnumerateGridCollider.cs`: Hash-set based collider implementation
+  - `Movement/MovementSO.cs`: Movement system with pathfinding integration
+- **`Assets/Scripts/Backend/Map/`**: 3D chunk-based map system
+  - `MapSystem.cs`: Core chunk management with 3D DDA raycast and persistence
+  - `MapChunk.cs`: Individual 32³ chunk data container with compression
+  - `MapRenderer.cs`: Real-time 3D visualization with proper Lit shading
+- **`Assets/Scripts/Editor/MapEditor.cs`**: Advanced terrain painting tools with 3D raycast selection
 - **`Assets/Scripts/Presentation/`**: Renderer implementations
   - `MobRenderer.cs`: Complex state renderer for mob visualization
   - `IndicatorRenderer.cs`: Batched renderer for multiple indicators
@@ -210,3 +273,4 @@ Extensive use of C# events for:
 - Cross-reference from `CLAUDE.md` for discoverability  
 - Update `CLAUDE.md` with new architectural insights when writing docs
 - **Serialization Notes**: Remember that Odin Serializer handles SO references as addressable paths, not direct object serialization
+- Please update CLAUDE.md after commits.

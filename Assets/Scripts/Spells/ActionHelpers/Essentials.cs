@@ -330,7 +330,8 @@ namespace miniRAID.ActionHelpers
             
             if ((!isInstant) && Globals.cc.animation)
             {
-                yield return new JumpIn(mob.MoveToCoroutine(newPos, null, false));
+                // TODO: Animation?
+                yield return new JumpIn(mob.SetPosition(newPos));
             }
             else
             {

@@ -79,18 +79,6 @@ namespace miniRAID.Buff
             base.OnRemove(mob);
         }
 
-        // public void Extend(Vector3Int pos)
-        // {
-        //     if (!Globals.backend.InMap(pos))
-        //     {
-        //         return;
-        //     }
-        //     
-        //     grids.AddGrid(pos);
-        //     Globals.backend.AddFxAt(this, pos);
-        //     // entity.AddGrid(Globals.backend.GridToWorldPos(pos));
-        // }
-
         public IEnumerator Fx_OnNextTurn(MobData mob)
         {
             if (timeRemain > 0)

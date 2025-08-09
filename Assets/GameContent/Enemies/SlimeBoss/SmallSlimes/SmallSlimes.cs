@@ -54,12 +54,12 @@ namespace miniRAID
                     yield return new JumpIn(smallSlimeSpawnFx.Do(spawnPos));
                     
                     // Spawn
-                    MobRenderer summonedMob = summon.Do(spawnPos, false).GetComponent<MobRenderer>();
-                    var lt = summonedMob.data.FindListener<LockedTarget>();
-                    if (lt != null)
-                    {
-                        lt.target = mob;
-                    }
+                    // MobRenderer summonedMob = summon.Do(spawnPos, false).GetComponent<MobRenderer>();
+                    // var lt = summonedMob.data.FindListener<LockedTarget>();
+                    // if (lt != null)
+                    // {
+                    //     lt.target = mob;
+                    // }
 
                     // Generate poison pool
                     yield return new JumpIn(poisonPool.Do(ract, mob, target.Position));

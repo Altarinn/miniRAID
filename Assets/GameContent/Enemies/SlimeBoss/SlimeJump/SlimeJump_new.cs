@@ -35,7 +35,8 @@ namespace miniRAID
             yield return mob.WaitForAnimation("JumpPrepare");
 
             var targetPos = Globals.backend.FindNearestEmptyGrid(target.Target, mob.Collider);
-            yield return new JumpIn(mob.MoveToCoroutine(targetPos, null));
+            throw new NotImplementedException();
+            // yield return new JumpIn(mob.MoveToCoroutine(targetPos, null));
             
             // Check if landed on poison pool
             if (CheckGridHasPoisonPool(Globals.backend.GetMap(mob.Position)))

@@ -16,91 +16,93 @@ MonoBehaviour:
   deleteDllAfterBuilds: 1
   AutomateForAllAOTPlatforms: 1
   automateForPlatforms: 0900000014000000
-  lastScan: 638545056934377573
   supportSerializedTypes:
   - TypeName: miniRAID.Weapon.ActionTargetPickerBase`1[[miniRAID.Spells.FourDirectionalTarget,
-      Assembly-CSharp]], Assembly-CSharp
+      miniRAID.Core]], miniRAID.Core
+    IsCustom: 0
+    Emit: 1
+  - TypeName: miniRAID.Weapon.ActionTargetPickerBase`1[[miniRAID.MovementTarget,
+      miniRAID.Core]], miniRAID.Core
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.Weapon.ActionTargetPickerBase`1[[miniRAID.Spells.SingleCoordinateTarget,
-      Assembly-CSharp]], Assembly-CSharp
+      miniRAID.Core]], miniRAID.Core
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.Weapon.ActionTargetPickerBase`1[[miniRAID.Spells.SingleMobTarget,
-      Assembly-CSharp]], Assembly-CSharp
+      miniRAID.Core]], miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.BaseMobDescriptorSO+MovementType, Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.UI.TargetRequester.BasicUnitRequester, Assembly-CSharp
+  - TypeName: miniRAID.UI.TargetRequester.BasicUnitRequester, miniRAID.Core
     IsCustom: 0
     Emit: 1
   - TypeName: System.Boolean, mscorlib
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.Buff.BuffSO, Assembly-CSharp
+  - TypeName: miniRAID.Buff.BuffSO, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.Buff.BuffSO+BuffDHOTDef, Assembly-CSharp
+  - TypeName: miniRAID.Buff.BuffSO+BuffDHOTDef, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.UI.TargetRequester.ConfirmRequester, Assembly-CSharp
+  - TypeName: miniRAID.UI.TargetRequester.ConfirmRequester, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.Consts+DamageHealFlags, Assembly-CSharp
+  - TypeName: miniRAID.Consts+DamageHealFlags, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.Consts+Direction, Assembly-CSharp
+  - TypeName: miniRAID.Consts+Elements, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.Consts+Elements, Assembly-CSharp
+  - TypeName: miniRAID.Cost+Type, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.Cost+Type, Assembly-CSharp
+  - TypeName: miniRAID.ActionHelpers.CreateGridEffect, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.ActionHelpers.CreateGridEffect, Assembly-CSharp
+  - TypeName: System.Collections.Generic.Dictionary`2[[miniRAID.Cost+Type, miniRAID.Core],[miniRAID.ValueBoundedGetter`3[[System.ValueTuple`2[[miniRAID.MobData,
+      miniRAID.Core],[miniRAID.Spells.FourDirectionalTarget, miniRAID.Core]], mscorlib],[miniRAID.MobData,
+      miniRAID.Core],[System.Double, mscorlib]], miniRAID.Core]], mscorlib
     IsCustom: 0
     Emit: 1
-  - TypeName: System.Collections.Generic.Dictionary`2[[miniRAID.Cost+Type, Assembly-CSharp],[miniRAID.LuaBoundedGetter`3[[System.ValueTuple`2[[miniRAID.MobData,
-      Assembly-CSharp],[miniRAID.Spells.FourDirectionalTarget, Assembly-CSharp]],
-      mscorlib],[miniRAID.MobData, Assembly-CSharp],[System.Double, mscorlib]], Assembly-CSharp]],
-      mscorlib
+  - TypeName: System.Collections.Generic.Dictionary`2[[miniRAID.Cost+Type, miniRAID.Core],[miniRAID.ValueBoundedGetter`3[[System.ValueTuple`2[[miniRAID.MobData,
+      miniRAID.Core],[miniRAID.MovementTarget, miniRAID.Core]], mscorlib],[miniRAID.MobData,
+      miniRAID.Core],[System.Double, mscorlib]], miniRAID.Core]], mscorlib
     IsCustom: 0
     Emit: 1
-  - TypeName: System.Collections.Generic.Dictionary`2[[miniRAID.Cost+Type, Assembly-CSharp],[miniRAID.LuaBoundedGetter`3[[System.ValueTuple`2[[miniRAID.MobData,
-      Assembly-CSharp],[miniRAID.Spells.SingleCoordinateTarget, Assembly-CSharp]],
-      mscorlib],[miniRAID.MobData, Assembly-CSharp],[System.Double, mscorlib]], Assembly-CSharp]],
-      mscorlib
+  - TypeName: System.Collections.Generic.Dictionary`2[[miniRAID.Cost+Type, miniRAID.Core],[miniRAID.ValueBoundedGetter`3[[System.ValueTuple`2[[miniRAID.MobData,
+      miniRAID.Core],[miniRAID.Spells.SingleCoordinateTarget, miniRAID.Core]], mscorlib],[miniRAID.MobData,
+      miniRAID.Core],[System.Double, mscorlib]], miniRAID.Core]], mscorlib
     IsCustom: 0
     Emit: 1
-  - TypeName: System.Collections.Generic.Dictionary`2[[miniRAID.Cost+Type, Assembly-CSharp],[miniRAID.LuaBoundedGetter`3[[System.ValueTuple`2[[miniRAID.MobData,
-      Assembly-CSharp],[miniRAID.Spells.SingleMobTarget, Assembly-CSharp]], mscorlib],[miniRAID.MobData,
-      Assembly-CSharp],[System.Double, mscorlib]], Assembly-CSharp]], mscorlib
+  - TypeName: System.Collections.Generic.Dictionary`2[[miniRAID.Cost+Type, miniRAID.Core],[miniRAID.ValueBoundedGetter`3[[System.ValueTuple`2[[miniRAID.MobData,
+      miniRAID.Core],[miniRAID.Spells.SingleMobTarget, miniRAID.Core]], mscorlib],[miniRAID.MobData,
+      miniRAID.Core],[System.Double, mscorlib]], miniRAID.Core]], mscorlib
     IsCustom: 0
     Emit: 1
   - TypeName: System.Collections.Generic.Dictionary`2[[miniRAID.StatModifierSO+StatModTarget,
-      Assembly-CSharp],[miniRAID.StatModifierSO+dNumberModifier, Assembly-CSharp]],
-      mscorlib
+      miniRAID.Core],[miniRAID.StatModifierSO+dNumberModifier, miniRAID.Core]], mscorlib
     IsCustom: 0
     Emit: 1
   - TypeName: System.Collections.Generic.Dictionary`2[[UnityEngine.Vector3Int, UnityEngine.CoreModule],[GridOverlay+Types,
-      Assembly-CSharp]], mscorlib
+      miniRAID.Core]], mscorlib
     IsCustom: 0
     Emit: 1
   - TypeName: System.Double, mscorlib
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.EnemyMobDescriptorSO+EnemyStatBase, Assembly-CSharp
+  - TypeName: miniRAID.EnemyMobDescriptorSO+EnemyStatBase, miniRAID.Core
     IsCustom: 0
     Emit: 1
   - TypeName: System.Collections.Generic.EnumEqualityComparer`1[[miniRAID.Cost+Type,
-      Assembly-CSharp]], mscorlib
+      miniRAID.Core]], mscorlib
     IsCustom: 0
     Emit: 1
   - TypeName: System.Collections.Generic.EnumEqualityComparer`1[[miniRAID.StatModifierSO+StatModTarget,
-      Assembly-CSharp]], mscorlib
+      miniRAID.Core]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: miniRAID.EnumerateGridCollider, miniRAID.Core
     IsCustom: 0
     Emit: 1
   - TypeName: System.Single, mscorlib
@@ -109,23 +111,23 @@ MonoBehaviour:
   - TypeName: System.Single[], mscorlib
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.ActionHelpers.FloatModifier, Assembly-CSharp
+  - TypeName: miniRAID.ActionHelpers.FloatModifier, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.ActionHelpers.FloatModifierType, Assembly-CSharp
+  - TypeName: miniRAID.ActionHelpers.FloatModifierType, miniRAID.Core
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.Weapon.FollowLastPicker`1[[miniRAID.Spells.SingleMobTarget,
-      Assembly-CSharp]], Assembly-CSharp
+      miniRAID.Core]], miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.UI.TargetRequester.FourDirectionalRequester, Assembly-CSharp
+  - TypeName: miniRAID.UI.TargetRequester.FourDirectionalRequester, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.Spells.FourDirectionalTarget, Assembly-CSharp
+  - TypeName: miniRAID.Spells.FourDirectionalTarget, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: System.Func`2[[miniRAID.MobData, Assembly-CSharp],[System.Single, mscorlib]],
+  - TypeName: System.Func`2[[miniRAID.MobData, miniRAID.Core],[System.Single, mscorlib]],
       mscorlib
     IsCustom: 0
     Emit: 1
@@ -133,247 +135,266 @@ MonoBehaviour:
       UnityEngine.CoreModule]], mscorlib
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.Buff.GridEffectSO, Assembly-CSharp
+  - TypeName: miniRAID.Buff.GridEffectSO, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: GridOverlay+Types, Assembly-CSharp
+  - TypeName: GridOverlay+Types, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.GridShape, Assembly-CSharp
+  - TypeName: miniRAID.GridShape, miniRAID.Core
     IsCustom: 0
     Emit: 1
   - TypeName: System.Collections.Generic.HashSet`1[[UnityEngine.Vector3Int, UnityEngine.CoreModule]],
       System.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.Weapon.HealerSingleMobPicker, Assembly-CSharp
+  - TypeName: miniRAID.Weapon.HealerSingleMobPicker, miniRAID.Core
     IsCustom: 0
     Emit: 1
   - TypeName: System.Collections.Generic.IEqualityComparer`1[[miniRAID.Cost+Type,
-      Assembly-CSharp]], mscorlib
+      miniRAID.Core]], mscorlib
     IsCustom: 0
     Emit: 1
   - TypeName: System.Collections.Generic.IEqualityComparer`1[[miniRAID.StatModifierSO+StatModTarget,
-      Assembly-CSharp]], mscorlib
+      miniRAID.Core]], mscorlib
     IsCustom: 0
     Emit: 1
   - TypeName: System.Collections.Generic.IEqualityComparer`1[[UnityEngine.Vector3Int,
       UnityEngine.CoreModule]], mscorlib
     IsCustom: 0
     Emit: 1
+  - TypeName: miniRAID.IGridCollider, miniRAID.Core
+    IsCustom: 0
+    Emit: 1
   - TypeName: System.Int32, mscorlib
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.ActionHelpers.KnockBack, Assembly-CSharp
+  - TypeName: miniRAID.ActionHelpers.KnockBack, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.LeveledStats`1[[System.Single, mscorlib]], Assembly-CSharp
+  - TypeName: miniRAID.LeveledStats`1[[System.Single, mscorlib]], miniRAID.Core
     IsCustom: 0
     Emit: 1
   - TypeName: System.Collections.Generic.List`1[[miniRAID.Buff.BuffSO+BuffDHOTDef,
-      Assembly-CSharp]], mscorlib
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaBoundedGetter`3[[System.ValueTuple`2[[miniRAID.MobData,
-      Assembly-CSharp],[miniRAID.Spells.FourDirectionalTarget, Assembly-CSharp]],
-      mscorlib],[miniRAID.MobData, Assembly-CSharp],[System.Double, mscorlib]], Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaBoundedGetter`3[[System.ValueTuple`2[[miniRAID.MobData,
-      Assembly-CSharp],[miniRAID.Spells.SingleCoordinateTarget, Assembly-CSharp]],
-      mscorlib],[miniRAID.MobData, Assembly-CSharp],[System.Double, mscorlib]], Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaBoundedGetter`3[[System.ValueTuple`2[[miniRAID.MobData,
-      Assembly-CSharp],[miniRAID.Spells.SingleMobTarget, Assembly-CSharp]], mscorlib],[miniRAID.MobData,
-      Assembly-CSharp],[System.Double, mscorlib]], Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetter`2[[System.Single, mscorlib],[System.Single, mscorlib]],
-      Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Boolean,
-      mscorlib]], Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Double,
-      mscorlib]], Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Single,
-      mscorlib]], Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetter`2+LuaGetterType[[System.Single, mscorlib],[System.Single,
-      mscorlib]], Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetter`2+LuaGetterType[[miniRAID.MobData, Assembly-CSharp],[System.Boolean,
-      mscorlib]], Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetter`2+LuaGetterType[[miniRAID.MobData, Assembly-CSharp],[System.Single,
-      mscorlib]], Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetter`2+LuaGetterType[[System.ValueTuple`2[[miniRAID.MobData,
-      Assembly-CSharp],[miniRAID.Spells.FourDirectionalTarget, Assembly-CSharp]],
-      mscorlib],[System.Double, mscorlib]], Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetter`2+LuaGetterType[[System.ValueTuple`2[[miniRAID.MobData,
-      Assembly-CSharp],[miniRAID.Spells.SingleCoordinateTarget, Assembly-CSharp]],
-      mscorlib],[System.Double, mscorlib]], Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetter`2+LuaGetterType[[System.ValueTuple`2[[miniRAID.MobData,
-      Assembly-CSharp],[miniRAID.Spells.SingleMobTarget, Assembly-CSharp]], mscorlib],[System.Double,
-      mscorlib]], Assembly-CSharp
+      miniRAID.Core]], mscorlib
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.LuaGetterTemplate`2[[System.Single, mscorlib],[System.Single,
-      mscorlib]], Assembly-CSharp
+      mscorlib]], miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.LuaGetterTemplate`2[[miniRAID.MobData, Assembly-CSharp],[System.Boolean,
-      mscorlib]], Assembly-CSharp
+  - TypeName: miniRAID.LuaGetterTemplate`2[[miniRAID.MobData, miniRAID.Core],[System.Boolean,
+      mscorlib]], miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.LuaGetterTemplate`2[[miniRAID.MobData, Assembly-CSharp],[System.Single,
-      mscorlib]], Assembly-CSharp
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.LuaGetterTemplate`2[[System.ValueTuple`2[[miniRAID.MobData,
-      Assembly-CSharp],[miniRAID.Spells.FourDirectionalTarget, Assembly-CSharp]],
-      mscorlib],[System.Double, mscorlib]], Assembly-CSharp
+  - TypeName: miniRAID.LuaGetterTemplate`2[[miniRAID.MobData, miniRAID.Core],[System.Single,
+      mscorlib]], miniRAID.Core
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.LuaGetterTemplate`2[[System.ValueTuple`2[[miniRAID.MobData,
-      Assembly-CSharp],[miniRAID.Spells.SingleCoordinateTarget, Assembly-CSharp]],
-      mscorlib],[System.Double, mscorlib]], Assembly-CSharp
+      miniRAID.Core],[miniRAID.Spells.FourDirectionalTarget, miniRAID.Core]], mscorlib],[System.Double,
+      mscorlib]], miniRAID.Core
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.LuaGetterTemplate`2[[System.ValueTuple`2[[miniRAID.MobData,
-      Assembly-CSharp],[miniRAID.Spells.SingleMobTarget, Assembly-CSharp]], mscorlib],[System.Double,
-      mscorlib]], Assembly-CSharp
+      miniRAID.Core],[miniRAID.Spells.SingleCoordinateTarget, miniRAID.Core]], mscorlib],[System.Double,
+      mscorlib]], miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.MobData, Assembly-CSharp
+  - TypeName: miniRAID.LuaGetterTemplate`2[[System.ValueTuple`2[[miniRAID.MobData,
+      miniRAID.Core],[miniRAID.Spells.SingleMobTarget, miniRAID.Core]], mscorlib],[System.Double,
+      mscorlib]], miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.MobListenerSO, Assembly-CSharp
+  - TypeName: miniRAID.MobData, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.MobRenderer, Assembly-CSharp
+  - TypeName: miniRAID.MobListenerSO, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.UI.TargetRequester.MovementRequester, Assembly-CSharp
+  - TypeName: miniRAID.MobRenderer, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.None, Assembly-CSharp
+  - TypeName: miniRAID.UI.TargetRequester.MovementRequester, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.PowerGetter, Assembly-CSharp
+  - TypeName: miniRAID.MovementTarget, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.PowerGetter+PowerGetterType, Assembly-CSharp
+  - TypeName: miniRAID.None, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.ActionHelpers.Projectile, Assembly-CSharp
+  - TypeName: miniRAID.PointCollider, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.UI.TargetRequester.RequestStage, Assembly-CSharp
+  - TypeName: miniRAID.PowerGetter, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.UI.TargetRequester.RequestType, Assembly-CSharp
+  - TypeName: miniRAID.PowerGetter+PowerGetterType, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.Weapon.SelfPicker, Assembly-CSharp
+  - TypeName: miniRAID.ActionHelpers.Projectile, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.ActionHelpers.ShowImportantMessage, Assembly-CSharp
+  - TypeName: miniRAID.UI.TargetRequester.RequestStage, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.ActionHelpers.SimpleExplosionFx, Assembly-CSharp
+  - TypeName: miniRAID.UI.TargetRequester.RequestType, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.ActionHelpers.SimpleRayFx, Assembly-CSharp
+  - TypeName: miniRAID.Weapon.SelfPicker, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.Spells.SingleCoordinateTarget, Assembly-CSharp
+  - TypeName: miniRAID.ActionHelpers.ShowImportantMessage, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.Spells.SingleMobTarget, Assembly-CSharp
+  - TypeName: miniRAID.ActionHelpers.SimpleExplosionFx, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.ActionHelpers.SpellBuff, Assembly-CSharp
+  - TypeName: miniRAID.ActionHelpers.SimpleRayFx, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.ActionHelpers.SpellDamageHeal, Assembly-CSharp
+  - TypeName: miniRAID.Spells.SingleCoordinateTarget, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.ActionHelpers.SpellDamageHeal+AdvancedSettings, Assembly-CSharp
+  - TypeName: miniRAID.Spells.SingleMobTarget, miniRAID.Core
+    IsCustom: 0
+    Emit: 1
+  - TypeName: miniRAID.ActionHelpers.SpellBuff, miniRAID.Core
+    IsCustom: 0
+    Emit: 1
+  - TypeName: miniRAID.ActionHelpers.SpellDamageHeal, miniRAID.Core
+    IsCustom: 0
+    Emit: 1
+  - TypeName: miniRAID.ActionHelpers.SpellDamageHeal+AdvancedSettings, miniRAID.Core
     IsCustom: 0
     Emit: 1
   - TypeName: UnityEngine.Sprite, UnityEngine.CoreModule
     IsCustom: 0
     Emit: 1
-  - TypeName: UnityEngine.ProBuilder.Shapes.Sprite, Unity.ProBuilder
-    IsCustom: 0
-    Emit: 1
   - TypeName: System.Collections.Generic.Stack`1[[miniRAID.UI.TargetRequester.RequestStage,
-      Assembly-CSharp]], mscorlib
+      miniRAID.Core]], mscorlib
     IsCustom: 0
     Emit: 1
   - TypeName: System.Collections.Generic.Stack`1[[UnityEngine.Vector3Int, UnityEngine.CoreModule]],
       mscorlib
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.StatModifierSO+dNumberModifier, Assembly-CSharp
+  - TypeName: miniRAID.StatModifierSO+dNumberModifier, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.StatModifierSO+dNumberModType, Assembly-CSharp
+  - TypeName: miniRAID.StatModifierSO+dNumberModType, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.StatModifierSO+StatModTarget, Assembly-CSharp
+  - TypeName: miniRAID.StatModifierSO+StatModTarget, miniRAID.Core
     IsCustom: 0
     Emit: 1
   - TypeName: System.String, mscorlib
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.ActionHelpers.Summon`1[[miniRAID.MobRenderer, Assembly-CSharp]],
-      Assembly-CSharp
+  - TypeName: miniRAID.ActionHelpers.Summon`1[[miniRAID.MobRenderer, miniRAID.Core]],
+      miniRAID.Core
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.UI.TargetRequester.TargetRequesterBase`1[[miniRAID.Spells.FourDirectionalTarget,
-      Assembly-CSharp]], Assembly-CSharp
+      miniRAID.Core]], miniRAID.Core
+    IsCustom: 0
+    Emit: 1
+  - TypeName: miniRAID.UI.TargetRequester.TargetRequesterBase`1[[miniRAID.MovementTarget,
+      miniRAID.Core]], miniRAID.Core
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.UI.TargetRequester.TargetRequesterBase`1[[miniRAID.Spells.SingleCoordinateTarget,
-      Assembly-CSharp]], Assembly-CSharp
+      miniRAID.Core]], miniRAID.Core
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.UI.TargetRequester.TargetRequesterBase`1[[miniRAID.Spells.SingleMobTarget,
-      Assembly-CSharp]], Assembly-CSharp
+      miniRAID.Core]], miniRAID.Core
     IsCustom: 0
     Emit: 1
   - TypeName: UnityEngine.Texture2D, UnityEngine.CoreModule
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.ActionHelpers.UnitFilters, Assembly-CSharp
+  - TypeName: miniRAID.ActionHelpers.UnitFilters, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: System.ValueTuple`2[[miniRAID.MobData, Assembly-CSharp],[miniRAID.Spells.FourDirectionalTarget,
-      Assembly-CSharp]], mscorlib
+  - TypeName: miniRAID.ValueBoundedGetter`3[[System.ValueTuple`2[[miniRAID.MobData,
+      miniRAID.Core],[miniRAID.Spells.FourDirectionalTarget, miniRAID.Core]], mscorlib],[miniRAID.MobData,
+      miniRAID.Core],[System.Double, mscorlib]], miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: System.ValueTuple`2[[miniRAID.MobData, Assembly-CSharp],[miniRAID.Spells.SingleCoordinateTarget,
-      Assembly-CSharp]], mscorlib
+  - TypeName: miniRAID.ValueBoundedGetter`3[[System.ValueTuple`2[[miniRAID.MobData,
+      miniRAID.Core],[miniRAID.MovementTarget, miniRAID.Core]], mscorlib],[miniRAID.MobData,
+      miniRAID.Core],[System.Double, mscorlib]], miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: System.ValueTuple`2[[miniRAID.MobData, Assembly-CSharp],[miniRAID.Spells.SingleMobTarget,
-      Assembly-CSharp]], mscorlib
+  - TypeName: miniRAID.ValueBoundedGetter`3[[System.ValueTuple`2[[miniRAID.MobData,
+      miniRAID.Core],[miniRAID.Spells.SingleCoordinateTarget, miniRAID.Core]], mscorlib],[miniRAID.MobData,
+      miniRAID.Core],[System.Double, mscorlib]], miniRAID.Core
+    IsCustom: 0
+    Emit: 1
+  - TypeName: miniRAID.ValueBoundedGetter`3[[System.ValueTuple`2[[miniRAID.MobData,
+      miniRAID.Core],[miniRAID.Spells.SingleMobTarget, miniRAID.Core]], mscorlib],[miniRAID.MobData,
+      miniRAID.Core],[System.Double, mscorlib]], miniRAID.Core
+    IsCustom: 0
+    Emit: 1
+  - TypeName: miniRAID.ValueGetter`2[[System.Single, mscorlib],[System.Single, mscorlib]],
+      miniRAID.Core
+    IsCustom: 0
+    Emit: 1
+  - TypeName: miniRAID.ValueGetter`2[[miniRAID.MobData, miniRAID.Core],[System.Boolean,
+      mscorlib]], miniRAID.Core
+    IsCustom: 0
+    Emit: 1
+  - TypeName: miniRAID.ValueGetter`2[[miniRAID.MobData, miniRAID.Core],[System.Double,
+      mscorlib]], miniRAID.Core
+    IsCustom: 0
+    Emit: 1
+  - TypeName: miniRAID.ValueGetter`2[[miniRAID.MobData, miniRAID.Core],[System.Single,
+      mscorlib]], miniRAID.Core
+    IsCustom: 0
+    Emit: 1
+  - TypeName: miniRAID.ValueGetter`2+LuaGetterType[[System.Single, mscorlib],[System.Single,
+      mscorlib]], miniRAID.Core
+    IsCustom: 0
+    Emit: 1
+  - TypeName: miniRAID.ValueGetter`2+LuaGetterType[[miniRAID.MobData, miniRAID.Core],[System.Boolean,
+      mscorlib]], miniRAID.Core
+    IsCustom: 0
+    Emit: 1
+  - TypeName: miniRAID.ValueGetter`2+LuaGetterType[[miniRAID.MobData, miniRAID.Core],[System.Single,
+      mscorlib]], miniRAID.Core
+    IsCustom: 0
+    Emit: 1
+  - TypeName: miniRAID.ValueGetter`2+LuaGetterType[[System.ValueTuple`2[[miniRAID.MobData,
+      miniRAID.Core],[miniRAID.Spells.FourDirectionalTarget, miniRAID.Core]], mscorlib],[System.Double,
+      mscorlib]], miniRAID.Core
+    IsCustom: 0
+    Emit: 1
+  - TypeName: miniRAID.ValueGetter`2+LuaGetterType[[System.ValueTuple`2[[miniRAID.MobData,
+      miniRAID.Core],[miniRAID.Spells.SingleCoordinateTarget, miniRAID.Core]], mscorlib],[System.Double,
+      mscorlib]], miniRAID.Core
+    IsCustom: 0
+    Emit: 1
+  - TypeName: miniRAID.ValueGetter`2+LuaGetterType[[System.ValueTuple`2[[miniRAID.MobData,
+      miniRAID.Core],[miniRAID.Spells.SingleMobTarget, miniRAID.Core]], mscorlib],[System.Double,
+      mscorlib]], miniRAID.Core
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.ValueTuple`2[[miniRAID.MobData, miniRAID.Core],[miniRAID.Spells.FourDirectionalTarget,
+      miniRAID.Core]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.ValueTuple`2[[miniRAID.MobData, miniRAID.Core],[miniRAID.MovementTarget,
+      miniRAID.Core]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.ValueTuple`2[[miniRAID.MobData, miniRAID.Core],[miniRAID.Spells.SingleCoordinateTarget,
+      miniRAID.Core]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.ValueTuple`2[[miniRAID.MobData, miniRAID.Core],[miniRAID.Spells.SingleMobTarget,
+      miniRAID.Core]], mscorlib
     IsCustom: 0
     Emit: 1
   - TypeName: UnityEngine.Vector3Int, UnityEngine.CoreModule

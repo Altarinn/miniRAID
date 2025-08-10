@@ -23,10 +23,13 @@ MonoBehaviour:
     SerializationNodes:
     - Name: gridBody
       Entry: 7
-      Data: 0|miniRAID.GridShape, Assembly-CSharp
+      Data: 0|miniRAID.PointCollider, miniRAID.Core
     - Name: shape
       Entry: 7
-      Data: 1|System.Collections.Generic.HashSet`1[[UnityEngine.Vector3Int, UnityEngine.CoreModule]],
+      Data: 1|miniRAID.GridShape, miniRAID.Core
+    - Name: shape
+      Entry: 7
+      Data: 2|System.Collections.Generic.HashSet`1[[UnityEngine.Vector3Int, UnityEngine.CoreModule]],
         System.Core
     - Name: 
       Entry: 12
@@ -55,30 +58,15 @@ MonoBehaviour:
     - Name: canvasSize
       Entry: 3
       Data: 2
-    - Name: position
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 0
     - Name: 
       Entry: 8
       Data: 
-    - Name: direction
-      Entry: 3
-      Data: 0
     - Name: 
       Entry: 8
       Data: 
     - Name: baseEnemyStats
       Entry: 7
-      Data: miniRAID.EnemyMobDescriptorSO+EnemyStatBase, Assembly-CSharp
+      Data: miniRAID.EnemyMobDescriptorSO+EnemyStatBase, miniRAID.Core
     - Name: MaxHP
       Entry: 3
       Data: 120
@@ -106,7 +94,7 @@ MonoBehaviour:
   color: {r: 0, g: 0, b: 0, a: 0}
   level: 10
   rendererPrefab: {fileID: 8335323150292242298, guid: d26d8f30d4b3cbb4794c5b16d06cb4e9, type: 3}
-  movementType: 0
+  movement: {fileID: 11400000, guid: c917e07e12994f44e85a9c8c5e79c31a, type: 2}
   movable: 1
   moveRange: 4
   mainWeaponSO: {fileID: 11400000, guid: 03bc70f0a23dae24595c365479180d65, type: 2}
@@ -114,7 +102,5 @@ MonoBehaviour:
   listenerSOs:
   - {fileID: 11400000, guid: a0fd44a199c1fac41bc053de25c0afc6, type: 2}
   - {fileID: 11400000, guid: 9ec6cb989d876e2478ab9f3dba413fa2, type: 2}
-  actionSOs:
-  - data: {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
-    level: 0
+  actionSOs: []
   rootAgent: {fileID: 11400000, guid: d05fc1adae067eb479906fc0d57926fa, type: 2}

@@ -1,7 +1,16 @@
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using miniRAID;
+#if UNITY_EDITOR
+using UnityEditor;
+using UnityEditor.AddressableAssets;
+using UnityEditor.AddressableAssets.Settings;
+#endif
 
 namespace Backend.Map
 {
@@ -13,6 +22,7 @@ namespace Backend.Map
 
         private Dictionary<Vector3Int, MapChunk> loadedChunks = new Dictionary<Vector3Int, MapChunk>();
         private Vector3Int currentPlayerChunk;
+        private string currentMapName = "default";
         
         // Storage paths
         private static readonly string ChunkStoragePath = Path.Combine(Application.persistentDataPath, "MapChunks");
@@ -60,13 +70,25 @@ namespace Backend.Map
             );
         }
 
-        // Load chunks around player position
+        // Initialize map system with addressables (async)
+        public IEnumerator InitializeMapAsync(string mapName, Vector3 playerStartPosition)
+        {
+            currentMapName = mapName;
+            yield return UpdateChunkLoadingAsync(playerStartPosition);
+        }
+
         public void UpdateChunkLoading(Vector3 playerPosition)
+        {
+            Globals.combatCoroutine.Instance.RunCoroutine(UpdateChunkLoadingAsync(playerPosition));
+        }
+
+        // Load chunks around player position (async version)
+        public IEnumerator UpdateChunkLoadingAsync(Vector3 playerPosition)
         {
             Vector3Int newPlayerChunk = WorldToChunkCoordinate(playerPosition);
             
             if (newPlayerChunk == currentPlayerChunk && loadedChunks.Count > 0)
-                return; // No change needed
+                yield break; // No change needed
             
             currentPlayerChunk = newPlayerChunk;
             
@@ -90,28 +112,20 @@ namespace Backend.Map
                 UnloadChunk(chunkCoord);
             }
 
-            // Load new chunks
+            // Load new chunks (async)
             foreach (var chunkCoord in requiredChunks)
             {
                 if (!loadedChunks.ContainsKey(chunkCoord))
                 {
-                    LoadChunk(chunkCoord);
+                    yield return LoadChunkAsync(chunkCoord);
                 }
             }
         }
 
-        // Load a single chunk
-        private void LoadChunk(Vector3Int chunkCoordinate)
+        // Load a single chunk (async)
+        private IEnumerator LoadChunkAsync(Vector3Int chunkCoordinate)
         {
-            MapChunk chunk = LoadChunkFromDisk(chunkCoordinate);
-            if (chunk == null)
-            {
-                // Create new empty chunk if doesn't exist
-                chunk = new MapChunk(chunkCoordinate);
-                GenerateDefaultTerrain(chunk); // Generate some default terrain
-            }
-            
-            loadedChunks[chunkCoordinate] = chunk;
+            yield return LoadChunkFromAddressable(chunkCoordinate);
         }
 
         // Unload a single chunk (save to disk if dirty)
@@ -120,7 +134,7 @@ namespace Backend.Map
             if (loadedChunks.TryGetValue(chunkCoordinate, out MapChunk chunk))
             {
                 // TODO: Track dirty chunks and only save when modified
-                SaveChunkToDisk(chunk);
+                SaveChunkToAddressable(chunk);
                 loadedChunks.Remove(chunkCoordinate);
             }
         }
@@ -212,6 +226,35 @@ namespace Backend.Map
             // TODO: Implement dirty tracking
         }
 
+        // Public API for editor
+        public void SetMapName(string mapName)
+        {
+            currentMapName = mapName;
+        }
+
+        public string GetMapName()
+        {
+            return currentMapName;
+        }
+
+        // Public method for editor to save chunks
+        public bool SaveChunk(Vector3Int chunkCoordinate)
+        {
+            var chunk = GetLoadedChunk(chunkCoordinate);
+            if (chunk == null) return false;
+            
+            try
+            {
+                SaveChunkToAddressable(chunk);
+                return true;
+            }
+            catch (System.Exception ex)
+            {
+                Debug.LogError($"Failed to save chunk {chunkCoordinate}: {ex.Message}");
+                return false;
+            }
+        }
+
         // Public methods for cross-chunk block queries
         public bool IsStandable(Vector3 worldPos)
         {
@@ -247,44 +290,83 @@ namespace Backend.Map
             return GetIsPassableAtGridPos(gridPos);
         }
 
-        // Save chunk to disk
-        private void SaveChunkToDisk(MapChunk chunk)
+        // Save chunk to addressable (editor only)
+#if UNITY_EDITOR
+        private void SaveChunkToAddressable(MapChunk chunk)
         {
             try
             {
-                string filename = $"chunk_{chunk.ChunkCoordinate.x}_{chunk.ChunkCoordinate.y}_{chunk.ChunkCoordinate.z}.chunk";
-                string filepath = Path.Combine(ChunkStoragePath, filename);
+                string folderPath = $"Assets/GameContent/MapChunks/{currentMapName}";
+                string fileName = $"MapChunk_{chunk.ChunkCoordinate.x}_{chunk.ChunkCoordinate.y}_{chunk.ChunkCoordinate.z}.bytes";
+                string assetPath = Path.Combine(folderPath, fileName);
                 
+                // Ensure directory exists
+                Directory.CreateDirectory(folderPath);
+                
+                // Serialize and save
                 byte[] data = chunk.SerializeToBytes();
-                File.WriteAllBytes(filepath, data);
+                File.WriteAllBytes(assetPath, data);
+                
+                // Refresh asset database
+                AssetDatabase.Refresh();
+                
+                // Auto-configure addressable
+                var assetGUID = AssetDatabase.AssetPathToGUID(assetPath);
+                if (!string.IsNullOrEmpty(assetGUID))
+                {
+                    var addressableSettings = AddressableAssetSettingsDefaultObject.Settings;
+                    if (addressableSettings != null)
+                    {
+                        var entry = addressableSettings.CreateOrMoveEntry(assetGUID, addressableSettings.DefaultGroup);
+                        entry.address = $"mapchunk_{currentMapName}_{chunk.ChunkCoordinate.x}_{chunk.ChunkCoordinate.y}_{chunk.ChunkCoordinate.z}";
+                        
+                        // Mark settings dirty
+                        EditorUtility.SetDirty(addressableSettings);
+                    }
+                }
             }
             catch (System.Exception ex)
             {
                 Debug.LogError($"Failed to save chunk {chunk.ChunkCoordinate}: {ex.Message}");
             }
         }
-
-        // Load chunk from disk
-        private MapChunk LoadChunkFromDisk(Vector3Int chunkCoordinate)
+#else
+        private void SaveChunkToAddressable(MapChunk chunk)
         {
-            try
+            // Runtime saving not supported - chunks are read-only in builds
+            Debug.LogWarning($"Cannot save chunk {chunk.ChunkCoordinate} at runtime. Chunks are read-only in builds.");
+        }
+#endif
+
+        // Load chunk from addressable
+        private IEnumerator LoadChunkFromAddressable(Vector3Int chunkCoordinate)
+        {
+            string address = $"mapchunk_{currentMapName}_{chunkCoordinate.x}_{chunkCoordinate.y}_{chunkCoordinate.z}";
+            
+            var handle = Addressables.LoadAssetAsync<TextAsset>(address);
+            yield return handle;
+            
+            if (handle.Status == AsyncOperationStatus.Succeeded && handle.Result != null)
             {
-                string filename = $"chunk_{chunkCoordinate.x}_{chunkCoordinate.y}_{chunkCoordinate.z}.chunk";
-                string filepath = Path.Combine(ChunkStoragePath, filename);
+                var textAsset = handle.Result;
+                var chunk = MapChunk.DeserializeFromBytes(textAsset.bytes);
+                chunk.ChunkCoordinate = chunkCoordinate;
+                loadedChunks[chunkCoordinate] = chunk;
                 
-                if (!File.Exists(filepath))
-                    return null;
-                
-                byte[] data = File.ReadAllBytes(filepath);
-                MapChunk chunk = MapChunk.DeserializeFromBytes(data);
-                chunk.ChunkCoordinate = chunkCoordinate; // Ensure coordinate is set
-                
-                return chunk;
+                // Release the handle after use
+                Addressables.Release(handle);
             }
-            catch (System.Exception ex)
+            else
             {
-                Debug.LogError($"Failed to load chunk {chunkCoordinate}: {ex.Message}");
-                return null;
+                // Create default chunk if addressable doesn't exist
+                var chunk = new MapChunk(chunkCoordinate);
+                GenerateDefaultTerrain(chunk);
+                loadedChunks[chunkCoordinate] = chunk;
+                
+                if (handle.IsValid())
+                {
+                    Addressables.Release(handle);
+                }
             }
         }
 

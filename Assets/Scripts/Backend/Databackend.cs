@@ -644,7 +644,17 @@ namespace miniRAID
 
         public static int RangedActionDistance(Vector3 _src, Vector3 _dst)
         {
-            return Distance(_src, _dst);
+            // Attacking lower places is easier
+            float highlandBonus = _src.y - _dst.y;
+            if (highlandBonus > 0)
+            {
+                _dst.y += Mathf.Min(6.0f, highlandBonus);
+            }
+            
+            var rawDistance = Distance(_src, _dst);
+            rawDistance -= Mathf.Min(2, Mathf.CeilToInt(highlandBonus));
+
+            return rawDistance;
         }
         
         public static bool IsPointWithinCollider(Collider collider, Vector3 point)
@@ -692,11 +702,11 @@ namespace miniRAID
 
         private Databackend()
         {
-            // Initialize new map system
+            // Initialize new map system (but don't load chunks yet)
             mapSystem = new MapSystem();
             
-            // Update chunk loading around player starting position (0,0,0)
-            mapSystem.UpdateChunkLoading(Vector3.zero);
+            // Chunk loading now happens in CombatSchedulerCoroutine.Combat()
+            // via InitializeMapAsync with addressables
         }
 
         public GridData GetMap(Vector3 backendPos)
@@ -1062,6 +1072,8 @@ namespace miniRAID
                         {
                             if (termCond(newKey))
                             {
+                                searchedGrids.Add(newKey);
+                                gridInfo.Add(newPos, (curr.position, newKey.distance));
                                 return true;
                             }
                             else if(newKey.distance < maxDistance)
@@ -1171,12 +1183,6 @@ namespace miniRAID
         public MapSystem GetMapSystem()
         {
             return mapSystem;
-        }
-
-        // Update map loading when player moves
-        public void UpdateMapLoading(Vector3 playerPosition)
-        {
-            mapSystem.UpdateChunkLoading(playerPosition);
         }
 
         public void AimOnTarget(MobData targetMob)

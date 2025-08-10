@@ -20,6 +20,9 @@ namespace Backend.Map.Editor
         private Vector3Int selectedChunk = Vector3Int.zero;
         private Vector3Int selectedBlock = Vector3Int.zero;
         
+        // Map configuration
+        private string mapName = "default";
+        
         // Editor settings
         private bool showChunkBoundaries = true;
         private bool autoLoadChunks = true;
@@ -106,12 +109,13 @@ namespace Backend.Map.Editor
             }
             else
             {
-                EditorGUILayout.HelpBox("Only usable under Play Mode.", MessageType.Warning);
-                return;
+                // EditorGUILayout.HelpBox("Only usable under Play Mode.", MessageType.Warning);
+                // return;
                 // Use editor-only MapSystem outside play mode
                 if (editorMapSystem == null)
                 {
                     editorMapSystem = new MapSystem();
+                    editorMapSystem.SetMapName(mapName);
                     // Load initial chunks around player position
                     editorMapSystem.UpdateChunkLoading(playerPosition);
                 }
@@ -122,6 +126,31 @@ namespace Backend.Map.Editor
             {
                 EditorGUILayout.HelpBox("Failed to initialize MapSystem.", MessageType.Error);
                 return;
+            }
+            
+            EditorGUILayout.Space();
+            
+            // Map Configuration
+            EditorGUILayout.LabelField("Map Configuration", EditorStyles.boldLabel);
+            string newMapName = EditorGUILayout.TextField("Map Name", mapName);
+            if (newMapName != mapName)
+            {
+                mapName = newMapName;
+                // Update the map system's current map name
+                if (mapSystem != null)
+                {
+                    mapSystem.SetMapName(mapName);
+                }
+            }
+            
+            // Show current map name from MapSystem
+            if (mapSystem != null)
+            {
+                string currentMapName = mapSystem.GetMapName();
+                if (currentMapName != mapName)
+                {
+                    EditorGUILayout.LabelField($"MapSystem Current: {currentMapName}", EditorStyles.miniLabel);
+                }
             }
             
             EditorGUILayout.Space();
@@ -624,12 +653,12 @@ namespace Backend.Map.Editor
             
             foreach (var chunkCoord in loadedChunks)
             {
-                if (SaveChunkToDisk(chunkCoord))
+                if (mapSystem.SaveChunk(chunkCoord))
                     savedCount++;
             }
             
             EditorUtility.DisplayDialog("Save Complete", 
-                $"Saved {savedCount} chunks to disk.\nLocation: {UnityEngine.Application.persistentDataPath}/MapChunks/", "OK");
+                $"Saved {savedCount} chunks to addressable assets for map '{mapSystem.GetMapName()}'.\nLocation: Assets/GameContent/MapChunks/{mapSystem.GetMapName()}/", "OK");
         }
         
         void SaveCurrentChunk()
@@ -642,10 +671,10 @@ namespace Backend.Map.Editor
             
             Vector3Int playerChunk = MapSystem.WorldToChunkCoordinate(playerPosition);
             
-            if (SaveChunkToDisk(playerChunk))
+            if (mapSystem.SaveChunk(playerChunk))
             {
                 EditorUtility.DisplayDialog("Save Complete", 
-                    $"Saved chunk {playerChunk} to disk.", "OK");
+                    $"Saved chunk {playerChunk} to addressable asset for map '{mapSystem.GetMapName()}'.", "OK");
             }
             else
             {
@@ -689,41 +718,13 @@ namespace Backend.Map.Editor
             }
             
             EditorUtility.DisplayDialog("Reload Complete", 
-                $"Reloaded {reloadedCount} chunks from disk.", "OK");
-        }
-        
-        bool SaveChunkToDisk(Vector3Int chunkCoordinate)
-        {
-            var chunk = mapSystem.GetLoadedChunk(chunkCoordinate);
-            if (chunk == null) return false;
-            
-            try
-            {
-                string chunkStoragePath = System.IO.Path.Combine(UnityEngine.Application.persistentDataPath, "MapChunks");
-                if (!System.IO.Directory.Exists(chunkStoragePath))
-                {
-                    System.IO.Directory.CreateDirectory(chunkStoragePath);
-                }
-                
-                string filename = $"chunk_{chunkCoordinate.x}_{chunkCoordinate.y}_{chunkCoordinate.z}.chunk";
-                string filepath = System.IO.Path.Combine(chunkStoragePath, filename);
-                
-                byte[] data = chunk.SerializeToBytes();
-                System.IO.File.WriteAllBytes(filepath, data);
-                
-                Debug.Log($"[MapEditor] Saved chunk {chunkCoordinate} to {filepath}");
-                return true;
-            }
-            catch (System.Exception ex)
-            {
-                Debug.LogError($"[MapEditor] Failed to save chunk {chunkCoordinate}: {ex.Message}");
-                return false;
-            }
+                $"Reloaded {reloadedCount} chunks from addressable assets.", "OK");
         }
         
         void OpenSaveFolder()
         {
-            string chunkStoragePath = System.IO.Path.Combine(UnityEngine.Application.persistentDataPath, "MapChunks");
+            string currentMapName = mapSystem?.GetMapName() ?? mapName;
+            string chunkStoragePath = System.IO.Path.Combine(UnityEngine.Application.dataPath, $"GameContent/MapChunks/{currentMapName}");
             
             if (!System.IO.Directory.Exists(chunkStoragePath))
             {

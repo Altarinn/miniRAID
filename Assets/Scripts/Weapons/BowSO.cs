@@ -51,7 +51,7 @@ namespace miniRAID.Weapon
             mob.OnMobMoved.RemoveListener(MobOnOnMobMoved);
         }
 
-        private IEnumerator MobOnOnMobMoved(MobData mob, Vector3Int from)
+        private IEnumerator MobOnOnMobMoved(MobData mob, Vector3 from)
         {
             moved = true;
             yield break;

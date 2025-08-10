@@ -72,6 +72,9 @@ namespace miniRAID
             // TODO: Move me to the game's beginning scene
             yield return new JumpIn(Globals.localizer.Initialization());
             
+            // Initialize map system with addressables
+            yield return new JumpIn(InitializeMap());
+            
             // For debug
             //yield return new JumpIn(Test());
 
@@ -219,5 +222,14 @@ namespace miniRAID
         }
 
         #endregion
+        
+        private IEnumerator InitializeMap()
+        {
+            Utils.SceneConfig config = FindFirstObjectByType<Utils.SceneConfig>();
+            string mapName = config?.mapName ?? "default";
+            Vector3 playerStartPos = config?.playerStartPosition ?? Vector3.zero;
+            
+            yield return new JumpIn(Globals.backend.GetMapSystem().InitializeMapAsync(mapName, playerStartPos));
+        }
     }
 }

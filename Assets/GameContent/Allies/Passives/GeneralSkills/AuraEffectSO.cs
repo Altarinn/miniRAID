@@ -91,7 +91,7 @@ namespace GameContent.Buffs.Test
             }
         }
 
-        protected IEnumerator SourceOnMobMoved(MobData mob, Vector3Int from)
+        protected IEnumerator SourceOnMobMoved(MobData mob, Vector3 from)
         {
             foreach (var target in validTargets)
             {
@@ -101,13 +101,13 @@ namespace GameContent.Buffs.Test
             yield break;
         }
 
-        protected IEnumerator TargetOnMobMovedCoroutine(MobData mob, Vector3Int from)
+        protected IEnumerator TargetOnMobMovedCoroutine(MobData mob, Vector3 from)
         {
             TargetOnMobMoved(mob, from);
             yield break;
         }
 
-        protected void TargetOnMobMoved(MobData mob, Vector3Int from)
+        protected void TargetOnMobMoved(MobData mob, Vector3 from)
         {
             // Ignore non-target mobs. Should not be triggered tho?
             if (!((AuraEffectSO)buffData).filter.Check(source, mob))

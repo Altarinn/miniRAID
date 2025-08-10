@@ -27,7 +27,7 @@ namespace miniRAID
         public delegate void MobActionQueryDelegate(MobData mob, HashSet<RuntimeAction> actions);
 
         public delegate IEnumerator MobDataCoroutineDelegate(MobData mob);
-        public delegate IEnumerator MobMovedCoroutineDelegate(MobData mob, Vector3Int destination);
+        public delegate IEnumerator MobMovedCoroutineDelegate(MobData mob, Vector3 destination);
 
         public delegate IEnumerator MobDamageHealPreCalcCoroutineDelegate(MobData mob, Consts.DamageHeal_FrontEndInput input);
         public delegate IEnumerator MobDamageHealResultCoroutineDelegate(MobData mob, Consts.DamageHeal_Result input);

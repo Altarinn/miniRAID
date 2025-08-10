@@ -261,6 +261,11 @@ namespace miniRAID
             }
         }
 
+        public void RunCoroutine(IEnumerator coroutine)
+        {
+            StartCoroutine(coroutine);
+        }
+
         public SerialCoroutineContext currentContext =>
             currentHandle?.context ?? default;
 

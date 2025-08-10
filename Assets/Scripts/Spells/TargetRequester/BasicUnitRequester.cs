@@ -47,7 +47,7 @@ namespace miniRAID.UI.TargetRequester
 
                 var validGrids = Globals.backend.GetGridsWithMob(
                     (Databackend.IsMobValidFunc)((MobData mob) => Consts.ApplyMask(mask, mob.unitGroup)),
-                    (Databackend.IsGridValidFunc)((Vector3Int pos, GridData grid) => ((!choice.Contains(pos)) && (Consts.Distance(mob.Position, pos) <= range))));
+                    (Databackend.IsGridValidFunc)((Vector3Int pos, GridData grid) => ((!choice.Contains(pos)) && (Consts.RangedActionDistance(mob.Position, pos) <= range))));
 
                 foreach (var pos in validGrids)
                 {
@@ -62,7 +62,7 @@ namespace miniRAID.UI.TargetRequester
 
                 var validGrids = Globals.backend.GetGridsWithMob(
                     (Databackend.IsMobValidFunc)((MobData mob) => Consts.ApplyMask(mask, mob.unitGroup)),
-                    (Databackend.IsGridValidFunc)((Vector3Int pos, GridData grid) => ((!choice.Contains(pos)) && (Consts.Distance(mob.Position, pos) <= range))));
+                    (Databackend.IsGridValidFunc)((Vector3Int pos, GridData grid) => ((!choice.Contains(pos)) && (Consts.RangedActionDistance(mob.Position, pos) <= range))));
 
                 foreach (var pos in validGrids)
                 {

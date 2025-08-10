@@ -23,10 +23,13 @@ MonoBehaviour:
     SerializationNodes:
     - Name: gridBody
       Entry: 7
-      Data: 0|miniRAID.GridShape, Assembly-CSharp
+      Data: 0|miniRAID.PointCollider, miniRAID.Core
     - Name: shape
       Entry: 7
-      Data: 1|System.Collections.Generic.HashSet`1[[UnityEngine.Vector3Int, UnityEngine.CoreModule]],
+      Data: 1|miniRAID.GridShape, miniRAID.Core
+    - Name: shape
+      Entry: 7
+      Data: 2|System.Collections.Generic.HashSet`1[[UnityEngine.Vector3Int, UnityEngine.CoreModule]],
         System.Core
     - Name: 
       Entry: 12
@@ -55,28 +58,13 @@ MonoBehaviour:
     - Name: canvasSize
       Entry: 3
       Data: 2
-    - Name: position
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 0
     - Name: 
       Entry: 8
       Data: 
-    - Name: direction
-      Entry: 3
-      Data: 0
     - Name: 
       Entry: 8
       Data: 
-  Guid: cb37ffc9640f43479a369467a188723c
+  Guid: 3dbe83d42ffb7456893913dd0db4cfca
   Id: 88
   icon: {fileID: 0}
   nickname: 
@@ -85,7 +73,7 @@ MonoBehaviour:
   color: {r: 0.63197607, g: 1, b: 0.5886792, a: 1}
   level: 10
   rendererPrefab: {fileID: 0}
-  movementType: 0
+  movement: {fileID: 11400000, guid: c917e07e12994f44e85a9c8c5e79c31a, type: 2}
   movable: 1
   moveRange: 4
   mainWeaponSO: {fileID: 11400000, guid: 342e5cf4fc58d3b419132c483d918beb, type: 2}
@@ -94,8 +82,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3d81a9427e5722e44a2a27b96379ef06, type: 2}
   - {fileID: 11400000, guid: 869ff8d9c45faae4fa38285d22cefa0b, type: 2}
   actionSOs:
-  - data: {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
-    level: 0
   - data: {fileID: 11400000, guid: c934568e496c1d2438b51d0b0be45afa, type: 2}
     level: 0
   - data: {fileID: 11400000, guid: 2a4d462aae6574ce78f2c9ca31e33b8e, type: 2}

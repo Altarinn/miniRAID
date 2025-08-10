@@ -76,7 +76,7 @@ namespace miniRAID.Actions
                 startPos = Globals.backend.BackendToRenderPosCentered(dst.Position);
                 dst = Globals.backend.allMobs
                     .Where(t => filter.Check(mob, t))
-                    .Where(t => Consts.Distance(dst.Position, t.Position) <= jumpRange)
+                    .Where(t => Consts.RangedActionDistance(dst.Position, t.Position) <= jumpRange)
                     .Where(t => !affectedMobs.Contains(t))
                     .OrderBy(Consts.GetPrioritizedHealthRatio)
                     .FirstOrDefault();

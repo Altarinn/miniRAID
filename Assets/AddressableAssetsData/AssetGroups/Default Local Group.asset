@@ -22,6 +22,11 @@ MonoBehaviour:
     - EnemyNumericals
     - Numericals
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1d344adb93f10e34ebe4c5bc077bc1e0
+    m_Address: mapchunk_default_0_0_0
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c3f9f684cb18e714d8aaa003a854f15c
     m_Address: Allies
     m_ReadOnly: 0

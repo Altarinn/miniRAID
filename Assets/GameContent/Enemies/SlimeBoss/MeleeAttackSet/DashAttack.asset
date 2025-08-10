@@ -24,20 +24,14 @@ MonoBehaviour:
     SerializationNodes:
     - Name: isActivelyUsed
       Entry: 7
-      Data: 0|miniRAID.LuaGetter`2[[miniRAID.MobData, Assembly-CSharp],[System.Boolean,
-        mscorlib]], Assembly-CSharp
+      Data: 0|miniRAID.ValueGetter`2[[miniRAID.MobData, miniRAID.Core],[System.Boolean,
+        mscorlib]], miniRAID.Core
     - Name: type
       Entry: 3
       Data: 0
     - Name: staticOut
       Entry: 5
       Data: true
-    - Name: LuaExpr
-      Entry: 1
-      Data: 
-    - Name: description
-      Entry: 1
-      Data: 
     - Name: getterTemplate
       Entry: 6
       Data: 
@@ -46,13 +40,13 @@ MonoBehaviour:
       Data: 
     - Name: power
       Entry: 7
-      Data: 1|miniRAID.PowerGetter, Assembly-CSharp
+      Data: 1|miniRAID.PowerGetter, miniRAID.Core
     - Name: powerType
       Entry: 3
       Data: 1
     - Name: powerFactor
       Entry: 7
-      Data: miniRAID.LeveledStats`1[[System.Single, mscorlib]], Assembly-CSharp
+      Data: miniRAID.LeveledStats`1[[System.Single, mscorlib]], miniRAID.Core
     - Name: isLeveled
       Entry: 5
       Data: false
@@ -94,13 +88,13 @@ MonoBehaviour:
       Data: 
     - Name: auxPower
       Entry: 7
-      Data: 3|miniRAID.PowerGetter, Assembly-CSharp
+      Data: 3|miniRAID.PowerGetter, miniRAID.Core
     - Name: powerType
       Entry: 3
       Data: 1
     - Name: powerFactor
       Entry: 7
-      Data: miniRAID.LeveledStats`1[[System.Single, mscorlib]], Assembly-CSharp
+      Data: miniRAID.LeveledStats`1[[System.Single, mscorlib]], miniRAID.Core
     - Name: isLeveled
       Entry: 5
       Data: false
@@ -142,14 +136,13 @@ MonoBehaviour:
       Data: 
     - Name: costs
       Entry: 7
-      Data: 5|System.Collections.Generic.Dictionary`2[[miniRAID.Cost+Type, Assembly-CSharp],[miniRAID.LuaBoundedGetter`3[[System.ValueTuple`2[[miniRAID.MobData,
-        Assembly-CSharp],[miniRAID.Spells.FourDirectionalTarget, Assembly-CSharp]],
-        mscorlib],[miniRAID.MobData, Assembly-CSharp],[System.Double, mscorlib]],
-        Assembly-CSharp]], mscorlib
+      Data: 5|System.Collections.Generic.Dictionary`2[[miniRAID.Cost+Type, miniRAID.Core],[miniRAID.ValueBoundedGetter`3[[System.ValueTuple`2[[miniRAID.MobData,
+        miniRAID.Core],[miniRAID.Spells.FourDirectionalTarget, miniRAID.Core]], mscorlib],[miniRAID.MobData,
+        miniRAID.Core],[System.Double, mscorlib]], miniRAID.Core]], mscorlib
     - Name: comparer
       Entry: 7
       Data: 6|System.Collections.Generic.EnumEqualityComparer`1[[miniRAID.Cost+Type,
-        Assembly-CSharp]], mscorlib
+        miniRAID.Core]], mscorlib
     - Name: 
       Entry: 12
       Data: 0
@@ -170,7 +163,7 @@ MonoBehaviour:
       Data: 
     - Name: Requester
       Entry: 7
-      Data: 7|miniRAID.UI.TargetRequester.FourDirectionalRequester, Assembly-CSharp
+      Data: 7|miniRAID.UI.TargetRequester.FourDirectionalRequester, miniRAID.Core
     - Name: stateStr
       Entry: 6
       Data: 
@@ -180,7 +173,7 @@ MonoBehaviour:
     - Name: query_stack
       Entry: 7
       Data: 8|System.Collections.Generic.Stack`1[[miniRAID.UI.TargetRequester.RequestStage,
-        Assembly-CSharp]], mscorlib
+        miniRAID.Core]], mscorlib
     - Name: 
       Entry: 12
       Data: 0
@@ -205,10 +198,13 @@ MonoBehaviour:
       Data: 
     - Name: shape
       Entry: 7
-      Data: 10|miniRAID.GridShape, Assembly-CSharp
+      Data: 10|miniRAID.EnumerateGridCollider, miniRAID.Core
     - Name: shape
       Entry: 7
-      Data: 11|System.Collections.Generic.HashSet`1[[UnityEngine.Vector3Int, UnityEngine.CoreModule]],
+      Data: 11|miniRAID.GridShape, miniRAID.Core
+    - Name: shape
+      Entry: 7
+      Data: 12|System.Collections.Generic.HashSet`1[[UnityEngine.Vector3Int, UnityEngine.CoreModule]],
         System.Core
     - Name: 
       Entry: 12
@@ -323,21 +319,6 @@ MonoBehaviour:
       Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: -1
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 5
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
       Data: 0
     - Name: 
       Entry: 3
@@ -398,6 +379,171 @@ MonoBehaviour:
       Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: -1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: -1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: -1
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: -1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: -1
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: -1
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: -1
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: -1
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
       Data: -1
     - Name: 
       Entry: 3
@@ -419,157 +565,7 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 3
-      Data: 3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: -1
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: -1
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: -1
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: -1
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: -1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: -1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: -1
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
@@ -581,25 +577,10 @@ MonoBehaviour:
       Data: 
     - Name: canvasSize
       Entry: 3
-      Data: 6
-    - Name: position
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 0
+      Data: 8
     - Name: 
       Entry: 8
       Data: 
-    - Name: direction
-      Entry: 3
-      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -617,10 +598,13 @@ MonoBehaviour:
       Data: 
     - Name: shape
       Entry: 7
-      Data: 12|miniRAID.GridShape, Assembly-CSharp
+      Data: 13|miniRAID.EnumerateGridCollider, miniRAID.Core
     - Name: shape
       Entry: 7
-      Data: 13|System.Collections.Generic.HashSet`1[[UnityEngine.Vector3Int, UnityEngine.CoreModule]],
+      Data: 14|miniRAID.GridShape, miniRAID.Core
+    - Name: shape
+      Entry: 7
+      Data: 15|System.Collections.Generic.HashSet`1[[UnityEngine.Vector3Int, UnityEngine.CoreModule]],
         System.Core
     - Name: 
       Entry: 12
@@ -735,21 +719,6 @@ MonoBehaviour:
       Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: -1
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 5
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
       Data: 0
     - Name: 
       Entry: 3
@@ -810,6 +779,171 @@ MonoBehaviour:
       Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: -1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: -1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: -1
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: -1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: -1
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: -1
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: -1
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: -1
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
       Data: -1
     - Name: 
       Entry: 3
@@ -831,157 +965,7 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 3
-      Data: 3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: -1
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: -1
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: -1
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: -1
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: -1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: -1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: -1
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
@@ -993,31 +977,16 @@ MonoBehaviour:
       Data: 
     - Name: canvasSize
       Entry: 3
-      Data: 6
-    - Name: position
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 11
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 10
+      Data: 8
     - Name: 
       Entry: 8
       Data: 
-    - Name: direction
-      Entry: 3
-      Data: 2
     - Name: 
       Entry: 8
       Data: 
     - Name: filter
       Entry: 7
-      Data: 14|miniRAID.ActionHelpers.UnitFilters, Assembly-CSharp
+      Data: 16|miniRAID.ActionHelpers.UnitFilters, miniRAID.Core
     - Name: toEnemy
       Entry: 5
       Data: true
@@ -1029,7 +998,7 @@ MonoBehaviour:
       Data: 
     - Name: damageOrHeal
       Entry: 7
-      Data: 15|miniRAID.ActionHelpers.SpellDamageHeal, Assembly-CSharp
+      Data: 17|miniRAID.ActionHelpers.SpellDamageHeal, miniRAID.Core
     - Name: flags
       Entry: 3
       Data: 0
@@ -1038,7 +1007,7 @@ MonoBehaviour:
       Data: 1
     - Name: power
       Entry: 7
-      Data: miniRAID.ActionHelpers.FloatModifier, Assembly-CSharp
+      Data: miniRAID.ActionHelpers.FloatModifier, miniRAID.Core
     - Name: type
       Entry: 3
       Data: 0
@@ -1053,7 +1022,7 @@ MonoBehaviour:
       Data: 
     - Name: crit
       Entry: 7
-      Data: miniRAID.ActionHelpers.FloatModifier, Assembly-CSharp
+      Data: miniRAID.ActionHelpers.FloatModifier, miniRAID.Core
     - Name: type
       Entry: 3
       Data: 0
@@ -1068,7 +1037,7 @@ MonoBehaviour:
       Data: 
     - Name: hit
       Entry: 7
-      Data: miniRAID.ActionHelpers.FloatModifier, Assembly-CSharp
+      Data: miniRAID.ActionHelpers.FloatModifier, miniRAID.Core
     - Name: type
       Entry: 3
       Data: 0
@@ -1089,7 +1058,7 @@ MonoBehaviour:
       Data: 
     - Name: fx
       Entry: 7
-      Data: 16|miniRAID.ActionHelpers.SimpleExplosionFx, Assembly-CSharp
+      Data: 18|miniRAID.ActionHelpers.SimpleExplosionFx, miniRAID.Core
     - Name: image
       Entry: 10
       Data: 0
@@ -1107,14 +1076,14 @@ MonoBehaviour:
       Data: 
     - Name: knockBack
       Entry: 7
-      Data: 17|miniRAID.ActionHelpers.KnockBack, Assembly-CSharp
+      Data: 19|miniRAID.ActionHelpers.KnockBack, miniRAID.Core
     - Name: isInstant
       Entry: 5
       Data: true
     - Name: 
       Entry: 8
       Data: 
-  Guid: c4be486efe8f4d9ea0cbfb427be6a8fc
+  Guid: 23e025457251e234ba0d5506b46d1a20
   Id: 214
   icon: {fileID: 0}
   ActionNameKey:

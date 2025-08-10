@@ -22,61 +22,9 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes:
     - Name: gridBody
-      Entry: 7
-      Data: 0|miniRAID.GridShape, Assembly-CSharp
-    - Name: shape
-      Entry: 7
-      Data: 1|System.Collections.Generic.HashSet`1[[UnityEngine.Vector3Int, UnityEngine.CoreModule]],
-        System.Core
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: canvasSize
-      Entry: 3
-      Data: 2
-    - Name: position
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: direction
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-  Guid: cb37ffc9640f43479a369467a188723c
+  Guid: 7c782241659924b178893d9776b25d29
   Id: 88
   icon: {fileID: 0}
   nickname: 
@@ -85,7 +33,7 @@ MonoBehaviour:
   color: {r: 1, g: 0.5370918, b: 0.5226415, a: 1}
   level: 10
   rendererPrefab: {fileID: 0}
-  movementType: 0
+  movement: {fileID: 11400000, guid: c917e07e12994f44e85a9c8c5e79c31a, type: 2}
   movable: 1
   moveRange: 4
   mainWeaponSO: {fileID: 11400000, guid: 81c0f63dc42685549b9c7ce21252402a, type: 2}
@@ -95,15 +43,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3d81a9427e5722e44a2a27b96379ef06, type: 2}
   - {fileID: 11400000, guid: 869ff8d9c45faae4fa38285d22cefa0b, type: 2}
   actionSOs:
-  - data: {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
-    level: 0
   - data: {fileID: 11400000, guid: 50a2bb5f4e3dbd34d8e1cfc1f6aa91c4, type: 2}
     level: 0
+  rootAgent: {fileID: 0}
   baseStats:
     VIT: 11
     STR: 15
     MAG: 8
     INT: 10
-    DEX: 15
+    AGI: 15
     TEC: 21
   healPriority: 1

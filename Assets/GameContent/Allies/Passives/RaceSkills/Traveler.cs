@@ -47,7 +47,7 @@ namespace GameContent.Buffs.Test
             base.OnRemoveFromMob(mob);
         }
 
-        private IEnumerator MobOnMobMoved(MobData mob, Vector3Int from)
+        private IEnumerator MobOnMobMoved(MobData mob, Vector3 from)
         {
             yield return new JumpIn(travelerData.healPerMovement.Do(this, mob, mob));
         }

@@ -113,7 +113,10 @@ namespace miniRAID
             transform.position = backend.BackendToRenderPosCenteredGrounded(data.Position);
         }
 
-        public IEnumerator MoveTowards(Vector3Int targetPos)
+        public IEnumerator MoveTowards(Vector3Int targetGridPos) =>
+            MoveTowards(Globals.backend.GridToBackendFloorPos(targetGridPos));
+
+        public IEnumerator MoveTowards(Vector3 targetPos)
         {
             // Vector3 targetPosReal = new Vector3(targetPos.x + 0.5f, targetPos.z + 0.5f, transform.position.z);
             Vector3 targetPosReal = Globals.backend.BackendToRenderPosCenteredGrounded(targetPos);

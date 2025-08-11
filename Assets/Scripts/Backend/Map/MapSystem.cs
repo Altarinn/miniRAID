@@ -162,6 +162,7 @@ namespace Backend.Map
                 standable = chunk.GetIsStandable(localCoord.x, localCoord.y, localCoord.z),
                 passable = chunk.GetIsPassable(localCoord.x, localCoord.y, localCoord.z),
                 type = chunk.GetTerrainType(localCoord.x, localCoord.y, localCoord.z),
+                intrusion = chunk.GetBlockIntrude(localCoord.x, localCoord.y, localCoord.z),
                 mob = null, // Will be set by collision detection in calling code
             };
 
@@ -414,7 +415,7 @@ namespace Backend.Map
             SolidOrStandable
         }
         
-        public (Vector3Int hitPos, Vector3Int faceNormal)? DDAGridRaycast(Ray ray, RaycastTarget raycastTarget)
+        public (Vector3Int hitPos, Vector3Int faceNormal, Vector3 hitPoint)? DDAGridRaycast(Ray ray, RaycastTarget raycastTarget)
         {
             Vector3 rayPos = ray.origin;
             Vector3 rayDir = ray.direction.normalized;
@@ -462,10 +463,10 @@ namespace Backend.Map
             
             while (currentDist < maxDistance)
             {
-                // Check if current grid position matches our raycast target
-                if (IsRaycastTarget(gridPos, raycastTarget))
+                // Check if current grid position matches our raycast target WITH intrusion checking
+                if (IsRaycastTargetWithIntrusion(gridPos, raycastTarget, ray, out Vector3 hitPoint))
                 {
-                    return (gridPos, faceNormal);
+                    return (gridPos, faceNormal, hitPoint);
                 }
                 
                 // Step to next grid boundary and track which face we crossed
@@ -515,6 +516,148 @@ namespace Backend.Map
                 default:
                     return false;
             }
+        }
+        
+        /// <summary>
+        /// Check if a ray intersects the intruded volume of a block.
+        /// </summary>
+        bool IsRaycastTargetWithIntrusion(Vector3Int gridPos, RaycastTarget raycastTarget, Ray ray, out Vector3 hitPoint)
+        {
+            hitPoint = Vector3.zero;
+            
+            Vector3Int chunkCoord = MapSystem.WorldToChunkCoordinate(gridPos);
+            Vector3Int localCoord = MapSystem.WorldToLocalChunkCoordinate(gridPos);
+            
+            var chunk = GetLoadedChunk(chunkCoord);
+            if (chunk == null) return false;
+            
+            // First check if block matches raycast target (solid/standable)
+            bool isTarget = false;
+            switch (raycastTarget)
+            {
+                case RaycastTarget.Solid:
+                    isTarget = chunk.GetIsSolid(localCoord.x, localCoord.y, localCoord.z);
+                    break;
+                case RaycastTarget.Standable:
+                    isTarget = chunk.GetIsStandable(localCoord.x, localCoord.y, localCoord.z);
+                    break;
+                case RaycastTarget.SolidOrStandable:
+                    isTarget = chunk.GetIsSolid(localCoord.x, localCoord.y, localCoord.z) || 
+                              chunk.GetIsStandable(localCoord.x, localCoord.y, localCoord.z);
+                    break;
+            }
+            
+            if (!isTarget) return false;
+            
+            // Get intrusion data for this block
+            int intrusionData = chunk.GetBlockIntrude(localCoord.x, localCoord.y, localCoord.z);
+            
+            if (intrusionData == 0)
+            {
+                // No intrusion - full block, use simple ray-AABB intersection
+                Vector3 blockMin = new Vector3(gridPos.x, gridPos.y, gridPos.z);
+                Vector3 blockMax = blockMin + Vector3.one;
+                return RayAABBIntersect(ray, blockMin, blockMax, out hitPoint);
+            }
+            else
+            {
+                // Has intrusion - check ray against intruded block bounds
+                return RayIntersectsIntrudedBlock(ray, gridPos, intrusionData, out hitPoint);
+            }
+        }
+        
+        /// <summary>
+        /// Ray-AABB intersection test for intruded blocks.
+        /// </summary>
+        bool RayIntersectsIntrudedBlock(Ray ray, Vector3Int blockPos, int intrusionData, out Vector3 hitPoint)
+        {
+            hitPoint = Vector3.zero;
+            
+            // Calculate intruded bounds using same logic as renderer
+            Vector3 min = new Vector3(blockPos.x, blockPos.y, blockPos.z);
+            Vector3 max = min + Vector3.one;
+            
+            // Apply intrusion for each face (intrusion reduces the block volume)
+            const float intrusionUnit = 1.0f / 8.0f;
+            
+            // X+ face intrusion (shrinks from right side)
+            int xPlusLevel = IntrusionBits.GetFaceIntrusion(intrusionData, Vector3Int.right);
+            max.x -= xPlusLevel * intrusionUnit;
+            
+            // X- face intrusion (shrinks from left side)
+            int xMinusLevel = IntrusionBits.GetFaceIntrusion(intrusionData, Vector3Int.left);
+            min.x += xMinusLevel * intrusionUnit;
+            
+            // Y+ face intrusion (shrinks from top)
+            int yPlusLevel = IntrusionBits.GetFaceIntrusion(intrusionData, Vector3Int.up);
+            max.y -= yPlusLevel * intrusionUnit;
+            
+            // Y- face intrusion (shrinks from bottom)
+            int yMinusLevel = IntrusionBits.GetFaceIntrusion(intrusionData, Vector3Int.down);
+            min.y += yMinusLevel * intrusionUnit;
+            
+            // Z+ face intrusion (shrinks from front)
+            int zPlusLevel = IntrusionBits.GetFaceIntrusion(intrusionData, Vector3Int.forward);
+            max.z -= zPlusLevel * intrusionUnit;
+            
+            // Z- face intrusion (shrinks from back)
+            int zMinusLevel = IntrusionBits.GetFaceIntrusion(intrusionData, Vector3Int.back);
+            min.z += zMinusLevel * intrusionUnit;
+            
+            // Ensure valid bounds
+            max = Vector3.Max(min, max);
+            
+            // Check if bounds have volume
+            if (max.x <= min.x || max.y <= min.y || max.z <= min.z)
+                return false;
+            
+            return RayAABBIntersect(ray, min, max, out hitPoint);
+        }
+        
+        /// <summary>
+        /// Standard ray-AABB intersection utility.
+        /// </summary>
+        bool RayAABBIntersect(Ray ray, Vector3 boxMin, Vector3 boxMax, out Vector3 hitPoint)
+        {
+            hitPoint = Vector3.zero;
+            
+            Vector3 rayOrigin = ray.origin;
+            Vector3 rayDir = ray.direction;
+            
+            // Handle zero direction components
+            if (Mathf.Abs(rayDir.x) < 1e-6f) rayDir.x = 1e-6f;
+            if (Mathf.Abs(rayDir.y) < 1e-6f) rayDir.y = 1e-6f;
+            if (Mathf.Abs(rayDir.z) < 1e-6f) rayDir.z = 1e-6f;
+            
+            Vector3 invDir = new Vector3(1f / rayDir.x, 1f / rayDir.y, 1f / rayDir.z);
+            
+            Vector3 t1 = new Vector3(
+                (boxMin.x - rayOrigin.x) * invDir.x,
+                (boxMin.y - rayOrigin.y) * invDir.y,
+                (boxMin.z - rayOrigin.z) * invDir.z
+            );
+            
+            Vector3 t2 = new Vector3(
+                (boxMax.x - rayOrigin.x) * invDir.x,
+                (boxMax.y - rayOrigin.y) * invDir.y,
+                (boxMax.z - rayOrigin.z) * invDir.z
+            );
+            
+            Vector3 tMin = Vector3.Min(t1, t2);
+            Vector3 tMax = Vector3.Max(t1, t2);
+            
+            float tNear = Mathf.Max(Mathf.Max(tMin.x, tMin.y), tMin.z);
+            float tFar = Mathf.Min(Mathf.Min(tMax.x, tMax.y), tMax.z);
+            
+            // Check if ray intersects AABB and intersection is in front of ray origin
+            if (tNear <= tFar && tFar >= 0)
+            {
+                float t = tNear >= 0 ? tNear : tFar; // Use closest positive intersection
+                hitPoint = rayOrigin + rayDir * t;
+                return true;
+            }
+            
+            return false;
         }
         
     }

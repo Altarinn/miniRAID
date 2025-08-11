@@ -215,6 +215,9 @@ namespace Backend.Map.Editor
                 ? "Replace Mode: Overwrites the targeted block (good for digging holes)" 
                 : "Adjacent Mode: Places next to the targeted block (good for building)", 
                 MessageType.Info);
+                
+            EditorGUILayout.Space();
+            EditorGUILayout.HelpBox("Mouse Wheel: Adjust Y+ intrusion level (0-7) of pointed block in Scene View", MessageType.Info);
             
             switch (editMode)
             {
@@ -263,6 +266,11 @@ namespace Backend.Map.Editor
                         EditorGUILayout.LabelField($"Solid: {chunk.GetIsSolid(localPos.x, localPos.y, localPos.z)}");
                         EditorGUILayout.LabelField($"Standable: {chunk.GetIsStandable(localPos.x, localPos.y, localPos.z)}");
                         EditorGUILayout.LabelField($"Passable: {chunk.GetIsPassable(localPos.x, localPos.y, localPos.z)}");
+                        
+                        // Show Y+ intrusion level for selected block
+                        int intrusion = chunk.GetBlockIntrude(localPos.x, localPos.y, localPos.z);
+                        int yPlusLevel = Backend.Map.IntrusionBits.GetFaceIntrusion(intrusion, Vector3Int.up);
+                        EditorGUILayout.LabelField($"Y+ Intrusion: {yPlusLevel}/7");
                     }
                 }
                 else
@@ -370,7 +378,50 @@ namespace Backend.Map.Editor
         {
             Event current = Event.current;
             
-            if (current.type == EventType.MouseDown && current.button == 0 && current.control)
+            // Handle mouse wheel for immediate Y+ intrusion level changes on pointed block
+            if (current.type == EventType.ScrollWheel)
+            {
+                Ray ray = HandleUtility.GUIPointToWorldRay(current.mousePosition);
+                var raycastResult = mapSystem?.DDAGridRaycast(ray, raycastTarget);
+                if (raycastResult.HasValue)
+                {
+                    Vector3 worldPos = GetPaintPosition(raycastResult.Value);
+                    Vector3Int gridPos = Vector3Int.FloorToInt(worldPos);
+                    Vector3Int chunkCoord = MapSystem.WorldToChunkCoordinate(gridPos);
+                    Vector3Int localCoord = MapSystem.WorldToLocalChunkCoordinate(gridPos);
+                    
+                    var chunk = mapSystem.GetLoadedChunk(chunkCoord);
+                    if (chunk != null &&
+                        localCoord.x >= 0 && localCoord.x < MapChunk.SIZE &&
+                        localCoord.y >= 0 && localCoord.y < MapChunk.SIZE &&
+                        localCoord.z >= 0 && localCoord.z < MapChunk.SIZE)
+                    {
+                        // Get current Y+ intrusion level
+                        int currentIntrusion = chunk.GetBlockIntrude(localCoord.x, localCoord.y, localCoord.z);
+                        int currentYPlusLevel = Backend.Map.IntrusionBits.GetFaceIntrusion(currentIntrusion, Vector3Int.up);
+                        
+                        // Adjust level based on scroll direction (invert for intuitive controls)
+                        int delta = current.delta.y > 0 ? -1 : 1;
+                        int newYPlusLevel = Mathf.Clamp(currentYPlusLevel + delta, 0, 7);
+                        
+                        // Apply the change immediately
+                        int newIntrusion = Backend.Map.IntrusionBits.SetFaceIntrusion(currentIntrusion, Vector3Int.up, newYPlusLevel);
+                        chunk.SetBlockIntrude(localCoord.x, localCoord.y, localCoord.z, newIntrusion);
+                        
+                        // Mark chunk dirty and refresh rendering
+                        mapSystem.MarkChunkDirty(chunkCoord);
+                        if (mapRenderer != null)
+                        {
+                            mapRenderer.RefreshChunk(chunkCoord);
+                        }
+                        
+                        current.Use();
+                        Repaint();
+                        SceneView.RepaintAll();
+                    }
+                }
+            }
+            else if (current.type == EventType.MouseDown && current.button == 0 && current.control)
             {
                 // Ctrl+Click to paint
                 Ray ray = HandleUtility.GUIPointToWorldRay(current.mousePosition);
@@ -398,7 +449,7 @@ namespace Backend.Map.Editor
             }
         }
         
-        Vector3 GetPaintPosition((Vector3Int hitPos, Vector3Int faceNormal) raycastResult)
+        Vector3 GetPaintPosition((Vector3Int hitPos, Vector3Int faceNormal, Vector3 hitPoint) raycastResult)
         {
             if (placeMode == PlaceMode.Adjacent)
             {

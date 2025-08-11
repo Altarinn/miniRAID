@@ -105,7 +105,7 @@ namespace miniRAID
             }
             
             supportingGrid = Globals.backend.GetMap(position + Vector3Int.down, false);
-            return supportingGrid.standable;
+            return supportingGrid.standable && IntrusionBits.GetFaceIntrusion(supportingGrid.intrusion, Vector3Int.up) == 0;
         }
         
         static Vector3Int[] walkPositions =

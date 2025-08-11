@@ -24,6 +24,8 @@ namespace miniRAID
 
         public bool solid = false, standable = false, passable = true;
         public MobData mob;
+
+        public int intrusion;
         
         public TerrainType type;
     }
@@ -872,6 +874,32 @@ namespace miniRAID
 
         public Vector3 GridToBackendFloorPos(Vector3Int gridPos)
         {
+            // Check if this grid position has intrusion data that affects the floor height
+            var mapSystem = GetMapSystem();
+            if (mapSystem != null)
+            {
+                Vector3Int chunkCoord = MapSystem.WorldToChunkCoordinate(gridPos);
+                Vector3Int localCoord = MapSystem.WorldToLocalChunkCoordinate(gridPos);
+                
+                var chunk = mapSystem.GetLoadedChunk(chunkCoord);
+                if (chunk != null && chunk.GetIsStandable(localCoord.x, localCoord.y, localCoord.z))
+                {
+                    int intrusionData = chunk.GetBlockIntrude(localCoord.x, localCoord.y, localCoord.z);
+                    if (intrusionData > 0)
+                    {
+                        // Get Y+ intrusion level to adjust floor height
+                        int yPlusIntrusion = IntrusionBits.GetFaceIntrusion(intrusionData, Vector3Int.up);
+                        
+                        // Each intrusion level is 1/8th of a unit
+                        float intrusionOffset = yPlusIntrusion * (1.0f / 8.0f);
+                        
+                        // Floor position is reduced by Y+ intrusion (block is shorter)
+                        return new Vector3(gridPos.x, gridPos.y + 1.0f - intrusionOffset, gridPos.z);
+                    }
+                }
+            }
+            
+            // Default: full block height
             return gridPos;
         }
 
@@ -969,7 +997,18 @@ namespace miniRAID
 
         public List<Vector3> GetColliderMapIntersect(IEnumerable<Vector3Int> grids)
         {
-            return grids.Select(GridToBackendFloorPos).ToList();
+            return grids
+                .Where(x =>
+                {
+                    var g = GetMap(x, false);
+                    var gbelow = GetMap(x + Vector3Int.down, false);
+                    var showHere = g.standable && g.passable;
+                    var showBelow = g.passable && (gbelow.standable || gbelow.solid) &&
+                                    IntrusionBits.GetFaceIntrusion(gbelow.intrusion, Vector3Int.up) == 0;
+                    
+                    return showHere || showBelow;
+                })
+                .Select(GridToBackendFloorPos).ToList();
         }
 
         public Vector3 GetColliderMapIntersect(Vector3Int grid)

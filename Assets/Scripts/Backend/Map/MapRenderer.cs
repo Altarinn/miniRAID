@@ -218,7 +218,16 @@ namespace Backend.Map
                         
                         if (shouldRender)
                         {
-                            AddCubeWithFaces(vertices, triangles, colors, uvs, new Vector3(x, y, z), blockColor, chunk, x, y, z);
+                            // Check if block has intrusion data
+                            int intrusionData = chunk.GetBlockIntrude(x, y, z);
+                            if (intrusionData > 0)
+                            {
+                                AddIntrudedBlockMesh(vertices, triangles, colors, uvs, new Vector3(x, y, z), blockColor, chunk, x, y, z, intrusionData);
+                            }
+                            else
+                            {
+                                AddCubeWithFaces(vertices, triangles, colors, uvs, new Vector3(x, y, z), blockColor, chunk, x, y, z);
+                            }
                         }
                     }
                 }
@@ -356,12 +365,23 @@ namespace Backend.Map
         
         private bool ShouldRenderFace(MapChunk chunk, Vector3Int neighborPos)
         {
-            // Don't render face if neighbor is solid (occluded)
+            // Check if neighbor position is within chunk bounds
             if (neighborPos.x >= 0 && neighborPos.x < MapChunk.SIZE &&
                 neighborPos.y >= 0 && neighborPos.y < MapChunk.SIZE &&
                 neighborPos.z >= 0 && neighborPos.z < MapChunk.SIZE)
             {
-                return !chunk.GetIsSolid(neighborPos.x, neighborPos.y, neighborPos.z);
+                // Only hide face if neighbor is solid AND has no intrusion (is a full block)
+                bool neighborIsSolid = chunk.GetIsSolid(neighborPos.x, neighborPos.y, neighborPos.z);
+                if (neighborIsSolid)
+                {
+                    int neighborIntrusionData = chunk.GetBlockIntrude(neighborPos.x, neighborPos.y, neighborPos.z);
+                    
+                    // Only cull face if neighbor is a FULL solid block (no intrusion)
+                    // If neighbor has any intrusion, always render the face to avoid seams
+                    return neighborIntrusionData > 0;
+                }
+                
+                return true; // Neighbor not solid, render face
             }
             
             // Render faces on chunk boundaries (could be optimized to check neighboring chunks)
@@ -419,6 +439,137 @@ namespace Backend.Map
             vertices.AddRange(faceVertices);
             
             // Add colors, normals and UVs for the quad
+            for (int i = 0; i < 4; i++)
+            {
+                colors.Add(color);
+                uvs.Add(new Vector2(i % 2, i / 2)); // Simple UV mapping
+            }
+            
+            // Add triangles for the quad (2 triangles)
+            triangles.Add(startVertex + 0);
+            triangles.Add(startVertex + 1);
+            triangles.Add(startVertex + 2);
+            
+            triangles.Add(startVertex + 0);
+            triangles.Add(startVertex + 2);
+            triangles.Add(startVertex + 3);
+        }
+        
+        /// <summary>
+        /// Generate mesh for a block with intrusion data. Creates custom geometry based on face intrusion levels.
+        /// </summary>
+        private void AddIntrudedBlockMesh(List<Vector3> vertices, List<int> triangles, List<Color> colors, 
+            List<Vector2> uvs, Vector3 position, Color color, MapChunk chunk, int x, int y, int z, int intrusionData)
+        {
+            // Calculate intruded bounds for this block
+            var bounds = CalculateIntrudedBounds(intrusionData);
+            
+            // Check if block has any volume left after intrusion
+            if (bounds.size.x <= 0 || bounds.size.y <= 0 || bounds.size.z <= 0)
+                return; // No volume to render
+            
+            // Offset bounds by block position
+            Vector3 min = position + bounds.min;
+            Vector3 max = position + bounds.max;
+            
+            // Generate box mesh with face culling
+            AddBoxMesh(vertices, triangles, colors, uvs, min, max, color, chunk, x, y, z, intrusionData);
+        }
+        
+        /// <summary>
+        /// Calculate the bounding box for a block after applying intrusion levels.
+        /// Returns bounds relative to block origin (0,0,0) to (1,1,1).
+        /// </summary>
+        private Bounds CalculateIntrudedBounds(int intrusionData)
+        {
+            Vector3 min = Vector3.zero;
+            Vector3 max = Vector3.one;
+            
+            // Apply intrusion for each face (intrusion reduces the block volume)
+            // Each intrusion level represents 1/8th of a unit (0.125f)
+            const float intrusionUnit = 1.0f / 8.0f;
+            
+            // X+ face intrusion (shrinks from right side)
+            int xPlusLevel = IntrusionBits.GetFaceIntrusion(intrusionData, Vector3Int.right);
+            max.x -= xPlusLevel * intrusionUnit;
+            
+            // X- face intrusion (shrinks from left side)
+            int xMinusLevel = IntrusionBits.GetFaceIntrusion(intrusionData, Vector3Int.left);
+            min.x += xMinusLevel * intrusionUnit;
+            
+            // Y+ face intrusion (shrinks from top)
+            int yPlusLevel = IntrusionBits.GetFaceIntrusion(intrusionData, Vector3Int.up);
+            max.y -= yPlusLevel * intrusionUnit;
+            
+            // Y- face intrusion (shrinks from bottom)
+            int yMinusLevel = IntrusionBits.GetFaceIntrusion(intrusionData, Vector3Int.down);
+            min.y += yMinusLevel * intrusionUnit;
+            
+            // Z+ face intrusion (shrinks from front)
+            int zPlusLevel = IntrusionBits.GetFaceIntrusion(intrusionData, Vector3Int.forward);
+            max.z -= zPlusLevel * intrusionUnit;
+            
+            // Z- face intrusion (shrinks from back)
+            int zMinusLevel = IntrusionBits.GetFaceIntrusion(intrusionData, Vector3Int.back);
+            min.z += zMinusLevel * intrusionUnit;
+            
+            // Ensure valid bounds
+            max = Vector3.Max(min, max);
+            
+            return new Bounds((min + max) * 0.5f, max - min);
+        }
+        
+        /// <summary>
+        /// Generate a box mesh with face culling optimization.
+        /// </summary>
+        private void AddBoxMesh(List<Vector3> vertices, List<int> triangles, List<Color> colors, List<Vector2> uvs,
+            Vector3 minPos, Vector3 maxPos, Color color, MapChunk chunk, int x, int y, int z, int intrusionData)
+        {
+            // Define box faces with their normals and neighbor checking
+            var faces = new[]
+            {
+                new { normal = Vector3Int.up, vertices = new Vector3[] { 
+                    new Vector3(minPos.x, maxPos.y, minPos.z), new Vector3(minPos.x, maxPos.y, maxPos.z), 
+                    new Vector3(maxPos.x, maxPos.y, maxPos.z), new Vector3(maxPos.x, maxPos.y, minPos.z) } },
+                new { normal = Vector3Int.down, vertices = new Vector3[] { 
+                    new Vector3(minPos.x, minPos.y, maxPos.z), new Vector3(minPos.x, minPos.y, minPos.z), 
+                    new Vector3(maxPos.x, minPos.y, minPos.z), new Vector3(maxPos.x, minPos.y, maxPos.z) } },
+                new { normal = Vector3Int.right, vertices = new Vector3[] { 
+                    new Vector3(maxPos.x, minPos.y, minPos.z), new Vector3(maxPos.x, maxPos.y, minPos.z), 
+                    new Vector3(maxPos.x, maxPos.y, maxPos.z), new Vector3(maxPos.x, minPos.y, maxPos.z) } },
+                new { normal = Vector3Int.left, vertices = new Vector3[] { 
+                    new Vector3(minPos.x, minPos.y, maxPos.z), new Vector3(minPos.x, maxPos.y, maxPos.z), 
+                    new Vector3(minPos.x, maxPos.y, minPos.z), new Vector3(minPos.x, minPos.y, minPos.z) } },
+                new { normal = Vector3Int.forward, vertices = new Vector3[] { 
+                    new Vector3(minPos.x, minPos.y, maxPos.z), new Vector3(maxPos.x, minPos.y, maxPos.z), 
+                    new Vector3(maxPos.x, maxPos.y, maxPos.z), new Vector3(minPos.x, maxPos.y, maxPos.z) } },
+                new { normal = Vector3Int.back, vertices = new Vector3[] { 
+                    new Vector3(maxPos.x, minPos.y, minPos.z), new Vector3(minPos.x, minPos.y, minPos.z), 
+                    new Vector3(minPos.x, maxPos.y, minPos.z), new Vector3(maxPos.x, maxPos.y, minPos.z) } }
+            };
+            
+            foreach (var face in faces)
+            {
+                var neighborPos = new Vector3Int(x, y, z) + face.normal;
+                
+                // Check if this face should be rendered (not occluded by adjacent block)
+                if (ShouldRenderFace(chunk, neighborPos))
+                {
+                    AddQuadFromVertices(vertices, triangles, colors, uvs, face.vertices, color);
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Add a quad face from pre-calculated vertices.
+        /// </summary>
+        private void AddQuadFromVertices(List<Vector3> vertices, List<int> triangles, List<Color> colors,
+            List<Vector2> uvs, Vector3[] quadVertices, Color color)
+        {
+            int startVertex = vertices.Count;
+            vertices.AddRange(quadVertices);
+            
+            // Add colors and UVs
             for (int i = 0; i < 4; i++)
             {
                 colors.Add(color);

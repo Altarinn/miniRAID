@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Backend.Map;
 using miniRAID.Spells;
 using UnityEngine;
@@ -19,8 +20,33 @@ namespace miniRAID
     {
         public abstract List<Databackend.GridBFSKeys> ProposeMovementGrids(IGridCollider origin, Databackend.GridBFSKeys fromKey);
         public abstract float ComputeDistance(Vector3Int from, Vector3Int to);
+        public abstract bool CanEndTurnAt(Vector3Int at, IGridCollider collider);
 
         public bool ignoreCostByDistance;
+        public bool ignoreMovementFiltering;
+        
+        protected bool IsPassable(Vector3Int position, IGridCollider body, out GridData grid)
+        {
+            grid = Globals.backend.GetMap(position, false);
+            if (grid.passable)
+            {
+                return Globals.backend.CanPositionPlaceMob(position, body);
+            }
+
+            return false;
+        }
+
+        protected bool IsSupported(Vector3Int position, out GridData supportingGrid)
+        {
+            supportingGrid = Globals.backend.GetMap(position, false);
+            if (supportingGrid.standable)
+            {
+                return true;
+            }
+            
+            supportingGrid = Globals.backend.GetMap(position + Vector3Int.down, false);
+            return supportingGrid.standable && IntrusionBits.GetFaceIntrusion(supportingGrid.intrusion, Vector3Int.up) == 0;
+        }
         
         public IEnumerator MoveToCoroutine(MobData mob, Movement movement, Vector3Int targetPos, bool doCost = true)
         {
@@ -32,7 +58,7 @@ namespace miniRAID
             
             // TODO: implement path for field effects (move w.r.t. the path & tell backend that we reached a intermediate point)
             if (Globals.cc.animation && mob.mobRenderer != null)
-                yield return new JumpIn(mob.mobRenderer.MoveTowards(targetPos));
+                yield return new JumpIn(MovementStepAnimation(mob, targetPos));
             
             float distance = movement.ComputeDistance(Databackend.BackendToGridPos(mob.Position), targetPos);
 
@@ -51,6 +77,11 @@ namespace miniRAID
             }
 
             yield return new JumpIn(mob.SetPosition(targetPos));
+        }
+
+        public virtual IEnumerator MovementStepAnimation(MobData mob, Vector3Int targetPos)
+        {
+            yield return new JumpIn(mob.mobRenderer.MoveTowards(targetPos));
         }
         
         public override IEnumerator OnPerform(RuntimeAction<MovementTarget> ract, MobData mob, MovementTarget movementTarget)
@@ -78,38 +109,27 @@ namespace miniRAID
         public Movement(MobData source, ActionDataSO<MovementTarget> data, int level) : base(source, data, level)
         { }
 
-        public List<Databackend.GridBFSKeys> ProposeMovementGrids(IGridCollider origin, Databackend.GridBFSKeys fromKey)
-            => movementData.ProposeMovementGrids(origin, fromKey);
+        public virtual List<Databackend.GridBFSKeys> ProposeMovementGrids(IGridCollider origin,
+            Databackend.GridBFSKeys fromKey)
+        {
+            var result = movementData.ProposeMovementGrids(origin, fromKey);    
+            if (!movementData.ignoreMovementFiltering && parentMob?.movement != null)
+            {
+                result = result.Where(x => parentMob.movement.CanEndTurnAt(x.position)).ToList();
+            }
 
-        public float ComputeDistance(Vector3Int from, Vector3Int to)
+            return result;
+        }
+
+        public virtual float ComputeDistance(Vector3Int from, Vector3Int to)
             => movementData.ComputeDistance(from, to);
+
+        public virtual bool CanEndTurnAt(Vector3Int position)
+            => movementData.CanEndTurnAt(position, parentMob.Collider);
     }
 
     public class WalkMovementSO : MovementSO
     {
-        bool IsPassable(Vector3Int position, IGridCollider body, out GridData grid)
-        {
-            grid = Globals.backend.GetMap(position, false);
-            if (grid.passable)
-            {
-                return Globals.backend.CanPositionPlaceMob(position, body);
-            }
-
-            return false;
-        }
-
-        bool IsSupported(Vector3Int position, IGridCollider body, out GridData supportingGrid)
-        {
-            supportingGrid = Globals.backend.GetMap(position, false);
-            if (supportingGrid.standable)
-            {
-                return true;
-            }
-            
-            supportingGrid = Globals.backend.GetMap(position + Vector3Int.down, false);
-            return supportingGrid.standable && IntrusionBits.GetFaceIntrusion(supportingGrid.intrusion, Vector3Int.up) == 0;
-        }
-        
         static Vector3Int[] walkPositions =
         {
             Vector3Int.forward,
@@ -143,7 +163,7 @@ namespace miniRAID
             foreach (var wp in walkPositions)
             {
                 var canWalkTo = IsPassable(gridPos + wp, origin, out var toGrid);
-                var wontFall = IsSupported(gridPos + wp, origin, out var supportGrid);
+                var wontFall = IsSupported(gridPos + wp, out var supportGrid);
 
                 if (canWalkTo && wontFall)
                 {
@@ -159,7 +179,7 @@ namespace miniRAID
                         var wfp = gridPos + wp + Vector3Int.down * fallD;
                         
                         var canFallTo = IsPassable(wfp, origin, out var fallToGrid);
-                        var fallSupported = IsSupported(wfp, origin, out var supportFallGrid);
+                        var fallSupported = IsSupported(wfp, out var supportFallGrid);
 
                         if (canFallTo && fallSupported)
                         {
@@ -178,7 +198,7 @@ namespace miniRAID
                     var jwp = gridPos + Vector3Int.up * jumpD + wp;
                     
                     var canJumpTo = IsPassable(jwp, origin, out var jumpToGrid);
-                    var jumpSupported = IsSupported(jwp, origin, out var supportJumpGrid);
+                    var jumpSupported = IsSupported(jwp, out var supportJumpGrid);
 
                     if (canJumpTo && jumpSupported)
                     {
@@ -194,6 +214,11 @@ namespace miniRAID
         {
             return 1;
             // throw new System.NotImplementedException();
+        }
+
+        public override bool CanEndTurnAt(Vector3Int at, IGridCollider collider)
+        {
+            return IsPassable(at, collider, out GridData g) && IsSupported(at, out GridData g2);
         }
     }
 }

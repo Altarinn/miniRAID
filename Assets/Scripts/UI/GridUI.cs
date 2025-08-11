@@ -235,7 +235,9 @@ namespace miniRAID.UI
             }
             
             cursorGPos = rayCastResult.Value.hitPos;
-            if (!Globals.backend.GetMapSystem().IsPassable(cursorGPos))
+            GridData g = Globals.backend.GetMap(cursorGPos, false);
+            if ((g.standable || g.solid) &&
+                IntrusionBits.GetFaceIntrusion(g.intrusion, rayCastResult.Value.faceNormal) == 0)
             {
                 cursorGPos += rayCastResult.Value.faceNormal;
             }

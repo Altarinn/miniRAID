@@ -21,7 +21,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  Guid: e002153cb6fa4b6fb1f23f4c59d9b76b
+  Guid: 80266fcaa4d27cb44a60d296f8e0c49e
   Id: 154
   icon: {fileID: 0}
   className: "\u5360\u661F\u672F\u58EB"
@@ -30,7 +30,7 @@ MonoBehaviour:
     STR: 0
     MAG: 0
     INT: 0
-    DEX: 0
+    AGI: 0
     TEC: 0
   baseGrowth:
     VIT:
@@ -95,7 +95,7 @@ MonoBehaviour:
   classActions:
   - data: {fileID: 11400000, guid: ea582a9fb4256984e9776c1a369a3c3e, type: 2}
     level: 2
-  - data: {fileID: 11400000, guid: c36993977f12e4f66abc220fdd3a9c97, type: 2}
+  - data: {fileID: 11400000, guid: 46cf8fefd0f25ae46be8a80579de8e1f, type: 2}
     level: 0
   - data: {fileID: 11400000, guid: fb1434ac6ccf34a1ea70c5b0540816b3, type: 2}
     level: 0

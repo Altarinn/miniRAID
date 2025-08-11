@@ -85,5 +85,21 @@ namespace miniRAID
     
             return false;
         }
+
+        public static bool Overlaps(EnumerateGridCollider a, DistanceGridCollider b)
+        {
+            foreach (var gridPos in a)
+            {
+                if (b.OverlapsGrid(gridPos))
+                    return true;
+            }
+            return false;
+        }
+        
+        public static bool Overlaps(DistanceGridCollider a, DistanceGridCollider b)
+        {
+            int centerDistance = Consts.Distance(a.Position, b.Position);
+            return centerDistance <= (a.distance + b.distance);
+        }
     }
 }

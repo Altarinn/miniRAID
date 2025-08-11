@@ -1115,11 +1115,14 @@ namespace miniRAID
                                 gridInfo.Add(newPos, (curr.position, newKey.distance));
                                 return true;
                             }
-                            else if(newKey.distance < maxDistance)
+                            else if(newKey.distance <= maxDistance)
                             {
-                                // TODO: Record path
-                                searchedGrids.Add(newKey);
                                 gridInfo.Add(newPos, (curr.position, newKey.distance));
+
+                                if (newKey.distance < maxDistance)
+                                {
+                                    searchedGrids.Add(newKey);
+                                }
                             }
                         } 
                     }

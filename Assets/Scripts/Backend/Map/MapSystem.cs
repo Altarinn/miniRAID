@@ -415,7 +415,7 @@ namespace Backend.Map
             SolidOrStandable
         }
         
-        public (Vector3Int hitPos, Vector3Int faceNormal, Vector3 hitPoint)? DDAGridRaycast(Ray ray, RaycastTarget raycastTarget)
+        public (Vector3Int hitPos, Vector3Int faceNormal)? DDAGridRaycast(Ray ray, RaycastTarget raycastTarget)
         {
             Vector3 rayPos = ray.origin;
             Vector3 rayDir = ray.direction.normalized;
@@ -464,9 +464,10 @@ namespace Backend.Map
             while (currentDist < maxDistance)
             {
                 // Check if current grid position matches our raycast target WITH intrusion checking
-                if (IsRaycastTargetWithIntrusion(gridPos, raycastTarget, ray, out Vector3 hitPoint))
+                Vector3Int actualFaceNormal;
+                if (IsRaycastTargetWithIntrusion(gridPos, raycastTarget, ray, faceNormal, out actualFaceNormal))
                 {
-                    return (gridPos, faceNormal, hitPoint);
+                    return (gridPos, actualFaceNormal);
                 }
                 
                 // Step to next grid boundary and track which face we crossed
@@ -520,10 +521,11 @@ namespace Backend.Map
         
         /// <summary>
         /// Check if a ray intersects the intruded volume of a block.
+        /// Optimized version that avoids Ray-AABB calculation for full blocks.
         /// </summary>
-        bool IsRaycastTargetWithIntrusion(Vector3Int gridPos, RaycastTarget raycastTarget, Ray ray, out Vector3 hitPoint)
+        bool IsRaycastTargetWithIntrusion(Vector3Int gridPos, RaycastTarget raycastTarget, Ray ray, Vector3Int ddaFaceNormal, out Vector3Int actualFaceNormal)
         {
-            hitPoint = Vector3.zero;
+            actualFaceNormal = ddaFaceNormal;
             
             Vector3Int chunkCoord = MapSystem.WorldToChunkCoordinate(gridPos);
             Vector3Int localCoord = MapSystem.WorldToLocalChunkCoordinate(gridPos);
@@ -554,24 +556,25 @@ namespace Backend.Map
             
             if (intrusionData == 0)
             {
-                // No intrusion - full block, use simple ray-AABB intersection
-                Vector3 blockMin = new Vector3(gridPos.x, gridPos.y, gridPos.z);
-                Vector3 blockMax = blockMin + Vector3.one;
-                return RayAABBIntersect(ray, blockMin, blockMax, out hitPoint);
+                // OPTIMIZATION: No intrusion - full block. 
+                // DDA already stepped into this grid cell, so we know ray intersects it.
+                // No need for expensive Ray-AABB intersection test.
+                actualFaceNormal = ddaFaceNormal;
+                return true;
             }
             else
             {
-                // Has intrusion - check ray against intruded block bounds
-                return RayIntersectsIntrudedBlock(ray, gridPos, intrusionData, out hitPoint);
+                // Has intrusion - check ray against intruded block bounds and get correct face normal
+                return RayIntersectsIntrudedBlock(ray, gridPos, intrusionData, ddaFaceNormal, out actualFaceNormal);
             }
         }
         
         /// <summary>
-        /// Ray-AABB intersection test for intruded blocks.
+        /// Ray-AABB intersection test for intruded blocks with correct face normal computation.
         /// </summary>
-        bool RayIntersectsIntrudedBlock(Ray ray, Vector3Int blockPos, int intrusionData, out Vector3 hitPoint)
+        bool RayIntersectsIntrudedBlock(Ray ray, Vector3Int blockPos, int intrusionData, Vector3Int ddaFaceNormal, out Vector3Int actualFaceNormal)
         {
-            hitPoint = Vector3.zero;
+            actualFaceNormal = ddaFaceNormal;
             
             // Calculate intruded bounds using same logic as renderer
             Vector3 min = new Vector3(blockPos.x, blockPos.y, blockPos.z);
@@ -611,7 +614,43 @@ namespace Backend.Map
             if (max.x <= min.x || max.y <= min.y || max.z <= min.z)
                 return false;
             
-            return RayAABBIntersect(ray, min, max, out hitPoint);
+            Vector3 hitPoint;
+            if (RayAABBIntersect(ray, min, max, out hitPoint))
+            {
+                // Compute correct face normal based on which face was actually hit
+                actualFaceNormal = ComputeAABBFaceNormal(ray, min, max, hitPoint);
+                return true;
+            }
+            
+            return false;
+        }
+        
+        /// <summary>
+        /// Compute the face normal of an AABB at the hit point.
+        /// </summary>
+        Vector3Int ComputeAABBFaceNormal(Ray ray, Vector3 boxMin, Vector3 boxMax, Vector3 hitPoint)
+        {
+            const float epsilon = 1e-4f;
+            
+            // Determine which face was hit by checking which coordinate is closest to box boundary
+            if (Mathf.Abs(hitPoint.x - boxMin.x) < epsilon) return Vector3Int.left;   // X- face
+            if (Mathf.Abs(hitPoint.x - boxMax.x) < epsilon) return Vector3Int.right;  // X+ face
+            if (Mathf.Abs(hitPoint.y - boxMin.y) < epsilon) return Vector3Int.down;   // Y- face
+            if (Mathf.Abs(hitPoint.y - boxMax.y) < epsilon) return Vector3Int.up;     // Y+ face
+            if (Mathf.Abs(hitPoint.z - boxMin.z) < epsilon) return Vector3Int.back;   // Z- face
+            if (Mathf.Abs(hitPoint.z - boxMax.z) < epsilon) return Vector3Int.forward;// Z+ face
+            
+            // Fallback: use ray direction to determine face (should rarely happen)
+            Vector3 center = (boxMin + boxMax) * 0.5f;
+            Vector3 hitOffset = hitPoint - center;
+            Vector3 absOffset = new Vector3(Mathf.Abs(hitOffset.x), Mathf.Abs(hitOffset.y), Mathf.Abs(hitOffset.z));
+            
+            if (absOffset.x >= absOffset.y && absOffset.x >= absOffset.z)
+                return hitOffset.x > 0 ? Vector3Int.right : Vector3Int.left;
+            else if (absOffset.y >= absOffset.z)
+                return hitOffset.y > 0 ? Vector3Int.up : Vector3Int.down;
+            else
+                return hitOffset.z > 0 ? Vector3Int.forward : Vector3Int.back;
         }
         
         /// <summary>

@@ -449,7 +449,7 @@ namespace Backend.Map.Editor
             }
         }
         
-        Vector3 GetPaintPosition((Vector3Int hitPos, Vector3Int faceNormal, Vector3 hitPoint) raycastResult)
+        Vector3 GetPaintPosition((Vector3Int hitPos, Vector3Int faceNormal) raycastResult)
         {
             if (placeMode == PlaceMode.Adjacent)
             {

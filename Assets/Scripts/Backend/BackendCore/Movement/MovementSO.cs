@@ -19,6 +19,8 @@ namespace miniRAID
     {
         public abstract List<Databackend.GridBFSKeys> ProposeMovementGrids(IGridCollider origin, Databackend.GridBFSKeys fromKey);
         public abstract float ComputeDistance(Vector3Int from, Vector3Int to);
+
+        public bool ignoreCostByDistance;
         
         public IEnumerator MoveToCoroutine(MobData mob, Movement movement, Vector3Int targetPos, bool doCost = true)
         {
@@ -56,7 +58,7 @@ namespace miniRAID
             // TODO: Move MoveToCoroutine to here and apply path.
             foreach (var step in movementTarget.path.path)
             {
-                yield return new JumpIn(MoveToCoroutine(mob, (Movement)ract, step));
+                yield return new JumpIn(MoveToCoroutine(mob, (Movement)ract, step, !ignoreCostByDistance));
             }
         }
 

@@ -88,6 +88,9 @@ MonoBehaviour:
       miniRAID.Core]], mscorlib
     IsCustom: 0
     Emit: 1
+  - TypeName: miniRAID.DistanceGridCollider, miniRAID.Core
+    IsCustom: 0
+    Emit: 1
   - TypeName: System.Double, mscorlib
     IsCustom: 0
     Emit: 1
@@ -193,6 +196,11 @@ MonoBehaviour:
     Emit: 1
   - TypeName: miniRAID.LuaGetterTemplate`2[[System.ValueTuple`2[[miniRAID.MobData,
       miniRAID.Core],[miniRAID.Spells.FourDirectionalTarget, miniRAID.Core]], mscorlib],[System.Double,
+      mscorlib]], miniRAID.Core
+    IsCustom: 0
+    Emit: 1
+  - TypeName: miniRAID.LuaGetterTemplate`2[[System.ValueTuple`2[[miniRAID.MobData,
+      miniRAID.Core],[miniRAID.MovementTarget, miniRAID.Core]], mscorlib],[System.Double,
       mscorlib]], miniRAID.Core
     IsCustom: 0
     Emit: 1
@@ -368,6 +376,11 @@ MonoBehaviour:
     Emit: 1
   - TypeName: miniRAID.ValueGetter`2+LuaGetterType[[System.ValueTuple`2[[miniRAID.MobData,
       miniRAID.Core],[miniRAID.Spells.FourDirectionalTarget, miniRAID.Core]], mscorlib],[System.Double,
+      mscorlib]], miniRAID.Core
+    IsCustom: 0
+    Emit: 1
+  - TypeName: miniRAID.ValueGetter`2+LuaGetterType[[System.ValueTuple`2[[miniRAID.MobData,
+      miniRAID.Core],[miniRAID.MovementTarget, miniRAID.Core]], mscorlib],[System.Double,
       mscorlib]], miniRAID.Core
     IsCustom: 0
     Emit: 1

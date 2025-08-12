@@ -39,7 +39,7 @@ namespace miniRAID
         
         public IGridCollider ShallowClone()
         {
-            return new EnumerateGridCollider(this);
+            return new EnumerateGridCollider(this, true);
         }
 
         public bool Overlaps(IGridCollider other)

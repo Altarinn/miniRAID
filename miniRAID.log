@@ -1,2 +1,49 @@
 - Start of debug log -
-[2025/8/12 21:07:15] AWAKE
+[2025/8/12 22:06:00] AWAKE
+[回合0] 00m 12s:  SerialCoroutine awake
+[回合0] 00m 13s:  StartSerialCoroutine
+
+[回合0] 00m 13s:  new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 73 )
+[回合0] 00m 18s:  new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 76 )
+[回合0] 00m 18s:  new JumpIn at InitializeMap ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 232 )
+[回合0] 00m 20s:  new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 82 )
+[回合0] 00m 20s:  new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 85 )
+[回合0] 00m 20s:  new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 108 )
+[回合0] 00m 20s:  new JumpIn at Turn ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSliceSO.cs : 120 )
+[回合1] 00m 20s:  new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 108 )
+[回合1] 00m 20s:  new JumpIn at Turn ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSliceSO.cs : 120 )
+[回合1] 00m 21s:  new JumpIn at Turn ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\PhaseTurnSliceSO.cs : 43 )
+[回合1] 00m 21s:  new JumpIn at WakeUpMobs ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSchedulerHelper.cs : 34 )
+[回合1] 00m 21s:  [SetActive] Flora: True
+[回合1] 00m 21s:  new JumpIn at SetActive ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 443 )
+[回合1] 00m 21s:  new JumpIn at SetActive ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 451 )
+[回合1] 00m 21s:  new JumpIn at WakeUpMobs ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSchedulerHelper.cs : 34 )
+[回合1] 00m 21s:  [SetActive] Archer3: True
+[回合1] 00m 21s:  new JumpIn at SetActive ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 443 )
+[回合1] 00m 21s:  new JumpIn at SetActive ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 451 )
+[回合1] 00m 21s:  new JumpIn at WakeUpMobs ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSchedulerHelper.cs : 34 )
+[回合1] 00m 21s:  [SetActive] Felivol: True
+[回合1] 00m 21s:  new JumpIn at SetActive ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 443 )
+[回合1] 00m 21s:  new JumpIn at InvokeCoroutine ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\Essentials\MobEvent.cs : 147 )
+[回合1] 00m 21s:  new JumpIn at InvokeCoroutine ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\Essentials\MobEvent.cs : 147 )
+[回合1] 00m 21s:  new JumpIn at SetActive ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 451 )
+[回合1] 00m 21s:  new JumpIn at WakeUpMobs ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSchedulerHelper.cs : 34 )
+[回合1] 00m 21s:  [SetActive] Astrologer: True
+[回合1] 00m 21s:  new JumpIn at SetActive ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 443 )
+[回合1] 00m 21s:  new JumpIn at SetActive ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 451 )
+[回合1] 00m 21s:  new JumpIn at WakeUpMobs ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSchedulerHelper.cs : 34 )
+[回合1] 00m 21s:  [SetActive] Gaceon: True
+[回合1] 00m 21s:  new JumpIn at SetActive ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 443 )
+[回合1] 00m 21s:  new JumpIn at SetActive ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 451 )
+[回合1] 00m 21s:  new JumpIn at WakeUpMobs ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSchedulerHelper.cs : 34 )
+[回合1] 00m 21s:  [SetActive] Lilium: True
+[回合1] 00m 21s:  new JumpIn at SetActive ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 443 )
+[回合1] 00m 21s:  new JumpIn at SetActive ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 451 )
+[回合1] 00m 21s:  new JumpIn at WakeUpMobs ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSchedulerHelper.cs : 34 )
+[回合1] 00m 21s:  [SetActive] Umiko: True
+[回合1] 00m 21s:  new JumpIn at SetActive ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 443 )
+[回合1] 00m 21s:  new JumpIn at SetActive ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\MobData\MobData.cs : 451 )
+[回合1] 00m 21s:  new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 108 )
+[回合1] 00m 21s:  new JumpIn at Turn ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSliceSO.cs : 120 )
+[回合1] 00m 21s:  [csc] TURN START: Player
+[回合1] 00m 22s:  new JumpIn at Turn ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\CommonPlayerTurnSliceSO.cs : 47 )

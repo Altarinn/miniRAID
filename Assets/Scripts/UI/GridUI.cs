@@ -7,6 +7,9 @@ using Cinemachine;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using PixelArtRenderer;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -29,6 +32,17 @@ namespace miniRAID.UI
         public Cinemachine.CinemachineVirtualCamera characterFocusVCam;
         public GridShapeCursor cursor;
         public float panSpeed = 5.0f;
+        
+        // Camera snap settings
+        [Header("Camera Snap Settings")]
+        public float snapDuration = 0.5f;
+        public int maxInteger = 8;
+        public float yMin = 8f;
+        public float yMax = 45f;
+        
+        private CameraSnapHelper cameraSnapHelper;
+        private Coroutine snapRoutine;
+        private bool wasRotatingLastFrame = false;
 
         [Obsolete("Use cursor.position instead.")]
         public Vector3Int currentGridPos => cursor.GridPos;
@@ -70,6 +84,14 @@ namespace miniRAID.UI
             inputs = new DefaultInputs();
             combatView = FindObjectOfType<miniRAID.UIElements.CombatView>();
             cursor = new GridShapeCursor(new PointCollider(), GridOverlay.Types.SELECTED);
+            
+            // Initialize camera snap helper
+            cameraSnapHelper = new CameraSnapHelper()
+            {
+                maxInteger = this.maxInteger,
+                yMin = this.yMin,
+                yMax = this.yMax
+            };
         }
 
         private void OnEnable()
@@ -102,8 +124,17 @@ namespace miniRAID.UI
                 0, 
                 inp.y * panSpeed * Time.deltaTime));
 
-            if (inputs.UI.ToggleRotateCamera.ReadValue<float>() > 0.5f)
+            bool isRotatingThisFrame = inputs.UI.ToggleRotateCamera.ReadValue<float>() > 0.5f;
+            
+            if (isRotatingThisFrame)
             {
+                // Stop any ongoing snap when user starts rotating
+                if (snapRoutine != null)
+                {
+                    StopCoroutine(snapRoutine);
+                    snapRoutine = null;
+                }
+                
                 Vector2 val = inputs.UI.RotateCamera.ReadValue<Vector2>();
                 var mainVCamOrbital = mainVCam.GetCinemachineComponent<CinemachineOrbitalTransposer>();
                 mainVCamOrbital.m_XAxis.Value += val.x * 50.0f * Time.deltaTime;
@@ -116,6 +147,60 @@ namespace miniRAID.UI
                     mainVCamOrbital.m_XAxis.Value;
                 charCamOrbital.m_FollowOffset.y = mainVCamOrbital.m_FollowOffset.y;
             }
+            else if (wasRotatingLastFrame && snapRoutine == null)
+            {
+                // User just released rotation input, start snap
+                snapRoutine = StartCoroutine(SnapToNearestPosition());
+            }
+            
+            wasRotatingLastFrame = isRotatingThisFrame;
+        }
+        
+        private IEnumerator SnapToNearestPosition()
+        {
+            var mainVCamOrbital = mainVCam.GetCinemachineComponent<CinemachineOrbitalTransposer>();
+            float offsetZ = mainVCamOrbital.m_FollowOffset.z;
+            
+            // Precompute valid positions for current offsetZ if needed
+            cameraSnapHelper.PrecomputeForOffset(offsetZ);
+            
+            // Find nearest valid position
+            var (targetTheta, targetY) = cameraSnapHelper.FindNearestValidPosition(
+                mainVCamOrbital.m_XAxis.Value,
+                mainVCamOrbital.m_FollowOffset.y,
+                offsetZ);
+            
+            float startTheta = mainVCamOrbital.m_XAxis.Value;
+            float startY = mainVCamOrbital.m_FollowOffset.y;
+            float deltaTheta = Mathf.DeltaAngle(startTheta, targetTheta);
+            
+            float t = 0f;
+            while (t < snapDuration)
+            {
+                t += Time.deltaTime;
+                float u = Mathf.SmoothStep(0, 1, t / snapDuration);
+                
+                // Update main camera
+                mainVCamOrbital.m_XAxis.Value = startTheta + deltaTheta * u;
+                var offset = mainVCamOrbital.m_FollowOffset;
+                offset.y = Mathf.Lerp(startY, targetY, u);
+                mainVCamOrbital.m_FollowOffset = offset;
+                
+                // Update character focus camera (ignoring for now as requested)
+                // var charCamOrbital = characterFocusVCam.GetCinemachineComponent<CinemachineOrbitalTransposer>();
+                // charCamOrbital.m_XAxis.Value = mainVCamOrbital.m_XAxis.Value;
+                // charCamOrbital.m_FollowOffset.y = mainVCamOrbital.m_FollowOffset.y;
+                
+                yield return null;
+            }
+            
+            // Ensure exact final values
+            mainVCamOrbital.m_XAxis.Value = targetTheta;
+            var finalOffset = mainVCamOrbital.m_FollowOffset;
+            finalOffset.y = targetY;
+            mainVCamOrbital.m_FollowOffset = finalOffset;
+            
+            snapRoutine = null;
         }
 
         /// <summary>

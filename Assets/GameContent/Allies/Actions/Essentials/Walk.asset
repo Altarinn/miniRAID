@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 6c4d0213093e4dda899adb7f604df3be, type: 3}
   m_Name: Walk
-  m_EditorClassIdentifier: miniRAID.Core:miniRAID:WalkMovementSO
+  m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
@@ -214,8 +214,8 @@ MonoBehaviour:
       Entry: 6
       Data: 
   Guid: c917e07e12994f44e85a9c8c5e79c31a
-  Id: 227
-  icon: {fileID: 999429910747490026, guid: 7fe9a382566f75a429badd968a5161fa, type: 3}
+  Id: 232
+  icon: {fileID: 0}
   ActionNameKey:
     m_TableReference:
       m_TableCollectionName: GUID:6ebb20b243c324310be673530903a313
@@ -235,7 +235,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  flags: 32
+  flags: 0
+  ignoreCostByDistance: 0
+  ignoreMovementFiltering: 0
   references:
     version: 2
     RefIds: []

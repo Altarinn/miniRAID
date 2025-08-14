@@ -92,6 +92,9 @@ namespace miniRAID.UI
                 yMin = this.yMin,
                 yMax = this.yMax
             };
+
+            // TODO: Move me to somewhere else
+            (GraphicsSettings.currentRenderPipeline as UniversalRenderPipelineAsset).renderScale = Settings.retro ? 0.25f : 1.0f;
         }
 
         private void OnEnable()
@@ -147,7 +150,7 @@ namespace miniRAID.UI
                     mainVCamOrbital.m_XAxis.Value;
                 charCamOrbital.m_FollowOffset.y = mainVCamOrbital.m_FollowOffset.y;
             }
-            else if (wasRotatingLastFrame && snapRoutine == null)
+            else if (Settings.retro && wasRotatingLastFrame && snapRoutine == null)
             {
                 // User just released rotation input, start snap
                 snapRoutine = StartCoroutine(SnapToNearestPosition());
@@ -359,18 +362,42 @@ namespace miniRAID.UI
             }
         }
 
-        public void OnNavigate(InputValue input)
+        public void OnUp(InputValue input)
         {
-            //if (currentState.freeNavigation)
+            OnNavigate(Vector2.up);
+        }
+        
+        public void OnDown(InputValue input)
+        {
+            OnNavigate(Vector2.down);
+        }
+        
+        public void OnLeft(InputValue input)
+        {
+            OnNavigate(Vector2.left);
+        }
+        
+        public void OnRight(InputValue input)
+        {
+            OnNavigate(Vector2.right);
+        }
+
+        public void OnNavigate(Vector2 delta)
+        {
+            if (currentState.allowFreeNavigation)
             {
-                var inp = input.Get<Vector2>();
-                cursor.Position = Globals.backend.BackendPosReflooring(
-                    cursor.Position + new Vector3Int(
-                        inp.x == 0 ? 0 : (inp.x > 0 ? 1 : -1),
-                        0,
-                        inp.y == 0 ? 0 : (inp.y > 0 ? 1 : -1)
-                    )
-                );
+                // Rotate input relative to camera
+                float cameraY = mainVCam.transform.eulerAngles.y;
+                Vector3 rotated = Quaternion.Euler(0, cameraY, 0) * new Vector3(delta.x, 0, delta.y);
+                
+                // Pick most significant axis
+                Vector3Int movement = Vector3Int.zero;
+                if (Mathf.Abs(rotated.x) > Mathf.Abs(rotated.z))
+                    movement.x = rotated.x > 0 ? 1 : -1;
+                else if (rotated.z != 0)
+                    movement.z = rotated.z > 0 ? 1 : -1;
+                
+                cursor.Position = Globals.backend.BackendPosReflooring(cursor.Position + movement);
             }
         }
 

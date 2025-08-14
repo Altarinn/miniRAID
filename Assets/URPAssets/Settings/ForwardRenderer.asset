@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e34d5e9d8848e98d6fa06a45ccca57, type: 3}
   m_Name: PixelArtRendererFeature
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   upscalingMaterial: {fileID: 2100000, guid: 0a7f60b4dca2ad64783b882de3f41153, type: 2}
 --- !u!114 &-8561625125886171618
 MonoBehaviour:

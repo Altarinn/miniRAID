@@ -1,46 +1,38 @@
 - Start of debug log -
-[2025/8/15 4:08:43] AWAKE
-[回合0] 00m 04s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
-[2025/8/15 4:08:44] SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
-[回合0] 00m 04s:  Lilium 获得了来自 Lilium 的 防卫者
-[2025/8/15 4:08:44] Lilium 获得了来自 Lilium 的 防卫者
-[回合0] 00m 04s:  Felivol 获得了来自 Felivol 的 防卫者
-[2025/8/15 4:08:44] Felivol 获得了来自 Felivol 的 防卫者
-[回合0] 00m 04s:  Felivol 获得了来自 Felivol 的 旅者
-[2025/8/15 4:08:44] Felivol 获得了来自 Felivol 的 旅者
-[回合0] 00m 04s:  Felivol 获得了来自 Felivol 的 聆听神谕
-[2025/8/15 4:08:44] Felivol 获得了来自 Felivol 的 聆听神谕
-[回合0] 00m 04s:  Felivol 获得了来自 Felivol 的 祝福之光
-[2025/8/15 4:08:44] Felivol 获得了来自 Felivol 的 祝福之光
-[回合0] 00m 04s:  Felivol 获得了来自 Felivol 的 防御蓄能
-[2025/8/15 4:08:44] Felivol 获得了来自 Felivol 的 防御蓄能
-[回合0] 00m 04s:  Gaceon 获得了来自 Gaceon 的 治疗者
-[2025/8/15 4:08:44] Gaceon 获得了来自 Gaceon 的 治疗者
-[回合0] 00m 04s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
-[2025/8/15 4:08:44] SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
-[回合0] 00m 04s:  Archer3 获得了来自 Archer3 的 攻击者
-[2025/8/15 4:08:44] Archer3 获得了来自 Archer3 的 攻击者
-[回合0] 00m 04s:  Astrologer 获得了来自 Astrologer 的 流星
-[2025/8/15 4:08:44] Astrologer 获得了来自 Astrologer 的 流星
-[回合0] 00m 04s:  Astrologer 获得了来自 Astrologer 的 星能转化
-[2025/8/15 4:08:44] Astrologer 获得了来自 Astrologer 的 星能转化
-[回合0] 00m 04s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
-[2025/8/15 4:08:44] SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
-[回合0] 00m 04s:  Umiko 获得了来自 Umiko 的 生命之歌
-[2025/8/15 4:08:44] Umiko 获得了来自 Umiko 的 生命之歌
-[回合1] 00m 04s:  回合1
-[2025/8/15 4:08:45] 回合1
-[回合1] 00m 26s:  Gaceon 施放了 治疗链, 目标：Archer3
-[2025/8/15 4:09:06] Gaceon 施放了 治疗链, 目标：Archer3
-[回合1] 00m 26s:  Gaceon 的 治疗链 对 Archer3 造成了 0 点 Heal 。生命值：86
-[2025/8/15 4:09:06] Gaceon 的 治疗链 对 Archer3 造成了 0 点 Heal 。生命值：86
-[回合1] 00m 26s:  Gaceon 的 治疗链 对 Lilium 造成了 0 点 Heal 。生命值：116
-[2025/8/15 4:09:07] Gaceon 的 治疗链 对 Lilium 造成了 0 点 Heal 。生命值：116
-[回合1] 00m 26s:  Gaceon 的 治疗链 对 Felivol 造成了 0 点 Heal 。生命值：110
-[2025/8/15 4:09:07] Gaceon 的 治疗链 对 Felivol 造成了 0 点 Heal 。生命值：110
-[回合1] 00m 39s:  Archer3 施放了 疾飞之箭, 目标：BossMu
-[2025/8/15 4:09:20] Archer3 施放了 疾飞之箭, 目标：BossMu
-[回合1] 00m 40s:  Archer3 的 疾飞之箭 对 BossMu 造成了 14 点 Pierce 伤害。生命值：1226
-[2025/8/15 4:09:21] Archer3 的 疾飞之箭 对 BossMu 造成了 14 点 Pierce 伤害。生命值：1226
-[回合1] 00m 40s:  BossMu 获得了来自 Archer3 的 出血
-[2025/8/15 4:09:21] BossMu 获得了来自 Archer3 的 出血
+[8/15/2025 8:43:49 AM] AWAKE
+[回合0] 00m 03s:  Lilium 获得了来自 Lilium 的 防卫者
+[8/15/2025 8:43:49 AM] Lilium 获得了来自 Lilium 的 防卫者
+[回合0] 00m 03s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
+[8/15/2025 8:43:49 AM] SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
+[回合0] 00m 03s:  Umiko 获得了来自 Umiko 的 生命之歌
+[8/15/2025 8:43:49 AM] Umiko 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 03s:  Astrologer 获得了来自 Astrologer 的 流星
+[8/15/2025 8:43:49 AM] Astrologer 获得了来自 Astrologer 的 流星
+[回合0] 00m 03s:  Astrologer 获得了来自 Astrologer 的 星能转化
+[8/15/2025 8:43:49 AM] Astrologer 获得了来自 Astrologer 的 星能转化
+[回合0] 00m 03s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
+[8/15/2025 8:43:49 AM] SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
+[回合0] 00m 03s:  Flora 获得了来自 Umiko 的 生命之歌
+[8/15/2025 8:43:49 AM] Flora 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 03s:  Felivol 获得了来自 Felivol 的 防卫者
+[8/15/2025 8:43:49 AM] Felivol 获得了来自 Felivol 的 防卫者
+[回合0] 00m 03s:  Felivol 获得了来自 Felivol 的 旅者
+[8/15/2025 8:43:49 AM] Felivol 获得了来自 Felivol 的 旅者
+[回合0] 00m 03s:  Felivol 获得了来自 Felivol 的 聆听神谕
+[8/15/2025 8:43:49 AM] Felivol 获得了来自 Felivol 的 聆听神谕
+[回合0] 00m 03s:  Felivol 获得了来自 Felivol 的 祝福之光
+[8/15/2025 8:43:49 AM] Felivol 获得了来自 Felivol 的 祝福之光
+[回合0] 00m 03s:  Felivol 获得了来自 Felivol 的 防御蓄能
+[8/15/2025 8:43:49 AM] Felivol 获得了来自 Felivol 的 防御蓄能
+[回合0] 00m 03s:  Felivol 获得了来自 Umiko 的 生命之歌
+[8/15/2025 8:43:49 AM] Felivol 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 03s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
+[8/15/2025 8:43:49 AM] SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
+[回合0] 00m 03s:  Archer3 获得了来自 Archer3 的 攻击者
+[8/15/2025 8:43:49 AM] Archer3 获得了来自 Archer3 的 攻击者
+[回合0] 00m 03s:  Archer3 获得了来自 Umiko 的 生命之歌
+[8/15/2025 8:43:49 AM] Archer3 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 03s:  Gaceon 获得了来自 Gaceon 的 治疗者
+[8/15/2025 8:43:49 AM] Gaceon 获得了来自 Gaceon 的 治疗者
+[回合1] 00m 03s:  回合1
+[8/15/2025 8:43:50 AM] 回合1

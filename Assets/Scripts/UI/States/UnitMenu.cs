@@ -26,6 +26,7 @@ namespace miniRAID.UI
 
         public UnitMenu(MobRenderer mobRenderer)
         {
+            allowFreeNavigation = false;
             stateStr = $"UnitMenu: {mobRenderer?.name}";
 
             currentUnit = mobRenderer;

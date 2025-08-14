@@ -364,25 +364,25 @@ namespace miniRAID.UI
 
         public void OnUp(InputValue input)
         {
-            OnNavigate(Vector2.up);
+            MoveCursor(Vector2.up);
         }
         
         public void OnDown(InputValue input)
         {
-            OnNavigate(Vector2.down);
+            MoveCursor(Vector2.down);
         }
         
         public void OnLeft(InputValue input)
         {
-            OnNavigate(Vector2.left);
+            MoveCursor(Vector2.left);
         }
         
         public void OnRight(InputValue input)
         {
-            OnNavigate(Vector2.right);
+            MoveCursor(Vector2.right);
         }
 
-        public void OnNavigate(Vector2 delta)
+        public void MoveCursor(Vector2 delta)
         {
             if (currentState.allowFreeNavigation)
             {
@@ -397,8 +397,55 @@ namespace miniRAID.UI
                 else if (rotated.z != 0)
                     movement.z = rotated.z > 0 ? 1 : -1;
                 
-                cursor.Position = Globals.backend.BackendPosReflooring(cursor.Position + movement);
+                if (movement != Vector3Int.zero)
+                {
+                    Vector3Int currentPos = Databackend.BackendToGridPos(cursor.Position);
+                    Vector3Int targetXZ = currentPos + movement;
+                    
+                    // Find nearest valid Y position
+                    Vector3Int? validPos = FindNearestWalkablePosition(targetXZ, currentPos.y);
+                    if (validPos.HasValue)
+                    {
+                        cursor.Position = Globals.backend.GridToBackendFloorPos(validPos.Value);
+                    }
+                }
             }
+        }
+        
+        private Vector3Int? FindNearestWalkablePosition(Vector3Int targetXZ, int currentY)
+        {
+            // Check current Y level first
+            for (int distance = 0; distance <= 10; distance++)
+            {
+                // Check at currentY + distance
+                if (distance > 0)
+                {
+                    Vector3Int posUp = new Vector3Int(targetXZ.x, currentY + distance, targetXZ.z);
+                    if (IsWalkablePosition(posUp))
+                        return posUp;
+                }
+                
+                // Check at currentY - distance  
+                Vector3Int posDown = new Vector3Int(targetXZ.x, currentY - distance, targetXZ.z);
+                if (IsWalkablePosition(posDown))
+                    return posDown;
+            }
+            
+            return null;
+        }
+        
+        private bool IsWalkablePosition(Vector3Int position)
+        {
+            GridData grid = Globals.backend.GetMap(position, false);
+            
+            // Check if passable
+            if (!grid.passable) return false;
+            
+            // Check if supported (either standable here or standable below)
+            if (grid.standable || grid.solid) return true;
+            
+            GridData belowGrid = Globals.backend.GetMap(position + Vector3Int.down, false);
+            return (belowGrid.standable || belowGrid.solid) && IntrusionBits.GetFaceIntrusion(belowGrid.intrusion, Vector3Int.up) == 0;
         }
 
         public void OnLeftClick(InputValue input)

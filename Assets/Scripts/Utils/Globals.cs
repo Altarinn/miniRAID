@@ -45,5 +45,8 @@ namespace miniRAID
 
         // Time delay to delete fx (particle systems etc.) after they have stopped.
         public static float fxTimeout = 10.0f;
+        
+        // Should use retro mode or not
+        public static bool retro = false;
     }
 }

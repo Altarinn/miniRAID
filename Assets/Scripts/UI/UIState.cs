@@ -9,6 +9,8 @@ namespace miniRAID.UI
         [HideInInspector]
         public string stateStr;
 
+        public bool allowFreeNavigation = true;
+
         GridUI _ui;
         protected GridUI ui
         {

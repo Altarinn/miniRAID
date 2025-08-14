@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 646253613004380357}
   - component: {fileID: 2941828214916883385}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BossMu_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4098902995193763720}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.04, y: 1.3, z: 0}
+  m_LocalPosition: {x: 0.04, y: 1, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2147563115298858228}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2941828214916883385
 SpriteRenderer:
@@ -49,6 +49,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -110,7 +113,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6296640065970866260}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.16405125, y: 0.834682, z: -0.3960549, w: 0.34573647}
   m_LocalPosition: {x: 11.5, y: 7.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -119,7 +123,6 @@ Transform:
   - {fileID: 3657953256968718063}
   - {fileID: 2521013872946256978}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &17043920121896397
 MonoBehaviour:
@@ -143,108 +146,7 @@ MonoBehaviour:
     nickname: 
     _actionPointsMul100: 0
     _freeActionPointsMul100: 100
-    apRecovery: 3
-    apNonFreeMax: 5
-    moveRange:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
     movedGrids: 0
-    attackPower:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    spellPower:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    healPower:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    buffPower:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    defense:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    spDefense:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    hitAcc:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    dodge:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    crit:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
-    antiCrit:
-      valueType: 0
-      staticValue: 0
-      source:
-        source: 
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 0
-      mulMultiplier: 0
     extraRange:
       valueType: 0
       staticValue: 0
@@ -254,111 +156,14 @@ MonoBehaviour:
       addedValue: 0
       addMultiplier: 0
       mulMultiplier: 0
-    aggroMul:
-      valueType: 0
-      staticValue: 1
-      source:
-        source: Unknown
-      baseValue: 0
-      addedValue: 0
-      addMultiplier: 1
-      mulMultiplier: 1
-    healPriority: 1
-    baseStats:
-      VIT:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-      STR:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-      MAG:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-      INT:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-      AGI:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-      TEC:
-        valueType: 0
-        staticValue: 0
-        source:
-          source: 
-        baseValue: 0
-        addedValue: 0
-        addMultiplier: 0
-        mulMultiplier: 0
-    battleStats:
-      exResist:
-        Physical: 0
-        Elemental: 0
-        Pure: 0
-        Slash: 0
-        Knock: 0
-        Pierce: 0
-        Fire: 0
-        Ice: 0
-        Water: 0
-        Nature: 0
-        Wind: 0
-        Thunder: 0
-        Light: 0
-        Dark: 0
-        Heal: 0
-      exDamage:
-        Physical: 0
-        Elemental: 0
-        Pure: 0
-        Slash: 0
-        Knock: 0
-        Pierce: 0
-        Fire: 0
-        Ice: 0
-        Water: 0
-        Nature: 0
-        Wind: 0
-        Thunder: 0
-        Light: 0
-        Dark: 0
-        Heal: 0
     health: 100
     maxHealth: 100
     damageShield: 0
   animator: {fileID: 0}
+  handleDataInit: 0
 --- !u!95 &2249947763680726140
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -372,10 +177,12 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &6022413565557910080
 MonoBehaviour:
   m_ObjectHideFlags: 0

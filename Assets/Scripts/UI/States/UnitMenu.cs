@@ -38,7 +38,7 @@ namespace miniRAID.UI
                 // SpellTarget target = currentUnit.data?.FindListener<PlayerAutoAttackAgentBase>()?.GetTarget(currentUnit.data);
                 currentUnit.data.SelectedInUI();
 
-                currentUnit.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+                currentUnit.GetComponentInChildren<BillboardSpriteRenderer>().Color = Color.red;
 
                 ui.ShowMainMobStats(currentUnit);
             }

@@ -78,7 +78,7 @@ namespace miniRAID.UIElements
             TEC.text = $"{mob.TEC}";
             AGI.text = $"{mob.AGI}";
             
-            unitIcon.style.backgroundImage = new StyleBackground(mob.mobRenderer?.GetComponentInChildren<SpriteRenderer>().sprite);
+            unitIcon.style.backgroundImage = new StyleBackground(mob.mobRenderer?.GetComponentInChildren<BillboardSpriteRenderer>().Sprite);
             
             string effects = "";
             foreach (var fx in mob.listeners)

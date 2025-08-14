@@ -142,7 +142,7 @@ namespace miniRAID
             // }
             // else
             // {
-            GetComponentInChildren<SpriteRenderer>().color = Color.white;
+            GetComponentInChildren<BillboardSpriteRenderer>().Color = Color.white;
             // }
         }
 
@@ -159,7 +159,7 @@ namespace miniRAID
         public IEnumerator HealAnimation()
         {
             // FIXME: Test animation
-            GetComponentInChildren<SpriteRenderer>().color = Color.green;
+            GetComponentInChildren<BillboardSpriteRenderer>().Color = Color.green;
             yield return new WaitForSeconds(.2f);
             UpdateStatusColor();
         }
@@ -168,9 +168,9 @@ namespace miniRAID
         {
             for (int i = 0; i < 2; i++)
             {
-                GetComponentInChildren<SpriteRenderer>().color = Color.red;
+                GetComponentInChildren<BillboardSpriteRenderer>().Color = Color.red;
                 yield return new WaitForSeconds(.07f);
-                GetComponentInChildren<SpriteRenderer>().color = Color.clear;
+                GetComponentInChildren<BillboardSpriteRenderer>().Color = Color.clear;
                 yield return new WaitForSeconds(.07f);
             }
             UpdateStatusColor();
@@ -186,7 +186,7 @@ namespace miniRAID
             // TODO: Proper logic to destroy
             if (destroy)
             {
-                GetComponentInChildren<SpriteRenderer>().enabled = false;
+                GetComponentInChildren<BillboardSpriteRenderer>().enabled = false;
                 Destroy(this.gameObject);
             }
 
@@ -227,7 +227,7 @@ namespace miniRAID
             if (value == false)
             {
                 // FIXME: Test animation
-                GetComponentInChildren<SpriteRenderer>().color = Color.cyan;
+                GetComponentInChildren<BillboardSpriteRenderer>().Color = Color.cyan;
                 yield return new WaitForSeconds(.15f);
                 UpdateStatusColor();
             }

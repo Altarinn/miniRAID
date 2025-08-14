@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Hidden_PixelArtURP_UpscalingShader
-  m_Shader: {fileID: 4800000, guid: 32f5e19ba5e1d5e47991b54ffcba4edd, type: 3}
+  m_Shader: {fileID: 4800000, guid: f01148ccb6aac594595cb87a703797b8, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -24,7 +24,29 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Ints: []
-    m_Floats: []
+    m_Floats:
+    - _BeamMaxWidth: 0.399
+    - _BeamMinWidth: 0.416
+    - _BeamSharpness: 2
+    - _BloomIntensity: 0.3
+    - _BloomThreshold: 0.771
+    - _BrightnessBoost: 1.5
+    - _ColorBleed: 0.1
+    - _ContrastBoost: 1.1
+    - _Exposure: 1
+    - _Gamma: 1
+    - _GlowCurve: 3
+    - _GlowRadius: 0.177
+    - _GlowStrength: 0.099
+    - _MaskStrength: 0.35
+    - _PhosphorGlow: 0.221
+    - _PhosphorStrength: 0
+    - _ScanlineFrequency: 2
+    - _ScanlineIntensity: 1
+    - _ScanlineSoftness: 0.617
+    - _ScanlineStrength: 0.9
+    - _Sharpness: 1
+    - _SubpixelStrength: 0.3
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1

@@ -15,10 +15,10 @@ Shader "Hidden/PixelArtURP/UpscalingShader"
 
             half4 color = SAMPLE_TEXTURE2D_X(_BlitTexture, sampler_PointClamp, uv);
 
-            if(int2(uv * _DestinationSize.xy).y % 4 == 0)
-            {
-                color.rgb = 0.0f;
-            }
+            // if(int2(uv * _DestinationSize.xy).y % 4 == 0)
+            // {
+            //     color.rgb = 0.0f;
+            // }
 
             return color;
         }

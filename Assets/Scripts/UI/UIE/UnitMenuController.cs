@@ -2,322 +2,388 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-
 using System;
 using System.Linq;
-
-using miniRAID;
 using System.Text;
 
 namespace miniRAID.UIElements
 {
-    // TODO: Refine current mess with https://discussions.unity.com/t/events-binding-in-listview/878125/3
-    // Currently we rely on button events inside ListView and the ListView is getting ignored (but it still processes input)
-    // Gamepad controls are a nightmare in this. Please do it correctly.
     public class UnitMenuController
     {
-        VisualTreeAsset unitMenuButtonTemplate;
-        ListView view;
-        VisualElement masterElem, toolTipContainer;
-        Label toolTip;
+        private readonly VisualTreeAsset unitMenuItemTemplate;
+        private readonly ListView listView;
+        private readonly VisualElement masterElement;
+        private readonly VisualElement toolTipContainer;
+        private readonly Label toolTipLabel;
+        private readonly MobDetailsController mobDetailsController;
+        private readonly MobInfoController mobInfoController;
+        private readonly miniRAID.UI.GridUI ui;
 
-        private MobDetailsController mobDetailsController;
-        private MobInfoController mobInfoController;
-
-        miniRAID.UI.GridUI ui;
-
-        Dictionary<string, EventCallback<NavigationSubmitEvent>> shortcutList;
+        private List<UIMenuEntry> currentEntries;
+        private Dictionary<string, int> shortcutIndexMap;
+        private int lastSelectedIndex = -1;
 
         public struct UIMenuEntry
         {
-            public string text;
-            public IEnumerator action;
-            public IEnumerator onFinished;
+            public readonly string text;
+            public readonly IEnumerator action;
+            public readonly IEnumerator onFinished;
+            public readonly bool useDefaultToolTip;
+            public readonly string toolTip;
+            public readonly System.Action onPointerEnter;
+            public readonly System.Action onPointerLeave;
+            public readonly string keycode;
+            public readonly RuntimeAction runtimeAction;
+            public readonly MobRenderer source;
 
-            public bool useDefaultToolTip;
-            public string toolTip;
-            public System.Action onPointerEnter;
-            public System.Action onPointerLeave;
+            public UIMenuEntry(string text, IEnumerator action = null, IEnumerator onFinished = null,
+                              bool useDefaultToolTip = false, string toolTip = "", 
+                              System.Action onPointerEnter = null, System.Action onPointerLeave = null,
+                              string keycode = null, RuntimeAction runtimeAction = null, MobRenderer source = null)
+            {
+                this.text = text;
+                this.action = action;
+                this.onFinished = onFinished;
+                this.useDefaultToolTip = useDefaultToolTip;
+                this.toolTip = toolTip;
+                this.onPointerEnter = onPointerEnter;
+                this.onPointerLeave = onPointerLeave;
+                this.keycode = keycode;
+                this.runtimeAction = runtimeAction;
+                this.source = source;
+            }
 
-            public string keycode;
-
-            public RuntimeAction runtimeAction;
-            public MobRenderer source;
+            public bool IsUsable
+            {
+                get
+                {
+                    if (source != null && runtimeAction != null)
+                    {
+                        return source.data.CheckCalculatedActionCostBounds(runtimeAction);
+                    }
+                    return true;
+                }
+            }
         }
 
-        public class ButtonData
+        public UnitMenuController(VisualElement element, MobDetailsController mobDetailsController, MobInfoController mobInfoController)
         {
-            public EventCallback<NavigationSubmitEvent> currentAction;
-            public EventCallback<FocusInEvent> focusIn;
-            public EventCallback<FocusOutEvent> focusOut;
-        }
-
-        public UnitMenuController(VisualElement elem, MobDetailsController mobDetailsController, MobInfoController mobInfoController)
-        {
-            masterElem = elem;
-
-            unitMenuButtonTemplate = Resources.Load<VisualTreeAsset>("UI/UnitMenuEntry");
-            view = elem.Q<ListView>();
-            toolTip = elem.Q<Label>("ToolTipLabel");
-            toolTipContainer = elem.Q("ToolTip");
-
-            view.makeItem = () => unitMenuButtonTemplate.CloneTree();
-            view.bindItem = (e, i) => BindEntryItem(e, i, (UIMenuEntry)view.itemsSource[i]);
-            view.fixedItemHeight = 18;
-
-            ui = Globals.ui.Instance;
-            
-            view.selectionChanged += ViewOnselectionChanged;
-
+            this.masterElement = element;
             this.mobDetailsController = mobDetailsController;
             this.mobInfoController = mobInfoController;
+            this.ui = Globals.ui.Instance;
+
+            unitMenuItemTemplate = Resources.Load<VisualTreeAsset>("UI/UnitMenuEntry");
+            listView = element.Q<ListView>();
+            toolTipLabel = element.Q<Label>("ToolTipLabel");
+            toolTipContainer = element.Q("ToolTip");
+
+            InitializeListView();
+            RegisterEvents();
         }
 
-        public void BindEntryItem(VisualElement e, int index, UIMenuEntry entry)
+        private void InitializeListView()
         {
-            bool useable = true;
-            e.Q<Label>("ActionName").text = entry.text;
-
-            Button btn = e.Q<Button>();
-
-            if (btn.userData == null)
-            {
-                btn.userData = new ButtonData();
-            }
+            listView.makeItem = CreateListItem;
+            listView.bindItem = BindListItem;
+            listView.fixedItemHeight = 18;
+            listView.selectionType = SelectionType.Single;
+            listView.focusable = true;
+            listView.tabIndex = 0;
             
-            ////////////////////////////
-            // Click event
-            ////////////////////////////
+            // Ensure ListView can receive navigation events
+            listView.pickingMode = PickingMode.Position;
+        }
 
-            if (((ButtonData)btn.userData).currentAction != null)
-            {
-                // btn.clicked -= ((ButtonData)btn.userData).currentAction;
-                // btn.UnregisterCallback(((ButtonData)btn.userData).currentAction);
-            }
+        private void RegisterEvents()
+        {
+            listView.selectionChanged += OnSelectionChanged;
+            listView.RegisterCallback<NavigationSubmitEvent>(OnNavigationSubmit, TrickleDown.TrickleDown);
+            listView.RegisterCallback<ClickEvent>(OnMouseClick);
+        }
 
-            ((ButtonData)btn.userData).currentAction = evt => { ui.WaitFor(entry.action, entry.onFinished); };
-            // btn.RegisterCallback(((ButtonData)btn.userData).currentAction);
+        private void UnregisterEvents()
+        {
+            listView.selectionChanged -= OnSelectionChanged;
+            listView.UnregisterCallback<NavigationSubmitEvent>(OnNavigationSubmit, TrickleDown.TrickleDown);
+            listView.UnregisterCallback<ClickEvent>(OnMouseClick);
+        }
 
-            ////////////////////////////
-            // Pointer Enter event
-            ////////////////////////////
-            
-            if (((ButtonData)btn.userData).focusIn != null)
-            {
-                // btn.UnregisterCallback(((ButtonData)btn.userData).focusIn);
-            }
+        private VisualElement CreateListItem()
+        {
+            return unitMenuItemTemplate.CloneTree();
+        }
 
-            if (entry.useDefaultToolTip)
-            {
-                ((ButtonData)btn.userData).focusIn = evt =>
-                {
-                    toolTipContainer.style.visibility = Visibility.Visible;
-                    toolTip.text = entry.toolTip;
-                };
-            }
-            else
-            {
-                ((ButtonData)btn.userData).focusIn = evt =>
-                {
-                    entry.onPointerEnter?.Invoke();
-                };
-            }
-            
-            // btn.RegisterCallback(((ButtonData)btn.userData).focusIn);
+        private void BindListItem(VisualElement element, int index)
+        {
+            if (currentEntries == null || index >= currentEntries.Count) return;
 
-            // if (index == 3)
-            // {
-                // btn.Focus();
-            // }
+            var entry = currentEntries[index];
+            var menuEntry = element.Q("MenuEntry");
 
-            ////////////////////////////
-            // Pointer Leave event
-            ////////////////////////////
-            
-            if (((ButtonData)btn.userData).focusOut != null)
-            {
-                // btn.UnregisterCallback(((ButtonData)btn.userData).focusOut);
-            }
-            
-            if (entry.useDefaultToolTip)
-            {
-                ((ButtonData)btn.userData).focusOut = evt =>
-                {
-                    toolTipContainer.style.visibility = Visibility.Hidden;
-                };
-            }
-            else
-            {
-                ((ButtonData)btn.userData).focusOut = evt =>
-                {
-                    entry.onPointerLeave?.Invoke();
-                };
-            }
-            
-            // btn.RegisterCallback(((ButtonData)btn.userData).focusOut);
+            element.Q<Label>("ActionName").text = entry.text;
+            UpdateKeyDisplay(element, entry);
+            UpdateCostDisplay(element, entry);
+            UpdateUsabilityState(menuEntry, entry);
+        }
 
-            ////////////////////////////
-            // Appearance / Shortcut
-            ////////////////////////////
-            
-            if(entry.keycode != null)
-            {
-                e.Q<Label>("Key").text = entry.keycode;
-            }
-            else
-            {
-                e.Q<Label>("Key").text = "";
-            }
+        private void UpdateKeyDisplay(VisualElement element, UIMenuEntry entry)
+        {
+            element.Q<Label>("Key").text = entry.keycode ?? "";
+        }
 
-            // Find AP Cost
+        private void UpdateCostDisplay(VisualElement element, UIMenuEntry entry)
+        {
+            var apCostLabel = element.Q<Label>("APCost");
+            var cooldownLabel = element.Q<Label>("Cooldown");
+
             if (entry.runtimeAction != null)
             {
-                int apcostMin = 0;
-                foreach (var costBound in entry.runtimeAction.costBounds)
+                int apCost = GetAPCost(entry.runtimeAction);
+                if (entry.runtimeAction.cooldownRemain > 0)
                 {
-                    if (costBound.Item1.type == Cost.Type.AP)
-                    {
-                        apcostMin = costBound.Item1.value;
-                        break;
-                    }
+                    apCostLabel.style.display = DisplayStyle.None;
+                    cooldownLabel.style.display = DisplayStyle.Flex;
+                    cooldownLabel.text = $"◷ {entry.runtimeAction.cooldownRemain}";
                 }
-                e.Q<Label>("APCost").style.display = DisplayStyle.Flex;
-                e.Q<Label>("APCost").text = new StringBuilder().Insert(0, "o", apcostMin).ToString();
-                e.Q<Label>("Cooldown").style.display = DisplayStyle.None;
+                else
+                {
+                    apCostLabel.style.display = DisplayStyle.Flex;
+                    apCostLabel.text = new StringBuilder().Insert(0, "o", apCost).ToString();
+                    cooldownLabel.style.display = DisplayStyle.None;
+                }
             }
             else
             {
-                e.Q<Label>("APCost").style.display = DisplayStyle.None;
-                e.Q<Label>("Cooldown").style.display = DisplayStyle.None;
+                apCostLabel.style.display = DisplayStyle.None;
+                cooldownLabel.style.display = DisplayStyle.None;
             }
+        }
 
-            // Update action info
-            btn.SetEnabled(true);
-            btn.RemoveFromClassList("disabled");
-
-            if (entry.source != null && entry.runtimeAction != null)
+        private void UpdateUsabilityState(VisualElement menuEntry, UIMenuEntry entry)
+        {
+            if (entry.IsUsable)
             {
-                if (!entry.source.data.CheckCalculatedActionCostBounds(entry.runtimeAction))
-                {
-                    btn.SetEnabled(false);
-                    btn.AddToClassList("disabled");
-                    useable = false;
+                menuEntry.RemoveFromClassList("disabled");
+                menuEntry.SetEnabled(true);
+            }
+            else
+            {
+                menuEntry.AddToClassList("disabled");
+                menuEntry.SetEnabled(false);
+            }
+        }
 
-                    if (entry.runtimeAction.cooldownRemain > 0)
-                    {
-                        e.Q<Label>("APCost").style.display = DisplayStyle.None;
-                        e.Q<Label>("Cooldown").style.display = DisplayStyle.Flex;
-                        e.Q<Label>("Cooldown").text = $"◷ {entry.runtimeAction.cooldownRemain}";
-                    }
+        private int GetAPCost(RuntimeAction runtimeAction)
+        {
+            foreach (var costBound in runtimeAction.costBounds)
+            {
+                if (costBound.Item1.type == Cost.Type.AP)
+                {
+                    return costBound.Item1.value;
+                }
+            }
+            return 0;
+        }
+
+        private void OnSelectionChanged(IEnumerable<object> selectedItems)
+        {
+            if (currentEntries == null) return;
+            HandleTooltipDisplay(listView.selectedIndex);
+        }
+
+        private void HandleTooltipDisplay(int selectedIndex)
+        {
+            ClearTooltips();
+
+            if (selectedIndex >= 0 && selectedIndex < currentEntries.Count)
+            {
+                var entry = currentEntries[selectedIndex];
+                if (entry.useDefaultToolTip)
+                {
+                    toolTipContainer.style.visibility = Visibility.Visible;
+                    toolTipLabel.text = entry.toolTip;
+                }
+                else
+                {
+                    entry.onPointerEnter?.Invoke();
                 }
             }
 
-            // Add to shortcut list
-            if (useable && entry.keycode != null)
+            lastSelectedIndex = selectedIndex;
+        }
+
+        private void ClearTooltips()
+        {
+            if (lastSelectedIndex >= 0 && lastSelectedIndex < currentEntries.Count)
             {
-                shortcutList.TryAdd(entry.keycode, ((ButtonData)btn.userData).currentAction);
+                var lastEntry = currentEntries[lastSelectedIndex];
+                if (!lastEntry.useDefaultToolTip)
+                {
+                    lastEntry.onPointerLeave?.Invoke();
+                }
             }
+            toolTipContainer.style.visibility = Visibility.Hidden;
+        }
+
+        private void OnNavigationSubmit(NavigationSubmitEvent evt)
+        {
+            Debug.Log($"OnNavigationSubmit received - selectedIndex: {listView.selectedIndex}");
+            if (ExecuteSelectedAction())
+            {
+                evt.StopImmediatePropagation();
+            }
+        }
+
+
+        private void OnMouseClick(ClickEvent evt)
+        {
+            if (listView.selectedIndex >= 0 && listView.selectedIndex < currentEntries.Count)
+            {
+                if (ExecuteSelectedAction())
+                {
+                    evt.StopImmediatePropagation();
+                }
+                // ExecuteSelectedAction();
+            }
+        }
+
+        private bool ExecuteSelectedAction()
+        {
+            if (currentEntries == null || listView.selectedIndex < 0 || listView.selectedIndex >= currentEntries.Count)
+                return false;
+
+            var entry = currentEntries[listView.selectedIndex];
+            
+            if (entry.IsUsable && entry.action != null)
+            {
+                ui.WaitFor(entry.action, entry.onFinished);
+                return true;
+            }
+            
+            return false;
         }
 
         public void ShortCut(string keyCode)
         {
-            if (!IsMenuShown) { return; }
-            if(shortcutList.TryGetValue(keyCode, out var act))
+            if (!IsMenuShown || shortcutIndexMap == null) return;
+
+            if (shortcutIndexMap.TryGetValue(keyCode, out int index))
             {
-                act.Invoke(null);
+                if (index >= 0 && index < currentEntries.Count && currentEntries[index].IsUsable)
+                {
+                    listView.selectedIndex = index;
+                    ExecuteSelectedAction();
+                }
             }
         }
 
         public void PrepareMenu(List<UIMenuEntry> entries)
         {
-            shortcutList = new();
-            view.itemsSource = entries;
-
-            view.RefreshItems();
+            currentEntries = entries ?? new List<UIMenuEntry>();
+            BuildShortcutMap();
+            
+            listView.itemsSource = currentEntries;
+            listView.RefreshItems();
+            
             ShowMenu();
             
-            // Debug.Log(entries.Count);
+            if (currentEntries.Count > 0)
+            {
+                // Set selection and focus immediately
+                listView.selectedIndex = 0;
+                listView.Focus();
+                // Force tooltip display for initial selection
+                HandleTooltipDisplay(0);
+            }
         }
 
-        private void ViewOnselectionChanged(IEnumerable<object> obj)
+        private void BuildShortcutMap()
         {
-            Debug.Log(view.selectedIndex);
+            shortcutIndexMap = new Dictionary<string, int>();
+            for (int i = 0; i < currentEntries.Count; i++)
+            {
+                var entry = currentEntries[i];
+                if (!string.IsNullOrEmpty(entry.keycode) && entry.IsUsable)
+                {
+                    shortcutIndexMap[entry.keycode] = i;
+                }
+            }
         }
 
         public void ShowMenu()
         {
-            if (view.itemsSource.Count > 0)
+            if (currentEntries?.Count > 0)
             {
-                masterElem.style.visibility = Visibility.Visible;
+                masterElement.style.visibility = Visibility.Visible;
             }
         }
 
         public void HideMenu()
         {
-            masterElem.style.visibility = Visibility.Hidden;
+            masterElement.style.visibility = Visibility.Hidden;
+            ClearTooltips();
+            lastSelectedIndex = -1;
         }
 
-        public bool IsMenuShown => masterElem.style.visibility == Visibility.Visible;
+        public bool IsMenuShown => masterElement.style.visibility == Visibility.Visible;
 
         public void ClearMenu()
         {
-            view.itemsSource = new List<UIMenuEntry>();
-            shortcutList = new();
-            //view.RefreshItems();
+            ClearTooltips();
+            currentEntries = new List<UIMenuEntry>();
+            shortcutIndexMap = new Dictionary<string, int>();
+            listView.itemsSource = currentEntries;
+            lastSelectedIndex = -1;
             HideMenu();
         }
 
-        public static UIMenuEntry GetActionEntry(
-            RuntimeAction action, MobRenderer source, string keycode = null,
-            string nameOverride = null, IEnumerator onFinished = null)
+        public void Dispose()
         {
-            return new UIMenuEntry
-            {
-                text = action.data.ActionName,
-                action = action.RequestInUI(source.data),
-                onFinished = onFinished,
-                useDefaultToolTip = true,
-                toolTip = action.GetFullTooltip(source.data),
-                source = source,
-                runtimeAction = action,
-                keycode = keycode,
-            };
+            UnregisterEvents();
         }
-        
-        public UIMenuEntry GetEquipmentDetailsEntry(
-            MobRenderer source, string keycode = null,
-            string nameOverride = null, IEnumerator onFinished = null)
+
+        public static UIMenuEntry GetActionEntry(RuntimeAction action, MobRenderer source, string keycode = null,
+                                                 string nameOverride = null, IEnumerator onFinished = null)
         {
-            return new UIMenuEntry
-            {
-                text = "Equipments",
-                action = null,
-                onFinished = onFinished,
-                useDefaultToolTip = false,
-                toolTip = "",
-                onPointerEnter = () => { mobDetailsController.Show(source.data); },
-                onPointerLeave = () => { mobDetailsController.Hide(); },
-                source = source,
-                keycode = keycode,
-            };
+            return new UIMenuEntry(
+                text: nameOverride ?? action.data.ActionName,
+                action: action.RequestInUI(source.data),
+                onFinished: onFinished,
+                useDefaultToolTip: true,
+                toolTip: action.GetFullTooltip(source.data),
+                keycode: keycode,
+                runtimeAction: action,
+                source: source
+            );
         }
-        
-        public UIMenuEntry GetMobDetailsEntry(
-            MobRenderer source, string keycode = null,
-            string nameOverride = null, IEnumerator onFinished = null)
+
+        public UIMenuEntry GetEquipmentDetailsEntry(MobRenderer source, string keycode = null,
+                                                   string nameOverride = null, IEnumerator onFinished = null)
         {
-            return new UIMenuEntry
-            {
-                text = "Info",
-                action = null,
-                onFinished = onFinished,
-                useDefaultToolTip = false,
-                toolTip = "",
-                onPointerEnter = () => { mobInfoController.Show(source.data); },
-                onPointerLeave = () => { mobInfoController.Hide(); },
-                source = source,
-                keycode = keycode,
-            };
+            return new UIMenuEntry(
+                text: nameOverride ?? "Equipments",
+                onFinished: onFinished,
+                useDefaultToolTip: false,
+                onPointerEnter: () => mobDetailsController.Show(source.data),
+                onPointerLeave: () => mobDetailsController.Hide(),
+                keycode: keycode,
+                source: source
+            );
+        }
+
+        public UIMenuEntry GetMobDetailsEntry(MobRenderer source, string keycode = null,
+                                             string nameOverride = null, IEnumerator onFinished = null)
+        {
+            return new UIMenuEntry(
+                text: nameOverride ?? "Info",
+                onFinished: onFinished,
+                useDefaultToolTip: false,
+                onPointerEnter: () => mobInfoController.Show(source.data),
+                onPointerLeave: () => mobInfoController.Hide(),
+                keycode: keycode,
+                source: source
+            );
         }
     }
 }

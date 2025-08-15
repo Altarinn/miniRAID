@@ -102,15 +102,14 @@ namespace miniRAID.UI
         {
             List<miniRAID.UIElements.UnitMenuController.UIMenuEntry> entries = new ();
             
-            entries.Add(new miniRAID.UIElements.UnitMenuController.UIMenuEntry
-            {
-                text = "Cheat",
-                action = OnCheat(Consts.UnitGroup.Player),
-                onFinished = UIMenuPostAction(null),
-                toolTip = "复活所有阵亡单位，并恢复所有单位20%生命值。",
-                useDefaultToolTip = true,
-                keycode = "1"
-            });
+            entries.Add(new miniRAID.UIElements.UnitMenuController.UIMenuEntry(
+                text: "Cheat",
+                action: OnCheat(Consts.UnitGroup.Player),
+                onFinished: UIMenuPostAction(null),
+                useDefaultToolTip: true,
+                toolTip: "复活所有阵亡单位，并恢复所有单位20%生命值。",
+                keycode: "1"
+            ));
             
             // entries.Add(new miniRAID.UIElements.UnitMenuController.UIMenuEntry
             // {
@@ -122,15 +121,14 @@ namespace miniRAID.UI
             //     keycode = "R"
             // });
             
-            entries.Add(new miniRAID.UIElements.UnitMenuController.UIMenuEntry
-            {
-                text = "EndTurn",
-                action = EndTurnAction(),
-                onFinished = UIMenuPostAction(null),
-                toolTip = "结束回合。",
-                useDefaultToolTip = true,
-                keycode = "R"
-            });
+            entries.Add(new miniRAID.UIElements.UnitMenuController.UIMenuEntry(
+                text: "EndTurn",
+                action: EndTurnAction(),
+                onFinished: UIMenuPostAction(null),
+                useDefaultToolTip: true,
+                toolTip: "结束回合。",
+                keycode: "R"
+            ));
 
             ui.combatView.menu.PrepareMenu(entries);
         }
@@ -183,27 +181,25 @@ namespace miniRAID.UI
             {
                 //ui.uimenu_uicontainer.AddEntry("*DEBUG", () => { Globals.debugMessage.Instance.Message("Test"); });
                 //ui.uimenu_uicontainer.AddEntry("Pass", OnPassSelected());
-                entries.Add(new miniRAID.UIElements.UnitMenuController.UIMenuEntry
-                {
-                    text = "Pass",
-                    action = OnPassSelected(),
-                    onFinished = null,
-                    toolTip = "",
-                    keycode = "R"
-                });
+                entries.Add(new miniRAID.UIElements.UnitMenuController.UIMenuEntry(
+                    text: "Pass",
+                    action: OnPassSelected(),
+                    onFinished: null,
+                    toolTip: "",
+                    keycode: "R"
+                ));
             }
 
             if (Consts.ApplyMask(Consts.EnemyMask(Consts.UnitGroup.Player), currentUnit.data.unitGroup))
             {
-                entries.Add(new miniRAID.UIElements.UnitMenuController.UIMenuEntry
-                {
-                    text = "Aim",
-                    action = AimOnTarget(currentUnit.data),
-                    onFinished = UIMenuPostAction(null),
-                    toolTip = "令所有可以瞄准目标的单位瞄准目标。",
-                    useDefaultToolTip = true,
-                    keycode = "K"
-                });
+                entries.Add(new miniRAID.UIElements.UnitMenuController.UIMenuEntry(
+                    text: "Aim",
+                    action: AimOnTarget(currentUnit.data),
+                    onFinished: UIMenuPostAction(null),
+                    useDefaultToolTip: true,
+                    toolTip: "令所有可以瞄准目标的单位瞄准目标。",
+                    keycode: "K"
+                ));
             }
 
             ui.combatView.menu.PrepareMenu(entries);

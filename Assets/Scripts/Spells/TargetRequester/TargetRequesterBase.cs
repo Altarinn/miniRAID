@@ -33,7 +33,8 @@ namespace miniRAID.UI.TargetRequester
     }
 
     [System.Serializable]
-    public abstract class TargetRequesterUIState : UIState { }
+    public abstract class TargetRequesterUIState : UIState
+    { }
 
     /// <summary>
     /// 1 UIState start a request, given a mob;

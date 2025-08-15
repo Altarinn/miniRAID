@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.InputSystem;
 
@@ -9,7 +10,7 @@ namespace miniRAID.UI
         [HideInInspector]
         public string stateStr;
 
-        public bool allowFreeNavigation = true;
+        public virtual bool AllowFreeNavigation => true;
 
         GridUI _ui;
         protected GridUI ui

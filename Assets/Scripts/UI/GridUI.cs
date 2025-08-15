@@ -384,7 +384,7 @@ namespace miniRAID.UI
 
         public void MoveCursor(Vector2 delta)
         {
-            if (currentState.allowFreeNavigation)
+            if (currentState.AllowFreeNavigation)
             {
                 // Rotate input relative to camera
                 float cameraY = mainVCam.transform.eulerAngles.y;

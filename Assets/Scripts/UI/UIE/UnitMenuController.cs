@@ -23,7 +23,7 @@ namespace miniRAID.UIElements
 
         miniRAID.UI.GridUI ui;
 
-        Dictionary<string, System.Action> shortcutList;
+        Dictionary<string, EventCallback<NavigationSubmitEvent>> shortcutList;
 
         public struct UIMenuEntry
         {
@@ -44,9 +44,9 @@ namespace miniRAID.UIElements
 
         public class ButtonData
         {
-            public System.Action currentAction;
-            public EventCallback<PointerEnterEvent> pointerEnter;
-            public EventCallback<PointerLeaveEvent> pointerLeave;
+            public EventCallback<NavigationSubmitEvent> currentAction;
+            public EventCallback<FocusInEvent> focusIn;
+            public EventCallback<FocusOutEvent> focusOut;
         }
 
         public UnitMenuController(VisualElement elem, MobDetailsController mobDetailsController, MobInfoController mobInfoController)
@@ -59,7 +59,7 @@ namespace miniRAID.UIElements
             toolTipContainer = elem.Q("ToolTip");
 
             view.makeItem = () => unitMenuButtonTemplate.CloneTree();
-            view.bindItem = (e, i) => BindEntryItem(e, (UIMenuEntry)view.itemsSource[i]);
+            view.bindItem = (e, i) => BindEntryItem(e, i, (UIMenuEntry)view.itemsSource[i]);
             view.fixedItemHeight = 18;
 
             ui = Globals.ui.Instance;
@@ -68,7 +68,7 @@ namespace miniRAID.UIElements
             this.mobInfoController = mobInfoController;
         }
 
-        public void BindEntryItem(VisualElement e, UIMenuEntry entry)
+        public void BindEntryItem(VisualElement e, int index, UIMenuEntry entry)
         {
             bool useable = true;
             e.Q<Label>("ActionName").text = entry.text;
@@ -84,28 +84,27 @@ namespace miniRAID.UIElements
             // Click event
             ////////////////////////////
 
-            System.Action act = () => { ui.WaitFor(entry.action, entry.onFinished); };
-
             if (((ButtonData)btn.userData).currentAction != null)
             {
-                btn.clicked -= ((ButtonData)btn.userData).currentAction;
+                // btn.clicked -= ((ButtonData)btn.userData).currentAction;
+                btn.UnregisterCallback(((ButtonData)btn.userData).currentAction);
             }
 
-            btn.clicked += act;
-            ((ButtonData)btn.userData).currentAction = act;
+            ((ButtonData)btn.userData).currentAction = evt => { ui.WaitFor(entry.action, entry.onFinished); };
+            btn.RegisterCallback(((ButtonData)btn.userData).currentAction);
 
             ////////////////////////////
             // Pointer Enter event
             ////////////////////////////
             
-            if (((ButtonData)btn.userData).pointerEnter != null)
+            if (((ButtonData)btn.userData).focusIn != null)
             {
-                btn.UnregisterCallback(((ButtonData)btn.userData).pointerEnter);
+                btn.UnregisterCallback(((ButtonData)btn.userData).focusIn);
             }
 
             if (entry.useDefaultToolTip)
             {
-                ((ButtonData)btn.userData).pointerEnter = evt =>
+                ((ButtonData)btn.userData).focusIn = evt =>
                 {
                     toolTipContainer.style.visibility = Visibility.Visible;
                     toolTip.text = entry.toolTip;
@@ -113,39 +112,44 @@ namespace miniRAID.UIElements
             }
             else
             {
-                ((ButtonData)btn.userData).pointerEnter = evt =>
+                ((ButtonData)btn.userData).focusIn = evt =>
                 {
                     entry.onPointerEnter?.Invoke();
                 };
             }
             
-            btn.RegisterCallback(((ButtonData)btn.userData).pointerEnter);
-            
+            btn.RegisterCallback(((ButtonData)btn.userData).focusIn);
+
+            if (index == 3)
+            {
+                btn.Focus();
+            }
+
             ////////////////////////////
             // Pointer Leave event
             ////////////////////////////
             
-            if (((ButtonData)btn.userData).pointerLeave != null)
+            if (((ButtonData)btn.userData).focusOut != null)
             {
-                btn.UnregisterCallback(((ButtonData)btn.userData).pointerLeave);
+                btn.UnregisterCallback(((ButtonData)btn.userData).focusOut);
             }
             
             if (entry.useDefaultToolTip)
             {
-                ((ButtonData)btn.userData).pointerLeave = evt =>
+                ((ButtonData)btn.userData).focusOut = evt =>
                 {
                     toolTipContainer.style.visibility = Visibility.Hidden;
                 };
             }
             else
             {
-                ((ButtonData)btn.userData).pointerLeave = evt =>
+                ((ButtonData)btn.userData).focusOut = evt =>
                 {
                     entry.onPointerLeave?.Invoke();
                 };
             }
             
-            btn.RegisterCallback(((ButtonData)btn.userData).pointerLeave);
+            btn.RegisterCallback(((ButtonData)btn.userData).focusOut);
 
             ////////////////////////////
             // Appearance / Shortcut
@@ -206,7 +210,7 @@ namespace miniRAID.UIElements
             // Add to shortcut list
             if (useable && entry.keycode != null)
             {
-                shortcutList.TryAdd(entry.keycode, act);
+                shortcutList.TryAdd(entry.keycode, ((ButtonData)btn.userData).currentAction);
             }
         }
 
@@ -215,7 +219,7 @@ namespace miniRAID.UIElements
             if (!IsMenuShown) { return; }
             if(shortcutList.TryGetValue(keyCode, out var act))
             {
-                act.Invoke();
+                act.Invoke(null);
             }
         }
 

@@ -24,9 +24,13 @@ namespace miniRAID.UI
 
         bool keepCameraPosition = false;
 
+        public override bool AllowFreeNavigation
+        {
+            get => false;
+        }
+
         public UnitMenu(MobRenderer mobRenderer)
         {
-            allowFreeNavigation = false;
             stateStr = $"UnitMenu: {mobRenderer?.name}";
 
             currentUnit = mobRenderer;

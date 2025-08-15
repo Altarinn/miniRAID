@@ -11,6 +11,9 @@ using System.Text;
 
 namespace miniRAID.UIElements
 {
+    // TODO: Refine current mess with https://discussions.unity.com/t/events-binding-in-listview/878125/3
+    // Currently we rely on button events inside ListView and the ListView is getting ignored (but it still processes input)
+    // Gamepad controls are a nightmare in this. Please do it correctly.
     public class UnitMenuController
     {
         VisualTreeAsset unitMenuButtonTemplate;
@@ -63,6 +66,8 @@ namespace miniRAID.UIElements
             view.fixedItemHeight = 18;
 
             ui = Globals.ui.Instance;
+            
+            view.selectionChanged += ViewOnselectionChanged;
 
             this.mobDetailsController = mobDetailsController;
             this.mobInfoController = mobInfoController;
@@ -87,11 +92,11 @@ namespace miniRAID.UIElements
             if (((ButtonData)btn.userData).currentAction != null)
             {
                 // btn.clicked -= ((ButtonData)btn.userData).currentAction;
-                btn.UnregisterCallback(((ButtonData)btn.userData).currentAction);
+                // btn.UnregisterCallback(((ButtonData)btn.userData).currentAction);
             }
 
             ((ButtonData)btn.userData).currentAction = evt => { ui.WaitFor(entry.action, entry.onFinished); };
-            btn.RegisterCallback(((ButtonData)btn.userData).currentAction);
+            // btn.RegisterCallback(((ButtonData)btn.userData).currentAction);
 
             ////////////////////////////
             // Pointer Enter event
@@ -99,7 +104,7 @@ namespace miniRAID.UIElements
             
             if (((ButtonData)btn.userData).focusIn != null)
             {
-                btn.UnregisterCallback(((ButtonData)btn.userData).focusIn);
+                // btn.UnregisterCallback(((ButtonData)btn.userData).focusIn);
             }
 
             if (entry.useDefaultToolTip)
@@ -118,12 +123,12 @@ namespace miniRAID.UIElements
                 };
             }
             
-            btn.RegisterCallback(((ButtonData)btn.userData).focusIn);
+            // btn.RegisterCallback(((ButtonData)btn.userData).focusIn);
 
-            if (index == 3)
-            {
-                btn.Focus();
-            }
+            // if (index == 3)
+            // {
+                // btn.Focus();
+            // }
 
             ////////////////////////////
             // Pointer Leave event
@@ -131,7 +136,7 @@ namespace miniRAID.UIElements
             
             if (((ButtonData)btn.userData).focusOut != null)
             {
-                btn.UnregisterCallback(((ButtonData)btn.userData).focusOut);
+                // btn.UnregisterCallback(((ButtonData)btn.userData).focusOut);
             }
             
             if (entry.useDefaultToolTip)
@@ -149,7 +154,7 @@ namespace miniRAID.UIElements
                 };
             }
             
-            btn.RegisterCallback(((ButtonData)btn.userData).focusOut);
+            // btn.RegisterCallback(((ButtonData)btn.userData).focusOut);
 
             ////////////////////////////
             // Appearance / Shortcut
@@ -230,8 +235,13 @@ namespace miniRAID.UIElements
 
             view.RefreshItems();
             ShowMenu();
-
+            
             // Debug.Log(entries.Count);
+        }
+
+        private void ViewOnselectionChanged(IEnumerable<object> obj)
+        {
+            Debug.Log(view.selectedIndex);
         }
 
         public void ShowMenu()

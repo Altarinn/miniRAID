@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "DefaultInputs",
     "maps": [
         {
@@ -451,6 +452,17 @@
                     "name": "",
                     "id": "e492d0e1-2516-491c-b9de-df748930a025",
                     "path": "<Mouse>/scroll",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Scroll",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9c4cb9a3-1e98-4dc0-993a-bbeada9dbede",
+                    "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

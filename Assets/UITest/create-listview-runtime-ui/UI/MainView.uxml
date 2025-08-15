@@ -1,0 +1,17 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UITest/create-listview-runtime-ui/UI/MainView.uss?fileID=7433441132597879392&amp;guid=cfff5d6527b7d473a8dfe34f772dc397&amp;type=3#MainView" />
+    <ui:VisualElement name="background">
+        <ui:VisualElement name="main-container" picking-mode="Ignore">
+            <ui:ListView name="character-list" focusable="true" />
+            <ui:VisualElement name="right-container">
+                <ui:VisualElement name="details-container">
+                    <ui:VisualElement name="details">
+                        <ui:VisualElement name="character-portrait" />
+                    </ui:VisualElement>
+                    <ui:Label text="Label" name="character-name" />
+                    <ui:Label text="Label" display-tooltip-when-elided="true" name="character-class" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

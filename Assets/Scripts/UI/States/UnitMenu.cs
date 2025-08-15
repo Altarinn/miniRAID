@@ -28,6 +28,12 @@ namespace miniRAID.UI
         {
             get => false;
         }
+        
+        public override void ConfigureUIToolkitNavigation(CombatView combatView)
+        {
+            // Enable navigation only for the unit menu when it's shown
+            combatView.SetNavigationPolicy(UINavigationPolicy.EnableMenuOnly);
+        }
 
         public UnitMenu(MobRenderer mobRenderer)
         {

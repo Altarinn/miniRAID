@@ -2,9 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using System;
 
 namespace miniRAID.UIElements
 {
+    public enum UINavigationPolicy
+    {
+        DisableAll,           // Block all navigation (FreeView default)
+        EnableMenuOnly,       // Only UnitMenu can navigate (UnitMenu)
+        EnableButtonsOnly,    // Only MessagePanel buttons (future use)
+        EnableAll            // Full navigation (future use)
+    }
     [RequireComponent(typeof(UIDocument))]
     public class CombatView : MonoBehaviour
     {
@@ -23,11 +31,19 @@ namespace miniRAID.UIElements
         [SerializeField] private Vector2Int referenceResolution;
         [SerializeField] private int minimumScale;
         [SerializeField] private Canvas mainCanvas;
+        
+        // Navigation policy management
+        private EventCallback<NavigationMoveEvent> currentNavigationHandler;
 
         private void OnEnable()
         {
             // The UXML is already instantiated by the UIDocument component
             uiDocument = GetComponent<UIDocument>();
+
+            // uiDocument.rootVisualElement.RegisterCallback<NavigationMoveEvent>(evt =>
+            // {
+            //     evt.StopImmediatePropagation();
+            // });
 
             mobDetails = new MobDetailsController(
                 uiDocument.rootVisualElement.Q("MobDetails")
@@ -120,6 +136,95 @@ namespace miniRAID.UIElements
         public void BindAsBoss(MobRenderer mobRenderer)
         {
             bossStats.Register(mobRenderer);
+        }
+        
+        /// <summary>
+        /// Configure UI Toolkit navigation behavior based on current game state
+        /// </summary>
+        /// <param name="policy">Navigation policy to apply</param>
+        public void SetNavigationPolicy(UINavigationPolicy policy)
+        {
+            // Remove existing handler
+            if (currentNavigationHandler != null)
+            {
+                uiDocument.rootVisualElement.UnregisterCallback<NavigationMoveEvent>(
+                    currentNavigationHandler, TrickleDown.TrickleDown);
+                currentNavigationHandler = null;
+            }
+            
+            // Apply new policy
+            switch (policy)
+            {
+                case UINavigationPolicy.DisableAll:
+                    currentNavigationHandler = BlockAllNavigation;
+                    break;
+                case UINavigationPolicy.EnableMenuOnly:
+                    currentNavigationHandler = AllowMenuNavigationOnly;
+                    break;
+                case UINavigationPolicy.EnableButtonsOnly:
+                    currentNavigationHandler = AllowButtonsNavigationOnly;
+                    break;
+                case UINavigationPolicy.EnableAll:
+                    // No handler needed - allow all navigation
+                    break;
+            }
+            
+            if (currentNavigationHandler != null)
+            {
+                uiDocument.rootVisualElement.RegisterCallback<NavigationMoveEvent>(
+                    currentNavigationHandler, TrickleDown.TrickleDown);
+            }
+            
+            // Blur currently focused element for clean state transition
+            uiDocument.rootVisualElement.focusController.focusedElement?.Blur();
+        }
+        
+        private void BlockAllNavigation(NavigationMoveEvent evt)
+        {
+            evt.StopPropagation();
+            evt.PreventDefault();
+        }
+        
+        private void AllowMenuNavigationOnly(NavigationMoveEvent evt)
+        {
+            // Check if navigation is within menu container
+            var target = evt.target as VisualElement;
+            var menuContainer = uiDocument.rootVisualElement.Q("UnitMenuContainer");
+            
+            if (target == null || !IsElementWithinContainer(target, menuContainer))
+            {
+                evt.StopPropagation();
+                evt.PreventDefault();
+            }
+        }
+        
+        private void AllowButtonsNavigationOnly(NavigationMoveEvent evt)
+        {
+            // Check if navigation is within message panel buttons
+            var target = evt.target as VisualElement;
+            var buttonsContainer = uiDocument.rootVisualElement.Q("MessagePanel").Q("Buttons");
+            
+            if (target == null || !IsElementWithinContainer(target, buttonsContainer))
+            {
+                evt.StopPropagation();
+                evt.PreventDefault();
+            }
+        }
+        
+        /// <summary>
+        /// Check if target element is within or is the container
+        /// </summary>
+        private bool IsElementWithinContainer(VisualElement target, VisualElement container)
+        {
+            if (container == null || target == null) return false;
+            
+            VisualElement current = target;
+            while (current != null)
+            {
+                if (current == container) return true;
+                current = current.parent;
+            }
+            return false;
         }
 
         public void Update()

@@ -232,6 +232,10 @@ namespace miniRAID.UI
 
             stateStack.Push(state);
             currentState = stateStack.Peek();
+            
+            // Configure UI Toolkit navigation for this state
+            currentState.ConfigureUIToolkitNavigation(combatView);
+            
             currentState.OnStateEnter();
             Debug.Log($"Entered {state.stateStr}");
         }
@@ -256,6 +260,10 @@ namespace miniRAID.UI
                 if (stateStack.Count > 0)
                 {
                     currentState = stateStack.Peek();
+                    
+                    // Configure UI Toolkit navigation for the restored state
+                    currentState.ConfigureUIToolkitNavigation(combatView);
+                    
                     currentState.OnStateEnter();
                 }
             }

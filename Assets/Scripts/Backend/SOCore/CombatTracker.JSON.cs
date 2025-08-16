@@ -9,8 +9,6 @@ using Object = System.Object;
 
 namespace miniRAID
 {
-    
-    
     public partial class CombatTracker
     {
         private struct FullJSONData

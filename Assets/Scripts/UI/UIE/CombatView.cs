@@ -34,6 +34,7 @@ namespace miniRAID.UIElements
         
         // Navigation policy management
         private EventCallback<NavigationMoveEvent> currentNavigationHandler;
+        private EventCallback<NavigationSubmitEvent> currentNavigationSubmitHandler;
 
         private void OnEnable()
         {
@@ -147,9 +148,12 @@ namespace miniRAID.UIElements
             // Remove existing handler
             if (currentNavigationHandler != null)
             {
-                uiDocument.rootVisualElement.UnregisterCallback<NavigationMoveEvent>(
+                uiDocument.rootVisualElement.UnregisterCallback(
                     currentNavigationHandler, TrickleDown.TrickleDown);
+                uiDocument.rootVisualElement.UnregisterCallback(
+                    currentNavigationSubmitHandler, TrickleDown.TrickleDown);
                 currentNavigationHandler = null;
+                currentNavigationSubmitHandler = null;
             }
             
             // Apply new policy
@@ -157,12 +161,15 @@ namespace miniRAID.UIElements
             {
                 case UINavigationPolicy.DisableAll:
                     currentNavigationHandler = BlockAllNavigation;
+                    currentNavigationSubmitHandler = BlockAllNavigation;
                     break;
                 case UINavigationPolicy.EnableMenuOnly:
                     currentNavigationHandler = AllowMenuNavigationOnly;
+                    currentNavigationSubmitHandler = AllowMenuNavigationOnly;
                     break;
                 case UINavigationPolicy.EnableButtonsOnly:
                     currentNavigationHandler = AllowButtonsNavigationOnly;
+                    currentNavigationSubmitHandler = AllowButtonsNavigationOnly;
                     break;
                 case UINavigationPolicy.EnableAll:
                     // No handler needed - allow all navigation
@@ -171,21 +178,23 @@ namespace miniRAID.UIElements
             
             if (currentNavigationHandler != null)
             {
-                uiDocument.rootVisualElement.RegisterCallback<NavigationMoveEvent>(
+                uiDocument.rootVisualElement.RegisterCallback(
                     currentNavigationHandler, TrickleDown.TrickleDown);
+                uiDocument.rootVisualElement.RegisterCallback(
+                    currentNavigationSubmitHandler, TrickleDown.TrickleDown);
             }
             
             // Blur currently focused element for clean state transition
             uiDocument.rootVisualElement.focusController.focusedElement?.Blur();
         }
         
-        private void BlockAllNavigation(NavigationMoveEvent evt)
+        private void BlockAllNavigation<T>(EventBase<T> evt) where T : EventBase<T>, new()
         {
             evt.StopPropagation();
             evt.PreventDefault();
         }
         
-        private void AllowMenuNavigationOnly(NavigationMoveEvent evt)
+        private void AllowMenuNavigationOnly<T>(EventBase<T> evt) where T : EventBase<T>, new()
         {
             // Check if navigation is within menu container
             var target = evt.target as VisualElement;
@@ -198,7 +207,7 @@ namespace miniRAID.UIElements
             }
         }
         
-        private void AllowButtonsNavigationOnly(NavigationMoveEvent evt)
+        private void AllowButtonsNavigationOnly<T>(EventBase<T> evt) where T : EventBase<T>, new()
         {
             // Check if navigation is within message panel buttons
             var target = evt.target as VisualElement;

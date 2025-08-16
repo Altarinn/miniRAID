@@ -47,6 +47,6 @@ namespace miniRAID
         public static float fxTimeout = 10.0f;
         
         // Should use retro mode or not
-        public static bool retro = false;
+        public static bool retro = true;
     }
 }

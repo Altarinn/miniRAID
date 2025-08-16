@@ -100,6 +100,7 @@ namespace miniRAID.UIElements
             listView.selectionChanged += OnSelectionChanged;
             listView.RegisterCallback<NavigationSubmitEvent>(OnNavigationSubmit, TrickleDown.TrickleDown);
             listView.RegisterCallback<ClickEvent>(OnMouseClick);
+            // listView.RegisterCallback<NavigationMoveEvent>(OnNavigationMove, TrickleDown.TrickleDown);
         }
 
         private void UnregisterEvents()
@@ -107,6 +108,7 @@ namespace miniRAID.UIElements
             listView.selectionChanged -= OnSelectionChanged;
             listView.UnregisterCallback<NavigationSubmitEvent>(OnNavigationSubmit, TrickleDown.TrickleDown);
             listView.UnregisterCallback<ClickEvent>(OnMouseClick);
+            // listView.UnregisterCallback<NavigationMoveEvent>(OnNavigationMove, TrickleDown.TrickleDown);
         }
 
         private VisualElement CreateListItem()
@@ -125,6 +127,11 @@ namespace miniRAID.UIElements
             UpdateKeyDisplay(element, entry);
             UpdateCostDisplay(element, entry);
             UpdateUsabilityState(menuEntry, entry);
+            
+            // Store index in userData and register mouse hover events for automatic selection
+            element.userData = index;
+            element.UnregisterCallback<PointerEnterEvent>(OnItemPointerEnter);
+            element.RegisterCallback<PointerEnterEvent>(OnItemPointerEnter);
         }
 
         private void UpdateKeyDisplay(VisualElement element, UIMenuEntry entry)
@@ -248,6 +255,50 @@ namespace miniRAID.UIElements
             }
         }
 
+        private void OnItemPointerEnter(PointerEnterEvent evt)
+        {
+            var hoveredElement = evt.currentTarget as VisualElement;
+            if (hoveredElement?.userData is int index)
+            {
+                listView.selectedIndex = index;
+            }
+        }
+
+        private void OnInitialGeometryChanged(GeometryChangedEvent evt)
+        {
+            listView.UnregisterCallback<GeometryChangedEvent>(OnInitialGeometryChanged);
+            // TODO: FIXME: Mouse clicks sometimes don't focus ListView on menu open, keyboard/gamepad always works
+            // Likely cause: Mouse click event on opener element interferes with focus transfer timing
+            listView.Focus();
+            HandleTooltipDisplay(0);
+        }
+
+        // private void OnNavigationMove(NavigationMoveEvent evt)
+        // {
+        //     if (currentEntries == null || currentEntries.Count == 0) return;
+        //
+        //     int currentIndex = listView.selectedIndex;
+        //     int newIndex = currentIndex;
+        //
+        //     switch (evt.direction)
+        //     {
+        //         case NavigationMoveEvent.Direction.Up:
+        //             newIndex = (currentIndex - 1 + currentEntries.Count) % currentEntries.Count;
+        //             break;
+        //         case NavigationMoveEvent.Direction.Down:
+        //             newIndex = (currentIndex + 1) % currentEntries.Count;
+        //             break;
+        //         default:
+        //             return;
+        //     }
+        //
+        //     if (newIndex != currentIndex)
+        //     {
+        //         listView.selectedIndex = newIndex;
+        //         evt.StopImmediatePropagation();
+        //     }
+        // }
+
         private bool ExecuteSelectedAction()
         {
             if (currentEntries == null || listView.selectedIndex < 0 || listView.selectedIndex >= currentEntries.Count)
@@ -290,11 +341,8 @@ namespace miniRAID.UIElements
             
             if (currentEntries.Count > 0)
             {
-                // Set selection and focus immediately
+                listView.RegisterCallback<GeometryChangedEvent>(OnInitialGeometryChanged, TrickleDown.NoTrickleDown);
                 listView.selectedIndex = 0;
-                listView.Focus();
-                // Force tooltip display for initial selection
-                HandleTooltipDisplay(0);
             }
         }
 

@@ -1,0 +1,20 @@
+{
+    "asset": "dba1d65addbc16549a0219cdb322dc9e",
+    "fileName": "0198b214-4d71-74bd-8139-4423fc3450de.png",
+    "prompt": "Spritesheet, mage, isometric, 32x32, A sprite sheet of a mage with 32 PPU",
+    "negativePrompt": "",
+    "model": "242b56c1-2224-41c4-8949-2ba760bbfc69",
+    "modelName": "16-bit Pixel",
+    "customSeed": -1,
+    "w3CTraceId": "2eac69dc6f1ee1e365156ca8c1dab53d",
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": []
+    },
+    "upscaleFactor": 0
+}

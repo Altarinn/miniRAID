@@ -2,8 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Reflection;
 using Backend.Map;
 using Cinemachine;
+using miniRAID.PixelArtRenderer;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -95,6 +97,32 @@ namespace miniRAID.UI
 
             // TODO: Move me to somewhere else
             (GraphicsSettings.currentRenderPipeline as UniversalRenderPipelineAsset).renderScale = Settings.retro ? 0.25f : 1.0f;
+
+            var renderer = (GraphicsSettings.currentRenderPipeline as UniversalRenderPipelineAsset).GetRenderer(0);
+            var property = typeof(ScriptableRenderer).GetProperty("rendererFeatures",
+                BindingFlags.NonPublic | BindingFlags.Instance);
+
+            List<ScriptableRendererFeature> features =
+                property.GetValue(renderer) as List<ScriptableRendererFeature>;
+
+            foreach (var feature in features)
+            {
+                if (feature.GetType() == typeof(PixelArtRendererFeature))
+                {
+                    (feature as PixelArtRendererFeature).SetActive(Settings.retro);
+                }
+            }
+
+            if (Settings.retro)
+            {
+                mainVCam.m_Lens.Orthographic = true;
+                mainVCam.m_Lens.OrthographicSize = 5.0f;
+            }
+            else
+            {
+                mainVCam.m_Lens.Orthographic = false;
+                mainVCam.m_Lens.FieldOfView = 15.0f;
+            }
         }
 
         private void OnEnable()

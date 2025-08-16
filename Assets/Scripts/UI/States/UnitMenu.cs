@@ -135,6 +135,19 @@ namespace miniRAID.UI
                 toolTip: "结束回合。",
                 keycode: "R"
             ));
+            
+            // Add "Return to Turn Start" option if there's a saved backup state
+            if (SaveDataSerializer.saveSlotBackup != null)
+            {
+                entries.Add(new miniRAID.UIElements.UnitMenuController.UIMenuEntry(
+                    text: "Return to Turn Start",
+                    action: ReturnToTurnStartAction(),
+                    onFinished: UIMenuPostAction(null),
+                    useDefaultToolTip: true,
+                    toolTip: "恢复到回合开始时的状态。",
+                    keycode: "U"
+                ));
+            }
 
             ui.combatView.menu.PrepareMenu(entries);
         }
@@ -142,6 +155,16 @@ namespace miniRAID.UI
         private IEnumerator EndTurnAction()
         {
             Globals.combatMgr.Instance.MarkPlayerTurnEnd();
+            yield break;
+        }
+
+        private IEnumerator ReturnToTurnStartAction()
+        {
+            if (SaveDataSerializer.saveSlotBackup != null)
+            {
+                SaveDataSerializer.DeserializeEverything(SaveDataSerializer.saveSlotBackup);
+                Globals.logger?.Log($"[UnitMenu] Restored to turn start using saveSlotBackup");
+            }
             yield break;
         }
 
@@ -163,7 +186,15 @@ namespace miniRAID.UI
 
             List<miniRAID.UIElements.UnitMenuController.UIMenuEntry> entries = new ();
 
-            if (currentUnit.data.isControllable)
+            bool isUnitControllable = currentUnit.data.isControllable;
+            if (isUnitControllable)
+            {
+                // Check if this player can act based on turn slice locking
+                var lockedTurnSlice = Globals.combatMgr.Instance.GetCurrentLockedPlayerTurnSlice();
+                isUnitControllable &= lockedTurnSlice?.CanPlayerAct(currentUnit.data) ?? true;
+            }
+
+            if (isUnitControllable)
             {
                 //ui.uimenu_uicontainer.AddEntry("Action", () => { subState = MenuSubState.Action; PrepareSpellMenu(); }, "Show all avilable actions");
                 //bool first = true;
@@ -174,16 +205,17 @@ namespace miniRAID.UI
                     {
                         //AddActionEntry(action, first);
                         //first = false;
-                        entries.Add(miniRAID.UIElements.UnitMenuController.GetActionEntry(action, currentUnit, $"{currentKey}", null, UIMenuPostAction(currentUnit)));
+                        entries.Add(miniRAID.UIElements.UnitMenuController.GetActionEntry(action, currentUnit,
+                            $"{currentKey}", null, UIMenuPostAction(currentUnit)));
                         currentKey++;
                     }
                 }
             }
-            
+
             entries.Add(ui.combatView.menu.GetEquipmentDetailsEntry(currentUnit, "E"));
             entries.Add(ui.combatView.menu.GetMobDetailsEntry(currentUnit, "I"));
 
-            if (currentUnit.data.isControllable)
+            if (isUnitControllable)
             {
                 //ui.uimenu_uicontainer.AddEntry("*DEBUG", () => { Globals.debugMessage.Instance.Message("Test"); });
                 //ui.uimenu_uicontainer.AddEntry("Pass", OnPassSelected());

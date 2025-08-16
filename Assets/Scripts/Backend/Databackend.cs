@@ -586,7 +586,7 @@ namespace miniRAID
         }
 
         public static float GetPrioritizedHealthRatio(MobData mob) => GetPrioritizedHealthRatio(null, mob);
-
+        
         public enum UnitGroup
         {
             Player = 0, // Originally players, nothing else allowed
@@ -598,6 +598,7 @@ namespace miniRAID
 
         public static int[] UnitGroupToMaskBit = new int[4] { 1, 2, 4, 8 };
 
+        [Flags]
         enum UnitGroupMaskBit
         {
             Player = 1,

@@ -57,7 +57,7 @@ namespace miniRAID.PixelArtRenderer
                 
                 builder.SetRenderFunc((PassData data, RasterGraphContext ctx) =>
                 {
-                    Debug.Log("PixelArtUpscaling: Executing render function");
+                    // Debug.Log("PixelArtUpscaling: Executing render function");
                     if (data.upscalingMaterial == null)
                     {
                         Debug.LogError("PixelArtUpscaling: Material is null!");

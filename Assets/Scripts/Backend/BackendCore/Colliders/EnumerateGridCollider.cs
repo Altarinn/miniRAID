@@ -44,8 +44,11 @@ namespace miniRAID
 
         public bool Overlaps(IGridCollider other)
         {
-            if (other is EnumerateGridCollider)
-                return ColliderOverlapTests.Overlaps(this, (EnumerateGridCollider)other);
+            if (other is EnumerateGridCollider ec)
+                return ColliderOverlapTests.Overlaps(this, ec);
+
+            if (other is DistanceGridCollider dc)
+                return ColliderOverlapTests.Overlaps(this, dc);
             
             throw new System.NotImplementedException();
         }

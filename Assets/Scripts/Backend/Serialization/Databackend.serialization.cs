@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
+using Backend.Map;
 using miniRAID.Backend;
 using Sirenix.Serialization;
 using Sirenix.Utilities;
@@ -37,6 +38,9 @@ namespace miniRAID
         public void RestoreFromDeserialization()
         {
             gridEffectChanges = new();
+
+            // TODO: Properly restore map modifications from memory
+            mapSystem = new MapSystem();
 
             // Pass 1
             foreach (var mob in allMobs)

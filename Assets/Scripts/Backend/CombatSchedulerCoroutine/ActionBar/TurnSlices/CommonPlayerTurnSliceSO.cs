@@ -79,5 +79,82 @@ namespace miniRAID.TurnSchedule
                 yield return new JumpIn(mob._OnNextTurn());
             }
         }
+        
+        public override TurnSlice Wrap(TurnSliceMetadata metadata)
+        {
+            return new LockedPlayerTurnSlice(this, metadata);
+        }
+    }
+    
+    public class LockedPlayerTurnSlice : TurnSlice
+    {
+        private MobData lockedToPlayer = null;
+        private bool isLocked = false;
+        
+        private Consts.UnitGroup group => ((CommonPlayerTurnSliceSO)data).group;
+        
+        public LockedPlayerTurnSlice(AbstractTurnSliceSO data, TurnSliceMetadata metadata) : base(data, metadata)
+        {
+        }
+        
+        public override IEnumerator Turn()
+        {
+            // Reset locking state for new turn slice
+            ResetLockState();
+            
+            // Subscribe to global action events to handle turn slice locking
+            Globals.backend.onGlobalActionPostcast.AddListener(OnGlobalActionPostcast);
+            
+            try
+            {
+                // Call the original turn logic
+                yield return new JumpIn(base.Turn());
+            }
+            finally
+            {
+                // Always unsubscribe from events when turn slice ends
+                Globals.backend.onGlobalActionPostcast.RemoveListener(OnGlobalActionPostcast);
+            }
+        }
+        
+        // Turn slice locking management methods
+        public void LockToPlayer(MobData player)
+        {
+            if (player?.unitGroup == group)
+            {
+                lockedToPlayer = player;
+                isLocked = true;
+                Globals.logger?.Log($"[TurnSlice] Locked to player: {player.nickname}");
+            }
+        }
+        
+        public void ResetLockState()
+        {
+            lockedToPlayer = null;
+            isLocked = false;
+            Globals.logger?.Log($"[TurnSlice] Lock state reset");
+        }
+        
+        public bool IsLocked => isLocked;
+        public MobData LockedPlayer => lockedToPlayer;
+        
+        public bool CanPlayerAct(MobData player)
+        {
+            if (player.unitGroup != group) return false;
+            if (!isLocked) return true;
+            return player == lockedToPlayer;
+        }
+        
+        
+        private IEnumerator OnGlobalActionPostcast(MobData mob, RuntimeAction action, Spells.SpellTarget target)
+        {
+            // Only lock if this is during our player turn slice and it's a player action for our group
+            if (mob.unitGroup == group && !isLocked)
+            {
+                // Lock the turn slice to this player when they perform their first action
+                LockToPlayer(mob);
+            }
+            yield break;
+        }
     }
 }

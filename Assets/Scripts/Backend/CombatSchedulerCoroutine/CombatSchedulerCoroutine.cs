@@ -67,6 +67,11 @@ namespace miniRAID
             OnBeforeNextTurnSlice = act;
         }
         
+        public TurnSchedule.LockedPlayerTurnSlice GetCurrentLockedPlayerTurnSlice()
+        {
+            return currentTurnSlice as TurnSchedule.LockedPlayerTurnSlice;
+        }
+        
         public IEnumerator Combat()
         {
             // TODO: Move me to the game's beginning scene

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Sirenix.Serialization;
 using UnityEngine;
 
 namespace miniRAID
@@ -10,7 +11,10 @@ namespace miniRAID
     {
         bool Overlaps(IGridCollider other);
 
+        [OdinSerialize]
         Vector3 Position { get; set; }
+        
+        [OdinSerialize]
         Consts.Direction Direction { get; set; }
 
         IGridCollider ShallowClone();

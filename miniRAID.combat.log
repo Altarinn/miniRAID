@@ -1,144 +1,32 @@
 - Start of debug log -
-[2025/8/16 18:13:27] AWAKE
-[回合0] 00m 04s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
-[2025/8/16 18:13:27] SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
-[回合0] 00m 04s:  Lilium 获得了来自 Lilium 的 防卫者
-[2025/8/16 18:13:27] Lilium 获得了来自 Lilium 的 防卫者
-[回合0] 00m 04s:  Gaceon 获得了来自 Gaceon 的 治疗者
-[2025/8/16 18:13:27] Gaceon 获得了来自 Gaceon 的 治疗者
-[回合0] 00m 04s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
-[2025/8/16 18:13:27] SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
-[回合0] 00m 04s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
-[2025/8/16 18:13:27] SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
-[回合0] 00m 04s:  Felivol 获得了来自 Felivol 的 防卫者
-[2025/8/16 18:13:27] Felivol 获得了来自 Felivol 的 防卫者
-[回合0] 00m 04s:  Felivol 获得了来自 Felivol 的 旅者
-[2025/8/16 18:13:27] Felivol 获得了来自 Felivol 的 旅者
-[回合0] 00m 04s:  Felivol 获得了来自 Felivol 的 聆听神谕
-[2025/8/16 18:13:27] Felivol 获得了来自 Felivol 的 聆听神谕
-[回合0] 00m 04s:  Felivol 获得了来自 Felivol 的 祝福之光
-[2025/8/16 18:13:27] Felivol 获得了来自 Felivol 的 祝福之光
-[回合0] 00m 04s:  Felivol 获得了来自 Felivol 的 防御蓄能
-[2025/8/16 18:13:27] Felivol 获得了来自 Felivol 的 防御蓄能
-[回合0] 00m 04s:  Archer3 获得了来自 Archer3 的 攻击者
-[2025/8/16 18:13:28] Archer3 获得了来自 Archer3 的 攻击者
-[回合0] 00m 04s:  Umiko 获得了来自 Umiko 的 生命之歌
-[2025/8/16 18:13:28] Umiko 获得了来自 Umiko 的 生命之歌
-[回合0] 00m 04s:  Astrologer 获得了来自 Astrologer 的 流星
-[2025/8/16 18:13:28] Astrologer 获得了来自 Astrologer 的 流星
-[回合0] 00m 04s:  Astrologer 获得了来自 Astrologer 的 星能转化
-[2025/8/16 18:13:28] Astrologer 获得了来自 Astrologer 的 星能转化
+[2025/8/16 21:53:03] AWAKE
+[回合0] 00m 05s:  Archer3 获得了来自 Archer3 的 攻击者
+[2025/8/16 21:53:05] Archer3 获得了来自 Archer3 的 攻击者
+[回合0] 00m 05s:  Felivol 获得了来自 Felivol 的 防卫者
+[2025/8/16 21:53:05] Felivol 获得了来自 Felivol 的 防卫者
+[回合0] 00m 05s:  Felivol 获得了来自 Felivol 的 旅者
+[2025/8/16 21:53:05] Felivol 获得了来自 Felivol 的 旅者
+[回合0] 00m 05s:  Felivol 获得了来自 Felivol 的 聆听神谕
+[2025/8/16 21:53:05] Felivol 获得了来自 Felivol 的 聆听神谕
+[回合0] 00m 05s:  Felivol 获得了来自 Felivol 的 祝福之光
+[2025/8/16 21:53:05] Felivol 获得了来自 Felivol 的 祝福之光
+[回合0] 00m 05s:  Felivol 获得了来自 Felivol 的 防御蓄能
+[2025/8/16 21:53:05] Felivol 获得了来自 Felivol 的 防御蓄能
+[回合0] 00m 05s:  Gaceon 获得了来自 Gaceon 的 治疗者
+[2025/8/16 21:53:05] Gaceon 获得了来自 Gaceon 的 治疗者
+[回合0] 00m 05s:  Lilium 获得了来自 Lilium 的 防卫者
+[2025/8/16 21:53:05] Lilium 获得了来自 Lilium 的 防卫者
+[回合0] 00m 05s:  Umiko 获得了来自 Umiko 的 生命之歌
+[2025/8/16 21:53:05] Umiko 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 05s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
+[2025/8/16 21:53:05] SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
+[回合0] 00m 05s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
+[2025/8/16 21:53:05] SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
+[回合0] 00m 05s:  Astrologer 获得了来自 Astrologer 的 流星
+[2025/8/16 21:53:05] Astrologer 获得了来自 Astrologer 的 流星
+[回合0] 00m 05s:  Astrologer 获得了来自 Astrologer 的 星能转化
+[2025/8/16 21:53:05] Astrologer 获得了来自 Astrologer 的 星能转化
+[回合0] 00m 05s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
+[2025/8/16 21:53:05] SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
 [回合1] 00m 06s:  回合1
-[2025/8/16 18:13:29] 回合1
-[回合1] 00m 28s:  Archer3 施放了 狂风加护, 目标：Archer3
-[2025/8/16 18:13:51] Archer3 施放了 狂风加护, 目标：Archer3
-[回合1] 00m 29s:  Archer3 获得了来自 Archer3 的 狂风加护
-[2025/8/16 18:13:52] Archer3 获得了来自 Archer3 的 狂风加护
-[回合1] 00m 32s:  Archer3 施放了 疾飞之箭, 目标：BossMu
-[2025/8/16 18:13:55] Archer3 施放了 疾飞之箭, 目标：BossMu
-[回合1] 00m 32s:  Archer3 的 疾飞之箭 对 BossMu 造成了 14 点 Pierce 伤害。生命值：1226
-[2025/8/16 18:13:55] Archer3 的 疾飞之箭 对 BossMu 造成了 14 点 Pierce 伤害。生命值：1226
-[回合1] 00m 32s:  BossMu 获得了来自 Archer3 的 出血
-[2025/8/16 18:13:55] BossMu 获得了来自 Archer3 的 出血
-[回合1] 00m 38s:  Archer3 的 出血 对 BossMu 造成了 2 点 Pierce 伤害。生命值：1224
-[2025/8/16 18:14:01] Archer3 的 出血 对 BossMu 造成了 2 点 Pierce 伤害。生命值：1224
-[回合1] 00m 56s:  Flora 施放了 栽培, 目标：Umiko
-[2025/8/16 18:14:20] Flora 施放了 栽培, 目标：Umiko
-[回合1] 00m 57s:  Umiko 获得了来自 Flora 的 栽培
-[2025/8/16 18:14:20] Umiko 获得了来自 Flora 的 栽培
-[回合1] 01m 54s:  Astrologer 施放了 移动, 目标：miniRAID.MovementTarget
-[2025/8/16 18:15:17] Astrologer 施放了 移动, 目标：miniRAID.MovementTarget
-[回合1] 01m 55s:  Astrologer 获得了来自 Umiko 的 生命之歌
-[2025/8/16 18:15:19] Astrologer 获得了来自 Umiko 的 生命之歌
-[回合1] 02m 00s:  Flora 的 栽培 对 Umiko 造成了 0 点 Heal 。生命值：116
-[2025/8/16 18:15:23] Flora 的 栽培 对 Umiko 造成了 0 点 Heal 。生命值：116
-[回合1] 02m 00s:  Archer3 的 出血 对 BossMu 造成了 2 点 Pierce 伤害。生命值：1222
-[2025/8/16 18:15:23] Archer3 的 出血 对 BossMu 造成了 2 点 Pierce 伤害。生命值：1222
-[回合1] 02m 02s:  Flora 的 栽培 对 Umiko 造成了 0 点 Heal 。生命值：116
-[2025/8/16 18:15:25] Flora 的 栽培 对 Umiko 造成了 0 点 Heal 。生命值：116
-[回合1] 02m 03s:  Archer3 的 出血 对 BossMu 造成了 2 点 Pierce 伤害。生命值：1220
-[2025/8/16 18:15:26] Archer3 的 出血 对 BossMu 造成了 2 点 Pierce 伤害。生命值：1220
-[回合1] 02m 04s:  Flora 的 栽培 对 Umiko 造成了 0 点 Heal 。生命值：116
-[2025/8/16 18:15:27] Flora 的 栽培 对 Umiko 造成了 0 点 Heal 。生命值：116
-[回合1] 02m 04s:  Archer3 的 出血 对 BossMu 造成了 2 点 Pierce 伤害。生命值：1218
-[2025/8/16 18:15:27] Archer3 的 出血 对 BossMu 造成了 2 点 Pierce 伤害。生命值：1218
-[回合1] 02m 05s:  Flora 施放了 栽培, 目标：Lilium
-[2025/8/16 18:15:28] Flora 施放了 栽培, 目标：Lilium
-[回合1] 02m 06s:  Lilium 获得了来自 Flora 的 栽培
-[2025/8/16 18:15:29] Lilium 获得了来自 Flora 的 栽培
-[回合1] 02m 07s:  BossMu 施放了 小史莱姆标记, 目标：BossMu
-[2025/8/16 18:15:30] BossMu 施放了 小史莱姆标记, 目标：BossMu
-[回合1] 02m 08s:  Astrologer 获得了来自 BossMu 的 锁定
-[2025/8/16 18:15:31] Astrologer 获得了来自 BossMu 的 锁定
-[回合1] 02m 08s:  BossMu 施放了 小史莱姆投掷, 目标：BossMu
-[2025/8/16 18:15:31] BossMu 施放了 小史莱姆投掷, 目标：BossMu
-[回合1] 02m 09s:  BossMu 的 小史莱姆投掷 对 Astrologer 造成了 18 点 Nature 伤害。生命值：50
-[2025/8/16 18:15:32] BossMu 的 小史莱姆投掷 对 Astrologer 造成了 18 点 Nature 伤害。生命值：50
-[回合1] 02m 09s:  Astrologer 失去了来自 BossMu 的 锁定
-[2025/8/16 18:15:32] Astrologer 失去了来自 BossMu 的 锁定
-[回合1] 02m 09s:  Flora 获得了来自 BossMu 的 剧毒酸池
-[2025/8/16 18:15:32] Flora 获得了来自 BossMu 的 剧毒酸池
-[回合1] 02m 09s:  Felivol 获得了来自 BossMu 的 剧毒酸池
-[2025/8/16 18:15:32] Felivol 获得了来自 BossMu 的 剧毒酸池
-[回合1] 02m 09s:  Umiko 获得了来自 BossMu 的 剧毒酸池
-[2025/8/16 18:15:32] Umiko 获得了来自 BossMu 的 剧毒酸池
-[回合1] 02m 09s:  Astrologer 获得了来自 BossMu 的 剧毒酸池
-[2025/8/16 18:15:32] Astrologer 获得了来自 BossMu 的 剧毒酸池
-[回合2] 02m 10s:  回合2
-[2025/8/16 18:15:33] 回合2
-[回合2] 02m 26s:  Astrologer 施放了 BAD_STRING, 目标：East
-[2025/8/16 18:15:49] Astrologer 施放了 BAD_STRING, 目标：East
-[回合2] 02m 27s:  Astrologer 的 BAD_STRING 对 SmallMu 造成了 120 点 Ice 伤害。生命值：0
-[2025/8/16 18:15:50] Astrologer 的 BAD_STRING 对 SmallMu 造成了 120 点 Ice 伤害。生命值：0
-[回合2] 02m 27s:  SmallMu 施放了 小史莱姆爆炸, 目标：SmallMu
-[2025/8/16 18:15:50] SmallMu 施放了 小史莱姆爆炸, 目标：SmallMu
-[回合2] 02m 27s:  Astrologer 的 BAD_STRING 对 BossMu 造成了 244 点 Ice 伤害。生命值：974
-[2025/8/16 18:15:50] Astrologer 的 BAD_STRING 对 BossMu 造成了 244 点 Ice 伤害。生命值：974
-[回合2] 02m 28s:  SmallMu 的 小史莱姆爆炸 对 Lilium 造成了 24 点 Nature 伤害。生命值：92
-[2025/8/16 18:15:51] SmallMu 的 小史莱姆爆炸 对 Lilium 造成了 24 点 Nature 伤害。生命值：92
-[回合2] 02m 28s:  SmallMu 的 小史莱姆爆炸 对 Gaceon 造成了 24 点 Nature 伤害。生命值：68
-[2025/8/16 18:15:51] SmallMu 的 小史莱姆爆炸 对 Gaceon 造成了 24 点 Nature 伤害。生命值：68
-[回合2] 02m 28s:  SmallMu 的 小史莱姆爆炸 对 Flora 造成了 24 点 Nature 伤害。生命值：68
-[2025/8/16 18:15:51] SmallMu 的 小史莱姆爆炸 对 Flora 造成了 24 点 Nature 伤害。生命值：68
-[回合2] 02m 28s:  SmallMu 的 小史莱姆爆炸 对 Felivol 造成了 24 点 Nature 伤害。生命值：86
-[2025/8/16 18:15:51] SmallMu 的 小史莱姆爆炸 对 Felivol 造成了 24 点 Nature 伤害。生命值：86
-[回合2] 02m 28s:  SmallMu 的 小史莱姆爆炸 对 Archer3 造成了 24 点 Nature 伤害。生命值：62
-[2025/8/16 18:15:51] SmallMu 的 小史莱姆爆炸 对 Archer3 造成了 24 点 Nature 伤害。生命值：62
-[回合2] 02m 28s:  SmallMu 的 小史莱姆爆炸 对 Umiko 造成了 24 点 Nature 伤害。生命值：92
-[2025/8/16 18:15:51] SmallMu 的 小史莱姆爆炸 对 Umiko 造成了 24 点 Nature 伤害。生命值：92
-[回合2] 02m 28s:  SmallMu 的 小史莱姆爆炸 对 Astrologer 造成了 24 点 Nature 伤害。生命值：26
-[2025/8/16 18:15:51] SmallMu 的 小史莱姆爆炸 对 Astrologer 造成了 24 点 Nature 伤害。生命值：26
-[回合2] 02m 28s:  SmallMu 失去了来自 SmallMu 的 死亡爆裂 [0]
-[2025/8/16 18:15:51] SmallMu 失去了来自 SmallMu 的 死亡爆裂 [0]
-[回合2] 02m 28s:  Astrologer 的 BAD_STRING 击杀了 SmallMu !
-[2025/8/16 18:15:51] Astrologer 的 BAD_STRING 击杀了 SmallMu !
-[回合2] 02m 35s:  Astrologer 施放了 移动, 目标：miniRAID.MovementTarget
-[2025/8/16 18:15:58] Astrologer 施放了 移动, 目标：miniRAID.MovementTarget
-[回合2] 02m 38s:  Flora 的 栽培 对 Lilium 造成了 2 点 Heal 。生命值：94
-[2025/8/16 18:16:01] Flora 的 栽培 对 Lilium 造成了 2 点 Heal 。生命值：94
-[回合2] 02m 38s:  BossMu 的 剧毒酸池 对 Flora 造成了 14 点 Nature 伤害。生命值：54
-[2025/8/16 18:16:01] BossMu 的 剧毒酸池 对 Flora 造成了 14 点 Nature 伤害。生命值：54
-[回合2] 02m 39s:  BossMu 的 剧毒酸池 对 Felivol 造成了 14 点 Nature 伤害。生命值：72
-[2025/8/16 18:16:02] BossMu 的 剧毒酸池 对 Felivol 造成了 14 点 Nature 伤害。生命值：72
-[回合2] 02m 39s:  Flora 的 栽培 对 Umiko 造成了 2 点 Heal 。生命值：94
-[2025/8/16 18:16:02] Flora 的 栽培 对 Umiko 造成了 2 点 Heal 。生命值：94
-[回合2] 02m 39s:  BossMu 的 剧毒酸池 对 Umiko 造成了 14 点 Nature 伤害。生命值：80
-[2025/8/16 18:16:02] BossMu 的 剧毒酸池 对 Umiko 造成了 14 点 Nature 伤害。生命值：80
-[回合2] 02m 39s:  BossMu 的 剧毒酸池 对 Astrologer 造成了 14 点 Nature 伤害。生命值：12
-[2025/8/16 18:16:02] BossMu 的 剧毒酸池 对 Astrologer 造成了 14 点 Nature 伤害。生命值：12
-[回合2] 02m 40s:  Archer3 的 出血 对 BossMu 造成了 2 点 Pierce 伤害。生命值：972
-[2025/8/16 18:16:03] Archer3 的 出血 对 BossMu 造成了 2 点 Pierce 伤害。生命值：972
-[回合2] 02m 40s:  BossMu 施放了 腐蚀吐息, 目标：South
-[2025/8/16 18:16:03] BossMu 施放了 腐蚀吐息, 目标：South
-[回合2] 02m 40s:  BossMu 的 腐蚀吐息 对 Astrologer 造成了 12 点 Nature 伤害。生命值：0
-[2025/8/16 18:16:03] BossMu 的 腐蚀吐息 对 Astrologer 造成了 12 点 Nature 伤害。生命值：0
-[回合2] 02m 40s:  Astrologer 失去了来自 Astrologer 的 流星
-[2025/8/16 18:16:03] Astrologer 失去了来自 Astrologer 的 流星
-[回合2] 02m 40s:  Astrologer 失去了来自 Astrologer 的 星能转化
-[2025/8/16 18:16:03] Astrologer 失去了来自 Astrologer 的 星能转化
-[回合2] 02m 40s:  Astrologer 失去了来自 Umiko 的 生命之歌
-[2025/8/16 18:16:03] Astrologer 失去了来自 Umiko 的 生命之歌
-[回合2] 02m 40s:  Astrologer 失去了来自 BossMu 的 剧毒酸池
-[2025/8/16 18:16:03] Astrologer 失去了来自 BossMu 的 剧毒酸池
-[回合2] 02m 40s:  BossMu 的 腐蚀吐息 击杀了 Astrologer !
-[2025/8/16 18:16:03] BossMu 的 腐蚀吐息 击杀了 Astrologer !
+[2025/8/16 21:53:06] 回合1

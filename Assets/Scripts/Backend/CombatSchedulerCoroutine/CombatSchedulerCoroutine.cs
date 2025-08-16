@@ -96,15 +96,17 @@ namespace miniRAID
             while (!IsCombatFinished())
             {
                 // Save-Load happens only here, perhaps
-                if (turnSchedule.First.Value != null &&
-                    turnSchedule.First.Value.data.GetType() == typeof(CommonPlayerTurnSliceSO))
-                {
-                    SaveDataSerializer.saveSlotBackup = SaveDataSerializer.SerializeEverything();
-                }
+                // Try load first
                 if (OnBeforeNextTurnSlice != null)
                 {
                     OnBeforeNextTurnSlice.Invoke();
                     OnBeforeNextTurnSlice = null;
+                }
+                // Save state before turn slice
+                if (turnSchedule.First.Value != null &&
+                    turnSchedule.First.Value.data.GetType() == typeof(CommonPlayerTurnSliceSO))
+                {
+                    SaveDataSerializer.saveSlotBackup = SaveDataSerializer.SerializeEverything();
                 }
                 
                 UpdateSchedulerUI();

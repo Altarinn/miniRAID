@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.Serialization;
 using UnityEngine;
 
 namespace miniRAID
 {
+    [System.Serializable]
     public class DistanceGridCollider : IGridCollider
     {
-        public int distance;
+        [OdinSerialize] public int distance;
         
-        public Vector3 Position { get; set; }
-        public Consts.Direction Direction { get; set; }
+        public Vector3 Position { get => _position; set => _position = value; }
+        [OdinSerialize] private Vector3 _position;
+        
+        public Consts.Direction Direction { get => _direction; set => _direction = value; }
+        [OdinSerialize] private Consts.Direction _direction;
 
         public DistanceGridCollider()
         {
@@ -24,8 +29,8 @@ namespace miniRAID
         public DistanceGridCollider(DistanceGridCollider other)
         {
             this.distance = other.distance;
-            this.Position = other.Position;
-            this.Direction = other.Direction;
+            this._position = other._position;
+            this._direction = other._direction;
         }
 
         public bool Overlaps(IGridCollider other)

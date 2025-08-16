@@ -1,16 +1,21 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.Serialization;
 using UnityEngine;
 
 namespace miniRAID
 {
+    [System.Serializable]
     public class EnumerateGridCollider : IGridCollider
     {
-        public GridShape shape;
+        [OdinSerialize] public GridShape shape;
         
-        public Vector3 Position { get; set; }
-        public Consts.Direction Direction { get; set; }
+        public Vector3 Position { get => _position; set => _position = value; }
+        [OdinSerialize] private Vector3 _position;
+        
+        public Consts.Direction Direction { get => _direction; set => _direction = value; }
+        [OdinSerialize] private Consts.Direction _direction;
 
         public EnumerateGridCollider()
         {
@@ -33,8 +38,8 @@ namespace miniRAID
                 shape = new GridShape(other.shape);
             }
             
-            Position = other.Position;
-            Direction = other.Direction;
+            _position = other._position;
+            _direction = other._direction;
         }
         
         public IGridCollider ShallowClone()

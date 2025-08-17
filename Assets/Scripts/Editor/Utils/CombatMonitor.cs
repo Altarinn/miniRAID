@@ -80,7 +80,7 @@ namespace Utils.Editor
         [Button(ButtonSizes.Large)]
         public void LoadState()
         {
-            SaveDataSerializer.DeserializeEverything(SaveDataSerializer.saveSlot);
+            SaveDataSerializer.BeginDeserializeEverything(SaveDataSerializer.saveSlot);
         }
     }
 }

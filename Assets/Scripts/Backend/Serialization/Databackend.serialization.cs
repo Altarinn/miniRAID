@@ -31,6 +31,11 @@ namespace miniRAID
         // Used for deserialization only
         static public void ReplaceSingleton(Databackend d)
         {
+            if (d.mapSystem == null)
+            {
+                Debug.LogError("Please call Databackend.Initialize (is a Coroutine) before actually use it!");
+                return;
+            }
             instance = d;
         }
 

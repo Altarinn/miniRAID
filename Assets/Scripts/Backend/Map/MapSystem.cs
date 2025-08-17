@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -23,6 +24,8 @@ namespace Backend.Map
         private Dictionary<Vector3Int, MapChunk> loadedChunks = new Dictionary<Vector3Int, MapChunk>();
         private Vector3Int currentPlayerChunk;
         private string currentMapName = "default";
+
+        [NonSerialized] public bool Loaded = false;
         
         // Storage paths
         private static readonly string ChunkStoragePath = Path.Combine(Application.persistentDataPath, "MapChunks");
@@ -75,6 +78,8 @@ namespace Backend.Map
         {
             currentMapName = mapName;
             yield return UpdateChunkLoadingAsync(playerStartPosition);
+
+            Loaded = true;
         }
 
         public void UpdateChunkLoading(Vector3 playerPosition)

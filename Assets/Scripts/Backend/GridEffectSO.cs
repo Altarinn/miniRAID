@@ -41,7 +41,8 @@ namespace miniRAID.Buff
         public GridEffectSO gridData => (GridEffectSO)data;
 
         bool isFx => activeMobs != null;
-        public IGridCollider Collider { get; set; }
+        public IGridCollider Collider { get => _collider; set => _collider = value; }
+        [OdinSerialize] private IGridCollider _collider;
 
         [SerializeField] private int timeRemain;
 

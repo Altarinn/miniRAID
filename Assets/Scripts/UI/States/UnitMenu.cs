@@ -162,7 +162,7 @@ namespace miniRAID.UI
         {
             if (SaveDataSerializer.saveSlotBackup != null)
             {
-                SaveDataSerializer.DeserializeEverything(SaveDataSerializer.saveSlotBackup);
+                SaveDataSerializer.BeginDeserializeEverything(SaveDataSerializer.saveSlotBackup);
                 Globals.logger?.Log($"[UnitMenu] Restored to turn start using saveSlotBackup");
             }
             yield break;

@@ -32,7 +32,7 @@ namespace miniRAID
         SerialCoroutine sc;
         [OdinSerialize] private TurnSlice currentTurnSlice;
 
-        [NonSerialized] public Action OnBeforeNextTurnSlice;
+        [NonSerialized] public IEnumerator OnBeforeNextTurnSlice;
 
         [NonSerialized] private float turnWaitTime = 0.0f;
 
@@ -57,7 +57,7 @@ namespace miniRAID
             });
         }
 
-        public void OnNextSnapshot(Action act)
+        public void OnNextSnapshot(IEnumerator act)
         {
             if (OnBeforeNextTurnSlice != null)
             {
@@ -78,7 +78,7 @@ namespace miniRAID
             yield return new JumpIn(Globals.localizer.Initialization());
             
             // Initialize map system with addressables
-            yield return new JumpIn(InitializeMap());
+            yield return new JumpIn(Globals.backend.Initialize());
             
             // For debug
             //yield return new JumpIn(Test());
@@ -99,7 +99,7 @@ namespace miniRAID
                 // Try load first
                 if (OnBeforeNextTurnSlice != null)
                 {
-                    OnBeforeNextTurnSlice.Invoke();
+                    yield return new JumpIn(OnBeforeNextTurnSlice);
                     OnBeforeNextTurnSlice = null;
                 }
                 // Save state before turn slice
@@ -229,14 +229,5 @@ namespace miniRAID
         }
 
         #endregion
-        
-        private IEnumerator InitializeMap()
-        {
-            Utils.SceneConfig config = FindFirstObjectByType<Utils.SceneConfig>();
-            string mapName = config?.mapName ?? "default";
-            Vector3 playerStartPos = config?.playerStartPosition ?? Vector3.zero;
-            
-            yield return new JumpIn(Globals.backend.GetMapSystem().InitializeMapAsync(mapName, playerStartPos));
-        }
     }
 }

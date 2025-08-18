@@ -9,6 +9,14 @@ using UnityEngine.Serialization;
 
 namespace miniRAID
 {
+#if UNITY_EDITOR
+    public enum YAxisEditMode
+    {
+        PlanarWithHeight,
+        LevelPerLevel
+    }
+#endif
+
     [ColoredBox("#7fd")]
     public class GridShape : ICloneable
     {
@@ -35,6 +43,13 @@ namespace miniRAID
 
         // Editor only
         public int canvasSize;
+        
+#if UNITY_EDITOR
+        public YAxisEditMode editorMode = YAxisEditMode.PlanarWithHeight;
+        public int editorMinY = 0;
+        public int editorMaxY = 0;
+        public int editorCurrentLevel = 0;
+#endif
 
         // public Vector3Int position;
         // public Consts.Direction direction;

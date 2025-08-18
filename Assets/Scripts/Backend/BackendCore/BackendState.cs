@@ -63,7 +63,7 @@ namespace miniRAID.Backend
 
     public interface IColliderState
     {
-        [OdinSerialize] public IGridCollider Collider { get; set; }
+        public IGridCollider Collider { get; set; }
 
         public Vector3 Position
         {

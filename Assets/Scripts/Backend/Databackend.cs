@@ -1241,6 +1241,27 @@ namespace miniRAID
         {
             return mapSystem;
         }
+        
+        public bool HasLineOfSight(Vector3 from, Vector3 to, MapSystem.RaycastTarget target = MapSystem.RaycastTarget.Solid)
+            => HasLineOfSight(from, to, out var _, target);
+        
+        public bool HasLineOfSight(
+            Vector3 from, 
+            Vector3 to, 
+            out (Vector3Int hitPos, Vector3Int faceNormal)? hitInfo,
+            MapSystem.RaycastTarget target = MapSystem.RaycastTarget.Solid)
+        {
+            Vector3 diff = (to - from);
+            const float eps = 0.01f;
+            
+            Ray ray = new Ray();
+            ray.origin = from;
+            ray.direction = diff.normalized;
+            float dist = diff.magnitude - eps;
+
+            hitInfo = mapSystem.DDAGridRaycast(ray, target, dist);
+            return !hitInfo.HasValue;
+        }
 
         public void AimOnTarget(MobData targetMob)
         {

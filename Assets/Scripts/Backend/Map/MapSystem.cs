@@ -420,13 +420,11 @@ namespace Backend.Map
             SolidOrStandable
         }
         
-        public (Vector3Int hitPos, Vector3Int faceNormal)? DDAGridRaycast(Ray ray, RaycastTarget raycastTarget)
+        public (Vector3Int hitPos, Vector3Int faceNormal)? DDAGridRaycast(
+            Ray ray, RaycastTarget raycastTarget, float maxDistance = 1000f)
         {
             Vector3 rayPos = ray.origin;
             Vector3 rayDir = ray.direction.normalized;
-            
-            // Maximum distance to check
-            float maxDistance = 1000f;
             
             // Current grid position
             Vector3Int gridPos = Vector3Int.FloorToInt(rayPos);

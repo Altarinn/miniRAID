@@ -1,42 +1,32 @@
 - Start of debug log -
-[8/18/2025 11:28:41 AM] AWAKE
-[回合0] 00m 04s:  Umiko 获得了来自 Umiko 的 生命之歌
-[8/18/2025 11:28:42 AM] Umiko 获得了来自 Umiko 的 生命之歌
-[回合0] 00m 04s:  Astrologer 获得了来自 Astrologer 的 流星
-[8/18/2025 11:28:42 AM] Astrologer 获得了来自 Astrologer 的 流星
-[回合0] 00m 04s:  Astrologer 获得了来自 Astrologer 的 星能转化
-[8/18/2025 11:28:42 AM] Astrologer 获得了来自 Astrologer 的 星能转化
-[回合0] 00m 04s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
-[8/18/2025 11:28:42 AM] SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
-[回合0] 00m 04s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
-[8/18/2025 11:28:42 AM] SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
-[回合0] 00m 04s:  Lilium 获得了来自 Lilium 的 防卫者
-[8/18/2025 11:28:42 AM] Lilium 获得了来自 Lilium 的 防卫者
-[回合0] 00m 04s:  Lilium 获得了来自 Umiko 的 生命之歌
-[8/18/2025 11:28:42 AM] Lilium 获得了来自 Umiko 的 生命之歌
-[回合0] 00m 04s:  Flora 获得了来自 Umiko 的 生命之歌
-[8/18/2025 11:28:42 AM] Flora 获得了来自 Umiko 的 生命之歌
-[回合0] 00m 04s:  Gaceon 获得了来自 Gaceon 的 治疗者
-[8/18/2025 11:28:42 AM] Gaceon 获得了来自 Gaceon 的 治疗者
-[回合0] 00m 04s:  Felivol 获得了来自 Felivol 的 防卫者
-[8/18/2025 11:28:42 AM] Felivol 获得了来自 Felivol 的 防卫者
-[回合0] 00m 04s:  Felivol 获得了来自 Felivol 的 旅者
-[8/18/2025 11:28:42 AM] Felivol 获得了来自 Felivol 的 旅者
-[回合0] 00m 04s:  Felivol 获得了来自 Felivol 的 聆听神谕
-[8/18/2025 11:28:42 AM] Felivol 获得了来自 Felivol 的 聆听神谕
-[回合0] 00m 04s:  Felivol 获得了来自 Felivol 的 祝福之光
-[8/18/2025 11:28:42 AM] Felivol 获得了来自 Felivol 的 祝福之光
-[回合0] 00m 04s:  Felivol 获得了来自 Felivol 的 防御蓄能
-[8/18/2025 11:28:42 AM] Felivol 获得了来自 Felivol 的 防御蓄能
-[回合0] 00m 04s:  Felivol 获得了来自 Umiko 的 生命之歌
-[8/18/2025 11:28:42 AM] Felivol 获得了来自 Umiko 的 生命之歌
-[回合0] 00m 04s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
-[8/18/2025 11:28:42 AM] SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
+[2025/8/22 14:32:25] AWAKE
 [回合0] 00m 04s:  Archer3 获得了来自 Archer3 的 攻击者
-[8/18/2025 11:28:42 AM] Archer3 获得了来自 Archer3 的 攻击者
-[回合0] 00m 04s:  Archer3 获得了来自 Umiko 的 生命之歌
-[8/18/2025 11:28:42 AM] Archer3 获得了来自 Umiko 的 生命之歌
-[回合1] 00m 04s:  回合1
-[8/18/2025 11:28:42 AM] 回合1
-[回合1] 00m 17s:  Astrologer 施放了 BAD_STRING, 目标：North
-[8/18/2025 11:28:55 AM] Astrologer 施放了 BAD_STRING, 目标：North
+[2025/8/22 14:32:25] Archer3 获得了来自 Archer3 的 攻击者
+[回合0] 00m 04s:  Felivol 获得了来自 Felivol 的 防卫者
+[2025/8/22 14:32:25] Felivol 获得了来自 Felivol 的 防卫者
+[回合0] 00m 04s:  Felivol 获得了来自 Felivol 的 旅者
+[2025/8/22 14:32:25] Felivol 获得了来自 Felivol 的 旅者
+[回合0] 00m 04s:  Felivol 获得了来自 Felivol 的 聆听神谕
+[2025/8/22 14:32:25] Felivol 获得了来自 Felivol 的 聆听神谕
+[回合0] 00m 04s:  Felivol 获得了来自 Felivol 的 祝福之光
+[2025/8/22 14:32:25] Felivol 获得了来自 Felivol 的 祝福之光
+[回合0] 00m 04s:  Felivol 获得了来自 Felivol 的 防御蓄能
+[2025/8/22 14:32:25] Felivol 获得了来自 Felivol 的 防御蓄能
+[回合0] 00m 04s:  Gaceon 获得了来自 Gaceon 的 治疗者
+[2025/8/22 14:32:25] Gaceon 获得了来自 Gaceon 的 治疗者
+[回合0] 00m 04s:  Lilium 获得了来自 Lilium 的 防卫者
+[2025/8/22 14:32:25] Lilium 获得了来自 Lilium 的 防卫者
+[回合0] 00m 04s:  Umiko 获得了来自 Umiko 的 生命之歌
+[2025/8/22 14:32:25] Umiko 获得了来自 Umiko 的 生命之歌
+[回合0] 00m 04s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
+[2025/8/22 14:32:25] SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
+[回合0] 00m 04s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
+[2025/8/22 14:32:25] SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
+[回合0] 00m 04s:  Astrologer 获得了来自 Astrologer 的 流星
+[2025/8/22 14:32:25] Astrologer 获得了来自 Astrologer 的 流星
+[回合0] 00m 04s:  Astrologer 获得了来自 Astrologer 的 星能转化
+[2025/8/22 14:32:25] Astrologer 获得了来自 Astrologer 的 星能转化
+[回合0] 00m 04s:  SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
+[2025/8/22 14:32:25] SmallMu 获得了来自 SmallMu 的 死亡爆裂 [0]
+[回合1] 00m 05s:  回合1
+[2025/8/22 14:32:27] 回合1

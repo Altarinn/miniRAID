@@ -1,164 +1,28 @@
 - Start of debug log -
-[8/18/2025 11:28:41 AM] AWAKE
+[2025/8/22 14:32:25] AWAKE
 [回合0] 00m 03s:  SerialCoroutine awake
-[8/18/2025 11:28:41 AM] SerialCoroutine awake
-[回合0] 00m 04s:  StartSerialCoroutine
+[2025/8/22 14:32:25] SerialCoroutine awake
+[回合0] 00m 03s:  StartSerialCoroutine
 
-[8/18/2025 11:28:41 AM] StartSerialCoroutine
+[2025/8/22 14:32:25] StartSerialCoroutine
 
-[回合0] 00m 04s:  new JumpIn at Combat ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.cs : 78 )
-[8/18/2025 11:28:41 AM] new JumpIn at Combat ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.cs : 78 )
-[回合0] 00m 04s:  new JumpIn at Combat ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.cs : 81 )
-[8/18/2025 11:28:42 AM] new JumpIn at Combat ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.cs : 81 )
-[回合0] 00m 04s:  new JumpIn at Initialize ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/Databackend.cs : 717 )
-[8/18/2025 11:28:42 AM] new JumpIn at Initialize ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/Databackend.cs : 717 )
-[回合0] 00m 04s:  new JumpIn at InitializeMap ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/Databackend.cs : 726 )
-[8/18/2025 11:28:42 AM] new JumpIn at InitializeMap ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/Databackend.cs : 726 )
-[回合0] 00m 04s:  new JumpIn at Combat ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.cs : 87 )
-[8/18/2025 11:28:42 AM] new JumpIn at Combat ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.cs : 87 )
-[回合0] 00m 04s:  new JumpIn at Combat ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.cs : 90 )
-[8/18/2025 11:28:42 AM] new JumpIn at Combat ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.cs : 90 )
-[回合0] 00m 04s:  new JumpIn at Combat ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.cs : 115 )
-[8/18/2025 11:28:42 AM] new JumpIn at Combat ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.cs : 115 )
-[回合0] 00m 04s:  new JumpIn at Turn ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSliceSO.cs : 120 )
-[8/18/2025 11:28:42 AM] new JumpIn at Turn ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSliceSO.cs : 120 )
-[回合1] 00m 04s:  new JumpIn at Combat ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.cs : 115 )
-[8/18/2025 11:28:42 AM] new JumpIn at Combat ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.cs : 115 )
-[回合1] 00m 04s:  new JumpIn at Turn ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSliceSO.cs : 120 )
-[8/18/2025 11:28:42 AM] new JumpIn at Turn ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSliceSO.cs : 120 )
-[回合1] 00m 05s:  new JumpIn at Turn ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/PhaseTurnSliceSO.cs : 43 )
-[8/18/2025 11:28:43 AM] new JumpIn at Turn ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/PhaseTurnSliceSO.cs : 43 )
-[回合1] 00m 05s:  new JumpIn at WakeUpMobs ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSchedulerHelper.cs : 34 )
-[8/18/2025 11:28:43 AM] new JumpIn at WakeUpMobs ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSchedulerHelper.cs : 34 )
-[回合1] 00m 05s:  [SetActive] Umiko: True
-[8/18/2025 11:28:43 AM] [SetActive] Umiko: True
-[回合1] 00m 05s:  new JumpIn at SetActive ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.cs : 444 )
-[8/18/2025 11:28:43 AM] new JumpIn at SetActive ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.cs : 444 )
-[回合1] 00m 05s:  new JumpIn at SetActive ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.cs : 452 )
-[8/18/2025 11:28:43 AM] new JumpIn at SetActive ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.cs : 452 )
-[回合1] 00m 05s:  new JumpIn at WakeUpMobs ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSchedulerHelper.cs : 34 )
-[8/18/2025 11:28:43 AM] new JumpIn at WakeUpMobs ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSchedulerHelper.cs : 34 )
-[回合1] 00m 05s:  [SetActive] Astrologer: True
-[8/18/2025 11:28:43 AM] [SetActive] Astrologer: True
-[回合1] 00m 05s:  new JumpIn at SetActive ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.cs : 444 )
-[8/18/2025 11:28:43 AM] new JumpIn at SetActive ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.cs : 444 )
-[回合1] 00m 05s:  new JumpIn at SetActive ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.cs : 452 )
-[8/18/2025 11:28:43 AM] new JumpIn at SetActive ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.cs : 452 )
-[回合1] 00m 05s:  new JumpIn at WakeUpMobs ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSchedulerHelper.cs : 34 )
-[8/18/2025 11:28:43 AM] new JumpIn at WakeUpMobs ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSchedulerHelper.cs : 34 )
-[回合1] 00m 05s:  [SetActive] Lilium: True
-[8/18/2025 11:28:43 AM] [SetActive] Lilium: True
-[回合1] 00m 05s:  new JumpIn at SetActive ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.cs : 444 )
-[8/18/2025 11:28:43 AM] new JumpIn at SetActive ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.cs : 444 )
-[回合1] 00m 05s:  new JumpIn at SetActive ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.cs : 452 )
-[8/18/2025 11:28:43 AM] new JumpIn at SetActive ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.cs : 452 )
-[回合1] 00m 05s:  new JumpIn at WakeUpMobs ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSchedulerHelper.cs : 34 )
-[8/18/2025 11:28:43 AM] new JumpIn at WakeUpMobs ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSchedulerHelper.cs : 34 )
-[回合1] 00m 05s:  [SetActive] Flora: True
-[8/18/2025 11:28:43 AM] [SetActive] Flora: True
-[回合1] 00m 05s:  new JumpIn at SetActive ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.cs : 444 )
-[8/18/2025 11:28:43 AM] new JumpIn at SetActive ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.cs : 444 )
-[回合1] 00m 05s:  new JumpIn at SetActive ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.cs : 452 )
-[8/18/2025 11:28:43 AM] new JumpIn at SetActive ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.cs : 452 )
-[回合1] 00m 05s:  new JumpIn at WakeUpMobs ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSchedulerHelper.cs : 34 )
-[8/18/2025 11:28:43 AM] new JumpIn at WakeUpMobs ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSchedulerHelper.cs : 34 )
-[回合1] 00m 05s:  [SetActive] Gaceon: True
-[8/18/2025 11:28:43 AM] [SetActive] Gaceon: True
-[回合1] 00m 05s:  new JumpIn at SetActive ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.cs : 444 )
-[8/18/2025 11:28:43 AM] new JumpIn at SetActive ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.cs : 444 )
-[回合1] 00m 05s:  new JumpIn at SetActive ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.cs : 452 )
-[8/18/2025 11:28:43 AM] new JumpIn at SetActive ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.cs : 452 )
-[回合1] 00m 05s:  new JumpIn at WakeUpMobs ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSchedulerHelper.cs : 34 )
-[8/18/2025 11:28:43 AM] new JumpIn at WakeUpMobs ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSchedulerHelper.cs : 34 )
-[回合1] 00m 05s:  [SetActive] Felivol: True
-[8/18/2025 11:28:43 AM] [SetActive] Felivol: True
-[回合1] 00m 05s:  new JumpIn at SetActive ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.cs : 444 )
-[8/18/2025 11:28:43 AM] new JumpIn at SetActive ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.cs : 444 )
-[回合1] 00m 05s:  new JumpIn at InvokeCoroutine ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/Essentials/MobEvent.cs : 147 )
-[8/18/2025 11:28:43 AM] new JumpIn at InvokeCoroutine ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/Essentials/MobEvent.cs : 147 )
-[回合1] 00m 05s:  new JumpIn at InvokeCoroutine ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/Essentials/MobEvent.cs : 147 )
-[8/18/2025 11:28:43 AM] new JumpIn at InvokeCoroutine ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/Essentials/MobEvent.cs : 147 )
-[回合1] 00m 05s:  new JumpIn at SetActive ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.cs : 452 )
-[8/18/2025 11:28:43 AM] new JumpIn at SetActive ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.cs : 452 )
-[回合1] 00m 05s:  new JumpIn at WakeUpMobs ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSchedulerHelper.cs : 34 )
-[8/18/2025 11:28:43 AM] new JumpIn at WakeUpMobs ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSchedulerHelper.cs : 34 )
-[回合1] 00m 05s:  [SetActive] Archer3: True
-[8/18/2025 11:28:43 AM] [SetActive] Archer3: True
-[回合1] 00m 05s:  new JumpIn at SetActive ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.cs : 444 )
-[8/18/2025 11:28:43 AM] new JumpIn at SetActive ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.cs : 444 )
-[回合1] 00m 05s:  new JumpIn at SetActive ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.cs : 452 )
-[8/18/2025 11:28:43 AM] new JumpIn at SetActive ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.cs : 452 )
-[回合1] 00m 05s:  new JumpIn at Combat ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.cs : 115 )
-[8/18/2025 11:28:43 AM] new JumpIn at Combat ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.cs : 115 )
-[回合1] 00m 05s:  [TurnSlice] Lock state reset
-[8/18/2025 11:28:43 AM] [TurnSlice] Lock state reset
-[回合1] 00m 05s:  new JumpIn at Turn ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/CommonPlayerTurnSliceSO.cs : 111 )
-[8/18/2025 11:28:43 AM] new JumpIn at Turn ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/CommonPlayerTurnSliceSO.cs : 111 )
-[回合1] 00m 05s:  new JumpIn at Turn ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSliceSO.cs : 120 )
-[8/18/2025 11:28:43 AM] new JumpIn at Turn ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/TurnSliceSO.cs : 120 )
-[回合1] 00m 05s:  [csc] TURN START: Player
-[8/18/2025 11:28:43 AM] [csc] TURN START: Player
-[回合1] 00m 05s:  new JumpIn at Turn ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/CommonPlayerTurnSliceSO.cs : 47 )
-[8/18/2025 11:28:43 AM] new JumpIn at Turn ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/ActionBar/TurnSlices/CommonPlayerTurnSliceSO.cs : 47 )
-[回合1] 00m 07s:  [csc-UI] Set actionToDo to non-null value
-[8/18/2025 11:28:45 AM] [csc-UI] Set actionToDo to non-null value
-[回合1] 00m 07s:  new JumpIn at UIWaitPlayerInput ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.UI.cs : 52 )
-[8/18/2025 11:28:45 AM] new JumpIn at UIWaitPlayerInput ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.UI.cs : 52 )
-[回合1] 00m 07s:  new JumpIn at UIPickedAction ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.UI.cs : 71 )
-[8/18/2025 11:28:45 AM] new JumpIn at UIPickedAction ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.UI.cs : 71 )
-[回合1] 00m 17s:  new JumpIn at RequestInUI ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/SOCore/Action/ActionDataSO.cs : 635 )
-[8/18/2025 11:28:55 AM] new JumpIn at RequestInUI ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/SOCore/Action/ActionDataSO.cs : 635 )
-[回合1] 00m 17s:  new JumpIn at _DoActionWrapper ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.actions.cs : 213 )
-[8/18/2025 11:28:55 AM] new JumpIn at _DoActionWrapper ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.actions.cs : 213 )
-[回合1] 00m 17s:  new JumpIn at ActionPrecheck ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.actions.cs : 98 )
-[8/18/2025 11:28:55 AM] new JumpIn at ActionPrecheck ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.actions.cs : 98 )
-[回合1] 00m 17s:  new JumpIn at _DoActionWrapper ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.actions.cs : 228 )
-[8/18/2025 11:28:55 AM] new JumpIn at _DoActionWrapper ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.actions.cs : 228 )
-[回合1] 00m 17s:  new JumpIn at ApplyCost ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.actions.cs : 153 )
-[8/18/2025 11:28:55 AM] new JumpIn at ApplyCost ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.actions.cs : 153 )
-[回合1] 00m 17s:  new JumpIn at InvokeCoroutine ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/Essentials/MobEvent.cs : 147 )
-[8/18/2025 11:28:55 AM] new JumpIn at InvokeCoroutine ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/Essentials/MobEvent.cs : 147 )
-[回合1] 00m 17s:  [DoAction] Astrologer attempts casting Glacial Lance towards North
-[8/18/2025 11:28:55 AM] [DoAction] Astrologer attempts casting Glacial Lance towards North
-[回合1] 00m 17s:  new JumpIn at _DoActionWrapper ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.actions.cs : 239 )
-[8/18/2025 11:28:55 AM] new JumpIn at _DoActionWrapper ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.actions.cs : 239 )
-[回合1] 00m 17s:  new JumpIn at ActionBegin ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.actions.cs : 103 )
-[8/18/2025 11:28:55 AM] new JumpIn at ActionBegin ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.actions.cs : 103 )
-[回合1] 00m 17s:  new JumpIn at _DoActionWrapper ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.actions.cs : 240 )
-[8/18/2025 11:28:55 AM] new JumpIn at _DoActionWrapper ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.actions.cs : 240 )
-[回合1] 00m 17s:  new JumpIn at _DoActionSpecific ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.actions.cs : 248 )
-[8/18/2025 11:28:55 AM] new JumpIn at _DoActionSpecific ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.actions.cs : 248 )
-[回合1] 00m 17s:  new JumpIn at Activate ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/SOCore/Action/ActionDataSO.cs : 589 )
-[8/18/2025 11:28:55 AM] new JumpIn at Activate ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/SOCore/Action/ActionDataSO.cs : 589 )
-[回合1] 00m 17s:  new JumpIn at Do ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/SOCore/Action/ActionDataSO.cs : 579 )
-[8/18/2025 11:28:55 AM] new JumpIn at Do ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/SOCore/Action/ActionDataSO.cs : 579 )
-[回合1] 00m 17s:  new JumpIn at OnPerform ( /Users/betairylia/RP_Games/miniRAID/Assets/GameContent/Allies/Actions/Essentials/Scripts/SimpleDirectionalAoE.cs : 37 )
-[8/18/2025 11:28:55 AM] new JumpIn at OnPerform ( /Users/betairylia/RP_Games/miniRAID/Assets/GameContent/Allies/Actions/Essentials/Scripts/SimpleDirectionalAoE.cs : 37 )
-[回合1] 00m 18s:  new JumpIn at OnPerform ( /Users/betairylia/RP_Games/miniRAID/Assets/GameContent/Allies/Actions/Essentials/Scripts/SimpleDirectionalAoE.cs : 39 )
-[8/18/2025 11:28:56 AM] new JumpIn at OnPerform ( /Users/betairylia/RP_Games/miniRAID/Assets/GameContent/Allies/Actions/Essentials/Scripts/SimpleDirectionalAoE.cs : 39 )
-[回合1] 00m 18s:  new JumpIn at _DoActionWrapper ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.actions.cs : 241 )
-[8/18/2025 11:28:56 AM] new JumpIn at _DoActionWrapper ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.actions.cs : 241 )
-[回合1] 00m 18s:  new JumpIn at ActionDone ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.actions.cs : 108 )
-[8/18/2025 11:28:56 AM] new JumpIn at ActionDone ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/MobData/MobData.actions.cs : 108 )
-[回合1] 00m 18s:  new JumpIn at InvokeCoroutine ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/Essentials/MobEvent.cs : 147 )
-[8/18/2025 11:28:56 AM] new JumpIn at InvokeCoroutine ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/Essentials/MobEvent.cs : 147 )
-[回合1] 00m 18s:  new JumpIn at InvokeCoroutine ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/Essentials/MobEvent.cs : 147 )
-[8/18/2025 11:28:56 AM] new JumpIn at InvokeCoroutine ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/Essentials/MobEvent.cs : 147 )
-[回合1] 00m 18s:  new JumpIn at InvokeCoroutine ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/Essentials/MobEvent.cs : 147 )
-[8/18/2025 11:28:56 AM] new JumpIn at InvokeCoroutine ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/Essentials/MobEvent.cs : 147 )
-[回合1] 00m 18s:  new JumpIn at GlobalActionPostcast ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/Databackend.cs : 766 )
-[8/18/2025 11:28:56 AM] new JumpIn at GlobalActionPostcast ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/Databackend.cs : 766 )
-[回合1] 00m 18s:  new JumpIn at InvokeCoroutine ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/Essentials/MobEvent.cs : 147 )
-[8/18/2025 11:28:56 AM] new JumpIn at InvokeCoroutine ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/Essentials/MobEvent.cs : 147 )
-[回合1] 00m 18s:  [TurnSlice] Locked to player: Astrologer
-[8/18/2025 11:28:56 AM] [TurnSlice] Locked to player: Astrologer
-[回合1] 00m 18s:  new JumpIn at UIPickedAction ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.UI.cs : 74 )
-[8/18/2025 11:28:56 AM] new JumpIn at UIPickedAction ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/Backend/CombatSchedulerCoroutine/CombatSchedulerCoroutine.UI.cs : 74 )
-[回合1] 00m 18s:  new JumpIn at WaitFor ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/UI/GridUI.cs : 317 )
-[8/18/2025 11:28:56 AM] new JumpIn at WaitFor ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/UI/GridUI.cs : 317 )
-[回合1] 00m 18s:  new JumpIn at UIMenuPostAction ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/UI/States/UnitMenu.cs : 372 )
-[8/18/2025 11:28:56 AM] new JumpIn at UIMenuPostAction ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/UI/States/UnitMenu.cs : 372 )
-[回合1] 00m 18s:  new JumpIn at AutoPass ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/UI/States/UnitMenu.cs : 310 )
-[8/18/2025 11:28:56 AM] new JumpIn at AutoPass ( /Users/betairylia/RP_Games/miniRAID/Assets/Scripts/UI/States/UnitMenu.cs : 310 )
-[回合1] 00m 18s:  [csc-UI] Set actionToDo to NULL value
-[8/18/2025 11:28:56 AM] [csc-UI] Set actionToDo to NULL value
+[回合0] 00m 03s:  new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 78 )
+[2025/8/22 14:32:25] new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 78 )
+[回合0] 00m 05s:  new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 81 )
+[2025/8/22 14:32:27] new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 81 )
+[回合0] 00m 05s:  new JumpIn at Initialize ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\Databackend.cs : 717 )
+[2025/8/22 14:32:27] new JumpIn at Initialize ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\Databackend.cs : 717 )
+[回合0] 00m 05s:  new JumpIn at InitializeMap ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\Databackend.cs : 726 )
+[2025/8/22 14:32:27] new JumpIn at InitializeMap ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\Databackend.cs : 726 )
+[回合0] 00m 05s:  new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 87 )
+[2025/8/22 14:32:27] new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 87 )
+[回合0] 00m 05s:  new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 90 )
+[2025/8/22 14:32:27] new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 90 )
+[回合0] 00m 05s:  new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 115 )
+[2025/8/22 14:32:27] new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 115 )
+[回合0] 00m 05s:  new JumpIn at Turn ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSliceSO.cs : 120 )
+[2025/8/22 14:32:27] new JumpIn at Turn ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSliceSO.cs : 120 )
+[回合1] 00m 05s:  new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 115 )
+[2025/8/22 14:32:27] new JumpIn at Combat ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\CombatSchedulerCoroutine.cs : 115 )
+[回合1] 00m 05s:  new JumpIn at Turn ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSliceSO.cs : 120 )
+[2025/8/22 14:32:27] new JumpIn at Turn ( F:\RP_Games\miniraid-hd2d\Assets\Scripts\Backend\CombatSchedulerCoroutine\ActionBar\TurnSlices\TurnSliceSO.cs : 120 )

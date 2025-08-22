@@ -64,6 +64,11 @@ namespace miniRAID
             }
         }
 
+        public Vector3 SpellCastPivot
+        {
+            get { return Collider.Position + Vector3.one * 0.5f; }
+        }
+
         public void OnEnterCollider(BackendState other)
         {
             // TODO: Do nothing?

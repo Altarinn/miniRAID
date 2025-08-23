@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using miniRAID.Actions;
 using miniRAID.Spells;
 using miniRAID.TurnSchedule;
+using miniRAID.ActionHelpers;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -120,10 +121,10 @@ namespace miniRAID.Agents
                 // Behaviour: pick an attack => If in range then attack => Move towards to target by search a path otherwise
 
                 // TODO: Pick advanced attack / OnPickAction()
-                var sTarget = new SingleMobTarget(target);
+                var sTarget = ValidTargetFinder.FindValidSingleMobTarget(mob, target, pickedSpell.actionData);
 
                 // TODO: Move, Add inRange check in CheckWithTargets, etc.
-                if (pickedSpell.actionData.CheckWithTargets(mob, sTarget))
+                if (sTarget != null)
                 {
                     // TODO: Make agent use coroutine actions
                     // TODO: Cost

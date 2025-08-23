@@ -7,6 +7,7 @@ using Sirenix.OdinInspector;
 using System.Linq;
 using miniRAID.Spells;
 using miniRAID.Weapon;
+using Sirenix.Serialization;
 using UnityEngine.Localization;
 using UnityEngine.Serialization;
 using UnityEngine.UIElements;
@@ -20,7 +21,7 @@ namespace miniRAID
     public class GeneralCombatData
     {
         public dNumber power, auxPower;
-        public IGridCollider shape;
+        public GridCollider shape;
         public RuntimeAction ract;
 
         public GameObject[] gameObjects;
@@ -147,7 +148,8 @@ namespace miniRAID
         // public LeveledStats<float> test;
         
         // Mainshape of the action, typically effective range
-        public virtual IGridCollider MainShape { get; }
+        public virtual GridCollider MainShape { get; }
+        public virtual bool IgnoreWall { get; }
 
         public abstract Dictionary<Cost.Type, (double, double)> GetCostBounds(MobData mob);
         public abstract bool CheckWithAbstractTargets(MobData mob, SpellTarget target);
@@ -184,8 +186,11 @@ namespace miniRAID
 
         [Title("Requester & Validation", horizontalLine: true, bold: true)]
         [Sirenix.OdinInspector.TypeFilter("GetRequesterTypes")]
-        public UI.TargetRequester.TargetRequesterBase<TSpellTarget> Requester;
+        public UI.TargetRequester.TargetRequestValidatorBase<TSpellTarget> RequestValidator;
         public ActionTargetPickerBase<TSpellTarget> targetPicker;
+        
+        public override GridCollider MainShape { get => RequestValidator?.Shape; }
+        public override bool IgnoreWall { get => RequestValidator?.IgnoreWall ?? true; }
 
         public virtual bool CheckCosts(MobRenderer mobRenderer, RuntimeAction<TSpellTarget> ract)
         {
@@ -211,11 +216,11 @@ namespace miniRAID
         public virtual bool CheckWithTargets(MobData mob, TSpellTarget target)
         {
             // TODO
-            if (Requester == null)
+            if (RequestValidator == null)
             {
                 return true;
             }
-            return Requester.CheckTargets(mob, target);
+            return RequestValidator.ValidateTargets(mob, target);
         }
         
         public override bool CheckWithAbstractTargets(MobData mob, SpellTarget target)
@@ -230,10 +235,10 @@ namespace miniRAID
 
         public IEnumerable<System.Type> GetRequesterTypes()
         {
-            var q = typeof(UI.TargetRequester.TargetRequesterBase<TSpellTarget>).Assembly.GetTypes()
+            var q = typeof(UI.TargetRequester.TargetRequestValidatorBase<TSpellTarget>).Assembly.GetTypes()
             .Where(x => !x.IsAbstract)
             .Where(x => !x.IsGenericTypeDefinition)
-            .Where(x => typeof(UI.TargetRequester.TargetRequesterBase<TSpellTarget>).IsAssignableFrom(x));
+            .Where(x => typeof(UI.TargetRequester.TargetRequestValidatorBase<TSpellTarget>).IsAssignableFrom(x));
 
             return q;
         }
@@ -339,19 +344,11 @@ namespace miniRAID
         [NonSerialized] public dNumber hit;
         [NonSerialized] public dNumber crit;
 
-        public virtual IGridCollider Shape => data.MainShape; 
-
-        [NonSerialized]
-        [Obsolete]
-        GeneralCombatData envData = new();
+        public virtual GridCollider Shape => data.MainShape; 
 
         public delegate IEnumerator ActionOnPerform(MobRenderer mobRenderer, Spells.SpellTarget target);
 
         public delegate void Test(MobRenderer mobRenderer);
-
-        [NonSerialized]
-        [Obsolete]
-        string paddedLuaExpr;
 
         protected RuntimeAction(MobData source, int level) : base(source, null)
         {
@@ -461,16 +458,6 @@ namespace miniRAID
             // After the event, we go to OnRecalculateStatsFinish().
         }
 
-        public void OnRecalculateStatsFinish(MobData mob)
-        {
-            if (envData == null) { envData = new(); }
-
-            envData.power = power;
-            envData.auxPower = auxPower;
-            envData.shape = Shape;
-            envData.ract = this;
-        }
-
         public virtual void SetCoolDown(int cd)
         {
             cooldownRemain = cd;
@@ -495,14 +482,12 @@ namespace miniRAID
 
             mob.OnNextTurn.AddListener(OnNextTurn);
             mob.OnRecoveryStage.AddListener(OnRecoveryStage);
-            mob.OnStatCalculationFinish.AddListener(OnRecalculateStatsFinish);
         }
 
         public override void OnRemove(MobData mob)
         {
             mob.OnNextTurn.RemoveListener(OnNextTurn);
             mob.OnRecoveryStage.RemoveListener(OnRecoveryStage);
-            mob.OnStatCalculationFinish.RemoveListener(OnRecalculateStatsFinish);
             
             base.OnRemove(mob);
         }
@@ -618,7 +603,7 @@ namespace miniRAID
                 bool canceled = false;
 
                 // Assume max 1 request at once.
-                actionData.Requester.Request(mob, this, (TSpellTarget target) =>
+                actionData.RequestValidator.Request(mob, this, (TSpellTarget target) =>
                 {
                     catchedTarget = target;
                 }, () => { canceled = true; });
@@ -634,7 +619,7 @@ namespace miniRAID
 
                 yield return new JumpIn(mob.DoAction(this, catchedTarget, cost));
 
-                actionData.Requester.EndState();
+                actionData.RequestValidator.EndState();
             }
         }
 

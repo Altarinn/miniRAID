@@ -341,7 +341,6 @@ namespace miniRAID.UIElements
             
             if (currentEntries.Count > 0)
             {
-                listView.RegisterCallback<GeometryChangedEvent>(OnInitialGeometryChanged, TrickleDown.NoTrickleDown);
                 listView.selectedIndex = 0;
             }
         }
@@ -363,6 +362,7 @@ namespace miniRAID.UIElements
         {
             if (currentEntries?.Count > 0)
             {
+                listView.RegisterCallback<GeometryChangedEvent>(OnInitialGeometryChanged, TrickleDown.NoTrickleDown);
                 masterElement.style.visibility = Visibility.Visible;
             }
         }

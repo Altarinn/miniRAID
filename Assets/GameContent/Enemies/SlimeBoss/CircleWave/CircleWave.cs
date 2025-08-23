@@ -16,10 +16,10 @@ namespace miniRAID
         public UnitFilters filters;
         public SpellDamageHeal damage;
         
-        public IGridCollider innerCircleShape;
-        public IGridCollider middleRingShape;
+        public GridCollider innerCircleShape;
+        public GridCollider middleRingShape;
         
-        private IGridCollider outerRingShape;
+        private GridCollider outerRingShape;
 
         public override IEnumerator OnPerform(RuntimeAction<SingleMobTarget> ract, MobData mob,
             SingleMobTarget target)
@@ -47,7 +47,7 @@ namespace miniRAID
                     // Inner explodes
                     innerCircleShape.Position = target.Target.Position;
                     captured = CaptureTargetsInCollider.CaptureAllTargetsWithinRange(
-                            src, filters, innerCircleShape)
+                            src, filters, innerCircleShape, null)
                         .ToList();
                     yield return new JumpIn(
                         MobListHelpers.WaitForAllMobs(captured, m => damage.Do(ract, src, m))
@@ -65,7 +65,7 @@ namespace miniRAID
                     // Ring explodes
                     middleRingShape.Position = target.Target.Position;
                     captured = CaptureTargetsInCollider.CaptureAllTargetsWithinRange(
-                            src, filters, middleRingShape)
+                            src, filters, middleRingShape, null)
                         .ToList();
                     yield return new JumpIn(
                         MobListHelpers.WaitForAllMobs(captured, m => damage.Do(ract, src, m))

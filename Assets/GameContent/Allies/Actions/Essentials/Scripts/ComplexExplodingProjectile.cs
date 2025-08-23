@@ -12,7 +12,7 @@ namespace miniRAID.Actions
 {
     public class ComplexExplodingProjectile : BasicProjectile
     {
-        public IGridCollider explosionShape;
+        public GridCollider explosionShape;
         public UnitFilters explosionTargetFilter;
         
         public SimpleExplosionFx explosionHitFx;
@@ -26,7 +26,8 @@ namespace miniRAID.Actions
             // Capture all targets
             explosionShape.Position = target.Target.Position;
             var targetMobs =
-                CaptureTargetsInCollider.CaptureAllTargetsWithinRange(mob, explosionTargetFilter, explosionShape);
+                CaptureTargetsInCollider.CaptureAllTargetsWithinRange(mob, explosionTargetFilter, explosionShape,
+                    target.Target.Position + Globals.half);
 
             yield return new JumpIn(
                 MobListHelpers.WaitForAllMobs(

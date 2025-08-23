@@ -443,6 +443,7 @@ namespace miniRAID.UI
                     if (validPos.HasValue)
                     {
                         cursor.Position = Globals.backend.GridToBackendFloorPos(validPos.Value);
+                        currentState.PointAtGrid(validPos.Value);
                     }
                 }
             }

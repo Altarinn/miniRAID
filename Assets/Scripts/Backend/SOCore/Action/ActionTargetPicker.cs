@@ -81,7 +81,7 @@ namespace miniRAID.Weapon
     {
         public override SingleMobTarget Pick(MobData source, RuntimeAction<SingleMobTarget> ract)
         {
-            return new SingleMobTarget(source);
+            return new SingleMobTarget(source, source.GridPosition);
         }
     }
     
@@ -95,13 +95,15 @@ namespace miniRAID.Weapon
 
         public override SingleMobTarget Pick(MobData source, RuntimeAction<SingleMobTarget> ract)
         {
-            MobData target = null;
+            SingleMobTarget target = null;
             var targets = Globals.backend.allMobs
                 .Where(x => !x.isDead)
                 .Where(x => unitFilter.Check(source, x))
                 .Where(x => excludeMobWithListener == null || x.FindListener(excludeMobWithListener) == null)
                 .Where(x => captureFullHealthTargets || x.health < x.maxHealth)
-                .Where(x => ract.actionData.CheckWithTargets(source, new SingleMobTarget(x)));
+                .Select(x => ValidTargetFinder.FindValidSingleMobTarget(source, x, ract))
+                .Where(x => x != null)
+                .ToList();
 
             // No valid targets
             if (!targets.Any())
@@ -111,14 +113,14 @@ namespace miniRAID.Weapon
 
             if (lowestHealthFirst)
             {
-                target = targets.MinBy(m => Consts.GetPrioritizedHealthRatio(source, m));
+                target = targets.MinBy(m => Consts.GetPrioritizedHealthRatio(source, m.Target));
             }
             else
             {
                 target = targets.RandomChoice();
             }
 
-            return new SingleMobTarget(target);
+            return target;
         }
     }
 }

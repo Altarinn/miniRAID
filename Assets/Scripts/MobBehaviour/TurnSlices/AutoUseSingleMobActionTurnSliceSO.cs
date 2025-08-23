@@ -3,6 +3,7 @@ using miniRAID.Agents;
 using miniRAID.Spells;
 using miniRAID.TurnSchedule;
 using miniRAID.UI.TargetRequester;
+using miniRAID.ActionHelpers;
 using UnityEngine;
 
 namespace miniRAID.MobBehaviour.TurnSlices
@@ -44,19 +45,22 @@ namespace miniRAID.MobBehaviour.TurnSlices
                 SingleMobTarget sTarget;
             
                 // TODO: FIXME: IsAssignableFrom order reversed?
-                if (ract.actionData?.Requester?.GetType().IsAssignableFrom(typeof(ConfirmRequester)) ?? false)
+                if (ract.actionData?.RequestValidator?.GetType().IsAssignableFrom(typeof(ConfirmRequestValidator)) ?? false)
                 {
-                    sTarget = new SingleMobTarget(mob);
+                    sTarget = new SingleMobTarget(mob, mob.GridPosition);
                 }
                 else
                 {
-                    sTarget = new SingleMobTarget(targetIndicator.CurrentTarget);
+                    sTarget = ValidTargetFinder.FindValidSingleMobTarget(mob, targetIndicator.CurrentTarget, ract.actionData);
                 }
             
-                yield return new JumpIn(mob.DoActionWithDefaultCosts(
-                    ract,
-                    sTarget
-                ));
+                if (sTarget != null)
+                {
+                    yield return new JumpIn(mob.DoActionWithDefaultCosts(
+                        ract,
+                        sTarget
+                    ));
+                }
             }
         }
     }

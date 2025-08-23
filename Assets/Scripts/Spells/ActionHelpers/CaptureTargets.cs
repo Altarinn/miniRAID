@@ -8,11 +8,20 @@ namespace miniRAID.ActionHelpers
 {
     public static class CaptureTargetsInCollider
     {
-        public static List<MobData> CaptureAllTargetsWithinRange(MobData src, UnitFilters filter, IGridCollider range)
+        public static List<MobData> CaptureAllTargetsWithinRange(MobData src, UnitFilters filter, GridCollider range, Vector3? losOrigin)
         {
             return Globals.backend.GetAllMobs()
                 .Where(m => filter.Check(src, m))
-                .Where(m => range.Overlaps(m.Collider)) 
+                .Where(m => range.Overlaps(m.Collider))
+                .Where(m =>
+                {
+                    if (losOrigin.HasValue)
+                    {
+                        return Globals.backend.HasLineOfSight(losOrigin.Value, m.Position + Vector3.one * 0.5f);
+                    }
+
+                    return true;
+                })
                 .ToList();
         }
     }

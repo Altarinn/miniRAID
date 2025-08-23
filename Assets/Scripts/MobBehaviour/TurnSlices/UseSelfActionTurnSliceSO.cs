@@ -20,11 +20,11 @@ namespace miniRAID.MobBehaviour.TurnSlices
 
     public class UseSelfActionTurnSlice : PreparableActionTurnSlice, IRenderableState
     {
-        private IGridCollider indicatorShape;
+        private GridCollider indicatorShape;
         
         public UseSelfActionTurnSlice(MobData mob, RuntimeAction action, AbstractTurnSliceSO data, TurnSliceMetadata metadata) : base(mob, action, data, metadata)
         {
-            indicatorShape = (IGridCollider)((RuntimeAction<SingleMobTarget>)action).Shape.Clone();
+            indicatorShape = (GridCollider)((RuntimeAction<SingleMobTarget>)action).Shape.CloneWithNewGuid();
             indicatorShape.Position = mob.Position;
         }
 
@@ -32,7 +32,7 @@ namespace miniRAID.MobBehaviour.TurnSlices
         {
             DestroyRenderer();
             RuntimeAction<SingleMobTarget> act = (RuntimeAction<SingleMobTarget>)action;
-            yield return new JumpIn(mob.DoActionWithDefaultCosts(act, new SingleMobTarget(mob)));
+            yield return new JumpIn(mob.DoActionWithDefaultCosts(act, new SingleMobTarget(mob, mob.GridPosition)));
         }
 
         public void ConstructRenderer()

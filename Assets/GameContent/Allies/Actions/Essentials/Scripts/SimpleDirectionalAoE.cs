@@ -9,13 +9,14 @@ namespace miniRAID.Actions
 {
     public class SimpleDirectionalAoE : ActionDataSO<FourDirectionalTarget>
     {
-        [SerializeField] private IGridCollider shape;
+        [SerializeField] private GridCollider shape;
+        [SerializeField] private bool ignoreWalls;
         [SerializeField] private UnitFilters filter;
         [SerializeField] private SpellDamageHeal damageOrHeal;
         [SerializeField] private SpellBuff buff;
         [SerializeField] private SimpleExplosionFx fx;
 
-        public override IGridCollider MainShape => shape;
+        public override GridCollider MainShape => shape;
 
         public override Dictionary<string, object> LazyPrepareTooltipVariables(RuntimeAction ract)
         {
@@ -31,8 +32,9 @@ namespace miniRAID.Actions
             shape.Position = mob.Position;
             shape.Direction = target.Target;
 
-            var capturedTargets = CaptureTargetsInCollider.CaptureAllTargetsWithinRange(
-                mob, filter, shape);
+            var capturedTargets =
+                CaptureTargetsInCollider.CaptureAllTargetsWithinRange(mob, filter, shape,
+                    IgnoreWall ? null : mob.SpellCastPivot);
 
             yield return new JumpIn(fx.Do(mob.Position + 2 * Consts.DirectionVectors[(int)shape.Direction]));
 

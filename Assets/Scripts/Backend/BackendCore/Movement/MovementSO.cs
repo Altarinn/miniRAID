@@ -18,14 +18,14 @@ namespace miniRAID
     
     public abstract class MovementSO : ActionDataSO<MovementTarget>
     {
-        public abstract List<Databackend.GridBFSKeys> ProposeMovementGrids(IGridCollider origin, Databackend.GridBFSKeys fromKey);
+        public abstract List<Databackend.GridBFSKeys> ProposeMovementGrids(GridCollider origin, Databackend.GridBFSKeys fromKey);
         public abstract float ComputeDistance(Vector3Int from, Vector3Int to);
-        public abstract bool CanEndTurnAt(Vector3Int at, IGridCollider collider);
+        public abstract bool CanEndTurnAt(Vector3Int at, GridCollider collider);
 
         public bool ignoreCostByDistance;
         public bool ignoreMovementFiltering;
         
-        protected bool IsPassable(Vector3Int position, IGridCollider body, out GridData grid)
+        protected bool IsPassable(Vector3Int position, GridCollider body, out GridData grid)
         {
             grid = Globals.backend.GetMap(position, false);
             if (grid.passable)
@@ -109,7 +109,7 @@ namespace miniRAID
         public Movement(MobData source, ActionDataSO<MovementTarget> data, int level) : base(source, data, level)
         { }
 
-        public virtual List<Databackend.GridBFSKeys> ProposeMovementGrids(IGridCollider origin,
+        public virtual List<Databackend.GridBFSKeys> ProposeMovementGrids(GridCollider origin,
             Databackend.GridBFSKeys fromKey)
         {
             var result = movementData.ProposeMovementGrids(origin, fromKey);    

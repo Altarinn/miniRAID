@@ -7,7 +7,7 @@ using miniRAID.Spells;
 
 namespace miniRAID.UI.TargetRequester
 {
-    public class BasicUnitRequester : TargetRequesterBase<SingleMobTarget>
+    public class BasicUnitRequestValidator : TargetRequestValidatorBase<SingleMobTarget>
     {
         protected int MaxUnits = 1;
         protected int MinUnits = 1;
@@ -50,7 +50,7 @@ namespace miniRAID.UI.TargetRequester
                     (Databackend.IsGridValidFunc)((Vector3Int pos, GridData grid) 
                         => ((!choice.Contains(pos)) 
                             && (Consts.RangedActionDistance(mob.Position, pos) <= range)
-                            && Globals.backend.HasLineOfSight(mob.SpellCastPivot, pos + Vector3.one * 0.5f))
+                            && (IgnoreWall || Globals.backend.HasLineOfSight(mob.SpellCastPivot, pos + Globals.half)))
                     ));
 
                 foreach (var pos in validGrids)
@@ -69,7 +69,7 @@ namespace miniRAID.UI.TargetRequester
                     (Databackend.IsGridValidFunc)((Vector3Int pos, GridData grid) 
                         => ((!choice.Contains(pos)) 
                             && (Consts.RangedActionDistance(mob.Position, pos) <= range)
-                            && Globals.backend.HasLineOfSight(mob.SpellCastPivot, pos + Vector3.one * 0.5f))
+                            && (IgnoreWall || Globals.backend.HasLineOfSight(mob.SpellCastPivot, pos + Globals.half)))
                     ));
 
                 foreach (var pos in validGrids)
@@ -89,11 +89,12 @@ namespace miniRAID.UI.TargetRequester
 
         void Decided()
         {
-            MobData mob = Essentials.MobAtGrid(choice.First());
-            Finish(new SingleMobTarget(mob));
+            Vector3Int pos = choice.First();
+            MobData mob = Essentials.MobAtGrid(pos);
+            Finish(new SingleMobTarget(mob, pos));
         }
 
-        public override bool CheckTargets(MobData mob, SingleMobTarget target)
+        public override bool ValidateTargets(MobData mob, SingleMobTarget target)
         {
             // foreach (var pos in target.targetPos)
             // {
@@ -107,8 +108,9 @@ namespace miniRAID.UI.TargetRequester
             //     }
             // }
             
-            if(
-                Consts.RangedActionDistance(mob.Position, target.Target.Position) > range ||
+            if( 
+                // !(ignoreWalls || Globals.backend.HasLineOfSight(mob.SpellCastPivot))
+                Consts.RangedActionDistance(mob.Position, target.TargetPosition) > range ||
                 (!toEnemies && Consts.ApplyMask(Consts.EnemyMask(mob.unitGroup), target.Target.unitGroup)) ||
                 (!toAllies && Consts.ApplyMask(Consts.AllyMask(mob.unitGroup), target.Target.unitGroup)))
             {

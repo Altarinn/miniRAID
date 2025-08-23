@@ -9,12 +9,12 @@ namespace miniRAID.Agents.Test
 {
     public class MeleeAoETest : ActionDataSO<FourDirectionalTarget>
     {
-        [SerializeField] private IGridCollider shape;
+        [SerializeField] private GridCollider shape;
         [SerializeField] private UnitFilters filter;
         [SerializeField] private SpellDamageHeal damageOrHeal;
         [SerializeField] private SimpleExplosionFx fx;
 
-        public override IGridCollider MainShape => shape; 
+        public override GridCollider MainShape => shape; 
         
         public override Dictionary<string, object> LazyPrepareTooltipVariables(RuntimeAction ract)
         {
@@ -30,7 +30,7 @@ namespace miniRAID.Agents.Test
             shape.Direction = target.Target;
             
             var capturedTargets = CaptureTargetsInCollider.CaptureAllTargetsWithinRange(
-                mob, filter, shape);
+                mob, filter, shape, IgnoreWall ? mob.SpellCastPivot : null);
             
             yield return new JumpIn(fx.Do(mob.Position + 2 * Consts.DirectionVectors[(int)shape.Direction]));
 

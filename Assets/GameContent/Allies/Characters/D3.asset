@@ -58,9 +58,39 @@ MonoBehaviour:
     - Name: canvasSize
       Entry: 3
       Data: 2
+    - Name: editorMode
+      Entry: 3
+      Data: 0
+    - Name: editorMinY
+      Entry: 3
+      Data: 0
+    - Name: editorMaxY
+      Entry: 3
+      Data: 0
+    - Name: editorCurrentLevel
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
+    - Name: _position
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _direction
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -84,6 +114,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 869ff8d9c45faae4fa38285d22cefa0b, type: 2}
   actionSOs:
   - data: {fileID: 11400000, guid: 50a2bb5f4e3dbd34d8e1cfc1f6aa91c4, type: 2}
+    level: 0
+  - data: {fileID: 11400000, guid: 59df9475495bd144da0111f8fb9ce3e4, type: 2}
     level: 0
   rootAgent: {fileID: 0}
   baseStats:

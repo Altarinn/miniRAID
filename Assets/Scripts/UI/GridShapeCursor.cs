@@ -30,15 +30,15 @@ namespace miniRAID.UI
             }
         }
         
-        public GridShapeCursor(IGridCollider collider, Sprite icon) : base(collider, icon)
+        public GridShapeCursor(GridCollider collider, Sprite icon) : base(collider, icon)
         {
         }
 
-        public GridShapeCursor(IGridCollider collider, GridOverlay.Types overlayType) : base(collider, overlayType)
+        public GridShapeCursor(GridCollider collider, GridOverlay.Types overlayType) : base(collider, overlayType)
         {
         }
         
-        public void ChangeCollider(IGridCollider collider)
+        public void ChangeCollider(GridCollider collider)
         {
             var p = this.collider.Position;
             var d = this.collider.Direction;

@@ -43,10 +43,12 @@ namespace miniRAID.Spells
     public class SingleMobTarget : SpellTarget
     {
         public MobData Target;
+        public Vector3Int TargetPosition;
 
-        public SingleMobTarget(MobData target)
+        public SingleMobTarget(MobData target, Vector3Int targetPosition)
         {
             Target = target;
+            TargetPosition = targetPosition;
         }
 
         public override string ToString()

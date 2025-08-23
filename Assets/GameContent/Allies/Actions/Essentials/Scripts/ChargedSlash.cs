@@ -9,7 +9,7 @@ namespace miniRAID.Actions
 {
     public class ChargedSlash : ChargedActionSO<FourDirectionalTarget>
     {
-        [SerializeField] private IGridCollider shape;
+        [SerializeField] private GridCollider shape;
         [SerializeField] private UnitFilters filter;
         [SerializeField] private SpellDamageHeal damageOrHeal;
         [SerializeField] private SimpleExplosionFx fx;
@@ -29,7 +29,7 @@ namespace miniRAID.Actions
             shape.Direction = target.Target;
             
             var capturedTargets = CaptureTargetsInCollider.CaptureAllTargetsWithinRange(
-                mob, filter, shape);
+                mob, filter, shape, IgnoreWall ? mob.SpellCastPivot : null);
             
             yield return new JumpIn(fx.Do(mob.Position + 2 * Consts.DirectionVectors[(int)shape.Direction]));
 

@@ -2,22 +2,66 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
+using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
 
 namespace miniRAID
 {
-    public interface IGridCollider : ICloneable, IEnumerable<Vector3Int>
+    public abstract class GridCollider : IEnumerable<Vector3Int>
     {
-        bool Overlaps(IGridCollider other);
+        public bool Overlaps(GridCollider other)
+        {
+            // Never overlaps itself
+            if (other.guid == this.guid)
+            {
+                return false;
+            }
 
-        [OdinSerialize]
-        Vector3 Position { get; set; }
+            return OverlapsAllowDuplicate(other);
+        }
         
-        [OdinSerialize]
-        Consts.Direction Direction { get; set; }
+        public abstract bool OverlapsAllowDuplicate(GridCollider other);
 
-        IGridCollider ShallowClone();
+        public Vector3 Position { get => _position; set => _position = value; }
+        [SerializeField] protected Vector3 _position;
+        
+        public Consts.Direction Direction { get => _direction; set => _direction = value; }
+        [SerializeField] protected Consts.Direction _direction;
+
+        [SerializeField] [HideInInspector] protected Guid guid = Guid.NewGuid();
+
+        public GridCollider() { }
+
+        public void AssignNewGuid()
+        {
+            guid = Guid.NewGuid();
+        }
+
+        public GridCollider(GridCollider other)
+        {
+            this._position = other._position;
+            this._direction = other._direction;
+            this.guid = other.guid;
+        }
+
+        public abstract GridCollider ShallowClone();
+        protected abstract GridCollider Clone();
+
+        public GridCollider CloneWithNewGuid()
+        {
+            GridCollider coll = Clone();
+            coll.AssignNewGuid();
+            return coll;
+        }
+
+        public abstract IEnumerator<Vector3Int> GetEnumerator();
+        
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
     }
 
     // TODO: Refine me?

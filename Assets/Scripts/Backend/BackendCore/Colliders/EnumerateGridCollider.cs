@@ -7,27 +7,21 @@ using UnityEngine;
 namespace miniRAID
 {
     [System.Serializable]
-    public class EnumerateGridCollider : IGridCollider
+    public class EnumerateGridCollider : GridCollider
     {
         [OdinSerialize] public GridShape shape;
-        
-        public Vector3 Position { get => _position; set => _position = value; }
-        [OdinSerialize] private Vector3 _position;
-        
-        public Consts.Direction Direction { get => _direction; set => _direction = value; }
-        [OdinSerialize] private Consts.Direction _direction;
 
-        public EnumerateGridCollider()
+        public EnumerateGridCollider() : base()
         {
             this.shape = new GridShape();
         }
         
-        public EnumerateGridCollider(GridShape shape)
+        public EnumerateGridCollider(GridShape shape) : base()
         {
             this.shape = shape;
         }
 
-        public EnumerateGridCollider(EnumerateGridCollider other, bool shallow = false)
+        public EnumerateGridCollider(EnumerateGridCollider other, bool shallow = false) : base(other)
         {
             if (shallow)
             {
@@ -37,17 +31,14 @@ namespace miniRAID
             {
                 shape = new GridShape(other.shape);
             }
-            
-            _position = other._position;
-            _direction = other._direction;
         }
         
-        public IGridCollider ShallowClone()
+        public override GridCollider ShallowClone()
         {
             return new EnumerateGridCollider(this, true);
         }
 
-        public bool Overlaps(IGridCollider other)
+        public override bool OverlapsAllowDuplicate(GridCollider other)
         {
             if (other is EnumerateGridCollider ec)
                 return ColliderOverlapTests.Overlaps(this, ec);
@@ -58,12 +49,12 @@ namespace miniRAID
             throw new System.NotImplementedException();
         }
 
-        public object Clone()
+        protected override GridCollider Clone()
         {
             return new EnumerateGridCollider(this);
         }
 
-        public IEnumerator<Vector3Int> GetEnumerator()
+        public override IEnumerator<Vector3Int> GetEnumerator()
         {
             return new HashSet<Vector3Int>(OverlappedPoints(shape, Position, Direction)).GetEnumerator();
         }
@@ -90,11 +81,6 @@ namespace miniRAID
                     }
                 }
             }
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
         }
     }
 }

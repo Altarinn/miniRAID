@@ -69,7 +69,7 @@ namespace miniRAID
                 yield return new JumpIn(
                     source.DoActionWithDefaultCosts<TSpellTargetBase>(
                         this, 
-                        new SingleMobTarget(source) as TSpellTargetBase)
+                        new SingleMobTarget(source, source.GridPosition) as TSpellTargetBase)
                 );
             }
         }

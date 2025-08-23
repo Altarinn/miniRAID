@@ -29,7 +29,8 @@ public class BillboardSpriteRenderer : MonoBehaviour
     // Property IDs for shader
     private static readonly int MainTexProp = Shader.PropertyToID("_MainTex");
     private static readonly int ColorProp = Shader.PropertyToID("_Color");
-    private static readonly int SizeProp = Shader.PropertyToID("_Size");
+    private static readonly int ScaleProp = Shader.PropertyToID("_Scale");
+    private static readonly int PixelSizeProp = Shader.PropertyToID("_PixelSize");
     
     // Default billboard shader
     private const string DefaultShaderName = "PixelArtURP/3DSprites";
@@ -282,7 +283,7 @@ public class BillboardSpriteRenderer : MonoBehaviour
             return;
         
         // meshRenderer.GetPropertyBlock(propertyBlock);
-        propertyBlock.SetFloat(SizeProp, size * sprite.rect.height / 32.0f);
+        propertyBlock.SetInt(PixelSizeProp, Mathf.FloorToInt(sprite.rect.height));
         meshRenderer.SetPropertyBlock(propertyBlock);
     }
     

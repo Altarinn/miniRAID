@@ -476,24 +476,24 @@ namespace Backend.Map
                 // Step to next grid boundary and track which face we crossed
                 if (sideDist.x < sideDist.y && sideDist.x < sideDist.z)
                 {
+                    currentDist = sideDist.x;
                     sideDist.x += deltaDist.x;
                     gridPos.x += step.x;
                     faceNormal = new Vector3Int(-step.x, 0, 0); // Face normal opposite to step direction
-                    currentDist = sideDist.x;
                 }
                 else if (sideDist.y < sideDist.z)
                 {
+                    currentDist = sideDist.y;
                     sideDist.y += deltaDist.y;
                     gridPos.y += step.y;
                     faceNormal = new Vector3Int(0, -step.y, 0);
-                    currentDist = sideDist.y;
                 }
                 else
                 {
+                    currentDist = sideDist.z;
                     sideDist.z += deltaDist.z;
                     gridPos.z += step.z;
                     faceNormal = new Vector3Int(0, 0, -step.z);
-                    currentDist = sideDist.z;
                 }
             }
             

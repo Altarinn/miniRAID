@@ -11,16 +11,16 @@ namespace miniRAID.Agents.SlimeBoss.MeleeAttackSet
         public UnitFilters filters;
         public SpellDamageHeal damage;
         
-        public IGridCollider range;
+        public GridCollider range;
 
-        public override IGridCollider MainShape => range;
+        public override GridCollider MainShape => range;
 
         public override IEnumerator OnPerform(RuntimeAction<SingleMobTarget> ract, MobData mob, SingleMobTarget target)
         {
             List<MobData> captured;
             range.Position = target.Target.Position;
             captured = CaptureTargetsInCollider.CaptureAllTargetsWithinRange(
-                    mob, filters, range)
+                    mob, filters, range, null)
                 .ToList();
 
             yield return new JumpIn(

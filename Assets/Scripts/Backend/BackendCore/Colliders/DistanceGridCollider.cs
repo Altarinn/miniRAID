@@ -6,34 +6,26 @@ using UnityEngine;
 namespace miniRAID
 {
     [System.Serializable]
-    public class DistanceGridCollider : IGridCollider
+    public class DistanceGridCollider : GridCollider
     {
         [OdinSerialize] public int distance;
-        
-        public Vector3 Position { get => _position; set => _position = value; }
-        [OdinSerialize] private Vector3 _position;
-        
-        public Consts.Direction Direction { get => _direction; set => _direction = value; }
-        [OdinSerialize] private Consts.Direction _direction;
 
         public DistanceGridCollider()
         {
             this.distance = 1;
         }
         
-        public DistanceGridCollider(int distance)
+        public DistanceGridCollider(int distance) : base()
         {
             this.distance = distance;
         }
         
-        public DistanceGridCollider(DistanceGridCollider other)
+        public DistanceGridCollider(DistanceGridCollider other) : base(other)
         {
             this.distance = other.distance;
-            this._position = other._position;
-            this._direction = other._direction;
         }
 
-        public bool Overlaps(IGridCollider other)
+        public override bool OverlapsAllowDuplicate(GridCollider other)
         {
             if (other is DistanceGridCollider otherDistance)
                 return ColliderOverlapTests.Overlaps(otherDistance, this);
@@ -49,17 +41,17 @@ namespace miniRAID
             return Consts.Distance(Position, gridCell) <= distance;
         }
 
-        public IGridCollider ShallowClone()
+        public override GridCollider ShallowClone()
         {
             return new DistanceGridCollider(this);
         }
 
-        public object Clone()
+        protected override GridCollider Clone()
         {
             return new DistanceGridCollider(this);
         }
 
-        public IEnumerator<Vector3Int> GetEnumerator()
+        public override IEnumerator<Vector3Int> GetEnumerator()
         {
             Vector3Int center = Vector3Int.FloorToInt(Position);
             
@@ -77,11 +69,6 @@ namespace miniRAID
                     }
                 }
             }
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
         }
     }
 }

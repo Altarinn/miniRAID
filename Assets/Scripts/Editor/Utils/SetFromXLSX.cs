@@ -41,14 +41,18 @@ namespace miniRAID.Editor
                         continue;
                     }
 
-                    var pt = new PropertyTree<UnityEngine.Object>(new[] { obj });
+                    var pt = new PropertyTree<UnityEngine.Object>(
+                        new[] { obj }, (SerializedObject)null, SerializationBackend.Odin);
                     Undo.RecordObject(obj, $"Data copied from datasheet: {obj.name}");
+                    
+                    pt.UpdateTree();
 
                     foreach (var kv in row.parameters)
                     {
                         var ip = pt.GetPropertyAtUnityPath(kv.Key);
                         if (ip == null)
                         {
+                            Debug.LogWarning($"Key not found: {row.address} - {kv.Key}");
                             continue;
                         }
 

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 using miniRAID.Spells;
 using miniRAID.Buff;
+using miniRAID.ActionHelpers;
 using System;
 using System.Linq;
 using miniRAID.Backend;
@@ -1056,7 +1057,7 @@ namespace miniRAID
             Consts.Direction.Right,
         };
 
-        public GridPath FindPathTo(IGridCollider origin, Vector3Int to, Movement movement, int maxDistance = -1)
+        public GridPath FindPathTo(GridCollider origin, Vector3Int to, Movement movement, int maxDistance = -1)
         {
             if (GenericMovementBFS(
                     origin, movement, key => key.position == to, maxDistance,
@@ -1088,7 +1089,7 @@ namespace miniRAID
         public delegate bool MovementTerminationCondition(GridBFSKeys key);
 
         public bool GenericMovementBFS(
-            IGridCollider origin,
+            GridCollider origin,
             Movement movement,
             MovementTerminationCondition termCond,
             int maxDistance,
@@ -1156,7 +1157,7 @@ namespace miniRAID
 
         // TODO: Optimize this by caching results.
         // Use a non-serialized version number system on IGridColliders to cache valid results.
-        public bool CanPositionPlaceMob(Vector3 position, IGridCollider body)
+        public bool CanPositionPlaceMob(Vector3 position, GridCollider body)
         {
             var newbody = body.ShallowClone();
             newbody.Position = position;
@@ -1165,7 +1166,7 @@ namespace miniRAID
         }
         
         // TODO: Add support for maps
-        public bool CanPositionPlaceMob(IGridCollider body)
+        public bool CanPositionPlaceMob(GridCollider body)
         {
             var result = allMobs.All(x => (x.Collider == body || !(x.Collider.Overlaps(body))));
             return result;
@@ -1173,7 +1174,7 @@ namespace miniRAID
 
         public Vector3Int FindNearestEmptyGrid(Vector3Int center) => FindNearestEmptyGrid(center, new PointCollider());
 
-        public Vector3Int FindNearestEmptyGrid(Vector3Int center, IGridCollider body)
+        public Vector3Int FindNearestEmptyGrid(Vector3Int center, GridCollider body)
         {
             var temp = body.Position;
             if (!InMap(center)) { return -Vector3Int.one; }
@@ -1269,11 +1270,14 @@ namespace miniRAID
             var mobs = Globals.backend.allMobs.Where(x => x.unitGroup == Consts.UnitGroup.Player);
             foreach (MobData mob in mobs)
             {
-                SingleMobTarget target = new (targetMob);
                 RuntimeAction<SingleMobTarget> ratk = mob.mainWeapon?.GetRegularAttackSpell() as RuntimeAction<SingleMobTarget>;
-                if (ratk?.data.CheckWithAbstractTargets(mob, target) ?? false)
+                if (ratk?.data != null)
                 {
-                    ratk._SetLastTarget(target);
+                    SingleMobTarget validTarget = ActionHelpers.ValidTargetFinder.FindValidSingleMobTarget(mob, targetMob, ratk);
+                    if (validTarget != null)
+                    {
+                        ratk._SetLastTarget(validTarget);
+                    }
                 }
             }
         }

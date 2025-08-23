@@ -27,6 +27,7 @@ namespace miniRAID.MobBehaviour.TurnSlices
     public class SimpleUseFourDirectionalActionTurnSlice : PreparableActionTurnSlice, IRenderableState
     {
         [SerializeField] private FourDirectionalTarget target;
+        private bool IgnoreWall => action.data.IgnoreWall;
         
         public SimpleUseFourDirectionalActionTurnSlice(
             MobData mob, RuntimeAction action, AbstractTurnSliceSO data, TurnSliceMetadata metadata)
@@ -83,7 +84,7 @@ namespace miniRAID.MobBehaviour.TurnSlices
 
         public void ConstructRenderer()
         {
-            IGridCollider indicatorShape = (IGridCollider)((RuntimeAction<FourDirectionalTarget>)action).Shape.Clone();
+            GridCollider indicatorShape = (GridCollider)((RuntimeAction<FourDirectionalTarget>)action).Shape.CloneWithNewGuid();
             indicatorShape.Position = mob.Position;
             indicatorShape.Direction = target.Target;
             
@@ -97,12 +98,12 @@ namespace miniRAID.MobBehaviour.TurnSlices
 
         public void UpdateRenderer()
         {
-            IGridCollider indicatorShape = (renderer as GridColliderIndicator)?.collider;
+            GridCollider indicatorShape = (renderer as GridColliderIndicator)?.collider;
             if (indicatorShape != null)
             {
                 indicatorShape.Position = mob.Position;
                 indicatorShape.Direction = target.Target;
-                (renderer as GridColliderIndicator)?.Update(indicatorShape);
+                (renderer as GridColliderIndicator)?.Update(indicatorShape, IgnoreWall ? mob.SpellCastPivot : null);
             }
         }
     }

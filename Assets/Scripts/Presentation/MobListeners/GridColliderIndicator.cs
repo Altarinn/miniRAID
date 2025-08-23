@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using miniRAID.Backend;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -7,13 +9,15 @@ namespace miniRAID
     public class GridColliderIndicator : IStateRenderer
     {
         [FormerlySerializedAs("shape")]
-        public IGridCollider collider;
+        public GridCollider collider;
+
+        public Vector3? losOrigin;
         public Sprite icon;
         public GridOverlay.Types overlayType;
 
         private GridOverlay instantiatedOverlay;
 
-        public GridColliderIndicator(IGridCollider collider, Sprite icon)
+        public GridColliderIndicator(GridCollider collider, Sprite icon)
         {
             this.collider = collider;
             this.overlayType = GridOverlay.Types.CUSTOM;
@@ -22,7 +26,7 @@ namespace miniRAID
             Instantiate();
         }
         
-        public GridColliderIndicator(IGridCollider collider, GridOverlay.Types overlayType)
+        public GridColliderIndicator(GridCollider collider, GridOverlay.Types overlayType)
         {
             this.collider = collider;
             this.overlayType = overlayType;
@@ -36,21 +40,28 @@ namespace miniRAID
             {
                 return;
             }
+
+            IEnumerable<Vector3> grids = Globals.backend.GetColliderMapIntersect(collider);
+            if (losOrigin.HasValue)
+            {
+                grids = grids.Where(p => Globals.backend.HasLineOfSight(losOrigin.Value, p + Globals.half));
+            }
             
             if (overlayType == GridOverlay.Types.CUSTOM)
             {
-                instantiatedOverlay = Globals.overlayMgr.Instance.FromShape(Globals.backend.GetColliderMapIntersect(collider), icon);
+                instantiatedOverlay = Globals.overlayMgr.Instance.FromShape(grids, icon);
             }
             else
             {
-                instantiatedOverlay = Globals.overlayMgr.Instance.FromShape(Globals.backend.GetColliderMapIntersect(collider), overlayType);
+                instantiatedOverlay = Globals.overlayMgr.Instance.FromShape(grids, overlayType);
             }
         }
 
-        public void Update(IGridCollider shape)
+        public void Update(GridCollider shape, Vector3? losOrigin)
         {
             if(shape == null){Destroy(); return;}
             this.collider = shape;
+            this.losOrigin = losOrigin;
             Refresh();
         }
 

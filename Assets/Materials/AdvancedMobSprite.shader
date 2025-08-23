@@ -5,7 +5,8 @@ Shader "PixelArtURP/3DSprites"
         _MainTex ("Sprite Texture", 2D) = "white" {}
         _Color ("Tint", Color) = (1,1,1,1)
         _BehindWallColor ("BehindWallColor", Color) = (1,1,1,1)
-        _Size ("Size", Float) = 1.0
+        _Scale ("Scale", Int) = 3
+        _PixelSize ("PixelSize", Int) = 32
     }
     
     HLSLINCLUDE
@@ -32,7 +33,8 @@ Shader "PixelArtURP/3DSprites"
         
         CBUFFER_START(UnityPerMaterial)
             half4 _Color, _BehindWallColor;
-            float _Size;
+            int _Scale;
+            int _PixelSize, _PPU;
             float4 _MainTex_ST;
         CBUFFER_END
         
@@ -49,7 +51,7 @@ Shader "PixelArtURP/3DSprites"
             // We keep the depth from the projected origin but use screen-space offsets
             // float2 osOffset = float2(UNITY_MATRIX_M[0].x * v.positionOS.x, UNITY_MATRIX_M[1].y * v.positionOS.y); 
             float2 osOffset = v.positionOS.xy;
-            float2 screenOffset = osOffset * _Size * 64.0; // Adjust multiplier for desired size
+            float2 screenOffset = osOffset * _Scale * _PixelSize * 2.0; // Adjust multiplier for desired size
             
             // Apply screen-space offset while preserving depth
             float4 positionCS;

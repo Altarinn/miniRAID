@@ -14,7 +14,7 @@ namespace miniRAID
         };
 
         public override List<Databackend.GridBFSKeys> ProposeMovementGrids(
-            IGridCollider origin, Databackend.GridBFSKeys fromKey)
+            GridCollider origin, Databackend.GridBFSKeys fromKey)
         {
             List<Databackend.GridBFSKeys> keys = new();
 
@@ -91,7 +91,7 @@ namespace miniRAID
             // throw new System.NotImplementedException();
         }
 
-        public override bool CanEndTurnAt(Vector3Int at, IGridCollider collider)
+        public override bool CanEndTurnAt(Vector3Int at, GridCollider collider)
         {
             return IsPassable(at, collider, out GridData g) && IsSupported(at, out GridData g2);
         }

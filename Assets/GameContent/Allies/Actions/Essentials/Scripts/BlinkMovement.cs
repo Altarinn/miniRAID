@@ -8,9 +8,9 @@ namespace miniRAID
 {
     public class BlinkMovement : MovementSO
     {
-        public IGridCollider moveableRange;
+        public GridCollider moveableRange;
         
-        public override List<Databackend.GridBFSKeys> ProposeMovementGrids(IGridCollider origin, Databackend.GridBFSKeys fromKey)
+        public override List<Databackend.GridBFSKeys> ProposeMovementGrids(GridCollider origin, Databackend.GridBFSKeys fromKey)
         {
             var gridPos = Databackend.BackendToGridPos(origin.Position);
             
@@ -35,7 +35,7 @@ namespace miniRAID
             yield break;
         }
 
-        public override bool CanEndTurnAt(Vector3Int at, IGridCollider collider)
+        public override bool CanEndTurnAt(Vector3Int at, GridCollider collider)
         {
             Debug.LogWarning("Blink Movement is being set as main movement method of mob. It allows stay mid-air.");
             return true;

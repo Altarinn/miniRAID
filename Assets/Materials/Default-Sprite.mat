@@ -128,11 +128,14 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
+    - _PPU: 32
     - _Parallax: 0.005
+    - _PixelSize: 32
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _SampleGI: 0
+    - _Scale: 3
     - _Size: -3
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0

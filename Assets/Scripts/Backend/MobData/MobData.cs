@@ -45,8 +45,8 @@ namespace miniRAID
         }
 
         // This (float) is accurate as long as non-solid blocks have 2^N steps (e.g., 8.)
-        public IGridCollider Collider { get => _collider; set => _collider = value; }
-        [OdinSerialize] private IGridCollider _collider;
+        public GridCollider Collider { get => _collider; set => _collider = value; }
+        [OdinSerialize] private GridCollider _collider;
 
         public Vector3 Position
         {

@@ -42,7 +42,7 @@ namespace miniRAID
             if (CheckGridHasPoisonPool(Globals.backend.GetMap(mob.Position)))
             {
                 yield return new JumpIn(importantMessage.Do());
-                yield return new JumpIn(mob.DoAction(skillJumpOnPool, new SingleMobTarget(mob)));
+                yield return new JumpIn(mob.DoAction(skillJumpOnPool, new SingleMobTarget(mob, mob.GridPosition)));
             }
             
             // Generate poison pool

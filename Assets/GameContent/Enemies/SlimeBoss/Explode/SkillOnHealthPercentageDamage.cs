@@ -80,7 +80,7 @@ namespace GameContent.Buffs.Test
                 if (damageTotal >= (float)mob.maxHealth * healthRatio)
                 {
                     damageTotal -= (float)mob.maxHealth * healthRatio;
-                    yield return new JumpIn(mob.DoAction(runtimeSkill, new SingleMobTarget(mob)));
+                    yield return new JumpIn(mob.DoAction(runtimeSkill, new SingleMobTarget(mob, mob.GridPosition)));
                 }
             }
         }
@@ -89,7 +89,7 @@ namespace GameContent.Buffs.Test
         {
             if (triggerOnDeath)
             {
-                yield return new JumpIn(mob.DoAction(runtimeSkill, new SingleMobTarget(mob)));
+                yield return new JumpIn(mob.DoAction(runtimeSkill, new SingleMobTarget(mob, mob.GridPosition)));
             }
         }
 

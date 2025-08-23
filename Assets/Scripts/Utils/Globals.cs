@@ -33,6 +33,8 @@ namespace miniRAID
         public static CombatTracker combatTracker = new CombatTracker();
 
         public static Logger logger = new Logger("miniRAID.log");
+
+        public static Vector3 half = new Vector3(0.5f, 0.5f, 0.5f);
     }
 
     public static class Settings

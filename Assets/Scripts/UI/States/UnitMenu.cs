@@ -290,7 +290,7 @@ namespace miniRAID.UI
         public override void OnStateExit()
         {
             base.OnStateExit();
-            ui.uimenu_uicontainer.Hide();
+            ui.combatView.menu.HideMenu();
         }
 
         public IEnumerator OnPassSelected(bool set = true)

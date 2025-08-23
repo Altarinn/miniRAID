@@ -22,10 +22,10 @@ namespace miniRAID.Buff
 
         [PropertyOrder(-1)] public int GridFxTimeMax = 0;
 
-        public GridEffect LeveledWrapFx(MobData parent, int level, IGridCollider shape)
+        public GridEffect LeveledWrapFx(MobData parent, int level, GridCollider shape)
         {
             var buff = (Buff)base.LeveledWrap(parent, level);
-            return new GridEffect(parent, this, buff, (IGridCollider)shape.Clone());
+            return new GridEffect(parent, this, buff, (GridCollider)shape.CloneWithNewGuid());
         }
     }
 
@@ -41,12 +41,12 @@ namespace miniRAID.Buff
         public GridEffectSO gridData => (GridEffectSO)data;
 
         bool isFx => activeMobs != null;
-        public IGridCollider Collider { get => _collider; set => _collider = value; }
-        [OdinSerialize] private IGridCollider _collider;
+        public GridCollider Collider { get => _collider; set => _collider = value; }
+        [OdinSerialize] private GridCollider _collider;
 
         [SerializeField] private int timeRemain;
 
-        public GridEffect(MobData source, GridEffectSO data, Buff rBuff, IGridCollider shape) : base(source, data)
+        public GridEffect(MobData source, GridEffectSO data, Buff rBuff, GridCollider shape) : base(source, data)
         {
             mask = 0;
 

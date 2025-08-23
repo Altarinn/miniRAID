@@ -24,6 +24,24 @@ MonoBehaviour:
     - Name: gridBody
       Entry: 7
       Data: 0|miniRAID.PointCollider, miniRAID.Core
+    - Name: _position
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _direction
+      Entry: 3
+      Data: 0
     - Name: shape
       Entry: 7
       Data: 1|miniRAID.GridShape, miniRAID.Core
@@ -58,6 +76,18 @@ MonoBehaviour:
     - Name: canvasSize
       Entry: 3
       Data: 2
+    - Name: editorMode
+      Entry: 3
+      Data: 0
+    - Name: editorMinY
+      Entry: 3
+      Data: 0
+    - Name: editorMaxY
+      Entry: 3
+      Data: 0
+    - Name: editorCurrentLevel
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 

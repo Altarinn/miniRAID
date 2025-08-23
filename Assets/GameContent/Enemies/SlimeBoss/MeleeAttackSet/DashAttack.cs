@@ -8,13 +8,13 @@ namespace miniRAID.Agents.SlimeBoss.MeleeAttackSet
 {
     public class DashAttack : ActionDataSO<FourDirectionalTarget>
     {
-        [SerializeField] private IGridCollider shape;
+        [SerializeField] private GridCollider shape;
         [SerializeField] private UnitFilters filter;
         [SerializeField] private SpellDamageHeal damageOrHeal;
         [SerializeField] private SimpleExplosionFx fx;
         [SerializeField] private KnockBack knockBack;
 
-        public override IGridCollider MainShape => shape;
+        public override GridCollider MainShape => shape;
         public int KnockbackDistance = 1;
         public int DashDistance = 5;
         
@@ -32,7 +32,7 @@ namespace miniRAID.Agents.SlimeBoss.MeleeAttackSet
             shape.Direction = target.Target;
             
             var capturedTargets = CaptureTargetsInCollider.CaptureAllTargetsWithinRange(
-                mob, filter, shape);
+                mob, filter, shape, null);
             
             yield return new JumpIn(fx.Do(mob.Position + 2 * Consts.DirectionVectors[(int)shape.Direction]));
             

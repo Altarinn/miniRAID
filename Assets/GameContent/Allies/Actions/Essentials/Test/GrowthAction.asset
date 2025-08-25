@@ -311,10 +311,10 @@ MonoBehaviour:
       Data: 2
     - Name: toEnemies
       Entry: 5
-      Data: true
+      Data: false
     - Name: toAllies
       Entry: 5
-      Data: false
+      Data: true
     - Name: 
       Entry: 8
       Data: 

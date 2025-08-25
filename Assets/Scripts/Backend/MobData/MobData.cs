@@ -129,6 +129,7 @@ namespace miniRAID
 
         [SerializeField] private int _freeActionPointsMul100 = 100;
         public float actionPoints { get { return (_actionPointsMul100 + _freeActionPointsMul100) / 100.0f; } }
+        public float freeActionPoints { get { return _freeActionPointsMul100 / 100.0f; } }
         //public dNumber baseActionPoints = (dNumber)4, extraActionPoints = (dNumber)0;
         [NonSerialized] [ShowInInspector] public float apRecovery = 3;
         [NonSerialized] [ShowInInspector] [FormerlySerializedAs("apMax")] public int apNonFreeMax = 5;

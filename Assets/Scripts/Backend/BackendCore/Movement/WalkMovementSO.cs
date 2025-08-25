@@ -21,7 +21,7 @@ namespace miniRAID
             Vector3Int gridPos = Databackend.BackendToGridPos(origin.Position);
 
             int canJumpHeight = 0;
-            for (int jumpD = 1; jumpD <= 2; jumpD++)
+            for (int jumpD = 1; jumpD <= 1; jumpD++)
             {
                 // Passable + Standable almost always is a platform
                 // Platforms blocks jumping
@@ -49,7 +49,7 @@ namespace miniRAID
                 // Fall
                 if (canWalkTo && (!wontFall))
                 {
-                    for (int fallD = 1; fallD <= 3; fallD++)
+                    for (int fallD = 1; fallD <= 2; fallD++)
                     {
                         var wfp = gridPos + wp + Vector3Int.down * fallD;
 

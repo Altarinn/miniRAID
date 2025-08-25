@@ -54,73 +54,13 @@ MonoBehaviour:
         System.Core
     - Name: 
       Entry: 12
-      Data: 5
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
       Data: 1
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: -1
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
       Entry: 7
       Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
       Data: 0
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: -1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 1
     - Name: 
       Entry: 3
       Data: 0

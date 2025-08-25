@@ -4,7 +4,7 @@
     <ui:VisualElement name="BarContainer" picking-mode="Ignore" style="height: 60px;">
         <ui:VisualElement name="TopBar" picking-mode="Ignore" style="height: 40px; flex-direction: row; padding-right: 80px;">
             <ui:VisualElement name="UnitBanner" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); width: 80px; flex-direction: row; align-items: flex-end; padding-left: 1px; padding-right: 1px; margin-bottom: 5px; border-bottom-color: rgb(255, 255, 255); border-bottom-width: 1px;">
-                <ui:VisualElement name="UnitIcon" style="flex-grow: 0; background-color: rgba(167, 238, 255, 0); width: 32px; height: 32px; margin-bottom: 1px; margin-right: 3px; background-image: url(&apos;project://database/Assets/SpriteSheets/Mythic.png?fileID=5383714370497100240&amp;guid=cb60126b6c43fc546b28002f68a349c3&amp;type=3#Mythic_0&apos;); -unity-background-scale-mode: scale-and-crop;" />
+                <ui:VisualElement name="UnitIcon" style="flex-grow: 0; background-color: rgba(167, 238, 255, 0); width: 32px; height: 32px; margin-bottom: 1px; margin-right: 3px; background-image: url(&quot;project://database/Assets/SpriteSheets/Mythic.png?fileID=5383714370497100240&amp;guid=cb60126b6c43fc546b28002f68a349c3&amp;type=3#Mythic_0&quot;); -unity-background-scale-mode: scale-and-crop;" />
                 <ui:VisualElement name="UnitNameContainer" style="background-color: rgba(0, 0, 0, 0); max-width: 40px;">
                     <ui:Label tabindex="-1" display-tooltip-when-elided="true" name="UnitName" text="棕毛狐狸j" />
                 </ui:VisualElement>
@@ -50,11 +50,24 @@
                                 <ui:Label tabindex="-1" text="AP" display-tooltip-when-elided="true" class="ap-bar-label" style="-unity-text-align: middle-right; padding-right: 3px;" />
                             </ui:VisualElement>
                             <ui:VisualElement name="APStars" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-direction: row;">
-                                <ui:VisualElement name="StarPlaceholder" class="ap-star" style="flex-grow: 0; background-color: rgb(219, 255, 162); width: 13px; height: 13px;" />
-                                <ui:VisualElement name="StarPlaceholder" class="ap-star" style="flex-grow: 0; background-color: rgb(219, 255, 162); width: 13px; height: 13px;" />
-                                <ui:VisualElement name="StarPlaceholder" class="ap-star" style="flex-grow: 0; background-color: rgb(219, 255, 162); width: 13px; height: 13px;" />
-                                <ui:VisualElement name="StarPlaceholder" class="ap-star" style="flex-grow: 0; background-color: rgb(219, 255, 162); width: 13px; height: 13px;" />
-                                <ui:VisualElement name="StarPlaceholder" class="ap-star" style="flex-grow: 0; background-color: rgb(219, 255, 162); width: 13px; height: 13px;" />
+                                <ui:VisualElement name="APStar5" class="ap-star" style="flex-grow: 0; width: 13px; height: 13px; background-color: rgb(102, 102, 102); overflow: hidden; position: relative;">
+                                    <ui:VisualElement name="APStar5Fill" class="ap-star-fill" style="position: absolute; bottom: 0; left: 0; right: 0; background-color: rgb(219, 255, 162); height: 0%;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="APStar4" class="ap-star" style="flex-grow: 0; width: 13px; height: 13px; background-color: rgb(102, 102, 102); overflow: hidden; position: relative;">
+                                    <ui:VisualElement name="APStar4Fill" class="ap-star-fill" style="position: absolute; bottom: 0; left: 0; right: 0; background-color: rgb(219, 255, 162); height: 0%;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="APStar3" class="ap-star" style="flex-grow: 0; width: 13px; height: 13px; background-color: rgb(102, 102, 102); overflow: hidden; position: relative;">
+                                    <ui:VisualElement name="APStar3Fill" class="ap-star-fill" style="position: absolute; bottom: 0; left: 0; right: 0; background-color: rgb(219, 255, 162); height: 0%;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="APStar2" class="ap-star" style="flex-grow: 0; width: 13px; height: 13px; background-color: rgb(102, 102, 102); overflow: hidden; position: relative;">
+                                    <ui:VisualElement name="APStar2Fill" class="ap-star-fill" style="position: absolute; bottom: 0; left: 0; right: 0; background-color: rgb(219, 255, 162); height: 0%;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="APStar1" class="ap-star" style="flex-grow: 0; width: 13px; height: 13px; background-color: rgb(102, 102, 102); overflow: hidden; position: relative;">
+                                    <ui:VisualElement name="APStar1Fill" class="ap-star-fill" style="position: absolute; bottom: 0; left: 0; right: 0; background-color: rgb(219, 255, 162); height: 0%;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="APStar6" class="ap-star ap-star-free" style="flex-grow: 0; width: 13px; height: 13px; background-color: rgb(102, 102, 102); overflow: hidden; position: relative;">
+                                    <ui:VisualElement name="APStar6Fill" class="ap-star-fill" style="position: absolute; bottom: 0; left: 0; right: 0; background-color: rgb(255, 215, 162); height: 0%;" />
+                                </ui:VisualElement>
                             </ui:VisualElement>
                             <ui:VisualElement name="CurrentAP" style="flex-grow: 0; width: 60px; flex-direction: row; align-items: stretch;">
                                 <ui:VisualElement name="CurrentAPDisplay" class="ap-bar-label" style="flex-grow: 0; flex-direction: row; align-items: flex-end;">
@@ -133,7 +146,7 @@
                         </ui:VisualElement>
                     </ui:VisualElement>
                     <ui:VisualElement name="IsEnemy" style="flex-grow: 0; background-color: rgb(58, 26, 26); position: absolute; left: 0; top: 0; right: 0; bottom: 0; align-items: center; justify-content: center; padding-top: 5px; padding-bottom: 2px; visibility: hidden;">
-                        <ui:Label tabindex="-1" text="ENEMY" display-tooltip-when-elided="true" style="-unity-font: url(&apos;project://database/Assets/Fonts/Legacy/DinkieBitmap-9px.ttf?fileID=12800000&amp;guid=d55e970942cccd34f8a24ed2645322f2&amp;type=3#DinkieBitmap-9px&apos;); font-size: 10px;" />
+                        <ui:Label tabindex="-1" text="ENEMY" display-tooltip-when-elided="true" style="-unity-font: url(&quot;project://database/Assets/Fonts/Legacy/DinkieBitmap-9px.ttf?fileID=12800000&amp;guid=d55e970942cccd34f8a24ed2645322f2&amp;type=3#DinkieBitmap-9px&quot;); font-size: 10px;" />
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>

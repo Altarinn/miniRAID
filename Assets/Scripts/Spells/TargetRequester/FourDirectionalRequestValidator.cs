@@ -45,7 +45,7 @@ namespace miniRAID.UI.TargetRequester
         public override void OnStateEnter()
         {
             base.OnStateEnter();
-            UpdateCursor(ui.cursor.GridPos);
+            UpdateCursor(mob.GridPosition);
         }
 
         public override void PointAtGrid(Vector3Int gridPos)
@@ -55,7 +55,12 @@ namespace miniRAID.UI.TargetRequester
             UpdateCursor(gridPos);
         }
 
-        void UpdateCursor(Vector3Int gridPos)
+        public override void MoveCursor(Vector3Int movement)
+        {
+            UpdateCursor(mob.GridPosition + movement);
+        }
+
+        void UpdateCursor(Vector3Int gridPos, bool forced = false)
         {
             var dirc = Globals.backend.GetDominantDirection(mob.GridPosition, gridPos);
 
@@ -75,7 +80,7 @@ namespace miniRAID.UI.TargetRequester
                     break;
             }
             
-            if (dirc != shape.Direction)
+            if (forced || dirc != shape.Direction)
             {
                 shape.Direction = dirc;
                 ui.cursor.Update(shape, mob.SpellCastPivot);

@@ -67,7 +67,7 @@ public class BillboardSpriteRenderer : MonoBehaviour
 
     public Vector3 Pivot;
     
-    void Awake()
+    void Start()
     {
         Initialize();
     }

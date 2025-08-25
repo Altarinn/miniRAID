@@ -43,6 +43,20 @@ namespace miniRAID.UI
 
         public virtual void PointAtGrid(Vector3Int gridPos) { }
 
+        public virtual void MoveCursor(Vector3Int movement)
+        {
+            Vector3Int currentPos = Databackend.BackendToGridPos(ui.cursor.Position);
+            Vector3Int targetXZ = currentPos + movement;
+            
+            // Find nearest valid Y position
+            Vector3Int? validPos = ui.FindNearestWalkablePosition(targetXZ, currentPos.y);
+            if (validPos.HasValue)
+            {
+                ui.cursor.Position = Globals.backend.GridToBackendFloorPos(validPos.Value);
+                PointAtGrid(validPos.Value);
+            }
+        }
+
         public virtual void Cancel(InputValue input)
         {
             ui.BackState();

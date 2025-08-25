@@ -435,21 +435,12 @@ namespace miniRAID.UI
                 
                 if (movement != Vector3Int.zero)
                 {
-                    Vector3Int currentPos = Databackend.BackendToGridPos(cursor.Position);
-                    Vector3Int targetXZ = currentPos + movement;
-                    
-                    // Find nearest valid Y position
-                    Vector3Int? validPos = FindNearestWalkablePosition(targetXZ, currentPos.y);
-                    if (validPos.HasValue)
-                    {
-                        cursor.Position = Globals.backend.GridToBackendFloorPos(validPos.Value);
-                        currentState.PointAtGrid(validPos.Value);
-                    }
+                    currentState.MoveCursor(movement);
                 }
             }
         }
         
-        private Vector3Int? FindNearestWalkablePosition(Vector3Int targetXZ, int currentY)
+        public Vector3Int? FindNearestWalkablePosition(Vector3Int targetXZ, int currentY)
         {
             // Check current Y level first
             for (int distance = 0; distance <= 10; distance++)

@@ -342,7 +342,7 @@ namespace miniRAID
             }
             
             isDead = false;
-            Init();
+            Init(Position, Collider.Direction);
             
             // Give basic health info
             health = 1;

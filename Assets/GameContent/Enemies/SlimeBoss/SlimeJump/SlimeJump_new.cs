@@ -46,7 +46,7 @@ namespace miniRAID
             }
             
             // Generate poison pool
-            yield return new JumpIn(poisonPool.Do(ract, mob, targetPos));
+            // yield return new JumpIn(poisonPool.Do(ract, mob, targetPos));
 
             yield return mob.WaitForAnimation("JumpLanding");
         }

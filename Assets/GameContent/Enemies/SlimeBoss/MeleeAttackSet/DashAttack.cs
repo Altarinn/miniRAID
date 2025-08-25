@@ -44,8 +44,13 @@ namespace miniRAID.Agents.SlimeBoss.MeleeAttackSet
             var existingMob = Globals.backend.GetMap(targetGrid).mob;
             if (existingMob != null)
             {
-                Vector3Int newPos = Globals.backend.FindNearestEmptyGrid(targetGrid);
-                yield return new JumpIn(existingMob.SetPosition(newPos));
+                Vector3Int? newPos = Globals.backend.FindNearestEmptyGrid(targetGrid);
+                if(newPos.HasValue)
+                    yield return new JumpIn(existingMob.SetPosition(newPos.Value));
+                else
+                {
+                    Debug.LogWarning("Dash Attack cannot find new position for obstacle mob!");
+                }
             }
 
             yield return new JumpIn(mob.SetPosition(targetGrid));

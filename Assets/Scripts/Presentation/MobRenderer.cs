@@ -73,7 +73,7 @@ namespace miniRAID
             {
                 data.renderer = this;
                 data.nickname = this.name;
-                data.Init();
+                data.Init(Globals.backend.RenderToBackendPos(transform.position) - Globals.halfGround, Consts.Direction.Up);
             }
 
             if(isBoss)

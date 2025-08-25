@@ -55,6 +55,9 @@ namespace miniRAID
         public MobRootAgentBaseSO rootAgent;
 
         public virtual void InitializeMobData(MobData mob)
+            => InitializeMobData(mob, mob.Position, mob.Collider.Direction);
+        
+        public virtual void InitializeMobData(MobData mob, Vector3 position, Consts.Direction direction)
         {
             // Sanity check
             if (gridBody == null)
@@ -62,7 +65,11 @@ namespace miniRAID
                 gridBody = new PointCollider();
             }
 
-            mob.Collider = (GridCollider)gridBody.CloneWithNewGuid();
+            var coll = (GridCollider)gridBody.CloneWithNewGuid();
+            coll.Position = position;
+            coll.Direction = direction;
+            
+            mob.Collider = coll;
             
             mob.GCDstatus = new HashSet<GCDGroup>();
             mob.actions = new List<RuntimeAction>();
@@ -115,5 +122,15 @@ namespace miniRAID
 
         public abstract void RecalculateMobBaseStats(MobData mob);
         public abstract void RecalculateMobBattleStats(MobData mob);
+
+        public MobData Wrap(Vector3Int position, Consts.Direction direction, Consts.UnitGroup group)
+        {
+            MobData mob = new MobData();
+            mob.baseDescriptor = this;
+            mob.unitGroup = group;
+            mob.Init(position, direction);
+
+            return mob;
+        }
     }
 }

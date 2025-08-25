@@ -18,7 +18,7 @@ namespace miniRAID
         
         [InfoBox("This action is left incomplete.", InfoMessageType.Error)]
         public SimpleExplosionFx onHitFx, slimeSpawnFx;
-        public Summon<MobRenderer> summon;
+        public SummonMob summon;
         public ShowImportantMessage message;
         
         public override IEnumerator OnPerform(RuntimeAction<SingleMobTarget> ract, MobData mob,

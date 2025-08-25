@@ -35,6 +35,7 @@ namespace miniRAID
         public static Logger logger = new Logger("miniRAID.log");
 
         public static Vector3 half = new Vector3(0.5f, 0.5f, 0.5f);
+        public static Vector3 halfGround = new Vector3(0.5f, 0.0f, 0.5f);
     }
 
     public static class Settings

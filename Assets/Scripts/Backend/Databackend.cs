@@ -1172,14 +1172,15 @@ namespace miniRAID
             return result;
         }
 
-        public Vector3Int FindNearestEmptyGrid(Vector3Int center) => FindNearestEmptyGrid(center, new PointCollider());
+        public Vector3Int? FindNearestEmptyGrid(Vector3Int center, Func<Vector3Int, bool> isGridValid = null) 
+            => FindNearestEmptyGrid(center, new PointCollider(), isGridValid);
 
-        public Vector3Int FindNearestEmptyGrid(Vector3Int center, GridCollider body)
+        // TODO: Convert this to 3D
+        public Vector3Int? FindNearestEmptyGrid(Vector3Int center, GridCollider body, Func<Vector3Int, bool> isGridValid = null)
         {
-            var temp = body.Position;
-            if (!InMap(center)) { return -Vector3Int.one; }
+            if (!InMap(center)) { return null; }
             
-            if (CanPositionPlaceMob(GridToBackendFloorPos(center), body))
+            if (CanPositionPlaceMob(GridToBackendFloorPos(center), body) && (isGridValid?.Invoke(center) ?? true))
             {
                 return center;
             }
@@ -1221,7 +1222,7 @@ namespace miniRAID
                         }
 
                         Vector3Int pos = center + new Vector3Int(x, y);
-                        if (InMap(pos) && CanPositionPlaceMob(GridToBackendFloorPos(pos), body))
+                        if (InMap(pos) && CanPositionPlaceMob(GridToBackendFloorPos(pos), body) && (isGridValid?.Invoke(pos) ?? true))
                         {
                             return pos;
                         }
@@ -1229,7 +1230,7 @@ namespace miniRAID
                 }
             }
 
-            return -Vector3Int.one;
+            return null;
         }
 
         public List<MobData> GetAllMobs()

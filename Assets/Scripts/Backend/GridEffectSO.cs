@@ -25,7 +25,7 @@ namespace miniRAID.Buff
         public GridEffect LeveledWrapFx(MobData parent, int level, GridCollider shape)
         {
             var buff = (Buff)base.LeveledWrap(parent, level);
-            return new GridEffect(parent, this, buff, (GridCollider)shape.CloneWithNewGuid());
+            return new GridEffect(parent, this, buff, (GridCollider)shape);
         }
     }
 

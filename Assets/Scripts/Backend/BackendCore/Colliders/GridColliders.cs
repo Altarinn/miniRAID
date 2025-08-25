@@ -13,6 +13,11 @@ namespace miniRAID
     {
         public bool Overlaps(GridCollider other)
         {
+            if (other == null)
+            {
+                return false;
+            }
+            
             // Never overlaps itself
             if (other.guid == this.guid)
             {

@@ -18,7 +18,7 @@ namespace miniRAID
         public ActionHelpers.Projectile smallSlimeProjectile;
         public SimpleExplosionFx onHitFx, smallSlimeSpawnFx;
         public SpellDamageHeal damage;
-        public Summon<MobRenderer> summon;
+        public SummonMob summon;
         public CreateGridEffect poisonPool;
         
         public override IEnumerator OnPerform(RuntimeAction<SingleMobTarget> ract, MobData mob,
@@ -48,18 +48,18 @@ namespace miniRAID
                 target.RemoveListener(indicatorBuff);
 
                 // Find a proper position to spawn slime
-                Vector3Int spawnPos = Globals.backend.FindNearestEmptyGrid(target.GridPosition);
-                if (Globals.backend.InMap(spawnPos))
+                Vector3Int? spawnPos = summon.FindValidGrid(target.GridPosition);
+                if (spawnPos.HasValue)
                 {
-                    yield return new JumpIn(smallSlimeSpawnFx.Do(spawnPos));
+                    yield return new JumpIn(smallSlimeSpawnFx.Do(spawnPos.Value));
                     
                     // Spawn
-                    // MobRenderer summonedMob = summon.Do(spawnPos, false).GetComponent<MobRenderer>();
-                    // var lt = summonedMob.data.FindListener<LockedTarget>();
-                    // if (lt != null)
-                    // {
-                    //     lt.target = mob;
-                    // }
+                    MobData summonedMob = summon.Do(mob, spawnPos.Value, false);
+                    var lt = summonedMob.FindListener<LockedTarget>();
+                    if (lt != null)
+                    {
+                        lt.target = mob;
+                    }
 
                     // Generate poison pool
                     yield return new JumpIn(poisonPool.Do(ract, mob, target.Position));

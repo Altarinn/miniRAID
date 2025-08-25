@@ -20,16 +20,14 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: barIcon
-      Entry: 6
-      Data: 
-  Guid: 529f6ed3f5b2464a9ddff359d8047373
+    SerializationNodes: []
+  Guid: 94f410b09b5dbb84193a88d09dcf0548
   Id: 207
   icon: {fileID: 0}
+  barIcon: {fileID: 0}
   mainColor: {r: 0.8396226, g: 0.3513623, b: 0.3120861, a: 1}
   label: 
   showInUI: 1
   defaultCategory: 2
-  eyesight: 10
+  eyesight: 24
   decalIndicatorMaterial: {fileID: 0}

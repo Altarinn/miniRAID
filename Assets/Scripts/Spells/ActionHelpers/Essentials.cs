@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using miniRAID.Backend.Numericals;
 using miniRAID.Buff;
@@ -223,25 +224,62 @@ namespace miniRAID.ActionHelpers
         public int GetPower(RuntimeAction spell) => Mathf.CeilToInt(power.Apply(spell.power));
     }
 
+    [Serializable]
+    public enum SummonUnitGroupType
+    {
+        SameTeam,
+        EnemyTeam,
+        AllyTeam,
+        Others,
+        FixedPlayer,
+        FixedEnemy,
+        FixedAlly,
+        FixedOthers
+    }
+    
     // TODO: Make me to MobData-based.
     [ColoredBox("#bf7")]
-    public class Summon<T> where T : Component
+    public class SummonMob
     {
-        public T mobPrefab;
+        public BaseMobDescriptorSO mobDescriptor;
+        public SummonUnitGroupType groupChoice;
 
-        // TODO: FIXME: Problematic
-        public MobRenderer Do(Vector3Int position, bool findEmpty = true)
+        public Vector3Int? FindValidGrid(Vector3Int center)
+        {
+            var position = Globals.backend.FindNearestEmptyGrid(center, mobDescriptor.gridBody,
+                x => mobDescriptor.movement.CanEndTurnAt(x, null));
+            
+            if (position == -Vector3.one)
+            {
+                return null;
+            }
+            
+            return position;
+        }
+        
+        public MobData Do(MobData source, Vector3Int position, bool findEmpty = true)
         {
             if (findEmpty)
             {
-                position = Globals.backend.FindNearestEmptyGrid(position);
+                var p = FindValidGrid(position);
+                if (!p.HasValue) return null;
+                position = p.Value;
             }
-            
-            Debug.LogError("Summon and LockTargetAgent still uses MonoBehaviour-based code!");
-            
-            var summoned = GameObject.Instantiate(mobPrefab.gameObject, Globals.backend.BackendToRenderPos(position) + Vector3.one * 0.5f, Quaternion.identity).GetComponent<MobRenderer>();
-            summoned.Init();
 
+            Consts.UnitGroup sourceGroup = source?.unitGroup ?? Consts.UnitGroup.Player;
+            Consts.UnitGroup summonedGroup;
+            
+            switch (groupChoice)
+            {
+                case SummonUnitGroupType.SameTeam:
+                    summonedGroup = sourceGroup;
+                    break;
+                default:
+                    throw new NotImplementedException();
+                    break;
+            }
+
+            var summoned = mobDescriptor.Wrap(position, Consts.Direction.Up, summonedGroup);
             return summoned;
         }
     }
@@ -250,19 +288,32 @@ namespace miniRAID.ActionHelpers
     public class CreateGridEffect
     {
         public Buff.GridEffectSO effect;
-        public EnumerateGridCollider shape;
+        public GridCollider shape;
+        
+        [InfoBox("Put a MovementSO here to add grounding constraint, e.g., only apply effect to grids that a walking mob can end turn on. If null, ignore grounding constraint.")]
+        public MovementSO OnlyGroundedAs;
 
         public bool inheritLevel = true;
 
         public IEnumerator Do(RuntimeAction spellContext, MobData src, Vector3 targetShapeOrigin)
         {
             // TODO: Animations?
-            shape.Position = targetShapeOrigin;
+            GridCollider collider = shape.CloneWithNewGuid();
+            collider.Position = targetShapeOrigin;
+
+            if (OnlyGroundedAs != null)
+            {
+                var validGrids = collider
+                    .Where(x => OnlyGroundedAs.CanEndTurnAt(x, null));
+
+                collider = new EnumerateGridCollider(new GridShape(validGrids));
+            }
+            
             GridEffect rfx =
                 (Buff.GridEffect)effect.LeveledWrapFx(
                     src,
                     inheritLevel ? spellContext.level : 1,
-                    shape);
+                    collider);
             
             src.AddListener(rfx);
 

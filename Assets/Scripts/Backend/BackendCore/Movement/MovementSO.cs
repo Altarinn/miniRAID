@@ -28,9 +28,13 @@ namespace miniRAID
         protected bool IsPassable(Vector3Int position, GridCollider body, out GridData grid)
         {
             grid = Globals.backend.GetMap(position, false);
-            if (grid.passable)
+            if (grid.passable && body != null)
             {
                 return Globals.backend.CanPositionPlaceMob(position, body);
+            }
+            else if (grid.passable && body == null)
+            {
+                return true;
             }
 
             return false;

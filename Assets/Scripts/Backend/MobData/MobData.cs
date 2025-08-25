@@ -213,12 +213,10 @@ namespace miniRAID
         [HideInInspector]
         public MobRenderer mobRenderer => (MobRenderer)renderer;
 
-        public void Init()
+        public void Init(Vector3 position, Consts.Direction direction)
         {
-            Vector3 position = mobRenderer.transform.position;
-            baseDescriptor.InitializeMobData(this);
-            Position = Databackend.BackendToGridPos(position);
-            
+            baseDescriptor.InitializeMobData(this, position, direction);
+
             // Initial stats calculation
             RecalculateStats();
 
@@ -226,7 +224,7 @@ namespace miniRAID
 
             Databackend.GetSingleton().SetMob(this);
             Register();
-            
+
             OnInitialized?.InvokeInstant(this);
         }
 

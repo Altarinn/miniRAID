@@ -117,6 +117,27 @@ namespace miniRAID
             slice.metadata.timestamp.currentTurnID = node.Value.metadata.timestamp.currentTurnID;
             AddAfter(node, slice);
         }
+        
+        // Claim a dummy turn slice with a real turn slice.
+        // The metadata of original dummy and replaced slice will be merged.
+        public void Claim(LinkedListNode<TurnSlice> dummyNode, TurnSlice slice)
+        {
+            if (slice is null or DummyTurnSlice)
+            {
+                throw new InvalidOperationException("null or DummyTurnSlice cannot be used to claim TurnSlice.");
+            }
+            
+            var newSource = slice.metadata.source;
+            slice.metadata = dummyNode.Value.metadata;
+            slice.metadata.source = newSource;
+            
+            dummyNode.Value = slice;
+        }
+
+        // Claims the first turn slice in chronological order within current schedule
+        // that matches the data source (SO) provided as target.
+        public void ClaimFirst(AbstractTurnSliceSO target, TurnSlice slice)
+            => Claim(this.Where(x => x.Value.data == target).First(), slice);
 
         public void RemoveAllTurnSlicesFrom(object source)
         {
@@ -189,7 +210,6 @@ namespace miniRAID
             turnSchedule.parentScheduler = this;
 
             appendedTurns.currentTurnID = 1;
-            appendedTurns.currentTurnSliceID = 0;
             
             KeepTurnScheduleLength();
         }

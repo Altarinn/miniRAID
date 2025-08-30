@@ -1,21 +1,26 @@
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace miniRAID.TurnSchedule
 {
-    public class SimpleMobBasedTurnGenerator : TurnSchedulerGeneratorBase
+    public class MobBasedTurnGeneratorWithClaimableSlice : TurnSchedulerGeneratorBase
     {
-        public List<TurnSliceSO> initialTurnSlices;
-        
+        [SerializeField]
+        private List<AbstractTurnSliceSO> initialTurnSlices;
+
         public override TurnScheduleSequence GetNewTurn(ref Timestamp now)
         {
             Timestamp copiedNow = now;
-            
+
             TurnScheduleSequence turnSlices = new(
                 initialTurnSlices.Select(x =>
                 {
-                    var xx = x.Wrap(new TurnSliceMetadata(null));
-                    xx.metadata.timestamp = new Timestamp(copiedNow.currentTurnID);
+                    TurnSliceMetadata meta = new TurnSliceMetadata(null);
+                    meta.timestamp = new Timestamp(copiedNow.currentTurnID);
+
+                    // Wrap it dynamically
+                    var xx = DynamicWrap(x, meta);
                     return xx;
                 }).Where(x => x != null));
 
@@ -24,7 +29,7 @@ namespace miniRAID.TurnSchedule
                 .OrderByDescending(x => x.Item2)
                 .Select(x => x.Item1)
                 .ToList();
-            
+
             foreach (MobData mob in sortedMobs)
             {
                 mob.ModifyTurnSlicesInPlace(now, turnSlices);
@@ -33,6 +38,18 @@ namespace miniRAID.TurnSchedule
             now.currentTurnID += 1;
 
             return turnSlices;
+        }
+
+        public TurnSlice DynamicWrap(AbstractTurnSliceSO absTurnSliceSO, TurnSliceMetadata metadata)
+        {
+            if(absTurnSliceSO is TurnSliceSO turnSliceSO)
+            {
+                return turnSliceSO.Wrap(metadata);
+            }
+            else
+            {
+                return absTurnSliceSO.DummyWrap(metadata);
+            }
         }
     }
 }

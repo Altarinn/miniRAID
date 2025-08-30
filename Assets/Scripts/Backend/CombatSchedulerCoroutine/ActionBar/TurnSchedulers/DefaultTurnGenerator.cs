@@ -11,7 +11,9 @@ namespace miniRAID.TurnSchedule
         {
             now.currentTurnID += 1;
             return new TurnScheduleSequence(
-                turnSlices.Select(x => x.Wrap(new TurnSliceMetadata(null))));
+                turnSlices
+                    .Select(x => x.Wrap(new TurnSliceMetadata(null)))
+                    .Where(x => x != null));
         }
     }
 }

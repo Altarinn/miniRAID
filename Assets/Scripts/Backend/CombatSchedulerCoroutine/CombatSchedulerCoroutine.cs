@@ -188,7 +188,6 @@ namespace miniRAID
             
             // TODO
             now.currentTurnID = 0;
-            now.currentTurnSliceID = 0;
             
             yield break;
         }

@@ -50,6 +50,14 @@ namespace miniRAID.Backend
                 Globals.backend.RegisterState(this);
             }
         }
+        
+        public void Unregister()
+        {
+            if (Globals.backend != null)
+            {
+                Globals.backend.RemoveState(this);
+            }
+        }
 
         [NonSerialized]
         public IStateRenderer renderer;

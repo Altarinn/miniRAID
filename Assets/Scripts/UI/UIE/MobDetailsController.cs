@@ -34,6 +34,12 @@ namespace miniRAID.UIElements
 
         public void RefreshWithContents(Equipment equip)
         {
+            if (equip == null)
+            {
+                Hide();
+                return;
+            }
+            
             container.Clear();
             descriptionContainer.style.display = DisplayStyle.None;
             equip.ShowInUI(this);
@@ -65,7 +71,7 @@ namespace miniRAID.UIElements
         public void Show(MobData mob)
         {
             mainWeapon.RefreshWithContents(mob.mainWeapon);
-            subWeapon.Hide();
+            subWeapon.RefreshWithContents(mob.subWeapon);
 
             masterElem.visible = true;
         }

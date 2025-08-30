@@ -6,6 +6,7 @@ namespace miniRAID
         {
             // Insert every events here
             OnWakeup.RestoreListener();
+            OnPassed.RestoreListener();
             OnAgentWakeUp.RestoreListener();
             OnAutoAttackAgentWakeUp.RestoreListener();
             OnNextTurn.RestoreListener();

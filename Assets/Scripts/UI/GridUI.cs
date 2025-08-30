@@ -340,6 +340,11 @@ namespace miniRAID.UI
             WaitFor(action, Wrapper());
         }
 
+        public void OnGlobalActionPostcast(MobData mob, RuntimeAction action, Spells.SpellTarget target)
+        {
+            circles.UpdateAllCircles();
+        }
+
         private Plane groundPlane;
         
         // TODO: Modify for 3D worlds

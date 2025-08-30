@@ -511,6 +511,14 @@ MonoBehaviour:
     m_Key: slimeking.breathbuff.tooltip
     m_Metadata:
       m_Items: []
+  - m_Id: 277985766224683008
+    m_Key: fighter.combo.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 277985985142185984
+    m_Key: fighter.combo.tooltip
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

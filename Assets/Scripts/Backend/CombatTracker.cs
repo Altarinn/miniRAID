@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Text;
 
 using miniRAID;
-
+using Sirenix.Serialization;
 using Records = System.Collections.Generic.Dictionary<miniRAID.MobData, System.Collections.Generic.Dictionary<string, miniRAID.CombatTracker.RecordEntry>>;
 
 namespace miniRAID
@@ -28,11 +29,11 @@ namespace miniRAID
 
         private Logger combatLog = new LoggerWithUI("miniRAID.combat.log");
 
-        List<Records> pastRecords;
-        Records records = new();
-        int _turns = 0;
+        [OdinSerialize] List<Records> pastRecords;
+        [OdinSerialize] Records records = new();
+        [OdinSerialize] int _turns = 0;
 
-        public miniRAID.UIElements.CombatStatsController ui;
+        [NonSerialized] public miniRAID.UIElements.CombatStatsController ui;
         
         public int Turns
         {

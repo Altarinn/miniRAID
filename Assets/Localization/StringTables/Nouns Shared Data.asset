@@ -40,11 +40,21 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1384193051926528
-    m_Key: shield.nightveil.tooltip
+    m_Key: '
+
+'
     m_Metadata:
       m_Items: []
   - m_Id: 61921590130716672
     m_Key: onehanded.ironsword.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 275639661122019328
+    m_Key: shield.smallshield.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 275684199597334528
+    m_Key: null
     m_Metadata:
       m_Items: []
   m_Metadata:

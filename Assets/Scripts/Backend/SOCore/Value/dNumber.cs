@@ -170,6 +170,17 @@ namespace miniRAID
 
             mulMultiplier *= multiplier.Value;
         }
+        
+        public void MulMul(float multiplier)
+        {
+            if(valueType != ValueType.COMPOSITION)
+            {
+                Debug.LogError("Cannot MulMul a non-COMPOSITION typed DynamicValue!");
+                return;
+            }
+
+            mulMultiplier *= multiplier;
+        }
 
         public static dNumber NewWithBase(dNumber baseVal)
         {

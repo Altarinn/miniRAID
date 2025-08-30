@@ -246,6 +246,7 @@ namespace miniRAID.UI
         protected IEnumerator AimOnTarget(MobData mob)
         {
             Globals.backend.AimOnTarget(mob);
+            ui.circles.UpdateAllCircles();
             yield break;
         }
 

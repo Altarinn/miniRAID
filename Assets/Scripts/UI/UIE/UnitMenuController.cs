@@ -53,13 +53,13 @@ namespace miniRAID.UIElements
                 this.source = source;
             }
 
-            public bool IsUsable
+            public bool IsPerformable
             {
                 get
                 {
                     if (source != null && runtimeAction != null)
                     {
-                        return source.data.CheckCalculatedActionCostBounds(runtimeAction);
+                        return source.data.CheckIsActionPerformable(runtimeAction);
                     }
                     return true;
                 }
@@ -169,7 +169,7 @@ namespace miniRAID.UIElements
 
         private void UpdateUsabilityState(VisualElement menuEntry, UIMenuEntry entry)
         {
-            if (entry.IsUsable)
+            if (entry.IsPerformable)
             {
                 menuEntry.RemoveFromClassList("disabled");
                 menuEntry.SetEnabled(true);
@@ -306,7 +306,7 @@ namespace miniRAID.UIElements
 
             var entry = currentEntries[listView.selectedIndex];
             
-            if (entry.IsUsable && entry.action != null)
+            if (entry.IsPerformable && entry.action != null)
             {
                 ui.WaitFor(entry.action, entry.onFinished);
                 return true;
@@ -321,7 +321,7 @@ namespace miniRAID.UIElements
 
             if (shortcutIndexMap.TryGetValue(keyCode, out int index))
             {
-                if (index >= 0 && index < currentEntries.Count && currentEntries[index].IsUsable)
+                if (index >= 0 && index < currentEntries.Count && currentEntries[index].IsPerformable)
                 {
                     listView.selectedIndex = index;
                     ExecuteSelectedAction();
@@ -351,7 +351,7 @@ namespace miniRAID.UIElements
             for (int i = 0; i < currentEntries.Count; i++)
             {
                 var entry = currentEntries[i];
-                if (!string.IsNullOrEmpty(entry.keycode) && entry.IsUsable)
+                if (!string.IsNullOrEmpty(entry.keycode) && entry.IsPerformable)
                 {
                     shortcutIndexMap[entry.keycode] = i;
                 }

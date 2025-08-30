@@ -50,7 +50,7 @@ namespace miniRAID.UI.TargetRequester
 
             foreach (var gridPos in gridInfo)
             {
-                stage.map.Add(gridPos.Key, gridPos.Value.distance >= moveRange ? GridOverlay.Types.MOVE : GridOverlay.Types.BUFF);
+                stage.map.Add(gridPos.Key, gridPos.Value.distance > resolvedMoveRange ? GridOverlay.Types.BUFF : GridOverlay.Types.MOVE);
             }
 
             return stage;

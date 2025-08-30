@@ -10,8 +10,9 @@ TrueTypeFontImporter:
   includeFontData: 1
   fontNames:
   - Verdana
-  fallbackFontReferences: []
-  customCharacters: 
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a4c88f0012b121b47bb2c654c5a7c7f0, type: 3}
+  customCharacters: "\u8BF7\u6309\u4EFB\u610F\u952E"
   fontRenderingMode: 0
   ascentCalculationMode: 1
   useLegacyBoundsCalculation: 0

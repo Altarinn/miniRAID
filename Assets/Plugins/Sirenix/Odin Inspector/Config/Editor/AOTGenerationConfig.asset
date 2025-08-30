@@ -33,7 +33,10 @@ MonoBehaviour:
       miniRAID.Core]], miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.UI.TargetRequester.BasicUnitRequester, miniRAID.Core
+  - TypeName: miniRAID.BaseMobDescriptorSO, miniRAID.Core
+    IsCustom: 0
+    Emit: 1
+  - TypeName: miniRAID.UI.TargetRequester.BasicUnitRequestValidator, miniRAID.Core
     IsCustom: 0
     Emit: 1
   - TypeName: System.Boolean, mscorlib
@@ -45,10 +48,13 @@ MonoBehaviour:
   - TypeName: miniRAID.Buff.BuffSO+BuffDHOTDef, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.UI.TargetRequester.ConfirmRequester, miniRAID.Core
+  - TypeName: miniRAID.UI.TargetRequester.ConfirmRequestValidator, miniRAID.Core
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.Consts+DamageHealFlags, miniRAID.Core
+    IsCustom: 0
+    Emit: 1
+  - TypeName: miniRAID.Consts+Direction, miniRAID.Core
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.Consts+Elements, miniRAID.Core
@@ -124,7 +130,7 @@ MonoBehaviour:
       miniRAID.Core]], miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.UI.TargetRequester.FourDirectionalRequester, miniRAID.Core
+  - TypeName: miniRAID.UI.TargetRequester.FourDirectionalRequestValidator, miniRAID.Core
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.Spells.FourDirectionalTarget, miniRAID.Core
@@ -138,6 +144,9 @@ MonoBehaviour:
       UnityEngine.CoreModule]], mscorlib
     IsCustom: 0
     Emit: 1
+  - TypeName: miniRAID.GridCollider, miniRAID.Core
+    IsCustom: 0
+    Emit: 1
   - TypeName: miniRAID.Buff.GridEffectSO, miniRAID.Core
     IsCustom: 0
     Emit: 1
@@ -145,6 +154,9 @@ MonoBehaviour:
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.GridShape, miniRAID.Core
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Guid, mscorlib
     IsCustom: 0
     Emit: 1
   - TypeName: System.Collections.Generic.HashSet`1[[UnityEngine.Vector3Int, UnityEngine.CoreModule]],
@@ -164,9 +176,6 @@ MonoBehaviour:
     Emit: 1
   - TypeName: System.Collections.Generic.IEqualityComparer`1[[UnityEngine.Vector3Int,
       UnityEngine.CoreModule]], mscorlib
-    IsCustom: 0
-    Emit: 1
-  - TypeName: miniRAID.IGridCollider, miniRAID.Core
     IsCustom: 0
     Emit: 1
   - TypeName: System.Int32, mscorlib
@@ -220,10 +229,10 @@ MonoBehaviour:
   - TypeName: miniRAID.MobListenerSO, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.MobRenderer, miniRAID.Core
+  - TypeName: miniRAID.UI.TargetRequester.MovementRequestValidator, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.UI.TargetRequester.MovementRequester, miniRAID.Core
+  - TypeName: miniRAID.MovementSO, miniRAID.Core
     IsCustom: 0
     Emit: 1
   - TypeName: miniRAID.MovementTarget, miniRAID.Core
@@ -300,23 +309,25 @@ MonoBehaviour:
   - TypeName: System.String, mscorlib
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.ActionHelpers.Summon`1[[miniRAID.MobRenderer, miniRAID.Core]],
-      miniRAID.Core
+  - TypeName: miniRAID.ActionHelpers.SummonMob, miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.UI.TargetRequester.TargetRequesterBase`1[[miniRAID.Spells.FourDirectionalTarget,
+  - TypeName: miniRAID.ActionHelpers.SummonUnitGroupType, miniRAID.Core
+    IsCustom: 0
+    Emit: 1
+  - TypeName: miniRAID.UI.TargetRequester.TargetRequestValidatorBase`1[[miniRAID.Spells.FourDirectionalTarget,
       miniRAID.Core]], miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.UI.TargetRequester.TargetRequesterBase`1[[miniRAID.MovementTarget,
+  - TypeName: miniRAID.UI.TargetRequester.TargetRequestValidatorBase`1[[miniRAID.MovementTarget,
       miniRAID.Core]], miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.UI.TargetRequester.TargetRequesterBase`1[[miniRAID.Spells.SingleCoordinateTarget,
+  - TypeName: miniRAID.UI.TargetRequester.TargetRequestValidatorBase`1[[miniRAID.Spells.SingleCoordinateTarget,
       miniRAID.Core]], miniRAID.Core
     IsCustom: 0
     Emit: 1
-  - TypeName: miniRAID.UI.TargetRequester.TargetRequesterBase`1[[miniRAID.Spells.SingleMobTarget,
+  - TypeName: miniRAID.UI.TargetRequester.TargetRequestValidatorBase`1[[miniRAID.Spells.SingleMobTarget,
       miniRAID.Core]], miniRAID.Core
     IsCustom: 0
     Emit: 1
@@ -410,6 +421,12 @@ MonoBehaviour:
       miniRAID.Core]], mscorlib
     IsCustom: 0
     Emit: 1
+  - TypeName: UnityEngine.Vector3, UnityEngine.CoreModule
+    IsCustom: 0
+    Emit: 1
   - TypeName: UnityEngine.Vector3Int, UnityEngine.CoreModule
+    IsCustom: 0
+    Emit: 1
+  - TypeName: miniRAID.YAxisEditMode, miniRAID.Core
     IsCustom: 0
     Emit: 1

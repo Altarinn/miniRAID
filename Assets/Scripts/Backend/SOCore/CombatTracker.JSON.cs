@@ -4,6 +4,7 @@ using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using UnityEngine;
 using Object = System.Object;
 
@@ -17,9 +18,9 @@ namespace miniRAID
             public List<MobEntry> mobs;
         }
         
-        private Dictionary<MobData, int> mobID;
-        private FullJSONData fullJSONData;
-        private List<CombatJSONEntry> currentTurnJSONdata;
+        [OdinSerialize] private Dictionary<MobData, int> mobID;
+        [OdinSerialize] private FullJSONData fullJSONData;
+        [OdinSerialize] private List<CombatJSONEntry> currentTurnJSONdata;
 
         public class TurnSummary
         {

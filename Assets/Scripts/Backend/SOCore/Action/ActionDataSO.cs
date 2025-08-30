@@ -156,6 +156,8 @@ namespace miniRAID
 
         public abstract RuntimeAction LeveledWrapAbstract(MobData source, int level);
 
+        public virtual void RecalculateStats(RuntimeAction ract, MobData mob) { }
+
         /// <summary>
         /// ract.RecalculateStats should be called before LazyPrepareTooltipVariables to get correct output.
         /// </summary>
@@ -335,6 +337,14 @@ namespace miniRAID
 
         public override MobListenerSO.ListenerType type => MobListenerSO.ListenerType.RuntimeAction;
 
+        [OdinSerialize] private bool isValid = true;
+
+        public bool Valid
+        {
+            get => isValid;
+            set => isValid = value;
+        }
+
         [NonSerialized]
         public List<(Cost, Cost)> costBounds = new();
         public int cooldownRemain;
@@ -456,6 +466,8 @@ namespace miniRAID
             // Then Mob.OnActionStatCalculation event will be triggered,
             // which may modify our power values etc.
             // After the event, we go to OnRecalculateStatsFinish().
+
+            data.RecalculateStats(this, mob);
         }
 
         public virtual void SetCoolDown(int cd)

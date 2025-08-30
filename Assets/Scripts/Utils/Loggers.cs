@@ -8,16 +8,23 @@ namespace miniRAID
     {
         public string debugLogPath;
 
-        public Logger(string path)
+        public Logger(string path, bool refresh = true)
         {
             this.debugLogPath = path;
-            
-            if(Application.isEditor)
-                File.WriteAllText(debugLogPath, $"- Start of debug log -\n[{DateTime.Now}] AWAKE\n");
-            
+
+            if (refresh)
+            {
+                if (Application.isEditor)
+                    File.WriteAllText(debugLogPath, $"- Start of debug log -\n[{DateTime.Now}] AWAKE\n");
+
 #if !UNITY_WEBGL
-            File.WriteAllText(debugLogPath, $"- Start of debug log -\n[{DateTime.Now}] AWAKE\n");
+                File.WriteAllText(debugLogPath, $"- Start of debug log -\n[{DateTime.Now}] AWAKE\n");
 #endif
+            }
+            else
+            {
+                File.AppendAllText(debugLogPath, $"- Restore of debug log -\n[{DateTime.Now}] CTOR\n");
+            }
         }
 
         public virtual void Log(string message)
@@ -37,7 +44,7 @@ namespace miniRAID
     
     public class LoggerWithUI : Logger
     {
-        public LoggerWithUI(string path) : base(path) { }
+        public LoggerWithUI(string path, bool refresh = true) : base(path, refresh) { }
 
         public override void Log(string message)
         {

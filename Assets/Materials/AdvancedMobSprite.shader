@@ -7,6 +7,7 @@ Shader "PixelArtURP/3DSprites"
         _BehindWallColor ("BehindWallColor", Color) = (1,1,1,1)
         _Scale ("Scale", Int) = 3
         _PixelSize ("PixelSize", Int) = 32
+        _SortingOrder ("Sorting Order", Float) = 0
     }
     
     HLSLINCLUDE
@@ -34,9 +35,12 @@ Shader "PixelArtURP/3DSprites"
         CBUFFER_START(UnityPerMaterial)
             half4 _Color, _BehindWallColor;
             int _Scale;
-            int _PixelSize, _PPU;
+            int _PixelSize;
+            float _SortingOrder;
             float4 _MainTex_ST;
         CBUFFER_END
+
+        static float sortingEps = 0.000030517578125f;
         
         Varyings SpriteVertex(Attributes v)
         {
@@ -46,7 +50,7 @@ Shader "PixelArtURP/3DSprites"
             
             // Get the world position of the sprite's origin (pivot point)
             float4 originCS = TransformObjectToHClip(float3(0, 0, 0));
-            
+
             // For constant screen size, we need to bypass perspective division
             // We keep the depth from the projected origin but use screen-space offsets
             // float2 osOffset = float2(UNITY_MATRIX_M[0].x * v.positionOS.x, UNITY_MATRIX_M[1].y * v.positionOS.y); 
@@ -55,9 +59,13 @@ Shader "PixelArtURP/3DSprites"
             
             // Apply screen-space offset while preserving depth
             float4 positionCS;
-            positionCS.xy = originCS.xy + screenOffset * originCS.w / _ScreenParams.xy;
+            positionCS.x = originCS.x + screenOffset.x * originCS.w / _ScreenParams.x;
+            positionCS.y = originCS.y + screenOffset.y * (-_ProjectionParams.x) * originCS.w / _ScreenParams.y;
             positionCS.z = originCS.z;
             positionCS.w = originCS.w;
+            
+            // Move sprites with higher sorting order a little bit front towards to the camera
+            positionCS.z -= _SortingOrder * _ProjectionParams.x * sortingEps * positionCS.w;
             
             o.positionCS = positionCS;
             o.uv = TRANSFORM_TEX(v.uv, _MainTex);

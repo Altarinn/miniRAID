@@ -7,7 +7,7 @@ namespace miniRAID.UIElements
     {
         private VisualElement masterElem;
 
-        public Label name, unitClass, level, weaponName, weaponDesc, defense, spDefense, dodge;
+        public Label name, unitClass, level, weaponName, subweaponName, weaponDesc, defense, spDefense, dodge;
         public Label currentHP, maxHP, currentMP, maxMP, currentAPInt, currentAPFract, maxAP;
         public Label VIT, STR, MAG, INT, TEC, AGI;
         public Label tempBuffList;
@@ -24,6 +24,7 @@ namespace miniRAID.UIElements
             unitClass = elem.Q<Label>("UnitClass");
             level = elem.Q<Label>("Level");
             weaponName = elem.Q<Label>("CurrentWeapon");
+            subweaponName = elem.Q<Label>("SubWeapon");
             weaponDesc = elem.Q<Label>("WeaponStats");
             defense = elem.Q<Label>("Defense");
             spDefense = elem.Q<Label>("MDefense");
@@ -68,6 +69,7 @@ namespace miniRAID.UIElements
             level.text = mob.level.ToString();
             
             weaponName.text = $"{mob.mainWeapon?.name} [E]";
+            subweaponName.text = $"{mob.subWeapon?.name ?? "-"}";
             weaponDesc.text = mob.mainWeapon?.GetInformationString();
 
             defense.text = $"{100 - Mathf.RoundToInt(Consts.GetDefenseRate((float)mob.defense.Value, mob.level) * 100)}%";

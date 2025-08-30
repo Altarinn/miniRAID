@@ -126,6 +126,7 @@ namespace miniRAID
             // Destroy all indicators
             DestroyRenderer();
             
+            Unregister();
             this.parentMob = null;
         }
 

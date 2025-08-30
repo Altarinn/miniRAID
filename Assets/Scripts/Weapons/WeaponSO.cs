@@ -130,7 +130,11 @@ namespace miniRAID.Weapon
 
         protected virtual void OnQueryActions(MobData mob, HashSet<RuntimeAction> actions)
         {
-            //actions.RemoveWhere(x => x.data == data.hiddenAttack);
+            // Remove regular attack if not mainWeapon
+            if (mob.mainWeapon != this)
+            {
+                actions.RemoveWhere(x => x == RregularAttack);
+            }
         }
 
         public virtual RuntimeAction GetRegularAttackSpell()

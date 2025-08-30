@@ -27,6 +27,11 @@ namespace miniRAID
                 }
             });
         }
+
+        public void RemoveState(BackendState state)
+        {
+            allStates.Remove(state);
+        }
         
         // Used for deserialization only
         static public void ReplaceSingleton(Databackend d)
@@ -46,6 +51,7 @@ namespace miniRAID
 
             // TODO: Properly restore map modifications from memory
             mapSystem = new MapSystem();
+            Globals.ui.Instance.circles.Clear();
 
             // Pass 1
             foreach (var mob in allMobs)
@@ -62,6 +68,8 @@ namespace miniRAID
                     mob.mobRenderer.data = mob;
                     mob.mobRenderer.Refresh();
                 }
+                
+                TryAddMobToPlayer(mob);
             }
             
             // Handle global events

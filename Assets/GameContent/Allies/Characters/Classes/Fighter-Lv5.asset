@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc19fe725427466a9739a8a53da196fb, type: 3}
-  m_Name: Fighter
+  m_Name: Fighter-Lv5
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,7 +21,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  Guid: b0dafeb80c27497d9220ae864eebe7a6
+  Guid: d3e2910f0b767ae4e83683128b7c18aa
   Id: 166
   icon: {fileID: 0}
   className: "\u6218\u58EB"
@@ -30,7 +30,7 @@ MonoBehaviour:
     STR: 0
     MAG: 0
     INT: 0
-    DEX: 0
+    AGI: 0
     TEC: 0
   baseGrowth:
     VIT:
@@ -87,7 +87,9 @@ MonoBehaviour:
       addedValue: 0
       addMultiplier: 0
       mulMultiplier: 0
-  classPassives: []
+  classPassives:
+  - data: {fileID: 11400000, guid: deb15644a1cbbc94dbe0ec6b4001f9da, type: 2}
+    level: 0
   classActions:
-  - data: {fileID: 11400000, guid: 999414e336476914a8db0763e6b82f3d, type: 2}
+  - data: {fileID: 11400000, guid: 3b1cc8245beb0be44a73b510ed656a67, type: 2}
     level: 0

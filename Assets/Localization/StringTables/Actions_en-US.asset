@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: en-US
   m_SharedData: {fileID: 11400000, guid: 6ebb20b243c324310be673530903a313, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 7611097214279484359
   m_TableData:
   - m_Id: 16990428192768
     m_Localized: Move
@@ -63,7 +64,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 18380403761152
-    m_Localized: Self buff
+    m_Localized: Gale's Blessing
     m_Metadata:
       m_Items: []
   - m_Id: 18704380190720
@@ -119,13 +120,551 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4972183967834112
-    m_Localized: 
+    m_Localized: When taking damage above X points, absorb Y points of damage and
+      consume 1 layer.
     m_Metadata:
       m_Items: []
   - m_Id: 31959654022586368
     m_Localized: Taunt
     m_Metadata:
       m_Items: []
+  - m_Id: 1511864809365504
+    m_Localized: Shots the target, dealing {HitPower} piercing dmg.
+    m_Metadata:
+      m_Items:
+      - rid: 7611097214279484359
+  - m_Id: 1511985810841600
+    m_Localized: Heals the target for {HitPower} HP.
+    m_Metadata:
+      m_Items:
+      - rid: 7611097214279484359
+  - m_Id: 1507765120475136
+    m_Localized: Heals the target {BuffPower} HP over 10 turns.
+    m_Metadata:
+      m_Items:
+      - rid: 7611097214279484359
+  - m_Id: 1508470430441472
+    m_Localized: "Channeling the bloom of life, heals all allies for {Power} HP.\t"
+    m_Metadata:
+      m_Items:
+      - rid: 7611097214279484359
+  - m_Id: 1545101661249536
+    m_Localized: 'Divine word: Hammer'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1510736172490752
+    m_Localized: 'Moves.
+
+      
+
+      If moves prior to any action done in this
+      turn, can move freely for 3 grids (Blue).
+
+      Otherwise, costs 1AP per
+      grid moved (Purple).'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1766790294740992
+    m_Localized: Acid pool
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1543671495860224
+    m_Localized: Blessing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1543356373606400
+    m_Localized: Oracle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1508771736657920
+    m_Localized: 'Shots and bleeds the target, dealing {HitPower} piercing dmg immediately,
+
+      then
+      deals {BuffPower} piercing dmg over 16 turns.'
+    m_Metadata:
+      m_Items:
+      - rid: 7611097214279484359
+  - m_Id: 1544205942464512
+    m_Localized: Pray
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1766149954543616
+    m_Localized: Explosion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1765719212105728
+    m_Localized: Slime poison
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1766546345631744
+    m_Localized: Death explosion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1766677744787456
+    m_Localized: Locked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1722873163620352
+    m_Localized: Split
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1452847101714432
+    m_Localized: 'Consumes a large amount of mana to bombard the target with starlight,
+      dealing {HitPower} Light damage.
+
+      Target gains one stack of Stellar
+      Beacon.
+
+      
+
+      Stellar Beacon:
+
+      Effect lasts 6 turns (stackable;
+      duration refreshes when stacked)
+
+      When Starlight Pulse hits affected
+      targets, each stack of Stellar Beacon deals an additional {BuffPower} Light
+      damage.
+
+      This damage has reduced accuracy.
+
+      
+
+      <color=#aa7>A
+      giant falcon woven from stars crosses the galaxy.</color>'
+    m_Metadata:
+      m_Items:
+      - rid: 7611097214279484359
+  - m_Id: 1844898196692992
+    m_Localized: Stellar cycle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1844997060632576
+    m_Localized: Stellar Beacon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1845298920497152
+    m_Localized: Bleeding
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1990363156389888
+    m_Localized: Mana
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1990624125984768
+    m_Localized: Shooting star
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1990718720122880
+    m_Localized: Attacker
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32005628472401920
+    m_Localized: For 8 turns, all your actions cost 1 less AP (but cannot be reduced
+      below 1).
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1988413887160320
+    m_Localized: 'Charges power for the next devastating strike.
+
+      End turn,
+      and at the start of the next {ChargeTime} turn, deal {HitPower} slashing damage
+      to each enemy in range.
+
+      
+
+      AP regeneration is reduced by {APRegenDecrease}
+      on the attack turn.
+
+      The attack counts as an action, so no free movement
+      on that turn.'
+    m_Metadata:
+      m_Items:
+      - rid: 7611097214279484359
+  - m_Id: 1543040982917120
+    m_Localized: Oracle Cost
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1990775527776256
+    m_Localized: Defender
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1990844612157440
+    m_Localized: Power Aura
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2146844975636480
+    m_Localized: Stone Shield
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2147055982682112
+    m_Localized: 'Divine Word: Shield'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2315195844730880
+    m_Localized: Cavalry Charge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2319153438990336
+    m_Localized: 'Prayer: Battlefield Blessing'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2339517288669184
+    m_Localized: Mana Shield
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2348440951447552
+    m_Localized: Bubble Shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2350024829689856
+    m_Localized: Bubble Shield
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2351751704338432
+    m_Localized: Song of Life
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2388361368035328
+    m_Localized: Comet Shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2389927340793856
+    m_Localized: '[Resonance]: For the next 2 turns, you cannot use this staff.
+
+      
+
+      Deals
+      {HitPower} frost damage to the target.'
+    m_Metadata:
+      m_Items:
+      - rid: 7611097214279484359
+  - m_Id: 2390249345900544
+    m_Localized: Giant Comet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2566351288786944
+    m_Localized: Blink
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2673815069908992
+    m_Localized: Traveler
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2869994433011712
+    m_Localized: Mana Transfer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2883997322436608
+    m_Localized: Defensive Charge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2892666319659008
+    m_Localized: Revive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3701056310157312
+    m_Localized: Can use aimed attacks before moving each turn.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3701140032659456
+    m_Localized: Instruments provide additional passive effects.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3701276121047040
+    m_Localized: Aimed Shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3706765722591232
+    m_Localized: Charged Attack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3706771665920000
+    m_Localized: Special Effect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3706824799363072
+    m_Localized: Special Attack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3706860467724288
+    m_Localized: Defense
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3706886329802752
+    m_Localized: Resonance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3724387210043392
+    m_Localized: Prioritizes using mana to absorb damage (100%).
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3724628650958848
+    m_Localized: Attack the target, dealing {HitPower} bludgeoning damage.
+    m_Metadata:
+      m_Items:
+      - rid: 7611097214279484359
+  - m_Id: 4970248111988736
+    m_Localized: While charging, damage taken is reduced.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4970409211011072
+    m_Localized: Mount your warhorse and move quickly.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4971261321617408
+    m_Localized: Enter the oracle space to pray and gain blessing light.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4971369039732736
+    m_Localized: Gain 1 blessing light.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4972006393585664
+    m_Localized: Gain 3 layers of Stone Shield to protect you from damage.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31959792682082304
+    m_Localized: Forces the target to attack you.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32001152231481344
+    m_Localized: Teleport to target location.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32002359117291520
+    m_Localized: 'Releases a magic bubble attack on the target, dealing {HitPower}
+      water damage.
+
+      The bubble bursts at the target location, applying protection
+      to nearby allies, stackable up to 3 times.'
+    m_Metadata:
+      m_Items:
+      - rid: 7611097214279484359
+  - m_Id: 32004148151525376
+    m_Localized: Constitution increased.
+    m_Metadata:
+      m_Items:
+      - rid: 7611097214279484359
+  - m_Id: 32004177973026816
+    m_Localized: Emergency Treatment
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32004332742844416
+    m_Localized: Restores health over 10 turns.
+    m_Metadata:
+      m_Items:
+      - rid: 7611097214279484359
+  - m_Id: 39784348935467008
+    m_Localized: Poison that becomes more deadly with each stack.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41442703185752064
+    m_Localized: Healer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64257140087009280
+    m_Localized: Off-hand Attack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64257211847356416
+    m_Localized: Attack the target with your off-hand weapon, dealing moderate damage.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64262195641004032
+    m_Localized: Slash
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64262258052247552
+    m_Localized: Attack the target, dealing {HitPower} slashing damage.
+    m_Metadata:
+      m_Items:
+      - rid: 7611097214279484359
+  - m_Id: 118412717457399808
+    m_Localized: Dash Attack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118412870381723648
+    m_Localized: Slam
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118413151257485312
+    m_Localized: Corrosive Breath
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118413235340697600
+    m_Localized: Corrosive Breath
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118413491876913152
+    m_Localized: 'Agility reduced by 1.
+
+      Damage taken from Corrosive Breath
+      increased by 100% (per stack).'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32004739426754560
+    m_Localized: 'Deals {HitPower} bludgeoning damage.
+
+      This attack generates
+      increased aggro.'
+    m_Metadata:
+      m_Items:
+      - rid: 7611097214279484359
+  - m_Id: 32004932385710080
+    m_Localized: 'After any ally deals direct damage, you follow up with an additional
+      {Power} water damage.
+
+      Lasts 3 cycles.'
+    m_Metadata:
+      m_Items:
+      - rid: 7611097214279484359
+  - m_Id: 32005358346641408
+    m_Localized: Direct damage deals additional water damage.
+    m_Metadata:
+      m_Items:
+      - rid: 7611097214279484359
+  - m_Id: 32005459701997568
+    m_Localized: Deals {Power} bludgeoning damage to all targets within 3 grids.
+    m_Metadata:
+      m_Items:
+      - rid: 7611097214279484359
+  - m_Id: 32006055003758592
+    m_Localized: 10% chance when dealing direct damage to call a falling star, dealing
+      additional bludgeoning damage to the target.
+    m_Metadata:
+      m_Items:
+      - rid: 7611097214279484359
+  - m_Id: 32006324596842496
+    m_Localized: Restore health for each grid moved.
+    m_Metadata:
+      m_Items:
+      - rid: 7611097214279484359
+  - m_Id: 32006559108767744
+    m_Localized: Increases healing power of allies within 5 grids.
+    m_Metadata:
+      m_Items:
+      - rid: 7611097214279484359
+  - m_Id: 4970555986485248
+    m_Localized: 'Calls down divine hammer on distant enemies, dealing {HitPower}
+      light damage.
+
+      This attack generates increased aggro.'
+    m_Metadata:
+      m_Items:
+      - rid: 7611097214279484359
+  - m_Id: 32002718481063936
+    m_Localized: 'Heals target for {Power} HP.
+
+      Then healing jumps to allies
+      within 4 grids.
+
+      Jumps 2 times total, reducing healing by 30% per jump.'
+    m_Metadata:
+      m_Items:
+      - rid: 7611097214279484359
+  - m_Id: 32003737873096704
+    m_Localized: '[Resonance]: For the next 2 turns, you cannot use this staff.
+
+      
+
+      Instantly
+      heals target for {HitPower} HP,
+
+      increases target''s constitution by
+      {BuffPower} for 8 turns.'
+    m_Metadata:
+      m_Items:
+      - rid: 7611097214279484359
+  - m_Id: 3701115437260800
+    m_Localized: Specify direction and charge up,\nlaunching the attack at the start
+      of the next turn.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3701164888104960
+    m_Localized: Normal attacks build up energy,\nuse 4 energy points for special
+      attacks.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3701227492286464
+    m_Localized: 'Can perform defense,
+
+      but will end the current turn.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3701253471805440
+    m_Localized: 'For 2 turns after casting resonance,
+
+      one cannot use this
+      staff''s active abilities.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4969904137117696
+    m_Localized: 'Charge up and perform prayer.
+
+      (Requires heavy weapon to
+      be available)'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4970898682093568
+    m_Localized: 'Power increased.
+
+      Can consume blessing light to perform special
+      actions.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32001234314010624
+    m_Localized: Restores mana to target (equal to 50% of this skill's mana cost).
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32001572077117440
+    m_Localized: Restores mana when performing basic attacks.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32001782773784576
+    m_Localized: Damage taken reduced by 3% (per stack).
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32005882231988224
+    m_Localized: All actions cost 1 less AP (but cannot be reduced below 1).
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32007304805687296
+    m_Localized: Increases power of allies within 7 grids.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 277985766224683008
+    m_Localized: Fighting Streak
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 7611097214279484359
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 
+        m_SharedEntries:
+        - id: 1452847101714432
+        - id: 1511864809365504
+        - id: 1511985810841600
+        - id: 1507765120475136
+        - id: 1508470430441472
+        - id: 1508771736657920
+        - id: 1988413887160320
+        - id: 32004148151525376
+        - id: 32004332742844416
+        - id: 32004739426754560
+        - id: 32004932385710080
+        - id: 32005358346641408
+        - id: 32005459701997568
+        - id: 32006055003758592
+        - id: 32006324596842496
+        - id: 32006559108767744
+        - id: 64262258052247552
+        - id: 2389927340793856
+        - id: 3724628650958848
+        - id: 4970555986485248
+        - id: 32002359117291520
+        - id: 32002718481063936
+        - id: 32003737873096704

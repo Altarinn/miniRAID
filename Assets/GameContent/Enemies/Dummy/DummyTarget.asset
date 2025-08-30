@@ -24,6 +24,27 @@ MonoBehaviour:
     - Name: gridBody
       Entry: 7
       Data: 0|miniRAID.PointCollider, miniRAID.Core
+    - Name: _position
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _direction
+      Entry: 3
+      Data: 0
+    - Name: guid
+      Entry: 2
+      Data: 00000000000000000000000000000000
     - Name: shape
       Entry: 7
       Data: 1|miniRAID.GridShape, miniRAID.Core
@@ -33,88 +54,13 @@ MonoBehaviour:
         System.Core
     - Name: 
       Entry: 12
-      Data: 6
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: -1
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
       Data: 1
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: -1
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
       Entry: 7
       Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
       Data: 0
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 1
     - Name: 
       Entry: 3
       Data: 0
@@ -133,6 +79,18 @@ MonoBehaviour:
     - Name: canvasSize
       Entry: 3
       Data: 2
+    - Name: editorMode
+      Entry: 3
+      Data: 0
+    - Name: editorMinY
+      Entry: 3
+      Data: 0
+    - Name: editorMaxY
+      Entry: 3
+      Data: 0
+    - Name: editorCurrentLevel
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -169,7 +127,7 @@ MonoBehaviour:
   color: {r: 0, g: 0, b: 0, a: 0}
   level: 10
   rendererPrefab: {fileID: 0}
-  movement: {fileID: 11400000, guid: c917e07e12994f44e85a9c8c5e79c31a, type: 2}
+  movement: {fileID: 0}
   movable: 1
   moveRange: 3
   mainWeaponSO: {fileID: 11400000, guid: 4987ed499923f44c0a29d489d03fda52, type: 2}
@@ -179,4 +137,4 @@ MonoBehaviour:
   actionSOs:
   - data: {fileID: 11400000, guid: 791a3aa3ab30542429f279b0b754b510, type: 2}
     level: 0
-  rootAgent: {fileID: 11400000, guid: 3c4f2815d9074bf448db29e544439efc, type: 2}
+  rootAgent: {fileID: 0}

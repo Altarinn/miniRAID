@@ -51,6 +51,7 @@ namespace miniRAID
 
         // Emitted when the mob has its active state turned from "slept / 待机" to "awake / 可行动", after resetted all related parameters.
         public MobEvent<MobDataCoroutineDelegate> OnWakeup = new();
+        public MobEvent<MobDataCoroutineDelegate> OnPassed = new();
 
         // Used for agents, after the regular wakeup process
         public MobEvent<MobDataCoroutineDelegate> OnAgentWakeUp = new();

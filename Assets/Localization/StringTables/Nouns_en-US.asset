@@ -22,6 +22,41 @@ MonoBehaviour:
     m_Localized: Iron Sword
     m_Metadata:
       m_Items: []
+  - m_Id: 51563716608
+    m_Localized: Nightveil
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6476897705984
+    m_Localized: Shell Harp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27976463802368
+    m_Localized: Leaping Light
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49524532830208
+    m_Localized: Comet Staff
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49711770755072
+    m_Localized: Battlefield Staff
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1364890709729280
+    m_Localized: A wand with cosmic powers.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1384193051926528
+    m_Localized: 'White Celestial raised the Nightveil to shield against the scorching
+      sun,
+
+      protecting the forest amidst the endless dragon''s breath.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 275639661122019328
+    m_Localized: Round Shield
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

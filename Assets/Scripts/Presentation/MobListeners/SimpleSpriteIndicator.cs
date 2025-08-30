@@ -11,8 +11,8 @@ namespace miniRAID
                 .AddComponent<SimpleSpriteIndicator>();
             if (sprite != null)
             {
-                s.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
-                s.GetComponentInChildren<SpriteRenderer>().sortingOrder = sortOrder;
+                s.GetComponentInChildren<BillboardSpriteRenderer>().Sprite = sprite;
+                s.GetComponentInChildren<BillboardSpriteRenderer>().SortingOrder = sortOrder;
             }
 
             return s;

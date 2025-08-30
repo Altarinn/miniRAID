@@ -2,7 +2,8 @@
     "name": "miniRAID.GameContent",
     "rootNamespace": "",
     "references": [
-        "GUID:fd21e316f1551c34a9893dc901776446"
+        "GUID:fd21e316f1551c34a9893dc901776446",
+        "GUID:c3514680f5eb93a429827149138c560a"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

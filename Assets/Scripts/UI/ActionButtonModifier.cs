@@ -34,7 +34,7 @@ namespace miniRAID.UI
             string name = nameOverride;
             if (name == null) { name = action.data.ActionName; }
 
-            if (source.data.CheckCalculatedActionCostBounds(action))
+            if (source.data.CheckIsActionPerformable(action))
             {
                 mainText.text = name;
                 button.interactable = true;

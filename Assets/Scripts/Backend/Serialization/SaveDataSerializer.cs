@@ -18,6 +18,7 @@ namespace miniRAID
         {
             public Databackend backend;
             public CombatSchedulerCoroutine.SerializableInfo scheduler;
+            public CombatTracker tracker;
             public RNG rng;
         }
         
@@ -33,6 +34,7 @@ namespace miniRAID
             {
                 backend = Globals.backend,
                 scheduler = Globals.combatMgr.Instance.PrepareSerializationInfo(),
+                tracker = Globals.combatTracker,
                 rng = Globals.cc.rng
             };
             
@@ -57,6 +59,8 @@ namespace miniRAID
             yield return new JumpIn(roundtrip.backend.Initialize());
             
             Globals.combatMgr.Instance.RestoreFromSerialization(roundtrip.scheduler);
+            roundtrip.tracker.RestoreFromSerialization();
+            Globals.combatTracker = roundtrip.tracker;
             Databackend.ReplaceSingleton(roundtrip.backend);
             // Globals.backend.RestoreFromDeserialization();
             

@@ -202,14 +202,6 @@ namespace miniRAID
         [SerializeField]
         private MobRootAgentBase rootAgent;
 
-        public MobData lastTurnTarget
-        {
-            get => _lastTurnTarget;
-            set { _lastTurnTarget = value; Globals.ui.Instance.circles.UpdateAllCircles(); }
-        }
-        [SerializeField]
-        private MobData _lastTurnTarget = null;
-
         [HideInInspector]
         public MobRenderer mobRenderer => (MobRenderer)renderer;
 
@@ -388,8 +380,8 @@ namespace miniRAID
                 .FindAll(l => l == listener)
                 .ForEach(l =>
                 {
-                    l.OnRemove(this);
                     l.OnExitScene(this);
+                    l.OnRemove(this);
                 });
             listeners.RemoveAll(l => l == listener);
         }
@@ -449,6 +441,7 @@ namespace miniRAID
             }
             else
             {
+                yield return new JumpIn(OnPassed?.InvokeCoroutine(this));
                 SetInactiveImmediately();
             }
             

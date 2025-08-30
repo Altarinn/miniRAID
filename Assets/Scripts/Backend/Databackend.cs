@@ -769,6 +769,8 @@ namespace miniRAID
             {
                 (state as IRenderableState)?.UpdateRenderer();
             }
+            
+            Globals.ui.Instance.OnGlobalActionPostcast(mob, action, target);
         }
 
         private void AddMob(MobData mob)
@@ -777,6 +779,20 @@ namespace miniRAID
             mob.AddedToWorld(this);
             mob.OnActionPostcast.AddListener(GlobalActionPostcast);
             onMobAdded?.InvokeInstant(mob);
+            
+            TryAddMobToPlayer(mob);
+        }
+
+        private void TryAddMobToPlayer(MobData mob)
+        {
+            // Register to indicator circle
+            // TODO: Remove me as I am for early dev versions only
+            if (mob.unitGroup == Consts.UnitGroup.Player &&
+                char.IsDigit(mob.nickname[0]))
+            {
+                int n = mob.nickname[0] - '0'; 
+                Globals.ui.Instance.circles.RegisterPlayer(n - 1, mob); 
+            }
         }
 
         private void RemoveMob(MobData mob)
@@ -963,12 +979,6 @@ namespace miniRAID
 
             return Consts.Direction.Up;
         }
-
-        public void RecordDamageHeal(Consts.DamageHeal_Result result)
-            => Globals.combatTracker.Record(result);
-
-        public void RecordBuff(Consts.BuffEvents result)
-            => Globals.combatTracker.Record(result);
 
         public IEnumerator DealDmgHeal(MobData target, Consts.DamageHeal_FrontEndInput input)
         {

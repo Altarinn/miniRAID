@@ -1,0 +1,186 @@
+Key,Id,Chinese (Simplified)(zh-CN),English (United States)(en-US)
+"arrowshot.name",17320603803648,"射击","Shot"
+"arrowshot.tooltip",1511864809365504,"对目标造成{HitPower}点突刺伤害。","Shots the target, dealing {HitPower} piercing dmg."
+"basicheal.name",476246885081088,"治疗术","Basic heal"
+"basicheal.tooltip",1511985810841600,"为目标恢复{HitPower}点生命值。","Heals the target for {HitPower} HP."
+"chainheal.name",472736906944512,"治疗链","Chain heal"
+"chargedslash.name",854520786132992,"蓄力斩","Charged Slash"
+"defenseaction.name",17521674543104,"防御","Defense"
+"emergencyheal.name",17434508517376,"应急治疗","First aid"
+"growthaction.name",17601206935552,"栽培","Growth"
+"growthaction.tooltip",1507765120475136,"在10回合内为目标恢复{BuffPower}点生命值。","Heals the target {BuffPower} HP over 10 turns."
+"healingbloom.name",17740373942272,"绽放","Bloom"
+"healingbloom.tooltip",1508470430441472,"引导生命洪流的绽放，为所有同伴恢复{Power}点生命值。","Channeling the bloom of life, heals all allies for {Power} HP.	"
+"paladin.judgementhammer.name",1545101661249536,"圣祝：裁决重锤","Divine word: Hammer"
+"move.name",16990428192768,"移动","Move"
+"move.tooltip",1510736172490752,"进行移动。
+
+在执行行动前，可以无消耗地移动3格（蓝色格子）。
+除此之外的所有场合，移动1格需要消耗1AP（紫色格子）。","Moves.
+
+If moves prior to any action done in this turn, can move freely for 3 grids (Blue).
+Otherwise, costs 1AP per grid moved (Purple)."
+"slimeking.groundfx.name",1766790294740992,"剧毒酸池","Acid pool"
+"oraclebless.name",1543671495860224,"祝福之光","Blessing"
+"oraclecost.name",1543040982917120,"Oracle Cost","Oracle Cost"
+"oraclecosts.name",1543356373606400,"聆听神谕","Oracle"
+"poisonshot.name",17818627072000,"疾飞之箭","Poison shot"
+"poisonshot.tooltip",1508771736657920,"射击目标使其出血，对其造成{HitPower}点突刺伤害，
+并在16回合内额外造成{BuffPower}点突刺伤害。","Shots and bleeds the target, dealing {HitPower} piercing dmg immediately,
+then deals {BuffPower} piercing dmg over 16 turns."
+"paladin.pray.name",1544205942464512,"祈祷","Pray"
+"punch.name",17977729605632,"拳","Punch"
+"seawhip.name",18078019608576,"海神之鞭","Team buff"
+"shieldbash.name",18215387258880,"攻击","Shield bash"
+"slimejump.name",18984651972608,"史莱姆跳跃","Slime jump"
+"slimeking.explosion.name",18786383028224,"史莱姆爆炸","Slime explosion"
+"slimeking.explosionpassive.name",1766149954543616,"爆裂","Explosion"
+"slimeking.maindot.name",1765719212105728,"史莱姆毒素","Slime poison"
+"slimeking.rattack.name",18897041350656,"史莱姆攻击","Slime attack"
+"slimeking.smallslimecure.name",19291981209600,"小史莱姆治愈","Small slime cure"
+"slimeking.smallslimeexplosion.name",19383484145664,"小史莱姆爆炸","Small slime explosion"
+"slimeking.smallslimeexplosionpassive.name",1766546345631744,"死亡爆裂","Death explosion"
+"slimeking.smallslimelock.name",19184619610112,"小史莱姆标记","Small slimes lock-on"
+"slimeking.smallslimelocked.name",1766677744787456,"锁定","Locked"
+"slimeking.smallslimes.name",19499897053184,"小史莱姆投掷","Small slimes"
+"slimeking.wave.name",18704380190720,"粘液翻腾","Slime wave"
+"slimesplit.name",1722873163620352,"分裂","Split"
+"soundboom.name",18280524800000,"响音攻击","Sound boom"
+"splashpoison.name",19046752837632,"飞溅毒液","Splashing acid"
+"starlightpulse.name",238622337474560,"星光超流","Starlight Pulse"
+"starlightpulse.tooltip",1452847101714432,"消耗大量法力值用星光轰击目标，造成{HitPower}点光属性伤害。
+目标获得一层 繁星道标。
+
+繁星道标：
+效果持续6回合（可叠加；叠加时刷新持续时间）
+星光超流命中受影响的目标时，每层繁星道标都会额外造成{BuffPower}点光属性伤害。
+这次伤害的命中较低。
+
+<color=#aa7>繁星编织出的巨隼跨越了银河。</color>","Consumes a large amount of mana to bombard the target with starlight, dealing {HitPower} Light damage.
+Target gains one stack of Stellar Beacon.
+
+Stellar Beacon:
+Effect lasts 6 turns (stackable; duration refreshes when stacked)
+When Starlight Pulse hits affected targets, each stack of Stellar Beacon deals an additional {BuffPower} Light damage.
+This damage has reduced accuracy.
+
+<color=#aa7>A giant falcon woven from stars crosses the galaxy.</color>"
+"windbuffaction.name",18380403761152,"狂风加护","Gale's Blessing"
+"astro.starenergy.name",1844898196692992,"星能转化","Stellar cycle"
+"astro.starlightbuff.name",1844997060632576,"繁星道标","Stellar Beacon"
+"bleeding.name",1845298920497152,"出血","Bleeding"
+"chargedslash.tooltip",1988413887160320,"为接下来的全力一击积蓄力量。
+结束回合，并在下{ChargeTime}回合开始时对范围内的每个敌人
+造成{HitPower}点斩击伤害。
+
+攻击回合的AP回复减少{APRegenDecrease}点。
+攻击算作行动，所以当回合将不能进行免费移动。","Charges power for the next devastating strike.
+End turn, and at the start of the next {ChargeTime} turn, deal {HitPower} slashing damage to each enemy in range.
+
+AP regeneration is reduced by {APRegenDecrease} on the attack turn.
+The attack counts as an action, so no free movement on that turn."
+"mana.name",1990363156389888,"魔力源","Mana"
+"fallenstar.name",1990624125984768,"流星","Shooting star"
+"attacker.name",1990718720122880,"攻击者","Attacker"
+"defender.name",1990775527776256,"防卫者","Defender"
+"testaura.name",1990844612157440,"力量光环","Power Aura"
+"paladin.sturdyshield.name",2146844975636480,"巨石坚盾","Stone Shield"
+"paladin.sturdyshieldaction.name",2147055982682112,"圣祝：巨石坚盾","Divine Word: Stone Shield"
+"paladin.horsedash.name",2315195844730880,"奔袭","Cavalry Charge"
+"paladin.battlefieldpray.name",2319153438990336,"祈祷：战地祷告","Prayer: Battlefield Blessing"
+"manashield.name",2339517288669184,"法力护盾","Mana Shield"
+"bubbleshot.name",2348440951447552,"水泡","Bubble Shot"
+"bubbleshield.name",2350024829689856,"水泡护盾","Bubble Shield"
+"shellharpaura.name",2351751704338432,"生命之歌","Song of Life"
+"cometshot.name",2388361368035328,"彗星箭","Comet Shot"
+"cometshot.tooltip",2389927340793856,"[共鸣]：接下来的2回合内，你无法使用这根法杖。
+
+对目标造成{HitPower}点冰霜伤害。","[Resonance]: For the next 2 turns, you cannot use this staff.
+
+Deals {HitPower} frost damage to the target."
+"giantcomet.name",2390249345900544,"大彗星箭","Giant Comet"
+"astrologer.blink.name",2566351288786944,"闪光","Blink"
+"traveler.name",2673815069908992,"旅者","Traveler"
+"astrologer.manatransfer.name",2869994433011712,"法力传递","Mana Transfer"
+"paladin.defensivecharge.name",2883997322436608,"防御蓄能","Defensive Charge"
+"revive.name",2892666319659008,"复活","Revive"
+"weapon.bow.tooltip",3701056310157312,"每回合移动前可以使用瞄准攻击。","Can use aimed attacks before moving each turn."
+"weapon.heavyweapon.tooltip",3701115437260800,"指定方向并蓄力，
+在下一回合开始时发动攻击。","Specify direction and charge up,\nlaunching the attack at the start of the next turn."
+"weapon.instrument.tooltip",3701140032659456,"乐器提供额外的被动效果。","Instruments provide additional passive effects."
+"weapon.mystitem.tooltip",3701164888104960,"普通攻击积攒能量，
+使用4点能量进行特殊攻击。","Normal attacks build up energy,\nuse 4 energy points for special attacks."
+"weapon.shield.tooltip",3701227492286464,"可以进行防御，
+但会结束当前回合。","Can perform defense,\nbut will end the current turn."
+"weapon.staff.tooltip",3701253471805440,"施放共鸣后的2回合内，
+无法使用该法杖的主动技能。","For 2 turns after casting resonance,\ncannot use this staff's active abilities."
+"weapon.bow.specialname",3701276121047040,"瞄准攻击","Aimed Shot"
+"weapon.heavyweapon.specialname",3706765722591232,"蓄力攻击","Charged Attack"
+"weapon.instrument.specialname",3706771665920000,"特殊效果","Special Effect"
+"weapon.mystitem.specialname",3706824799363072,"特殊攻击","Special Attack"
+"weapon.shield.specialname",3706860467724288,"防御","Defense"
+"weapon.staff.specialname",3706886329802752,"共鸣","Resonance"
+"manashield.tooltip",3724387210043392,"优先使用法力值承受伤害（100%）。","Prioritizes using mana to absorb damage (100%)."
+"shieldbash.tooltip",3724628650958848,"攻击目标，造成{HitPower}点打击伤害。","Attack the target, dealing {HitPower} bludgeoning damage."
+"paladin.battlefieldpray.tooltip",4969904137117696,"蓄力并进行祈祷。
+（需要重武器可用）","Charge up and perform prayer.\n(Requires heavy weapon to be available)"
+"paladin.defensivecharge.tooltip",4970248111988736,"蓄力时，你受到的伤害减少。","While charging, damage taken is reduced."
+"paladin.horsedash.tooltip",4970409211011072,"骑上战马，快速移动","Mount your warhorse and move quickly."
+"paladin.judgementhammer.tooltip",4970555986485248,"向远处的敌人降下神锤，造成{HitPower}点光属性伤害。
+本次攻击产生的仇恨值提高。","Calls down divine hammer on distant enemies, dealing {HitPower} light damage.\nThis attack generates increased threat."
+"paladin.oraclebless.tooltip",4970898682093568,"力量提高。
+可以消耗祝福之光进行特殊行动。","Power increased.\nCan consume blessing light to perform special actions."
+"paladin.oraclecosts.tooltip",4971261321617408,"进入神谕格祈祷以获得祝福之光。","Enter the oracle space to pray and gain blessing light."
+"paladin.pray.tooltip",4971369039732736,"获得1祝福之光。","Gain 1 blessing light."
+"paladin.sturdyshieldaction.tooltip",4972006393585664,"获得3层巨石坚盾，为你抵挡伤害。","Gain 3 layers of Stone Shield to protect you from damage."
+"paladin.sturdyshield.tooltip",4972183967834112,"受到高于X点的伤害时，吸收Y点伤害并消耗1层效果。","When taking damage above X points, absorb Y points of damage and consume 1 layer."
+"taunt.name",31959654022586368,"嘲讽","Taunt"
+"taunt.tooltip",31959792682082304,"迫使目标攻击你。","Forces the target to attack you."
+"astrologer.blink.tooltip",32001152231481344,"传送到目标地点。","Teleport to target location."
+"astrologer.manatransfer.tooltip",32001234314010624,"为目标回复法力（等同于此技能法力消耗的50%）。","Restores mana to target (equal to 50% of this skill's mana cost)."
+"astro.starenergy.tooltip",32001572077117440,"进行普通攻击时，回复法力值。","Restores mana when performing basic attacks."
+"bubbleshield.tooltip",32001782773784576,"所受伤害减少3%（每层）。","Damage taken reduced by 3% (per stack)."
+"bubleshot.tooltip",32002359117291520,"释放魔力水泡攻击目标，造成{HitPower}点水流伤害。
+水泡将在目标位置破裂，为周围同伴施加保护，可叠加3次。","Releases a magic bubble attack on the target, dealing {HitPower} water damage.\nThe bubble bursts at the target location, applying protection to nearby allies, stackable up to 3 times."
+"chainheal.tooltip",32002718481063936,"治疗目标{Power}点生命。
+之后，治疗会跳向4格内的同伴。
+共跳跃2次，每跳减少30%的治疗量。","Heals target for {Power} HP.
+Then healing jumps to allies within 4 grids.
+Jumps 2 times total, reducing healing by 30% per jump."
+"emergencyheal.tooltip",32003737873096704,"[共鸣]：接下来的2回合内，你无法使用这根法杖。
+
+立刻为目标恢复{HitPower}点生命值，
+令目标的体格提高{BuffPower}点，持续8回合。","[Resonance]: For the next 2 turns, you cannot use this staff.
+
+Instantly heals target for {HitPower} HP,
+increases target's constitution by {BuffPower} for 8 turns."
+"emergencyheal.buff.tooltip",32004148151525376,"体格提高。","Constitution increased."
+"emergencyheal.buff.name",32004177973026816,"应急处置","Emergency Treatment"
+"growth.tooltip",32004332742844416,"在10回合内回复生命值。","Restores health over 10 turns."
+"punch.tooltip",32004739426754560,"造成{HitPower}点打击伤害。
+本次攻击造成的仇恨值提高。","Deals {HitPower} bludgeoning damage.
+This attack generates increased threat."
+"seawhip.tooltip",32004932385710080,"任何同伴造成直接伤害后，你将进行追击，额外造成{Power}点水流伤害。
+持续3周期。","After any ally deals direct damage, you follow up with an additional {Power} water damage.
+Lasts 3 cycles."
+"seawhip.buff.tooltip",32005358346641408,"直接伤害额外造成水流伤害。","Direct damage deals additional water damage."
+"soundboom.tooltip",32005459701997568,"对3格内所有目标造成{Power}点打击伤害。","Deals {Power} bludgeoning damage to all targets within 3 grids."
+"windbuffaction.tooltip",32005628472401920,"8回合内，你所有行动的AP消耗减少1（但不会减至低于1）。","For 8 turns, all your actions cost 1 less AP (but cannot be reduced below 1)."
+"windbuff.tooltip",32005882231988224,"所有行动的AP消耗减少1（但不会减至低于1）。","All actions cost 1 less AP (but cannot be reduced below 1)."
+"fallenstar.tooltip",32006055003758592,"造成直接伤害时，有10%的几率呼唤流星，额外对目标造成打击伤害。","10% chance when dealing direct damage to call a falling star, dealing additional bludgeoning damage to the target."
+"traveler.tooltip",32006324596842496,"每移动1格，你回复生命值。","Restore health for each grid moved."
+"shellharpaura.tooltip",32006559108767744,"5格内同伴的治疗强度提升。","Increases healing power of allies within 5 grids."
+"testaura.tooltip",32007304805687296,"7格内同伴的力量提高。","Increases power of allies within 7 grids."
+"slimeking.maindot.tooltip",39784348935467008,"每次叠加都会更加致命的毒素","Poison that becomes more deadly with each stack."
+"healer.name",41442703185752064,"治疗者","Healer"
+"fighter.offhandattack.name",64257140087009280,"副手攻击","Off-hand Attack"
+"fighter.offhandattack.tooltip",64257211847356416,"使用副手武器攻击目标，造成一定伤害","Attack the target with your off-hand weapon, dealing moderate damage."
+"slash.name",64262195641004032,"斩击","Slash"
+"slash.tooltip",64262258052247552,"攻击目标，造成{HitPower}点斩击伤害。","Attack the target, dealing {HitPower} slashing damage."
+"slimeking.dashattack",118412717457399808,"突进","Dash Attack"
+"slimeking.splash",118412870381723648,"下砸","Slam"
+"slimeking.breath",118413151257485312,"腐蚀吐息","Corrosive Breath"
+"slimeking.breathbuff",118413235340697600,"腐蚀吐息","Corrosive Breath"
+"slimeking.breathbuff.tooltip",118413491876913152,"敏捷降低1，
+从腐蚀吐息受到的伤害提高100%（每层）。","Agility reduced by 1.
+Damage taken from Corrosive Breath increased by 100% (per stack)."

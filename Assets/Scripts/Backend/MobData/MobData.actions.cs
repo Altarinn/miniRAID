@@ -292,9 +292,9 @@ namespace miniRAID
             yield return new JumpIn(DoAction(raction, target, cost));
         }
         
-        internal bool CheckCalculatedActionCostBounds(RuntimeAction action)
+        internal bool CheckIsActionPerformable(RuntimeAction action)
         {
-            return action.costBounds.Select(cost => CheckCost(cost.Item1, action)).All(x => x);
+            return action.Valid && action.costBounds.Select(cost => CheckCost(cost.Item1, action)).All(x => x);
         }
         
         // Play an animation on MobRenderer instance and wait for complete.

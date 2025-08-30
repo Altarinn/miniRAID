@@ -101,6 +101,12 @@ namespace miniRAID
                 mob.AddListener(mob.mainWeapon);
             }
 
+            if (subWeaponSO != null)
+            {
+                mob.subWeapon = (Weapon.Weapon)subWeaponSO.Wrap(mob);
+                mob.AddListener(mob.subWeapon);
+            }
+
             // Register all listeners
             foreach (var l in listenerSOs)
             {

@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: dc985debf0c551046b2cc912670124f1
   m_SerializeEntries:
+  - m_GUID: 03bd4c9464d5d484baf6418a1435bc89
+    m_Address: mapchunk_opentest-alphawolf_0_0_0
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 13a2a395a77fdd44688c55e4dac3a37e
     m_Address: Enemies
     m_ReadOnly: 0

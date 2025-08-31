@@ -112,7 +112,8 @@ namespace miniRAID
                 UpdateSchedulerUI();
                 
                 currentTurnSlice = turnSchedule.Dequeue();
-                yield return new JumpIn(currentTurnSlice.Turn());
+                if (currentTurnSlice.muted == false)
+                    yield return new JumpIn(currentTurnSlice.Turn());
 
                 if (turnWaitTime > 0)
                 {

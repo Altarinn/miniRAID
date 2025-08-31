@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using miniRAID.Spells;
 using miniRAID.TurnSchedule;
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
+using UnityEngine;
 
 namespace miniRAID.MobBehaviour.TurnSlices
 {
@@ -25,30 +27,8 @@ namespace miniRAID.MobBehaviour.TurnSlices
         /// <param name="slice"></param>
         public virtual void OnConstruction(PreparableActionTurnSlice slice) 
         { 
-            // Apply turn slice buffs
-            ApplyTurnSliceBuffs(slice);
         }
-
-        /// <summary>
-        /// Applies all configured turn slice buffs to the mob and associates them with the turn slice.
-        /// </summary>
-        /// <param name="slice"></param>
-        protected virtual void ApplyTurnSliceBuffs(PreparableActionTurnSlice slice)
-        {
-            if (turnSliceBuffs == null) return;
-
-            foreach (var buffSO in turnSliceBuffs)
-            {
-                if (buffSO == null) continue;
-
-                var buffInstance = slice.mob.AddListener(buffSO);
-                if (buffInstance is TurnSliceBuff turnSliceBuff)
-                {
-                    turnSliceBuff.AssociateWithTurnSlice(slice);
-                }
-            }
-        }
-
+        
         /// <summary>
         /// Will be called after any mob used any action, in order to capture any potential changes.
         /// </summary>
@@ -66,11 +46,17 @@ namespace miniRAID.MobBehaviour.TurnSlices
     {
         protected PreparableActionTurnSliceSO paSliceData => (PreparableActionTurnSliceSO)data;
         
+        [OdinSerialize] protected List<TurnSliceBuff> turnSliceBuffs = new List<TurnSliceBuff>();
+        
         public PreparableActionTurnSlice(
             MobData mob, RuntimeAction action, AbstractTurnSliceSO data, TurnSliceMetadata metadata)
             : base(mob, action, data, metadata)
         {
             paSliceData.OnConstruction(this);
+            
+            // Apply turn slice buffs
+            ApplyTurnSliceBuffs();
+            
             Globals.backend.onGlobalActionPostcast.AddListener(OnGlobalPostAction);
         }
 
@@ -82,8 +68,34 @@ namespace miniRAID.MobBehaviour.TurnSlices
 
         public override void OnRemove(CombatSchedulerCoroutine coroutine)
         {
+            turnSliceBuffs.ForEach(x =>
+            {
+                x.Destroy();
+            });
+            
             Globals.backend.onGlobalActionPostcast.RemoveListener(OnGlobalPostAction);
             base.OnRemove(coroutine);
+        }
+        
+        /// <summary>
+        /// Applies all configured turn slice buffs to the mob and associates them with the turn slice.
+        /// </summary>
+        /// <param name="slice"></param>
+        protected virtual void ApplyTurnSliceBuffs()
+        {
+            if (paSliceData.turnSliceBuffs == null) return;
+
+            foreach (var buffSO in paSliceData.turnSliceBuffs)
+            {
+                if (buffSO == null) continue;
+
+                var buffInstance = this.mob.AddListener(buffSO);
+                if (buffInstance is TurnSliceBuff turnSliceBuff)
+                {
+                    turnSliceBuffs.Add(turnSliceBuff);
+                    turnSliceBuff.AssociateWithTurnSlice(this);
+                }
+            }
         }
     }
 }

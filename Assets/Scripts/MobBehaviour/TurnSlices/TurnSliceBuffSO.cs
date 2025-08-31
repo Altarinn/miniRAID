@@ -13,17 +13,17 @@ namespace miniRAID.MobBehaviour.TurnSlices
     {
         public override MobListener Wrap(MobData parent)
         {
-            return CreateTurnSliceBuff(parent);
+            return WrapTurnSliceBuff(parent);
         }
 
-        protected abstract TurnSliceBuff CreateTurnSliceBuff(MobData parent);
+        protected abstract TurnSliceBuff WrapTurnSliceBuff(MobData parent);
     }
 
     /// <summary>
     /// Runtime implementation of turn slice buffs.
     /// Provides functionality to terminate the associated turn slice.
     /// </summary>
-    public abstract class TurnSliceBuff : Buff
+    public abstract class TurnSliceBuff : Buff.Buff
     {
         protected PreparableActionTurnSlice associatedTurnSlice;
 

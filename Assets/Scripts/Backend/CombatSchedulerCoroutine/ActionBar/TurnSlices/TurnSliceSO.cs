@@ -117,13 +117,14 @@ namespace miniRAID.TurnSchedule
         public AbstractTurnSliceSO data;
         public TurnSliceMetadata metadata;
 
-        public virtual bool ShowInUI => data.showInUI;
+        public virtual bool ShowInUI => data.showInUI && (!muted);
         public virtual string Label => data.label;
         public virtual Color MainColor => data.mainColor;
         public virtual Sprite BarIcon => data.barIcon;
         
         protected CombatSchedulerCoroutine coroutine;
 
+        // Set to true to effectively terminate this turn slice.
         public bool muted = false;
 
         public TurnSlice(AbstractTurnSliceSO data, TurnSliceMetadata metadata)

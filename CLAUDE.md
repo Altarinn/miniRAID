@@ -69,3 +69,4 @@ Remember, as an experienced engineer, think harder before you code. Follow these
 
 Follow the code style of existing code, and find examples in the existing codebase.
 Most of the time, you can find some examples to help you write cleaner, such as actions and buffs.
+Do not initialize serialized fields in constructor. Instead, tell the user to set them up in Inspector.

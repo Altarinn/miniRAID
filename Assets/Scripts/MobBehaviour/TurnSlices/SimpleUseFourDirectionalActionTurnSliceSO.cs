@@ -4,15 +4,13 @@ using miniRAID.Agents;
 using miniRAID.Backend;
 using miniRAID.Spells;
 using miniRAID.TurnSchedule;
+using Sirenix.Serialization;
 using UnityEngine;
 
 namespace miniRAID.MobBehaviour.TurnSlices
 {
-    public class SimpleUseFourDirectionalActionTurnSliceSO : PreparableActionTurnSliceSO
+    public class SimpleUseFourDirectionalActionTurnSliceSO : SimpleUseTargetedActionTurnSliceSO
     {
-        // TODO: Lock or unlock
-        public bool UpdateTargetAfterInitialized = false;
-
         public override MobActionTurnSlice Wrap(MobData mob, RuntimeAction action, TurnSliceMetadata metadata)
         {
             return new SimpleUseFourDirectionalActionTurnSlice(mob, action, this, metadata);
@@ -24,20 +22,18 @@ namespace miniRAID.MobBehaviour.TurnSlices
         }
     }
 
-    public class SimpleUseFourDirectionalActionTurnSlice : PreparableActionTurnSlice, IRenderableState
+    public class SimpleUseFourDirectionalActionTurnSlice : SimpleUseTargetedActionTurnSlice<FourDirectionalTarget>, IRenderableState
     {
-        [SerializeField] private FourDirectionalTarget target;
         private bool IgnoreWall => action.data.IgnoreWall;
-        
+
         public SimpleUseFourDirectionalActionTurnSlice(
             MobData mob, RuntimeAction action, AbstractTurnSliceSO data, TurnSliceMetadata metadata)
-            : base(mob, action, data, metadata)
+            : base(mob, action, data, metadata) { }
+
+        protected override FourDirectionalTarget GetTarget(MobData self)
         {
-            target = GetTarget(mob, mob.FindListener<TargetIndicator>());
-        }
-        
-        private FourDirectionalTarget GetTarget(MobData self, TargetIndicator targetIndicator)
-        {
+            var targetIndicator = self.FindListener<TargetIndicator>();
+            
             if (targetIndicator == null || targetIndicator.CurrentTarget == null)
             {
                 Globals.ui.Instance.combatView.debugText.text = $"{mob.nickname}: {action.ActionName} -> NO Target";
@@ -50,41 +46,9 @@ namespace miniRAID.MobBehaviour.TurnSlices
                 Globals.backend.GetDominantDirection(self.GridPosition, targetIndicator.CurrentTarget.GridPosition));
         }
 
-        protected override IEnumerator OnGlobalPostAction(MobData source, RuntimeAction action, SpellTarget target)
+        public override void ConstructRenderer()
         {
-            if (!((SimpleUseFourDirectionalActionTurnSliceSO)data).UpdateTargetAfterInitialized)
-            {
-                yield break;
-            }
-
-            if (action == this.action)
-            {
-                yield break;
-            }
-
-            if (mob.isDead)
-            { Mute(); }
-
-            this.target = GetTarget(mob, mob.FindListener<AggroCollector>());
-        }
-
-        public override IEnumerator Turn()
-        {
-            if (mob.isDead)
-            {
-                yield break;
-            }
-
-            renderer?.Destroy();
-            renderer = null;
-            
-            RuntimeAction<FourDirectionalTarget> act = (RuntimeAction<FourDirectionalTarget>)action;
-            yield return new JumpIn(mob.DoActionWithDefaultCosts(act, target));
-        }
-
-        public void ConstructRenderer()
-        {
-            GridCollider indicatorShape = (GridCollider)((RuntimeAction<FourDirectionalTarget>)action).Shape.CloneWithNewGuid();
+            GridCollider indicatorShape = (GridCollider)((RuntimeAction<FourDirectionalTarget>)action)?.Shape?.CloneWithNewGuid();
             indicatorShape.Position = mob.Position;
             indicatorShape.Direction = target.Target;
             
@@ -96,7 +60,7 @@ namespace miniRAID.MobBehaviour.TurnSlices
             }
         }
 
-        public void UpdateRenderer()
+        public override void UpdateRenderer()
         {
             GridCollider indicatorShape = (renderer as GridColliderIndicator)?.collider;
             if (indicatorShape != null)

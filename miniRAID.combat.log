@@ -1,14 +1,36 @@
 - Start of debug log -
-[9/1/2025 5:41:44 AM] AWAKE
-[回合0] 00m 03s:  1_Warrior 获得了来自 1_Warrior 的 Fighting Streak
-[9/1/2025 5:41:44 AM] 1_Warrior 获得了来自 1_Warrior 的 Fighting Streak
-[回合1] 00m 03s:  回合1
-[9/1/2025 5:41:45 AM] 回合1
+[9/1/2025 6:24:01 AM] AWAKE
+[回合0] 00m 04s:  1_Warrior 获得了来自 1_Warrior 的 Fighting Streak
+[9/1/2025 6:24:02 AM] 1_Warrior 获得了来自 1_Warrior 的 Fighting Streak
+[回合1] 00m 05s:  回合1
+[9/1/2025 6:24:02 AM] 回合1
 [回合1] 00m 09s:  1_Warrior 施放了 Move, 目标：miniRAID.MovementTarget
-[9/1/2025 5:41:50 AM] 1_Warrior 施放了 Move, 目标：miniRAID.MovementTarget
-[回合1] 00m 11s:  1_Warrior 施放了 Move, 目标：miniRAID.MovementTarget
-[9/1/2025 5:41:52 AM] 1_Warrior 施放了 Move, 目标：miniRAID.MovementTarget
+[9/1/2025 6:24:06 AM] 1_Warrior 施放了 Move, 目标：miniRAID.MovementTarget
 [回合1] 00m 11s:  1_Warrior 施放了 Slash, 目标：AlphaWolf
-[9/1/2025 5:41:53 AM] 1_Warrior 施放了 Slash, 目标：AlphaWolf
-[回合1] 00m 12s:  1_Warrior 的 Slash 对 AlphaWolf 造成了 21 点 Slash 伤害。生命值：659
-[9/1/2025 5:41:53 AM] 1_Warrior 的 Slash 对 AlphaWolf 造成了 21 点 Slash 伤害。生命值：659
+[9/1/2025 6:24:08 AM] 1_Warrior 施放了 Slash, 目标：AlphaWolf
+[回合1] 00m 11s:  1_Warrior 的 Slash 对 AlphaWolf 造成了 21 点 Slash 伤害。生命值：659
+[9/1/2025 6:24:08 AM] 1_Warrior 的 Slash 对 AlphaWolf 造成了 21 点 Slash 伤害。生命值：659
+[回合1] 00m 12s:  1_Warrior 施放了 Slash, 目标：AlphaWolf
+[9/1/2025 6:24:10 AM] 1_Warrior 施放了 Slash, 目标：AlphaWolf
+[回合1] 00m 13s:  1_Warrior 的 Slash 对 AlphaWolf 造成了 21 点 Slash 伤害。生命值：638
+[9/1/2025 6:24:10 AM] 1_Warrior 的 Slash 对 AlphaWolf 造成了 21 点 Slash 伤害。生命值：638
+[回合2] 00m 14s:  回合2
+[9/1/2025 6:24:11 AM] 回合2
+[回合2] 00m 19s:  AlphaWolf 施放了 BAD_STRING, 目标：1_Warrior
+[9/1/2025 6:24:16 AM] AlphaWolf 施放了 BAD_STRING, 目标：1_Warrior
+[回合2] 00m 19s:  AlphaWolf 的 BAD_STRING 对 1_Warrior 造成了 17 点 Slash 伤害。生命值：59
+[9/1/2025 6:24:17 AM] AlphaWolf 的 BAD_STRING 对 1_Warrior 造成了 17 点 Slash 伤害。生命值：59
+[回合2] 00m 22s:  1_Warrior 施放了 Slash, 目标：AlphaWolf
+[9/1/2025 6:24:19 AM] 1_Warrior 施放了 Slash, 目标：AlphaWolf
+[回合2] 00m 23s:  1_Warrior 的 Slash 对 AlphaWolf 造成了 21 点 Slash 伤害。生命值：617
+[9/1/2025 6:24:20 AM] 1_Warrior 的 Slash 对 AlphaWolf 造成了 21 点 Slash 伤害。生命值：617
+[回合2] 00m 23s:  AlphaWolf 施放了 Move, 目标：miniRAID.MovementTarget
+[9/1/2025 6:24:20 AM] AlphaWolf 施放了 Move, 目标：miniRAID.MovementTarget
+[回合3] 00m 24s:  回合3
+[9/1/2025 6:24:21 AM] 回合3
+[回合3] 00m 27s:  1_Warrior 施放了 Move, 目标：miniRAID.MovementTarget
+[9/1/2025 6:24:24 AM] 1_Warrior 施放了 Move, 目标：miniRAID.MovementTarget
+[回合3] 00m 28s:  AlphaWolf 施放了 BAD_STRING, 目标：1_Warrior
+[9/1/2025 6:24:25 AM] AlphaWolf 施放了 BAD_STRING, 目标：1_Warrior
+[回合3] 00m 28s:  AlphaWolf 的 BAD_STRING 对 1_Warrior 造成了 17 点 Slash 伤害。生命值：42
+[9/1/2025 6:24:26 AM] AlphaWolf 的 BAD_STRING 对 1_Warrior 造成了 17 点 Slash 伤害。生命值：42

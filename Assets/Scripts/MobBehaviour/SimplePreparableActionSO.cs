@@ -8,6 +8,9 @@ namespace miniRAID.MobBehaviour
         public TurnSliceSO playerTurn; // Will be used for checking and insertion
 
         public MobActionTurnSliceSO sliceToInsert;
+        public float weight;
+
+        public override float GetWeight(MobData mob) => weight;
 
         public override void ModifySchedule(MobData mob, CombatSchedulerCoroutine coroutine)
         {

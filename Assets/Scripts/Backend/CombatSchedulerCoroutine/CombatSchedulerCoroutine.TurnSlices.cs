@@ -131,6 +131,7 @@ namespace miniRAID
             slice.metadata = dummyNode.Value.metadata;
             slice.metadata.source = newSource;
             
+            slice.RegisterTo(this.parentScheduler);
             dummyNode.Value = slice;
         }
 

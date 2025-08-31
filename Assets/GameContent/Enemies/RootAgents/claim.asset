@@ -48,6 +48,7 @@ MonoBehaviour:
   targetSlices:
   - {fileID: 11400000, guid: fcb854395ceff495c8948cf38092c486, type: 2}
   - {fileID: 11400000, guid: e9d0b4b28d9414303b2412fa08183b0a, type: 2}
+  - {fileID: 11400000, guid: ef76a0e15b96a4d849c1dfd217dc18e0, type: 2}
   references:
     version: 2
     RefIds: []

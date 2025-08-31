@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using System.Linq;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace miniRAID.TurnSchedule
@@ -13,13 +15,49 @@ namespace miniRAID.TurnSchedule
 
         public TurnSliceCategory defaultCategory;
 
+        [Title("Sheduling Filters", "Leave empty for no filters")] 
+        public int[] allowedTurns;
+        public string[] allowedPhases;
+
         public abstract IEnumerator Turn(TurnSlice slice, CombatSchedulerCoroutine coroutine);
+
+        public TurnSlice DummyWrap(TurnSliceMetadata metadata)
+        {
+            if (!ScheduleFilter(metadata)) return null;
+            return new DummyTurnSlice(this, metadata);
+        }
+
+        public virtual bool ScheduleFilter(TurnSliceMetadata meta)
+        {
+            bool turnOK, phaseOK;
+            
+            if (allowedTurns == null || allowedTurns.Length == 0)
+            {
+                turnOK = true;
+            }
+            else
+            {
+                turnOK = allowedTurns.Contains(meta.timestamp.currentTurnID);
+            }
+
+            if (allowedPhases == null || allowedPhases.Length == 0)
+            {
+                phaseOK = true;
+            }
+            else
+            {
+                phaseOK = allowedPhases.Contains(meta.timestamp.currentPhase);
+            }
+            
+            return turnOK && phaseOK;
+        }
     }
 
     public abstract class TurnSliceSO : AbstractTurnSliceSO
     {
         public virtual TurnSlice Wrap(TurnSliceMetadata metadata)
         {
+            if (!ScheduleFilter(metadata)) return null;
             return new TurnSlice(this, metadata);
         }
     }
@@ -40,6 +78,8 @@ namespace miniRAID.TurnSchedule
     {
         public TurnSliceCategory category;
         public Timestamp timestamp;
+        
+        // TODO: We should really move this to somewhere else
         public ValueGetter<None, int> Priority;
         
         // TODO: FIXME: Savedata? How to handle this? Is this okay?
@@ -119,5 +159,15 @@ namespace miniRAID.TurnSchedule
 
             yield return new JumpIn(data.Turn(this, coroutine));
         }
+    }
+
+    public class DummyTurnSlice : TurnSlice
+    {
+        public DummyTurnSlice(AbstractTurnSliceSO data, TurnSliceMetadata metadata) : base(data, metadata)
+        {
+            Mute();
+        }
+
+        public override bool ShowInUI => false;
     }
 }

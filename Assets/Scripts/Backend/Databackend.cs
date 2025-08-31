@@ -39,6 +39,30 @@ namespace miniRAID
         {
             path.RemoveAt(0);
         }
+
+        public MovementTarget ToMovementTarget()
+        {
+            MovementTarget movementTarget = new MovementTarget();
+            movementTarget.destinationGrid = path[^1];
+            movementTarget.path = this;
+
+            return movementTarget;
+        }
+
+        public GridPath Trim(int trimLength, bool removeTrimed = false)
+        {
+            trimLength = Mathf.Clamp(trimLength, 0, this.path.Count);
+            
+            GridPath path = new GridPath();
+            path.path = this.path.GetRange(0, trimLength);
+
+            if (removeTrimed)
+            {
+                this.path.RemoveRange(0, trimLength);
+            }
+
+            return path;
+        }
     }
 
     public static class StructExts

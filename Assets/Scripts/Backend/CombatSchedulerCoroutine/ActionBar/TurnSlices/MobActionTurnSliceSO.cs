@@ -6,6 +6,7 @@ namespace miniRAID.TurnSchedule
     {
         public virtual MobActionTurnSlice Wrap(MobData mob, RuntimeAction action, TurnSliceMetadata metadata)
         {
+            if (!ScheduleFilter(metadata)) return null;
             return new MobActionTurnSlice(mob, action, this, metadata);
         }
     }

@@ -75,7 +75,7 @@ namespace miniRAID.MobBehaviour.TurnSlices
                 yield break;
             }
 
-            renderer.Destroy();
+            renderer?.Destroy();
             renderer = null;
             
             RuntimeAction<FourDirectionalTarget> act = (RuntimeAction<FourDirectionalTarget>)action;

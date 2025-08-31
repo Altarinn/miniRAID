@@ -26,6 +26,9 @@ namespace miniRAID
 
             return ract;
         }
+
+        public RuntimeAction AddAction<T>(ActionSOEntry<T> actSO) where T : ActionDataSO
+            => AddAction(actSO.ToBase());
         
         /// <summary>
         /// Get the first available action with action name.

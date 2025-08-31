@@ -2,13 +2,16 @@ namespace miniRAID.TurnSchedule
 {
     public struct Timestamp
     {
+        public string currentPhase;
         public int currentTurnID;
-        public int currentTurnSliceID;
+        // Turnslices inside a turn is highly dynamic and tracking its serial ID is error prone.
+        // public int currentTurnSliceID;
         
         public Timestamp(int turnID)
         {
             currentTurnID = turnID;
-            currentTurnSliceID = -1;
+            currentPhase = "default";
+            // currentTurnSliceID = -1;
         }
     }
 }

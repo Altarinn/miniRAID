@@ -1,18 +1,96 @@
 - Start of debug log -
-[2025/8/30 4:11:14] AWAKE
-[回合0] 00m 14s:  1_Warrior 获得了来自 1_Warrior 的 战士连击
-[2025/8/30 4:11:17] 1_Warrior 获得了来自 1_Warrior 的 战士连击
-[回合1] 00m 18s:  回合1
-[2025/8/30 4:11:22] 回合1
-[回合1] 00m 50s:  1_Warrior 施放了 移动, 目标：miniRAID.MovementTarget
-[2025/8/30 4:11:54] 1_Warrior 施放了 移动, 目标：miniRAID.MovementTarget
-[回合1] 00m 53s:  1_Warrior 施放了 斩击, 目标：Dummy
-[2025/8/30 4:11:56] 1_Warrior 施放了 斩击, 目标：Dummy
-[回合1] 00m 53s:  1_Warrior 的 斩击 对 Dummy 造成了 42 点 Slash 伤害（暴击）。生命值：99958
-[2025/8/30 4:11:57] 1_Warrior 的 斩击 对 Dummy 造成了 42 点 Slash 伤害（暴击）。生命值：99958
-[回合1] 01m 00s:  1_Warrior 施放了 副手攻击, 目标：Dummy
-[2025/8/30 4:12:03] 1_Warrior 施放了 副手攻击, 目标：Dummy
-[回合1] 01m 00s:  1_Warrior 施放了 攻击, 目标：Dummy
-[2025/8/30 4:12:03] 1_Warrior 施放了 攻击, 目标：Dummy
-[回合1] 01m 01s:  1_Warrior 的 攻击 对 Dummy 造成了 48 点 Knock 伤害（暴击）。生命值：99910
-[2025/8/30 4:12:04] 1_Warrior 的 攻击 对 Dummy 造成了 48 点 Knock 伤害（暴击）。生命值：99910
+[8/31/2025 7:26:47 PM] AWAKE
+[回合0] 00m 04s:  1_Warrior 获得了来自 1_Warrior 的 Fighting Streak
+[8/31/2025 7:26:48 PM] 1_Warrior 获得了来自 1_Warrior 的 Fighting Streak
+[回合1] 00m 06s:  回合1
+[8/31/2025 7:26:49 PM] 回合1
+[回合1] 00m 13s:  1_Warrior 施放了 Move, 目标：miniRAID.MovementTarget
+[8/31/2025 7:26:57 PM] 1_Warrior 施放了 Move, 目标：miniRAID.MovementTarget
+[回合1] 00m 15s:  1_Warrior 施放了 Slash, 目标：AlphaWolf
+[8/31/2025 7:26:58 PM] 1_Warrior 施放了 Slash, 目标：AlphaWolf
+[回合1] 00m 15s:  1_Warrior 的 Slash 对 AlphaWolf 造成了 21 点 Slash 伤害。生命值：659
+[8/31/2025 7:26:59 PM] 1_Warrior 的 Slash 对 AlphaWolf 造成了 21 点 Slash 伤害。生命值：659
+[回合1] 00m 16s:  1_Warrior 施放了 Off-hand Attack, 目标：AlphaWolf
+[8/31/2025 7:27:00 PM] 1_Warrior 施放了 Off-hand Attack, 目标：AlphaWolf
+[回合1] 00m 16s:  1_Warrior 施放了 Shield bash, 目标：AlphaWolf
+[8/31/2025 7:27:00 PM] 1_Warrior 施放了 Shield bash, 目标：AlphaWolf
+[回合1] 00m 17s:  1_Warrior 的 Shield bash 对 AlphaWolf 造成了 24 点 Knock 伤害。生命值：635
+[8/31/2025 7:27:00 PM] 1_Warrior 的 Shield bash 对 AlphaWolf 造成了 24 点 Knock 伤害。生命值：635
+[回合1] 00m 19s:  1_Warrior 施放了 Slash, 目标：AlphaWolf
+[8/31/2025 7:27:03 PM] 1_Warrior 施放了 Slash, 目标：AlphaWolf
+[回合1] 00m 20s:  1_Warrior 的 Slash 对 AlphaWolf 造成了 42 点 Slash 伤害（暴击）。生命值：593
+[8/31/2025 7:27:03 PM] 1_Warrior 的 Slash 对 AlphaWolf 造成了 42 点 Slash 伤害（暴击）。生命值：593
+[回合2] 00m 20s:  回合2
+[8/31/2025 7:27:04 PM] 回合2
+[回合2] 00m 24s:  1_Warrior 施放了 Move, 目标：miniRAID.MovementTarget
+[8/31/2025 7:27:08 PM] 1_Warrior 施放了 Move, 目标：miniRAID.MovementTarget
+[回合2] 00m 27s:  1_Warrior 施放了 Slash, 目标：AlphaWolf
+[8/31/2025 7:27:10 PM] 1_Warrior 施放了 Slash, 目标：AlphaWolf
+[回合2] 00m 27s:  1_Warrior 的 Slash 对 AlphaWolf 造成了 21 点 Slash 伤害。生命值：572
+[8/31/2025 7:27:11 PM] 1_Warrior 的 Slash 对 AlphaWolf 造成了 21 点 Slash 伤害。生命值：572
+[回合2] 00m 29s:  1_Warrior 施放了 Defense, 目标：1_Warrior
+[8/31/2025 7:27:12 PM] 1_Warrior 施放了 Defense, 目标：1_Warrior
+[回合2] 00m 29s:  1_Warrior 获得了来自 1_Warrior 的 Defense
+[8/31/2025 7:27:13 PM] 1_Warrior 获得了来自 1_Warrior 的 Defense
+[回合2] 00m 29s:  AlphaWolf 施放了 Dash Attack, 目标：South
+[8/31/2025 7:27:13 PM] AlphaWolf 施放了 Dash Attack, 目标：South
+[回合2] 00m 30s:  AlphaWolf 的 Dash Attack 对 1_Warrior 造成了 1 点 Knock 伤害。生命值：75
+[8/31/2025 7:27:13 PM] AlphaWolf 的 Dash Attack 对 1_Warrior 造成了 1 点 Knock 伤害。生命值：75
+[回合2] 00m 41s:  AlphaWolf 施放了 Dash Attack, 目标：South
+[8/31/2025 7:27:25 PM] AlphaWolf 施放了 Dash Attack, 目标：South
+[回合2] 00m 42s:  AlphaWolf 施放了 Move, 目标：miniRAID.MovementTarget
+[8/31/2025 7:27:25 PM] AlphaWolf 施放了 Move, 目标：miniRAID.MovementTarget
+[回合2] 00m 43s:  1_Warrior 失去了来自 1_Warrior 的 Defense
+[8/31/2025 7:27:26 PM] 1_Warrior 失去了来自 1_Warrior 的 Defense
+[回合3] 00m 43s:  回合3
+[8/31/2025 7:27:26 PM] 回合3
+[回合3] 00m 50s:  1_Warrior 施放了 Move, 目标：miniRAID.MovementTarget
+[8/31/2025 7:27:34 PM] 1_Warrior 施放了 Move, 目标：miniRAID.MovementTarget
+[回合3] 00m 51s:  1_Warrior 施放了 Slash, 目标：AlphaWolf
+[8/31/2025 7:27:35 PM] 1_Warrior 施放了 Slash, 目标：AlphaWolf
+[回合3] 00m 52s:  1_Warrior 的 Slash 对 AlphaWolf 造成了 21 点 Slash 伤害。生命值：551
+[8/31/2025 7:27:35 PM] 1_Warrior 的 Slash 对 AlphaWolf 造成了 21 点 Slash 伤害。生命值：551
+[回合3] 00m 53s:  AlphaWolf 施放了 Dash Attack, 目标：North
+[8/31/2025 7:27:37 PM] AlphaWolf 施放了 Dash Attack, 目标：North
+[回合3] 00m 54s:  AlphaWolf 的 Dash Attack 对 1_Warrior 造成了 14 点 Knock 伤害。生命值：61
+[8/31/2025 7:27:37 PM] AlphaWolf 的 Dash Attack 对 1_Warrior 造成了 14 点 Knock 伤害。生命值：61
+[回合3] 00m 55s:  AlphaWolf 施放了 Dash Attack, 目标：North
+[8/31/2025 7:27:39 PM] AlphaWolf 施放了 Dash Attack, 目标：North
+[回合3] 00m 55s:  1_Warrior 施放了 Slash, 目标：AlphaWolf
+[8/31/2025 7:27:39 PM] 1_Warrior 施放了 Slash, 目标：AlphaWolf
+[回合4] 00m 56s:  回合4
+[8/31/2025 7:27:40 PM] 回合4
+[回合4] 00m 58s:  AlphaWolf 施放了 Dash Attack, 目标：South
+[8/31/2025 7:27:42 PM] AlphaWolf 施放了 Dash Attack, 目标：South
+[回合4] 01m 00s:  AlphaWolf 施放了 Dash Attack, 目标：South
+[8/31/2025 7:27:43 PM] AlphaWolf 施放了 Dash Attack, 目标：South
+[回合4] 01m 01s:  AlphaWolf 的 Dash Attack 对 1_Warrior 造成了 14 点 Knock 伤害。生命值：47
+[8/31/2025 7:27:44 PM] AlphaWolf 的 Dash Attack 对 1_Warrior 造成了 14 点 Knock 伤害。生命值：47
+[回合4] 01m 01s:  1_Warrior 施放了 Slash, 目标：AlphaWolf
+[8/31/2025 7:27:44 PM] 1_Warrior 施放了 Slash, 目标：AlphaWolf
+[回合4] 01m 01s:  1_Warrior 的 Slash 对 AlphaWolf 造成了 21 点 Slash 伤害。生命值：530
+[8/31/2025 7:27:45 PM] 1_Warrior 的 Slash 对 AlphaWolf 造成了 21 点 Slash 伤害。生命值：530
+[回合5] 01m 02s:  回合5
+[8/31/2025 7:27:46 PM] 回合5
+[回合5] 01m 04s:  1_Warrior 施放了 Slash, 目标：AlphaWolf
+[8/31/2025 7:27:47 PM] 1_Warrior 施放了 Slash, 目标：AlphaWolf
+[回合5] 01m 05s:  1_Warrior 的 Slash 对 AlphaWolf 造成了 21 点 Slash 伤害。生命值：509
+[8/31/2025 7:27:48 PM] 1_Warrior 的 Slash 对 AlphaWolf 造成了 21 点 Slash 伤害。生命值：509
+[回合5] 01m 08s:  1_Warrior 施放了 Off-hand Attack, 目标：AlphaWolf
+[8/31/2025 7:27:51 PM] 1_Warrior 施放了 Off-hand Attack, 目标：AlphaWolf
+[回合5] 01m 08s:  1_Warrior 施放了 Shield bash, 目标：AlphaWolf
+[8/31/2025 7:27:51 PM] 1_Warrior 施放了 Shield bash, 目标：AlphaWolf
+[回合5] 01m 08s:  1_Warrior 的 Shield bash 对 AlphaWolf 造成了 24 点 Knock 伤害。生命值：485
+[8/31/2025 7:27:52 PM] 1_Warrior 的 Shield bash 对 AlphaWolf 造成了 24 点 Knock 伤害。生命值：485
+[回合5] 01m 10s:  AlphaWolf 施放了 Dash Attack, 目标：East
+[8/31/2025 7:27:53 PM] AlphaWolf 施放了 Dash Attack, 目标：East
+[回合5] 01m 10s:  AlphaWolf 的 Dash Attack 对 1_Warrior 造成了 14 点 Knock 伤害。生命值：33
+[8/31/2025 7:27:54 PM] AlphaWolf 的 Dash Attack 对 1_Warrior 造成了 14 点 Knock 伤害。生命值：33
+[回合5] 01m 13s:  AlphaWolf 施放了 Dash Attack, 目标：East
+[8/31/2025 7:27:57 PM] AlphaWolf 施放了 Dash Attack, 目标：East
+[回合5] 01m 14s:  1_Warrior 施放了 Slash, 目标：AlphaWolf
+[8/31/2025 7:27:57 PM] 1_Warrior 施放了 Slash, 目标：AlphaWolf
+[回合5] 01m 14s:  1_Warrior 的 Slash 对 AlphaWolf 造成了 21 点 Slash 伤害。生命值：465
+[8/31/2025 7:27:58 PM] 1_Warrior 的 Slash 对 AlphaWolf 造成了 21 点 Slash 伤害。生命值：465
+[回合6] 01m 15s:  回合6
+[8/31/2025 7:27:58 PM] 回合6

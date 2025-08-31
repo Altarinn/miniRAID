@@ -9,6 +9,7 @@ namespace miniRAID.TurnSchedule
     {
         public virtual MobTurnSlice Wrap(MobData mob, TurnSliceMetadata metadata)
         {
+            if (!ScheduleFilter(metadata)) return null;
             return new MobTurnSlice(mob, this, metadata);
         }
     }

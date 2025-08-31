@@ -527,6 +527,17 @@
                 },
                 {
                     "name": "",
+                    "id": "7af34228-f8c7-4691-9aca-cd9abe499857",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "ToggleRotateCamera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "4e44a891-bb1b-41a5-812f-a5c60fca444c",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",

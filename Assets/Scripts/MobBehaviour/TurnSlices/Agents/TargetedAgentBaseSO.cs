@@ -19,6 +19,10 @@ namespace miniRAID.Agents
     {
         [Tooltip("视野范围，不会向超出范围的敌对目标移动。目前视距受移动种类影响，如飞行单位视野穿山但步行单位看不到山对面。")]
         public int eyesight = 10;
+
+        [Tooltip("是否在回合结束时自动进入待机")]
+        public bool doPass = true, doWakeup = false;
+        public bool doResetWakeUpAtStart = false;
         
         [Header("User Interface")] public Material decalIndicatorMaterial;
 
@@ -83,6 +87,12 @@ namespace miniRAID.Agents
             
             OnBeginSlice();
             
+            if (targetedAgentData.doResetWakeUpAtStart)
+            {
+                yield return new JumpIn(mob.SetActive(false));
+                yield return new JumpIn(mob.SetActive(true));
+            }
+            
             actionCounter = 0;
             GridPath path = null;
             
@@ -94,7 +104,7 @@ namespace miniRAID.Agents
                 shouldStop = true;
             }
             
-            var movementAction = (mob.GetActionFromSO<Actions.Movement>() as RuntimeAction<SingleCoordinateTarget>);
+            var movementAction = mob.movement;
 
             while (!shouldStop)
             {
@@ -108,20 +118,20 @@ namespace miniRAID.Agents
                 // Currently only handles SingleMobTarget actions
                 // GetRegularAttackSpell() may give different results after casting a regular attack
                 // So we need to query it every time
-                RuntimeAction<SingleMobTarget> pickedSpell = mob.mainWeapon.GetRegularAttackSpell()
+                RuntimeAction<SingleMobTarget> pickedSpell = mob.mainWeapon?.GetRegularAttackSpell()
                     as RuntimeAction<SingleMobTarget>;
                 
                 if (pickedSpell == null)
                 {
                     Debug.LogWarning("AggroAgentBase cannot handle non-SingleMobTarget actions. Action ignored!!");
-                    shouldStop = true;
                 }
             
                 // TODO: Find enemy and move
                 // Behaviour: pick an attack => If in range then attack => Move towards to target by search a path otherwise
 
                 // TODO: Pick advanced attack / OnPickAction()
-                var sTarget = ValidTargetFinder.FindValidSingleMobTarget(mob, target, pickedSpell.actionData);
+                var sTarget = 
+                    pickedSpell == null ? null : ValidTargetFinder.FindValidSingleMobTarget(mob, target, pickedSpell.actionData);
 
                 // TODO: Move, Add inRange check in CheckWithTargets, etc.
                 if (sTarget != null)
@@ -149,7 +159,7 @@ namespace miniRAID.Agents
                     // path ??= Globals.backend.FindPathTo(mob.Position, Globals.backend.FindNearestEmptyGrid(target.Position, mob.gridBody), MobData.MovementType.Fly, aggroAgentData.eyesight);
 
                     // The path needs to be at least 1 grids long
-                    if (path != null && path.path.Count >= 2)
+                    if (path != null && path.path.Count > 0 && mob.MoveRangeLeft > 0)
                     {
                         //throw new System.NotImplementedException();
                         // TODO: Make agent use coroutine actions.
@@ -161,9 +171,8 @@ namespace miniRAID.Agents
                         pickedAction = movementAction;
                         yield return new JumpIn(mob.DoActionWithDefaultCosts(
                             movementAction,
-                            new SingleCoordinateTarget(path.path[0])
+                            path.Trim(Mathf.FloorToInt(mob.MoveRangeLeft), true).ToMovementTarget()
                         ));
-                        path.Step();
 
                         // Move do not have AP costs
                         yield return new JumpIn(mob.TryAutoEndTurn());
@@ -181,9 +190,14 @@ namespace miniRAID.Agents
                 }
             }
 
-            if (shouldStop && (!mob.enemyDebug))
+            if (shouldStop && (!mob.enemyDebug) && targetedAgentData.doPass)
             {
                 yield return new JumpIn(mob.SetActive(false));
+            }
+
+            if (targetedAgentData.doWakeup)
+            {
+                yield return new JumpIn(mob.SetActive(true));
             }
 
             OnEndSlice();

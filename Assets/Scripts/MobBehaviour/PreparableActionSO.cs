@@ -16,8 +16,7 @@ namespace miniRAID.MobBehaviour
         
         public abstract void ModifySchedule(MobData mob, CombatSchedulerCoroutine coroutine);
 
-        [SerializeField] protected float weight;
-        public virtual float GetWeight(MobData mob) => weight;
+        public abstract float GetWeight(MobData mob);
 
         public virtual bool ConditionCheck(MobData mob) => true;
     }

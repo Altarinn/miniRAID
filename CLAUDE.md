@@ -101,6 +101,10 @@ Remember, as an experienced engineer, think harder before you code. Follow these
 2. Do not proceed. First, discuss the plan with the user.
 3. After discussion, Implement based on the plan.
 4. Ask the user to check the code before commiting.
+5. Update CLAUDE.md and Manual/Claude with what you have learned today.
+ - CLAUDE.md: keep minimum modifications. Its okay to not update -- and if update, it should be general, design choice / pattern / code style advices that can be applied generally.
+   - Quote from yourself: "This documentation will help future agents understand not just what to implement, but how to think about system architecture and code organization in this codebase!"
+ - Manual/Claude: Things can go detailed in those handbooks. You may create new one or update existing ones.
 
 Follow the code style of existing code, and find examples in the existing codebase.
 Most of the time, you can find some examples to help you write cleaner, such as actions and buffs.

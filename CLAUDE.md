@@ -69,3 +69,6 @@ Remember, as an experienced engineer, think harder before you code. Follow these
 
 Follow the code style of existing code, and find examples in the existing codebase.
 Most of the time, you can find some examples to help you write cleaner, such as actions and buffs.
+
+**USE Git and CREATE A NEW BRANCH when you implementing things!**
+Leave a shorter commit message if implementation only contains some new actions / buffs etc.

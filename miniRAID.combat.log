@@ -1,66 +1,14 @@
 - Start of debug log -
-[2025/9/1 4:54:23] AWAKE
-[回合0] 00m 14s:  1_Warrior 获得了来自 1_Warrior 的 战士连击
-[2025/9/1 4:54:25] 1_Warrior 获得了来自 1_Warrior 的 战士连击
-[回合1] 00m 22s:  回合1
-[2025/9/1 4:54:33] 回合1
-[回合1] 00m 28s:  1_Warrior 施放了 移动, 目标：miniRAID.MovementTarget
-[2025/9/1 4:54:39] 1_Warrior 施放了 移动, 目标：miniRAID.MovementTarget
-[回合1] 00m 30s:  1_Warrior 施放了 斩击, 目标：AlphaWolf
-[2025/9/1 4:54:41] 1_Warrior 施放了 斩击, 目标：AlphaWolf
-[回合1] 00m 30s:  1_Warrior 的 斩击 对 AlphaWolf 造成了 21 点 Slash 伤害。生命值：659
-[2025/9/1 4:54:42] 1_Warrior 的 斩击 对 AlphaWolf 造成了 21 点 Slash 伤害。生命值：659
-[回合1] 00m 32s:  1_Warrior 施放了 副手攻击, 目标：AlphaWolf
-[2025/9/1 4:54:44] 1_Warrior 施放了 副手攻击, 目标：AlphaWolf
-[回合1] 00m 32s:  1_Warrior 施放了 攻击, 目标：AlphaWolf
-[2025/9/1 4:54:44] 1_Warrior 施放了 攻击, 目标：AlphaWolf
-[回合1] 00m 33s:  1_Warrior 的 攻击 对 AlphaWolf 造成了 24 点 Knock 伤害。生命值：635
-[2025/9/1 4:54:44] 1_Warrior 的 攻击 对 AlphaWolf 造成了 24 点 Knock 伤害。生命值：635
-[回合1] 00m 35s:  1_Warrior 施放了 斩击, 目标：AlphaWolf
-[2025/9/1 4:54:46] 1_Warrior 施放了 斩击, 目标：AlphaWolf
-[回合1] 00m 36s:  1_Warrior 的 斩击 对 AlphaWolf 造成了 21 点 Slash 伤害。生命值：614
-[2025/9/1 4:54:47] 1_Warrior 的 斩击 对 AlphaWolf 造成了 21 点 Slash 伤害。生命值：614
-[回合2] 00m 36s:  回合2
-[2025/9/1 4:54:48] 回合2
-[回合2] 00m 39s:  1_Warrior 施放了 移动, 目标：miniRAID.MovementTarget
-[2025/9/1 4:54:50] 1_Warrior 施放了 移动, 目标：miniRAID.MovementTarget
-[回合2] 00m 40s:  AlphaWolf 施放了 突进, 目标：South
-[2025/9/1 4:54:51] AlphaWolf 施放了 突进, 目标：South
-[回合2] 00m 42s:  AlphaWolf 施放了 突进, 目标：South
-[2025/9/1 4:54:53] AlphaWolf 施放了 突进, 目标：South
-[回合2] 00m 42s:  1_Warrior 施放了 斩击, 目标：AlphaWolf
-[2025/9/1 4:54:53] 1_Warrior 施放了 斩击, 目标：AlphaWolf
-[回合2] 00m 42s:  AlphaWolf 施放了 移动, 目标：miniRAID.MovementTarget
-[2025/9/1 4:54:53] AlphaWolf 施放了 移动, 目标：miniRAID.MovementTarget
-[回合3] 00m 43s:  回合3
-[2025/9/1 4:54:55] 回合3
-[回合3] 00m 51s:  1_Warrior 施放了 移动, 目标：miniRAID.MovementTarget
-[2025/9/1 4:55:03] 1_Warrior 施放了 移动, 目标：miniRAID.MovementTarget
-[回合3] 00m 53s:  AlphaWolf 施放了 突进, 目标：North
-[2025/9/1 4:55:04] AlphaWolf 施放了 突进, 目标：North
-[回合3] 00m 54s:  AlphaWolf 施放了 突进, 目标：North
-[2025/9/1 4:55:05] AlphaWolf 施放了 突进, 目标：North
-[回合3] 00m 54s:  1_Warrior 施放了 斩击, 目标：AlphaWolf
-[2025/9/1 4:55:06] 1_Warrior 施放了 斩击, 目标：AlphaWolf
-[回合4] 00m 55s:  回合4
-[2025/9/1 4:55:06] 回合4
-[回合4] 01m 01s:  AlphaWolf 施放了 突进, 目标：South
-[2025/9/1 4:55:12] AlphaWolf 施放了 突进, 目标：South
-[回合4] 01m 05s:  AlphaWolf 施放了 突进, 目标：South
-[2025/9/1 4:55:16] AlphaWolf 施放了 突进, 目标：South
-[回合4] 01m 05s:  1_Warrior 施放了 斩击, 目标：AlphaWolf
-[2025/9/1 4:55:17] 1_Warrior 施放了 斩击, 目标：AlphaWolf
-[回合5] 01m 06s:  回合5
-[2025/9/1 4:55:17] 回合5
-[回合5] 01m 08s:  AlphaWolf 施放了 突进, 目标：East
-[2025/9/1 4:55:20] AlphaWolf 施放了 突进, 目标：East
-[回合5] 01m 09s:  AlphaWolf 的 突进 对 1_Warrior 造成了 14 点 Knock 伤害。生命值：62
-[2025/9/1 4:55:20] AlphaWolf 的 突进 对 1_Warrior 造成了 14 点 Knock 伤害。生命值：62
-[回合5] 01m 10s:  AlphaWolf 施放了 突进, 目标：East
-[2025/9/1 4:55:22] AlphaWolf 施放了 突进, 目标：East
-[回合5] 01m 11s:  AlphaWolf 的 突进 对 1_Warrior 造成了 14 点 Knock 伤害。生命值：48
-[2025/9/1 4:55:22] AlphaWolf 的 突进 对 1_Warrior 造成了 14 点 Knock 伤害。生命值：48
-[回合5] 01m 11s:  1_Warrior 施放了 斩击, 目标：AlphaWolf
-[2025/9/1 4:55:23] 1_Warrior 施放了 斩击, 目标：AlphaWolf
-[回合6] 01m 12s:  回合6
-[2025/9/1 4:55:23] 回合6
+[9/1/2025 5:41:44 AM] AWAKE
+[回合0] 00m 03s:  1_Warrior 获得了来自 1_Warrior 的 Fighting Streak
+[9/1/2025 5:41:44 AM] 1_Warrior 获得了来自 1_Warrior 的 Fighting Streak
+[回合1] 00m 03s:  回合1
+[9/1/2025 5:41:45 AM] 回合1
+[回合1] 00m 09s:  1_Warrior 施放了 Move, 目标：miniRAID.MovementTarget
+[9/1/2025 5:41:50 AM] 1_Warrior 施放了 Move, 目标：miniRAID.MovementTarget
+[回合1] 00m 11s:  1_Warrior 施放了 Move, 目标：miniRAID.MovementTarget
+[9/1/2025 5:41:52 AM] 1_Warrior 施放了 Move, 目标：miniRAID.MovementTarget
+[回合1] 00m 11s:  1_Warrior 施放了 Slash, 目标：AlphaWolf
+[9/1/2025 5:41:53 AM] 1_Warrior 施放了 Slash, 目标：AlphaWolf
+[回合1] 00m 12s:  1_Warrior 的 Slash 对 AlphaWolf 造成了 21 点 Slash 伤害。生命值：659
+[9/1/2025 5:41:53 AM] 1_Warrior 的 Slash 对 AlphaWolf 造成了 21 点 Slash 伤害。生命值：659

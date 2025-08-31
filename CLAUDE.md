@@ -41,6 +41,7 @@ miniRAID is a Unity C# tactical RPG with grid-based combat, featuring a three-le
 2. **New Buffs**: Implement `BuffSO` + `Buff` classes, subscribe to MobData events  
 3. **Backend States**: Inherit `BackendState`, implement `IRenderableState` if visual
 4. **Map Editing**: Use `miniRAID > Map Editor` with 3D raycast selection
+5. **Turn Slice Buffs**: Use `TurnSliceBuffSO` + `TurnSliceBuff` for buffs that can terminate turn slices
 
 ### Code Conventions
 - `Globals.backend` for main data access, `Globals.cc` for coroutines
@@ -60,6 +61,24 @@ miniRAID is a Unity C# tactical RPG with grid-based combat, featuring a three-le
 - Use `IGridCollider` for collision detection
 - Movement system integrates with map pathfinding
 - Always test with Combat/Mob monitors for debugging
+
+## Advanced Systems
+
+### Turn Slice Buffs (`TurnSliceBuffSO` / `TurnSliceBuff`)
+A specialized buff system for effects that need to terminate their associated turn slices:
+
+**Architecture:**
+- `TurnSliceBuffSO` - ScriptableObject for Inspector integration (inherits from `BuffSO`)
+- `TurnSliceBuff` - Runtime implementation (inherits from `Buff`) with `TerminateAssociatedTurnSlice()` method
+- `PreparableActionTurnSliceSO.turnSliceBuffs` - List field for automatic buff application during construction
+
+**Usage Pattern:**
+1. Create `YourBuffSO : TurnSliceBuffSO` with configuration fields
+2. Create `YourBuff : TurnSliceBuff` with logic to call `TerminateAssociatedTurnSlice()` when conditions met
+3. Add buff to any `PreparableActionTurnSliceSO`'s `turnSliceBuffs` list
+4. System automatically applies buffs and associates them with turn slices
+
+**Example:** `RoarOverloadBuffSO` tracks damage accumulation and terminates AlphaWolf's roar when threshold exceeded, with explosion FX and self-damage effects.
 
 # Motto
 Remember, as an experienced engineer, think harder before you code. Follow these steps:

@@ -64,8 +64,9 @@ miniRAID is a Unity C# tactical RPG with grid-based combat, featuring a three-le
 # Motto
 Remember, as an experienced engineer, think harder before you code. Follow these steps:
 1. Make a plan first. Read through the codebase and understand the flow of related logics.
-2. If necessary, discuss the plan with the user.
-3. Implement based on the plan.
+2. Do not proceed. First, discuss the plan with the user.
+3. After discussion, Implement based on the plan.
+4. Ask the user to check the code before commiting.
 
 Follow the code style of existing code, and find examples in the existing codebase.
 Most of the time, you can find some examples to help you write cleaner, such as actions and buffs.

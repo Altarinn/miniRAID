@@ -47,6 +47,15 @@ miniRAID is a Unity C# tactical RPG with grid-based combat, featuring a three-le
 - Use `[NonSerialized]` for calculated values and renderer references
 - Always unsubscribe from events in `OnRemove()` methods
 - Vector3 for mob positions, Vector3Int for grid coordinates
+- Method naming: Follow existing patterns (`Wrap()`, `Create()`, `Apply()`, etc.)
+- Self-interaction prevention: Check `info.source == mob` in damage/heal listeners
+- Use `Destroy()` for buff cleanup, not `RemoveFromMob()`
+
+### Common Pitfalls & Solutions
+- **Infinite self-damage loops**: Always check `if (info.source == mob) yield break;` in damage listeners
+- **Memory leaks**: Track associated objects in collections for proper cleanup (`List<TurnSliceBuff>`)
+- **UI inconsistency**: Hide terminated states immediately (`ShowInUI => showInUI && (!muted)`)
+- **Method naming**: Use established patterns - `WrapTurnSliceBuff()` not `CreateTurnSliceBuff()`
 
 ## Key Files
 - **`Assets/Scripts/Utils/Globals.cs`**: Central singleton manager

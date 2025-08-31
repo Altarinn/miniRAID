@@ -24,8 +24,11 @@ namespace miniRAID.MobBehaviour.TurnSlices
         
         public UseSelfActionTurnSlice(MobData mob, RuntimeAction action, AbstractTurnSliceSO data, TurnSliceMetadata metadata) : base(mob, action, data, metadata)
         {
-            indicatorShape = (GridCollider)((RuntimeAction<SingleMobTarget>)action).Shape.CloneWithNewGuid();
-            indicatorShape.Position = mob.Position;
+            if (((RuntimeAction<SingleMobTarget>)action).Shape != null)
+            {
+                indicatorShape = (GridCollider)((RuntimeAction<SingleMobTarget>)action).Shape.CloneWithNewGuid();
+                indicatorShape.Position = mob.Position;
+            }
         }
 
         public override IEnumerator Turn()
@@ -37,6 +40,7 @@ namespace miniRAID.MobBehaviour.TurnSlices
 
         public void ConstructRenderer()
         {
+            if (indicatorShape == null) return;
             renderer = new GridColliderIndicator(
                 indicatorShape, GridOverlay.Types.INCOMING_ATTACK);
         }

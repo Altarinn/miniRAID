@@ -97,6 +97,8 @@ namespace miniRAID.ActionHelpers
 
         [SerializeField]
         public AdvancedSettings advancedSettings;
+
+        public SpellDamageHeal() { }
         
         public SpellDamageHeal(SpellDamageHeal damageHeal)
         {

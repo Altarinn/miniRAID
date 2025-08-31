@@ -49,12 +49,36 @@ miniRAID is a Unity C# tactical RPG with grid-based combat, featuring a three-le
 - Always unsubscribe from events in `OnRemove()` methods
 - Vector3 for mob positions, Vector3Int for grid coordinates
 
+### Design Patterns & Best Practices
+
+**Modular Composition:**
+- Prefer composition over inheritance when possible
+- Use base classes to define common interfaces and shared functionality
+- Example: `TurnSliceBuffSO`/`TurnSliceBuff` extends existing buff system rather than creating separate systems
+
+**Configuration vs Runtime Logic Separation:**
+- ScriptableObjects hold configuration data and Inspector integration
+- Runtime classes handle actual game logic and state management
+- Pattern: `XxxSO.CreateXxx()` factory method returns runtime instance
+- Example: `RoarOverloadBuffSO.CreateTurnSliceBuff()` → `RoarOverloadBuff`
+
+**Extension Points in Base Classes:**
+- Add extensibility to existing systems through protected virtual methods
+- Use Inspector-friendly fields for configuration lists
+- Example: `PreparableActionTurnSliceSO.turnSliceBuffs` + `ApplyTurnSliceBuffs()` method
+
+**Clean Dependency Management:**
+- Runtime objects reference their SO data through typed properties: `BuffData => (MyBuffSO)data`
+- Use association rather than tight coupling: `TurnSliceBuff.AssociateWithTurnSlice()`
+- Proper cleanup in `OnRemove()` methods to prevent memory leaks
+
 ## Key Files
 - **`Assets/Scripts/Utils/Globals.cs`**: Central singleton manager
 - **`Assets/Scripts/Backend/BackendCore/`**: Core infrastructure
 - **`Assets/Scripts/Backend/Map/`**: 3D chunk system with MapRenderer/MapEditor
 - **`Assets/Scripts/Presentation/`**: Renderer implementations
 - **`Manual/Claude/Three-Level-Architecture.md`**: Detailed architecture docs
+- **`Manual/Claude/TurnSliceBuff-System.md`**: TurnSliceBuff system architecture and patterns
 
 ## Important Notes
 - Backend logic must be separate from presentation
@@ -65,20 +89,11 @@ miniRAID is a Unity C# tactical RPG with grid-based combat, featuring a three-le
 ## Advanced Systems
 
 ### Turn Slice Buffs (`TurnSliceBuffSO` / `TurnSliceBuff`)
-A specialized buff system for effects that need to terminate their associated turn slices:
+Specialized buff system for effects that can terminate their associated turn slices. Enables complex mechanics like damage-based interruptions, time limits, and conditional action termination.
 
-**Architecture:**
-- `TurnSliceBuffSO` - ScriptableObject for Inspector integration (inherits from `BuffSO`)
-- `TurnSliceBuff` - Runtime implementation (inherits from `Buff`) with `TerminateAssociatedTurnSlice()` method
-- `PreparableActionTurnSliceSO.turnSliceBuffs` - List field for automatic buff application during construction
+**Quick Usage:** Add `TurnSliceBuffSO` to `PreparableActionTurnSliceSO.turnSliceBuffs` list for automatic application.
 
-**Usage Pattern:**
-1. Create `YourBuffSO : TurnSliceBuffSO` with configuration fields
-2. Create `YourBuff : TurnSliceBuff` with logic to call `TerminateAssociatedTurnSlice()` when conditions met
-3. Add buff to any `PreparableActionTurnSliceSO`'s `turnSliceBuffs` list
-4. System automatically applies buffs and associates them with turn slices
-
-**Example:** `RoarOverloadBuffSO` tracks damage accumulation and terminates AlphaWolf's roar when threshold exceeded, with explosion FX and self-damage effects.
+**📖 Detailed Documentation:** [Manual/Claude/TurnSliceBuff-System.md](Manual/Claude/TurnSliceBuff-System.md)
 
 # Motto
 Remember, as an experienced engineer, think harder before you code. Follow these steps:

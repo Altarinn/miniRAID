@@ -41,6 +41,7 @@ miniRAID is a Unity C# tactical RPG with grid-based combat, featuring a three-le
 2. **New Buffs**: Implement `BuffSO` + `Buff` classes, subscribe to MobData events  
 3. **Backend States**: Inherit `BackendState`, implement `IRenderableState` if visual
 4. **Map Editing**: Use `miniRAID > Map Editor` with 3D raycast selection
+5. **Turn Slice Buffs**: Use `TurnSliceBuffSO` + `TurnSliceBuff` for buffs that can terminate turn slices
 
 ### Code Conventions
 - `Globals.backend` for main data access, `Globals.cc` for coroutines
@@ -80,6 +81,29 @@ miniRAID is a Unity C# tactical RPG with grid-based combat, featuring a three-le
 - **UI inconsistency**: Hide terminated states immediately (`ShowInUI => showInUI && (!muted)`)
 - **Method naming**: Use established patterns - `WrapTurnSliceBuff()` not `CreateTurnSliceBuff()`
 
+### Design Patterns & Best Practices
+
+**Modular Composition:**
+- Prefer composition over inheritance when possible
+- Use base classes to define common interfaces and shared functionality
+- Example: `TurnSliceBuffSO`/`TurnSliceBuff` extends existing buff system rather than creating separate systems
+
+**Configuration vs Runtime Logic Separation:**
+- ScriptableObjects hold configuration data and Inspector integration
+- Runtime classes handle actual game logic and state management
+- Pattern: `XxxSO.CreateXxx()` factory method returns runtime instance
+- Example: `RoarOverloadBuffSO.CreateTurnSliceBuff()` → `RoarOverloadBuff`
+
+**Extension Points in Base Classes:**
+- Add extensibility to existing systems through protected virtual methods
+- Use Inspector-friendly fields for configuration lists
+- Example: `PreparableActionTurnSliceSO.turnSliceBuffs` + `ApplyTurnSliceBuffs()` method
+
+**Clean Dependency Management:**
+- Runtime objects reference their SO data through typed properties: `BuffData => (MyBuffSO)data`
+- Use association rather than tight coupling: `TurnSliceBuff.AssociateWithTurnSlice()`
+- Proper cleanup in `OnRemove()` methods to prevent memory leaks
+
 ## Key Files
 - **`Assets/Scripts/Utils/Globals.cs`**: Central singleton manager
 - **`Assets/Scripts/Backend/BackendCore/`**: Core infrastructure
@@ -93,6 +117,15 @@ miniRAID is a Unity C# tactical RPG with grid-based combat, featuring a three-le
 - Use `IGridCollider` for collision detection
 - Movement system integrates with map pathfinding
 - Always test with Combat/Mob monitors for debugging
+
+## Advanced Systems
+
+### Turn Slice Buffs (`TurnSliceBuffSO` / `TurnSliceBuff`)
+Specialized buff system for effects that can terminate their associated turn slices. Enables complex mechanics like damage-based interruptions, time limits, and conditional action termination.
+
+**Quick Usage:** Add `TurnSliceBuffSO` to `PreparableActionTurnSliceSO.turnSliceBuffs` list for automatic application.
+
+**📖 Detailed Documentation:** [Manual/Claude/TurnSliceBuff-System.md](Manual/Claude/TurnSliceBuff-System.md)
 
 # Motto
 Remember, as an experienced engineer, think harder before you code. Follow these steps:

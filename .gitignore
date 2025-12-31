@@ -83,6 +83,9 @@ crashlytics-build.properties
 .idea/
 .idea/*
 
+.claude/
+.claude/*
+
 CombatLogs/JSON/
 
 Assets/XLua/Gen/*

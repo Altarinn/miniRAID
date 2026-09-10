@@ -91,3 +91,5 @@ CombatLogs/JSON/
 Assets/XLua/Gen/*
 ~$*
 .obsidian/
+Assets/_Recovery*
+Assets/_Recovery/*

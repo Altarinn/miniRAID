@@ -1,2 +1,46 @@
 - Start of debug log -
-[2025/12/10 23:24:04] AWAKE
+[2026/7/24 2:19:22] AWAKE
+[回合0] 00m 04s:  1_Warrior 获得了来自 1_Warrior 的 战士连击
+[2026/7/24 2:19:22] 1_Warrior 获得了来自 1_Warrior 的 战士连击
+[回合1] 00m 05s:  回合1
+[2026/7/24 2:19:24] 回合1
+[回合1] 00m 44s:  1_Warrior 施放了 移动, 目标：miniRAID.MovementTarget
+[2026/7/24 2:20:02] 1_Warrior 施放了 移动, 目标：miniRAID.MovementTarget
+[回合1] 00m 48s:  1_Warrior 施放了 斩击, 目标：AlphaWolf
+[2026/7/24 2:20:06] 1_Warrior 施放了 斩击, 目标：AlphaWolf
+[回合1] 00m 49s:  1_Warrior 的 斩击 对 AlphaWolf 造成了 42 点 Slash 伤害（暴击）。生命值：638
+[2026/7/24 2:20:07] 1_Warrior 的 斩击 对 AlphaWolf 造成了 42 点 Slash 伤害（暴击）。生命值：638
+[回合1] 00m 55s:  1_Warrior 施放了 副手攻击, 目标：AlphaWolf
+[2026/7/24 2:20:13] 1_Warrior 施放了 副手攻击, 目标：AlphaWolf
+[回合1] 00m 55s:  1_Warrior 施放了 攻击, 目标：AlphaWolf
+[2026/7/24 2:20:13] 1_Warrior 施放了 攻击, 目标：AlphaWolf
+[回合1] 00m 55s:  1_Warrior 的 攻击 对 AlphaWolf 造成了 24 点 Knock 伤害。生命值：614
+[2026/7/24 2:20:13] 1_Warrior 的 攻击 对 AlphaWolf 造成了 24 点 Knock 伤害。生命值：614
+[回合1] 01m 02s:  1_Warrior 施放了 斩击, 目标：AlphaWolf
+[2026/7/24 2:20:20] 1_Warrior 施放了 斩击, 目标：AlphaWolf
+[回合1] 01m 02s:  1_Warrior 的 斩击 对 AlphaWolf 造成了 21 点 Slash 伤害。生命值：593
+[2026/7/24 2:20:21] 1_Warrior 的 斩击 对 AlphaWolf 造成了 21 点 Slash 伤害。生命值：593
+[回合1] 01m 02s:  AlphaWolf 获得了来自 AlphaWolf 的 BAD_STRING [45]
+[2026/7/24 2:20:21] AlphaWolf 获得了来自 AlphaWolf 的 BAD_STRING [45]
+[回合2] 01m 03s:  回合2
+[2026/7/24 2:20:21] 回合2
+[回合2] 01m 07s:  1_Warrior 施放了 移动, 目标：miniRAID.MovementTarget
+[2026/7/24 2:20:25] 1_Warrior 施放了 移动, 目标：miniRAID.MovementTarget
+[回合2] 01m 10s:  1_Warrior 施放了 移动, 目标：miniRAID.MovementTarget
+[2026/7/24 2:20:28] 1_Warrior 施放了 移动, 目标：miniRAID.MovementTarget
+[回合2] 01m 12s:  1_Warrior 施放了 防御, 目标：1_Warrior
+[2026/7/24 2:20:30] 1_Warrior 施放了 防御, 目标：1_Warrior
+[回合2] 01m 12s:  1_Warrior 获得了来自 1_Warrior 的 防御
+[2026/7/24 2:20:30] 1_Warrior 获得了来自 1_Warrior 的 防御
+[回合2] 01m 14s:  AlphaWolf 施放了 BAD_STRING, 目标：AlphaWolf
+[2026/7/24 2:20:32] AlphaWolf 施放了 BAD_STRING, 目标：AlphaWolf
+[回合2] 01m 14s:  AlphaWolf 的 BAD_STRING 对 1_Warrior 造成了 1 点 Knock 伤害。生命值：75
+[2026/7/24 2:20:33] AlphaWolf 的 BAD_STRING 对 1_Warrior 造成了 1 点 Knock 伤害。生命值：75
+[回合2] 01m 14s:  AlphaWolf 失去了来自 AlphaWolf 的 BAD_STRING [45]
+[2026/7/24 2:20:33] AlphaWolf 失去了来自 AlphaWolf 的 BAD_STRING [45]
+[回合2] 01m 14s:  AlphaWolf 获得了来自 AlphaWolf 的 BAD_STRING [45]
+[2026/7/24 2:20:33] AlphaWolf 获得了来自 AlphaWolf 的 BAD_STRING [45]
+[回合2] 01m 15s:  1_Warrior 失去了来自 1_Warrior 的 防御
+[2026/7/24 2:20:33] 1_Warrior 失去了来自 1_Warrior 的 防御
+[回合3] 01m 15s:  回合3
+[2026/7/24 2:20:33] 回合3
